@@ -1,0 +1,1129 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-component-package-html-batch",
+  "checked": {
+    "complete_components": 93,
+    "passed_components": 93,
+    "failed_components": 0
+  },
+  "failures": [],
+  "results": [
+    {
+      "component_id": "accordion",
+      "html_path": "design-system-plugin/outputs/html/accordion-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "accordion-item",
+      "html_path": "design-system-plugin/outputs/html/accordion-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "autocomplete",
+      "html_path": "design-system-plugin/outputs/html/autocomplete-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "avatar",
+      "html_path": "design-system-plugin/outputs/html/avatar-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "avatar-avatar-group",
+      "html_path": "design-system-plugin/outputs/html/avatar-avatar-group-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "banner",
+      "html_path": "design-system-plugin/outputs/html/banner-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "breadcrumb",
+      "html_path": "design-system-plugin/outputs/html/breadcrumb-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "breadcrumb-item",
+      "html_path": "design-system-plugin/outputs/html/breadcrumb-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "button",
+      "html_path": "design-system-plugin/outputs/html/button-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "button-icon",
+      "html_path": "design-system-plugin/outputs/html/button-icon-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "calendar",
+      "html_path": "design-system-plugin/outputs/html/calendar-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card",
+      "html_path": "design-system-plugin/outputs/html/card-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-action",
+      "html_path": "design-system-plugin/outputs/html/card-action-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-card-group",
+      "html_path": "design-system-plugin/outputs/html/card-card-group-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-content",
+      "html_path": "design-system-plugin/outputs/html/card-content-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-date",
+      "html_path": "design-system-plugin/outputs/html/card-date-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-footer",
+      "html_path": "design-system-plugin/outputs/html/card-footer-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-media",
+      "html_path": "design-system-plugin/outputs/html/card-media-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-media-custom",
+      "html_path": "design-system-plugin/outputs/html/card-media-custom-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "card-sections",
+      "html_path": "design-system-plugin/outputs/html/card-sections-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "carousel",
+      "html_path": "design-system-plugin/outputs/html/carousel-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "cascading-menu",
+      "html_path": "design-system-plugin/outputs/html/cascading-menu-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "cascading-menu-item",
+      "html_path": "design-system-plugin/outputs/html/cascading-menu-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "checkbox",
+      "html_path": "design-system-plugin/outputs/html/checkbox-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "checkbox-checkbox-group",
+      "html_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "checkbox-tree",
+      "html_path": "design-system-plugin/outputs/html/checkbox-tree-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "chip-deprecated",
+      "html_path": "design-system-plugin/outputs/html/chip-deprecated-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "chip-dropdown",
+      "html_path": "design-system-plugin/outputs/html/chip-dropdown-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "chip-filter",
+      "html_path": "design-system-plugin/outputs/html/chip-filter-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "chip-list-deprecated",
+      "html_path": "design-system-plugin/outputs/html/chip-list-deprecated-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "chip-select",
+      "html_path": "design-system-plugin/outputs/html/chip-select-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "chip-status",
+      "html_path": "design-system-plugin/outputs/html/chip-status-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "container",
+      "html_path": "design-system-plugin/outputs/html/container-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "content-block",
+      "html_path": "design-system-plugin/outputs/html/content-block-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "date-picker",
+      "html_path": "design-system-plugin/outputs/html/date-picker-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "divider",
+      "html_path": "design-system-plugin/outputs/html/divider-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "drawer",
+      "html_path": "design-system-plugin/outputs/html/drawer-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "file-uploader",
+      "html_path": "design-system-plugin/outputs/html/file-uploader-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "flex",
+      "html_path": "design-system-plugin/outputs/html/flex-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "footer",
+      "html_path": "design-system-plugin/outputs/html/footer-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "footer-bottom",
+      "html_path": "design-system-plugin/outputs/html/footer-bottom-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "footer-footer-social-link",
+      "html_path": "design-system-plugin/outputs/html/footer-footer-social-link-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "footer-top",
+      "html_path": "design-system-plugin/outputs/html/footer-top-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "grid",
+      "html_path": "design-system-plugin/outputs/html/grid-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "hero",
+      "html_path": "design-system-plugin/outputs/html/hero-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "icon",
+      "html_path": "design-system-plugin/outputs/html/icon-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "image",
+      "html_path": "design-system-plugin/outputs/html/image-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "isi-tray",
+      "html_path": "design-system-plugin/outputs/html/isi-tray-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "link",
+      "html_path": "design-system-plugin/outputs/html/link-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "link-link-standalone",
+      "html_path": "design-system-plugin/outputs/html/link-link-standalone-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "loading-spinner",
+      "html_path": "design-system-plugin/outputs/html/loading-spinner-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "mega-menu",
+      "html_path": "design-system-plugin/outputs/html/mega-menu-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "mega-menu-item",
+      "html_path": "design-system-plugin/outputs/html/mega-menu-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "mega-menu-title",
+      "html_path": "design-system-plugin/outputs/html/mega-menu-title-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "mega-menu-trigger",
+      "html_path": "design-system-plugin/outputs/html/mega-menu-trigger-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "menu",
+      "html_path": "design-system-plugin/outputs/html/menu-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "menu-menu-item",
+      "html_path": "design-system-plugin/outputs/html/menu-menu-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "menu-menu-item-checkbox",
+      "html_path": "design-system-plugin/outputs/html/menu-menu-item-checkbox-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "menu-menu-item-image",
+      "html_path": "design-system-plugin/outputs/html/menu-menu-item-image-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "menu-menu-item-radio",
+      "html_path": "design-system-plugin/outputs/html/menu-menu-item-radio-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "menu-sub-menu",
+      "html_path": "design-system-plugin/outputs/html/menu-sub-menu-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "modal",
+      "html_path": "design-system-plugin/outputs/html/modal-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "navigation-header",
+      "html_path": "design-system-plugin/outputs/html/navigation-header-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "navigation-header-item",
+      "html_path": "design-system-plugin/outputs/html/navigation-header-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "navigation-header-root",
+      "html_path": "design-system-plugin/outputs/html/navigation-header-root-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "navigation-header-start-content",
+      "html_path": "design-system-plugin/outputs/html/navigation-header-start-content-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "page-header",
+      "html_path": "design-system-plugin/outputs/html/page-header-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "pagination",
+      "html_path": "design-system-plugin/outputs/html/pagination-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "progress-bar",
+      "html_path": "design-system-plugin/outputs/html/progress-bar-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "html_path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "radio",
+      "html_path": "design-system-plugin/outputs/html/radio-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "radio-radio-group",
+      "html_path": "design-system-plugin/outputs/html/radio-radio-group-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "search-input",
+      "html_path": "design-system-plugin/outputs/html/search-input-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "select",
+      "html_path": "design-system-plugin/outputs/html/select-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "sidebar",
+      "html_path": "design-system-plugin/outputs/html/sidebar-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "slider",
+      "html_path": "design-system-plugin/outputs/html/slider-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "switch",
+      "html_path": "design-system-plugin/outputs/html/switch-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "switch-switch-group",
+      "html_path": "design-system-plugin/outputs/html/switch-switch-group-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tabs",
+      "html_path": "design-system-plugin/outputs/html/tabs-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tag",
+      "html_path": "design-system-plugin/outputs/html/tag-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "text-area",
+      "html_path": "design-system-plugin/outputs/html/text-area-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "text-input",
+      "html_path": "design-system-plugin/outputs/html/text-input-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "theme-provider",
+      "html_path": "design-system-plugin/outputs/html/theme-provider-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "title",
+      "html_path": "design-system-plugin/outputs/html/title-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "toast",
+      "html_path": "design-system-plugin/outputs/html/toast-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tooltip",
+      "html_path": "design-system-plugin/outputs/html/tooltip-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tree-view",
+      "html_path": "design-system-plugin/outputs/html/tree-view-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tree-view-sub-components-item",
+      "html_path": "design-system-plugin/outputs/html/tree-view-sub-components-item-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tree-view-sub-components-leading-visual",
+      "html_path": "design-system-plugin/outputs/html/tree-view-sub-components-leading-visual-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tree-view-sub-components-sub-tree",
+      "html_path": "design-system-plugin/outputs/html/tree-view-sub-components-sub-tree-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "tree-view-sub-components-trailing-visual",
+      "html_path": "design-system-plugin/outputs/html/tree-view-sub-components-trailing-visual-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "typography",
+      "html_path": "design-system-plugin/outputs/html/typography-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    },
+    {
+      "component_id": "video-thumbnail",
+      "html_path": "design-system-plugin/outputs/html/video-thumbnail-complete.atomic.html",
+      "status": "pass",
+      "validators": {
+        "token_usage": "pass",
+        "primitive_usage": "pass",
+        "page_pattern": "pass",
+        "component_package_dom": "pass"
+      },
+      "failures": []
+    }
+  ]
+}

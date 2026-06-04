@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-filter",
+  "component_name": "ChipFilter",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ChipFilter"
+  },
+  "docs": [
+    {
+      "id": "components-chipfilter--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ChipFilter/ChipFilter.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-chipfilter--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    },
+    {
+      "id": "components-chipfilter--list-with-removal",
+      "name": "List Example",
+      "export_name": "ListWithRemoval",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    },
+    {
+      "id": "components-chipfilter--long-label",
+      "name": "Long Label",
+      "export_name": "LongLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    },
+    {
+      "id": "components-chipfilter--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    }
+  ]
+}

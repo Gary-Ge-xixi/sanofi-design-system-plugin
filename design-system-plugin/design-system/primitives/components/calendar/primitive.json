@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Calendar",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Calendar",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "calendar",
+      "data_attribute": "data-primitive=\"calendar\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-calendar--default",
+      "components-calendar--disabled",
+      "components-calendar--range-selection",
+      "components-calendar--with-date-constraints"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

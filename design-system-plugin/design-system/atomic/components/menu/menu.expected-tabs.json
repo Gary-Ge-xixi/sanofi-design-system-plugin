@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "menu",
+  "component_name": "Menu",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Menu"
+  },
+  "docs": [
+    {
+      "id": "components-menu--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Menu/Menu.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-menu--checkbox",
+      "name": "Checkbox",
+      "export_name": "Checkbox",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--context-menu",
+      "name": "Context Menu",
+      "export_name": "ContextMenu",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--image",
+      "name": "Image",
+      "export_name": "Image",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--selected",
+      "name": "Selected",
+      "export_name": "Selected",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--with-scroll",
+      "name": "With Scroll",
+      "export_name": "WithScroll",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--with-sections",
+      "name": "With Sections",
+      "export_name": "WithSections",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--with-sub-menus",
+      "name": "With Sub Menus",
+      "export_name": "WithSubMenus",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    }
+  ]
+}

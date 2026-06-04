@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Breadcrumb",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Breadcrumb",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "breadcrumb",
+      "data_attribute": "data-primitive=\"breadcrumb\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-breadcrumb--collapsed",
+      "components-breadcrumb--custom-max-width",
+      "components-breadcrumb--ellipsis-truncation",
+      "components-breadcrumb--not-collapsed",
+      "components-breadcrumb--one-item-on-each-side",
+      "components-breadcrumb--two-items-on-each-side",
+      "components-breadcrumb--wrap-vs-no-wrap"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

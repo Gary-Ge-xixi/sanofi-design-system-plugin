@@ -1,0 +1,167 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer-top",
+  "canonical_name": "footer-top",
+  "component_name": "Footer.Top",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-footer-top--docs",
+    "title": "Footer.Top",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer-top--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-top--docs",
+    "import_path": "./src/components/Footer/Top.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-footer-top--default"
+    ],
+    "records": [
+      {
+        "id": "components-footer-top--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Footer/Top.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "brandLogo",
+        "required": false,
+        "description": "The brand logoReactNodeImageProps",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "additionalInformation",
+        "required": false,
+        "description": "The additional informationReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "socialLinks",
+        "required": false,
+        "description": "The social linksReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Footer contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "backToTop",
+        "required": false,
+        "description": "Back to top buttonReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "The class names{ top?: string; logoSocial?: string; social?: string \\",
+        "default": "undefined; logo?: string \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS classstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "footer-top"
+    ],
+    "contracts": [
+      {
+        "id": "footer-top",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/footer-top/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/footer-top/demo.registry.json",
+        "known_story_ids": [
+          "components-footer-top--default",
+          "components-footer-top--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-top--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-top--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer-top--docs.md",
+    "docs_import_path": "./src/components/Footer/Top.stories.tsx",
+    "story_ids": [
+      "components-footer-top--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Autocomplete",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Autocomplete",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "autocomplete",
+      "data_attribute": "data-primitive=\"autocomplete\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-autocomplete--async-search",
+      "components-autocomplete--async-search-error",
+      "components-autocomplete--async-search-multiple",
+      "components-autocomplete--chips-outside",
+      "components-autocomplete--default",
+      "components-autocomplete--free-solo",
+      "components-autocomplete--multiple",
+      "components-autocomplete--with-description",
+      "components-autocomplete--with-description-multiple",
+      "components-autocomplete--with-render-option",
+      "components-autocomplete--with-render-option-custom-layout",
+      "components-autocomplete--with-render-option-multiple",
+      "components-autocomplete--with-tooltips",
+      "components-autocomplete--with-tooltips-multiple"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-autocomplete--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

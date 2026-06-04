@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-title-variants-atomic-story",
+  "title": "Title Variants atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-title--variants.",
+  "atomic_story_id": "components-title--variants",
+  "component_id": "title",
+  "docs_id": "components-title--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-title"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/title/stories/components-title--variants.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/title/stories/components-title--variants.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/title/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/title/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/title/assets/Title.stories-BFzTSF7_.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/title/assets/Title.stories-BFzTSF7_.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/title/assets/components-title--variants.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/title/assets/components-title--variants.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/title/templates/html.variants.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/title/templates/html.variants.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/title.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/title.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/title/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/title/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-title--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-title--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-title--docs",
+    "story_id": "components-title--variants",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/title/stories/components-title--variants.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/title/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-title--variants&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-title--variants&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Title.stories-BFzTSF7_.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/title/assets/Title.stories-BFzTSF7_.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/title.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/title/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "title",
+      "Title",
+      "Variants",
+      "components-title--variants",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Title Variants Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

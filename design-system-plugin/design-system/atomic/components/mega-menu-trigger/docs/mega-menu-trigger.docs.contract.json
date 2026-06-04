@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mega-menu-trigger-docs-contract",
+  "component_id": "mega-menu-trigger",
+  "component_name": "MegaMenu/Trigger",
+  "docs_id": "components-megamenu-trigger--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-trigger--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-trigger--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "menuContent",
+        "required": false,
+        "description": "Content of the MegaMenuReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "footer",
+        "required": false,
+        "description": "Footer content at bottom of panelReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "hasActiveShadow",
+        "required": false,
+        "description": "Display the active shadow when menu is openboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onOpen",
+        "required": false,
+        "description": "Callback fired when menu opens(() => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClose",
+        "required": false,
+        "description": "Callback fired when menu closes(() => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isOpen",
+        "required": false,
+        "description": "Controls menu visibility (controlled mode)boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-trigger--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-megamenu-trigger--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/Trigger/Trigger.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu-trigger--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-trigger--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json"
+  }
+}

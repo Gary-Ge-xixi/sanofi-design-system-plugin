@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "cascading-menu",
+  "component_name": "CascadingMenu",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-cascadingmenu--example",
+      "story_name": "Example",
+      "component_id": "cascading-menu",
+      "component_name": "CascadingMenu",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/cascading-menu/stories/components-cascadingmenu--example.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/cascading-menu/templates/html.example.template.html",
+      "output_path": "design-system-plugin/outputs/html/cascading-menu-example.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/CascadingMenu.stories-DAZR53Et.js",
+      "docs_id": "components-cascadingmenu--docs",
+      "registry_item": "sanofi-cascading-menu-example-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-cascading-menu--docs"
+  }
+}

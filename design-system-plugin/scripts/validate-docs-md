@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const docsIndexPath = path.join(pluginRoot, "design-system", "knowledge", "docs-index.json");
+const storybookIndexPath = path.join(workspaceRoot, "research", "storybook", "index.json");
+const reportPath = path.join(reportDir, "docs-md-validation.report.json");
+const requiredDocId = "getting-started--docs";
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(docsIndexPath)) {
+  failures.push("missing docs-index.json");
+}
+
+const docsIndex = fs.existsSync(docsIndexPath)
+  ? JSON.parse(fs.readFileSync(docsIndexPath, "utf8"))
+  : { docs: [] };
+const storybookIndex = fs.existsSync(storybookIndexPath)
+  ? JSON.parse(fs.readFileSync(storybookIndexPath, "utf8"))
+  : { entries: {} };
+const expectedDocs = Object.values(storybookIndex.entries || {}).filter(
+  (entry) => entry.type === "docs"
+);
+
+if (expectedDocs.length && (docsIndex.docs || []).length !== expectedDocs.length) {
+  failures.push(
+    `docs index must contain all Storybook docs records: expected ${expectedDocs.length}, found ${(docsIndex.docs || []).length}`
+  );
+}
+
+const missingPaths = [];
+for (const record of docsIndex.docs || []) {
+  if (!record.local_md_path || !exists(record.local_md_path)) missingPaths.push(record.local_md_path || record.id);
+}
+
+const missingRecords = expectedDocs
+  .filter((entry) => !(docsIndex.docs || []).some((record) => record.id === entry.id))
+  .map((entry) => entry.id);
+if (missingRecords.length) failures.push(`missing docs records: ${missingRecords.join(", ")}`);
+
+const requiredRecord = (docsIndex.docs || []).find((record) => record.id === requiredDocId);
+if (!requiredRecord) failures.push(`${requiredDocId} is missing from docs index`);
+else if (!exists(requiredRecord.local_md_path)) failures.push(`${requiredDocId} local Markdown file is missing`);
+else {
+  const content = fs.readFileSync(path.join(workspaceRoot, requiredRecord.local_md_path), "utf8");
+  if (!content.includes("storybook_id: getting-started--docs")) failures.push(`${requiredDocId} metadata missing storybook id`);
+  if (!content.includes("capture_status: extracted")) failures.push(`${requiredDocId} was not extracted with page body`);
+}
+
+if (missingPaths.length) failures.push(`missing local Markdown paths: ${missingPaths.join(", ")}`);
+
+const counts = (docsIndex.docs || []).reduce((acc, record) => {
+  acc[record.capture_status] = (acc[record.capture_status] || 0) + 1;
+  return acc;
+}, {});
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-docs-md",
+  checked: {
+    docs_records: docsIndex.docs?.length || 0,
+    expected_docs_records: expectedDocs.length,
+    missing_paths: missingPaths.length,
+    required_doc_id: requiredDocId,
+    required_doc_path: requiredRecord?.local_md_path || null
+  },
+  counts,
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Docs Markdown validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Docs Markdown OK: ${docsIndex.docs.length} docs records, ${requiredDocId} extracted`);

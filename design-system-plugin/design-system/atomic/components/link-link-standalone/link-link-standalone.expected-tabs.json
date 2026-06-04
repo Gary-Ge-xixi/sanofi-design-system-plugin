@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "link-link-standalone",
+  "component_name": "Link/LinkStandalone",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Link/LinkStandalone"
+  },
+  "docs": [
+    {
+      "id": "components-link-linkstandalone--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-link-linkstandalone--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--inverse-accent",
+      "name": "Inverse Accent",
+      "export_name": "InverseAccent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--position-icon",
+      "name": "Position Icon",
+      "export_name": "PositionIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    }
+  ]
+}

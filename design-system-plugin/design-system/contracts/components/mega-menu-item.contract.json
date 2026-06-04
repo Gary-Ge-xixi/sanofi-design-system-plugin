@@ -1,0 +1,139 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mega-menu-item",
+  "canonical_name": "mega-menu-item",
+  "component_name": "MegaMenu/Item",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-megamenu-item--docs",
+    "title": "MegaMenu/Item",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-item--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-item--docs",
+    "import_path": "./src/components/NavigationHeader/MegaMenu/Item/Item.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-megamenu-item--default"
+    ],
+    "records": [
+      {
+        "id": "components-megamenu-item--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/NavigationHeader/MegaMenu/Item/Item.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "text",
+        "required": false,
+        "description": "Main textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtext",
+        "required": false,
+        "description": "Secondary textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Render as another componentElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "mega-menu-item"
+    ],
+    "contracts": [
+      {
+        "id": "mega-menu-item",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/mega-menu-item/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/mega-menu-item/demo.registry.json",
+        "known_story_ids": [
+          "components-megamenu-item--default",
+          "components-megamenu-item--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-item--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-item--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/MegaMenu/Item/Item.stories.tsx",
+    "story_ids": [
+      "components-megamenu-item--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

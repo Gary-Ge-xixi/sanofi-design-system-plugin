@@ -1,0 +1,249 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "checkbox.prototype.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const primitiveIndexPath = path.join(pluginRoot, "design-system", "primitives", "primitive-index.json");
+const primitivesRoot = path.join(pluginRoot, "design-system", "primitives");
+const reportPath = path.join(reportDir, "primitive-usage.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function extractAttributeValues(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.readFileSync(target, "utf8");
+const primitiveIndex = readJson(primitiveIndexPath);
+const knownPrimitives = new Set(primitiveIndex.primitives.map((primitive) => primitive.id));
+const knownStories = new Set();
+const loadedRegistries = [];
+
+for (const primitive of primitiveIndex.primitives) {
+  if (primitive.path) {
+    const primitivePath = path.join(primitivesRoot, primitive.path);
+    if (fs.existsSync(primitivePath)) {
+      const primitiveContract = readJson(primitivePath);
+      for (const storyId of primitiveContract.story_contract?.known_story_ids || []) {
+        knownStories.add(storyId);
+      }
+      loadedRegistries.push(path.relative(pluginRoot, primitivePath));
+    }
+  }
+
+  if (primitive.demo_registry) {
+    const demoPath = path.join(primitivesRoot, primitive.demo_registry);
+    if (fs.existsSync(demoPath)) {
+      const demoRegistry = readJson(demoPath);
+      for (const story of demoRegistry.stories || []) knownStories.add(story.story_id);
+      loadedRegistries.push(path.relative(pluginRoot, demoPath));
+    }
+  }
+}
+
+const primitiveRefs = extractAttributeValues(html, "data-primitive");
+const storyRefs = extractAttributeValues(html, "data-story-id");
+const unknownPrimitives = [...new Set(primitiveRefs.filter((ref) => !knownPrimitives.has(ref)))];
+const unknownStories = [...new Set(storyRefs.filter((ref) => !knownStories.has(ref)))];
+const hasCheckboxInput = /<input\b[^>]*type=["']checkbox["'][^>]*>/i.test(html);
+const hasLabel = /<label\b[^>]*for=["'][^"']+["'][^>]*>/i.test(html);
+const hasFieldset = /<fieldset\b/i.test(html);
+const hasLegend = /<legend\b/i.test(html);
+const groupHasErrorSemantics =
+  !/aria-invalid=["']true["']/i.test(html) ||
+  /<fieldset\b[^>]*aria-invalid=["']true["'][^>]*aria-describedby=["'][^"']+["'][^>]*>/i.test(html);
+function hasTagWithAttrs(tagNamePattern, attrs) {
+  const re = new RegExp(`<${tagNamePattern}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(html))) {
+    if (attrs.every((attr) => attr.test(match[1]))) return true;
+  }
+  return false;
+}
+
+function countMatches(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function extractTagAttrs(source, tagName) {
+  const attrs = [];
+  const re = new RegExp(`<${tagName}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(source))) attrs.push(match[1]);
+  return attrs;
+}
+
+function isHiddenNativeSelect(attrs) {
+  return (
+    /\bhidden\b/i.test(attrs) ||
+    /aria-hidden=["']true["']/i.test(attrs) ||
+    /data-select-native=["']true["']/i.test(attrs) ||
+    /style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)
+  );
+}
+
+const hasButtonPrimitive = hasTagWithAttrs("(?:button|a)", [/data-primitive=["']button["']/i]);
+const hasTagPrimitive = hasTagWithAttrs("[a-z0-9-]+", [
+  /data-primitive=["']tag["']/i,
+  /data-variant=["'][^"']+["']/i
+]);
+const hasContainerPrimitive = hasTagWithAttrs("(?:section|div|main)", [/data-primitive=["']container["']/i]);
+const hasContainerCompoundParts =
+  /data-container-part=["']root["']/i.test(html) &&
+  /data-container-part=["']contentContainer["']/i.test(html);
+const hasGridPrimitive = hasTagWithAttrs("(?:div|section|ul)", [/data-primitive=["']grid["']/i]);
+const gridRootParts = countMatches(html, /data-grid-part=["']root["']/g);
+const gridItemParts = countMatches(html, /data-grid-part=["']item["']/g);
+const hasGridCompoundParts = gridRootParts > 0 && gridItemParts > 0;
+const hasSearchInputRuntime =
+  /data-component-runtime=["'](?:sanofi-elements-react|sanofi-local-atomic-components)["'][^>]*data-component-id=["']search-input["']/i.test(html) &&
+  /<input\b[^>]*type=["']search["'][^>]*>/i.test(html);
+const hasSearchInputPrimitive = hasTagWithAttrs("input", [
+  /type=["']search["']/i,
+  /data-primitive=["']search-input["']/i
+]) || hasSearchInputRuntime;
+const hasNativeSelectPrimitive = hasTagWithAttrs("select", [/data-primitive=["']select["']/i]);
+const hasSelectRuntimeRoot = /data-component-runtime=["'](?:sanofi-elements-react|sanofi-local-atomic-components)["'][^>]*data-component-id=["']select["']/i.test(html);
+const hasComboboxSelectPrimitive = hasTagWithAttrs("(?:button|div|span)", [
+  /data-primitive=["']select["']/i,
+  /role=["']combobox["']/i,
+  /aria-expanded=["'][^"']+["']/i
+]) || (hasSelectRuntimeRoot && /role=["']combobox["'][^>]*aria-expanded=["'][^"']+["']/i.test(html));
+const hasSelectPrimitive = hasNativeSelectPrimitive || hasComboboxSelectPrimitive;
+const isAdminDashboard =
+  /data-page-pattern=["']admin-dashboard["']/i.test(html) ||
+  /data-pattern=["']admin-dashboard["']/i.test(html);
+const hasComponentRuntimeMarker = /data-component-runtime=["'](?:sanofi-elements-react|sanofi-local-atomic-components)["']/i.test(html);
+const visibleNativeSelectPrimitiveRefs = extractTagAttrs(html, "select").filter((attrs) => {
+  return /data-primitive=["']select["']/i.test(attrs) && !isHiddenNativeSelect(attrs);
+}).length;
+const hasTabsPrimitive =
+  hasTagWithAttrs("[a-z0-9-]+", [/data-primitive=["']tabs["']/i, /role=["']tablist["']/i]) &&
+  /role=["']tab["']/i.test(html) &&
+  /aria-selected=["']true["']/i.test(html);
+const hasProgressBarPrimitive =
+  hasTagWithAttrs("[a-z0-9-]+", [
+    /data-primitive=["']progress-bar["']/i,
+    /role=["']progressbar["']/i,
+    /aria-valuenow=["'][^"']+["']/i,
+    /aria-valuemin=["'][^"']+["']/i,
+    /aria-valuemax=["'][^"']+["']/i
+  ]);
+const hasCardPrimitive = hasTagWithAttrs("(?:article|section)", [/data-primitive=["']card["']/i]);
+const hasSidebarPrimitive = hasTagWithAttrs("(?:aside|nav)", [/data-primitive=["']sidebar["']/i]);
+const hasSidebarCompoundParts =
+  /data-sidebar-part=["']root["']/i.test(html) &&
+  /data-sidebar-part=["']header["']/i.test(html) &&
+  /data-sidebar-part=["']content["']/i.test(html) &&
+  /data-sidebar-part=["']section["']/i.test(html) &&
+  /data-sidebar-part=["']item["']/i.test(html) &&
+  /data-sidebar-part=["']footer["']/i.test(html);
+const hasMenuCurrentState =
+  !primitiveRefs.includes("menu") ||
+  /aria-current=["']page["']/i.test(html) ||
+  /aria-selected=["']true["']/i.test(html);
+const failures = [];
+
+if (!primitiveRefs.length) failures.push("missing data-primitive markers");
+if (unknownPrimitives.length) failures.push(`unknown data-primitive values: ${unknownPrimitives.join(", ")}`);
+if (unknownStories.length) failures.push(`unknown data-story-id values: ${unknownStories.join(", ")}`);
+if (primitiveRefs.includes("checkbox") && !hasCheckboxInput) failures.push("checkbox primitive requires input type=\"checkbox\"");
+if (primitiveRefs.includes("checkbox") && !hasLabel) failures.push("checkbox primitive requires labels associated by for/id");
+if (primitiveRefs.includes("checkbox-group") && !hasFieldset) failures.push("checkbox-group primitive requires fieldset");
+if (primitiveRefs.includes("checkbox-group") && !hasLegend) failures.push("checkbox-group primitive requires legend");
+if (!groupHasErrorSemantics) failures.push("error checkbox-group requires aria-describedby");
+if (primitiveRefs.includes("button") && !hasButtonPrimitive) failures.push("button primitive requires button or anchor markup");
+if (primitiveRefs.includes("tag") && !hasTagPrimitive) failures.push("tag primitive requires data-variant");
+if (primitiveRefs.includes("container") && !hasContainerPrimitive) failures.push("container primitive requires section, div, or main markup");
+if (primitiveRefs.includes("container") && !hasContainerCompoundParts) {
+  failures.push("container primitive requires docs-backed parts: root/contentContainer");
+}
+if (primitiveRefs.includes("grid") && !hasGridPrimitive) failures.push("grid primitive requires div, section, or ul markup");
+if (primitiveRefs.includes("grid") && !hasGridCompoundParts) {
+  failures.push("grid primitive requires docs-backed parts: root/item");
+}
+if (primitiveRefs.includes("search-input") && !hasSearchInputPrimitive) failures.push("search-input primitive requires input type=\"search\"");
+if (primitiveRefs.includes("select") && !hasSelectPrimitive) failures.push("select primitive requires select markup");
+if (isAdminDashboard && visibleNativeSelectPrimitiveRefs) {
+  failures.push("admin-dashboard Select must use component runtime; visible native select is forbidden");
+}
+if (isAdminDashboard && primitiveRefs.includes("select") && !hasComponentRuntimeMarker) {
+  failures.push("admin-dashboard Select requires accepted component runtime marker");
+}
+if (primitiveRefs.includes("tabs") && !hasTabsPrimitive) failures.push("tabs primitive requires tablist/tab roles and selected state");
+if (primitiveRefs.includes("progress-bar") && !hasProgressBarPrimitive) failures.push("progress-bar primitive requires role and aria values");
+if (primitiveRefs.includes("card") && !hasCardPrimitive) failures.push("card primitive requires article or section markup");
+if (primitiveRefs.includes("sidebar") && !hasSidebarPrimitive) failures.push("sidebar primitive requires aside or nav markup");
+if (primitiveRefs.includes("sidebar") && !hasSidebarCompoundParts) {
+  failures.push("sidebar primitive requires docs-backed compound parts: root/header/content/section/item/footer");
+}
+if (primitiveRefs.includes("menu") && !hasMenuCurrentState) {
+  failures.push("menu primitive requires current or selected item state");
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-primitive-usage",
+  target: path.relative(pluginRoot, target),
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    primitive_refs: primitiveRefs.length,
+    story_refs: storyRefs.length,
+    known_primitives: [...knownPrimitives],
+    known_story_count: knownStories.size,
+    loaded_registries: loadedRegistries
+  },
+  failures,
+  details: {
+    unknown_primitives: unknownPrimitives,
+    unknown_stories: unknownStories,
+    semantic_signals: {
+      has_checkbox_input: hasCheckboxInput,
+      has_label: hasLabel,
+      has_fieldset: hasFieldset,
+      has_legend: hasLegend,
+      group_has_error_semantics: groupHasErrorSemantics,
+      has_button_primitive: hasButtonPrimitive,
+      has_tag_primitive: hasTagPrimitive,
+      has_container_primitive: hasContainerPrimitive,
+      has_container_compound_parts: hasContainerCompoundParts,
+      has_grid_primitive: hasGridPrimitive,
+      has_grid_compound_parts: hasGridCompoundParts,
+      grid_root_parts: gridRootParts,
+      grid_item_parts: gridItemParts,
+      has_search_input_primitive: hasSearchInputPrimitive,
+      has_select_primitive: hasSelectPrimitive,
+      has_native_select_primitive: hasNativeSelectPrimitive,
+      has_combobox_select_primitive: hasComboboxSelectPrimitive,
+      is_admin_dashboard: isAdminDashboard,
+      has_component_runtime_marker: hasComponentRuntimeMarker,
+      visible_native_select_primitive_refs: visibleNativeSelectPrimitiveRefs,
+      has_tabs_primitive: hasTabsPrimitive,
+      has_progress_bar_primitive: hasProgressBarPrimitive,
+      has_card_primitive: hasCardPrimitive,
+      has_sidebar_primitive: hasSidebarPrimitive,
+      has_sidebar_compound_parts: hasSidebarCompoundParts,
+      has_menu_current_state: hasMenuCurrentState
+    }
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Primitive usage validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Primitive usage OK: ${path.relative(pluginRoot, target)}`);

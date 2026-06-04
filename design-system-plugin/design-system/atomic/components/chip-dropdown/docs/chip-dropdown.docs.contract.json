@@ -1,0 +1,202 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-dropdown-docs-contract",
+  "component_id": "chip-dropdown",
+  "component_name": "ChipDropdown",
+  "docs_id": "components-chipdropdown--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-chipdropdown--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-chipdropdown--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "The content to display inside the chip triggerstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "items",
+        "required": false,
+        "description": "Array of dropdown itemsarray",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "selectedItems",
+        "required": false,
+        "description": "Currently selected item IDsarray",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "multiSelect",
+        "required": false,
+        "description": "Whether multiple selection is allowedboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Whether the chip is disabledboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size variant of the chipstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "emphasis",
+        "required": false,
+        "description": "Visual emphasis of the chipstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Color variant of the chipstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Brand theme variantstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "placeholder",
+        "required": false,
+        "description": "Placeholder text when no items are selectedstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showChevron",
+        "required": false,
+        "description": "Whether to show chevron iconboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxItemsVisible",
+        "required": false,
+        "description": "Maximum number of items visible in dropdownnumber",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "respectTriggerWidth",
+        "required": false,
+        "description": "Whether dropdown should respect trigger widthboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "description": "Inherit: trigger color follows selected item status (single-select). Controlled: consumer manages trigger color.-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-chipdropdown--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { ChipDropdown } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => {\n  const [selectedItems, setSelectedItems] = useState<string[]>([]);\n\n  const items = [\n    { id: \"1\", label: \"Option 1\" },\n    { id: \"2\", label: \"Option 2\" },\n    { id: \"3\", label: \"Option 3\" },\n  ];\n\n  return (\n    <ChipDropdown\n      items={items}\n      selectedItems={selectedItems}\n      onSelectionChange={setSelectedItems}\n    >\n      Select Options\n    </ChipDropdown>\n  );\n};",
+      "import {\n  ChipDropdown,\n  ChipStatusType,\n} from \"@sanofi-accelerator/elements\";\n\nconst StatusFilter = () => {\n  const [selected, setSelected] = useState<string[]>([]);\n\n  const items = [\n    { id: \"ok\", label: \"Success\", status: ChipStatusType.SUCCESS },\n    { id: \"fail\", label: \"Error\", status: ChipStatusType.ERROR },\n    { id: \"warn\", label: \"Warning\", status: ChipStatusType.WARNING },\n  ];\n\n  return (\n    <ChipDropdown\n      items={items}\n      selectedItems={selected}\n      onSelectionChange={setSelected}\n      showChevron\n    >\n      Status\n    </ChipDropdown>\n  );\n};",
+      "import {\n  ChipDropdown,\n  ChipDropdownMode,\n  ChipDropdownColor,\n  ChipStatusType,\n} from \"@sanofi-accelerator/elements\";\n\nconst ControlledStatusFilter = () => {\n  const [selected, setSelected] = useState<string[]>([]);\n\n  const items = [\n    { id: \"ok\", label: \"Success\", status: ChipStatusType.SUCCESS },\n    { id: \"fail\", label: \"Error\", status: ChipStatusType.ERROR },\n  ];\n\n  const color = selected.includes(\"fail\")\n    ? ChipDropdownColor.ERROR\n    : ChipDropdownColor.NEUTRAL;\n\n  return (\n    <ChipDropdown\n      items={items}\n      selectedItems={selected}\n      onSelectionChange={setSelected}\n      mode={ChipDropdownMode.CONTROLLED}\n      color={color}\n      showChevron\n    >\n      Status\n    </ChipDropdown>\n  );\n};"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-chipdropdown--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--disabled-items-and-icons",
+      "name": "Disabled Items And Icons",
+      "export_name": "DisabledItemsAndIcons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--multi-select",
+      "name": "Multi Select",
+      "export_name": "MultiSelect",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--real-world-admin-vs-readonly",
+      "name": "Real World Admin Vs Readonly",
+      "export_name": "RealWorldAdminVsReadonly",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-chip-status-controlled",
+      "name": "With Chip Status Controlled",
+      "export_name": "WithChipStatusControlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-chip-status-inherit",
+      "name": "With Chip Status Inherit",
+      "export_name": "WithChipStatusInherit",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "name": "With Chip Status Inherit Multi Select",
+      "export_name": "WithChipStatusInheritMultiSelect",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-render-item",
+      "name": "With Render Item",
+      "export_name": "WithRenderItem",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chipdropdown--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-chipdropdown--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json"
+  }
+}

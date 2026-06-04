@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "theme-provider",
+  "component_name": "ThemeProvider",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-themeprovider--default",
+      "story_name": "Default",
+      "component_id": "theme-provider",
+      "component_name": "ThemeProvider",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/theme-provider/stories/components-themeprovider--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/theme-provider/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/theme-provider-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/theme-provider/assets/ThemeProvider.stories-u9nenzz3.js",
+      "docs_id": "components-themeprovider--docs",
+      "registry_item": "sanofi-theme-provider-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-theme-provider--docs"
+  }
+}

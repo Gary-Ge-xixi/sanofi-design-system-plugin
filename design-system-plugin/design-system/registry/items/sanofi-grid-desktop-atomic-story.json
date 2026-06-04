@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-grid-desktop-atomic-story",
+  "title": "Grid Desktop atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-grid--desktop.",
+  "atomic_story_id": "components-grid--desktop",
+  "component_id": "grid",
+  "docs_id": "components-grid--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-grid"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--desktop.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--desktop.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/grid/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/assets/components-grid--desktop.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/grid/assets/components-grid--desktop.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/templates/html.desktop.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/grid/templates/html.desktop.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/grid.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/grid/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-grid--docs",
+    "story_id": "components-grid--desktop",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--desktop.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/grid/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-grid--desktop&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-grid--desktop&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Grid.stories-BVqs_BzE.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "grid",
+      "Grid",
+      "Desktop",
+      "components-grid--desktop",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Grid Desktop Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

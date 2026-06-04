@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tag--semantic",
+  "component_id": "tag",
+  "component_name": "Tag",
+  "story_id": "components-tag--semantic",
+  "story_name": "Semantic",
+  "export_name": "Semantic",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tag--semantic&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tag--semantic&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tag.stories-Ck5BqzWM.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tag/assets/components-tag--semantic.iframe.html",
+    "import_path": "./src/components/Tag/Tag.stories.tsx",
+    "component_path": "./src/components/Tag/Tag.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{color:{control:\"select\",options:[...Object.values(i),...Object.values(n)]},variant:{control:\"select\",options:Object.values(l)},size:{control:\"select\",options:Object.values(t)},icon:{control:\"select\",options:[void 0,...Object.values(o)]}}",
+    "fields": [
+      "color",
+      "variant",
+      "size",
+      "icon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: () => <div style={{\n    display: \"flex\",\n    flexDirection: \"column\",\n    gap: \"var(--elements-spacing-sm)\"\n  }}>\n      {Object.values(TagSemanticColor).map(color => <div key={color} style={{\n      display: \"flex\",\n      gap: \"var(--elements-spacing-2xs)\",\n      alignItems: \"center\"\n    }}>\n          {Object.values(TagVariant).map(variant => <Tag key={variant} color={color} variant={variant} icon={semanticIcons[color]}>\n              {semanticLabels[color]}\n            </Tag>)}\n        </div>)}\n    </div>\n}",
+    "story_object_source": "{render:()=>e.jsx(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"var(--elements-spacing-sm)\"},children:Object.values(n).map(a=>e.jsx(\"div\",{style:{display:\"flex\",gap:\"var(--elements-spacing-2xs)\",alignItems:\"center\"},children:Object.values(l).map(r=>e.jsx(s,{color:a,variant:r,icon:b[a],children:y[a]},r))},a))})}"
+  },
+  "template": {
+    "id": "tag-semantic-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tag/templates/html.semantic.template.html",
+    "output_path": "design-system-plugin/outputs/html/tag-semantic.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tag",
+    "local_path": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tag--docs",
+    "story_id": "components-tag--semantic",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tag/assets/components-tag--semantic.iframe.html"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "button",
+  "component_name": "Button",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Button"
+  },
+  "docs": [
+    {
+      "id": "components-button--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-button--primary",
+      "name": "Primary",
+      "export_name": "Primary",
+      "semantic_type": "variant",
+      "variant": "primary"
+    },
+    {
+      "id": "components-button--primary-neutral",
+      "name": "Primary Neutral",
+      "export_name": "PrimaryNeutral",
+      "semantic_type": "variant",
+      "variant": "primary-neutral"
+    },
+    {
+      "id": "components-button--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "overview_matrix"
+    },
+    {
+      "id": "components-button--overview-inverse",
+      "name": "Overview Inverse",
+      "export_name": "OverviewInverse",
+      "semantic_type": "overview_inverse_matrix",
+      "inverse": true
+    },
+    {
+      "id": "components-button--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "default_controls",
+      "variant": "primary"
+    },
+    {
+      "id": "components-button--secondary",
+      "name": "Secondary",
+      "export_name": "Secondary",
+      "semantic_type": "variant",
+      "variant": "secondary"
+    },
+    {
+      "id": "components-button--secondary-neutral",
+      "name": "Secondary Neutral",
+      "export_name": "SecondaryNeutral",
+      "semantic_type": "variant",
+      "variant": "secondary-neutral"
+    },
+    {
+      "id": "components-button--tertiary",
+      "name": "Tertiary",
+      "export_name": "Tertiary",
+      "semantic_type": "variant",
+      "variant": "tertiary"
+    },
+    {
+      "id": "components-button--tertiary-neutral",
+      "name": "Tertiary Neutral",
+      "export_name": "TertiaryNeutral",
+      "semantic_type": "variant",
+      "variant": "tertiary-neutral"
+    },
+    {
+      "id": "components-button--primary-destruct",
+      "name": "Primary Destruct",
+      "export_name": "PrimaryDestruct",
+      "semantic_type": "variant",
+      "variant": "primary-destruct"
+    },
+    {
+      "id": "components-button--secondary-destruct",
+      "name": "Secondary Destruct",
+      "export_name": "SecondaryDestruct",
+      "semantic_type": "variant",
+      "variant": "secondary-destruct"
+    },
+    {
+      "id": "components-button--tertiary-destruct",
+      "name": "Tertiary Destruct",
+      "export_name": "TertiaryDestruct",
+      "semantic_type": "variant",
+      "variant": "tertiary-destruct"
+    },
+    {
+      "id": "components-button--button-link",
+      "name": "Button Link",
+      "export_name": "ButtonLink",
+      "semantic_type": "link",
+      "variant": "tertiary",
+      "element": "a"
+    }
+  ]
+}

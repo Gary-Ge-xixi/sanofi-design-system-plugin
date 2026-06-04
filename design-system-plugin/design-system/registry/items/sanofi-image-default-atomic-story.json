@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-image-default-atomic-story",
+  "title": "Image Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-image--default.",
+  "atomic_story_id": "components-image--default",
+  "component_id": "image",
+  "docs_id": "components-image--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-image"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/stories/components-image--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/image/stories/components-image--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/image/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/assets/Image.stories-CgXe8mGn.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/image/assets/Image.stories-CgXe8mGn.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/assets/components-image--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/image/assets/components-image--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/image/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/image.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/image.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/image/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/image/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-image--docs",
+    "story_id": "components-image--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/image/stories/components-image--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/image/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-image--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-image--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Image.stories-CgXe8mGn.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/image/assets/Image.stories-CgXe8mGn.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/image.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/image/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "image",
+      "Image",
+      "Default",
+      "components-image--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Image Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-form",
+  "status": "ready",
+  "renderer_target": "html",
+  "purpose": "Canonical complex form contract for create/edit, approval, permission, detail, and exception recovery pages.",
+  "source_provenance": {
+    "data_model_standard": "../../business/data-model-standard.json",
+    "task_flow_standard": "../../business/task-flow-standard.json",
+    "content_standard": "../../business/content-standard.json",
+    "form_rule": "../../rules/form-usage.json"
+  },
+  "field_contract": {
+    "required_metadata": [
+      "field_id",
+      "label_zh",
+      "type",
+      "required",
+      "editable",
+      "validation",
+      "permission",
+      "dependency",
+      "source"
+    ],
+    "supported_control_groups": [
+      "text-input",
+      "search-input",
+      "select",
+      "autocomplete",
+      "checkbox",
+      "radio",
+      "switch",
+      "slider",
+      "date-picker",
+      "text-area",
+      "file-uploader"
+    ]
+  },
+  "layout_contract": {
+    "root_selector": "[data-business-module=\"business-form\"]",
+    "required_sections": [
+      "form-header",
+      "form-section",
+      "field-group",
+      "validation-summary",
+      "sticky-save-bar or readonly-action-bar"
+    ],
+    "density_policy": {
+      "compact": "Use for query/filter panels and permission matrices.",
+      "default": "Use for create/edit forms with multiple field groups.",
+      "spacious": "Use only for exception recovery or low-density detail review."
+    }
+  },
+  "state_contract": {
+    "required_states": [
+      "initial",
+      "dirty",
+      "validating",
+      "validation-error",
+      "saving",
+      "saved",
+      "readonly",
+      "disabled",
+      "permission-denied"
+    ],
+    "validation_display": [
+      "required field marker",
+      "inline error message",
+      "validation summary for multi-error submit",
+      "field-level aria-describedby"
+    ],
+    "async_controls": [
+      "loading options",
+      "no results",
+      "remote error",
+      "selected value retained while loading"
+    ]
+  },
+  "permission_contract": {
+    "readonly_policy": "Readonly values must remain visible and selectable where useful.",
+    "disabled_policy": "Disabled controls must include a visible reason when permission is the cause.",
+    "hidden_policy": "Hide fields only when the business role contract explicitly marks the data as not visible."
+  },
+  "generation_policy": [
+    "Create/edit pages require dirty-form protection before navigation.",
+    "Approval pages require reason field for reject or return decisions.",
+    "Linked filters must define parent field, child field, loading state, and reset policy.",
+    "Sticky save bars must not cover field errors, pagination, or the final form section."
+  ]
+}

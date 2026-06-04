@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-isi-tray-complete-package",
+  "title": "ISI Tray complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ISI Tray package covering Docs plus all Storybook story atoms.",
+  "component_id": "isi-tray",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-isi-tray"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/isi-tray.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/isi-tray.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/isi-tray.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/isi-tray.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/docs/isi-tray.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/docs/isi-tray.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/isi-tray-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/isi-tray-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-isi-tray--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-isi-tray--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-isi-tray--isi",
+      "story_name": "ISI",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-isi-tray-isi-atomic-story"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-content-and-indication",
+      "story_name": "ISI With Content And Indication",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-isi-tray-isi-with-content-and-indication-atomic-story"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-indication",
+      "story_name": "ISI With Indication",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-isi-tray-isi-with-indication-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-isi-tray--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/isi-tray/isi-tray.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/isi-tray/docs/isi-tray.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "isi-tray",
+      "ISI Tray",
+      "isi-tray complete",
+      "ISI Tray complete package",
+      "isi-tray docs"
+    ],
+    "when_to_use": "Use first for any ISI Tray generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ISI Tray behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

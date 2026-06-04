@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Footer.Top",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-footer-top--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

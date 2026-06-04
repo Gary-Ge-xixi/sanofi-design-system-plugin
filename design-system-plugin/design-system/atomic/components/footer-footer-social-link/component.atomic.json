@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "footer-footer-social-link",
+  "component_name": "Footer/FooterSocialLink",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-footer-footersociallink--default",
+      "story_name": "Default",
+      "component_id": "footer-footer-social-link",
+      "component_name": "Footer/FooterSocialLink",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/stories/components-footer-footersociallink--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/footer-footer-social-link-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/assets/FooterSocialLink.stories-Fnw471Ch.js",
+      "docs_id": "components-footer-footersociallink--docs",
+      "registry_item": "sanofi-footer-footer-social-link-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-footer-footer-social-link--docs"
+  }
+}

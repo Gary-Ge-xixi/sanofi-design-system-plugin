@@ -1,0 +1,247 @@
+{
+  "schema_version": "0.1.0",
+  "id": "radio",
+  "canonical_name": "radio",
+  "component_name": "Radio",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-radio--docs",
+    "title": "Radio",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-radio--docs",
+    "import_path": "./src/components/Radio/Radio.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 5,
+    "story_ids": [
+      "components-radio--color-variations",
+      "components-radio--default",
+      "components-radio--sizes",
+      "components-radio--with-link",
+      "components-radio--with-subtext"
+    ],
+    "records": [
+      {
+        "id": "components-radio--color-variations",
+        "name": "Color Variations",
+        "normalized_name": "color-variations",
+        "import_path": "./src/components/Radio/Radio.stories.tsx",
+        "export_name": "ColorVariations"
+      },
+      {
+        "id": "components-radio--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Radio/Radio.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-radio--sizes",
+        "name": "Sizes",
+        "normalized_name": "sizes",
+        "import_path": "./src/components/Radio/Radio.stories.tsx",
+        "export_name": "Sizes"
+      },
+      {
+        "id": "components-radio--with-link",
+        "name": "With Link",
+        "normalized_name": "with-link",
+        "import_path": "./src/components/Radio/Radio.stories.tsx",
+        "export_name": "WithLink"
+      },
+      {
+        "id": "components-radio--with-subtext",
+        "name": "With Subtext",
+        "normalized_name": "with-subtext",
+        "import_path": "./src/components/Radio/Radio.stories.tsx",
+        "export_name": "WithSubtext"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "sizeRadio",
+        "required": false,
+        "description": "The radio size\"small\"\"medium\"\"large\"",
+        "default": "\"RadioSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "The radio color variantstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label text displayed next to the radio.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultChecked",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "function",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "description": "function",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtext",
+        "required": false,
+        "description": "Optional subtext below the labelReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for radio elements.RadioClassesProps",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disableAnimation",
+        "required": false,
+        "description": "Disable animation for this radio instanceboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checked",
+        "required": false,
+        "description": "The radio checked state-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "color-variations",
+      "default",
+      "sizes",
+      "with-link",
+      "with-subtext"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "color-variations",
+      "default",
+      "sizes",
+      "with-link",
+      "with-subtext"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Radio, RadioSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Radio\n    label=\"Radio\"\n    radioSize={RadioSize.MEDIUM}\n    value=\"radio\"\n  />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "radio"
+    ],
+    "contracts": [
+      {
+        "id": "radio",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/radio/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/radio/demo.registry.json",
+        "known_story_ids": [
+          "components-radio--color-variations",
+          "components-radio--default",
+          "components-radio--sizes",
+          "components-radio--with-link",
+          "components-radio--with-subtext",
+          "components-radio--color-variations",
+          "components-radio--default",
+          "components-radio--sizes",
+          "components-radio--with-link",
+          "components-radio--with-subtext"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-radio--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-radio--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md",
+    "docs_import_path": "./src/components/Radio/Radio.mdx",
+    "story_ids": [
+      "components-radio--color-variations",
+      "components-radio--default",
+      "components-radio--sizes",
+      "components-radio--with-link",
+      "components-radio--with-subtext"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

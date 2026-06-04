@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-default-atomic-story",
+  "title": "Menu Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-menu--default.",
+  "atomic_story_id": "components-menu--default",
+  "component_id": "menu",
+  "docs_id": "components-menu--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu/stories/components-menu--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/menu/stories/components-menu--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu/assets/Menu.stories-B-Vnw5mz.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/menu/assets/Menu.stories-B-Vnw5mz.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu/assets/components-menu--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/menu/assets/components-menu--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/menu/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu--docs",
+    "story_id": "components-menu--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/menu/stories/components-menu--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/menu/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Menu.stories-B-Vnw5mz.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu/assets/Menu.stories-B-Vnw5mz.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu",
+      "Menu",
+      "Default",
+      "components-menu--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Menu Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

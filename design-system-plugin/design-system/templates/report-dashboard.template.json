@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1.0",
+  "id": "report-dashboard",
+  "status": "ready",
+  "renderer_target": "html",
+  "pattern_id": "report-dashboard",
+  "page_profile": "report-dashboard",
+  "page_family": "report-dashboard",
+  "page_subtype": "report-dashboard-page",
+  "title": "业务报表 Dashboard",
+  "business_task": "monitor-and-compare",
+  "reference_fit": "admin-dashboard-chart",
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "chart-usage",
+    "table-usage",
+    "density-standards",
+    "admin-dashboard-chart-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-chart",
+    "business-table"
+  ],
+  "sections": [
+    {
+      "id": "breadcrumb",
+      "role": "navigation",
+      "required": true
+    },
+    {
+      "id": "filter-toolbar",
+      "role": "business-form",
+      "module_contract": "business-form",
+      "required": true
+    },
+    {
+      "id": "kpi-summary",
+      "role": "metric-summary",
+      "composition": ["card", "tag", "progress-bar"],
+      "required": true
+    },
+    {
+      "id": "chart-region",
+      "role": "business-chart",
+      "module_contract": "business-chart",
+      "required_chart_kind": "bar",
+      "required_component": "BarChart",
+      "required": true
+    },
+    {
+      "id": "data-table-fallback",
+      "role": "business-table",
+      "module_contract": "business-table",
+      "fallback_policy": "table",
+      "required": true
+    }
+  ],
+  "output_contract": {
+    "body_attributes": [
+      "data-page-profile=\"report-dashboard\"",
+      "data-page-family=\"report-dashboard\"",
+      "data-reference-fit=\"admin-dashboard-chart\""
+    ],
+    "chart_attributes": [
+      "data-business-module=\"business-chart\"",
+      "data-chart-contract=\"business-chart\"",
+      "data-chart-kind=\"bar\"",
+      "data-source-component=\"BarChart\""
+    ],
+    "fallback_policy": "Only unsupported chart types and table modules may use explicit fallback markers."
+  },
+  "source_provenance": {
+    "page_profile": "../page-profiles/report-dashboard.profile.json",
+    "chart_contract": "../contracts/page-modules/business-chart.contract.json",
+    "table_contract": "../contracts/page-modules/business-table.contract.json",
+    "chart_rule": "../rules/chart-usage.json",
+    "reference_fit": "../reference-fit/admin-dashboard-chart.rules.json"
+  }
+}

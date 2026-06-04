@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-file-uploader-complete-package",
+  "title": "FileUploader complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local FileUploader package covering Docs plus all Storybook story atoms.",
+  "component_id": "file-uploader",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-file-uploader"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/file-uploader.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/file-uploader/file-uploader.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/file-uploader.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/file-uploader/file-uploader.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/docs/file-uploader.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/file-uploader/docs/file-uploader.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/file-uploader/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/file-uploader-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/file-uploader-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/file-uploader.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/file-uploader.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/file-uploader/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/file-uploader/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-fileuploader--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-fileuploader--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-fileuploader--controlled",
+      "story_name": "Controlled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-file-uploader-controlled-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-file-uploader-default-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-file-uploader-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--multiple-files",
+      "story_name": "Multiple Files",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-file-uploader-multiple-files-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--preloaded-files",
+      "story_name": "Preloaded Files",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-file-uploader-preloaded-files-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-fileuploader--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/file-uploader/file-uploader.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/file-uploader/docs/file-uploader.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/file-uploader.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/file-uploader/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "file-uploader",
+      "FileUploader",
+      "file-uploader complete",
+      "FileUploader complete package",
+      "file-uploader docs"
+    ],
+    "when_to_use": "Use first for any FileUploader generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer FileUploader behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

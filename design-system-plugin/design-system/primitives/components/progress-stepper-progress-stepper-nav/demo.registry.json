@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ProgressStepper/ProgressStepperNav",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-progressstepper-progresssteppernav--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--interactive",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--many-steps",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--with-initial-step",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--without-descriptions",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

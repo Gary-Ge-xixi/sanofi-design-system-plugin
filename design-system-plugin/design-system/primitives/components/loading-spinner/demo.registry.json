@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "component": "LoadingSpinner",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-loadingspinner--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-loadingspinner--sanofi-dot",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

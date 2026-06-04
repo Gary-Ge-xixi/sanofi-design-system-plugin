@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Link/LinkStandalone",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Link/LinkStandalone",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "link-link-standalone",
+      "data_attribute": "data-primitive=\"link-link-standalone\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-link-linkstandalone--default",
+      "components-link-linkstandalone--inverse",
+      "components-link-linkstandalone--inverse-accent",
+      "components-link-linkstandalone--position-icon",
+      "components-link-linkstandalone--sizes"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-link-linkstandalone--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

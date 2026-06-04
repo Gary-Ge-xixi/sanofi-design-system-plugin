@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Button",
+  "stories": [
+    {
+      "story_id": "components-button--button-link",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--overview",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--overview-inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--primary",
+      "story_name": "Primary"
+    },
+    {
+      "story_id": "components-button--primary-destruct",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--primary-neutral",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--secondary",
+      "story_name": "Secondary"
+    },
+    {
+      "story_id": "components-button--secondary-destruct",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--secondary-neutral",
+      "story_name": "Secondary Neutral"
+    },
+    {
+      "story_id": "components-button--tertiary",
+      "story_name": "Tertiary"
+    },
+    {
+      "story_id": "components-button--tertiary-destruct",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-button--tertiary-neutral",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

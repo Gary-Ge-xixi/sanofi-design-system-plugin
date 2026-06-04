@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Link",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-link--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link--inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link--position-icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link--sizes",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

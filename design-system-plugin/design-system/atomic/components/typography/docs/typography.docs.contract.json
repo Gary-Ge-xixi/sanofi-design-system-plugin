@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "id": "typography-docs-contract",
+  "component_id": "typography",
+  "component_name": "Typography",
+  "docs_id": "components-typography--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-typography--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Text style variant.\"button\"\"body-large\"\"body-medium\"\"body-small\"\"body-xsmall\"\"eyebrow-medium\"\"eyebrow-small\"\"eyebrow-xsmall\"\"link-large\"\"link-medium\"\"link-small\"\"link-xsmall\"\"button-small\"\"button-xsmall\"\"legalCopy-small\"\"legalCopy\"\"display-1\"\"display-2\"\"editorial-1\"\"editorial-2\"Show 12 more...",
+        "default": "\"TypographyVariant.BODY_MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Color is one of --elements-color-semantic-text-... css variable or currentColor to inherit color from parent\"disabled\"\"success\"\"error\"\"strong\"\"subtle\"\"highlight\"\"info\"\"alert\"\"inverse\"\"default\"\"accent-active\"\"accent-default\"\"accent-hover\"\"helpertext\"\"currentColor\"Show 7 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-typography--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-typography--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    },
+    {
+      "id": "components-typography--font-weights",
+      "name": "Font Weights",
+      "export_name": "FontWeights",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    },
+    {
+      "id": "components-typography--text-direction",
+      "name": "Text Direction",
+      "export_name": "TextDirection",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    },
+    {
+      "id": "components-typography--variants",
+      "name": "Variants",
+      "export_name": "Variants",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-typography--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/typography.contract.json"
+  }
+}

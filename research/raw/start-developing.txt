@@ -1,0 +1,221 @@
+开始使用
+开始开发
+开始开发之前，你需要了解关于 Elements 的一切。
+
+安装
+设计系统库
+Elements 是一个“Sanofi-source” React 组件库，由一个名为@sanofi-accelerator/elements 的npm 库组成。
+
+它包含一套全面的预构建组件，开箱即可用于生产环境。该库还包含构成 Elements 的基础设计标记和样式。
+
+该库发布在Sanofi 加速器 Github 软件包存储库下。
+
+要请求访问 GitHub 存储库，请发送电子邮件至elements@sanofi.com。
+
+Elements 设计系统 v3
+Elements 是一套全面的设计系统，提供一系列可复用的 UI 组件、设计指南和资源，帮助您为项目创建一致且美观的用户界面。它是赛诺菲所有前端开发的默认解决方案，无论这些前端是由内部团队还是外部供应商构建的。
+
+目录
+入门
+安装
+用法
+文档
+贡献
+版本控制
+入门
+安装
+1. 配置你的 npmrc 文件
+您的项目应包含 npmrc 文件，因为该库仅发布在内部仓库（目前是 GitHub Package）。请勿提交令牌，否则其他用户可以冒充您。
+
+@sanofi-accelerator:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+您需要使用具有有效权限（对软件包具有读取权限）的 GitHub 令牌才能将库拉取到您的计算机上。要创建您的令牌，您必须……
+
+请查看GitHub 上的令牌页面。
+点击右上角Generate new token
+在您的组织中，选择classic token过于精细的选项可能不被允许。
+您的令牌应该具有read:packages权限
+生成您的令牌
+为您的令牌配置单点登录 (SSO) 并授权给您的组织
+一个好的做法是，npm auth token在 npm 配置中设置好你的部分，而不是在每个项目中都进行设置。
+
+2. 使用 npm 或 Yarn
+您可以通过运行以下命令，使用 npm 或 Yarn 安装 Elements：
+
+npm install @sanofi-accelerator/elements
+或者
+
+yarn add @sanofi-accelerator/elements
+当前版本位于主v3分支（v3.x准确来说，也是默认分支），但该软件包已在 GitHub 软件包管理工具中使用标签和语义化版本控制发布。您可以通过此链接找到所有版本。
+
+之前的版本（如下v3）和软件包（foundation和elements-react）已被弃用，不会再收到新的更新，包括安全性、修复或功能。
+
+3. 包括样式
+import "@sanofi-accelerator/elements/styles.css";
+基础要素
+对于未使用 React 但仍想重用 Elements 使用的样式和标记的项目，我们也发布了一个名为Elements-Foundation 的软件包，其中只包含标记。
+
+您可以通过运行以下命令，使用 npm 或 Yarn 安装 Elements-Foundation：
+
+npm install @sanofi-accelerator/elements-foundation
+或者
+
+yarn add @sanofi-accelerator/elements-foundation
+文档
+所有文档或示例都可以在已部署的故事书中查看，或者通过从项目构建本地故事书来查看。
+
+npm install
+npm run storybook
+贡献
+欢迎通过 issues 或 PR 提交任何意见或建议。
+
+版本控制
+随着稳定版本 3（称为）的发布v3，定义未来如何处理该项目（和版本）就显得尤为重要。
+
+遵循 SemVer
+同一主版本中没有重大变更
+频繁更新（包括功能、安全性、性能和修复）
+塞姆维尔
+SemVer 代表语义化版本控制，它是一种主要用于软件开发的版本控制系统，用于传达软件应用程序或库中底层变更的含义。它基于三部分版本号：主版本号.次版本号.补丁版本号。
+
+Major: Incremented when there are incompatible changes, usually major feature additions or significant restructuring that breaks backward compatibility.
+Minor: Incremented when new features are added in a backward-compatible manner.
+Patch: Incremented when backward-compatible bug fixes or minor improvements are made.
+Breaking changes
+Breaking changes can happen in a project, but for the sake of all users the main concept is to not break a current major version. For that, and because the project is following a semver mindset, we aim to never break your build in the same version (major).
+
+Breaking changes will mostly happend when a new major version is released, meaning that upgrading from a v3 to a v4 may impact your project. This rule is here for two reasons. The first one is to guarantee that your project won't stop working randomly while some minor update are being dones. The second is to allow the elements team to change how the library is working from time to time.
+
+Updates
+While it is stated that breaking changes may not be part of a current major version, if the feature is required and critical, the elements team will find ways to implement said features. For that we will rely on two main solutions:
+
+handle specific use case with some internal code to support a change
+create a new temporary component with the specific use case
+Support
+As a breaking change will be displayed by a new major version, it is expected that this can of changes may be seen every 18 months approximately. While releasing new versions is important to stay up-to-date with the ecosystem, we will also continue to support the previous version for at least 6 months.
+
+If we want to simplify, any version should
+
+be officially supported for 12-18 months
+have an additional 6 months of support
+GitHub
+访问 Elements 存储库并查看安装说明。
+故事书
+Access Elements 展示了 Chromatic 功能。
+您是代理机构的一员吗？
+要访问这些库，您需要获取赛诺菲的凭据。请确保您的赛诺菲合作伙伴已提交请求。之后，您即可访问赛诺菲 GitHub 指南， 了解后续步骤。
+
+如需更多支持，请发送电子邮件至elements@sanofi.com。
+
+Theming usage v3
+Our React project emphasizes flexible theming to enhance the visual appeal and customization of user interfaces.
+
+Theme Provider
+The linchpin of our theming approach is the ThemeProvider component. It enables dynamic setting of the theme properties across the application, encompassing features like color schemes, border radius, and spacings.
+
+Variables
+Central to our theming system are comprehensive variables defining aspects such as color palettes (e.g., blue, green, neutral, red) and specific details like border radius and spacings. This modular framework provides both flexibility for personalized themes and ensures a consistent, harmonious visual design.
+
+ThemeProvider and custom variables
+对于寻求个性化控制的开发者而言，我们的主题系统提供了一种简单易用的方法来自定义变量。theme通过属性ThemeProvider，开发者可以微调颜色色调、边框半径和间距。这种级别的自定义功能确保开发者能够轻松打造符合其应用程序设计需求的独特主题。无论是调整颜色强度还是优化边框曲率，我们可自定义的变量都能实现精准且美观的用户界面。
+
+
+
+用法
+typescript <ThemeProvider theme={theme}> {app} </ThemeProvider>
+
+主题对象
+主题对象类型为 ThemeConfig。其定义如下：
+
+export type ThemeConfig = {
+  color: {
+    core: {
+      blue?: {
+        base?: string;
+        dark?: string;
+        light?: string;
+      };
+      brand?: {
+        base?: string;
+        dark?: string;
+        darker?: string;
+        darkest?: string;
+        darkest_alpha?: string;
+        light?: string;
+        lighter?: string;
+        lightest?: string;
+        lightest_alpha?: string;
+      };
+      green?: {
+        base?: string;
+        dark?: string;
+        light?: string;
+      };
+      neutral?: {
+        "100"?: string;
+        "200"?: string;
+        "300"?: string;
+        "400"?: string;
+        "500"?: string;
+        "50"?: string;
+        "600"?: string;
+        "700"?: string;
+        "800"?: string;
+        "900"?: string;
+        black?: string;
+        white?: string;
+      };
+      orange?: {
+        base?: string;
+        dark?: string;
+        light?: string;
+      };
+      red?: {
+        base?: string;
+        dark?: string;
+        light?: string;
+      };
+    };
+  };
+  radius?: {
+    lg?: string;
+    md?: string;
+    none?: string;
+    rounded?: string;
+    sm?: string;
+    xl?: string;
+  };
+  spacing?: {
+    "2xl"?: string;
+    "2xs"?: string;
+    "3xl"?: string;
+    "3xs"?: string;
+    "4xl"?: string;
+    "5xl"?: string;
+    "6xl"?: string;
+    lg?: string;
+    md?: string;
+    none?: string;
+    sm?: string;
+    xl?: string;
+    xs?: string;
+  };
+};
+
+
+特权支持与社区
+拥抱 Elements 的冒险之旅，也意味着您将受益于我们前端 React 专家提供的专属支持。您可以随时通过电子邮件elements@sanofi.com联系我们，我们期待在下方的开发者在线答疑时间与您相见。
+
+开发人员办公时间
+如果我们一起建设，各个要素会更好。
+加入我们的Viva Engage 社区，打个招呼吧！我们将通过这个社区分享最新动态和公告。
+
+您是赛诺菲加速器计划的成员吗？
+加入我们的专属Slack 频道“ elements-design-system ”，与 Elements 团队和其他用户互动！
+
+
+
+如何贡献
+如果你想帮助我们并为这些库做出贡献，请参阅我们在 GitHub 上的贡献指南。💜
+
+如果请求紧急，请在联系 Elements 团队后创建 Pull Request 而不是 Issue。这样可以更快地发布修复程序。

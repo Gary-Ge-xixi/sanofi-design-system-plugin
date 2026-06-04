@@ -1,0 +1,137 @@
+{
+  "schema_version": "0.1.0",
+  "id": "link-docs-contract",
+  "component_id": "link",
+  "component_name": "Link",
+  "docs_id": "components-link--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-link--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-link--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "href",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the link text and icon.\"small\"\"medium\"\"large\"",
+        "default": "\"LinkSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Inline variant type.\"inline\": Default color scheme (underlined)\"inlineInverse\": For dark backgrounds\"inline\"\"inlineInverse\"",
+        "default": "\"LinkVariant.INLINE\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the link interaction.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "iconPosition",
+        "required": false,
+        "description": "Position of the icon relative to text.\"start\"\"end\"",
+        "default": "\"IconPosition.END\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "function",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "target",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "rel",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for link elements.{ container?: string; icon?: string; content?: string \\",
+        "default": "undefined; } \\",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-link--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Link, LinkVariant, LinkSize, IconPosition } from \"@sanofi-accelerator/elements\";\n\nconst Example = () => (\n  <Link\n    href=\"#\"\n    size={LinkSize.MEDIUM}\n    variant={LinkVariant.INLINE}\n    iconName=\"bookmark\"\n    iconPosition={IconPosition.END}\n  >\n    Click Here\n  </Link>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-link--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    },
+    {
+      "id": "components-link--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    },
+    {
+      "id": "components-link--position-icon",
+      "name": "Position Icon",
+      "export_name": "PositionIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    },
+    {
+      "id": "components-link--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-link--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-link--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/link.contract.json"
+  }
+}

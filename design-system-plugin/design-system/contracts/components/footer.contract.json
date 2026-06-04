@@ -1,0 +1,165 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer",
+  "canonical_name": "footer",
+  "component_name": "Footer",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-footer--docs",
+    "title": "Footer",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer--docs",
+    "import_path": "./src/components/Footer/Footer.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-footer--custom-product-logo",
+      "components-footer--default",
+      "components-footer--simple"
+    ],
+    "records": [
+      {
+        "id": "components-footer--custom-product-logo",
+        "name": "Custom Product Logo",
+        "normalized_name": "custom-product-logo",
+        "import_path": "./src/components/Footer/Footer.stories.tsx",
+        "export_name": "CustomProductLogo"
+      },
+      {
+        "id": "components-footer--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Footer/Footer.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-footer--simple",
+        "name": "Simple",
+        "normalized_name": "simple",
+        "import_path": "./src/components/Footer/Footer.stories.tsx",
+        "export_name": "Simple"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "withBackToTop",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS classstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Footer contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "custom-product-logo",
+      "default",
+      "simple"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "custom-product-logo",
+      "default",
+      "simple"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Footer, Button, ButtonVariant, ButtonSize, IconName, IconPosition, createToast, Toast, ToastOptions } from \"@sanofi-accelerator/elements\";\n\nconst notify = (args: ToastOptions) => {\n  createToast({\n    title: \"The backToTop props is called.\",\n    text: \"The backToTop props is called.\",\n    variant: ToastVariant.SUCCESS,\n    displayCloseButton: true,\n    position: ToastPosition.TOP_END,\n    ...args,\n  });\n};\n\n  const Component = () => (\n    <>\n      <Toast />\n      <Footer>\n        <Footer.Top\n          brandLogo={{\n            src: \"https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg\",\n            alt: \"sanofi_logo\",\n            title: \"Sanofi\",\n          }}\n          additionalInformation=\"This is a placeholder for additional informations.\"\n          socialLinks={\n            <>\n              <Footer.SocialLink platform=\"instagram\" href=\"https://www.instagram.com/\" />\n              <Footer.SocialLink platform=\"linkedIn\" href=\"https://www.linkedin.com/\" />\n              <Footer.SocialLink platform=\"x\" href=\"https://www.twitter.com/\" />\n              <Footer.SocialLink platform=\"tikTok\" href=\"https://www.tiktok.com/\" />\n              <Footer.SocialLink platform=\"youTube\" href=\"https://www.youtube.com/\" />\n              <Footer.SocialLink platform=\"facebook\" href=\"https://www.facebook.com/\" />\n            </>\n          }\n          backToTop={\n            <Button\n              label=\"Back to top\"\n              variant={ButtonVariant.TERTIARY}\n              icon={IconName.ARROW_UPWARD}\n              iconPosition={IconPosition.END}\n              onClick={() => notify({ ...args })}\n              inverse\n            />\n          }\n        >\n          <Footer.Column>\n            <Footer.TitleLink href=\"#\">Category 1</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n          <Footer.Column>\n            <Footer.TitleLink>Category 2</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n          <Footer.Column>\n            <Footer.TitleLink>Category 3</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n          <Footer.Column>\n            <Footer.TitleLink>Category 4</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n        </Footer.Top>\n        <Footer.Bottom legalMention={legalMention}>\n          <Footer.BottomLink href=\"#\">Site Map</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Legal Notice</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Cookies Policy</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Privacy & Data Protection</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Accessibility</Footer.BottomLink>\n        </Footer.Bottom>\n      </Footer>\n    </>\n  );"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "footer"
+    ],
+    "contracts": [
+      {
+        "id": "footer",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/footer/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/footer/demo.registry.json",
+        "known_story_ids": [
+          "components-footer--custom-product-logo",
+          "components-footer--default",
+          "components-footer--simple",
+          "components-footer--custom-product-logo",
+          "components-footer--default",
+          "components-footer--simple"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-footer--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer--docs.md",
+    "docs_import_path": "./src/components/Footer/Footer.mdx",
+    "story_ids": [
+      "components-footer--custom-product-logo",
+      "components-footer--default",
+      "components-footer--simple"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

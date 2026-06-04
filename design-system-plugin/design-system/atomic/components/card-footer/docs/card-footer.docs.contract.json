@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-footer-docs-contract",
+  "component_id": "card-footer",
+  "component_name": "Card/Footer",
+  "docs_id": "components-card-footer--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-footer--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-footer--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "firstContent",
+        "required": false,
+        "description": "Left-aligned content (e.g., price, metadata)ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "secondContent",
+        "required": false,
+        "description": "Right-aligned content (e.g., action button)ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isCentered",
+        "required": false,
+        "description": "Centers both content slotsboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-footer--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-card-footer--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardFooter.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-footer--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-footer--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-footer.contract.json"
+  }
+}

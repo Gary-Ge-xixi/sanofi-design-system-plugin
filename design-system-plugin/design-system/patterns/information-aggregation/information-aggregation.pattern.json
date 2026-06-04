@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "id": "information-aggregation",
+  "status": "ready",
+  "renderer_target": "html",
+  "template_id": "information-aggregation",
+  "page_profile": "information-aggregation",
+  "page_family": "information-aggregation",
+  "page_subtype": "information-aggregation-page",
+  "required_sections": [
+    "breadcrumb",
+    "aggregation-header",
+    "filter-toolbar",
+    "dashboard-summary",
+    "chart-region",
+    "record-list",
+    "pagination"
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "date-picker",
+    "button",
+    "card",
+    "tag",
+    "pagination"
+  ],
+  "required_module_contracts": [
+    "business-form",
+    "business-chart",
+    "business-table"
+  ],
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "information-aggregation-page",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "chart-usage",
+    "table-usage",
+    "form-usage",
+    "business-page-family-reference-fit"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern"
+    },
+    {
+      "module": "chart",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "unsupported-chart-types-fallback"
+    }
+  ],
+  "source_provenance": {
+    "page_profile": "../../page-profiles/information-aggregation.profile.json",
+    "template": "../../templates/information-aggregation.template.json",
+    "page_rule": "../../rules/information-aggregation-page.json",
+    "business_form_contract": "../../contracts/page-modules/business-form.contract.json",
+    "business_chart_contract": "../../contracts/page-modules/business-chart.contract.json",
+    "business_table_contract": "../../contracts/page-modules/business-table.contract.json",
+    "reference_fit": "../../reference-fit/business-page-family.rules.json"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "grid-docs-contract",
+  "component_id": "grid",
+  "component_name": "Grid",
+  "docs_id": "components-grid--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-grid--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "xs",
+        "required": false,
+        "description": "Column span on xs viewport size218106345791112Show 4 more...",
+        "default": "12",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sm",
+        "required": false,
+        "description": "Column span on sm viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "md",
+        "required": false,
+        "description": "Column span on md viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "lg",
+        "required": false,
+        "description": "Column span on lg viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xl",
+        "required": false,
+        "description": "Column span on xl viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxl",
+        "required": false,
+        "description": "Column span on 2xl viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxxl",
+        "required": false,
+        "description": "Column span on 3xl viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-grid--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Grid } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Grid.Root>\n  <Grid.Item xs={6} xl={3}>1</Grid.Item>\n  <Grid.Item xs={6} xl={3}>2</Grid.Item>\n  <Grid.Item xs={6} xl={3}>3</Grid.Item>\n  <Grid.Item xs={6} xl={3}>4</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={2}>5</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={2}>6</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={4}>7</Grid.Item>\n  <Grid.Item sm={12} md={3} lg={4}>8</Grid.Item>\n</Grid.Root>\n);",
+      "<Grid.Item sm={6} xl={3}>",
+      "<Grid.Item xs={12} sm={6} md={6} xl={3} xxl={3} xxxl={3}>"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-grid--desktop",
+      "name": "Desktop",
+      "export_name": "Desktop",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    },
+    {
+      "id": "components-grid--large-mobile",
+      "name": "Large Mobile",
+      "export_name": "LargeMobile",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    },
+    {
+      "id": "components-grid--mobile",
+      "name": "Mobile",
+      "export_name": "Mobile",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    },
+    {
+      "id": "components-grid--tablet",
+      "name": "Tablet",
+      "export_name": "Tablet",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-grid--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/grid.contract.json"
+  }
+}

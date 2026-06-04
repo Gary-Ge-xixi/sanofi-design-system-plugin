@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-media-docs-contract",
+  "component_id": "card-media",
+  "component_name": "Card/Media",
+  "docs_id": "components-card-media--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-media--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-media--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "The card media childrenReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "ratio",
+        "required": false,
+        "description": "Aspect ratio for the media container.string",
+        "default": "\"1/1\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-media--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-card-media--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardMedia.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-media--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-media--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media.contract.json"
+  }
+}

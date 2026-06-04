@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tag",
+  "component_name": "Tag",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Tag"
+  },
+  "docs": [
+    {
+      "id": "components-tag--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Tag/Tag.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-tag--categorical",
+      "name": "Categorical",
+      "export_name": "Categorical",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    },
+    {
+      "id": "components-tag--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    },
+    {
+      "id": "components-tag--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    },
+    {
+      "id": "components-tag--semantic",
+      "name": "Semantic",
+      "export_name": "Semantic",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    },
+    {
+      "id": "components-tag--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    },
+    {
+      "id": "components-tag--variants",
+      "name": "Variants",
+      "export_name": "Variants",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    },
+    {
+      "id": "components-tag--with-icon",
+      "name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tag/Tag.stories.tsx"
+    }
+  ]
+}

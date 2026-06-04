@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "default-value-arbitration.report.json");
+const reportMdPath = path.join(reportDir, "default-value-arbitration.report.md");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function assertOrder(values, before, after) {
+  const beforeIndex = values.indexOf(before);
+  const afterIndex = values.indexOf(after);
+  return beforeIndex !== -1 && afterIndex !== -1 && beforeIndex < afterIndex;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const files = {
+  sizePolicy: path.join(pluginRoot, "design-system", "rules", "component-size-policy.json"),
+  defaults: path.join(pluginRoot, "design-system", "rules", "business-admin-defaults.json"),
+  selectDocs: path.join(pluginRoot, "design-system", "knowledge", "docs", "components-select--docs.md"),
+  datePickerDocs: path.join(pluginRoot, "design-system", "knowledge", "docs", "components-datepicker--docs.md"),
+  selectStory: path.join(pluginRoot, "design-system", "atomic", "components", "select", "stories", "components-select--default.story.json"),
+  datePickerStory: path.join(pluginRoot, "design-system", "atomic", "components", "date-picker", "stories", "components-datepicker--default.story.json"),
+  businessRenderer: path.join(pluginRoot, "scripts", "render-business-page-examples"),
+  templateRenderer: path.join(pluginRoot, "scripts", "render-template-html")
+};
+
+const failures = [];
+for (const [name, filePath] of Object.entries(files)) {
+  if (!fs.existsSync(filePath)) failures.push(`missing ${name}: ${rel(filePath)}`);
+}
+
+const sizePolicy = fs.existsSync(files.sizePolicy) ? readJson(files.sizePolicy) : {};
+const defaults = fs.existsSync(files.defaults) ? readJson(files.defaults) : {};
+const selectDocs = fs.existsSync(files.selectDocs) ? read(files.selectDocs) : "";
+const datePickerDocs = fs.existsSync(files.datePickerDocs) ? read(files.datePickerDocs) : "";
+const selectStory = fs.existsSync(files.selectStory) ? read(files.selectStory) : "";
+const datePickerStory = fs.existsSync(files.datePickerStory) ? read(files.datePickerStory) : "";
+const businessRenderer = fs.existsSync(files.businessRenderer) ? read(files.businessRenderer) : "";
+const templateRenderer = fs.existsSync(files.templateRenderer) ? read(files.templateRenderer) : "";
+
+const authorityOrder = sizePolicy.default_value_arbitration?.authority_order || [];
+const defaultSourcePriority = defaults.component_defaults?.default_source_priority || [];
+const checks = {
+  policy_default_size: sizePolicy.default_size,
+  business_default_size: defaults.component_defaults?.size,
+  select_default_size: defaults.component_defaults?.select?.size,
+  date_picker_default_size: defaults.component_defaults?.date_picker?.size,
+  authority_order_api_before_story: assertOrder(authorityOrder, "api_reference_default", "storybook_story_args"),
+  defaults_api_before_story: assertOrder(defaultSourcePriority, "api_reference_default", "storybook_story_args"),
+  select_docs_api_medium: /\|\s*size\s*\|[^\n]*medium[^\n]*\|\s*["\\]*medium["\\]*\s*\|/i.test(selectDocs),
+  date_picker_docs_api_medium: /\|\s*size\s*\|[^\n]*medium[^\n]*\|\s*["\\]*medium["\\]*\s*\|/i.test(datePickerDocs),
+  select_default_story_large: /InputSize\.LARGE/.test(selectStory),
+  date_picker_default_story_large: /InputSize\.LARGE/.test(datePickerStory),
+  select_conflict_resolution: defaults.component_defaults?.select?.story_arg_conflict?.resolution === "ignore_story_arg_for_default_generation",
+  date_picker_conflict_resolution: defaults.component_defaults?.date_picker?.story_arg_conflict?.resolution === "ignore_story_arg_for_default_generation",
+  renderer_large_defaults: count(`${businessRenderer}\n${templateRenderer}`, /data-(?:select|date-picker|control)-size=["']large["']/g),
+  renderer_inputsize_large: count(`${businessRenderer}\n${templateRenderer}`, /InputSize\.LARGE/g)
+};
+
+if (checks.policy_default_size !== "medium") failures.push("component-size-policy default_size must be medium");
+if (checks.business_default_size !== "medium") failures.push("business-admin-defaults component default size must be medium");
+if (checks.select_default_size !== "medium") failures.push("Select generated default must be medium");
+if (checks.date_picker_default_size !== "medium") failures.push("DatePicker generated default must be medium");
+if (!checks.authority_order_api_before_story) failures.push("component-size-policy must rank api_reference_default before storybook_story_args");
+if (!checks.defaults_api_before_story) failures.push("business-admin-defaults must rank api_reference_default before storybook_story_args");
+if (!checks.select_docs_api_medium) failures.push("Select docs API table must expose medium default");
+if (!checks.date_picker_docs_api_medium) failures.push("DatePicker docs API table must expose medium default");
+if (!checks.select_default_story_large) failures.push("Select default story conflict was not detected; update validator fixtures if the source changed");
+if (!checks.date_picker_default_story_large) failures.push("DatePicker default story conflict was not detected; update validator fixtures if the source changed");
+if (!checks.select_conflict_resolution) failures.push("Select story arg conflict must resolve by ignoring story arg for default generation");
+if (!checks.date_picker_conflict_resolution) failures.push("DatePicker story arg conflict must resolve by ignoring story arg for default generation");
+if (checks.renderer_large_defaults) failures.push(`renderers still emit forbidden large default markers: ${checks.renderer_large_defaults}`);
+if (checks.renderer_inputsize_large) failures.push(`renderers must not consume InputSize.LARGE directly: ${checks.renderer_inputsize_large}`);
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-default-value-arbitration",
+  status: failures.length ? "fail" : "pass",
+  checked_files: Object.fromEntries(Object.entries(files).map(([key, filePath]) => [key, rel(filePath)])),
+  checks,
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Default Value Arbitration Validation\n\nStatus: ${report.status}\n\n| Check | Value |\n|---|---|\n| Policy default | ${checks.policy_default_size} |\n| Business default | ${checks.business_default_size} |\n| API before story | ${checks.authority_order_api_before_story && checks.defaults_api_before_story} |\n| Select docs API medium | ${checks.select_docs_api_medium} |\n| DatePicker docs API medium | ${checks.date_picker_docs_api_medium} |\n| Select story conflict detected | ${checks.select_default_story_large} |\n| DatePicker story conflict detected | ${checks.date_picker_default_story_large} |\n| Renderer large defaults | ${checks.renderer_large_defaults} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Default value arbitration failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log("Default value arbitration OK: Select and DatePicker default to medium");

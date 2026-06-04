@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-sidebar--sticky-behavior",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "story_id": "components-sidebar--sticky-behavior",
+  "story_name": "Sticky Behavior",
+  "export_name": "StickyBehavior",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-sidebar--sticky-behavior&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-sidebar--sticky-behavior&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Sidebar.stories-B82TPxCS.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--sticky-behavior.iframe.html",
+    "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{sticky:!0}",
+    "values": {
+      "sticky": true
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{collapsible:{control:\"boolean\",description:\"Enable collapse/expand functionality\"},defaultCollapsed:{control:\"boolean\",description:\"Initial collapsed state\"},sticky:{control:\"boolean\",description:\"Sticky positioning at top of viewport\"},fullyCollapsible:{control:\"boolean\",description:\"Completely hide sidebar when collapsed (zero width). Use with controlled mode.\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoSmallSrc:{control:{type:\"file\",accept:\".png,.svg\"}}}",
+    "fields": [
+      "collapsible",
+      "defaultCollapsed",
+      "sticky",
+      "fullyCollapsible",
+      "logoSrc",
+      "logoSmallSrc"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    sticky: true\n  },\n  argTypes: {\n    sticky: {\n      control: \"boolean\",\n      description: \"Enable sticky positioning - sidebar stays at top while content scrolls\",\n      table: {\n        type: {\n          summary: \"boolean\"\n        },\n        defaultValue: {\n          summary: \"true\"\n        }\n      }\n    }\n  },\n  render: args => <StickyBehaviorComponent {...args} />,\n  parameters: {\n    docs: {\n      description: {\n        story: \"Demonstrates sticky positioning behavior. When sticky is enabled (default), the sidebar uses \\`position: sticky\\` and remains fixed at the top of the viewport as you scroll the page content. Toggle the sticky prop to see how the sidebar behavior changes. Scroll down the page to observe the effect.\"\n      }\n    },\n    layout: \"fullscreen\"\n  }\n}",
+    "story_object_source": "{args:{sticky:!0},argTypes:{sticky:{control:\"boolean\",description:\"Enable sticky positioning - sidebar stays at top while content scrolls\",table:{type:{summary:\"boolean\"},defaultValue:{summary:\"true\"}}}},render:t=>e.jsx($,{...t}),parameters:{docs:{description:{story:\"Demonstrates sticky positioning behavior. When sticky is enabled (default), the sidebar uses `position: sticky` and remains fixed at the top of the viewport as you scroll the page content. Toggle the sticky prop to see how the sidebar behavior changes. Scroll down the page to observe the effect.\"}},layout:\"fullscreen\"}}"
+  },
+  "template": {
+    "id": "sidebar-sticky-behavior-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/sidebar/templates/html.sticky-behavior.template.html",
+    "output_path": "design-system-plugin/outputs/html/sidebar-sticky-behavior.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "sidebar",
+    "local_path": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "story_id": "components-sidebar--sticky-behavior",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--sticky-behavior.iframe.html"
+  }
+}

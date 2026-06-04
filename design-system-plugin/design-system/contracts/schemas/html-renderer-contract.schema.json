@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "id": "html-renderer-contract",
+  "type": "standard",
+  "renderer_target": "html",
+  "required_html_markers": [
+    "data-design-system",
+    "data-page-pattern",
+    "data-pattern",
+    "data-primitive",
+    "data-story-id",
+    "data-source-doc-id",
+    "data-token-source"
+  ],
+  "required_dependencies": [
+    "design-system-plugin/design-system/tokens/tokens.css",
+    "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json",
+    "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "design-system-plugin/design-system/contracts/semantic-token-map.json"
+  ],
+  "blocked_targets_for_v1": [
+    "react",
+    "figma-layer",
+    "builder-json",
+    "v0-registry-block"
+  ]
+}

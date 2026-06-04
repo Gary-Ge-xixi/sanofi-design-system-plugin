@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-drawer-custom-drawer-width-atomic-story",
+  "title": "Drawer Custom Drawer Width atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-drawer--custom-drawer-width.",
+  "atomic_story_id": "components-drawer--custom-drawer-width",
+  "component_id": "drawer",
+  "docs_id": "components-drawer--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-drawer"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--custom-drawer-width.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--custom-drawer-width.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/assets/components-drawer--custom-drawer-width.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/assets/components-drawer--custom-drawer-width.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/templates/html.custom-drawer-width.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/templates/html.custom-drawer-width.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/drawer.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/drawer/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-drawer--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-drawer--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "story_id": "components-drawer--custom-drawer-width",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--custom-drawer-width.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-drawer--custom-drawer-width&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-drawer--custom-drawer-width&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Drawer.stories-D3FsDaaP.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "drawer",
+      "Drawer",
+      "Custom Drawer Width",
+      "components-drawer--custom-drawer-width",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Drawer Custom Drawer Width Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

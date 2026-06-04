@@ -1,0 +1,123 @@
+{
+  "schema_version": "0.1.0",
+  "id": "icon-complete-standard-package",
+  "component_id": "icon",
+  "component_name": "Icon",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-icon--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/icon/docs/icon.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-icon--custom-icon",
+      "story_name": "Custom Icon",
+      "export_name": "CustomIcon",
+      "semantic_type": "variant",
+      "variant": "custom-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--custom-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/icon-custom-icon.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-icon--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-icon--fallback-icons",
+      "story_name": "Fallback Icons",
+      "export_name": "FallbackIcons",
+      "semantic_type": "variant",
+      "variant": "fallback-icons",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--fallback-icons.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/icon-fallback-icons.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-icon--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-icon--gallery",
+      "story_name": "Gallery",
+      "export_name": "Gallery",
+      "semantic_type": "variant",
+      "variant": "gallery",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--gallery.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/icon-gallery.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-icon--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/icon/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/icon/icon.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/icon-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-icon--custom-icon",
+        "output_path": "design-system-plugin/outputs/html/icon-custom-icon.atomic.html"
+      },
+      {
+        "story_id": "components-icon--fallback-icons",
+        "output_path": "design-system-plugin/outputs/html/icon-fallback-icons.atomic.html"
+      },
+      {
+        "story_id": "components-icon--gallery",
+        "output_path": "design-system-plugin/outputs/html/icon-gallery.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-icon-complete-package.json",
+    "story_item_prefix": "sanofi-icon-"
+  },
+  "validation": {
+    "required_story_count": 3,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/icon/icon.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/icon/docs/icon.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

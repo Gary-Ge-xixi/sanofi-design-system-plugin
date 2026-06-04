@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-text-input-type-email-atomic-story",
+  "title": "TextInput Type Email atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-textinput--type-email.",
+  "atomic_story_id": "components-textinput--type-email",
+  "component_id": "text-input",
+  "docs_id": "components-textinput--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-text-input"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/stories/components-textinput--type-email.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/stories/components-textinput--type-email.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/assets/TextInput.stories-B5ev_GbP.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/assets/TextInput.stories-B5ev_GbP.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/assets/components-textinput--type-email.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/assets/components-textinput--type-email.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/templates/html.type-email.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/templates/html.type-email.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/text-input.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/text-input/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-textinput--docs",
+    "story_id": "components-textinput--type-email",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/text-input/stories/components-textinput--type-email.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/text-input/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-textinput--type-email&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-textinput--type-email&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TextInput.stories-B5ev_GbP.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/text-input/assets/TextInput.stories-B5ev_GbP.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "text-input",
+      "TextInput",
+      "Type Email",
+      "components-textinput--type-email",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact TextInput Type Email Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

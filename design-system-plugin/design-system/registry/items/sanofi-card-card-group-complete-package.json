@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-card-group-complete-package",
+  "title": "Card/CardGroup complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Card/CardGroup package covering Docs plus all Storybook story atoms.",
+  "component_id": "card-card-group",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card-card-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/card-card-group.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/card-card-group.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/card-card-group.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/card-card-group.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/docs/card-card-group.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/docs/card-card-group.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/card-card-group-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/card-card-group-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 2,
+    "materialized_stories": 2,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-card-cardgroup--card-grids-group",
+      "story_name": "Card Grids Group",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-group-card-grids-group-atomic-story"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group-picto",
+      "story_name": "Card Grids Group Picto",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-group-card-grids-group-picto-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-cardgroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/card-card-group/card-card-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/card-card-group/docs/card-card-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-card-group",
+      "Card/CardGroup",
+      "card-card-group complete",
+      "Card/CardGroup complete package",
+      "card-card-group docs"
+    ],
+    "when_to_use": "Use first for any Card/CardGroup generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Card/CardGroup behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

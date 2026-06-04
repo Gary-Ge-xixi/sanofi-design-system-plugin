@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Banner",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Banner",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "banner",
+      "data_attribute": "data-primitive=\"banner\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-banner--custom-icon",
+      "components-banner--default",
+      "components-banner--global",
+      "components-banner--overview",
+      "components-banner--with-close-icon",
+      "components-banner--with-contents"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

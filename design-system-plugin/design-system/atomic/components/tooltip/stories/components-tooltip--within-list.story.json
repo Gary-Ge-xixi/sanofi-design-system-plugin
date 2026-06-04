@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tooltip--within-list",
+  "component_id": "tooltip",
+  "component_name": "Tooltip",
+  "story_id": "components-tooltip--within-list",
+  "story_name": "Within List",
+  "export_name": "WithinList",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tooltip--within-list&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tooltip--within-list&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tooltip.stories-CHRJF3N4.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tooltip/assets/components-tooltip--within-list.iframe.html",
+    "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+    "component_path": "./src/components/Tooltip/index.ts"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{capturePointer:!1}",
+    "values": {
+      "capturePointer": false
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{position:{description:\"Position of the Tooltip\",control:\"select\",options:Object.values(n)},title:{description:\"Title of the Tooltip\",control:\"text\"},label:{description:\"Content of the Tooltip\",control:\"text\"},inverse:{description:\"Set the background-color to dark\",control:\"boolean\"},isOpen:{description:\"Programmatically opens the Tooltip\",control:\"boolean\"},delay:{description:\"Set a delay before Tooltip opens (in ms)\",control:\"number\"},maxWidth:{description:\"Set the max-width of the Tooltip content\",control:\"number\"},capturePointer:{description:\"If false, pointer events pass through the tooltip (e.g. scrolling)\",control:\"boolean\"}}",
+    "fields": [
+      "position",
+      "title",
+      "label",
+      "inverse",
+      "isOpen",
+      "delay",
+      "maxWidth",
+      "capturePointer"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    capturePointer: false\n  },\n  render: args => <div style={{\n    maxWidth: 400,\n    maxHeight: 350,\n    border: \\`1px solid var(--elements-color-semantic-border-default)\\`,\n    borderRadius: \"var(--elements-radius-md)\",\n    overflow: \"auto\"\n  }}>\n      <ul style={{\n      listStyle: \"none\",\n      margin: 0,\n      padding: 0\n    }}>\n        {[{\n        label: \"Dashboard\",\n        tooltip: \"Go to the main dashboard\"\n      }, {\n        label: \"Profile settings\",\n        tooltip: \"Manage your profile\"\n      }, {\n        label: \"Notifications\",\n        tooltip: \"View your notifications\"\n      }, {\n        label: \"Team members\",\n        tooltip: \"Manage team members\"\n      }, {\n        label: \"Billing\",\n        tooltip: \"Manage billing and invoices\"\n      }, {\n        label: \"API keys\",\n        tooltip: \"Manage your API keys\"\n      }, {\n        label: \"Integrations\",\n        tooltip: \"Configure third-party integrations\"\n      }, {\n        label: \"Audit log\",\n        tooltip: \"View audit log entries\"\n      }, {\n        label: \"Security\",\n        tooltip: \"Security and access controls\"\n      }, {\n        label: \"Preferences\",\n        tooltip: \"Set your preferences\"\n      }, {\n        label: \"Data export\",\n        tooltip: \"Export your data\"\n      }, {\n        label: \"Webhooks\",\n        tooltip: \"Manage webhook endpoints\"\n      }, {\n        label: \"Usage & limits\",\n        tooltip: \"View usage statistics and limits\"\n      }, {\n        label: \"Support\",\n        tooltip: \"Get help from our support team\"\n      }, {\n        label: \"Documentation\",\n        tooltip: \"Browse the documentation\"\n      }, {\n        label: \"Changelog\",\n        tooltip: \"See what changed recently\"\n      }].map(item => <li key={item.label} style={{\n        borderBottom: \\`1px solid var(--elements-color-semantic-border-subtle)\\`\n      }}>\n            <Tooltip {...args} label={item.tooltip} position={TooltipPosition.RIGHT}>\n              <Button label={item.label} variant=\"tertiary-neutral\" style={{\n            width: \"100%\",\n            justifyContent: \"flex-start\"\n          }} />\n            </Tooltip>\n          </li>)}\n      </ul>\n    </div>\n}",
+    "story_object_source": "{args:{capturePointer:!1},render:t=>e.jsx(\"div\",{style:{maxWidth:400,maxHeight:350,border:\"1px solid var(--elements-color-semantic-border-default)\",borderRadius:\"var(--elements-radius-md)\",overflow:\"auto\"},children:e.jsx(\"ul\",{style:{listStyle:\"none\",margin:0,padding:0},children:[{label:\"Dashboard\",tooltip:\"Go to the main dashboard\"},{label:\"Profile settings\",tooltip:\"Manage your profile\"},{label:\"Notifications\",tooltip:\"View your notifications\"},{label:\"Team members\",tooltip:\"Manage team members\"},{label:\"Billing\",tooltip:\"Manage billing and invoices\"},{label:\"API keys\",tooltip:\"Manage your API keys\"},{label:\"Integrations\",tooltip:\"Configure third-party integrations\"},{label:\"Audit log\",tooltip:\"View audit log entries\"},{label:\"Security\",tooltip:\"Security and access controls\"},{label:\"Preferences\",tooltip:\"Set your preferences\"},{label:\"Data export\",tooltip:\"Export your data\"},{label:\"Webhooks\",tooltip:\"Manage webhook endpoints\"},{label:\"Usage & limits\",tooltip:\"View usage statistics and limits\"},{label:\"Support\",tooltip:\"Get help from our support team\"},{label:\"Documentation\",tooltip:\"Browse the documentation\"},{label:\"Changelog\",tooltip:\"See what changed recently\"}].map(o=>e.jsx(\"li\",{style:{borderBottom:\"1px solid var(--elements-color-semantic-border-subtle)\"},children:e.jsx(i,{...t,label:o.tooltip,position:n.RIGHT,children:e.jsx(l,{label:o.label,variant:\"tertiary-neutral\",style:{width:\"100%\",justifyContent:\"flex-start\"}})})},o.label))})})}"
+  },
+  "template": {
+    "id": "tooltip-within-list-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tooltip/templates/html.within-list.template.html",
+    "output_path": "design-system-plugin/outputs/html/tooltip-within-list.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tooltip",
+    "local_path": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "story_id": "components-tooltip--within-list",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tooltip/assets/components-tooltip--within-list.iframe.html"
+  }
+}

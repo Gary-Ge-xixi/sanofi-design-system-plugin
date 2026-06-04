@@ -1,0 +1,1425 @@
+[
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5207622,
+    "uid": "17e0ff",
+    "name": "Accordion",
+    "order": 0,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-12-05T14:37:31Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/609d02"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/653a99"
+      },
+      {
+        "block_id": "45c26d",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/45c26d"
+      },
+      {
+        "block_id": "70ddb2",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/70ddb2"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5261073,
+    "uid": "2050c2",
+    "name": "Avatar",
+    "order": 1,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2026-01-20T13:30:23Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar/b/609d02"
+      },
+      {
+        "block_id": "99aaa5",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar/b/99aaa5"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar/b/653a99"
+      },
+      {
+        "block_id": "5193e3",
+        "label_visible": "如何添加图片？",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar/b/5193e3"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5390521,
+    "uid": "84cf53",
+    "name": "Banner",
+    "order": 2,
+    "visibility": null,
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-06-27T13:21:18Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/84cf53-banner",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/84cf53-banner/b/9971e9"
+      },
+      {
+        "block_id": "517b67",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/84cf53-banner/b/517b67"
+      },
+      {
+        "block_id": "238aa2",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/84cf53-banner/b/238aa2"
+      },
+      {
+        "block_id": "48439d",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/84cf53-banner/b/48439d"
+      },
+      {
+        "block_id": "5287b5",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/84cf53-banner/b/5287b5"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5227445,
+    "uid": "560a8d",
+    "name": "Breadcrumb",
+    "order": 3,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:20Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/653a99"
+      },
+      {
+        "block_id": "869378",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/869378"
+      },
+      {
+        "block_id": "76f37b",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/76f37b"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5226042,
+    "uid": "5835b1",
+    "name": "Button",
+    "order": 4,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-06-25T09:56:40Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/609d02"
+      },
+      {
+        "block_id": "129b01",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/129b01"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/653a99"
+      },
+      {
+        "block_id": "69f2ef",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/69f2ef"
+      },
+      {
+        "block_id": "78c8fe",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/78c8fe"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5227978,
+    "uid": "45ffb4",
+    "name": "Card",
+    "order": 5,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2026-03-10T10:19:28Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/653a99"
+      },
+      {
+        "block_id": "9395c7",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/9395c7"
+      },
+      {
+        "block_id": "80435c",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/80435c"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5228001,
+    "uid": "703d49",
+    "name": "Carousel",
+    "order": 6,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:26Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/703d49-carousel",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/703d49-carousel/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/703d49-carousel/b/609d02"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/703d49-carousel/b/653a99"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5229534,
+    "uid": "09539f",
+    "name": "Checkbox",
+    "order": 7,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:27Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/653a99"
+      },
+      {
+        "block_id": "19e038",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/19e038"
+      },
+      {
+        "block_id": "2559fa",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/2559fa"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5229958,
+    "uid": "562b78",
+    "name": "Chip",
+    "order": 8,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": \"In progress\", \"statusNote\": null, \"colorAtSave\": \"warning\", \"labelAtSave\": \"Dev v1 / Design v2\"}",
+    "updated_at": "2026-03-05T10:07:39Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "全球行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/609d02"
+      },
+      {
+        "block_id": "37404f",
+        "label_visible": "状态芯片",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/37404f"
+      },
+      {
+        "block_id": "34cd68",
+        "label_visible": "下拉芯片",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/34cd68"
+      },
+      {
+        "block_id": "5121ba",
+        "label_visible": "滤片",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/5121ba"
+      },
+      {
+        "block_id": "464c7e",
+        "label_visible": "选择芯片",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/464c7e"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "全球可访问性",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/653a99"
+      },
+      {
+        "block_id": "21a918",
+        "label_visible": "（待更新）演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/21a918"
+      },
+      {
+        "block_id": "75a522",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/75a522"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 6642617,
+    "uid": "896f19",
+    "name": "Date Picker",
+    "order": 10,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:16:23Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/896f19-date-picker",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/896f19-date-picker/b/9971e9"
+      },
+      {
+        "block_id": "517b67",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/896f19-date-picker/b/517b67"
+      },
+      {
+        "block_id": "238aa2",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/896f19-date-picker/b/238aa2"
+      },
+      {
+        "block_id": "48439d",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/896f19-date-picker/b/48439d"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5666072,
+    "uid": "88459a",
+    "name": "Icon",
+    "order": 11,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2026-02-20T11:30:21Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/88459a-icon",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/88459a-icon/b/9971e9"
+      },
+      {
+        "block_id": "2718d8",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/88459a-icon/b/2718d8"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230017,
+    "uid": "87fff2",
+    "name": "Divider",
+    "order": 12,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:36Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider/b/15c632"
+      },
+      {
+        "block_id": "9160e5",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider/b/9160e5"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230022,
+    "uid": "924dbf",
+    "name": "Footer",
+    "order": 13,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:37Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/924dbf-footer",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/924dbf-footer/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/924dbf-footer/b/609d02"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/924dbf-footer/b/653a99"
+      },
+      {
+        "block_id": "0612d3",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/924dbf-footer/b/0612d3"
+      },
+      {
+        "block_id": "777fd5",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/924dbf-footer/b/777fd5"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230084,
+    "uid": "706482",
+    "name": "Hero Section",
+    "order": 14,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2026-03-16T14:23:19Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/15c632"
+      },
+      {
+        "block_id": "92f573",
+        "label_visible": "视频英雄",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/92f573"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/653a99"
+      },
+      {
+        "block_id": "99d0bd",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/99d0bd"
+      },
+      {
+        "block_id": "74d7cd",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/706482-hero-section/b/74d7cd"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5300466,
+    "uid": "95da82",
+    "name": "Drawer",
+    "order": 15,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:16:19Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/95da82-drawer",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/95da82-drawer/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/95da82-drawer/b/609d02"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/95da82-drawer/b/653a99"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5483783,
+    "uid": "20cf4e",
+    "name": "ISI Tray",
+    "order": 16,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:16:18Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/20cf4e-isi-tray",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/20cf4e-isi-tray/b/9971e9"
+      },
+      {
+        "block_id": "517b67",
+        "label_visible": "行为准则",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/20cf4e-isi-tray/b/517b67"
+      },
+      {
+        "block_id": "48439d",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/20cf4e-isi-tray/b/48439d"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230118,
+    "uid": "22e559",
+    "name": "Link",
+    "order": 17,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:44Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link/b/653a99"
+      },
+      {
+        "block_id": "930f55",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link/b/930f55"
+      },
+      {
+        "block_id": "365f71",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/22e559-link/b/365f71"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230166,
+    "uid": "60a930",
+    "name": "Loading Spinner",
+    "order": 18,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:46Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/60a930-loading-spinner",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/60a930-loading-spinner/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/60a930-loading-spinner/b/609d02"
+      },
+      {
+        "block_id": "40d750",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/60a930-loading-spinner/b/40d750"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230332,
+    "uid": "409297",
+    "name": "Mega Menu",
+    "order": 19,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:16:12Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/409297-mega-menu",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/409297-mega-menu/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/409297-mega-menu/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/409297-mega-menu/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/409297-mega-menu/b/653a99"
+      },
+      {
+        "block_id": "663f3e",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/409297-mega-menu/b/663f3e"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230330,
+    "uid": "793232",
+    "name": "Menu",
+    "order": 20,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:16:05Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu/b/609d02"
+      },
+      {
+        "block_id": "143cf9",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu/b/143cf9"
+      },
+      {
+        "block_id": "84bf08",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu/b/84bf08"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230341,
+    "uid": "571abd",
+    "name": "Modal Dialog",
+    "order": 21,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:51Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/571abd-modal-dialog",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/571abd-modal-dialog/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/571abd-modal-dialog/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/571abd-modal-dialog/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/571abd-modal-dialog/b/653a99"
+      },
+      {
+        "block_id": "459d1b",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/571abd-modal-dialog/b/459d1b"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5230360,
+    "uid": "50aab3",
+    "name": "Navigation Header",
+    "order": 22,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:51:53Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/653a99"
+      },
+      {
+        "block_id": "724123",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/724123"
+      },
+      {
+        "block_id": "433fef",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/433fef"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232437,
+    "uid": "17e644",
+    "name": "Page Header",
+    "order": 23,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-07-31T07:25:27Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header/b/653a99"
+      },
+      {
+        "block_id": "57a6a7",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header/b/57a6a7"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 6642619,
+    "uid": "956618",
+    "name": "Rich Text Editor",
+    "order": 24,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:16:45Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/956618-rich-text-editor",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/956618-rich-text-editor/b/9971e9"
+      },
+      {
+        "block_id": "517b67",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/956618-rich-text-editor/b/517b67"
+      },
+      {
+        "block_id": "238aa2",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/956618-rich-text-editor/b/238aa2"
+      },
+      {
+        "block_id": "48439d",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/956618-rich-text-editor/b/48439d"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232493,
+    "uid": "73b124",
+    "name": "Pagination",
+    "order": 25,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:15:54Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination/b/609d02"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination/b/653a99"
+      },
+      {
+        "block_id": "009874",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination/b/009874"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232494,
+    "uid": "25beba",
+    "name": "Radio Button",
+    "order": 26,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-11-25T09:17:00Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button/b/653a99"
+      },
+      {
+        "block_id": "12ba06",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button/b/12ba06"
+      },
+      {
+        "block_id": "962d4c",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/25beba-radio-button/b/962d4c"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232511,
+    "uid": "003577",
+    "name": "Search Input",
+    "order": 27,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:01Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/653a99"
+      },
+      {
+        "block_id": "276f6e",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/276f6e"
+      },
+      {
+        "block_id": "60a8f8",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/60a8f8"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232512,
+    "uid": "273182",
+    "name": "Select",
+    "order": 28,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-10-27T15:06:00Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/273182-select",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/273182-select/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/273182-select/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/273182-select/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/273182-select/b/653a99"
+      },
+      {
+        "block_id": "45ba7a",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/273182-select/b/45ba7a"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232513,
+    "uid": "292bd3",
+    "name": "Select (Multiple)",
+    "order": 29,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:05Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/292bd3-select-multiple",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/292bd3-select-multiple/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/292bd3-select-multiple/b/609d02"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/292bd3-select-multiple/b/653a99"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5470281,
+    "uid": "4599c1",
+    "name": "Slider",
+    "order": 30,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": \"To do\", \"statusNote\": null, \"colorAtSave\": \"neutral\", \"labelAtSave\": \"Pipeline\"}",
+    "updated_at": "2025-01-29T09:52:06Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/4599c1-slider",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4599c1-slider/b/9971e9"
+      },
+      {
+        "block_id": "517b67",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4599c1-slider/b/517b67"
+      },
+      {
+        "block_id": "48439d",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4599c1-slider/b/48439d"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232689,
+    "uid": "4856d1",
+    "name": "Switch",
+    "order": 31,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:08Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/4856d1-switch",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4856d1-switch/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4856d1-switch/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4856d1-switch/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4856d1-switch/b/653a99"
+      },
+      {
+        "block_id": "40eb46",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/4856d1-switch/b/40eb46"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232692,
+    "uid": "57fbae",
+    "name": "Tabs",
+    "order": 32,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:09Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/653a99"
+      },
+      {
+        "block_id": "89fc3d",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/89fc3d"
+      },
+      {
+        "block_id": "072bff",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/072bff"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5232695,
+    "uid": "9112bd",
+    "name": "Text Area",
+    "order": 33,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:10Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area/b/653a99"
+      },
+      {
+        "block_id": "001f23",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area/b/001f23"
+      },
+      {
+        "block_id": "65da02",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/9112bd-text-area/b/65da02"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5233359,
+    "uid": "97fd9a",
+    "name": "Text Input",
+    "order": 34,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:11Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input/b/653a99"
+      },
+      {
+        "block_id": "33b171",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input/b/33b171"
+      },
+      {
+        "block_id": "376a35",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/97fd9a-text-input/b/376a35"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5390561,
+    "uid": "00086d",
+    "name": "Toast",
+    "order": 35,
+    "visibility": null,
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:13Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/00086d-toast",
+    "tabs": [
+      {
+        "block_id": "9971e9",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/00086d-toast/b/9971e9"
+      },
+      {
+        "block_id": "517b67",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/00086d-toast/b/517b67"
+      },
+      {
+        "block_id": "238aa2",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/00086d-toast/b/238aa2"
+      },
+      {
+        "block_id": "48439d",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/00086d-toast/b/48439d"
+      },
+      {
+        "block_id": "483f13",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/00086d-toast/b/483f13"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5233366,
+    "uid": "26a137",
+    "name": "Tooltip",
+    "order": 36,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:14Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/609d02"
+      },
+      {
+        "block_id": "15c632",
+        "label_visible": "最佳实践",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/15c632"
+      },
+      {
+        "block_id": "653a99",
+        "label_visible": "无障碍",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/653a99"
+      },
+      {
+        "block_id": "6906ea",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/6906ea"
+      },
+      {
+        "block_id": "702440",
+        "label_visible": "写作",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/702440"
+      }
+    ]
+  },
+  {
+    "category_id": 1838483,
+    "category_name": "All Components",
+    "page_id": 5233380,
+    "uid": "5932ac",
+    "name": "Video Thumbnail",
+    "order": 37,
+    "visibility": "visible",
+    "status_object": "{\"statusKey\": null, \"statusNote\": null, \"colorAtSave\": null, \"labelAtSave\": null}",
+    "updated_at": "2025-01-29T09:52:16Z",
+    "url": "https://elements.sanofidesign.com/557b0250b/p/5932ac-video-thumbnail",
+    "tabs": [
+      {
+        "block_id": "2838c3",
+        "label_visible": "概述",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5932ac-video-thumbnail/b/2838c3"
+      },
+      {
+        "block_id": "609d02",
+        "label_visible": "行为",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5932ac-video-thumbnail/b/609d02"
+      },
+      {
+        "block_id": "783947",
+        "label_visible": "演示",
+        "url": "https://elements.sanofidesign.com/557b0250b/p/5932ac-video-thumbnail/b/783947"
+      }
+    ]
+  }
+]

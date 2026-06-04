@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "id": "semantic-token-map",
+  "type": "standard",
+  "required_roles": [
+    "brand",
+    "surface",
+    "text",
+    "border",
+    "primary_action",
+    "selected",
+    "status_success",
+    "status_warning",
+    "status_error",
+    "data_visualization"
+  ],
+  "usage_policy": [
+    "Generated HTML must use token roles and var(--elements-*) references.",
+    "Raw hex, rgb/hsl color functions, direct core color references, and raw px values are blocked.",
+    "Green is status/success or explicitly labeled data series only; never primary brand/accent."
+  ]
+}

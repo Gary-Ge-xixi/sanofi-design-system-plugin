@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-oneorbit-delivery",
+  "status": "pass",
+  "targets": {
+    "query": "outputs/html/oneorbit-has-query-list.resolved.html",
+    "home": "outputs/html/oneorbit-message-todo.resolved.html",
+    "source_map_json": "outputs/reports/oneorbit-component-source-map.json",
+    "source_map_markdown": "outputs/reports/oneorbit-component-source-map.md"
+  },
+  "checked": {
+    "query": {
+      "search_input_runtime_count": 4,
+      "select_runtime_count": 3,
+      "date_picker_count": 3,
+      "field_control_root_count": 8,
+      "field_control_shell_count": 8,
+      "table_fallback_count": 1,
+      "table_group_count": 3
+    },
+    "home": {
+      "message_card_count": 5,
+      "app_card_count": 2,
+      "metric_card_count": 2,
+      "message_list_fallback_count": 1
+    },
+    "source_map_entries": 32,
+    "source_resolution_decisions": 3,
+    "source_components": [
+      "Brand Asset",
+      "Breadcrumb",
+      "Button",
+      "Card",
+      "Card + Button + Icon",
+      "ChipStatus",
+      "Container",
+      "DESIGN.md",
+      "DatePicker",
+      "Grid",
+      "Icon",
+      "Link",
+      "NavigationHeader",
+      "SearchInput",
+      "Select",
+      "Table",
+      "Tabs",
+      "tokens.css"
+    ]
+  },
+  "failures": []
+}

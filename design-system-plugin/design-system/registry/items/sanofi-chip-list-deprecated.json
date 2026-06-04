@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-list-deprecated",
+  "title": "ChipList (Deprecated) primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for ChipList (Deprecated).",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "chip-list-deprecated",
+  "docs_id": "components-chiplist-deprecated--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chiplist-deprecated--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-list-deprecated",
+      "ChipList (Deprecated)",
+      "Chip List (Deprecated)"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official ChipList (Deprecated) primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

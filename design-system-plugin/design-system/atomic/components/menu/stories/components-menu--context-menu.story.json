@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-menu--context-menu",
+  "component_id": "menu",
+  "component_name": "Menu",
+  "story_id": "components-menu--context-menu",
+  "story_name": "Context Menu",
+  "export_name": "ContextMenu",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu--context-menu&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu--context-menu&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Menu.stories-B-Vnw5mz.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/menu/assets/Menu.stories-B-Vnw5mz.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/menu/assets/components-menu--context-menu.iframe.html",
+    "import_path": "./src/components/Menu/Menu.stories.tsx",
+    "component_path": "./src/components/Menu/Menu.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...o}",
+    "values": {
+      "isContextMenu": false,
+      "isOpen": false,
+      "onOpenChange": {
+        "extraction_status": "raw_expression",
+        "value": "()=>{}"
+      },
+      "fullWidth": false,
+      "disabled": false,
+      "openOnHover": false,
+      "disableAnimation": false
+    }
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultsArgs\n  },\n  parameters: {\n    chromatic: {\n      disableSnapshot: true\n    }\n  },\n  render: args => <>\n      <Typography>\n        Right-click anywhere to let the context menu appear\n      </Typography>\n      <Menu isContextMenu disableAnimation={args.disableAnimation}>\n        <Menu.Dropdown>\n          <Menu.Item disabled={args.disabled}>Menu item</Menu.Item>\n          <Menu.SubMenu label=\"SubMenu\" data-testid=\"menu-item-xxx\">\n            <Menu.Item disabled={args.disabled}>SubMenu item</Menu.Item>\n            <Menu.Item disabled={args.disabled}>SubMenu item</Menu.Item>\n            <Menu.Item disabled={args.disabled}>SubMenu item</Menu.Item>\n            <Menu.SubMenu label=\"SubMenu\" data-testid=\"sub-menu-item-xxx\">\n              <Menu.Item disabled={args.disabled}>SubMenu item</Menu.Item>\n              <Menu.Item disabled={args.disabled}>SubMenu item</Menu.Item>\n              <Menu.Item disabled={args.disabled}>SubMenu item</Menu.Item>\n            </Menu.SubMenu>\n          </Menu.SubMenu>\n          <Menu.Item disabled={args.disabled}>Menu item</Menu.Item>\n          <Menu.Item disabled={args.disabled}>Menu item</Menu.Item>\n          <Menu.Item disabled={args.disabled}>Menu item</Menu.Item>\n          <Menu.Item disabled={args.disabled}>Menu item</Menu.Item>\n        </Menu.Dropdown>\n      </Menu>\n    </>\n}",
+    "story_object_source": "{args:{...o},parameters:{chromatic:{disableSnapshot:!0}},render:t=>e.jsxs(e.Fragment,{children:[e.jsx(T,{children:\"Right-click anywhere to let the context menu appear\"}),e.jsx(n,{isContextMenu:!0,disableAnimation:t.disableAnimation,children:e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{disabled:t.disabled,children:\"Menu item\"}),e.jsxs(n.SubMenu,{label:\"SubMenu\",\"data-testid\":\"menu-item-xxx\",children:[e.jsx(n.Item,{disabled:t.disabled,children:\"SubMenu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"SubMenu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"SubMenu item\"}),e.jsxs(n.SubMenu,{label:\"SubMenu\",\"data-testid\":\"sub-menu-item-xxx\",children:[e.jsx(n.Item,{disabled:t.disabled,children:\"SubMenu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"SubMenu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"SubMenu item\"})]})]}),e.jsx(n.Item,{disabled:t.disabled,children:\"Menu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"Menu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"Menu item\"}),e.jsx(n.Item,{disabled:t.disabled,children:\"Menu item\"})]})})]})}"
+  },
+  "template": {
+    "id": "menu-context-menu-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/menu/templates/html.context-menu.template.html",
+    "output_path": "design-system-plugin/outputs/html/menu-context-menu.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "menu",
+    "local_path": "design-system-plugin/design-system/primitives/components/menu/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu--docs",
+    "story_id": "components-menu--context-menu",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu/assets/Menu.stories-B-Vnw5mz.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/menu/assets/components-menu--context-menu.iframe.html"
+  }
+}

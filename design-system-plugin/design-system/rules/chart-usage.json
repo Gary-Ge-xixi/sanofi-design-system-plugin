@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chart-usage",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Business charts must use the business-chart contract; researched BarChart usage is allowed when required props and accessibility are present.",
+  "source_provenance": {
+    "contract": "../contracts/page-modules/business-chart.contract.json",
+    "research_report": "../../outputs/reports/web-research/sanofi-brand-assets-barchart-research.md",
+    "storybook_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/elements-charts_components-charts-barchart--docs"
+  },
+  "bar_chart_required_props": [
+    "chartData",
+    "xAxis",
+    "width",
+    "height",
+    "ariaLabel",
+    "ariaDescription"
+  ],
+  "required_attributes": [
+    "data-business-module=\"business-chart\"",
+    "data-chart-contract=\"business-chart\"",
+    "data-chart-kind"
+  ],
+  "bar_chart_required_attributes": [
+    "data-chart-kind=\"bar\"",
+    "data-source-component=\"BarChart\""
+  ],
+  "fallback_policy": [
+    "Use fallback only for chart types without local official docs or contracts.",
+    "Fallback charts must expose exact data in an accessible table.",
+    "Fallback charts must include data source, last updated time, and empty/error states."
+  ],
+  "visual_policy": [
+    "Use brand or data visualization tokens for primary series.",
+    "Threshold lines require label, unit, and source.",
+    "Legend may be hidden only when one series is present and the heading labels the metric."
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

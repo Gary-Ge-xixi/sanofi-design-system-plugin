@@ -1,0 +1,74 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "checkbox.prototype.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulesPath = path.join(pluginRoot, "design-system", "rules", "page-pattern.json");
+const reportPath = path.join(reportDir, "page-pattern.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.readFileSync(target, "utf8");
+const normalized = html.toLowerCase();
+const rules = readJson(rulesPath);
+const missing = [];
+
+for (const check of rules.checks) {
+  if (!normalized.includes(check.pattern.toLowerCase())) {
+    missing.push(check.id);
+  }
+}
+
+function hasNestedDemoPanels(source) {
+  const tagRe = /<\/?article\b[^>]*>/gi;
+  let depth = 0;
+  let panelDepth = 0;
+  let match;
+  while ((match = tagRe.exec(source))) {
+    const tag = match[0];
+    const closing = /^<\//.test(tag);
+    if (closing) {
+      if (depth === panelDepth) panelDepth = 0;
+      depth = Math.max(0, depth - 1);
+      continue;
+    }
+
+    depth += 1;
+    const isPanel = /class=["'][^"']*demo-panel[^"']*["']/i.test(tag);
+    if (isPanel && panelDepth > 0) return true;
+    if (isPanel) panelDepth = depth;
+  }
+  return false;
+}
+
+const hasNestedPanels = hasNestedDemoPanels(html);
+const failures = [...missing.map((id) => `missing required page marker: ${id}`)];
+if (hasNestedPanels) failures.push("demo-panel must not be nested inside another demo-panel");
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-page-pattern",
+  target: path.relative(pluginRoot, target),
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    required_markers: rules.checks.map((check) => check.id),
+    no_nested_demo_panels: !hasNestedPanels
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Page pattern validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Page pattern OK: ${path.relative(pluginRoot, target)}`);

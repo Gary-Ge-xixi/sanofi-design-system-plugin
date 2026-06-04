@@ -1,0 +1,250 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-dashboard-component-spec",
+  "page_pattern": "admin-dashboard",
+  "renderer_target": "html-with-hydrated-js",
+  "runtime_contract": "../component-runtime.contract.json",
+  "runtime_source": "@sanofi-accelerator/elements",
+  "components": [
+    {
+      "component_instance": "admin-dashboard.sidebar.primary",
+      "component_id": "sidebar",
+      "story_id": "components-sidebar--default",
+      "props": {
+        "ariaLabel": "应用导航",
+        "activeItem": "overview"
+      },
+      "children_or_slots": {
+        "header": "导航",
+        "items": [
+          "总览",
+          "数据管理",
+          "申诉审批",
+          "进销存平衡",
+          "系统管理"
+        ],
+        "footer": "区域运营 · 华东"
+      },
+      "interaction_requirements": [
+        "active item state",
+        "expandable menu section"
+      ],
+      "provenance": {
+        "docs_id": "components-sidebar--docs",
+        "story_id": "components-sidebar--default"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.filter.region",
+      "component_id": "select",
+      "story_id": "components-select--default",
+      "props": {
+        "label": "区域",
+        "native": false,
+        "size": "medium",
+        "options": [
+          "全国",
+          "华东",
+          "华南"
+        ],
+        "value": "全国"
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [
+        "combobox trigger click opens listbox",
+        "option click updates selected value",
+        "aria-expanded toggles",
+        "no visible native select shell"
+      ],
+      "provenance": {
+        "docs_id": "components-select--docs",
+        "story_id": "components-select--default",
+        "page_module_contract": "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.filter.search",
+      "component_id": "search-input",
+      "story_id": "components-textinput--default",
+      "props": {
+        "type": "search",
+        "size": "medium",
+        "label": "搜索",
+        "placeholder": "客户、CDC 或负责人"
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [
+        "focus-visible state",
+        "input value state"
+      ],
+      "provenance": {
+        "docs_id": "components-textinput--docs",
+        "story_id": "components-textinput--default"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.actions.refresh",
+      "component_id": "button",
+      "story_id": "components-button--primary",
+      "props": {
+        "variant": "primary",
+        "size": "medium",
+        "label": "刷新数据"
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [
+        "hover state",
+        "active state",
+        "focus-visible state"
+      ],
+      "provenance": {
+        "docs_id": "components-button--docs",
+        "story_id": "components-button--primary"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.layout.container",
+      "component_id": "container",
+      "story_id": "components-container--fixed",
+      "props": {
+        "type": "fixed",
+        "density": "compact"
+      },
+      "children_or_slots": {
+        "contentContainer": "dashboard grid"
+      },
+      "interaction_requirements": [],
+      "provenance": {
+        "docs_id": "components-container--docs",
+        "story_id": "components-container--fixed"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.layout.grid",
+      "component_id": "grid",
+      "story_id": "components-grid--desktop",
+      "props": {
+        "columns": 12,
+        "viewportPolicy": "desktop-only"
+      },
+      "children_or_slots": {
+        "items": [
+          "page-header",
+          "filter-toolbar",
+          "kpi-summary",
+          "sales-trend",
+          "work-queue",
+          "priority-inventory-table"
+        ]
+      },
+      "interaction_requirements": [],
+      "provenance": {
+        "docs_id": "components-grid--docs",
+        "story_id": "components-grid--desktop"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.work-queue.tabs",
+      "component_id": "tabs",
+      "story_id": "components-tabs--default",
+      "props": {
+        "tabs": [
+          "待处理",
+          "已完成"
+        ],
+        "selected": "待处理"
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [
+        "click changes selected tab",
+        "aria-selected updates"
+      ],
+      "provenance": {
+        "docs_id": "components-tabs--docs",
+        "story_id": "components-tabs--default"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.kpi.sales",
+      "component_id": "card",
+      "story_id": "components-card--default",
+      "props": {
+        "density": "compact"
+      },
+      "children_or_slots": {
+        "body": "metric content"
+      },
+      "interaction_requirements": [],
+      "provenance": {
+        "docs_id": "components-card--docs",
+        "story_id": "components-card--default"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.kpi.status",
+      "component_id": "tag",
+      "story_id": "components-tag--semantic",
+      "props": {
+        "label": "履约稳定",
+        "variant": "semantic-success"
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [],
+      "provenance": {
+        "docs_id": "components-tag--docs",
+        "story_id": "components-tag--semantic"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.kpi.progress",
+      "component_id": "progress-bar",
+      "story_id": "components-progressbar--all-states",
+      "props": {
+        "value": 96,
+        "max": 100
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [
+        "aria-valuenow reflects value"
+      ],
+      "provenance": {
+        "docs_id": "components-progressbar--docs",
+        "story_id": "components-progressbar--all-states"
+      }
+    },
+    {
+      "component_instance": "admin-dashboard.icons",
+      "component_id": "icon",
+      "story_id": "components-icon--gallery",
+      "props": {
+        "names": [
+          "download",
+          "overview",
+          "data",
+          "approval",
+          "balance",
+          "system",
+          "chevronDown"
+        ]
+      },
+      "children_or_slots": {},
+      "interaction_requirements": [],
+      "provenance": {
+        "docs_id": "components-icon--docs",
+        "story_id": "components-icon--gallery"
+      }
+    }
+  ],
+  "fallback_modules": [
+    {
+      "module": "table",
+      "status": "allowed-fallback",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally."
+    },
+    {
+      "module": "chart",
+      "status": "allowed-fallback",
+      "reason": "No official Chart primitive is registered locally."
+    }
+  ]
+}

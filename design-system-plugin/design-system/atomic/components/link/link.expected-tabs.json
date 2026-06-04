@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "link",
+  "component_name": "Link",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Link"
+  },
+  "docs": [
+    {
+      "id": "components-link--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Link/Link.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-link--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    },
+    {
+      "id": "components-link--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    },
+    {
+      "id": "components-link--position-icon",
+      "name": "Position Icon",
+      "export_name": "PositionIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    },
+    {
+      "id": "components-link--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/Link.stories.tsx"
+    }
+  ]
+}

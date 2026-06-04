@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ProgressBar",
+  "stories": [
+    {
+      "story_id": "components-progressbar--all-densities",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-progressbar--all-sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-progressbar--all-states",
+      "story_name": "All States"
+    },
+    {
+      "story_id": "components-progressbar--custom-value-text",
+      "story_name": "Custom Value Text"
+    },
+    {
+      "story_id": "components-progressbar--default",
+      "story_name": "Default"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

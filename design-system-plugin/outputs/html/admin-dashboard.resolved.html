@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sanofi 运营 Dashboard</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --dashboard-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --dashboard-sidebar-width: 18rem;
+        --dashboard-header-height: 5.75rem;
+        --dashboard-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --dashboard-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --dashboard-muted-bg: var(--elements-color-semantic-background-neutral);
+        --dashboard-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --dashboard-border: var(--elements-color-semantic-border-default);
+        --dashboard-chart-fill: var(--elements-color-data-sequential-purple-3);
+        --dashboard-chart-alt-fill: var(--elements-color-data-sequential-blue-3);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--dashboard-page-bg);
+        font-family: var(--dashboard-font-family);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body { margin: 0; min-block-size: 100vh; background: var(--dashboard-page-bg); color: var(--elements-color-semantic-text-default_inverse); font-family: var(--dashboard-font-family); }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, p { margin: 0; }
+      .dashboard-shell { min-block-size: 100vh; display: grid; grid-template-columns: var(--dashboard-sidebar-width) minmax(0, 1fr); grid-template-rows: var(--dashboard-header-height) minmax(0, 1fr); }
+      .topbar { grid-column: 1 / -1; min-inline-size: 0; display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--dashboard-surface-bg); border-block-end: 0.0625rem solid var(--dashboard-border); }
+      .brand-lockup, .topbar-actions, .nav-item-main, .panel-heading, .table-header, .queue-meta { display: flex; align-items: center; gap: var(--elements-spacing-md); }
+      .brand-lockup { min-inline-size: 0; }
+      .brand-divider { inline-size: 0.0625rem; block-size: 2.125rem; background: var(--dashboard-border); }
+      .app-name { min-inline-size: 0; font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .avatar { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--elements-radius-rounded); background: var(--dashboard-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .button { display: inline-flex; align-items: center; justify-content: center; min-block-size: 2.75rem; border: 0.0625rem solid var(--elements-color-semantic-accent-default); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .button.primary { background: var(--elements-color-semantic-accent-default); color: var(--elements-color-components-tooltip-bg-default); }
+      .button.tertiary { border-color: transparent; background: transparent; }
+      .sidebar { grid-row: 2; display: grid; grid-template-rows: auto 1fr auto; gap: var(--elements-spacing-md); padding: var(--elements-spacing-md) var(--elements-spacing-sm); background: var(--dashboard-surface-bg); border-inline-end: 0.0625rem solid var(--dashboard-border); overflow: hidden; }
+      .sidebar-heading { padding-inline: var(--elements-spacing-sm); font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .sidebar-content { min-block-size: 0; overflow: auto; }
+      .nav-list, .nav-children, .metric-grid, .queue-list { list-style: none; margin: 0; padding: 0; }
+      .nav-list, .nav-children, .queue-list { display: grid; gap: var(--elements-spacing-2xs); }
+      .nav-link, .nav-child { display: flex; align-items: center; min-block-size: 2.75rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); padding-inline: var(--elements-spacing-sm); }
+      .nav-link { justify-content: space-between; }
+      .nav-child { padding-inline-start: var(--elements-spacing-3xl); }
+      .nav-link[aria-current="page"], .nav-child[aria-current="page"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .nav-icon, .button-icon { inline-size: 1.5rem; block-size: 1.5rem; display: inline-grid; place-items: center; flex: 0 0 auto; }
+      .nav-icon svg, .button-icon svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .sidebar-footer { border-block-start: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .main { grid-row: 2; min-inline-size: 0; overflow: auto; padding: var(--elements-spacing-xl); }
+      .container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .container-content { inline-size: 100%; min-inline-size: 0; padding-inline: var(--elements-spacing-xl); }
+      .layout-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); align-items: start; min-inline-size: 0; }
+      .span-full { grid-column: 1 / -1; }
+      .span-8 { grid-column: span 8; }
+      .span-4 { grid-column: span 4; }
+      .page-header, .toolbar, .panel, .metric-card { background: var(--dashboard-surface-bg); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); }
+      .page-header, .toolbar, .panel { padding: var(--elements-spacing-lg); }
+      .page-header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--elements-spacing-lg); }
+      .page-title { display: grid; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .breadcrumb { display: flex; gap: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      h1 { max-inline-size: 100%; font-size: var(--elements-font-size-800); line-height: 1.2; overflow-wrap: anywhere; }
+      h2 { font-size: var(--elements-font-size-500); line-height: 1.3; }
+      h3 { font-size: var(--elements-font-size-300); line-height: 1.35; }
+      .muted, .metric-label, th { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .toolbar { display: grid; grid-template-columns: minmax(16rem, 1fr) minmax(12rem, 16rem) auto auto; gap: var(--elements-grid-gutter-lg); align-items: end; }
+      label { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      input, select { inline-size: 100%; min-inline-size: 0; min-block-size: 2.75rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-default_inverse); padding-inline: var(--elements-spacing-sm); font: inherit; }
+      .metric-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); }
+      .metric-card { display: grid; gap: var(--elements-spacing-md); min-block-size: 11rem; padding: var(--elements-spacing-lg); }
+      .metric-value { font-size: var(--elements-font-size-800); font-weight: var(--elements-font-weight-bold); line-height: 1; }
+      .tag { display: inline-flex; align-items: center; inline-size: fit-content; border: 0.0625rem solid var(--elements-color-components-tag-branded-border); border-radius: var(--elements-radius-rounded); background: var(--elements-color-components-tag-branded-bg-subtle); color: var(--elements-color-components-tag-branded-text); padding: var(--elements-spacing-3xs) var(--elements-spacing-sm); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .tag.success { border-color: var(--elements-color-components-tag-semantic_green-border); background: var(--elements-color-components-tag-semantic_green-bg-solid); color: var(--elements-color-components-tag-semantic_green-text-inverse); }
+      .progress-track { overflow: hidden; min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-neutral-subtle); }
+      .progress-fill { inline-size: var(--progress-value); min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .bars { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--elements-spacing-sm); align-items: end; min-block-size: 14rem; padding-block-start: var(--elements-spacing-lg); }
+      .bar { block-size: var(--bar-size); min-block-size: 3rem; border-radius: var(--elements-radius-sm) var(--elements-radius-sm) 0 0; background: var(--dashboard-chart-fill); }
+      .bar.alt { background: var(--dashboard-chart-alt-fill); }
+      .tabs { display: flex; gap: var(--elements-spacing-sm); border-block-end: 0.0625rem solid var(--dashboard-border); margin-block-end: var(--elements-spacing-md); }
+      .tabs button { border: 0; border-block-end: 0.1875rem solid transparent; background: transparent; color: var(--elements-color-semantic-text-default_inverse); padding: var(--elements-spacing-sm) var(--elements-spacing-md); font: inherit; font-weight: var(--elements-font-weight-bold); }
+      .tabs button[aria-selected="true"] { color: var(--elements-color-semantic-text-accent-default); border-block-end-color: var(--elements-color-semantic-accent-default); }
+      .queue-list { gap: var(--elements-spacing-md); }
+      .queue-item { display: grid; gap: var(--elements-spacing-sm); padding-block: var(--elements-spacing-md); border-block-end: 0.0625rem solid var(--dashboard-border); }
+      .queue-item:last-child { border-block-end: 0; }
+      .table-wrap { overflow-x: auto; }
+      table { inline-size: 100%; border-collapse: collapse; }
+      .table-wrap table { min-inline-size: 48rem; }
+      .chart-data-table { margin-block-start: var(--elements-spacing-md); min-inline-size: 0; font-size: var(--elements-font-size-200); }
+      .chart-data-table caption { padding-block: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); text-align: start; }
+      th, td { border-block-end: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); text-align: start; vertical-align: middle; }
+      th { background: var(--dashboard-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .button:focus-visible, .nav-link:focus-visible, .nav-child:focus-visible, input:focus, select:focus, .tabs button:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+
+      .snf-button { display: inline-flex; align-items: center; justify-content: center; gap: var(--elements-spacing-2xs); min-block-size: 2.5rem; border: 0.0625rem solid var(--elements-color-semantic-accent-default); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); white-space: nowrap; cursor: pointer; transition: border-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), background-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), color var(--elements-motion-duration-150) var(--elements-motion-ease-out), transform var(--elements-motion-duration-75) var(--elements-motion-ease-out); }
+      .snf-button:hover { background: var(--elements-color-semantic-background-brand-subtle); }
+      .snf-button:active { transform: translateY(0.0625rem); }
+      .snf-button--primary { background: var(--elements-color-semantic-accent-default); color: var(--elements-color-components-tooltip-bg-default); }
+      .snf-button--primary:hover { background: var(--elements-color-semantic-accent-hover); }
+      .snf-button--tertiary { border-color: transparent; background: transparent; }
+      .snf-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
+      .snf-icon, .snf-button-icon, .snf-search-icon, .snf-select-chevron, .snf-date-picker-icon, .snf-nav-chevron { inline-size: 1.5rem; block-size: 1.5rem; display: inline-grid; place-items: center; flex: 0 0 auto; }
+      .snf-icon svg, .snf-button-icon svg, .snf-search-icon svg, .snf-select-chevron svg, .snf-date-picker-icon svg, .snf-nav-chevron svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .snf-sidebar { grid-row: 2; display: grid; grid-template-rows: auto 1fr auto; gap: var(--elements-spacing-md); padding: var(--elements-spacing-md) var(--elements-spacing-sm); background: var(--dashboard-surface-bg); border-inline-end: 0.0625rem solid var(--dashboard-border); overflow: hidden; }
+      .snf-sidebar-heading { padding-inline: var(--elements-spacing-sm); font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-sidebar-content { min-block-size: 0; overflow: auto; }
+      .snf-nav-list, .snf-nav-children { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--elements-spacing-2xs); }
+      .snf-nav-link, .snf-nav-child { display: flex; align-items: center; min-block-size: 2.5rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); padding-inline: var(--elements-spacing-sm); }
+      .snf-nav-link { justify-content: space-between; }
+      .snf-nav-child { padding-inline-start: var(--elements-spacing-3xl); }
+      .snf-nav-link[aria-current="page"], .snf-nav-child[aria-current="page"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .snf-nav-link:hover, .snf-nav-child:hover { background: var(--dashboard-active-bg); }
+      .snf-nav-item-main { display: flex; align-items: center; gap: var(--elements-spacing-md); }
+      .snf-sidebar-footer { border-block-start: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .snf-container-content { inline-size: 100%; min-inline-size: 0; padding-inline: var(--elements-spacing-xl); }
+      .snf-layout-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); align-items: start; min-inline-size: 0; }
+      .snf-field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-field-label { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-control-shell { inline-size: 100%; min-inline-size: 0; min-block-size: 2.5rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-2xs); padding-inline: var(--elements-spacing-sm); }
+      .snf-search-input { inline-size: 100%; min-inline-size: 0; min-block-size: 2.25rem; border: 0; background: transparent; color: inherit; padding: 0; font: inherit; outline: 0; }
+      .snf-select-shell { position: relative; min-inline-size: 0; }
+      .snf-select-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; cursor: pointer; }
+      .snf-select-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-select-listbox { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline: 0; z-index: 20; display: grid; gap: var(--elements-spacing-3xs); max-block-size: 12rem; overflow: auto; margin: 0; padding: var(--elements-spacing-2xs); list-style: none; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-select-listbox[hidden] { display: none; }
+      .snf-select-option { border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-sm); cursor: pointer; color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-select-option:hover, .snf-select-option[aria-selected="true"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .snf-date-picker-shell { position: relative; min-inline-size: 0; }
+      .snf-date-picker-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; cursor: pointer; }
+      .snf-date-picker-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-date-picker-dialog { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline-start: 0; z-index: 25; min-inline-size: 18rem; padding: var(--elements-spacing-sm); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-date-picker-dialog[hidden] { display: none; }
+      .snf-date-picker-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); margin-block-end: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .snf-date-picker-close { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border: 0; border-radius: var(--elements-radius-rounded); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+      .snf-date-picker-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--elements-spacing-3xs); text-align: center; font-size: var(--elements-font-size-100); }
+      .snf-date-picker-calendar span { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-date-picker-calendar button { min-block-size: 2rem; border: 0.0625rem solid transparent; border-radius: var(--elements-radius-sm); background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; cursor: pointer; }
+      .snf-card { display: grid; gap: var(--elements-spacing-md); min-block-size: 11rem; padding: var(--elements-spacing-lg); background: var(--dashboard-surface-bg); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); }
+      .snf-tag { display: inline-flex; align-items: center; inline-size: fit-content; border: 0.0625rem solid var(--elements-color-components-tag-branded-border); border-radius: var(--elements-radius-rounded); background: var(--elements-color-components-tag-branded-bg-subtle); color: var(--elements-color-components-tag-branded-text); padding: var(--elements-spacing-3xs) var(--elements-spacing-sm); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .snf-tag--semantic-success { border-color: var(--elements-color-components-tag-semantic_green-border); background: var(--elements-color-components-tag-semantic_green-bg-solid); color: var(--elements-color-components-tag-semantic_green-text-inverse); }
+      .snf-progress { overflow: hidden; min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-neutral-subtle); }
+      .snf-progress-fill { inline-size: var(--progress-value); min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .snf-tabs { display: flex; gap: var(--elements-spacing-sm); border-block-end: 0.0625rem solid var(--dashboard-border); margin-block-end: var(--elements-spacing-md); }
+      .snf-tab { border: 0; border-block-end: 0.1875rem solid transparent; background: transparent; color: var(--elements-color-semantic-text-default_inverse); padding: var(--elements-spacing-sm) var(--elements-spacing-md); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .snf-tab[aria-selected="true"] { color: var(--elements-color-semantic-text-accent-default); border-block-end-color: var(--elements-color-semantic-accent-default); }
+      .snf-button:focus-visible, .snf-nav-link:focus-visible, .snf-nav-child:focus-visible, .snf-control-shell:focus-within, .snf-control-shell:focus-visible, .snf-tab:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-renderer-target="html" data-delivery-contract="admin-dashboard-desktop-delivery" data-viewport-policy="desktop-only" data-page-family="report-dashboard" data-page-profile="report-dashboard" data-business-task="monitor-and-compare" data-reference-fit="admin-dashboard-chart" data-output-state-official-runtime="absent" data-output-state-local-atomic-runtime="present" data-output-state-explicit-fallback="present" data-typography-rule="typography-font-stack" data-source-doc-id="foundations-typography--docs components-typography--docs">
+    <div class="dashboard-shell" data-template="onecommercial-admin" data-pattern="admin-dashboard" data-layout-rule="layout-grid-container" data-source-doc-id="foundations-layout--docs foundations-typography--docs components-container--docs components-grid--docs components-navigationheader--docs components-sidebar--docs components-menu--docs components-icon--docs components-searchinput--docs components-select--docs components-button--docs components-card--docs components-tag--docs components-tabs--docs components-progressbar--docs" data-token-source="foundations-colors--docs">
+      <header class="topbar" data-template-part="topbar" data-primitive="navigation-header" data-source-component="navigation-header" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs" data-pattern="admin-dashboard-header" data-token-source="foundations-colors--docs">
+        <div class="brand-lockup"><img class="snf-brand-logo" src="../../design-system/assets/brand/sanofi-logo-full.svg" alt="Sanofi" data-brand-asset-id="sanofi-logo-full" data-brand-asset-type="logo" data-source-doc-id="brand-assets" data-source-url="https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets"><span class="brand-divider" aria-hidden="true"></span><span class="app-name">Operations Dashboard</span></div>
+        <div class="topbar-actions"><button class="snf-button snf-button--tertiary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="button.export" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="tertiary" data-button-size="medium"><span class="snf-button-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.download" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="download" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3v11"></path><path d="m8 10 4 4 4-4"></path><path d="M4 20h16"></path></svg></span><span>导出</span></button><span class="avatar" aria-label="当前用户">R</span></div>
+      </header>
+      <aside class="snf-sidebar" data-template-part="sidebar" data-sidebar-part="root" aria-label="应用导航" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="sidebar.primary" data-component-id="sidebar" data-primitive="sidebar" data-source-component="sidebar" data-story-id="components-sidebar--default" data-source-doc-id="components-sidebar--docs" data-pattern="admin-dashboard-sidebar" data-token-source="foundations-colors--docs">
+      <div class="snf-sidebar-heading" data-sidebar-part="header">导航</div>
+      <nav class="snf-sidebar-content" data-sidebar-part="content" aria-label="主导航" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="menu.primary" data-component-id="menu" data-primitive="menu" data-source-component="menu" data-story-id="components-menu--default" data-source-doc-id="components-menu--docs" data-pattern="admin-dashboard-navigation" data-token-source="foundations-colors--docs">
+        <section data-sidebar-part="section"><ul class="snf-nav-list" role="list"><li data-sidebar-part="item">
+        <a class="snf-nav-link" href="#" aria-current="page" >
+          <span class="snf-nav-item-main"><span class="snf-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.overview" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="overview" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1.25"></rect><rect x="13" y="4" width="7" height="7" rx="1.25"></rect><rect x="4" y="13" width="7" height="7" rx="1.25"></rect><rect x="13" y="13" width="7" height="7" rx="1.25"></rect></svg></span>总览</span>
+          
+        </a>
+        
+      </li><li data-sidebar-part="item">
+        <a class="snf-nav-link" href="#"  aria-expanded="true" data-sidebar-toggle>
+          <span class="snf-nav-item-main"><span class="snf-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.data" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="data" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="16" rx="1.5"></rect><path d="M3 10h18"></path><path d="M8 5v16"></path></svg></span>数据管理</span>
+          <span class="snf-nav-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </a>
+        <ul class="snf-nav-children" role="list" ><li data-sidebar-part="item"><a class="snf-nav-child" href="#">CDC库存</a></li><li data-sidebar-part="item"><a class="snf-nav-child" href="#">常规品流向</a></li></ul>
+      </li><li data-sidebar-part="item">
+        <a class="snf-nav-link" href="#"  >
+          <span class="snf-nav-item-main"><span class="snf-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.approval" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="approval" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="4" width="14" height="18" rx="1.5"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path><path d="M8 17h5"></path></svg></span>申诉审批</span>
+          
+        </a>
+        
+      </li><li data-sidebar-part="item">
+        <a class="snf-nav-link" href="#"  >
+          <span class="snf-nav-item-main"><span class="snf-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.balance" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="balance" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"></path><path d="M4 19h17"></path><rect x="7" y="10" width="3" height="6" rx=".5"></rect><rect x="12" y="7" width="3" height="9" rx=".5"></rect><rect x="17" y="12" width="3" height="4" rx=".5"></rect></svg></span>进销存平衡</span>
+          
+        </a>
+        
+      </li><li data-sidebar-part="item">
+        <a class="snf-nav-link" href="#"  >
+          <span class="snf-nav-item-main"><span class="snf-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.system" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="system" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="5" width="16" height="14" rx="1.5"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path></svg></span>系统管理</span>
+          
+        </a>
+        
+      </li></ul></section>
+      </nav>
+      <footer class="snf-sidebar-footer" data-sidebar-part="footer" data-source-doc-id="components-sidebar--docs"><span data-sidebar-part="userProfile">区域运营 · 华东</span></footer>
+    </aside>
+      <main class="main" data-template-part="main" data-page-pattern="admin-dashboard" data-pattern="admin-dashboard" data-source-doc-id="foundations-layout--docs foundations-typography--docs components-container--docs components-grid--docs components-navigationheader--docs components-sidebar--docs components-menu--docs components-icon--docs components-searchinput--docs components-select--docs components-button--docs components-card--docs components-tag--docs components-tabs--docs components-progressbar--docs" data-token-source="foundations-colors--docs">
+        <section class="snf-container" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="container.dashboard" data-component-id="container" data-primitive="container" data-source-component="container" data-story-id="components-container--fixed" data-source-doc-id="components-container--docs" data-pattern="layout-container" data-token-source="foundations-colors--docs" data-layout-rule="layout-grid-container" data-container-part="root" data-container-mode="fixed" data-container-width-token="--elements-container-width-2xl" data-component-contract="Container"><div class="snf-container-content" data-container-part="contentContainer" data-component-contract="Container.contentContainer" data-component-slot="Container.contentContainer" data-source-doc-id="components-container--docs">
+            <div class="snf-layout-grid" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="grid.dashboard" data-component-id="grid" data-primitive="grid" data-source-component="grid" data-story-id="components-grid--desktop" data-source-doc-id="components-grid--docs" data-pattern="layout-grid" data-token-source="foundations-colors--docs" data-layout-rule="layout-grid-container" data-grid-part="root" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg" data-component-contract="Grid.Root">
+            <section class="page-header span-full" data-pattern="page-header-fallback" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="page-header" data-grid-item-span="12" data-grid-item-xl="12" data-grid-item-xxl="12" data-source-doc-id="components-pageheader--docs" data-fallback-module="page-header" data-fallback-reason="PageHeader docs exist but no primitive contract is registered yet.">
+              <div class="page-title"><nav class="breadcrumb" data-section="breadcrumb" aria-label="面包屑"><span>运营</span><span>›</span><span>总览</span></nav><h1>Sanofi 运营 Dashboard</h1><p class="muted">销售、库存、审批与风险队列概览</p></div>
+              <button class="snf-button snf-button--primary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="button.refresh" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="primary" data-button-size="medium"><span>刷新数据</span></button>
+            </section>
+            <section class="toolbar span-full" data-section="filter-toolbar" data-pattern="filter-toolbar" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="filter-toolbar" data-grid-item-span="12" data-grid-item-xl="12" data-grid-item-xxl="12" data-source-doc-id="components-searchinput--docs components-select--docs components-button--docs">
+              <label class="snf-field snf-search-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="search.filter" data-component-id="search-input" data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-search-size="medium" data-field-control="root" data-field-control-kind="search-input" data-control-size="medium">
+      <span class="snf-field-label">搜索</span>
+      <span class="snf-control-shell snf-search-shell" data-control-shell="field" data-control-kind="search-input">
+        <span class="snf-search-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.filter" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="filter" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h16"></path><path d="M7 12h10"></path><path d="M10 19h4"></path></svg></span>
+        <input id="dashboard-search" class="snf-search-input" type="search" placeholder="客户、CDC 或负责人" aria-label="搜索客户、CDC 或负责人">
+      </span>
+    </label>
+              <div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.region" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="dashboard-region-label">区域</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dashboard-region-label dashboard-region-value" aria-controls="dashboard-region-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="dashboard-region-value" data-select-value>全国</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="dashboard-region-listbox" aria-labelledby="dashboard-region-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="dashboard-region-option-0" data-value="全国" aria-selected="true">全国</li><li class="snf-select-option" role="option" id="dashboard-region-option-1" data-value="华东" aria-selected="false">华东</li><li class="snf-select-option" role="option" id="dashboard-region-option-2" data-value="华南" aria-selected="false">华南</li>
+        </ul>
+      </div>
+    </div>
+              <button class="snf-button snf-button--primary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="button.filter" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="primary" data-button-size="medium"><span class="snf-button-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.filter" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="filter" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h16"></path><path d="M7 12h10"></path><path d="M10 19h4"></path></svg></span><span>筛选</span></button>
+              <button class="snf-button snf-button--secondary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="button.reset" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="secondary" data-button-size="medium"><span>重置</span></button>
+            </section>
+            <ul class="metric-grid" data-section="kpi-summary" data-pattern="kpi-summary" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="kpi-summary" data-grid-item-span="12" data-grid-item-xl="12" data-grid-item-xxl="12" data-source-doc-id="components-card--docs components-tag--docs components-progressbar--docs">
+              <li><article class="snf-card metric-card" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="card.kpi.sales" data-component-id="card" data-primitive="card" data-source-component="card" data-story-id="components-card--default" data-source-doc-id="components-card--docs" data-pattern="kpi-summary" data-token-source="foundations-colors--docs"><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.sales" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">本月销售</span><div class="metric-value">¥42.8M</div><p class="metric-label">同比 +8.4%</p></article></li>
+              <li><article class="snf-card metric-card" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="card.kpi.fulfillment" data-component-id="card" data-primitive="card" data-source-component="card" data-story-id="components-card--default" data-source-doc-id="components-card--docs" data-pattern="kpi-summary" data-token-source="foundations-colors--docs"><span class="snf-tag snf-tag--semantic-success" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.fulfillment" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="semantic-success">履约稳定</span><div class="metric-value">96.8%</div><div class="snf-progress" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="progress.fulfillment" data-component-id="progress-bar" data-primitive="progress-bar" data-source-component="progress-bar" data-story-id="components-progressbar--all-states" data-source-doc-id="components-progressbar--docs" data-pattern="kpi-summary" data-token-source="foundations-colors--docs" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"><div class="snf-progress-fill" style="--progress-value: 96%;"></div></div></article></li>
+              <li><article class="snf-card metric-card" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="card.kpi.inventory" data-component-id="card" data-primitive="card" data-source-component="card" data-story-id="components-card--default" data-source-doc-id="components-card--docs" data-pattern="kpi-summary" data-token-source="foundations-colors--docs"><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.inventory" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">库存预警</span><div class="metric-value">19</div><p class="metric-label">7 个批次近效期</p></article></li>
+              <li><article class="snf-card metric-card" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="card.kpi.approval" data-component-id="card" data-primitive="card" data-source-component="card" data-story-id="components-card--default" data-source-doc-id="components-card--docs" data-pattern="kpi-summary" data-token-source="foundations-colors--docs"><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.approval" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">待审批</span><div class="metric-value">128</div><p class="metric-label">高优先级 6 单</p></article></li>
+            </ul>
+            <article class="panel span-8" data-section="chart-region" data-pattern="chart-region" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="sales-trend" data-grid-item-span="8" data-grid-item-xl="8" data-grid-item-xxl="8" data-source-doc-id="elements-charts_components-charts-barchart--docs foundations-colors--docs" data-business-module="business-chart" data-chart-contract="business-chart" data-chart-kind="bar" data-source-component="BarChart" data-chart-prop="chartData" data-chart-prop-x-axis="xAxis" data-chart-width="640" data-chart-height="280" aria-describedby="sales-trend-description">
+              <div class="panel-heading"><h2>区域销售趋势</h2><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.sales-trend" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">过去 7 天</span></div>
+              <p class="muted" id="sales-trend-description">BarChart module with chartData, xAxis, accessibleDataTable, and current filter context. Empty and error states are reserved by the business-chart contract.</p>
+              <div class="bars" role="img" aria-label="区域销售趋势 BarChart，显示过去 7 天销售趋势"><span class="bar" style="--bar-size: 64%;" data-chart-data-point="周一" data-chart-value="64"></span><span class="bar alt" style="--bar-size: 48%;" data-chart-data-point="周二" data-chart-value="48"></span><span class="bar" style="--bar-size: 72%;" data-chart-data-point="周三" data-chart-value="72"></span><span class="bar" style="--bar-size: 58%;" data-chart-data-point="周四" data-chart-value="58"></span><span class="bar" style="--bar-size: 78%;" data-chart-data-point="周五" data-chart-value="78"></span><span class="bar alt" style="--bar-size: 52%;" data-chart-data-point="周六" data-chart-value="52"></span><span class="bar" style="--bar-size: 86%;" data-chart-data-point="周日" data-chart-value="86"></span></div>
+              <table class="chart-data-table" data-chart-prop="accessibleDataTable" aria-label="区域销售趋势精确值"><caption>区域销售趋势精确值</caption><thead><tr><th scope="col">日期</th><th scope="col">销售指数</th></tr></thead><tbody><tr><td>周一</td><td>64</td></tr><tr><td>周二</td><td>48</td></tr><tr><td>周三</td><td>72</td></tr><tr><td>周四</td><td>58</td></tr><tr><td>周五</td><td>78</td></tr><tr><td>周六</td><td>52</td></tr><tr><td>周日</td><td>86</td></tr></tbody></table>
+            </article>
+            <article class="panel span-4" data-pattern="work-queue" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="work-queue" data-grid-item-span="4" data-grid-item-xl="4" data-grid-item-xxl="4" data-source-doc-id="components-card--docs components-tag--docs components-tabs--docs">
+              <div class="snf-tabs" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tabs.work-queue" data-component-id="tabs" data-primitive="tabs" data-source-component="tabs" data-story-id="components-tabs--default" data-source-doc-id="components-tabs--docs" data-pattern="work-queue" data-token-source="foundations-colors--docs" role="tablist"><button class="snf-tab" role="tab" type="button" id="queue-pending-tab" aria-controls="queue-pending-panel" aria-selected="true" data-tab-target="queue-pending">待处理</button><button class="snf-tab" role="tab" type="button" id="queue-complete-tab" aria-controls="queue-complete-panel" aria-selected="false" data-tab-target="queue-complete">已完成</button></div>
+              <ul class="queue-list">
+                <li class="queue-item"><div class="queue-meta"><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.queue.inventory" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">8 单</span><h3>库存异常复核</h3></div><p class="muted">华东区 CDC 库存和流向数据不一致。</p></li>
+                <li class="queue-item"><div class="queue-meta"><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.queue.customer" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">5 家</span><h3>客户分组待确认</h3></div><p class="muted">目标客户标签需要区域经理复核。</p></li>
+                <li class="queue-item"><div class="queue-meta"><span class="snf-tag snf-tag--semantic-success" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.queue.save" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="semantic-success">稳定</span><h3>自动保存正常</h3></div><p class="muted">最近一次保存 09:00:00。</p></li>
+              </ul>
+            </article>
+            <section class="panel span-full" data-section="data-table-fallback" data-pattern="data-table-fallback" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="priority-inventory-table" data-grid-item-span="12" data-grid-item-xl="12" data-grid-item-xxl="12" data-source-doc-id="components-tag--docs components-button--docs" data-fallback-module="table" data-fallback-reason="No official Table/DataTable/DataGrid primitive is registered locally.">
+              <div class="table-header"><h2>重点客户库存</h2><button class="snf-button snf-button--tertiary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="button.view-all" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="tertiary" data-button-size="medium"><span>查看全部</span></button></div>
+              <div class="table-wrap"><table><thead><tr><th>客户</th><th>区域</th><th>库存状态</th><th>风险</th><th>负责人</th></tr></thead><tbody><tr><td>淮北市疾病预防控制中心</td><td>华东</td><td><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.table.low-stock" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">低库存</span></td><td>补货延迟</td><td>Rita</td></tr><tr><td>广州市疾病预防控制中心</td><td>华南</td><td><span class="snf-tag snf-tag--semantic-success" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.table.normal" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="semantic-success">正常</span></td><td>无</td><td>Alex</td></tr><tr><td>成都市疾病预防控制中心</td><td>西南</td><td><span class="snf-tag snf-tag--branded" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="tag.table.pending" data-component-id="tag" data-primitive="tag" data-source-component="tag" data-story-id="components-tag--semantic" data-source-doc-id="components-tag--docs" data-pattern="status" data-token-source="foundations-colors--docs" data-variant="branded">待确认</span></td><td>批次差异</td><td>Mei</td></tr></tbody></table></div>
+            </section>
+            </div>
+        </div></section>
+      </main>
+    </div>
+    <script data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package">
+      (() => {
+        const closeSelect = (root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          if (!trigger || !listbox) return;
+          trigger.setAttribute("aria-expanded", "false");
+          listbox.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          const valueNode = root.querySelector("[data-select-value]");
+          if (!trigger || !listbox || !valueNode) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            listbox.hidden = !nextExpanded;
+          });
+
+          listbox.querySelectorAll("[role='option']").forEach((option) => {
+            option.addEventListener("click", () => {
+              listbox.querySelectorAll("[role='option']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              option.setAttribute("aria-selected", "true");
+              valueNode.textContent = option.textContent.trim();
+              closeSelect(root);
+            });
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeSelect(root);
+          });
+        });
+
+        const closeDatePicker = (root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+          trigger.setAttribute("aria-expanded", "false");
+          dialog.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            dialog.hidden = !nextExpanded;
+          });
+
+          root.querySelectorAll("[data-date-picker-close]").forEach((closeButton) => {
+            closeButton.addEventListener("click", () => closeDatePicker(root));
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeDatePicker(root);
+          });
+        });
+
+        document.querySelectorAll("[data-component-id='tabs'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          root.querySelectorAll("[role='tab']").forEach((tab) => {
+            tab.addEventListener("click", () => {
+              root.querySelectorAll("[role='tab']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              tab.setAttribute("aria-selected", "true");
+            });
+          });
+        });
+
+        document.querySelectorAll("[data-sidebar-toggle]").forEach((toggle) => {
+          toggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            const expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!expanded));
+            const children = toggle.parentElement?.querySelector(".snf-nav-children");
+            if (children) children.hidden = expanded;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

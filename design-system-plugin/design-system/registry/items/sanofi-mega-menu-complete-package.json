@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-mega-menu-complete-package",
+  "title": "MegaMenu complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local MegaMenu package covering Docs plus all Storybook story atoms.",
+  "component_id": "mega-menu",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-mega-menu"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/mega-menu.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/mega-menu.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/mega-menu.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/mega-menu.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/docs/mega-menu.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/docs/mega-menu.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/mega-menu-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/mega-menu-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-megamenu--example",
+      "story_name": "Example",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-mega-menu-example-atomic-story"
+    },
+    {
+      "story_id": "components-megamenu--fitted-content-mega-menu",
+      "story_name": "Fitted Content Mega Menu",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-mega-menu-fitted-content-mega-menu-atomic-story"
+    },
+    {
+      "story_id": "components-megamenu--nav-header-custom-placement",
+      "story_name": "Nav Header Custom Placement",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-mega-menu-nav-header-custom-placement-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-megamenu--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/mega-menu/mega-menu.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/mega-menu/docs/mega-menu.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "mega-menu",
+      "MegaMenu",
+      "mega-menu complete",
+      "MegaMenu complete package",
+      "mega-menu docs"
+    ],
+    "when_to_use": "Use first for any MegaMenu generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer MegaMenu behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

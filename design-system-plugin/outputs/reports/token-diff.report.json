@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds token diff",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:11:27.099Z",
+  "counts": {
+    "source_manifest_unique_token_names": 640,
+    "generated_css_token_names": 640,
+    "css_token_names": 640,
+    "generated_manifest_token_names": 641,
+    "generated_not_in_css": 1,
+    "css_missing_from_generated": 0
+  },
+  "count_mismatches": [],
+  "generated_not_in_css": [
+    "--elements-"
+  ],
+  "css_missing_from_generated": [],
+  "failures": []
+}

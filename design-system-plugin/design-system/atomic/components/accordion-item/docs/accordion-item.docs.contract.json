@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "accordion-item-docs-contract",
+  "component_id": "accordion-item",
+  "component_name": "Accordion.Item",
+  "docs_id": "components-accordion-item--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion-item--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size variant of the accordion item.\"small\"\"medium\"",
+        "default": "\"AccordionSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": true,
+        "description": "Header content (text or custom elements).ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isActiveSection",
+        "required": true,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sectionIndex",
+        "required": true,
+        "description": "number",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Callback fired when header is clicked.((e: MouseEvent<Element, MouseEvent>, isExpanded?: boolean) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Panel content revealed when section is expanded.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion-item--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-accordion-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/AccordionItem.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json"
+  }
+}

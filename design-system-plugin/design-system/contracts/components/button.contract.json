@@ -1,0 +1,283 @@
+{
+  "schema_version": "0.1.0",
+  "id": "button",
+  "canonical_name": "button",
+  "component_name": "Button",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-button--docs",
+    "title": "Button",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-button--docs",
+    "import_path": "./src/components/Button/Button.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 13,
+    "story_ids": [
+      "components-button--button-link",
+      "components-button--default",
+      "components-button--overview",
+      "components-button--overview-inverse",
+      "components-button--primary",
+      "components-button--primary-destruct",
+      "components-button--primary-neutral",
+      "components-button--secondary",
+      "components-button--secondary-destruct",
+      "components-button--secondary-neutral",
+      "components-button--tertiary",
+      "components-button--tertiary-destruct",
+      "components-button--tertiary-neutral"
+    ],
+    "records": [
+      {
+        "id": "components-button--button-link",
+        "name": "Button Link",
+        "normalized_name": "button-link",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "ButtonLink"
+      },
+      {
+        "id": "components-button--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-button--overview",
+        "name": "Overview",
+        "normalized_name": "overview",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "Overview"
+      },
+      {
+        "id": "components-button--overview-inverse",
+        "name": "Overview Inverse",
+        "normalized_name": "overview-inverse",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "OverviewInverse"
+      },
+      {
+        "id": "components-button--primary",
+        "name": "Primary",
+        "normalized_name": "primary",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "Primary"
+      },
+      {
+        "id": "components-button--primary-destruct",
+        "name": "Primary Destruct",
+        "normalized_name": "primary-destruct",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "PrimaryDestruct"
+      },
+      {
+        "id": "components-button--primary-neutral",
+        "name": "Primary Neutral",
+        "normalized_name": "primary-neutral",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "PrimaryNeutral"
+      },
+      {
+        "id": "components-button--secondary",
+        "name": "Secondary",
+        "normalized_name": "secondary",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "Secondary"
+      },
+      {
+        "id": "components-button--secondary-destruct",
+        "name": "Secondary Destruct",
+        "normalized_name": "secondary-destruct",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "SecondaryDestruct"
+      },
+      {
+        "id": "components-button--secondary-neutral",
+        "name": "Secondary Neutral",
+        "normalized_name": "secondary-neutral",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "SecondaryNeutral"
+      },
+      {
+        "id": "components-button--tertiary",
+        "name": "Tertiary",
+        "normalized_name": "tertiary",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "Tertiary"
+      },
+      {
+        "id": "components-button--tertiary-destruct",
+        "name": "Tertiary Destruct",
+        "normalized_name": "tertiary-destruct",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "TertiaryDestruct"
+      },
+      {
+        "id": "components-button--tertiary-neutral",
+        "name": "Tertiary Neutral",
+        "normalized_name": "tertiary-neutral",
+        "import_path": "./src/components/Button/Button.stories.tsx",
+        "export_name": "TertiaryNeutral"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Visual style variant of the button.\"primary\"\"secondary\"\"tertiary\"\"primary-neutral\"\"primary-destruct\"\"secondary-neutral\"\"secondary-destruct\"\"tertiary-neutral\"\"tertiary-destruct\"Show 1 more...",
+        "default": "\"ButtonVariant.PRIMARY\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the button.\"small\"\"medium\"\"xsmall\"\"large\"",
+        "default": "\"ButtonSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "button-link",
+      "default",
+      "overview",
+      "overview-inverse",
+      "primary",
+      "primary-destruct",
+      "primary-neutral",
+      "secondary",
+      "secondary-destruct",
+      "secondary-neutral",
+      "tertiary",
+      "tertiary-destruct",
+      "tertiary-neutral"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "button-link",
+      "default",
+      "overview",
+      "overview-inverse",
+      "primary",
+      "primary-destruct",
+      "primary-neutral",
+      "secondary",
+      "secondary-destruct",
+      "secondary-neutral",
+      "tertiary",
+      "tertiary-destruct",
+      "tertiary-neutral"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Button } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Button label=\"Action\" />\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Button } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Button label=\"Action\" />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "button"
+    ],
+    "contracts": [
+      {
+        "id": "button",
+        "status": "storybook-backed-static-contract",
+        "contract_path": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/button/demo.registry.json",
+        "known_story_ids": [
+          "components-button--primary",
+          "components-button--primary-neutral",
+          "components-button--overview",
+          "components-button--overview-inverse",
+          "components-button--default",
+          "components-button--secondary",
+          "components-button--secondary-neutral",
+          "components-button--tertiary",
+          "components-button--tertiary-neutral",
+          "components-button--primary-destruct",
+          "components-button--secondary-destruct",
+          "components-button--tertiary-destruct",
+          "components-button--button-link",
+          "components-button--button-link",
+          "components-button--default",
+          "components-button--overview",
+          "components-button--overview-inverse",
+          "components-button--primary",
+          "components-button--primary-destruct",
+          "components-button--primary-neutral",
+          "components-button--secondary",
+          "components-button--secondary-destruct",
+          "components-button--secondary-neutral",
+          "components-button--tertiary",
+          "components-button--tertiary-destruct",
+          "components-button--tertiary-neutral"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-button--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+    "docs_import_path": "./src/components/Button/Button.mdx",
+    "story_ids": [
+      "components-button--button-link",
+      "components-button--default",
+      "components-button--overview",
+      "components-button--overview-inverse",
+      "components-button--primary",
+      "components-button--primary-destruct",
+      "components-button--primary-neutral",
+      "components-button--secondary",
+      "components-button--secondary-destruct",
+      "components-button--secondary-neutral",
+      "components-button--tertiary",
+      "components-button--tertiary-destruct",
+      "components-button--tertiary-neutral"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

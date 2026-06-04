@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-loading-spinner-sanofi-dot-atomic-story",
+  "title": "LoadingSpinner Sanofi Dot atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-loadingspinner--sanofi-dot.",
+  "atomic_story_id": "components-loadingspinner--sanofi-dot",
+  "component_id": "loading-spinner",
+  "docs_id": "components-loadingspinner--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-loading-spinner"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/stories/components-loadingspinner--sanofi-dot.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/stories/components-loadingspinner--sanofi-dot.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/LoadingSpinner.stories-DJHvb7wY.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/LoadingSpinner.stories-DJHvb7wY.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/components-loadingspinner--sanofi-dot.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/components-loadingspinner--sanofi-dot.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/templates/html.sanofi-dot.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/templates/html.sanofi-dot.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/loading-spinner/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/loading-spinner/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-loadingspinner--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-loadingspinner--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-loadingspinner--docs",
+    "story_id": "components-loadingspinner--sanofi-dot",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/loading-spinner/stories/components-loadingspinner--sanofi-dot.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/loading-spinner/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-loadingspinner--sanofi-dot&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-loadingspinner--sanofi-dot&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/LoadingSpinner.stories-DJHvb7wY.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/LoadingSpinner.stories-DJHvb7wY.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/loading-spinner/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "loading-spinner",
+      "LoadingSpinner",
+      "Sanofi Dot",
+      "components-loadingspinner--sanofi-dot",
+      "sanofi-dot",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact LoadingSpinner Sanofi Dot Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

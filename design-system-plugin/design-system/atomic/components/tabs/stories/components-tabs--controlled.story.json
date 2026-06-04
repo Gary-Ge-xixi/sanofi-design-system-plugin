@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tabs--controlled",
+  "component_id": "tabs",
+  "component_name": "Tabs",
+  "story_id": "components-tabs--controlled",
+  "story_name": "Controlled",
+  "export_name": "Controlled",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tabs--controlled&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tabs--controlled&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tabs.stories-D4pC3Xxb.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--controlled.iframe.html",
+    "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+    "component_path": "./src/components/Tabs/Tabs.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "() => {\n  const [selectedId, setSelectedId] = useState<string>(\"\");\n  return <div>\n      <div style={{\n      display: \"flex\",\n      justifyContent: \"flex-start\"\n    }}>\n        <Select id=\"select\" label=\"Select\" onChange={evt => {\n        setSelectedId(evt.target.value ?? \"\");\n      }} options={[{\n        label: \"Tab1\",\n        value: \"tab1\"\n      }, {\n        label: \"Tab2\",\n        value: \"tab2\"\n      }, {\n        label: \"Tab3\",\n        value: \"tab3\"\n      }]} placeholder=\"Select an option\" size=\"large\" state=\"default\" />\n      </div>\n\n      <Tabs selectedName={selectedId}>\n        <Tabs.List>\n          <Tabs.Tab name=\"tab1\">Item One</Tabs.Tab>\n          <Tabs.Tab name=\"tab2\">Item Two</Tabs.Tab>\n          <Tabs.Tab name=\"tab3\">Item Three</Tabs.Tab>\n        </Tabs.List>\n      </Tabs>\n    </div>;\n}",
+    "story_object_source": "not_extracted"
+  },
+  "template": {
+    "id": "tabs-controlled-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tabs/templates/html.controlled.template.html",
+    "output_path": "design-system-plugin/outputs/html/tabs-controlled.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tabs",
+    "local_path": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "story_id": "components-tabs--controlled",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--controlled.iframe.html"
+  }
+}

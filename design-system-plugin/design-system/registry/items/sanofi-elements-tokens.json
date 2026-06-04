@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-elements-tokens",
+  "title": "Sanofi Elements tokens",
+  "type": "registry:style",
+  "renderer_target": "html",
+  "description": "Local token stylesheet and semantic token map from Sanofi Elements Storybook.",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/tokens/tokens.css",
+      "role": "stylesheet",
+      "target": "design-system-plugin/design-system/tokens/tokens.css"
+    },
+    {
+      "path": "design-system-plugin/design-system/tokens/token-manifest.json",
+      "role": "token-manifest",
+      "target": "design-system-plugin/design-system/tokens/token-manifest.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/tokens/token-allowlist.txt",
+      "role": "token-allowlist",
+      "target": "design-system-plugin/design-system/tokens/token-allowlist.txt"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/semantic-token-map.json",
+      "role": "semantic-token-map",
+      "target": "design-system-plugin/design-system/contracts/semantic-token-map.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/foundations-colors--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/foundations-colors--docs.md"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/foundations-motion--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/foundations-motion--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "foundations-colors--docs",
+    "motion_docs_id": "foundations-motion--docs",
+    "token_source": "foundations-colors--docs",
+    "tokens_css": "design-system-plugin/design-system/tokens/tokens.css",
+    "storybook_version_observed": "v3.48.3"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tokens",
+      "colors",
+      "brand",
+      "semantic color",
+      "purple",
+      "Sanofi"
+    ],
+    "when_to_use": "Load before rendering any HTML or choosing visual colors.",
+    "unsupported_behavior": "Do not use raw hex/rgb or direct core color references in generated HTML."
+  }
+}

@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulesPath = path.join(pluginRoot, "design-system", "rules", "typography-font-stack.json");
+const reportPath = path.join(reportDir, "typography-rule-usage.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const rules = readJson(rulesPath);
+const failures = [];
+
+for (const marker of rules.html_contract.required_attributes || []) {
+  if (!html.includes(marker)) failures.push(`missing typography marker: ${marker}`);
+}
+
+for (const fragment of rules.html_contract.required_css_fragments || []) {
+  if (!html.includes(fragment)) failures.push(`missing typography CSS fragment: ${fragment}`);
+}
+
+for (const fragment of rules.html_contract.forbidden_css_fragments || []) {
+  if (html.includes(fragment)) failures.push(`forbidden typography CSS fragment: ${fragment}`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-typography-rule-usage",
+  target: path.relative(pluginRoot, target),
+  rule: rules.id,
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    required_attributes: rules.html_contract.required_attributes,
+    required_css_fragments: rules.html_contract.required_css_fragments,
+    forbidden_css_fragments: rules.html_contract.forbidden_css_fragments
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Typography rule validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Typography rule OK: ${path.relative(pluginRoot, target)}`);

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-media-custom",
+  "title": "Card/MediaCustom primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Card/MediaCustom.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "card-media-custom",
+  "docs_id": "components-card-mediacustom--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-media-custom/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-media-custom/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-media-custom/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/card-media-custom/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-mediacustom--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-mediacustom--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-mediacustom--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-media-custom",
+      "Card/MediaCustom",
+      "Card/Media Custom"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Card/MediaCustom primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

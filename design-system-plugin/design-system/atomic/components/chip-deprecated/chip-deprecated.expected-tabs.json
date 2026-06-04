@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-deprecated",
+  "component_name": "Chip (Deprecated)",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Chip (Deprecated)"
+  },
+  "docs": [
+    {
+      "id": "components-chip-deprecated--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Chip/Chip.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-chip-deprecated--active",
+      "name": "Active",
+      "export_name": "Active",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--clickable",
+      "name": "Clickable",
+      "export_name": "Clickable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--deletable",
+      "name": "Deletable",
+      "export_name": "Deletable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--icon",
+      "name": "Icon",
+      "export_name": "Icon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--icon-and-deletable",
+      "name": "Icon And Deletable",
+      "export_name": "IconAndDeletable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    },
+    {
+      "id": "components-chip-deprecated--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/Chip.stories.tsx"
+    }
+  ]
+}

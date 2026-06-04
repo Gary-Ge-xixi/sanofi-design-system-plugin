@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-accordion-item-default-atomic-story",
+  "title": "Accordion.Item Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-accordion-item--default.",
+  "atomic_story_id": "components-accordion-item--default",
+  "component_id": "accordion-item",
+  "docs_id": "components-accordion-item--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-accordion-item"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion-item/stories/components-accordion-item--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/accordion-item/stories/components-accordion-item--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion-item/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/accordion-item/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion-item/assets/AccordionItem.stories-Ca8tN5cG.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/accordion-item/assets/AccordionItem.stories-Ca8tN5cG.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion-item/assets/components-accordion-item--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/accordion-item/assets/components-accordion-item--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion-item/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/accordion-item/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/accordion-item/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/accordion-item/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-accordion-item--docs",
+    "story_id": "components-accordion-item--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/accordion-item/stories/components-accordion-item--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/accordion-item/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-accordion-item--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-accordion-item--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/AccordionItem.stories-Ca8tN5cG.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/accordion-item/assets/AccordionItem.stories-Ca8tN5cG.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/accordion-item/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "accordion-item",
+      "Accordion.Item",
+      "Default",
+      "components-accordion-item--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Accordion.Item Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

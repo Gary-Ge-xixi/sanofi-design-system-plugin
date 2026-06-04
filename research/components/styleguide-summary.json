@@ -1,0 +1,17 @@
+{
+  "id": 88458,
+  "name": "Elements Experience System",
+  "updated_at": "2026-05-28T13:24:10.901Z",
+  "team_name": "Elements Design System",
+  "custom_domain": "elements.sanofidesign.com",
+  "storybook_links": [
+    {
+      "id": 1706788541476,
+      "title": "Public Elements Storybook",
+      "url": "https://element.prod.accelerator.sanofi",
+      "vpn": false,
+      "hasDocsAsStories": true,
+      "teamLevel": false
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "component": "DatePicker",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/DatePicker",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "date-picker",
+      "data_attribute": "data-primitive=\"date-picker\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-datepicker--default",
+      "components-datepicker--disabled",
+      "components-datepicker--disabled-range",
+      "components-datepicker--dual-calendar",
+      "components-datepicker--dual-calendar-clearable",
+      "components-datepicker--dual-calendar-partial-range",
+      "components-datepicker--dual-calendar-with-footer",
+      "components-datepicker--dual-calendar-with-prefilled-range",
+      "components-datepicker--medium-size",
+      "components-datepicker--month-picker",
+      "components-datepicker--quarter-picker",
+      "components-datepicker--range",
+      "components-datepicker--range-empty",
+      "components-datepicker--range-partial",
+      "components-datepicker--range-with-error",
+      "components-datepicker--range-with-footer",
+      "components-datepicker--with-clearable",
+      "components-datepicker--with-error",
+      "components-datepicker--with-footer",
+      "components-datepicker--with-icon",
+      "components-datepicker--with-min-and-max-dates",
+      "components-datepicker--year-picker",
+      "components-datepicker--year-picker-with-footer"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

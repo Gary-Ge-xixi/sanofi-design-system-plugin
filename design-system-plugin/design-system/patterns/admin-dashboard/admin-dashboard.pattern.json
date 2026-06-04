@@ -1,0 +1,144 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-dashboard",
+  "status": "ready",
+  "renderer_target": "html",
+  "source_candidate": "admin-dashboard.candidates.json",
+  "resolver": {
+    "schema": "../../contracts/schemas/pattern-resolver.schema.json",
+    "script": "../../../scripts/resolve-pattern",
+    "latest_resolution": "../../contracts/resolvers/latest-resolution.json"
+  },
+  "required_sections": [
+    "admin-shell",
+    "layout-container",
+    "layout-grid",
+    "navigation",
+    "filter-toolbar",
+    "kpi-summary",
+    "work-queue",
+    "data-table-fallback",
+    "chart-region"
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "button",
+    "card",
+    "tag"
+  ],
+  "required_rules": [
+    {
+      "id": "layout-grid-container",
+      "path": "../../rules/layout-grid-container.json",
+      "source_docs": [
+        "foundations-layout--docs",
+        "components-container--docs",
+        "components-grid--docs"
+      ]
+    },
+    {
+      "id": "typography-font-stack",
+      "path": "../../rules/typography-font-stack.json",
+      "source_docs": [
+        "foundations-typography--docs",
+        "components-typography--docs"
+      ]
+    },
+    {
+      "id": "admin-template-navigation",
+      "path": "../../rules/admin-template-navigation.json",
+      "source_docs": [
+        "components-navigationheader--docs",
+        "components-sidebar--docs",
+        "components-menu--docs"
+      ]
+    },
+    {
+      "id": "admin-delivery-contract",
+      "path": "../../rules/admin-delivery-contract.json",
+      "source_docs": [
+        "foundations-layout--docs",
+        "components-grid--docs",
+        "components-icon--docs"
+      ]
+    }
+  ],
+  "delivery_contract": {
+    "id": "admin-dashboard-desktop-delivery",
+    "viewport_policy": "desktop-only",
+    "default_screenshot_viewports": [
+      {
+        "name": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "mobile_delivery": "explicit-request-only",
+    "required_asset_primitives": [
+      "icon"
+    ],
+    "required_icon_story_id": "components-icon--gallery",
+    "forbidden_responsive_fragments": [
+      "@media",
+      "max-width",
+      "min-width"
+    ],
+    "forbidden_story_ids": [
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-navigationheader--mobile-view"
+    ],
+    "forbidden_behavior": [
+      "breakpoint-based sidebar hiding",
+      "breakpoint-based one-column dashboard layout",
+      "text glyph fallback for navigation icons"
+    ],
+    "allowed_page_markers": [
+      "meta name=\"viewport\""
+    ]
+  },
+  "optional_primitives": [
+    "tabs",
+    "progress-bar"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern"
+    },
+    {
+      "module": "chart",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "unsupported-chart-types-fallback"
+    },
+    {
+      "module": "business-chart",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "contract-backed-module",
+      "contract": "../../contracts/page-modules/business-chart.contract.json"
+    },
+    {
+      "module": "metric-card",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "compose-from-primitives"
+    }
+  ],
+  "source_provenance": {
+    "primary_docs_corpus": "../../knowledge/docs-index.json",
+    "component_contract_index": "../../contracts/components/component-contract-index.json",
+    "semantic_token_map": "../../contracts/semantic-token-map.json",
+    "token_source": "foundations-colors--docs",
+    "layout_source": "foundations-layout--docs",
+    "layout_rule": "../../rules/layout-grid-container.json",
+    "typography_rule": "../../rules/typography-font-stack.json",
+    "template_navigation_rule": "../../rules/admin-template-navigation.json"
+  }
+}

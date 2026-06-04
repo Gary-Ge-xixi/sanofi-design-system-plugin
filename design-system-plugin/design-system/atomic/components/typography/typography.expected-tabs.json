@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "typography",
+  "component_name": "Typography",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Typography"
+  },
+  "docs": [
+    {
+      "id": "components-typography--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-typography--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    },
+    {
+      "id": "components-typography--font-weights",
+      "name": "Font Weights",
+      "export_name": "FontWeights",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    },
+    {
+      "id": "components-typography--text-direction",
+      "name": "Text Direction",
+      "export_name": "TextDirection",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    },
+    {
+      "id": "components-typography--variants",
+      "name": "Variants",
+      "export_name": "Variants",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Typography/Typography.stories.tsx"
+    }
+  ]
+}

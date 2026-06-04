@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-design-prototype-generator",
+  "title": "Design prototype generator workflow",
+  "type": "registry:lib",
+  "renderer_target": "html",
+  "description": "Local skill workflow, policies, validators, and source index for Sanofi Elements HTML generation.",
+  "registryDependencies": [
+    "sanofi-elements-tokens"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/DESIGN.md",
+      "role": "design-md",
+      "target": "design-system-plugin/design-system/DESIGN.md"
+    },
+    {
+      "path": "design-system-plugin/skills/design-prototype-generator/SKILL.md",
+      "role": "skill",
+      "target": "design-system-plugin/skills/design-prototype-generator/SKILL.md"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/source-index.json",
+      "role": "source-index",
+      "target": "design-system-plugin/design-system/knowledge/source-index.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+      "role": "component-contract-index",
+      "target": "design-system-plugin/design-system/contracts/components/component-contract-index.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/component-package-standard.json",
+      "role": "component-package-standard",
+      "target": "design-system-plugin/design-system/atomic/component-package-standard.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/component-coverage-matrix.json",
+      "role": "component-coverage-matrix",
+      "target": "design-system-plugin/design-system/atomic/component-coverage-matrix.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/schemas/component-contract.schema.json",
+      "role": "schema",
+      "target": "design-system-plugin/design-system/contracts/schemas/component-contract.schema.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/schemas/pattern-resolver.schema.json",
+      "role": "schema",
+      "target": "design-system-plugin/design-system/contracts/schemas/pattern-resolver.schema.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "role": "policy",
+      "target": "design-system-plugin/design-system/policies/fallback-policy.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/naming-standard.json",
+      "role": "policy",
+      "target": "design-system-plugin/design-system/policies/naming-standard.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/source-provenance.json",
+      "role": "policy",
+      "target": "design-system-plugin/design-system/policies/source-provenance.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/rules-index.json",
+      "role": "rules-index",
+      "target": "design-system-plugin/design-system/rules/rules-index.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/component-runtime-contract.json",
+      "role": "component-runtime-rule",
+      "target": "design-system-plugin/design-system/rules/component-runtime-contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/component-size-policy.json",
+      "role": "component-size-policy",
+      "target": "design-system-plugin/design-system/rules/component-size-policy.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json",
+      "role": "brand-asset-contract",
+      "target": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/component-runtime.contract.json",
+      "role": "component-runtime-contract",
+      "target": "design-system-plugin/component-runtime/component-runtime.contract.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/package.json",
+      "role": "component-runtime-package",
+      "target": "design-system-plugin/component-runtime/package.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/src/index.mjs",
+      "role": "component-runtime-entry",
+      "target": "design-system-plugin/component-runtime/src/index.mjs"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/src/local-components.cjs",
+      "role": "component-runtime-local-renderer",
+      "target": "design-system-plugin/component-runtime/src/local-components.cjs"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/scripts/preflight-elements-package.mjs",
+      "role": "preflight",
+      "target": "design-system-plugin/component-runtime/scripts/preflight-elements-package.mjs"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-design-md",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-design-md"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-component-runtime",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-component-runtime"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-admin-delivery-contract",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-admin-delivery-contract"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-admin-page-profile",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-admin-page-profile"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-reference-fit",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-reference-fit"
+    },
+    {
+      "path": "design-system-plugin/scripts/render-dashboard-template-html",
+      "role": "renderer",
+      "target": "design-system-plugin/scripts/render-dashboard-template-html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/atomic-component-index.json",
+      "role": "atomic-index",
+      "target": "design-system-plugin/design-system/atomic/atomic-component-index.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/schemas/atomic-story.schema.json",
+      "role": "schema",
+      "target": "design-system-plugin/design-system/atomic/schemas/atomic-story.schema.json"
+    }
+  ],
+  "source_provenance": {
+    "design_md": "design-system-plugin/design-system/DESIGN.md",
+    "source_index": "design-system-plugin/design-system/knowledge/source-index.json",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "token_source": "foundations-colors--docs",
+    "docs_count": 111,
+    "component_contracts": 95
+  },
+  "ai": {
+    "prompt_keywords": [
+      "skill",
+      "workflow",
+      "validator",
+      "resolver",
+      "prototype generator"
+    ],
+    "when_to_use": "Load for any Sanofi Elements HTML prototype request.",
+    "unsupported_behavior": "Renderer target is HTML only in this version."
+  }
+}

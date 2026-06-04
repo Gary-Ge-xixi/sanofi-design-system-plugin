@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-image-complete-package",
+  "title": "Image complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Image package covering Docs plus all Storybook story atoms.",
+  "component_id": "image",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-image"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/image.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/image/image.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/image.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/image/image.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/docs/image.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/image/docs/image.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/image/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/image/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/image-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/image-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/image.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/image.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/image/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/image/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 2,
+    "materialized_stories": 2,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-image--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-image-default-atomic-story"
+    },
+    {
+      "story_id": "components-image--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-image-overview-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-image--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/image/image.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/image/docs/image.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/image.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/image/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "image",
+      "Image",
+      "image complete",
+      "Image complete package",
+      "image docs"
+    ],
+    "when_to_use": "Use first for any Image generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Image behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

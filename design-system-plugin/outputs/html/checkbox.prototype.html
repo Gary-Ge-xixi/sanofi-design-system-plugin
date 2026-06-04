@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sanofi Elements Checkbox Prototype</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-family: var(--elements-font-family-sans), Arial, sans-serif;
+      }
+
+      main {
+        width: min(72rem, calc(100% - var(--elements-spacing-2xl)));
+        margin: 0 auto;
+        padding: var(--elements-spacing-4xl) 0;
+      }
+
+      .prototype-header {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        margin-bottom: var(--elements-spacing-3xl);
+      }
+
+      .prototype-eyebrow {
+        color: var(--elements-color-semantic-text-accent-default);
+        font-size: var(--elements-font-size-200);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: var(--elements-font-size-1000);
+        line-height: var(--elements-font-lineheight-5);
+      }
+
+      h2,
+      legend {
+        font-size: var(--elements-font-size-600);
+        line-height: var(--elements-font-lineheight-4);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .prototype-copy {
+        max-width: 48rem;
+        color: var(--elements-color-semantic-text-helper_inverse);
+        font-size: var(--elements-font-size-300);
+        line-height: var(--elements-font-lineheight-3);
+      }
+
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+
+      .demo-panel {
+        display: grid;
+        gap: var(--elements-spacing-lg);
+        padding: var(--elements-spacing-xl);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+      }
+
+      .elements-checkbox,
+      .elements-checkbox-group-options {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .elements-checkbox {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+      }
+
+      .elements-checkbox input {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin: 0;
+        accent-color: var(--elements-color-semantic-accent-default);
+      }
+
+      .elements-checkbox[data-size="small"] input {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .elements-checkbox[data-size="large"] input {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .elements-checkbox label {
+        display: grid;
+        gap: var(--elements-spacing-3xs);
+        font-size: var(--elements-font-size-300);
+        line-height: var(--elements-font-lineheight-3);
+        font-weight: var(--elements-font-weight-regular);
+      }
+
+      .elements-checkbox[data-size="small"] label {
+        font-size: var(--elements-font-size-200);
+        line-height: var(--elements-font-lineheight-2);
+      }
+
+      .elements-checkbox-subtext {
+        color: var(--elements-color-semantic-text-helper_inverse);
+        font-size: var(--elements-font-size-200);
+        line-height: var(--elements-font-lineheight-2);
+      }
+
+      .elements-checkbox[data-color="neutral"] input {
+        accent-color: var(--elements-color-semantic-accent-neutral_active);
+      }
+
+      .elements-checkbox input:focus-visible {
+        outline: 0.1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: 0.1875rem;
+      }
+
+      fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .elements-checkbox-group {
+        display: grid;
+        gap: var(--elements-spacing-md);
+      }
+
+      .elements-checkbox-group-caption {
+        color: var(--elements-color-semantic-text-helper_inverse);
+        font-size: var(--elements-font-size-200);
+        line-height: var(--elements-font-lineheight-2);
+      }
+
+      .elements-checkbox-group-options[data-orientation="horizontal"] {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: var(--elements-spacing-xl);
+        row-gap: var(--elements-spacing-sm);
+      }
+
+      .elements-checkbox-group-error {
+        color: var(--elements-color-semantic-text-error_inverse);
+        font-size: var(--elements-font-size-200);
+        line-height: var(--elements-font-lineheight-2);
+        font-weight: var(--elements-font-weight-bold);
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-template="standalone-html">
+    <main data-page-pattern="component-demo">
+      <header class="prototype-header">
+        <p class="prototype-eyebrow">Components / Checkbox</p>
+        <h1>Checkbox Prototype</h1>
+        <p class="prototype-copy">Static HTML generated from the captured Elements Checkbox demo registry, using local Elements token references and native form semantics.</p>
+      </header>
+
+      <section class="demo-grid" data-pattern="form-checkbox-group">
+        <article class="demo-panel" data-source-component="Checkbox" data-story-id="components-checkbox--default">
+          <h2>Default</h2>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--default" data-size="medium" data-color="branded">
+            <input id="checkbox-default" type="checkbox" checked>
+            <label for="checkbox-default">Default checkbox</label>
+          </div>
+        </article>
+
+        <article class="demo-panel" data-source-component="Checkbox" data-story-id="components-checkbox--sizes">
+          <h2>Sizes</h2>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--sizes" data-size="small" data-color="branded">
+            <input id="checkbox-small" type="checkbox" checked>
+            <label for="checkbox-small">Small checkbox with Link</label>
+          </div>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--sizes" data-size="medium" data-color="branded">
+            <input id="checkbox-medium" type="checkbox" checked>
+            <label for="checkbox-medium">Medium checkbox</label>
+          </div>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--sizes" data-size="large" data-color="branded">
+            <input id="checkbox-large" type="checkbox" checked>
+            <label for="checkbox-large">Large checkbox</label>
+          </div>
+        </article>
+
+        <article class="demo-panel" data-source-component="Checkbox" data-story-id="components-checkbox--with-subtext">
+          <h2>With Subtext</h2>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--with-subtext" data-size="medium" data-color="branded">
+            <input id="checkbox-subtext" type="checkbox" checked>
+            <label for="checkbox-subtext">
+              With Subtext
+              <span class="elements-checkbox-subtext">Here goes some details about the checkbox label</span>
+            </label>
+          </div>
+        </article>
+
+        <article class="demo-panel" data-source-component="Checkbox" data-story-id="components-checkbox--color-variations">
+          <h2>Color Variations</h2>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--color-variations" data-size="medium" data-color="branded">
+            <input id="checkbox-branded" type="checkbox" checked>
+            <label for="checkbox-branded">Branded checked</label>
+          </div>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--color-variations" data-size="medium" data-color="neutral">
+            <input id="checkbox-neutral" type="checkbox" checked>
+            <label for="checkbox-neutral">Neutral checked</label>
+          </div>
+          <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox--color-variations" data-size="medium" data-color="branded">
+            <input id="checkbox-disabled" type="checkbox" disabled>
+            <label for="checkbox-disabled">Disabled</label>
+          </div>
+        </article>
+
+        <article class="demo-panel" data-source-component="CheckboxGroup" data-story-id="components-checkbox-checkboxgroup--vertical">
+          <fieldset class="elements-checkbox-group" data-primitive="checkbox-group" data-source-component="CheckboxGroup" data-story-id="components-checkbox-checkboxgroup--vertical" aria-invalid="true" aria-describedby="checkbox-group-error">
+            <legend>Checkbox Group Title</legend>
+            <p class="elements-checkbox-group-caption">Optional Caption</p>
+            <div class="elements-checkbox-group-options" data-orientation="vertical">
+              <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox-checkboxgroup--vertical" data-size="medium" data-color="branded">
+                <input id="checkbox-a" type="checkbox">
+                <label for="checkbox-a">Checkbox A</label>
+              </div>
+              <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox-checkboxgroup--vertical" data-size="medium" data-color="branded">
+                <input id="checkbox-b" type="checkbox" checked>
+                <label for="checkbox-b">Checkbox B</label>
+              </div>
+              <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox-checkboxgroup--vertical" data-size="medium" data-color="branded">
+                <input id="checkbox-c" type="checkbox">
+                <label for="checkbox-c">Checkbox C</label>
+              </div>
+            </div>
+            <p class="elements-checkbox-group-error" id="checkbox-group-error">Error Message</p>
+          </fieldset>
+        </article>
+
+        <article class="demo-panel" data-source-component="CheckboxGroup" data-story-id="components-checkbox-checkboxgroup--horizontal">
+          <fieldset class="elements-checkbox-group" data-primitive="checkbox-group" data-source-component="CheckboxGroup" data-story-id="components-checkbox-checkboxgroup--horizontal">
+            <legend>Horizontal Checkbox Group</legend>
+            <div class="elements-checkbox-group-options" data-orientation="horizontal">
+              <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox-checkboxgroup--horizontal" data-size="medium" data-color="branded">
+                <input id="checkbox-horizontal-a" type="checkbox">
+                <label for="checkbox-horizontal-a">Checkbox D</label>
+              </div>
+              <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox-checkboxgroup--horizontal" data-size="medium" data-color="branded">
+                <input id="checkbox-horizontal-b" type="checkbox" checked>
+                <label for="checkbox-horizontal-b">Checkbox E</label>
+              </div>
+              <div class="elements-checkbox" data-primitive="checkbox" data-source-component="Checkbox" data-story-id="components-checkbox-checkboxgroup--horizontal" data-size="medium" data-color="branded">
+                <input id="checkbox-horizontal-c" type="checkbox">
+                <label for="checkbox-horizontal-c">Checkbox F</label>
+              </div>
+            </div>
+          </fieldset>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "id": "atomic-story",
+  "type": "standard",
+  "required_fields": [
+    "schema_version",
+    "id",
+    "component_id",
+    "component_name",
+    "story_id",
+    "story_name",
+    "export_name",
+    "renderer_target",
+    "source",
+    "args",
+    "argTypes",
+    "variants",
+    "states",
+    "render_strategy",
+    "template",
+    "component_contract",
+    "primitive",
+    "source_provenance"
+  ],
+  "source_requirements": [
+    "source.story_url",
+    "source.iframe_url",
+    "source.bundle_url",
+    "source.local_bundle_path",
+    "source.local_iframe_path"
+  ],
+  "provenance_requirements": [
+    "source_provenance.docs_id",
+    "source_provenance.story_id",
+    "source_provenance.storybook_index",
+    "source_provenance.component_contract",
+    "source_provenance.token_source"
+  ],
+  "notes": [
+    "Atomic stories are local callable units derived from Storybook story-level sources.",
+    "Keep raw story bundles locally so extraction can be repeated without remote page reads.",
+    "Do not invent args, variants, states, or render snippets. Mark unsupported values explicitly."
+  ]
+}

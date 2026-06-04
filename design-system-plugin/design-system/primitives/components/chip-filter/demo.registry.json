@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ChipFilter",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-chipfilter--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipfilter--list-with-removal",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipfilter--long-label",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipfilter--overview",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

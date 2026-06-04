@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tabs-lazy-mount-atomic-story",
+  "title": "Tabs Lazy Mount atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-tabs--lazy-mount.",
+  "atomic_story_id": "components-tabs--lazy-mount",
+  "component_id": "tabs",
+  "docs_id": "components-tabs--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tabs"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--lazy-mount.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--lazy-mount.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--lazy-mount.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--lazy-mount.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/templates/html.lazy-mount.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/templates/html.lazy-mount.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tabs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tabs/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "story_id": "components-tabs--lazy-mount",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--lazy-mount.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/tabs/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tabs--lazy-mount&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tabs--lazy-mount&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tabs.stories-D4pC3Xxb.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tabs",
+      "Tabs",
+      "Lazy Mount",
+      "components-tabs--lazy-mount",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Tabs Lazy Mount Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

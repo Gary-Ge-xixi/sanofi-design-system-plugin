@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-semantic-token-map",
+  "checked": {
+    "roles": 10,
+    "missing_roles": 0,
+    "unknown_tokens": 0
+  },
+  "failures": []
+}

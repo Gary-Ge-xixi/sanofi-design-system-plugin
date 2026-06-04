@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-navigation-header-start-content-complete-package",
+  "title": "NavigationHeader.StartContent complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local NavigationHeader.StartContent package covering Docs plus all Storybook story atoms.",
+  "component_id": "navigation-header-start-content",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-navigation-header-start-content"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/navigation-header-start-content.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/navigation-header-start-content.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/navigation-header-start-content.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/navigation-header-start-content.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/docs/navigation-header-start-content.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/docs/navigation-header-start-content.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/navigation-header-start-content-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/navigation-header-start-content-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-startcontent--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-startcontent--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-navigationheader-startcontent--custom-overflow-label",
+      "story_name": "Custom Overflow Label",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-start-content-custom-overflow-label-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-start-content-default-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--with-auto-overflow",
+      "story_name": "With Auto Overflow",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-start-content-with-auto-overflow-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-navigationheader-startcontent--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/navigation-header-start-content.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/docs/navigation-header-start-content.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "navigation-header-start-content",
+      "NavigationHeader.StartContent",
+      "navigation-header-start-content complete",
+      "NavigationHeader.StartContent complete package",
+      "navigation-header-start-content docs"
+    ],
+    "when_to_use": "Use first for any NavigationHeader.StartContent generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer NavigationHeader.StartContent behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

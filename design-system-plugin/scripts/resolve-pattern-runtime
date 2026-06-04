@@ -1,0 +1,444 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const resolverDir = path.join(pluginRoot, "design-system", "contracts", "resolvers");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function writeJson(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + "\n");
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function absFromWorkspace(relativePath) {
+  return path.join(workspaceRoot, relativePath);
+}
+
+function normalize(value) {
+  return String(value || "").toLowerCase();
+}
+
+function isQueryPanelPrompt(prompt) {
+  const value = normalize(prompt);
+  return (
+    /onecommercial|cdc|库存|填报|筛选|数据填报|库存填报|查询填报|后台表格/.test(value) &&
+    /后台|查询|填报|数据|库存|admin/.test(value)
+  );
+}
+
+function isReportDashboardPrompt(prompt) {
+  return /report|报表|数据看板|bar chart|barchart|chart|趋势|dashboard/i.test(String(prompt || ""));
+}
+
+function isInformationAggregationPrompt(prompt) {
+  return /信息聚合|聚合查询|aggregation|query dashboard list|查询列表看板/i.test(String(prompt || ""));
+}
+
+function isCustomerDetailDateQueryPrompt(prompt) {
+  const value = normalize(prompt);
+  return (
+    /客户明细|客户详情|customer detail/.test(value) &&
+    /日期|date|date range|查询|query/.test(value)
+  ) || /按日期查询客户/.test(value);
+}
+
+function findRegistryItem(registry, name) {
+  return (registry.items || []).find((item) => item.name === name);
+}
+
+function readItem(itemRef) {
+  return readJson(absFromWorkspace(itemRef.path));
+}
+
+function fileByRole(item, role) {
+  return (item.files || []).find((file) => file.role === role);
+}
+
+function contractByPrimitive(index, primitiveId) {
+  return (index.contracts || []).find((contract) => {
+    return contract.id === primitiveId || (contract.primitive_ids || []).includes(primitiveId);
+  });
+}
+
+function primitiveRef(index, primitiveId, preferredStoryIds) {
+  const preferred = preferredStoryIds[primitiveId];
+  const contract = contractByPrimitive(index, primitiveId);
+  const storyIds = contract?.stories?.story_ids || contract?.source_provenance?.story_ids || [];
+  return {
+    primitive_id: primitiveId,
+    component_contract_id: contract?.id || "unknown",
+    docs_id: contract?.docs?.storybook_id || contract?.docs_id || contract?.source_provenance?.docs_id || "unknown",
+    story_id: preferred || storyIds[0] || "unknown"
+  };
+}
+
+function fallback(policy, module, patternFallback) {
+  const registered = (policy.fallbacks || []).find((item) => item.module === module);
+  return registered || {
+    module,
+    status: patternFallback?.status || "unsupported",
+    reason: patternFallback?.reason || "No fallback policy registered.",
+    must_not_claim_primitive: true
+  };
+}
+
+function sectionPrimitiveMap(patternId) {
+  if (patternId === "customer-detail-date-query") {
+    return {
+      "admin-shell": ["container", "grid", "navigation-header", "sidebar", "menu", "icon"],
+      "layout-container": ["container"],
+      "layout-grid": ["grid"],
+      navigation: ["navigation-header", "sidebar", "menu", "icon"],
+      breadcrumb: ["icon"],
+      "query-header": ["button"],
+      "date-query-form": ["search-input", "select", "date-picker", "button"],
+      "customer-summary": ["card", "tag"],
+      "customer-detail-table": ["tag", "button"],
+      "result-actions": ["button"],
+      pagination: ["pagination", "button"]
+    };
+  }
+
+  if (patternId === "admin-query-panel") {
+    return {
+      "admin-shell": ["container", "grid", "navigation-header", "sidebar", "menu", "icon"],
+      "layout-container": ["container"],
+      "layout-grid": ["grid"],
+      navigation: ["navigation-header", "sidebar", "menu", "icon"],
+      breadcrumb: ["icon"],
+      "query-toolbar": ["select", "button"],
+      "primary-actions": ["button"],
+      "editable-data-table-fallback": ["text-input", "button"],
+      pagination: ["pagination", "button"],
+      "save-bar": ["button"]
+    };
+  }
+
+  return {
+    "admin-shell": ["container", "grid", "navigation-header", "sidebar", "menu"],
+    "layout-container": ["container"],
+    "layout-grid": ["grid"],
+    navigation: ["navigation-header", "sidebar", "menu", "button"],
+    breadcrumb: ["icon"],
+    "filter-toolbar": ["search-input", "select", "button"],
+    "kpi-summary": ["card", "tag", "progress-bar"],
+    "dashboard-summary": ["card", "tag", "progress-bar"],
+    "aggregation-header": ["button"],
+    "work-queue": ["card", "tag", "button", "tabs"],
+    "data-table-fallback": ["tag", "button", "tabs"],
+    "record-list": ["card", "tag", "button"],
+    pagination: ["pagination", "button"],
+    "chart-region": ["tag"],
+    "chart-fallback": ["card", "tag", "progress-bar"]
+  };
+}
+
+function sectionType(sectionId) {
+  if (/shell|layout/.test(sectionId)) return "layout";
+  if (/navigation|breadcrumb/.test(sectionId)) return "navigation";
+  if (/toolbar|actions|save/.test(sectionId)) return "controls";
+  if (/form/.test(sectionId)) return "form";
+  if (/table/.test(sectionId)) return "fallback";
+  if (/pagination/.test(sectionId)) return "navigation";
+  if (/kpi|summary/.test(sectionId)) return "summary";
+  if (/queue/.test(sectionId)) return "workflow";
+  if (sectionId === "chart-region") return "business-chart";
+  if (/chart/.test(sectionId)) return "fallback";
+  return "content";
+}
+
+function resolvePattern(args = []) {
+  fs.mkdirSync(resolverDir, { recursive: true });
+  fs.mkdirSync(reportDir, { recursive: true });
+
+  const prompt = args.join(" ").trim() || "中医药后台管理首页";
+  const registryPath = path.join(pluginRoot, "design-system", "registry", "registry.json");
+  const designMdPath = path.join(pluginRoot, "design-system", "DESIGN.md");
+  const patternIndexPath = path.join(pluginRoot, "design-system", "patterns", "pattern-index.json");
+  const templateIndexPath = path.join(pluginRoot, "design-system", "templates", "template-index.json");
+  const rulesIndexPath = path.join(pluginRoot, "design-system", "rules", "rules-index.json");
+  const contractIndexPath = path.join(pluginRoot, "design-system", "contracts", "components", "component-contract-index.json");
+  const semanticTokenMapPath = path.join(pluginRoot, "design-system", "contracts", "semantic-token-map.json");
+  const fallbackPolicyPath = path.join(pluginRoot, "design-system", "policies", "fallback-policy.json");
+  const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "pattern-resolver.schema.json");
+  const pageProfileIndexPath = path.join(pluginRoot, "design-system", "page-profiles", "page-profile-index.json");
+  const pageProfilePath = path.join(pluginRoot, "design-system", "page-profiles", "admin-data-entry-table.profile.json");
+  const selectFilterContractPath = path.join(pluginRoot, "design-system", "contracts", "page-modules", "select-filter.contract.json");
+  const dataTableFallbackContractPath = path.join(pluginRoot, "design-system", "contracts", "page-modules", "data-table-fallback.contract.json");
+  const adminDensityPath = path.join(pluginRoot, "design-system", "rules", "admin-density.json");
+  const referenceFitPath = path.join(pluginRoot, "design-system", "reference-fit", "admin-data-entry-table.rules.json");
+
+  const registry = readJson(registryPath);
+  const patternIndex = readJson(patternIndexPath);
+  const templateIndex = readJson(templateIndexPath);
+  const rulesIndex = readJson(rulesIndexPath);
+  const contractIndex = readJson(contractIndexPath);
+  const semanticTokenMap = readJson(semanticTokenMapPath);
+  const fallbackPolicy = readJson(fallbackPolicyPath);
+  const schema = readJson(schemaPath);
+
+  const preferredItemName = isCustomerDetailDateQueryPrompt(prompt)
+    ? "sanofi-customer-detail-date-query"
+    : isQueryPanelPrompt(prompt)
+    ? "sanofi-admin-query-panel"
+    : isInformationAggregationPrompt(prompt)
+      ? "sanofi-information-aggregation"
+      : isReportDashboardPrompt(prompt)
+        ? "sanofi-report-dashboard"
+        : "sanofi-admin-dashboard";
+  const itemRef = findRegistryItem(registry, preferredItemName) || findRegistryItem(registry, "sanofi-admin-dashboard");
+  if (!itemRef) throw new Error("No admin registry item is available.");
+
+  const item = readItem(itemRef);
+  const patternFile = fileByRole(item, "pattern");
+  const templateFile = fileByRole(item, "template");
+  const patternPath = patternFile ? absFromWorkspace(patternFile.path) : path.join(pluginRoot, "design-system", "patterns", "admin-dashboard", "admin-dashboard.pattern.json");
+  const templatePath = templateFile ? absFromWorkspace(templateFile.path) : path.join(pluginRoot, "design-system", "templates", "standalone-html.template.html");
+  const pattern = readJson(patternPath);
+  const template = templatePath.endsWith(".json") ? readJson(templatePath) : null;
+  const pageProfileFile = fileByRole(item, "page-profile");
+  const resolvedPageProfilePath = pageProfileFile
+    ? absFromWorkspace(pageProfileFile.path)
+    : pattern.id === "admin-query-panel"
+      ? pageProfilePath
+      : pattern.page_profile
+        ? path.join(pluginRoot, "design-system", "page-profiles", `${pattern.page_profile}.profile.json`)
+        : null;
+  const pageProfile = resolvedPageProfilePath && fs.existsSync(resolvedPageProfilePath)
+    ? readJson(resolvedPageProfilePath)
+    : null;
+  const pageModuleContractFiles = (item.files || [])
+    .filter((file) => file.role === "page-module-contract")
+    .map((file) => file.path);
+  const densityRuleFile = fileByRole(item, "density-rule");
+  const referenceFitRuleFile = fileByRole(item, "reference-fit-rule");
+  const templateIndexEntry = (templateIndex.templates || []).find((entry) => entry.id === (item.template_id || pattern.template_id)) || null;
+  const patternIndexEntry = (patternIndex.patterns || []).find((entry) => entry.id === item.pattern_id) || null;
+
+  const preferredStoryIds = {
+    container: "components-container--fixed",
+    grid: "components-grid--desktop",
+    "navigation-header": "components-navigationheader--default",
+    sidebar: "components-sidebar--default",
+    menu: "components-menu--default",
+    icon: "components-icon--gallery",
+    "search-input": "components-searchinput--default",
+    select: "components-select--default",
+    button: "components-button--primary",
+    card: "components-card--default",
+    tag: "components-tag--semantic",
+    tabs: "components-tabs--default",
+    "progress-bar": "components-progressbar--default",
+    "text-input": "components-textinput--default",
+    pagination: "components-pagination--default"
+  };
+
+  const requiredPrimitives = pattern.required_primitives || item.required_primitives || [];
+  const optionalPrimitives = pattern.optional_primitives || item.optional_primitives || [];
+  const primitiveIds = [...new Set([...requiredPrimitives, ...optionalPrimitives])];
+  const primitiveRefs = primitiveIds.map((id) => primitiveRef(contractIndex, id, preferredStoryIds));
+  const sectionMap = sectionPrimitiveMap(pattern.id);
+  const sections = (pattern.required_sections || []).map((sectionId) => {
+    const sectionPrimitives = sectionMap[sectionId] || [];
+    const fallbackModules = sectionId.includes("table") || sectionId === "record-list"
+      ? ["table"]
+      : sectionId.includes("chart") && sectionId !== "chart-region"
+        ? ["chart"]
+        : [];
+    return {
+      id: sectionId,
+      label: sectionId
+        .split("-")
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(" "),
+      type: sectionType(sectionId),
+      required_primitives: sectionPrimitives.filter((id) => requiredPrimitives.includes(id)),
+      optional_primitives: sectionPrimitives.filter((id) => optionalPrimitives.includes(id)),
+      fallback_modules: fallbackModules,
+      provenance: primitiveRefs.filter((item) => sectionPrimitives.includes(item.primitive_id))
+    };
+  });
+
+  const fallbacks = (pattern.fallbacks || item.fallbacks || []).map((patternFallback) => {
+    return fallback(fallbackPolicy, patternFallback.module, patternFallback);
+  });
+  const unsupportedGaps = fallbacks
+    .filter((item) => item.status === "docs-only-gap" || item.status === "token-only-pattern")
+    .map((item) => ({
+      module: item.module,
+      status: item.status,
+      reason: item.reason,
+      must_not_claim_primitive: item.must_not_claim_primitive !== false
+    }));
+
+  const docsIds = [...new Set(primitiveRefs.map((item) => item.docs_id).filter((id) => id !== "unknown"))];
+  const storyIds = [...new Set(primitiveRefs.map((item) => item.story_id).filter((id) => id !== "unknown"))];
+  const requiredRules = [...new Set([
+    ...(pattern.required_rules || []).map((rule) => typeof rule === "string" ? rule : rule.id),
+    ...(pageProfile?.required_rules || [])
+  ])];
+  const tokenSource = semanticTokenMap.source?.primary_docs_entry || "foundations-colors--docs";
+  const templateId = item.template_id || pattern.template_id || templateIndexEntry?.id || "standalone-html";
+  const moduleContracts = pageModuleContractFiles.length
+    ? pageModuleContractFiles
+    : pageProfile
+      ? [
+          rel(selectFilterContractPath),
+          rel(dataTableFallbackContractPath)
+        ]
+      : [];
+
+  const resolution = {
+    schema_version: schema.schema_version,
+    id: `${pattern.id}-resolution`,
+    generated_at: new Date().toISOString(),
+    prompt,
+    intent: pattern.id,
+    page_type: pattern.id === "admin-query-panel"
+      ? "admin-query-panel"
+      : pageProfile?.id === "report-dashboard"
+        ? "report-dashboard"
+        : pageProfile?.id === "information-aggregation"
+          ? "information-aggregation"
+          : pageProfile?.id === "customer-detail-date-query"
+            ? "customer-detail-date-query"
+            : "admin-dashboard",
+    page_subtype: item.page_subtype || pattern.page_subtype || "dashboard-overview",
+    pattern_id: pattern.id,
+    registry_item: item.name,
+    template_id: templateId,
+    renderer_target: "html",
+    business_context: pattern.business_context || template?.business_context || {},
+    sections,
+    forbidden_sections: pattern.forbidden_sections || [],
+    delivery_contract: pattern.delivery_contract || null,
+    required_primitives: requiredPrimitives,
+    optional_primitives: optionalPrimitives,
+    required_rules: requiredRules,
+    page_profile: pageProfile ? {
+      id: pageProfile.id,
+      path: rel(resolvedPageProfilePath),
+      required_module_contracts: pageProfile.required_module_contracts || [],
+      density_id: pageProfile.id === "admin-data-entry-table" ? "admin-compact" : "business-default",
+      reference_fit_id: pageProfile.id === "report-dashboard"
+        ? "admin-dashboard-chart-reference-fit"
+        : pageProfile.id === "admin-data-entry-table"
+          ? "admin-data-entry-table-reference-fit"
+          : "business-page-family-reference-fit"
+    } : null,
+    primitive_refs: primitiveRefs,
+    fallbacks,
+    unsupported_gaps: unsupportedGaps,
+    execution_inputs: {
+      registry: rel(registryPath),
+      design_md: rel(designMdPath),
+      registry_item: itemRef.path,
+      pattern_index: rel(patternIndexPath),
+      pattern: rel(patternPath),
+      template_index: rel(templateIndexPath),
+      template: rel(templatePath),
+      rules_index: rel(rulesIndexPath),
+      semantic_token_map: rel(semanticTokenMapPath),
+      component_contract_index: rel(contractIndexPath),
+      fallback_policy: rel(fallbackPolicyPath),
+      page_profile_index: rel(pageProfileIndexPath),
+      page_profile: pageProfile ? rel(resolvedPageProfilePath) : null,
+      module_contracts: moduleContracts,
+      density_rule: densityRuleFile ? densityRuleFile.path : pageProfile?.id === "admin-data-entry-table" ? rel(adminDensityPath) : null,
+      reference_fit_rule: referenceFitRuleFile ? referenceFitRuleFile.path : pageProfile?.id === "admin-data-entry-table" ? rel(referenceFitPath) : null,
+      loaded_rule_count: (rulesIndex.rules || []).filter((rule) => requiredRules.includes(rule.id)).length,
+      template_index_status: templateIndexEntry?.status || "unknown",
+      pattern_index_status: patternIndexEntry?.status || "unknown",
+      delivery_contract: pattern.delivery_contract?.id || null
+    },
+    source_provenance: {
+      registry_item: item.name,
+      registry_item_path: itemRef.path,
+      design_md_path: rel(designMdPath),
+      pattern_id: pattern.id,
+      pattern_path: rel(patternPath),
+      template_id: templateId,
+      template_path: rel(templatePath),
+      docs_ids: docsIds,
+      story_ids: storyIds,
+      token_source: tokenSource,
+      layout_rule: "layout-grid-container",
+      layout_source: "foundations-layout--docs",
+      required_rules: requiredRules,
+      delivery_contract: pattern.delivery_contract?.id || "none",
+      page_profile_id: pageProfile?.id || "none",
+      page_profile_path: pageProfile ? rel(resolvedPageProfilePath) : "none",
+      page_module_contracts: moduleContracts,
+      density_rule_path: densityRuleFile ? densityRuleFile.path : pageProfile?.id === "admin-data-entry-table" ? rel(adminDensityPath) : "none",
+      reference_fit_rule_path: referenceFitRuleFile ? referenceFitRuleFile.path : pageProfile?.id === "admin-data-entry-table" ? rel(referenceFitPath) : "none",
+      fallback_reasons: fallbacks.map((item) => ({
+        module: item.module,
+        status: item.status,
+        reason: item.reason
+      })),
+      component_contract_index: rel(contractIndexPath),
+      fallback_policy: rel(fallbackPolicyPath),
+      semantic_token_map: rel(semanticTokenMapPath)
+    }
+  };
+
+  const outputPath = path.join(resolverDir, "latest-resolution.json");
+  const namedOutputPath = path.join(resolverDir, `${pattern.id}.resolution.json`);
+  const reportPath = path.join(reportDir, "pattern-resolver.report.json");
+  writeJson(outputPath, resolution);
+  writeJson(namedOutputPath, resolution);
+
+  const failures = [];
+  if (pattern.id === "admin-query-panel") {
+    if (resolution.registry_item !== "sanofi-admin-query-panel") failures.push("query panel prompt did not resolve to sanofi-admin-query-panel");
+    if (resolution.template_id !== "onecommercial-admin-query-panel") failures.push("query panel prompt did not resolve to onecommercial template");
+    for (const forbidden of pattern.forbidden_sections || []) {
+      if (sections.some((section) => section.id === forbidden)) failures.push(`query panel includes forbidden section: ${forbidden}`);
+    }
+  }
+
+  writeJson(reportPath, {
+    schema_version: "0.1.0",
+    status: failures.length ? "fail" : "pass",
+    script: "resolve-pattern-runtime",
+    prompt,
+    selected: {
+      registry_item: resolution.registry_item,
+      pattern_id: resolution.pattern_id,
+      template_id: resolution.template_id,
+      page_subtype: resolution.page_subtype,
+      page_profile: resolution.page_profile?.id || "none",
+      reference_fit_rule: resolution.execution_inputs.reference_fit_rule || "none"
+    },
+    counts: {
+      sections: sections.length,
+      required_primitives: requiredPrimitives.length,
+      optional_primitives: optionalPrimitives.length,
+      fallbacks: fallbacks.length,
+      required_rules: requiredRules.length
+    },
+    failures
+  });
+
+  if (failures.length) {
+    console.error(`Pattern resolution failed: ${failures.join("; ")}`);
+    process.exit(1);
+  }
+  console.log(`Pattern resolved: ${resolution.registry_item} -> ${resolution.pattern_id} (${resolution.template_id})`);
+}
+
+module.exports = { resolvePattern };
+
+if (require.main === module) {
+  resolvePattern(process.argv.slice(2));
+}

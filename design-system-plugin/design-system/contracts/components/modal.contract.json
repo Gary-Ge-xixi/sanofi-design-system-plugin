@@ -1,0 +1,166 @@
+{
+  "schema_version": "0.1.0",
+  "id": "modal",
+  "canonical_name": "modal",
+  "component_name": "Modal",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-modal--docs",
+    "title": "Modal",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-modal--docs",
+    "import_path": "./src/components/Modal/Modal.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-modal--customisation",
+      "components-modal--default",
+      "components-modal--non-dismissible-modal",
+      "components-modal--with-icon"
+    ],
+    "records": [
+      {
+        "id": "components-modal--customisation",
+        "name": "Customisation",
+        "normalized_name": "customisation",
+        "import_path": "./src/components/Modal/Modal.stories.tsx",
+        "export_name": "Customisation"
+      },
+      {
+        "id": "components-modal--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Modal/Modal.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-modal--non-dismissible-modal",
+        "name": "Non Dismissible Modal",
+        "normalized_name": "non-dismissible-modal",
+        "import_path": "./src/components/Modal/Modal.stories.tsx",
+        "export_name": "NonDismissibleModal"
+      },
+      {
+        "id": "components-modal--with-icon",
+        "name": "With Icon",
+        "normalized_name": "with-icon",
+        "import_path": "./src/components/Modal/Modal.stories.tsx",
+        "export_name": "WithIcon"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title text displayed in the modal header.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtitle",
+        "required": false,
+        "description": "Subtitle text displayed below the title.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "customisation",
+      "default",
+      "non-dismissible-modal",
+      "with-icon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "customisation",
+      "default",
+      "non-dismissible-modal",
+      "with-icon"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Modal, VideoThumbnail, Button, ButtonVariant } from \"@sanofi-accelerator/elements\";\nimport { useState, useCallback } from \"react\";\n\nexport const MyComponent = () => {\n  const [isVisible, setIsVisible] = useState(false);\n  const closeModal = useCallback(() => {\n    setIsVisible(false);\n  }, []);\n\n  const footerContent = (\n    <>\n      <Button\n        label=\"Cancel\"\n        variant={ButtonVariant.TERTIARY}\n        onClick={() => closeModal()}\n      />\n      <Button\n        label=\"Confirm\"\n        onClick={() => alert(\"The onClick props is called.\")}\n      />\n    </>\n  );\n\n  <Modal\n    title='Modal title'\n    subtitle='Modal subtitle'\n    textContent='This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height. This maximum height can be set by the designers, depending on the need. But the modal must always have a minimum margin on top and bottom of 96px. This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height. This maximum height can be set by the designers, depending on the need. But the modal must always have a minimum margin on top and bottom of 96px.'\n    slotContent=(\n      <VideoThumbnail\n      videoUrl=\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\"\n      imageUrl=\"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\"\n      />\n      )\n    footerContent={footerContent}\n    isClosable={true}\n    isVisible={isVisible}\n    onClose={() => closeModal()}\n  />\n\n};",
+      "import { Modal, VideoThumbnail, Button, ButtonVariant } from \"@sanofi-accelerator/elements\";\nimport { useState } from \"react\";\n\nexport const MyComponent = () => {\n  const [isVisible, setIsVisible] = useState(false);\n\n  const footerContent = (\n    <>\n      <Button\n        label=\"Cancel\"\n        variant={ButtonVariant.TERTIARY}\n        onClick={() => {\n          setIsVisible(false);\n        }}\n      />\n      <Button\n        label=\"Confirm\"\n        onClick={() => alert(\"The onClick props is called.\")}\n      />\n    </>\n  );\n\n  <Modal\n    title='Non dismissible modal'\n    subtitle='Modal Subtitle'\n    textContent='This modal cannot be dismissed by clicking outside of it. It can only be closed by clicking the buttons.'\n    footerContent={footerContent}\n    isClosable={false}\n    isVisible={isVisible}\n  />\n\n};",
+      "import { mockHTMLDialogElement } from \"@sanofi-accelerator/elements/test/mockHTMLDialogElement\";\n\nbeforeAll(() => {\n  mockHTMLDialogElement();\n});"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "modal"
+    ],
+    "contracts": [
+      {
+        "id": "modal",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/modal/demo.registry.json",
+        "known_story_ids": [
+          "components-modal--customisation",
+          "components-modal--default",
+          "components-modal--non-dismissible-modal",
+          "components-modal--with-icon",
+          "components-modal--customisation",
+          "components-modal--default",
+          "components-modal--non-dismissible-modal",
+          "components-modal--with-icon"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-modal--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+    "docs_import_path": "./src/components/Modal/Modal.mdx",
+    "story_ids": [
+      "components-modal--customisation",
+      "components-modal--default",
+      "components-modal--non-dismissible-modal",
+      "components-modal--with-icon"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

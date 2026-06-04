@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "modal",
+  "component_name": "Modal",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Modal"
+  },
+  "docs": [
+    {
+      "id": "components-modal--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Modal/Modal.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-modal--customisation",
+      "name": "Customisation",
+      "export_name": "Customisation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    },
+    {
+      "id": "components-modal--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    },
+    {
+      "id": "components-modal--non-dismissible-modal",
+      "name": "Non Dismissible Modal",
+      "export_name": "NonDismissibleModal",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    },
+    {
+      "id": "components-modal--with-icon",
+      "name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    }
+  ]
+}

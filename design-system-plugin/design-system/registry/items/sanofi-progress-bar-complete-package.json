@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-progress-bar-complete-package",
+  "title": "ProgressBar complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ProgressBar package covering Docs plus all Storybook story atoms.",
+  "component_id": "progress-bar",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-progress-bar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/docs/progress-bar.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/docs/progress-bar.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/progress-bar-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/progress-bar-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-progressbar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-progressbar--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-progressbar--all-densities",
+      "story_name": "All Densities",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-bar-all-densities-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--all-sizes",
+      "story_name": "All Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-bar-all-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--all-states",
+      "story_name": "All States",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-bar-all-states-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--custom-value-text",
+      "story_name": "Custom Value Text",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-bar-custom-value-text-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-bar-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-progressbar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/progress-bar/docs/progress-bar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "progress-bar",
+      "ProgressBar",
+      "progress-bar complete",
+      "ProgressBar complete package",
+      "progress-bar docs"
+    ],
+    "when_to_use": "Use first for any ProgressBar generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ProgressBar behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

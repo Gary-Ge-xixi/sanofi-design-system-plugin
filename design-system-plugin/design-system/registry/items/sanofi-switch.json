@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-switch",
+  "title": "Switch primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Switch.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "switch",
+  "docs_id": "components-switch--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/switch/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/switch/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/switch.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 3,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "switch",
+      "Switch",
+      "Switch"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Switch primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

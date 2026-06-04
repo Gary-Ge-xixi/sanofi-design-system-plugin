@@ -1,0 +1,178 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const target = path.resolve(process.cwd(), process.argv[2] || path.join(htmlDir, "business-planning-target-adjustment.resolved.html"));
+const reportPath = path.join(reportDir, "business-planning-target-adjustment-visual-details.report.json");
+const screenshotPaths = {
+  desktop: path.join(reportDir, "business-planning-target-adjustment-detail-fixed-1440x900.png"),
+  wide: path.join(reportDir, "business-planning-target-adjustment-detail-fixed-1920x1080.png")
+};
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function loadPlaywright() {
+  try {
+    return require("playwright");
+  } catch {
+    const bundled = path.join(os.homedir(), ".cache", "codex-runtimes", "codex-primary-runtime", "dependencies", "node", "node_modules", "playwright");
+    if (fs.existsSync(bundled)) return require(bundled);
+    throw new Error("Playwright is required for visual detail validation. Install it locally or run inside Codex desktop with bundled workspace dependencies.");
+  }
+}
+
+async function measurePage(page) {
+  return page.evaluate(() => {
+    const productRows = [...document.querySelectorAll('tr[data-row-kind="product"]')].map((row, index) => {
+      const button = row.querySelector('button.tree-toggle[data-tree-toggle="product"]');
+      const text = row.querySelector(".planning-product-cell > span:last-child");
+      const buttonRect = button?.getBoundingClientRect();
+      const textRect = text?.getBoundingClientRect();
+      const rowRect = row.getBoundingClientRect();
+      const style = button ? getComputedStyle(button) : null;
+      return {
+        index,
+        state: button?.getAttribute("data-tree-state") || null,
+        expanded: button?.getAttribute("aria-expanded") || null,
+        text: text?.textContent.trim() || null,
+        buttonText: button ? button.textContent.trim() : "",
+        hasSvg: !!button?.querySelector("svg"),
+        button: buttonRect ? {
+          left: buttonRect.left,
+          top: buttonRect.top,
+          width: buttonRect.width,
+          height: buttonRect.height,
+          centerY: buttonRect.top + buttonRect.height / 2
+        } : null,
+        textRect: textRect ? {
+          left: textRect.left,
+          top: textRect.top,
+          width: textRect.width,
+          height: textRect.height,
+          centerY: textRect.top + textRect.height / 2
+        } : null,
+        row: {
+          top: rowRect.top,
+          height: rowRect.height,
+          centerY: rowRect.top + rowRect.height / 2
+        },
+        gap: buttonRect && textRect ? textRect.left - buttonRect.right : null,
+        verticalOffset: buttonRect ? Math.abs((buttonRect.top + buttonRect.height / 2) - (rowRect.top + rowRect.height / 2)) : null,
+        userSelect: style?.userSelect || null
+      };
+    });
+    const lefts = productRows.map((row) => row.button?.left).filter((value) => Number.isFinite(value));
+    const gaps = productRows.map((row) => row.gap).filter((value) => Number.isFinite(value));
+    const offsets = productRows.map((row) => row.verticalOffset).filter((value) => Number.isFinite(value));
+    const actionBar = document.querySelector(".planning-action-bar")?.getBoundingClientRect();
+    const sidebar = document.querySelector(".sidebar")?.getBoundingClientRect();
+    return {
+      rows: productRows,
+      toggleCount: productRows.length,
+      maxLeftDelta: lefts.length ? Math.max(...lefts) - Math.min(...lefts) : null,
+      minGap: gaps.length ? Math.min(...gaps) : null,
+      maxGap: gaps.length ? Math.max(...gaps) : null,
+      maxVerticalOffset: offsets.length ? Math.max(...offsets) : null,
+      bodyOverflow: getComputedStyle(document.body).overflow,
+      documentScrollTop: document.documentElement.scrollTop || document.body.scrollTop,
+      mainOverflowY: getComputedStyle(document.querySelector(".main")).overflowY,
+      actionBar: actionBar ? {
+        left: actionBar.left,
+        right: actionBar.right,
+        bottom: actionBar.bottom,
+        height: actionBar.height
+      } : null,
+      sidebar: sidebar ? {
+        right: sidebar.right,
+        width: sidebar.width
+      } : null,
+      viewport: {
+        width: window.innerWidth,
+        height: window.innerHeight
+      },
+      visibleNativeSelects: [...document.querySelectorAll('select[data-primitive="select"]')].filter((node) => {
+        const style = getComputedStyle(node);
+        return style.display !== "none" && style.visibility !== "hidden" && !node.hidden && node.getAttribute("aria-hidden") !== "true";
+      }).length
+    };
+  });
+}
+
+function checksFor(details) {
+  return {
+    toggle_count: details.toggleCount === 3,
+    all_have_svg: details.rows.every((row) => row.hasSvg),
+    no_text_glyphs: details.rows.every((row) => !row.buttonText),
+    compact_size_20px: details.rows.every((row) => row.button && Math.abs(row.button.width - 20) <= 0.5 && Math.abs(row.button.height - 20) <= 0.5),
+    left_aligned: details.maxLeftDelta !== null && details.maxLeftDelta <= 1,
+    text_gap_12px: details.minGap !== null && details.minGap >= 11 && details.maxGap <= 13,
+    vertical_centered: details.maxVerticalOffset !== null && details.maxVerticalOffset <= 1,
+    user_select_none: details.rows.every((row) => row.userSelect === "none"),
+    body_locked: details.bodyOverflow === "hidden" && details.documentScrollTop === 0,
+    main_scroll_owner: details.mainOverflowY === "auto",
+    action_bar_pinned_bottom: details.actionBar && Math.abs(details.actionBar.bottom - details.viewport.height) <= 0.5,
+    action_bar_sidebar_aligned: details.actionBar && details.sidebar && Math.abs(details.actionBar.left - details.sidebar.right) <= 0.5,
+    no_visible_native_select: details.visibleNativeSelects === 0
+  };
+}
+
+(async () => {
+  fs.mkdirSync(reportDir, { recursive: true });
+  if (!fs.existsSync(target)) throw new Error(`missing HTML target: ${target}`);
+
+  const { chromium } = loadPlaywright();
+  const browser = await chromium.launch({
+    headless: true,
+    executablePath: fs.existsSync("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+      ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      : undefined
+  });
+
+  const runs = [];
+  for (const [name, viewport] of Object.entries({ desktop: { width: 1440, height: 900 }, wide: { width: 1920, height: 1080 } })) {
+    const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
+    await page.goto(`file://${target}`);
+    await page.waitForLoadState("load");
+    await page.waitForTimeout(250);
+    const details = await measurePage(page);
+    await page.screenshot({ path: screenshotPaths[name], fullPage: false });
+    await page.close();
+    const checks = checksFor(details);
+    const failures = Object.entries(checks).filter(([, value]) => !value).map(([key]) => key);
+    runs.push({
+      name,
+      viewport,
+      screenshot: rel(screenshotPaths[name]),
+      details,
+      checks,
+      failures
+    });
+  }
+
+  await browser.close();
+  const failures = runs.flatMap((run) => run.failures.map((failure) => `${run.name}:${failure}`));
+  const report = {
+    schema_version: "0.1.0",
+    status: failures.length ? "fail" : "pass",
+    script: "validate-business-planning-target-adjustment-visual-details",
+    target: rel(target),
+    runs,
+    failures
+  };
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+  if (failures.length) {
+    console.error(`Business planning visual detail validation failed: ${failures.join("; ")}`);
+    process.exit(1);
+  }
+  console.log(`Business planning visual details OK: ${rel(target)}`);
+})().catch((error) => {
+  console.error(error.message);
+  process.exit(1);
+});

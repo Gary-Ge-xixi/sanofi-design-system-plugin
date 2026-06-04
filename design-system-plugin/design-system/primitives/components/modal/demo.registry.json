@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Modal",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-modal--customisation",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-modal--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-modal--non-dismissible-modal",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-modal--with-icon",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

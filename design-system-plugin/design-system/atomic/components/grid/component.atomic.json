@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "grid",
+  "component_name": "Grid",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-grid--desktop",
+      "story_name": "Desktop",
+      "component_id": "grid",
+      "component_name": "Grid",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--desktop.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/grid/templates/html.desktop.template.html",
+      "output_path": "design-system-plugin/outputs/html/grid-desktop.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js",
+      "docs_id": "components-grid--docs",
+      "registry_item": "sanofi-grid-desktop-atomic-story"
+    },
+    {
+      "story_id": "components-grid--large-mobile",
+      "story_name": "Large Mobile",
+      "component_id": "grid",
+      "component_name": "Grid",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--large-mobile.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/grid/templates/html.large-mobile.template.html",
+      "output_path": "design-system-plugin/outputs/html/grid-large-mobile.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js",
+      "docs_id": "components-grid--docs",
+      "registry_item": "sanofi-grid-large-mobile-atomic-story"
+    },
+    {
+      "story_id": "components-grid--mobile",
+      "story_name": "Mobile",
+      "component_id": "grid",
+      "component_name": "Grid",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--mobile.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/grid/templates/html.mobile.template.html",
+      "output_path": "design-system-plugin/outputs/html/grid-mobile.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js",
+      "docs_id": "components-grid--docs",
+      "registry_item": "sanofi-grid-mobile-atomic-story"
+    },
+    {
+      "story_id": "components-grid--tablet",
+      "story_name": "Tablet",
+      "component_id": "grid",
+      "component_name": "Grid",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--tablet.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/grid/templates/html.tablet.template.html",
+      "output_path": "design-system-plugin/outputs/html/grid-tablet.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/grid/assets/Grid.stories-BVqs_BzE.js",
+      "docs_id": "components-grid--docs",
+      "registry_item": "sanofi-grid-tablet-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-grid--docs"
+  }
+}

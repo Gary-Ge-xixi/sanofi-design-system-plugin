@@ -1,0 +1,168 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-query-panel.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulePath = path.join(pluginRoot, "design-system", "rules", "elevation-usage.json");
+const reportPath = path.join(reportDir, "elevation-usage.report.json");
+const reportMdPath = path.join(reportDir, "elevation-usage.report.md");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function unique(items) {
+  return [...new Set(items)];
+}
+
+function collectMatches(source, re, mapper = (match) => match[0]) {
+  const matches = [];
+  let match;
+  while ((match = re.exec(source))) matches.push(mapper(match));
+  return matches;
+}
+
+function attrValue(tag, name) {
+  const re = new RegExp(`${name}=["']([^"']+)["']`);
+  return tag.match(re)?.[1] || null;
+}
+
+function elementTagsByClass(source, className) {
+  return collectMatches(
+    source,
+    new RegExp(`<[^>]+class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>`, "g")
+  );
+}
+
+function hasShadowDeclaration(source, selector) {
+  const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`${escapedSelector}\\s*\\{[^}]*box-shadow\\s*:`, "s").test(source);
+}
+
+function normalizedShadowValue(value) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = read(target);
+const rule = readJson(rulePath);
+const allowedTokens = new Set(rule.tokens || []);
+const roleTokens = new Map((rule.role_contract || []).map((item) => [item.role, item.token]));
+const tokenPattern = [...allowedTokens].map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+const allowedShadowRe = new RegExp(`^(?:none|var\\(\\s*(?:${tokenPattern})\\s*\\))$`);
+const shadowDeclarations = collectMatches(
+  html,
+  /box-shadow\s*:\s*([^;]+);/g,
+  (match) => ({
+    declaration: match[0].replace(/\s+/g, " ").trim(),
+    value: normalizedShadowValue(match[1])
+  })
+);
+const rawShadowDeclarations = shadowDeclarations.filter((item) => !allowedShadowRe.test(item.value));
+const elevationTags = collectMatches(
+  html,
+  /<[^>]+\bdata-elevation-role=["'][^"']+["'][^>]*>/g
+);
+const elevationMarkers = elevationTags.map((tag) => ({
+  tag,
+  role: attrValue(tag, "data-elevation-role"),
+  token: attrValue(tag, "data-elevation-token")
+}));
+
+const failures = [];
+
+if (!fs.existsSync(target)) failures.push(`target HTML not found: ${target}`);
+
+for (const declaration of rawShadowDeclarations) {
+  failures.push(`raw box-shadow declaration: ${declaration.declaration}`);
+}
+
+for (const marker of elevationMarkers) {
+  if (!roleTokens.has(marker.role)) {
+    failures.push(`unknown elevation role: ${marker.role}`);
+    continue;
+  }
+  if (!marker.token) {
+    failures.push(`missing data-elevation-token for role: ${marker.role}`);
+    continue;
+  }
+  if (!allowedTokens.has(marker.token)) {
+    failures.push(`unknown elevation token marker: ${marker.token}`);
+  }
+  const expectedToken = roleTokens.get(marker.role);
+  if (marker.token !== expectedToken) {
+    failures.push(`elevation role ${marker.role} must use ${expectedToken}, got ${marker.token}`);
+  }
+}
+
+const headerShadowSelectors = [".topbar", ".template-topbar"].filter((selector) => hasShadowDeclaration(html, selector));
+if (headerShadowSelectors.length) {
+  const headerTags = [
+    ...elementTagsByClass(html, "topbar"),
+    ...elementTagsByClass(html, "template-topbar")
+  ];
+  const hasHeaderMarker = headerTags.some((tag) => (
+    attrValue(tag, "data-elevation-role") === "header" &&
+    attrValue(tag, "data-elevation-token") === roleTokens.get("header")
+  ));
+  if (headerTags.length && !hasHeaderMarker) failures.push("header shadow requires data-elevation-role=\"header\" and token 02 marker");
+}
+
+if (hasShadowDeclaration(html, ".save-bar")) {
+  const saveBarTags = elementTagsByClass(html, "save-bar");
+  const hasSaveBarMarker = saveBarTags.some((tag) => (
+    attrValue(tag, "data-elevation-role") === "sticky-action" &&
+    attrValue(tag, "data-elevation-token") === roleTokens.get("sticky-action")
+  ));
+  if (saveBarTags.length && !hasSaveBarMarker) failures.push("save-bar shadow requires data-elevation-role=\"sticky-action\" and token 03 marker");
+}
+
+const usedTokens = unique(
+  shadowDeclarations
+    .map((item) => item.value.match(/var\(\s*(--elements-core-elevation-0[1-5])\s*\)/)?.[1])
+    .filter(Boolean)
+);
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-elevation-usage",
+  target: rel(target),
+  rule: rel(rulePath),
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    shadow_declarations: shadowDeclarations.length,
+    raw_shadow_declarations: rawShadowDeclarations.length,
+    elevation_markers: elevationMarkers.length,
+    used_tokens: usedTokens
+  },
+  markers: elevationMarkers.map((marker) => ({
+    role: marker.role,
+    token: marker.token
+  })),
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Elevation Usage Validation\n\nStatus: ${report.status}\n\nTarget: \`${report.target}\`\n\n| Metric | Value |\n|---|---:|\n| Shadow declarations | ${report.checked.shadow_declarations} |\n| Raw shadow declarations | ${report.checked.raw_shadow_declarations} |\n| Elevation markers | ${report.checked.elevation_markers} |\n\n## Used Tokens\n\n${usedTokens.length ? usedTokens.map((token) => `- ${token}`).join("\n") : "- None"}\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Elevation usage validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Elevation usage OK: ${rel(target)}`);

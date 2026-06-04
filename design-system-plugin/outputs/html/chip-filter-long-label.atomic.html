@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChipFilter Long Label</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-story-reference" data-source-doc-id="components-chipfilter--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-story-card" data-story-id="components-chipfilter--long-label" data-source-doc-id="components-chipfilter--docs">
+        <h1>ChipFilter / Long Label</h1>
+        <article data-primitive="chip-filter" data-pattern="atomic-component-sample" data-story-id="components-chipfilter--long-label" data-source-doc-id="components-chipfilter--docs" data-token-source="foundations-colors--docs" data-variant="long-label" data-state="variant" class="sample-shell"><strong>ChipFilter</strong><span>Long Label</span><code>components-chipfilter--long-label</code></article>
+        <p><code>components-chipfilter--long-label</code></p>
+      </section>
+    </main>
+  </body>
+</html>

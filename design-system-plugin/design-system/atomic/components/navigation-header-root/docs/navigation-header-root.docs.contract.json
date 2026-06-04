@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.1.0",
+  "id": "navigation-header-root-docs-contract",
+  "component_id": "navigation-header-root",
+  "component_name": "NavigationHeader.Root",
+  "docs_id": "components-navigationheader-root--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-root--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-root--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "logo",
+        "required": false,
+        "description": "Displays the logo of the NavigationHeader.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mobileMenuIcon",
+        "required": false,
+        "description": "Icon displayed on the left of the NavigationHeader when viewport is less than md.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mobileMenuFitContent",
+        "required": false,
+        "description": "Set mobile menu to fit content instead of full screen.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sticky",
+        "required": false,
+        "description": "Sets the Root to top sticky.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSkipToMainAction",
+        "required": false,
+        "description": "Callback to manage focus when skipping to main content (only available when navigating with keyboard).(() => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "contained",
+        "required": false,
+        "description": "Add a max-width to the Root container.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "Make the Root container full width. Takes precedence over contained propboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "megaMenuTriggerMode",
+        "required": false,
+        "description": "Mega menu trigger behavior (click or hover).\"click\"\"hover\"",
+        "default": "\"TriggerMode.CLICK\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isBackgroundBranded",
+        "required": false,
+        "description": "Applies branded background color.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subHeader",
+        "required": false,
+        "description": "Secondary header content below main navigation.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "burgerMd",
+        "required": false,
+        "description": "Shows burger menu on tablet breakpoint (md: 768-1279px).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-root--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-navigationheader-root--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/Root/Root.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-root--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-root--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-root.contract.json"
+  }
+}

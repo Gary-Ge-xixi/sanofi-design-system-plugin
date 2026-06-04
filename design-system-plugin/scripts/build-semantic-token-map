@@ -1,0 +1,199 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const tokenCssPath = path.join(pluginRoot, "design-system", "tokens", "tokens.css");
+const tokenManifestPath = path.join(pluginRoot, "design-system", "tokens", "token-manifest.json");
+const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "semantic-token-map.schema.json");
+const docsPath = path.join(pluginRoot, "design-system", "knowledge", "docs", "foundations-colors--docs.md");
+const outputPath = path.join(pluginRoot, "design-system", "contracts", "semantic-token-map.json");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "semantic-token-map.report.json");
+
+function extractTokenNames(css) {
+  return [...css.matchAll(/(--elements-[A-Za-z0-9_-]+)\s*:/g)].map((match) => match[1]);
+}
+
+function findTokens(names, patterns, limit = 12) {
+  const hits = [];
+  for (const pattern of patterns) {
+    const matcher = pattern instanceof RegExp ? pattern : new RegExp(pattern);
+    for (const name of names) {
+      if (matcher.test(name) && !hits.includes(name)) hits.push(name);
+      if (hits.length >= limit) return hits;
+    }
+  }
+  return hits;
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const css = fs.readFileSync(tokenCssPath, "utf8");
+const names = extractTokenNames(css);
+const tokenSet = new Set(names);
+const manifest = JSON.parse(fs.readFileSync(tokenManifestPath, "utf8"));
+const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
+const colorsDoc = fs.existsSync(docsPath) ? fs.readFileSync(docsPath, "utf8") : "";
+
+const roles = {
+  brand: {
+    usage: "Sanofi brand/accent identity source. Do not use green as brand.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-semantic-background-brand$/,
+      /^--elements-color-semantic-background-brand-subtle$/,
+      /^--elements-color-semantic-text-brand/,
+      /^--elements-color-components-tag-branded/,
+      /^--elements-color-core-brand-base$/
+    ])
+  },
+  surface: {
+    usage: "Light HTML renderer page and component backgrounds. Use neutral/brand-subtle first; extracted default/subtle tokens resolve dark in the current bundle.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-semantic-background-neutral$/,
+      /^--elements-color-semantic-background-brand-subtle$/,
+      /^--elements-color-semantic-background-default$/,
+      /^--elements-color-semantic-background-subtle$/,
+      /^--elements-color-semantic-background-overlay/
+    ])
+  },
+  text: {
+    usage: "Readable content and labels on the light HTML renderer surface.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-semantic-text-default_inverse$/,
+      /^--elements-color-semantic-text-subtle_inverse$/,
+      /^--elements-color-semantic-text-default$/,
+      /^--elements-color-semantic-text-subtle/,
+      /^--elements-color-semantic-text-strong/,
+      /^--elements-color-semantic-text-inverse/,
+      /^--elements-color-semantic-text-accent/
+    ])
+  },
+  border: {
+    usage: "Component boundaries, separators, and focus outlines.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-semantic-border-default$/,
+      /^--elements-color-semantic-border-subtle/,
+      /^--elements-color-semantic-border-strong/,
+      /^--elements-color-components-divider-bg/
+    ])
+  },
+  primary_action: {
+    usage: "Primary calls to action and active affordances.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-semantic-accent-default$/,
+      /^--elements-color-semantic-accent-hover$/,
+      /^--elements-color-semantic-accent-active$/,
+      /^--elements-color-semantic-text-accent-default$/,
+      /^--elements-color-components-button-bg-secondary/
+    ])
+  },
+  selected: {
+    usage: "Selected states, active tabs, focused navigation.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-semantic-accent-active$/,
+      /^--elements-color-semantic-accent-focus$/,
+      /^--elements-color-semantic-background-brand-subtle$/,
+      /^--elements-color-semantic-border-brand/
+    ])
+  },
+  status_success: {
+    usage: "Successful, completed, healthy status only.",
+    allowed_tokens: findTokens(names, [
+      /success/,
+      /semantic_green/
+    ])
+  },
+  status_warning: {
+    usage: "Warning or attention status only.",
+    allowed_tokens: findTokens(names, [
+      /alert/,
+      /warning/,
+      /semantic_orange/,
+      /yellow/
+    ])
+  },
+  status_error: {
+    usage: "Error, destructive, overdue, or invalid status only.",
+    allowed_tokens: findTokens(names, [
+      /error/,
+      /semantic_red/,
+      /red/
+    ])
+  },
+  data_visualization: {
+    usage: "Charts and explicit data series. Prefer purple/blue for primary data; green only when explicitly labeled.",
+    allowed_tokens: findTokens(names, [
+      /^--elements-color-data-sequential-purple/,
+      /^--elements-color-data-sequential-blue/,
+      /^--elements-color-data-categorical/,
+      /^--elements-color-data-diverging-purple-green/
+    ], 20)
+  }
+};
+
+const missingRoles = schema.required_roles.filter(
+  (role) => !roles[role] || !roles[role].allowed_tokens.length
+);
+const unknownTokens = Object.values(roles)
+  .flatMap((role) => role.allowed_tokens)
+  .filter((token) => !tokenSet.has(token));
+
+const semanticMap = {
+  schema_version: schema.schema_version,
+  id: "semantic-token-map",
+  generated_at: new Date().toISOString(),
+  source: {
+    token_manifest: rel(tokenManifestPath),
+    tokens_css: rel(tokenCssPath),
+    colors_doc: rel(docsPath),
+    primary_docs_entry: manifest.source.primary_docs_entry,
+    storybook_version_observed: manifest.source.storybook_version_observed
+  },
+  policy: {
+    renderer_target: "html",
+    html_must_reference_tokens: true,
+    blocked_raw_values: manifest.usage_contract.blocked_raw_values,
+    direct_core_color_refs_in_generated_html: "blocked",
+    green_usage: "success/status only, or explicitly labeled data series; never primary brand/accent",
+    colors_doc_mentions_brand: /Sanofi Miracle Purple|Miracle Purple|brand/i.test(colorsDoc)
+  },
+  roles
+};
+
+fs.writeFileSync(outputPath, JSON.stringify(semanticMap, null, 2) + "\n");
+
+const failures = [];
+if (missingRoles.length) failures.push(`missing token roles: ${missingRoles.join(", ")}`);
+if (unknownTokens.length) failures.push(`unknown token refs: ${unknownTokens.join(", ")}`);
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "build-semantic-token-map",
+  generated_at: semanticMap.generated_at,
+  checked: {
+    total_token_names: names.length,
+    required_roles: schema.required_roles.length,
+    missing_roles: missingRoles.length,
+    unknown_tokens: unknownTokens.length
+  },
+  failures,
+  output: {
+    semantic_token_map: rel(outputPath)
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Semantic token map failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Semantic token map OK: ${Object.keys(roles).length} roles`);

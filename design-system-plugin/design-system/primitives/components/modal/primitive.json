@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Modal",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Modal",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "modal",
+      "data_attribute": "data-primitive=\"modal\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-modal--customisation",
+      "components-modal--default",
+      "components-modal--non-dismissible-modal",
+      "components-modal--with-icon"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

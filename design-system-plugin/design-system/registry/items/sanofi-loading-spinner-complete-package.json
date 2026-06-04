@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-loading-spinner-complete-package",
+  "title": "LoadingSpinner complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local LoadingSpinner package covering Docs plus all Storybook story atoms.",
+  "component_id": "loading-spinner",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-loading-spinner"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/loading-spinner.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/loading-spinner.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/loading-spinner.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/loading-spinner.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/docs/loading-spinner.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/docs/loading-spinner.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/loading-spinner/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/loading-spinner-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/loading-spinner-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/loading-spinner/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/loading-spinner/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-loadingspinner--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-loadingspinner--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 2,
+    "materialized_stories": 2,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-loadingspinner--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-loading-spinner-default-atomic-story"
+    },
+    {
+      "story_id": "components-loadingspinner--sanofi-dot",
+      "story_name": "Sanofi Dot",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-loading-spinner-sanofi-dot-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-loadingspinner--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/loading-spinner/loading-spinner.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/loading-spinner/docs/loading-spinner.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/loading-spinner/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "loading-spinner",
+      "LoadingSpinner",
+      "loading-spinner complete",
+      "LoadingSpinner complete package",
+      "loading-spinner docs"
+    ],
+    "when_to_use": "Use first for any LoadingSpinner generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer LoadingSpinner behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

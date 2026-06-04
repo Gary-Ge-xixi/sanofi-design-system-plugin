@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card-sections",
+  "component_name": "Card/Sections",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-card-sections--default",
+      "story_name": "Default",
+      "component_id": "card-sections",
+      "component_name": "Card/Sections",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/card-sections/stories/components-card-sections--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/card-sections/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/card-sections-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/card-sections/assets/CardSection.stories-q14VGGHH.js",
+      "docs_id": "components-card-sections--docs",
+      "registry_item": "sanofi-card-sections-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-sections--docs"
+  }
+}

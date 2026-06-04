@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-sidebar",
+  "title": "Sidebar primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Sidebar.",
+  "status": "storybook-backed-static-contract",
+  "component_id": "sidebar",
+  "docs_id": "components-sidebar--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/sidebar/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/sidebar/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/sidebar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-sidebar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-sidebar--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 7,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "sidebar",
+      "Sidebar",
+      "Sidebar"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Sidebar primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

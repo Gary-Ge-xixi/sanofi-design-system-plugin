@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Chip (Deprecated)",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-chip-deprecated--active",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--clickable",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--deletable",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--icon-and-deletable",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chip-deprecated--sizes",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

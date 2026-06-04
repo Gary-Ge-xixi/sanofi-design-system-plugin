@@ -1,0 +1,343 @@
+{
+  "schema_version": "0.1.0",
+  "id": "hero-complete-standard-package",
+  "component_id": "hero",
+  "component_name": "Hero",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 14,
+    "materialized_stories": 14,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-hero--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/hero/docs/hero.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-hero--content-after-hero",
+      "story_name": "Content After Hero",
+      "export_name": "ContentAfterHero",
+      "semantic_type": "variant",
+      "variant": "content-after-hero",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--content-after-hero.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-content-after-hero.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--full-screen",
+      "story_name": "Full Screen",
+      "export_name": "FullScreen",
+      "semantic_type": "variant",
+      "variant": "full-screen",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--full-screen.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-full-screen.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--full-screen-with-navigation-header",
+      "story_name": "Full Screen With Navigation Header",
+      "export_name": "FullScreenWithNavigationHeader",
+      "semantic_type": "variant",
+      "variant": "full-screen-with-navigation-header",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--full-screen-with-navigation-header.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-full-screen-with-navigation-header.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--full-screen-with-video",
+      "story_name": "Full Screen With Video",
+      "export_name": "FullScreenWithVideo",
+      "semantic_type": "variant",
+      "variant": "full-screen-with-video",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--full-screen-with-video.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-full-screen-with-video.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--justify-center",
+      "story_name": "Justify Center",
+      "export_name": "JustifyCenter",
+      "semantic_type": "variant",
+      "variant": "justify-center",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--justify-center.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-justify-center.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--justify-end",
+      "story_name": "Justify End",
+      "export_name": "JustifyEnd",
+      "semantic_type": "variant",
+      "variant": "justify-end",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--justify-end.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-justify-end.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--overlay-black-style",
+      "story_name": "Overlay Black Style",
+      "export_name": "OverlayBlackStyle",
+      "semantic_type": "variant",
+      "variant": "overlay-black-style",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--overlay-black-style.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-overlay-black-style.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--overlay-white-style",
+      "story_name": "Overlay White Style",
+      "export_name": "OverlayWhiteStyle",
+      "semantic_type": "variant",
+      "variant": "overlay-white-style",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--overlay-white-style.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-overlay-white-style.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--responsive-images-with-picture",
+      "story_name": "Responsive Images With Picture",
+      "export_name": "ResponsiveImagesWithPicture",
+      "semantic_type": "variant",
+      "variant": "responsive-images-with-picture",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--responsive-images-with-picture.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-responsive-images-with-picture.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--variant-compact",
+      "story_name": "Variant Compact",
+      "export_name": "VariantCompact",
+      "semantic_type": "variant",
+      "variant": "variant-compact",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--variant-compact.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-compact.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--variant-dynamic",
+      "story_name": "Variant Dynamic",
+      "export_name": "VariantDynamic",
+      "semantic_type": "variant",
+      "variant": "variant-dynamic",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--variant-dynamic.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-dynamic.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--with-video",
+      "story_name": "With Video",
+      "export_name": "WithVideo",
+      "semantic_type": "variant",
+      "variant": "with-video",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--with-video.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-with-video.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-hero--with-video-hls",
+      "story_name": "With Video HLS",
+      "export_name": "WithVideoHLS",
+      "semantic_type": "variant",
+      "variant": "with-video-hls",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--with-video-hls.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/hero-with-video-hls.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-hero--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/hero/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/hero/hero.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/hero-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-hero--content-after-hero",
+        "output_path": "design-system-plugin/outputs/html/hero-content-after-hero.atomic.html"
+      },
+      {
+        "story_id": "components-hero--default",
+        "output_path": "design-system-plugin/outputs/html/hero-default.atomic.html"
+      },
+      {
+        "story_id": "components-hero--full-screen",
+        "output_path": "design-system-plugin/outputs/html/hero-full-screen.atomic.html"
+      },
+      {
+        "story_id": "components-hero--full-screen-with-navigation-header",
+        "output_path": "design-system-plugin/outputs/html/hero-full-screen-with-navigation-header.atomic.html"
+      },
+      {
+        "story_id": "components-hero--full-screen-with-video",
+        "output_path": "design-system-plugin/outputs/html/hero-full-screen-with-video.atomic.html"
+      },
+      {
+        "story_id": "components-hero--justify-center",
+        "output_path": "design-system-plugin/outputs/html/hero-justify-center.atomic.html"
+      },
+      {
+        "story_id": "components-hero--justify-end",
+        "output_path": "design-system-plugin/outputs/html/hero-justify-end.atomic.html"
+      },
+      {
+        "story_id": "components-hero--overlay-black-style",
+        "output_path": "design-system-plugin/outputs/html/hero-overlay-black-style.atomic.html"
+      },
+      {
+        "story_id": "components-hero--overlay-white-style",
+        "output_path": "design-system-plugin/outputs/html/hero-overlay-white-style.atomic.html"
+      },
+      {
+        "story_id": "components-hero--responsive-images-with-picture",
+        "output_path": "design-system-plugin/outputs/html/hero-responsive-images-with-picture.atomic.html"
+      },
+      {
+        "story_id": "components-hero--variant-compact",
+        "output_path": "design-system-plugin/outputs/html/hero-compact.atomic.html"
+      },
+      {
+        "story_id": "components-hero--variant-dynamic",
+        "output_path": "design-system-plugin/outputs/html/hero-dynamic.atomic.html"
+      },
+      {
+        "story_id": "components-hero--with-video",
+        "output_path": "design-system-plugin/outputs/html/hero-with-video.atomic.html"
+      },
+      {
+        "story_id": "components-hero--with-video-hls",
+        "output_path": "design-system-plugin/outputs/html/hero-with-video-hls.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-hero-complete-package.json",
+    "story_item_prefix": "sanofi-hero-"
+  },
+  "validation": {
+    "required_story_count": 14,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-hero--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/hero/hero.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/hero/docs/hero.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

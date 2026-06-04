@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "id": "avatar-avatar-group",
+  "canonical_name": "avatar-avatar-group",
+  "component_name": "Avatar/AvatarGroup",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-avatar-avatargroup--docs",
+    "title": "Avatar/AvatarGroup",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar-avatargroup--docs",
+    "import_path": "./src/components/AvatarGroup/AvatarGroup.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-avatar-avatargroup--avatar-group-two-items",
+      "components-avatar-avatargroup--avatar-group-with-counter",
+      "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "components-avatar-avatargroup--avatar-group-without-counter"
+    ],
+    "records": [
+      {
+        "id": "components-avatar-avatargroup--avatar-group-two-items",
+        "name": "Avatar Group Two Items",
+        "normalized_name": "avatar-group-two-items",
+        "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx",
+        "export_name": "AvatarGroupTwoItems"
+      },
+      {
+        "id": "components-avatar-avatargroup--avatar-group-with-counter",
+        "name": "Avatar Group With Counter",
+        "normalized_name": "avatar-group-with-counter",
+        "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx",
+        "export_name": "AvatarGroupWithCounter"
+      },
+      {
+        "id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+        "name": "Avatar Group With Tooltips",
+        "normalized_name": "avatar-group-with-tooltips",
+        "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx",
+        "export_name": "AvatarGroupWithTooltips"
+      },
+      {
+        "id": "components-avatar-avatargroup--avatar-group-without-counter",
+        "name": "Avatar Group Without Counter",
+        "normalized_name": "avatar-group-without-counter",
+        "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx",
+        "export_name": "AvatarGroupWithoutCounter"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Avatar components to display.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "avatarSize",
+        "required": true,
+        "description": "Avatar size\"x-small\"\"small\"\"medium\"\"large\"\"x-large\"\"xx-large\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "avatar-group-two-items",
+      "avatar-group-with-counter",
+      "avatar-group-with-tooltips",
+      "avatar-group-without-counter"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "avatar-group-two-items",
+      "avatar-group-with-counter",
+      "avatar-group-with-tooltips",
+      "avatar-group-without-counter"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Avatar, AvatarGroup, AvatarSize } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<AvatarGroup avatarSize={AvatarSize.XLARGE}> // All the children avatars will be of size XLARGE\n  <Avatar\n    image=\"https://cdn.prod.accelerator.sanofi/elements/images/Marie-Curie-avatar.jpeg\"\n    name=\"Marie Curie\" />\n  <Avatar\n    name=\"John Doe\" />\n</AvatarGroup>\n);",
+      "import { Avatar, AvatarGroup, AvatarSize } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<AvatarGroup avatarSize={AvatarSize.XLARGE}>\n  <Avatar name=\"Marie Curie\" />\n  <Avatar name=\"Alan Turing\" />\n  <Avatar name=\"Rosalind Franklin\" />\n  <Avatar name=\"Nikola Tesla\" />\n  <Avatar name=\"Ada Lovelace\" />\n  <Avatar name=\"Albert Einstein\" />\n  <Avatar name=\"Grace Hopper\" />\n</AvatarGroup>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "avatar-avatar-group"
+    ],
+    "contracts": [
+      {
+        "id": "avatar-avatar-group",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/demo.registry.json",
+        "known_story_ids": [
+          "components-avatar-avatargroup--avatar-group-two-items",
+          "components-avatar-avatargroup--avatar-group-with-counter",
+          "components-avatar-avatargroup--avatar-group-with-tooltips",
+          "components-avatar-avatargroup--avatar-group-without-counter",
+          "components-avatar-avatargroup--avatar-group-two-items",
+          "components-avatar-avatargroup--avatar-group-with-counter",
+          "components-avatar-avatargroup--avatar-group-with-tooltips",
+          "components-avatar-avatargroup--avatar-group-without-counter"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar-avatargroup--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+    "docs_import_path": "./src/components/AvatarGroup/AvatarGroup.mdx",
+    "story_ids": [
+      "components-avatar-avatargroup--avatar-group-two-items",
+      "components-avatar-avatargroup--avatar-group-with-counter",
+      "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "components-avatar-avatargroup--avatar-group-without-counter"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

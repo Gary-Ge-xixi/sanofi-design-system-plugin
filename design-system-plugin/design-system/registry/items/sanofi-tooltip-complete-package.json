@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tooltip-complete-package",
+  "title": "Tooltip complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Tooltip package covering Docs plus all Storybook story atoms.",
+  "component_id": "tooltip",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tooltip"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/tooltip.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/tooltip.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/tooltip.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/tooltip.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/docs/tooltip.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/docs/tooltip.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/tooltip-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/tooltip-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tooltip.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 8,
+    "materialized_stories": 8,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-tooltip--auto-placement",
+      "story_name": "Auto Placement",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-auto-placement-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-default-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--inline",
+      "story_name": "Inline",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-inline-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--max-width",
+      "story_name": "Max Width",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-max-width-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--overflowing",
+      "story_name": "Overflowing",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-overflowing-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--placement",
+      "story_name": "Placement",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-placement-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--with-icon",
+      "story_name": "With Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-with-icon-atomic-story"
+    },
+    {
+      "story_id": "components-tooltip--within-list",
+      "story_name": "Within List",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tooltip-within-list-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tooltip/tooltip.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tooltip/docs/tooltip.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tooltip",
+      "Tooltip",
+      "tooltip complete",
+      "Tooltip complete package",
+      "tooltip docs"
+    ],
+    "when_to_use": "Use first for any Tooltip generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Tooltip behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

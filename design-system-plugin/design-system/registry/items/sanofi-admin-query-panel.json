@@ -1,0 +1,204 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-admin-query-panel",
+  "title": "OneCommercial admin query and fill panel",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "A local OneCommercial-style backend query/fill page pattern for CDC inventory data-entry tables.",
+  "pattern_id": "admin-query-panel",
+  "template_id": "onecommercial-admin-query-panel",
+  "page_subtype": "data-entry-table-page",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-container",
+    "sanofi-grid",
+    "sanofi-navigation-header",
+    "sanofi-sidebar",
+    "sanofi-menu",
+    "sanofi-icon",
+    "sanofi-select",
+    "sanofi-button",
+    "sanofi-text-input",
+    "sanofi-pagination",
+    "sanofi-search-input"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/patterns/admin-query-panel/admin-query-panel.pattern.json",
+      "role": "pattern",
+      "target": "design-system-plugin/design-system/patterns/admin-query-panel/admin-query-panel.pattern.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/templates/onecommercial-admin-query-panel.template.json",
+      "role": "template",
+      "target": "design-system-plugin/design-system/templates/onecommercial-admin-query-panel.template.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+      "role": "page-profile",
+      "target": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json",
+      "role": "latest-resolver-output",
+      "target": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/layout-grid-container.json",
+      "role": "layout-rule",
+      "target": "design-system-plugin/design-system/rules/layout-grid-container.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/typography-font-stack.json",
+      "role": "typography-rule",
+      "target": "design-system-plugin/design-system/rules/typography-font-stack.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/admin-template-navigation.json",
+      "role": "template-navigation-rule",
+      "target": "design-system-plugin/design-system/rules/admin-template-navigation.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/admin-query-panel-template.json",
+      "role": "template-rule",
+      "target": "design-system-plugin/design-system/rules/admin-query-panel-template.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/admin-density.json",
+      "role": "density-rule",
+      "target": "design-system-plugin/design-system/rules/admin-density.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/reference-fit/admin-data-entry-table.rules.json",
+      "role": "reference-fit-rule",
+      "target": "design-system-plugin/design-system/reference-fit/admin-data-entry-table.rules.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/admin-query-panel.resolved.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "role": "fallback-policy",
+      "target": "design-system-plugin/design-system/policies/fallback-policy.json"
+    }
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "select",
+    "button",
+    "text-input",
+    "pagination"
+  ],
+  "optional_primitives": [
+    "search-input"
+  ],
+  "required_rules": [
+    "layout-grid-container",
+    "typography-font-stack",
+    "admin-template-navigation",
+    "admin-query-panel-template",
+    "admin-density",
+    "admin-data-entry-table-reference-fit"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "allowed_markup": [
+        "table"
+      ],
+      "must_not_claim_primitive": true
+    }
+  ],
+  "resolver": {
+    "script": "design-system-plugin/scripts/resolve-pattern",
+    "input": "business prompt",
+    "output": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json"
+  },
+  "renderer": {
+    "script": "design-system-plugin/scripts/render-resolved-html",
+    "target": "html",
+    "output": "design-system-plugin/outputs/html/admin-query-panel.resolved.html"
+  },
+  "source_provenance": {
+    "pattern_id": "admin-query-panel",
+    "template_id": "onecommercial-admin-query-panel",
+    "docs_ids": [
+      "foundations-layout--docs",
+      "foundations-typography--docs",
+      "components-container--docs",
+      "components-grid--docs",
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs",
+      "components-select--docs",
+      "components-button--docs",
+      "components-textinput--docs",
+      "components-pagination--docs"
+    ],
+    "story_ids": [
+      "components-container--fixed",
+      "components-grid--desktop",
+      "components-navigationheader--default",
+      "components-sidebar--default",
+      "components-menu--default",
+      "components-icon--gallery",
+      "components-select--default",
+      "components-button--primary",
+      "components-textinput--default",
+      "components-pagination--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "layout_rule": "layout-grid-container",
+    "layout_source": "foundations-layout--docs",
+    "page_profile": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+    "page_module_contracts": [
+      "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json",
+      "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+    ],
+    "density_rule": "design-system-plugin/design-system/rules/admin-density.json",
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/admin-data-entry-table.rules.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "OneCommercial",
+      "onecommercial",
+      "CDC",
+      "cdc",
+      "库存",
+      "查询",
+      "填报",
+      "筛选",
+      "数据填报",
+      "库存填报",
+      "CDC库存填报",
+      "CDC库存查询",
+      "后台表格",
+      "editable table",
+      "query panel"
+    ],
+    "when_to_use": "Use when a prompt asks for a OneCommercial CDC inventory query/fill backend, data-entry table page, or filterable admin table.",
+    "unsupported_behavior": "Table must stay a token-only fallback until an official Elements Table primitive is registered. Do not add dashboard KPI or chart sections."
+  }
+}

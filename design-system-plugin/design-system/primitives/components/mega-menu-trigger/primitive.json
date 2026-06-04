@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "MegaMenu/Trigger",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/MegaMenu/Trigger",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "mega-menu-trigger",
+      "data_attribute": "data-primitive=\"mega-menu-trigger\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-megamenu-trigger--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu-trigger--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

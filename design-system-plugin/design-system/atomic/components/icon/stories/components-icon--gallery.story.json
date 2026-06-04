@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-icon--gallery",
+  "component_id": "icon",
+  "component_name": "Icon",
+  "story_id": "components-icon--gallery",
+  "story_name": "Gallery",
+  "export_name": "Gallery",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-icon--gallery&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-icon--gallery&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Icon.stories-Bd2tiqR6.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/icon/assets/components-icon--gallery.iframe.html",
+    "import_path": "./src/components/Icon/Icon.stories.tsx",
+    "component_path": "./src/components/Icon/Icon.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{inverse:{control:\"boolean\",description:\"The inverse color icon\"},name:{control:\"select\",options:Object.values(g),description:\"The icon name\"},filled:{control:\"boolean\",description:\"Should the icon be filled\"},size:{control:{type:\"number\",min:.5,max:5,step:.5},description:\"The icon size in rem\"}}",
+    "fields": [
+      "inverse",
+      "name",
+      "filled",
+      "size"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: () => <IconGallery metadata={filteredMetadata} iconsPerPage={50} />,\n  parameters: {\n    layout: \"fullscreen\",\n    docs: {\n      story: {\n        height: \"800px\"\n      }\n    }\n  },\n  decorators: [Story => <div style={{\n    padding: \"1rem\"\n  }}>\n        <Story />\n      </div>]\n}",
+    "story_object_source": "{render:()=>e.jsx(H,{metadata:pe,iconsPerPage:50}),parameters:{layout:\"fullscreen\",docs:{story:{height:\"800px\"}}},decorators:[a=>e.jsx(\"div\",{style:{padding:\"1rem\"},children:e.jsx(a,{})})]}"
+  },
+  "template": {
+    "id": "icon-gallery-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/icon/templates/html.gallery.template.html",
+    "output_path": "design-system-plugin/outputs/html/icon-gallery.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "icon",
+    "local_path": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "story_id": "components-icon--gallery",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/icon/assets/components-icon--gallery.iframe.html"
+  }
+}

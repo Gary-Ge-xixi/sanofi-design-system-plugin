@@ -1,0 +1,277 @@
+{
+  "schema_version": "0.1.0",
+  "captured_at": "2026-06-02",
+  "purpose": "Map the TCM admin dashboard demo only against the previously captured Zeroheight Elements documentation catalog from elements.sanofidesign.com.",
+  "source": {
+    "catalog": "research/components/component-catalog.json",
+    "site": "https://elements.sanofidesign.com/557b0250b",
+    "access_note": "Direct automated access to the live private page currently lands on 'This page is private' outside the user's incognito SSO session, so this map uses the earlier captured Zeroheight catalog."
+  },
+  "usable_zeroheight_components": [
+    {
+      "dashboard_use": "top navigation / global header",
+      "component": "Navigation Header",
+      "uid": "50aab3",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/50aab3-navigation-header/b/724123",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "medium",
+      "note": "Useful for app header patterns, but not a replacement for the left sidebar in the current admin demo."
+    },
+    {
+      "dashboard_use": "left navigation menu fallback",
+      "component": "Menu",
+      "uid": "793232",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/793232-menu/b/143cf9",
+      "tabs": [
+        "概述",
+        "行为",
+        "演示",
+        "写作"
+      ],
+      "fit": "medium",
+      "note": "Can support menu behavior and menu item semantics; a dedicated Sidebar page was not found in Zeroheight."
+    },
+    {
+      "dashboard_use": "content cards / queue items / KPI containers",
+      "component": "Card",
+      "uid": "45ffb4",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card/b/9395c7",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "strong",
+      "note": "Primary Zeroheight source for dashboard panels and queue cards."
+    },
+    {
+      "dashboard_use": "status labels / filter chips / risk indicators",
+      "component": "Chip",
+      "uid": "562b78",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip/b/21a918",
+      "tabs": [
+        "概述",
+        "全球行为",
+        "状态芯片",
+        "下拉芯片",
+        "滤片",
+        "选择芯片",
+        "全球可访问性",
+        "（待更新）演示",
+        "写作"
+      ],
+      "fit": "strong",
+      "note": "Zeroheight has specific Chip subpages for status, dropdown, filter, and select chips."
+    },
+    {
+      "dashboard_use": "primary actions",
+      "component": "Button",
+      "uid": "5835b1",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button/b/69f2ef",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "strong"
+    },
+    {
+      "dashboard_use": "search field",
+      "component": "Search Input",
+      "uid": "003577",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input/b/276f6e",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "strong"
+    },
+    {
+      "dashboard_use": "warehouse / organization filter",
+      "component": "Select",
+      "uid": "273182",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/273182-select",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/273182-select/b/45ba7a",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示"
+      ],
+      "fit": "strong"
+    },
+    {
+      "dashboard_use": "time range switcher / section switching",
+      "component": "Tabs",
+      "uid": "57fbae",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs/b/89fc3d",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "strong"
+    },
+    {
+      "dashboard_use": "table pagination support",
+      "component": "Pagination",
+      "uid": "73b124",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination/b/009874",
+      "tabs": [
+        "概述",
+        "行为",
+        "无障碍",
+        "演示"
+      ],
+      "fit": "supporting",
+      "note": "Useful only if the inventory table becomes paginated; it does not provide the table primitive."
+    },
+    {
+      "dashboard_use": "inline help / risk explanation",
+      "component": "Tooltip",
+      "uid": "26a137",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/26a137-tooltip/b/6906ea",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "supporting"
+    },
+    {
+      "dashboard_use": "loading state",
+      "component": "Loading Spinner",
+      "uid": "60a930",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/60a930-loading-spinner",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/60a930-loading-spinner/b/40d750",
+      "tabs": [
+        "概述",
+        "行为",
+        "演示"
+      ],
+      "fit": "supporting"
+    },
+    {
+      "dashboard_use": "navigation hierarchy / breadcrumb fallback",
+      "component": "Breadcrumb",
+      "uid": "560a8d",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/560a8d-breadcrumb/b/869378",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "演示",
+        "写作"
+      ],
+      "fit": "supporting"
+    },
+    {
+      "dashboard_use": "section separation",
+      "component": "Divider",
+      "uid": "87fff2",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider",
+      "demo_url": "https://elements.sanofidesign.com/557b0250b/p/87fff2-divider/b/9160e5",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "演示"
+      ],
+      "fit": "supporting"
+    }
+  ],
+  "zeroheight_found_but_no_demo_tab": [
+    {
+      "component": "Page Header",
+      "uid": "17e644",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "写作"
+      ],
+      "dashboard_use": "page title and intro",
+      "note": "Useful documentation page, but no visible Demo tab in the captured Zeroheight catalog."
+    },
+    {
+      "component": "Avatar",
+      "uid": "2050c2",
+      "page_url": "https://elements.sanofidesign.com/557b0250b/p/2050c2-avatar",
+      "tabs": [
+        "概述",
+        "行为",
+        "最佳实践",
+        "无障碍",
+        "如何添加图片？"
+      ],
+      "dashboard_use": "user profile indicator",
+      "note": "No visible Demo tab in the captured Zeroheight catalog."
+    }
+  ],
+  "not_found_in_zeroheight_catalog": [
+    "Sidebar",
+    "ProgressBar",
+    "Tag",
+    "Table",
+    "Data Table",
+    "Metric Card",
+    "Chart",
+    "Dashboard",
+    "Grid",
+    "Flex",
+    "Container",
+    "Typography"
+  ],
+  "dashboard_rebuild_guidance": {
+    "zeroheight_only_version": [
+      "Use Navigation Header or Menu for navigation rather than Sidebar.",
+      "Use Card plus Chip for metrics and queues.",
+      "Use Search Input, Select, Button, and Tabs for topbar controls.",
+      "Use native semantic table with Elements tokens because no table primitive was found.",
+      "Use token-only chart patterns because no chart primitive was found.",
+      "Avoid claiming ProgressBar is Zeroheight-backed unless it is captured from Storybook separately."
+    ],
+    "with_storybook_supplement": [
+      "Sidebar and ProgressBar can be added from Storybook-backed sources.",
+      "Tag, Grid, Flex, Container, and Typography can be added from Storybook-backed sources.",
+      "Metric Card, Table, Chart, and Dashboard still remain pattern-level or custom token-only modules."
+    ]
+  }
+}

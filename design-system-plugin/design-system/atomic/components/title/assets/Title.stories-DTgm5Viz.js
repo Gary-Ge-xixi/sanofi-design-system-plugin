@@ -1,0 +1,3 @@
+import{j as o}from"./iframe-DU6-gHk6.js";import{T as t}from"./Title-CJ2vhDvM.js";const r={component:t,title:"Components/MegaMenu/Title",tags:["isHidden"],parameters:{chromatic:{disableSnapshot:!0}},argTypes:{as:{description:"Render as another component"},disabled:{description:"Activate `disabled` style.",control:"boolean"},isLink:{description:"Add css styles to the component",control:"boolean"}}},e={render:()=>o.jsx(t,{children:"Title"})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  render: () => <Title>Title</Title>
+}`,...e.parameters?.docs?.source}}};const s=["Default"],i=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:s,default:r},Symbol.toStringTag,{value:"Module"}));export{i as T};

@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card",
+  "component_name": "Card",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Card"
+  },
+  "docs": [
+    {
+      "id": "components-card--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Card/Card.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-card--card-custom-number",
+      "name": "Card Custom Number",
+      "export_name": "CardCustomNumber",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-custom-picto",
+      "name": "Card Custom Picto",
+      "export_name": "CardCustomPicto",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-image",
+      "name": "Card Image",
+      "export_name": "CardImage",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-image-clickable",
+      "name": "Card Image Clickable",
+      "export_name": "CardImageClickable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-imageshow-full-content",
+      "name": "Card Imageshow Full Content",
+      "export_name": "CardImageshowFullContent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-video",
+      "name": "Card Video",
+      "export_name": "CardVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--learning-module",
+      "name": "Learning Module",
+      "export_name": "LearningModule",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-center-content-view",
+      "name": "List Center Content View",
+      "export_name": "ListCenterContentView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-date-view",
+      "name": "List Date View",
+      "export_name": "ListDateView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-density-view",
+      "name": "List Density View",
+      "export_name": "ListDensityView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-image-ratio-view",
+      "name": "List Image Ratio View",
+      "export_name": "ListImageRatioView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-image-view",
+      "name": "List Image View",
+      "export_name": "ListImageView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-picto-view",
+      "name": "List Picto View",
+      "export_name": "ListPictoView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    }
+  ]
+}

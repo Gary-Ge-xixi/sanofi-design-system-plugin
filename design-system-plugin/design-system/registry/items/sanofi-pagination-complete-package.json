@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-pagination-complete-package",
+  "title": "Pagination complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Pagination package covering Docs plus all Storybook story atoms.",
+  "component_id": "pagination",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-pagination"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/pagination/pagination.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/pagination/pagination.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/pagination/pagination.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/pagination/pagination.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/pagination/docs/pagination.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/pagination/docs/pagination.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/pagination/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/pagination/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/pagination-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/pagination-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/pagination.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/pagination/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-pagination--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-pagination--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-pagination--compact",
+      "story_name": "Compact",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-compact-atomic-story"
+    },
+    {
+      "story_id": "components-pagination--compact-with-first-and-last-buttons",
+      "story_name": "Compact With First And Last Buttons",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-compact-with-first-and-last-buttons-atomic-story"
+    },
+    {
+      "story_id": "components-pagination--compact-with-input",
+      "story_name": "Compact With Input",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-compact-with-input-atomic-story"
+    },
+    {
+      "story_id": "components-pagination--compact-with-input-and-first-last-buttons",
+      "story_name": "Compact With Input And First Last Buttons",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-compact-with-input-and-first-last-buttons-atomic-story"
+    },
+    {
+      "story_id": "components-pagination--controlled",
+      "story_name": "Controlled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-controlled-atomic-story"
+    },
+    {
+      "story_id": "components-pagination--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-default-atomic-story"
+    },
+    {
+      "story_id": "components-pagination--mobile",
+      "story_name": "Mobile",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-pagination-mobile-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-pagination--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/pagination/pagination.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/pagination/docs/pagination.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "pagination",
+      "Pagination",
+      "pagination complete",
+      "Pagination complete package",
+      "pagination docs"
+    ],
+    "when_to_use": "Use first for any Pagination generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Pagination behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tabs-complete-standard-package",
+  "component_id": "tabs",
+  "component_name": "Tabs",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-tabs--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/tabs/docs/tabs.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-tabs--controlled",
+      "story_name": "Controlled",
+      "export_name": "Controlled",
+      "semantic_type": "variant",
+      "variant": "controlled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--controlled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-controlled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--default-selected-tab",
+      "story_name": "Default Selected Tab",
+      "export_name": "DefaultSelectedTab",
+      "semantic_type": "variant",
+      "variant": "default-selected-tab",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--default-selected-tab.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-default-selected-tab.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--full-width",
+      "story_name": "Full Width",
+      "export_name": "FullWidth",
+      "semantic_type": "variant",
+      "variant": "full-width",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--full-width.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-full-width.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--lazy-mount",
+      "story_name": "Lazy Mount",
+      "export_name": "LazyMount",
+      "semantic_type": "variant",
+      "variant": "lazy-mount",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--lazy-mount.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-lazy-mount.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--lazy-mount-with-unmount",
+      "story_name": "Lazy Mount With Unmount",
+      "export_name": "LazyMountWithUnmount",
+      "semantic_type": "variant",
+      "variant": "lazy-mount-with-unmount",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--lazy-mount-with-unmount.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-lazy-mount-with-unmount.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--uncontrolled",
+      "story_name": "Uncontrolled",
+      "export_name": "Uncontrolled",
+      "semantic_type": "variant",
+      "variant": "uncontrolled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--uncontrolled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-uncontrolled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--with-nav",
+      "story_name": "With Nav",
+      "export_name": "WithNav",
+      "semantic_type": "variant",
+      "variant": "with-nav",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--with-nav.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-with-nav.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tabs--with-nav-in-resizable-panel",
+      "story_name": "With Nav In Resizable Panel",
+      "export_name": "WithNavInResizablePanel",
+      "semantic_type": "variant",
+      "variant": "with-nav-in-resizable-panel",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tabs/stories/components-tabs--with-nav-in-resizable-panel.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tabs-with-nav-in-resizable-panel.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tabs--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/tabs/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/tabs/tabs.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/tabs-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-tabs--controlled",
+        "output_path": "design-system-plugin/outputs/html/tabs-controlled.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--default",
+        "output_path": "design-system-plugin/outputs/html/tabs-default.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--default-selected-tab",
+        "output_path": "design-system-plugin/outputs/html/tabs-default-selected-tab.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--full-width",
+        "output_path": "design-system-plugin/outputs/html/tabs-full-width.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--lazy-mount",
+        "output_path": "design-system-plugin/outputs/html/tabs-lazy-mount.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--lazy-mount-with-unmount",
+        "output_path": "design-system-plugin/outputs/html/tabs-lazy-mount-with-unmount.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--uncontrolled",
+        "output_path": "design-system-plugin/outputs/html/tabs-uncontrolled.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--with-nav",
+        "output_path": "design-system-plugin/outputs/html/tabs-with-nav.atomic.html"
+      },
+      {
+        "story_id": "components-tabs--with-nav-in-resizable-panel",
+        "output_path": "design-system-plugin/outputs/html/tabs-with-nav-in-resizable-panel.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-tabs-complete-package.json",
+    "story_item_prefix": "sanofi-tabs-"
+  },
+  "validation": {
+    "required_story_count": 9,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tabs/tabs.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tabs/docs/tabs.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

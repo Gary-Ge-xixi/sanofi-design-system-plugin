@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const mapPath = path.join(pluginRoot, "design-system", "contracts", "semantic-token-map.json");
+const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "semantic-token-map.schema.json");
+const tokenCssPath = path.join(pluginRoot, "design-system", "tokens", "tokens.css");
+const reportPath = path.join(reportDir, "semantic-token-map-validation.report.json");
+
+const failures = [];
+fs.mkdirSync(reportDir, { recursive: true });
+if (!fs.existsSync(mapPath)) failures.push("missing semantic-token-map.json");
+
+const map = fs.existsSync(mapPath) ? JSON.parse(fs.readFileSync(mapPath, "utf8")) : { roles: {} };
+const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
+const tokenNames = new Set([...fs.readFileSync(tokenCssPath, "utf8").matchAll(/(--elements-[A-Za-z0-9_-]+)\s*:/g)].map((m) => m[1]));
+
+const missingRoles = schema.required_roles.filter((role) => !map.roles?.[role]?.allowed_tokens?.length);
+if (missingRoles.length) failures.push(`missing roles: ${missingRoles.join(", ")}`);
+
+const unknownTokens = Object.values(map.roles || {})
+  .flatMap((role) => role.allowed_tokens || [])
+  .filter((token) => !tokenNames.has(token));
+if (unknownTokens.length) failures.push(`unknown tokens: ${unknownTokens.join(", ")}`);
+
+if (!/never primary/.test(map.policy?.green_usage || "")) failures.push("green usage policy must block primary brand/accent");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-semantic-token-map",
+  checked: {
+    roles: Object.keys(map.roles || {}).length,
+    missing_roles: missingRoles.length,
+    unknown_tokens: unknownTokens.length
+  },
+  failures
+};
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Semantic token map validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Semantic token map OK: ${Object.keys(map.roles || {}).length} roles`);

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Hero",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Hero",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "hero",
+      "data_attribute": "data-primitive=\"hero\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-hero--content-after-hero",
+      "components-hero--default",
+      "components-hero--full-screen",
+      "components-hero--full-screen-with-navigation-header",
+      "components-hero--full-screen-with-video",
+      "components-hero--justify-center",
+      "components-hero--justify-end",
+      "components-hero--overlay-black-style",
+      "components-hero--overlay-white-style",
+      "components-hero--responsive-images-with-picture",
+      "components-hero--variant-compact",
+      "components-hero--variant-dynamic",
+      "components-hero--with-video",
+      "components-hero--with-video-hls"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-hero--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

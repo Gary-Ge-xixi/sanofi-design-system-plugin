@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds report dashboard",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:11:27.772Z",
+  "dashboard": "design-system-plugin/outputs/reports/design-system-maintenance-dashboard.html",
+  "report_status_counts": {
+    "pass": 140,
+    "ready_to_write_complete": 92,
+    "complete_existing": 1,
+    "unsupported": 2,
+    "blocked": 1,
+    "fail": 1
+  },
+  "fallback_count": 7
+}

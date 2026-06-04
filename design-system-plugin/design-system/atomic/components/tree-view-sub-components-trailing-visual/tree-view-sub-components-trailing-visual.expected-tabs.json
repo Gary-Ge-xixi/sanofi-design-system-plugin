@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tree-view-sub-components-trailing-visual",
+  "component_name": "TreeView/SubComponents/TrailingVisual",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/TreeView/SubComponents/TrailingVisual"
+  },
+  "docs": [
+    {
+      "id": "components-treeview-subcomponents-trailingvisual--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/TreeView/TreeViewTrailingVisual.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-treeview-subcomponents-trailingvisual--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeViewTrailingVisual.stories.tsx"
+    }
+  ]
+}

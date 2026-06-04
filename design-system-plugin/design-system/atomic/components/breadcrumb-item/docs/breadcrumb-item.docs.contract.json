@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "id": "breadcrumb-item-docs-contract",
+  "component_id": "breadcrumb-item",
+  "component_name": "Breadcrumb.Item",
+  "docs_id": "components-breadcrumb-item--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb-item--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb-item--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "href",
+        "required": false,
+        "description": "URL for standard anchor links.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb-item--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-breadcrumb-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/item/BreadcrumbItem.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb-item--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json"
+  }
+}

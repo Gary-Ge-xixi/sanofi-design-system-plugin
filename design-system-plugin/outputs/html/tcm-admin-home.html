@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>中医药管理后台首页</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-core-neutral-50);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-family: var(--elements-font-family-sans), Arial, sans-serif;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .admin-shell {
+        display: grid;
+        grid-template-columns: 16rem 1fr;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-xl);
+        background: var(--elements-color-core-neutral-950);
+        color: var(--elements-color-core-neutral-white);
+      }
+
+      .brand {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .brand-title {
+        font-size: var(--elements-font-size-600);
+        font-weight: var(--elements-font-weight-bold);
+        line-height: var(--elements-font-lineheight-3);
+      }
+
+      .brand-meta {
+        color: var(--elements-color-core-neutral-300);
+        font-size: var(--elements-font-size-200);
+      }
+
+      .nav-group {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .nav-label {
+        color: var(--elements-color-core-neutral-300);
+        font-size: var(--elements-font-size-100);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .nav-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--elements-spacing-sm);
+        min-height: 2.75rem;
+        padding: var(--elements-spacing-sm) var(--elements-spacing-md);
+        border-radius: var(--elements-radius-md);
+        color: var(--elements-color-core-neutral-100);
+        text-decoration: none;
+      }
+
+      .nav-item[aria-current="page"] {
+        background: var(--elements-color-core-brand-lightest);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .nav-count {
+        min-width: 1.75rem;
+        padding: var(--elements-spacing-3xs) var(--elements-spacing-2xs);
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-core-data-red-200);
+        color: var(--elements-color-core-data-red-950);
+        text-align: center;
+        font-size: var(--elements-font-size-100);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .main-panel {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-width: 0;
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: minmax(18rem, 30rem) auto;
+        align-items: center;
+        gap: var(--elements-spacing-md);
+        padding: var(--elements-spacing-lg) var(--elements-spacing-2xl);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+        background: var(--elements-color-core-neutral-white);
+        min-width: 0;
+      }
+
+      .search-field {
+        width: 100%;
+        min-width: 0;
+        min-height: 2.75rem;
+        padding: 0 var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-core-neutral-white);
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: var(--elements-spacing-sm);
+        min-width: 0;
+      }
+
+      .select,
+      .action-button {
+        min-height: 2.75rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-core-neutral-white);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+
+      .select {
+        padding: 0 var(--elements-spacing-md);
+      }
+
+      .action-button {
+        padding: 0 var(--elements-spacing-lg);
+        background: var(--elements-color-core-data-green-700);
+        border-color: var(--elements-color-core-data-green-700);
+        color: var(--elements-color-core-neutral-white);
+        font-weight: var(--elements-font-weight-bold);
+        white-space: nowrap;
+      }
+
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+
+      .page-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: var(--elements-spacing-lg);
+      }
+
+      .heading-copy {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .eyebrow {
+        color: var(--elements-color-semantic-text-accent-default);
+        font-size: var(--elements-font-size-200);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: var(--elements-font-size-1000);
+        line-height: var(--elements-font-lineheight-5);
+      }
+
+      h2 {
+        font-size: var(--elements-font-size-500);
+        line-height: var(--elements-font-lineheight-3);
+      }
+
+      h3 {
+        font-size: var(--elements-font-size-300);
+        line-height: var(--elements-font-lineheight-3);
+      }
+
+      .muted {
+        color: var(--elements-color-core-neutral-600);
+        font-size: var(--elements-font-size-200);
+        line-height: var(--elements-font-lineheight-2);
+      }
+
+      .status-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--elements-spacing-md);
+      }
+
+      .metric-card,
+      .panel,
+      .queue-item {
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-core-neutral-white);
+      }
+
+      .metric-card {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        padding: var(--elements-spacing-lg);
+      }
+
+      .metric-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .metric-label {
+        color: var(--elements-color-core-neutral-600);
+        font-size: var(--elements-font-size-200);
+      }
+
+      .metric-value {
+        font-size: var(--elements-font-size-800);
+        line-height: var(--elements-font-lineheight-4);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 1.75rem;
+        padding: 0 var(--elements-spacing-sm);
+        border-radius: var(--elements-radius-rounded);
+        font-size: var(--elements-font-size-100);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .pill-success {
+        background: var(--elements-color-core-data-green-100);
+        color: var(--elements-color-core-data-green-900);
+      }
+
+      .pill-warning {
+        background: var(--elements-color-core-data-orange-100);
+        color: var(--elements-color-core-data-orange-900);
+      }
+
+      .pill-danger {
+        background: var(--elements-color-core-data-red-100);
+        color: var(--elements-color-core-data-red-900);
+      }
+
+      .pill-info {
+        background: var(--elements-color-core-data-blue-100);
+        color: var(--elements-color-core-data-blue-900);
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(22rem, 1fr);
+        gap: var(--elements-spacing-xl);
+        align-items: start;
+      }
+
+      .panel {
+        display: grid;
+        gap: var(--elements-spacing-lg);
+        padding: var(--elements-spacing-lg);
+      }
+
+      .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--elements-spacing-md);
+      }
+
+      .tabs {
+        display: flex;
+        gap: var(--elements-spacing-2xs);
+        padding: var(--elements-spacing-2xs);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-core-neutral-100);
+      }
+
+      .tab {
+        min-height: 2rem;
+        padding: 0 var(--elements-spacing-md);
+        border: 0;
+        border-radius: var(--elements-radius-sm);
+        background: transparent;
+        color: var(--elements-color-core-neutral-600);
+      }
+
+      .tab[aria-selected="true"] {
+        background: var(--elements-color-core-neutral-white);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .quality-board {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: var(--elements-spacing-sm);
+        min-height: 15rem;
+        align-items: end;
+        padding: var(--elements-spacing-md);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-core-neutral-50);
+      }
+
+      .bar-column {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+        align-items: end;
+        min-height: 12rem;
+      }
+
+      .bar {
+        min-height: calc(var(--bar-height) * 1rem);
+        border-radius: var(--elements-radius-sm) var(--elements-radius-sm) 0 0;
+        background: var(--elements-color-core-data-green-600);
+      }
+
+      .bar-column:nth-child(2) .bar,
+      .bar-column:nth-child(6) .bar {
+        background: var(--elements-color-core-data-orange-500);
+      }
+
+      .bar-label {
+        color: var(--elements-color-core-neutral-600);
+        text-align: center;
+        font-size: var(--elements-font-size-100);
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--elements-spacing-xl);
+      }
+
+      .table {
+        display: grid;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        overflow: hidden;
+      }
+
+      .table-row {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr 0.7fr 0.8fr;
+        gap: var(--elements-spacing-md);
+        align-items: center;
+        padding: var(--elements-spacing-md);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      .table-row:last-child {
+        border-bottom: 0;
+      }
+
+      .table-head {
+        background: var(--elements-color-core-neutral-50);
+        color: var(--elements-color-core-neutral-600);
+        font-size: var(--elements-font-size-100);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .queue-list {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .queue-item {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        padding: var(--elements-spacing-md);
+      }
+
+      .queue-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .progress {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .progress-track {
+        height: 0.5rem;
+        overflow: hidden;
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-core-neutral-100);
+      }
+
+      .progress-fill {
+        width: var(--progress);
+        height: 100%;
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-core-data-green-700);
+      }
+
+      .formula-list {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .formula-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: var(--elements-spacing-md);
+        align-items: center;
+        padding: var(--elements-spacing-md);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-core-neutral-50);
+      }
+
+      @media (max-width: 64rem) {
+        .admin-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+        }
+
+        .status-strip,
+        .dashboard-grid,
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar,
+        .page-heading {
+          align-items: stretch;
+        }
+
+        .topbar {
+          grid-template-columns: 1fr;
+        }
+
+        .top-actions {
+          flex-wrap: wrap;
+          justify-content: start;
+        }
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-template="standalone-html">
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="后台导航">
+        <div class="brand">
+          <div class="brand-title">本草云管家</div>
+          <div class="brand-meta">中医药运营管理后台</div>
+        </div>
+
+        <nav class="nav-group" aria-label="主导航">
+          <div class="nav-label">工作台</div>
+          <a class="nav-item" href="#" aria-current="page">首页总览 <span class="nav-count">12</span></a>
+          <a class="nav-item" href="#">处方审核 <span class="nav-count">8</span></a>
+          <a class="nav-item" href="#">药材库存</a>
+          <a class="nav-item" href="#">煎配工单</a>
+          <a class="nav-item" href="#">质检追溯</a>
+        </nav>
+
+        <nav class="nav-group" aria-label="配置导航">
+          <div class="nav-label">配置</div>
+          <a class="nav-item" href="#">药典规则</a>
+          <a class="nav-item" href="#">供应商档案</a>
+          <a class="nav-item" href="#">门店权限</a>
+        </nav>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <input class="search-field" type="search" aria-label="搜索" placeholder="搜索处方编号、药材批次、患者姓名">
+          <div class="top-actions">
+            <select class="select" aria-label="门店">
+              <option>华东总仓</option>
+              <option>上海静安门店</option>
+              <option>杭州湖滨门店</option>
+            </select>
+            <button class="action-button" type="button">新建煎配工单</button>
+          </div>
+        </header>
+
+        <main data-page-pattern="tcm-admin-dashboard">
+          <section class="page-heading" data-pattern="dashboard-heading">
+            <div class="heading-copy">
+              <p class="eyebrow">今日运营</p>
+              <h1>管理后台首页</h1>
+              <p class="muted">集中查看处方审核、药材库存、煎配进度和质检风险。</p>
+            </div>
+            <div class="tabs" role="tablist" aria-label="时间范围">
+              <button class="tab" type="button" role="tab">昨日</button>
+              <button class="tab" type="button" role="tab" aria-selected="true">今日</button>
+              <button class="tab" type="button" role="tab">本周</button>
+            </div>
+          </section>
+
+          <section class="status-strip" data-pattern="operations-metrics" aria-label="关键指标">
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-label">待审核处方</span>
+                <span class="pill pill-warning">需处理</span>
+              </div>
+              <div class="metric-value">128</div>
+              <p class="muted">高风险用药提醒 6 条</p>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-label">煎配中工单</span>
+                <span class="pill pill-info">运行中</span>
+              </div>
+              <div class="metric-value">342</div>
+              <p class="muted">平均完成时长 38 分钟</p>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-label">库存预警</span>
+                <span class="pill pill-danger">关注</span>
+              </div>
+              <div class="metric-value">19</div>
+              <p class="muted">近效期药材 7 个批次</p>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-label">质检通过率</span>
+                <span class="pill pill-success">稳定</span>
+              </div>
+              <div class="metric-value">96.8%</div>
+              <p class="muted">抽检异常 3 批次</p>
+            </article>
+          </section>
+
+          <section class="dashboard-grid">
+            <div class="panel" data-pattern="quality-trend">
+              <div class="panel-header">
+                <div>
+                  <h2>药材质检趋势</h2>
+                  <p class="muted">按近七日入库批次统计，橙色代表需复检批次。</p>
+                </div>
+                <span class="pill pill-success">批次通过率 96.8%</span>
+              </div>
+              <div class="quality-board" aria-label="近七日质检趋势">
+                <div class="bar-column" style="--bar-height: 8;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周三</div>
+                </div>
+                <div class="bar-column" style="--bar-height: 5;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周四</div>
+                </div>
+                <div class="bar-column" style="--bar-height: 9;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周五</div>
+                </div>
+                <div class="bar-column" style="--bar-height: 7;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周六</div>
+                </div>
+                <div class="bar-column" style="--bar-height: 10;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周日</div>
+                </div>
+                <div class="bar-column" style="--bar-height: 6;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周一</div>
+                </div>
+                <div class="bar-column" style="--bar-height: 11;">
+                  <div class="bar"></div>
+                  <div class="bar-label">周二</div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="panel" data-pattern="review-queue">
+              <div class="panel-header">
+                <div>
+                  <h2>待处理队列</h2>
+                  <p class="muted">按风险和超时状态排序。</p>
+                </div>
+              </div>
+              <div class="queue-list">
+                <article class="queue-item">
+                  <div class="queue-meta">
+                    <h3>处方审核超时</h3>
+                    <span class="pill pill-danger">8 单</span>
+                  </div>
+                  <p class="muted">含孕妇禁忌、儿童剂量和十八反提示。</p>
+                </article>
+                <article class="queue-item">
+                  <div class="queue-meta">
+                    <h3>供应商资质待复核</h3>
+                    <span class="pill pill-warning">5 家</span>
+                  </div>
+                  <p class="muted">两家供应商许可证将在本月到期。</p>
+                </article>
+                <article class="queue-item">
+                  <div class="queue-meta">
+                    <h3>煎配异常回写</h3>
+                    <span class="pill pill-info">11 条</span>
+                  </div>
+                  <p class="muted">主要集中在加水量和二煎时长偏差。</p>
+                </article>
+              </div>
+            </aside>
+          </section>
+
+          <section class="two-column">
+            <div class="panel" data-pattern="inventory-watch">
+              <div class="panel-header">
+                <div>
+                  <h2>重点药材库存</h2>
+                  <p class="muted">优先展示低库存、近效期和复检中药材。</p>
+                </div>
+              </div>
+              <div class="table" role="table" aria-label="重点药材库存">
+                <div class="table-row table-head" role="row">
+                  <div role="columnheader">药材</div>
+                  <div role="columnheader">批次</div>
+                  <div role="columnheader">库存</div>
+                  <div role="columnheader">状态</div>
+                </div>
+                <div class="table-row" role="row">
+                  <div role="cell">黄芪</div>
+                  <div role="cell">HQ-260521</div>
+                  <div role="cell">42 kg</div>
+                  <div role="cell"><span class="pill pill-warning">偏低</span></div>
+                </div>
+                <div class="table-row" role="row">
+                  <div role="cell">当归</div>
+                  <div role="cell">DG-260518</div>
+                  <div role="cell">18 kg</div>
+                  <div role="cell"><span class="pill pill-danger">近效期</span></div>
+                </div>
+                <div class="table-row" role="row">
+                  <div role="cell">茯苓</div>
+                  <div role="cell">FL-260529</div>
+                  <div role="cell">96 kg</div>
+                  <div role="cell"><span class="pill pill-success">正常</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel" data-pattern="decoction-progress">
+              <div class="panel-header">
+                <div>
+                  <h2>煎配产线进度</h2>
+                  <p class="muted">按当前班次工单聚合。</p>
+                </div>
+              </div>
+              <div class="formula-list">
+                <div class="formula-item">
+                  <div class="progress">
+                    <h3>解表清热类</h3>
+                    <div class="progress-track"><div class="progress-fill" style="--progress: 76%;"></div></div>
+                  </div>
+                  <span class="pill pill-info">76%</span>
+                </div>
+                <div class="formula-item">
+                  <div class="progress">
+                    <h3>健脾祛湿类</h3>
+                    <div class="progress-track"><div class="progress-fill" style="--progress: 54%;"></div></div>
+                  </div>
+                  <span class="pill pill-warning">54%</span>
+                </div>
+                <div class="formula-item">
+                  <div class="progress">
+                    <h3>补益调理类</h3>
+                    <div class="progress-track"><div class="progress-fill" style="--progress: 89%;"></div></div>
+                  </div>
+                  <span class="pill pill-success">89%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

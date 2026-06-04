@@ -1,0 +1,123 @@
+{
+  "schema_version": "0.1.0",
+  "id": "search-input-docs-contract",
+  "component_id": "search-input",
+  "component_name": "SearchInput",
+  "docs_id": "components-searchinput--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-searchinput--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "placeholder",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "description": "Applies inverse styling for use on dark backgrounds.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-searchinput--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { SearchInput, SearchInputVariant } from \"@sanofi-accelerator/elements\";\n\n// Default variant - with clear functionality\nconst DefaultExample = () => (\n  <SearchInput\n    variant=\"default\" // Optional - this is the default\n    placeholder=\"Search here\"\n    onChange={handleChange}\n    onClear={handleClear}\n  />\n);\n\n// Submit variant - with submit button\nconst SubmitExample = () => (\n  <SearchInput\n    variant={SearchInputVariant.SUBMIT}\n    placeholder=\"Search here\"\n    onChange={handleChange}\n    onClear={handleClear}\n    onSearch={handleSearch}\n    ariaSubmitLabel=\"Submit search\"\n  />\n);\n\n// Submit variant with custom icon - preserves iconAfter functionality\nconst SubmitWithCustomIcon = () => (\n  <SearchInput\n    variant={SearchInputVariant.SUBMIT}\n    placeholder=\"Search here\"\n    iconAfter={<Icon name={IconName.VISIBILITY} />}\n    onChange={handleChange}\n    onClear={handleClear}\n    onSearch={handleSearch}\n    ariaSubmitLabel=\"Submit search\"\n  />\n);\n\nfunction handleChange(e) {\n  // handle input change\n}\n\nfunction handleClear() {\n  // handle clear action\n}\n\nfunction handleSearch(value) {\n  // handle search action with search value\n  console.log('Searching for:', value);\n}"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-searchinput--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--error-state",
+      "name": "Error State",
+      "export_name": "ErrorState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-variant",
+      "name": "Submit Variant",
+      "export_name": "SubmitVariant",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-variant-sizes",
+      "name": "Submit Variant Sizes",
+      "export_name": "SubmitVariantSizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-with-button-icon",
+      "name": "Submit With Button Icon",
+      "export_name": "SubmitWithButtonIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-with-custom-buttons",
+      "name": "Submit With Custom Buttons",
+      "export_name": "SubmitWithCustomButtons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json"
+  }
+}

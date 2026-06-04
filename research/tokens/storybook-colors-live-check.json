@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "captured_at": "2026-06-02",
+  "source": {
+    "kind": "storybook-docs",
+    "storybook_version": "v3.48.3",
+    "docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/foundations-colors--docs",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=foundations-colors--docs&viewMode=docs&globals=",
+    "storybook_index_entry": "foundations-colors--docs",
+    "storybook_import_path": "./src/docs/3-colors.mdx",
+    "observed_context": "Chrome incognito window authenticated by the user; page content was read from visible UI only."
+  },
+  "live_observation": {
+    "visible_product_label": "Sanofi Elements v3.48.3",
+    "selected_storybook_section": "Foundations / Colors",
+    "visible_token_sections": [
+      "Primitives",
+      "Semantics",
+      "Data Visualization Colors",
+      "Component-Specific Colors",
+      "Dark Mode"
+    ],
+    "visible_token_examples": [
+      "--elements-color-semantic-text-accent-active",
+      "--elements-color-semantic-text-error",
+      "--elements-color-semantic-text-success",
+      "--elements-color-semantic-text-alert",
+      "--elements-color-semantic-text-info"
+    ]
+  },
+  "local_artifacts": {
+    "source_css_bundle": "research/storybook/assets/iframe-RDcAcrX5.css",
+    "source_version_marker": "research/raw/storybook-introduction.html",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css",
+    "token_allowlist": "design-system-plugin/design-system/tokens/token-allowlist.txt",
+    "token_manifest": "design-system-plugin/design-system/tokens/token-manifest.json",
+    "generated_manifest": "design-system-plugin/design-system/tokens/token-manifest.generated.json"
+  },
+  "token_counts": {
+    "unique_token_names": 640,
+    "unique_declaration_strings": 836,
+    "css_declaration_occurrences": 640,
+    "category_counts": {
+      "color": 467,
+      "font": 31,
+      "grid": 6,
+      "spacing": 12,
+      "radius": 6,
+      "other": 118
+    },
+    "color_group_counts": {
+      "brand": 36,
+      "neutral": 15,
+      "semantic": 81,
+      "component": 114,
+      "data": 143
+    }
+  },
+  "usage_decision": "Use Storybook v3.48.3 Foundations / Colors as the primary local token baseline for prototype generation. Zeroheight component pages remain component documentation sources, not token source of truth."
+}

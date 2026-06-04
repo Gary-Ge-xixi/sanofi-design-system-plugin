@@ -1,0 +1,228 @@
+{
+  "schema_version": "0.1.0",
+  "id": "checkbox-checkbox-group",
+  "canonical_name": "checkbox-checkbox-group",
+  "component_name": "Checkbox/CheckboxGroup",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-checkbox-checkboxgroup--docs",
+    "title": "Checkbox/CheckboxGroup",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-checkbox-checkboxgroup--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-checkbox-checkboxgroup--docs",
+    "import_path": "./src/components/CheckboxGroup/CheckboxGroup.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-checkbox-checkboxgroup--horizontal",
+      "components-checkbox-checkboxgroup--neutral-color",
+      "components-checkbox-checkboxgroup--small-size",
+      "components-checkbox-checkboxgroup--vertical"
+    ],
+    "records": [
+      {
+        "id": "components-checkbox-checkboxgroup--horizontal",
+        "name": "Horizontal",
+        "normalized_name": "horizontal",
+        "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
+        "export_name": "Horizontal"
+      },
+      {
+        "id": "components-checkbox-checkboxgroup--neutral-color",
+        "name": "Neutral Color",
+        "normalized_name": "neutral-color",
+        "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
+        "export_name": "NeutralColor"
+      },
+      {
+        "id": "components-checkbox-checkboxgroup--small-size",
+        "name": "Small Size",
+        "normalized_name": "small-size",
+        "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
+        "export_name": "SmallSize"
+      },
+      {
+        "id": "components-checkbox-checkboxgroup--vertical",
+        "name": "Vertical",
+        "normalized_name": "vertical",
+        "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
+        "export_name": "Vertical"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Group title displayed above the options.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "caption",
+        "required": false,
+        "description": "Helper text displayed below the title.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "error",
+        "required": false,
+        "description": "Error message displayed when validation fails.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Checkbox components to render in the group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "orientation",
+        "required": false,
+        "description": "Layout direction of the checkbox options.\"horizontal\"\"vertical\"",
+        "default": "\"Orientation.VERTICAL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checkboxesSize",
+        "required": false,
+        "description": "Size applied to all Checkbox children.\"small\"\"medium\"\"large\"",
+        "default": "\"CheckboxSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checkboxesColor",
+        "required": false,
+        "description": "Color applied to all Checkbox children.\"neutral\"\"branded\"",
+        "default": "\"CheckboxColor.BRANDED\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "horizontal",
+      "neutral-color",
+      "small-size",
+      "vertical"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "horizontal",
+      "neutral-color",
+      "small-size",
+      "vertical"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { CheckboxGroup, Checkbox, Orientation } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <CheckboxGroup\n    title=\"Checkbox Group Title\"\n    caption=\"Optional Caption\"\n    orientation={Orientation.VERTICAL}\n    error=\"Optional Error Message\"\n  >\n    <Checkbox label=\"Checkbox A\" value=\"1' />\n    <Checkbox label=\"Checkbox B\" value=\"2' />\n    <Checkbox label=\"Checkbox C\" value=\"3' />\n    <Checkbox label=\"Checkbox D\" value=\"4' />\n    <Checkbox label=\"Checkbox E\" value=\"5' />\n    <Checkbox label=\"Checkbox F\" value=\"6' />\n  </CheckboxGroup>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { CheckboxGroup, Checkbox, Orientation } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <CheckboxGroup\n    title=\"Checkbox Group Title\"\n    caption=\"Optional Caption\"\n    orientation={Orientation.VERTICAL}\n    error=\"Optional Error Message\"\n  >\n    <Checkbox label=\"Checkbox A\" value=\"1' />\n    <Checkbox label=\"Checkbox B\" value=\"2' />\n    <Checkbox label=\"Checkbox C\" value=\"3' />\n    <Checkbox label=\"Checkbox D\" value=\"4' />\n    <Checkbox label=\"Checkbox E\" value=\"5' />\n    <Checkbox label=\"Checkbox F\" value=\"6' />\n  </CheckboxGroup>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "checkbox-checkbox-group",
+      "checkbox-group"
+    ],
+    "contracts": [
+      {
+        "id": "checkbox-checkbox-group",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/checkbox-checkbox-group/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/checkbox-checkbox-group/demo.registry.json",
+        "known_story_ids": [
+          "components-checkbox-checkboxgroup--horizontal",
+          "components-checkbox-checkboxgroup--neutral-color",
+          "components-checkbox-checkboxgroup--small-size",
+          "components-checkbox-checkboxgroup--vertical",
+          "components-checkbox-checkboxgroup--horizontal",
+          "components-checkbox-checkboxgroup--neutral-color",
+          "components-checkbox-checkboxgroup--small-size",
+          "components-checkbox-checkboxgroup--vertical"
+        ]
+      },
+      {
+        "id": "checkbox-group",
+        "status": "ready",
+        "contract_path": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/checkbox/demo.registry.json",
+        "known_story_ids": [
+          "components-checkbox--default",
+          "components-checkbox--sizes",
+          "components-checkbox--with-subtext",
+          "components-checkbox--color-variations",
+          "components-checkbox--with-link",
+          "components-checkbox-checkboxgroup--vertical",
+          "components-checkbox-checkboxgroup--horizontal",
+          "components-checkbox-checkboxgroup--small-size",
+          "components-checkbox-checkboxgroup--neutral-color",
+          "components-checkbox--color-variations",
+          "components-checkbox--default",
+          "components-checkbox--sizes",
+          "components-checkbox--with-link",
+          "components-checkbox--with-subtext",
+          "components-checkbox-checkboxgroup--horizontal",
+          "components-checkbox-checkboxgroup--neutral-color",
+          "components-checkbox-checkboxgroup--small-size",
+          "components-checkbox-checkboxgroup--vertical"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-checkbox-checkboxgroup--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox-checkboxgroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-checkbox-checkboxgroup--docs.md",
+    "docs_import_path": "./src/components/CheckboxGroup/CheckboxGroup.mdx",
+    "story_ids": [
+      "components-checkbox-checkboxgroup--horizontal",
+      "components-checkbox-checkboxgroup--neutral-color",
+      "components-checkbox-checkboxgroup--small-size",
+      "components-checkbox-checkboxgroup--vertical"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

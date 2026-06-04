@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "id": "information-aggregation-page",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Generated information aggregation pages must combine query filters, dashboard summary, chart context, record list, and pagination in one business app shell.",
+  "applies_to": [
+    "information-aggregation"
+  ],
+  "required_sections": [
+    "breadcrumb",
+    "aggregation-header",
+    "filter-toolbar",
+    "dashboard-summary",
+    "chart-region",
+    "record-list",
+    "pagination"
+  ],
+  "required_modules": [
+    "business-form",
+    "business-chart",
+    "business-table"
+  ],
+  "minimum_counts": {
+    "filters": 4,
+    "date_picker_controls": 1,
+    "kpi_cards": 4,
+    "chart_rows": 4,
+    "table_columns": 6,
+    "table_rows": 5
+  },
+  "default_control_contract": {
+    "date_picker": {
+      "size": "medium",
+      "shell": "normal",
+      "edge_safe": true,
+      "allowed_modes": ["single", "range"]
+    }
+  },
+  "forbidden_patterns": [
+    "dashboard-only page without record list",
+    "list-only page without query filters",
+    "chart cards not tied to current query scope",
+    "fallback table presented as official Table/DataGrid primitive"
+  ],
+  "validator": "../../scripts/validate-information-aggregation-page"
+}

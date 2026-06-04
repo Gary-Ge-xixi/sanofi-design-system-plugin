@@ -1,0 +1,226 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-date-picker-complete-package",
+  "title": "DatePicker complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local DatePicker package covering Docs plus all Storybook story atoms.",
+  "component_id": "date-picker",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-date-picker"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/docs/date-picker.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/docs/date-picker.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/date-picker-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/date-picker-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/date-picker.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 23,
+    "materialized_stories": 23,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-datepicker--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-default-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--disabled-range",
+      "story_name": "Disabled Range",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-disabled-range-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar",
+      "story_name": "Dual Calendar",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-dual-calendar-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-clearable",
+      "story_name": "Dual Calendar Clearable",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-dual-calendar-clearable-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-partial-range",
+      "story_name": "Dual Calendar Partial Range",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-dual-calendar-partial-range-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-footer",
+      "story_name": "Dual Calendar With Footer",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-dual-calendar-with-footer-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-prefilled-range",
+      "story_name": "Dual Calendar With Prefilled Range",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-dual-calendar-with-prefilled-range-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--medium-size",
+      "story_name": "Medium Size",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-medium-size-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--month-picker",
+      "story_name": "Month Picker",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-month-picker-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--quarter-picker",
+      "story_name": "Quarter Picker",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-quarter-picker-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--range",
+      "story_name": "Range",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-range-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--range-empty",
+      "story_name": "Range Empty",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-range-empty-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--range-partial",
+      "story_name": "Range Partial",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-range-partial-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--range-with-error",
+      "story_name": "Range With Error",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-range-with-error-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--range-with-footer",
+      "story_name": "Range With Footer",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-range-with-footer-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--with-clearable",
+      "story_name": "With Clearable",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-with-clearable-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--with-error",
+      "story_name": "With Error",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-with-error-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--with-footer",
+      "story_name": "With Footer",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-with-footer-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--with-icon",
+      "story_name": "With Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-with-icon-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--with-min-and-max-dates",
+      "story_name": "With Min And Max Dates",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-with-min-and-max-dates-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--year-picker",
+      "story_name": "Year Picker",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-year-picker-atomic-story"
+    },
+    {
+      "story_id": "components-datepicker--year-picker-with-footer",
+      "story_name": "Year Picker With Footer",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-date-picker-year-picker-with-footer-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/date-picker/docs/date-picker.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "date-picker",
+      "DatePicker",
+      "date-picker complete",
+      "DatePicker complete package",
+      "date-picker docs"
+    ],
+    "when_to_use": "Use first for any DatePicker generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer DatePicker behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-page-family-reference-fit",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Screenshot-level acceptance thresholds for business page families beyond the OneCommercial query/fill page.",
+  "source_provenance": {
+    "page_taxonomy": "../business/page-taxonomy.json",
+    "density_rule": "../rules/density-standards.json",
+    "interaction_rule": "../rules/interaction-state-standards.json"
+  },
+  "required_page_attributes": [
+    "data-page-family",
+    "data-page-profile",
+    "data-reference-fit"
+  ],
+  "page_family_contracts": [
+    {
+      "page_family": "approval-workflow",
+      "first_viewport_requirements": [
+        "case summary visible",
+        "approval timeline visible",
+        "decision panel visible",
+        "reject/return reason field available when decision requires it"
+      ]
+    },
+    {
+      "page_family": "entity-detail",
+      "first_viewport_requirements": [
+        "record title and status visible",
+        "key field group visible",
+        "status history or audit link visible"
+      ]
+    },
+    {
+      "page_family": "entity-form",
+      "first_viewport_requirements": [
+        "form header visible",
+        "primary required fields visible",
+        "validation summary reserved",
+        "save action discoverable"
+      ]
+    },
+    {
+      "page_family": "import-result",
+      "first_viewport_requirements": [
+        "success and failure counts visible",
+        "error table visible when failures exist",
+        "download error detail action visible"
+      ]
+    },
+    {
+      "page_family": "customer-detail-date-query",
+      "first_viewport_requirements": [
+        "date range query controls visible",
+        "customer summary visible",
+        "detail table or table header visible",
+        "export or view detail action visible"
+      ]
+    },
+    {
+      "page_family": "permission-admin",
+      "first_viewport_requirements": [
+        "principal selector visible",
+        "permission matrix visible",
+        "changed permission summary visible",
+        "sticky save bar does not cover matrix"
+      ]
+    },
+    {
+      "page_family": "exception-state",
+      "first_viewport_requirements": [
+        "state title visible",
+        "diagnostic context visible",
+        "primary recovery action visible"
+      ]
+    }
+  ],
+  "screenshot_gate": {
+    "viewports": [
+      {
+        "name": "desktop-reference",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "name": "wide-reference",
+        "width": 2048,
+        "height": 1152
+      }
+    ],
+    "threshold_policy": [
+      "No horizontal overflow on desktop unless the page profile explicitly permits a scrollable data grid.",
+      "Primary task controls must be visible in the first viewport.",
+      "Text must not overlap controls, charts, tables, or sticky bars.",
+      "Fallback modules must expose a visible fallback reason in audit HTML."
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "flex",
+  "component_name": "Flex",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Flex"
+  },
+  "docs": [
+    {
+      "id": "components-flex--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Flex/Flex.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-flex--align-content",
+      "name": "Align Content",
+      "export_name": "AlignContent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    },
+    {
+      "id": "components-flex--as-child-list",
+      "name": "As Child List",
+      "export_name": "AsChildList",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    },
+    {
+      "id": "components-flex--column-stack",
+      "name": "Column Stack",
+      "export_name": "ColumnStack",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    },
+    {
+      "id": "components-flex--flex-shorthand",
+      "name": "Flex Shorthand",
+      "export_name": "FlexShorthand",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    },
+    {
+      "id": "components-flex--horizontal-flow",
+      "name": "Horizontal Flow",
+      "export_name": "HorizontalFlow",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    },
+    {
+      "id": "components-flex--justify-distribution",
+      "name": "Justify Distribution",
+      "export_name": "JustifyDistribution",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    },
+    {
+      "id": "components-flex--wrapping-grid",
+      "name": "Wrapping Grid",
+      "export_name": "WrappingGrid",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Flex/Flex.stories.tsx"
+    }
+  ]
+}

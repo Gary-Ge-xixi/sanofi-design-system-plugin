@@ -1,0 +1,310 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function readText(relativePath) {
+  return fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8");
+}
+
+function writeText(relativePath, content) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, content);
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function className(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function attrs(attributes) {
+  return Object.entries(attributes || {})
+    .filter(([, value]) => value !== false && value !== undefined && value !== null)
+    .map(([key, value]) => (value === true ? key : `${key}="${escapeHtml(value)}"`))
+    .join(" ");
+}
+
+function formatHeight(value) {
+  return String(value || "not extracted").replace(/px\b/g, " px");
+}
+
+function renderButtonCss(componentAtomic) {
+  const variantCss = Object.entries(componentAtomic.color_token_bindings?.variants || {})
+    .map(([variant, binding]) => `
+      .v-${className(variant)} {
+        --button-bg: ${binding.background};
+        --button-text: ${binding.text};
+        --button-border: ${binding.border};
+        --button-hover-bg: ${binding.hover_background || binding.background};
+        --button-active-bg: ${binding.active_background || binding.hover_background || binding.background};
+      }`)
+    .join("\n");
+  const sizeCss = (componentAtomic.size_matrix?.items || [])
+    .map((size) => {
+      const fontSize = size.id === "xsmall" ? ".75rem" : size.id === "small" ? ".875rem" : "1rem";
+      return `
+      .s-${className(size.id)} {
+        min-block-size: ${size.render_height};
+        padding-inline: ${size.render_padding_inline};
+        gap: ${size.render_gap};
+        font-size: ${fontSize};
+      }`;
+    })
+    .join("\n");
+  return `${variantCss}\n${sizeCss}`;
+}
+
+function storyIdForVariant(componentAtomic, variant) {
+  const item = (componentAtomic.variant_matrix?.items || []).find((candidate) => candidate.id === variant);
+  return item?.story_id || "components-button--primary";
+}
+
+function renderButtonSample(componentAtomic, options) {
+  const variant = options.variant || "primary";
+  const size = options.size || "medium";
+  const state = options.state || "default";
+  const asAnchor = Boolean(options.asAnchor);
+  const disabled = state === "disabled" || state === "loading";
+  const dataAttrs = attrs({
+    href: asAnchor ? options.href || "#" : undefined,
+    target: asAnchor && options.target ? options.target : undefined,
+    rel: asAnchor && options.target === "_blank" ? "noreferrer" : undefined,
+    type: asAnchor ? undefined : "button",
+    class: [
+      "elements-button",
+      `v-${className(variant)}`,
+      `s-${className(size)}`,
+      `state-${className(state)}`,
+      state === "hover" ? "is-hover" : "",
+      state === "active" ? "is-active" : "",
+      state === "focus" ? "is-focus" : "",
+      state === "loading" ? "is-loading" : "",
+      options.fullWidth ? "is-full-width" : ""
+    ].filter(Boolean).join(" "),
+    "data-primitive": "button",
+    "data-pattern": "atomic-component-sample",
+    "data-variant": variant,
+    "data-size": size,
+    "data-state": state,
+    "data-story-id": options.story_id || storyIdForVariant(componentAtomic, variant),
+    "data-source-doc-id": "components-button--docs",
+    "data-token-source": "foundations-colors--docs",
+    "aria-busy": state === "loading" ? "true" : undefined,
+    "aria-disabled": asAnchor && disabled ? "true" : undefined,
+    tabindex: asAnchor && disabled ? "-1" : undefined,
+    "data-active": state === "active" ? "true" : undefined,
+    disabled: !asAnchor && disabled
+  });
+  const tag = asAnchor ? "a" : "button";
+  const iconStart = options.iconPosition === "start" ? `<span class="button-icon" aria-hidden="true">-&gt;</span>` : "";
+  const iconEnd = options.iconPosition === "end" ? `<span class="button-icon" aria-hidden="true">-&gt;</span>` : "";
+  const loader = state === "loading" ? `<span class="button-loader" aria-hidden="true"></span>` : "";
+  const label = escapeHtml(options.label || (state === "loading" ? "Loading" : "Action"));
+  return `<${tag} ${dataAttrs}>${loader}${iconStart}<span class="button-label">${label}</span>${iconEnd}</${tag}>`;
+}
+
+function semanticVariant(story) {
+  if (story.variant && story.variant !== "not_applicable") return story.variant;
+  if (story.semantic_type === "link") return "tertiary";
+  return "primary";
+}
+
+function coverageCards(pkg) {
+  const items = [
+    ["Docs", `${pkg.coverage.expected_docs}/1`],
+    ["Stories", `${pkg.coverage.materialized_stories}/${pkg.coverage.expected_stories}`],
+    ["Coverage", pkg.coverage.story_coverage_status],
+    ["Renderer", pkg.renderer_target.toUpperCase()]
+  ];
+  return items.map(([label, value]) => `
+            <div class="meta-item">
+              <span>${escapeHtml(label)}</span>
+              <strong>${escapeHtml(value)}</strong>
+            </div>`).join("\n");
+}
+
+function apiRows(docsContract) {
+  return (docsContract.api_props?.props || []).map((prop) => `
+              <tr>
+                <th scope="row">${escapeHtml(prop.name)}</th>
+                <td>${prop.required ? "yes" : "no"}</td>
+                <td><code>${escapeHtml(prop.default ?? "none")}</code></td>
+                <td>${escapeHtml(prop.description || "not extracted")}</td>
+              </tr>`).join("\n");
+}
+
+function storyCards(pkg, componentAtomic) {
+  return (pkg.story_atoms || []).map((story) => {
+    const variant = semanticVariant(story);
+    const asAnchor = story.semantic_type === "link";
+    const state = story.semantic_type.includes("inverse") ? "focus" : "default";
+    const sample = renderButtonSample(componentAtomic, {
+      variant,
+      story_id: story.story_id,
+      size: "medium",
+      state,
+      asAnchor,
+      target: asAnchor ? "_blank" : undefined,
+      iconPosition: asAnchor ? "end" : undefined,
+      label: story.semantic_type === "link" ? "Open link" : "Action"
+    });
+    return `
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="${escapeHtml(story.story_id)}" data-source-doc-id="components-button--docs">
+              <h3>${escapeHtml(story.story_name)}</h3>
+              <span class="story-type">${escapeHtml(story.semantic_type)}</span>
+              ${sample}
+            </section>`;
+  }).join("\n");
+}
+
+function variantSamples(componentAtomic) {
+  return (componentAtomic.variant_matrix?.items || []).map((variant) => `
+            <div class="sample-cell">
+              <span class="cell-label">${escapeHtml(variant.id)}</span>
+              ${renderButtonSample(componentAtomic, {
+                variant: variant.id,
+                story_id: variant.story_id,
+                size: "medium",
+                state: "default"
+              })}
+            </div>`).join("\n");
+}
+
+function sizeRows(componentAtomic) {
+  return (componentAtomic.size_matrix?.items || []).map((size) => `
+              <tr>
+                <th scope="row">${escapeHtml(size.id)}</th>
+                <td>${escapeHtml(formatHeight(size.official_height))}</td>
+                <td><code>${escapeHtml(size.render_height)}</code></td>
+                <td><code>${escapeHtml(size.render_padding_inline)}</code></td>
+                <td>${renderButtonSample(componentAtomic, {
+                  variant: "secondary-neutral",
+                  story_id: "components-button--secondary-neutral",
+                  size: size.id,
+                  state: "default"
+                })}</td>
+              </tr>`).join("\n");
+}
+
+function stateSamples(componentAtomic) {
+  return (componentAtomic.state_matrix?.items || []).map((state) => `
+            <div class="sample-cell">
+              <span class="cell-label">${escapeHtml(state.id)}</span>
+              ${renderButtonSample(componentAtomic, {
+                variant: "secondary-neutral",
+                story_id: "components-button--secondary-neutral",
+                size: "medium",
+                state: state.id,
+                label: state.id === "loading" ? "Loading" : "Action"
+              })}
+            </div>`).join("\n");
+}
+
+function linkSamples(componentAtomic) {
+  return [
+    ["default link", "default"],
+    ["hover link", "hover"],
+    ["focus link", "focus"],
+    ["disabled link", "disabled"]
+  ].map(([label, state]) => `
+            <div class="sample-cell">
+              <span class="cell-label">${escapeHtml(label)}</span>
+              ${renderButtonSample(componentAtomic, {
+                variant: "tertiary",
+                story_id: "components-button--button-link",
+                size: "medium",
+                state,
+                asAnchor: true,
+                target: "_blank",
+                iconPosition: "end",
+                label: "Open link"
+              })}
+            </div>`).join("\n");
+}
+
+function tokenRows(componentAtomic) {
+  return Object.entries(componentAtomic.color_token_bindings?.variants || {}).map(([variant, binding]) => `
+              <tr>
+                <th scope="row">${escapeHtml(variant)}</th>
+                <td><code>${escapeHtml(binding.background)}</code></td>
+                <td><code>${escapeHtml(binding.text)}</code></td>
+                <td><code>${escapeHtml(binding.border)}</code></td>
+              </tr>`).join("\n");
+}
+
+function sourceRows(pkg) {
+  const rows = [
+    ["expected tabs", pkg.expected_tabs],
+    ["docs contract", pkg.docs_contract.local_path],
+    ["component contract", pkg.component_contract],
+    ["primitive contract", pkg.primitive_contract],
+    ["story bundle", pkg.source_provenance.story_bundle],
+    ["token css", pkg.source_provenance.token_css]
+  ];
+  return rows.map(([label, value]) => `
+              <tr>
+                <th scope="row">${escapeHtml(label)}</th>
+                <td><code>${escapeHtml(value)}</code></td>
+              </tr>`).join("\n");
+}
+
+const pkg = readJson("design-system-plugin/design-system/atomic/components/button/button.package.json");
+const componentAtomic = readJson("design-system-plugin/design-system/atomic/components/button/component.atomic.json");
+const docsContract = readJson("design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json");
+const template = readText("design-system-plugin/design-system/atomic/components/button/templates/html.button-package.template.html");
+
+const replacements = {
+  button_variant_css: renderButtonCss(componentAtomic),
+  coverage_cards: coverageCards(pkg),
+  docs_summary: escapeHtml(docsContract.purpose?.text || "not extracted"),
+  api_rows: apiRows(docsContract),
+  story_cards: storyCards(pkg, componentAtomic),
+  variant_samples: variantSamples(componentAtomic),
+  size_rows: sizeRows(componentAtomic),
+  state_samples: stateSamples(componentAtomic),
+  link_samples: linkSamples(componentAtomic),
+  token_rows: tokenRows(componentAtomic),
+  source_rows: sourceRows(pkg)
+};
+
+const html = template.replace(/\{\{([a-zA-Z0-9_]+)\}\}/g, (_, key) => replacements[key] ?? "");
+const outputPath = pkg.render_outputs?.complete_html || "design-system-plugin/outputs/html/button-complete.atomic.html";
+writeText(outputPath, html);
+writeJson("design-system-plugin/outputs/reports/button-complete-package.report.json", {
+  schema_version: "0.1.0",
+  status: pkg.coverage.story_coverage_status === "complete" ? "pass" : "fail",
+  script: "render-button-package",
+  output: outputPath,
+  coverage: pkg.coverage,
+  checked: {
+    story_atoms: (pkg.story_atoms || []).length,
+    docs_contract: pkg.docs_contract?.local_path,
+    token_source: pkg.source_provenance?.token_source
+  }
+});
+
+console.log(`Button complete package renderer OK: ${outputPath}`);

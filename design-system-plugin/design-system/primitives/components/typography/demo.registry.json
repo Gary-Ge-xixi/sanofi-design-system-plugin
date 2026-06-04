@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Typography",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-typography--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-typography--font-weights",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-typography--text-direction",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-typography--variants",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

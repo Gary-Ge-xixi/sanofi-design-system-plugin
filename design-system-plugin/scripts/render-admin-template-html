@@ -1,0 +1,748 @@
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath);
+}
+
+function primitive(resolution, id) {
+  return resolution.primitive_refs.find((item) => item.primitive_id === id) || {
+    docs_id: "unknown",
+    story_id: "unknown"
+  };
+}
+
+function attrs(resolution, primitiveId, patternId, extra = {}) {
+  const ref = primitive(resolution, primitiveId);
+  const values = {
+    "data-primitive": primitiveId,
+    "data-source-component": primitiveId,
+    "data-story-id": ref.story_id,
+    "data-source-doc-id": ref.docs_id,
+    "data-pattern": patternId,
+    "data-token-source": resolution.source_provenance.token_source,
+    ...extra
+  };
+  return Object.entries(values)
+    .map(([key, value]) => `${key}="${String(value).replace(/"/g, "&quot;")}"`)
+    .join(" ");
+}
+
+function renderResolvedHtml(args = []) {
+  const resolutionPath = args[0]
+    ? path.resolve(process.cwd(), args[0])
+    : path.join(pluginRoot, "design-system", "contracts", "resolvers", "latest-resolution.json");
+  const outputPath = args[1]
+    ? path.resolve(process.cwd(), args[1])
+    : path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+  const reportDir = path.join(pluginRoot, "outputs", "reports");
+  const reportPath = path.join(reportDir, "html-renderer.report.json");
+
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.mkdirSync(reportDir, { recursive: true });
+
+  const resolution = readJson(resolutionPath);
+  const tableFallback = resolution.fallbacks.find((item) => item.module === "table") || {
+    reason: "No official Table/DataTable/DataGrid primitive is registered locally."
+  };
+  const tokenSource = resolution.source_provenance.token_source;
+  const layoutRule = resolution.source_provenance.layout_rule || "layout-grid-container";
+  const typographyRule = "typography-font-stack";
+  const docs = [
+    ...new Set([
+      "foundations-layout--docs",
+      "foundations-typography--docs",
+      ...(resolution.source_provenance.docs_ids || [])
+    ])
+  ].join(" ");
+
+  const navAttrs = attrs(resolution, "navigation-header", "admin-template-header");
+  const sidebarAttrs = attrs(resolution, "sidebar", "admin-template-sidebar");
+  const menuAttrs = attrs(resolution, "menu", "filter-more-menu");
+  const containerAttrs = attrs(resolution, "container", "layout-container", {
+    "data-layout-rule": layoutRule,
+    "data-source-doc-id": "foundations-layout--docs components-container--docs",
+    "data-container-mode": "fixed",
+    "data-container-width-token": "--elements-container-width-2xl"
+  });
+  const gridAttrs = attrs(resolution, "grid", "layout-grid", {
+    "data-layout-rule": layoutRule,
+    "data-source-doc-id": "foundations-layout--docs components-grid--docs",
+    "data-grid-columns": "12",
+    "data-grid-gap-token": "--elements-grid-gutter-lg"
+  });
+  const searchAttrs = attrs(resolution, "search-input", "filter-toolbar");
+  const selectAttrs = attrs(resolution, "select", "filter-toolbar");
+  const buttonAttrs = attrs(resolution, "button", "action");
+  const textInputAttrs = [
+    'data-primitive="text-input"',
+    'data-source-component="text-input"',
+    'data-story-id="components-textinput--default"',
+    'data-source-doc-id="components-textinput--docs"',
+    'data-pattern="editable-table-cell"',
+    `data-token-source="${tokenSource}"`
+  ].join(" ");
+  const iconAttrs = [
+    'data-primitive="icon"',
+    'data-source-component="icon"',
+    'data-story-id="components-icon--gallery"',
+    'data-source-doc-id="components-icon--docs"',
+    'data-pattern="navigation-icon"',
+    `data-token-source="${tokenSource}"`
+  ].join(" ");
+  const iconPaths = {
+    home: '<rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect>',
+    table: '<rect x="3" y="5" width="18" height="16" rx="1.5"></rect><path d="M3 10h18"></path><path d="M8 5v16"></path>',
+    approval: '<rect x="5" y="4" width="14" height="18" rx="1.5"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path><path d="M8 17h5"></path>',
+    balance: '<path d="M4 19V5"></path><path d="M4 19h17"></path><rect x="7" y="10" width="3" height="6" rx=".5"></rect><rect x="12" y="7" width="3" height="9" rx=".5"></rect><rect x="17" y="12" width="3" height="4" rx=".5"></rect>',
+    system: '<rect x="4" y="5" width="16" height="14" rx="1.5"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path><path d="M8 17h5"></path>',
+    chevronUp: '<path d="m7 14 5-5 5 5"></path>',
+    chevronDown: '<path d="m7 10 5 5 5-5"></path>'
+  };
+  function icon(name, className = "nav-icon") {
+    return `<span class="${className}" ${iconAttrs} data-icon-name="${name}" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${iconPaths[name]}</svg></span>`;
+  }
+
+  const html = `<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OneCommercial 查询填报</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --template-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --template-sidebar-width: 19rem;
+        --template-header-height: 6rem;
+        --template-container-max: none;
+        --template-grid-gap: var(--elements-grid-gutter-lg);
+        --template-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --template-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --template-muted-surface-bg: var(--elements-color-semantic-background-neutral);
+        --template-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        font-family: var(--template-font-family);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--template-page-bg);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: var(--template-font-family);
+        background: var(--template-page-bg);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+
+      .template-shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: var(--template-sidebar-width) minmax(0, 1fr);
+        grid-template-rows: var(--template-header-height) minmax(0, 1fr);
+      }
+
+      .template-topbar {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-lg);
+        padding-inline: var(--elements-spacing-xl);
+        background: var(--template-surface-bg);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      .brand-lockup,
+      .topbar-actions,
+      .breadcrumb,
+      .button-row,
+      .pagination,
+      .save-bar {
+        display: flex;
+        align-items: center;
+        gap: var(--elements-spacing-md);
+      }
+
+      .brand-word {
+        display: inline-block;
+        inline-size: 6.875rem;
+        block-size: auto;
+      }
+
+      .brand-divider {
+        inline-size: 0.0625rem;
+        block-size: 2rem;
+        background: var(--elements-color-semantic-border-default);
+      }
+
+      .app-name {
+        font-size: var(--elements-font-size-600);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .avatar {
+        display: inline-grid;
+        place-items: center;
+        inline-size: 2.75rem;
+        block-size: 2.75rem;
+        border-radius: var(--elements-radius-rounded);
+        background: var(--template-muted-surface-bg);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .template-sidebar {
+        grid-row: 2;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: var(--elements-spacing-sm);
+        padding: var(--elements-spacing-md) var(--elements-spacing-sm);
+        background: var(--template-surface-bg);
+        border-right: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      .sidebar-heading {
+        block-size: 0;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .sidebar-content {
+        overflow: auto;
+      }
+
+      .nav-section,
+      .nav-group,
+      .nav-children {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .nav-section {
+        gap: var(--elements-spacing-sm);
+      }
+
+      .nav-list,
+      .nav-children {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-sm);
+        min-block-size: 2.75rem;
+        border-radius: var(--elements-radius-sm);
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-sm);
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+
+      .nav-link[aria-current="page"],
+      .nav-child[aria-current="page"] {
+        background: var(--template-active-bg);
+        color: var(--elements-color-semantic-text-accent-default);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .nav-link-main {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .nav-icon {
+        display: inline-grid;
+        place-items: center;
+        inline-size: 1.5rem;
+        block-size: 1.5rem;
+        color: currentColor;
+      }
+
+      .nav-icon svg {
+        inline-size: 100%;
+        block-size: 100%;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .nav-children {
+        padding-inline-start: 2.75rem;
+      }
+
+      .nav-child {
+        display: block;
+        min-block-size: 2.25rem;
+        border-radius: var(--elements-radius-sm);
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-sm);
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+
+      .sidebar-footer {
+        border-top: 0.0625rem solid var(--elements-color-semantic-border-default);
+        padding-block-start: var(--elements-spacing-sm);
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+
+      .template-main {
+        grid-row: 2;
+        min-width: 0;
+        overflow: auto;
+        padding: var(--elements-spacing-md) var(--elements-spacing-lg);
+        background: var(--template-page-bg);
+      }
+
+      .template-container {
+        inline-size: 100%;
+        max-inline-size: var(--template-container-max);
+        margin-inline: auto;
+        min-block-size: calc(100vh - var(--template-header-height) - var(--elements-spacing-xl));
+        padding: var(--elements-spacing-lg);
+        background: var(--template-surface-bg);
+      }
+
+      .template-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: var(--template-grid-gap);
+        align-items: start;
+      }
+
+      .span-full {
+        grid-column: 1 / -1;
+      }
+
+      .page-surface,
+      .filter-surface,
+      .table-surface {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .page-surface {
+        padding: 0 0 var(--elements-spacing-md);
+      }
+
+      .filter-surface {
+        background: var(--template-muted-surface-bg);
+        padding: var(--elements-spacing-md);
+      }
+
+      .table-surface {
+        padding: var(--elements-spacing-lg);
+      }
+
+      .page-title {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .breadcrumb {
+        color: var(--elements-color-semantic-text-subtle_inverse);
+        font-size: var(--elements-font-size-200);
+      }
+
+      h1 {
+        font-size: var(--elements-font-size-800);
+        line-height: var(--elements-font-lineheight-5);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      h2 {
+        font-size: var(--elements-font-size-500);
+        line-height: var(--elements-font-lineheight-3);
+      }
+
+      .muted,
+      th,
+      .subtext {
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+
+      .field-label {
+        display: none;
+      }
+
+      .filter-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: var(--elements-grid-gutter-lg);
+        align-items: end;
+      }
+
+      .field {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+        min-width: 0;
+      }
+
+      .field-3 {
+        grid-column: span 3;
+      }
+
+      .field-2 {
+        grid-column: span 2;
+      }
+
+      .field-4 {
+        grid-column: span 4;
+      }
+
+      .filter-actions {
+        display: flex;
+        align-items: end;
+        justify-content: flex-end;
+        gap: var(--elements-spacing-md);
+      }
+
+      input,
+      select {
+        inline-size: 100%;
+        min-inline-size: 0;
+        min-block-size: 2.75rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--template-surface-bg);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-sm);
+        font: inherit;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--elements-spacing-2xs);
+        min-block-size: 2.75rem;
+        border-radius: var(--elements-radius-sm);
+        border: 0.0625rem solid var(--elements-color-semantic-accent-default);
+        background: var(--elements-color-components-button-bg-secondary);
+        color: var(--elements-color-semantic-text-accent-default);
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-lg);
+        font: inherit;
+        font-weight: var(--elements-font-weight-bold);
+        white-space: nowrap;
+      }
+
+      .button.primary {
+        background: var(--elements-color-semantic-accent-default);
+        color: var(--elements-color-semantic-text-default);
+      }
+
+      .button.tertiary {
+        border-color: transparent;
+        background: transparent;
+      }
+
+      .button:focus-visible,
+      .nav-link:focus-visible,
+      .nav-child:focus-visible,
+      input:focus,
+      select:focus {
+        outline: 0.1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: var(--elements-spacing-3xs);
+      }
+
+      .action-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-md);
+      }
+
+      .action-bar {
+        display: flex;
+        align-items: center;
+        gap: var(--elements-spacing-md);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        inline-size: 100%;
+        min-inline-size: 72rem;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        padding: var(--elements-spacing-sm);
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      th {
+        background: var(--template-muted-surface-bg);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .total-row td {
+        background: var(--elements-color-semantic-background-brand-subtle);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        inline-size: fit-content;
+        border-radius: var(--elements-radius-rounded);
+        border: 0.0625rem solid var(--elements-color-components-tag-branded-border);
+        background: var(--elements-color-components-tag-branded-bg-subtle);
+        color: var(--elements-color-components-tag-branded-text);
+        padding: var(--elements-spacing-3xs) var(--elements-spacing-sm);
+        font-size: var(--elements-font-size-200);
+        font-weight: var(--elements-font-weight-bold);
+        white-space: nowrap;
+      }
+
+      .tag.info {
+        border-color: var(--elements-color-components-tag-semantic_blue-border);
+        background: var(--elements-color-components-tag-semantic_blue-bg-solid);
+        color: var(--elements-color-components-tag-semantic_blue-text-inverse);
+      }
+
+      .table-surface {
+        grid-column: 1 / -1;
+      }
+
+      .pagination {
+        justify-content: flex-end;
+        margin-block-start: var(--elements-spacing-md);
+      }
+
+      .pagination select {
+        inline-size: 4rem;
+        min-inline-size: 4rem;
+      }
+
+      .page-number {
+        display: inline-grid;
+        place-items: center;
+        inline-size: 2.5rem;
+        block-size: 2.5rem;
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-semantic-accent-default);
+        color: var(--elements-color-semantic-text-default);
+        font-weight: var(--elements-font-weight-bold);
+      }
+
+      .save-bar {
+        position: sticky;
+        inset-block-end: 0;
+        grid-column: 1 / -1;
+        justify-content: center;
+        padding-block: var(--elements-spacing-sm);
+        background: var(--template-surface-bg);
+        border-top: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      @media (max-width: 79.9375rem) {
+        .table-surface {
+          grid-column: 1 / -1;
+        }
+
+        .field-3,
+        .field-2,
+        .field-4 {
+          grid-column: span 6;
+        }
+      }
+
+      @media (max-width: 47.9375rem) {
+        .template-shell,
+        .template-grid,
+        .filter-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .template-topbar,
+        .action-row,
+        .action-bar,
+        .save-bar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .template-sidebar,
+        .template-main,
+        .template-topbar {
+          grid-column: 1;
+          grid-row: auto;
+        }
+
+        .field-3,
+        .field-2,
+        .field-4 {
+          grid-column: 1 / -1;
+        }
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-renderer-target="html" data-typography-rule="${typographyRule}" data-source-doc-id="foundations-typography--docs components-typography--docs">
+    <div class="template-shell" data-template="onecommercial-admin" data-pattern="admin-query-panel" data-layout-rule="${layoutRule}" data-source-doc-id="${docs}" data-token-source="${tokenSource}">
+      <header class="template-topbar" ${navAttrs} data-template-part="topbar">
+        <div class="brand-lockup">
+          <img class="brand-word sanofi-logo" src="https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg" alt="sanofi">
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="app-name">OneCommercial</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="button tertiary" ${buttonAttrs} type="button">Manual</button>
+          <span class="avatar" aria-label="当前用户">R</span>
+        </div>
+      </header>
+
+      <aside class="template-sidebar" ${sidebarAttrs} data-template-part="sidebar" data-sidebar-part="root" aria-label="应用导航">
+        <div class="sidebar-heading" data-sidebar-part="header">导航</div>
+        <nav class="sidebar-content" data-sidebar-part="content" aria-label="主导航">
+          <section class="nav-section" data-sidebar-part="section">
+            <ul class="nav-list" role="list">
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span class="nav-link-main">${icon("home")}首页</span></a></li>
+              <li data-sidebar-part="item">
+                <a class="nav-link" href="#" aria-expanded="true"><span class="nav-link-main">${icon("table")}数据管理</span>${icon("chevronUp", "nav-icon nav-chevron")}</a>
+                <ul class="nav-children" role="list">
+                  <li data-sidebar-part="item"><a class="nav-child" href="#" aria-current="page" data-sidebar-current="true">CDC库存</a></li>
+                  <li data-sidebar-part="item"><a class="nav-child" href="#">常规品流向</a></li>
+                  <li data-sidebar-part="item"><a class="nav-child" href="#">流感品流向</a></li>
+                  <li data-sidebar-part="item"><a class="nav-child" href="#">POV库存核查</a></li>
+                  <li data-sidebar-part="item"><a class="nav-child" href="#">CDC下辖POV</a></li>
+                </ul>
+              </li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span class="nav-link-main">${icon("approval")}申诉审批</span>${icon("chevronDown", "nav-icon nav-chevron")}</a></li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span class="nav-link-main">${icon("balance")}进销存平衡</span></a></li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span class="nav-link-main">${icon("system")}系统管理</span>${icon("chevronDown", "nav-icon nav-chevron")}</a></li>
+            </ul>
+          </section>
+        </nav>
+        <footer class="sidebar-footer" data-sidebar-part="footer" data-source-doc-id="components-sidebar--docs">
+          <span data-sidebar-part="userProfile">收起导航</span>
+        </footer>
+      </aside>
+
+      <main class="template-main" data-template-part="main" data-page-pattern="admin-dashboard" data-pattern="admin-dashboard" data-source-doc-id="${docs}" data-token-source="${tokenSource}">
+        <div class="template-container" ${containerAttrs}>
+          <section class="template-grid" ${gridAttrs}>
+            <section class="page-surface span-full" data-pattern="page-header-fallback" data-grid-item-span="12" data-source-doc-id="components-pageheader--docs" data-fallback-module="page-header" data-fallback-reason="PageHeader docs exist but no primitive contract is registered yet.">
+              <div class="page-title">
+                <nav class="breadcrumb" aria-label="面包屑"><span>数据填报</span><span>›</span><span>CDC库存填报</span></nav>
+                <h1>2025年12月CDC库存填报 <span class="muted">窗口期：01/01-01/13</span></h1>
+              </div>
+            </section>
+
+            <section class="filter-surface span-full" data-pattern="filter-toolbar" data-grid-item-span="12" data-source-doc-id="components-searchinput--docs components-select--docs components-button--docs components-menu--docs">
+              <div class="filter-grid" data-layout-rule="${layoutRule}" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg">
+                <label class="field field-2"><span class="field-label">品规</span><select ${selectAttrs}><option>品规</option><option>70_潘太欣</option><option>45_常规品</option></select></label>
+                <label class="field field-2"><span class="field-label">CDC编码/名称</span><input ${searchAttrs} type="search" placeholder="CDC编码/名称"></label>
+                <label class="field field-2"><span class="field-label">必填CDC</span><select ${selectAttrs}><option>必填CDC</option><option>全部CDC</option><option>非必填CDC</option></select></label>
+                <label class="field field-2"><span class="field-label">客户分组</span><select ${selectAttrs}><option>客户分组</option><option>正式客户</option><option>目标客户</option></select></label>
+                <div class="field field-4 filter-actions">
+                  <button class="button primary" ${buttonAttrs} type="button">筛选</button>
+                  <button class="button" ${buttonAttrs} type="button">重置</button>
+                  <button class="button tertiary" ${menuAttrs} type="button" aria-haspopup="menu">更多${icon("chevronDown", "nav-icon nav-chevron")}</button>
+                </div>
+              </div>
+            </section>
+
+            <div class="action-bar span-full" data-pattern="table-actions" data-source-doc-id="components-button--docs">
+              <button class="button primary" ${buttonAttrs} type="button">新增CDC库存</button>
+              <button class="button" ${buttonAttrs} type="button">批量导入</button>
+              <button class="button tertiary" ${buttonAttrs} type="button">导出</button>
+            </div>
+
+            <section class="table-surface" data-pattern="data-table-fallback" data-grid-item-span="12" data-source-doc-id="components-textinput--docs components-button--docs" data-fallback-module="table" data-fallback-reason="${tableFallback.reason}">
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>年月</th><th>CDC编码</th><th>CDC名称</th><th>品规</th><th>客户分组</th><th>数量</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="total-row"><td colspan="5">TOTAL</td><td>600</td></tr>
+                    <tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input ${textInputAttrs} type="text" value="100" aria-label="第一行数量"></td></tr>
+                    <tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input ${textInputAttrs} type="text" value="100" aria-label="第二行数量"></td></tr>
+                    <tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input ${textInputAttrs} type="text" value="100" aria-label="第三行数量"></td></tr>
+                    <tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input ${textInputAttrs} type="text" value="100" aria-label="第四行数量"></td></tr>
+                    <tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input ${textInputAttrs} type="text" value="100" aria-label="第五行数量"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pagination">
+                <span>共6条，每页</span>
+                <select ${selectAttrs} aria-label="每页条数"><option>10</option><option>20</option></select>
+                <span>条</span>
+                <span class="page-number">1</span>
+              </div>
+            </section>
+
+            <div class="save-bar span-full" data-pattern="save-footer" data-source-doc-id="components-button--docs">
+              <button class="button primary" ${buttonAttrs} type="button">保存</button>
+              <span class="muted">上次保存时间：2026-01-01 09:00:00</span>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+`;
+
+  fs.writeFileSync(outputPath, html);
+
+  const report = {
+    schema_version: "0.1.0",
+    status: "pass",
+    script: "render-admin-template-html",
+    generated_at: new Date().toISOString(),
+    input: rel(resolutionPath),
+    output: rel(outputPath),
+    checked: {
+      renderer_target: resolution.renderer_target,
+      sections: resolution.sections.length,
+      required_primitives: resolution.required_primitives.length,
+      layout_rule: layoutRule,
+      typography_rule: typographyRule,
+      template: "onecommercial-admin",
+      fallback_modules: resolution.fallbacks.map((item) => item.module)
+    }
+  };
+
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+  console.log(`HTML renderer OK: ${rel(outputPath)}`);
+}
+
+module.exports = { renderResolvedHtml };

@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule validate business-layout-typography",
+  "status": "pass",
+  "generated_at": "2026-06-04T05:19:22.277Z",
+  "rule_id": "business-layout-typography",
+  "target": "design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+  "rule": {
+    "id": "business-layout-typography",
+    "path": "business-layout-typography.json",
+    "script": "../../scripts/validate-page-layout-typography"
+  },
+  "run": {
+    "script": "validate-page-layout-typography",
+    "command": "node design-system-plugin/scripts/validate-page-layout-typography /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "Page layout typography OK: outputs/html/admin-query-panel.resolved.html\n",
+    "stderr": ""
+  },
+  "failures": []
+}

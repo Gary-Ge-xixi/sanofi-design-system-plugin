@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "modal",
+  "component_name": "Modal",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-modal--customisation",
+      "story_name": "Customisation",
+      "component_id": "modal",
+      "component_name": "Modal",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--customisation.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/modal/templates/html.customisation.template.html",
+      "output_path": "design-system-plugin/outputs/html/modal-customisation.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+      "docs_id": "components-modal--docs",
+      "registry_item": "sanofi-modal-customisation-atomic-story"
+    },
+    {
+      "story_id": "components-modal--default",
+      "story_name": "Default",
+      "component_id": "modal",
+      "component_name": "Modal",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/modal/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/modal-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+      "docs_id": "components-modal--docs",
+      "registry_item": "sanofi-modal-default-atomic-story"
+    },
+    {
+      "story_id": "components-modal--non-dismissible-modal",
+      "story_name": "Non Dismissible Modal",
+      "component_id": "modal",
+      "component_name": "Modal",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--non-dismissible-modal.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/modal/templates/html.non-dismissible-modal.template.html",
+      "output_path": "design-system-plugin/outputs/html/modal-non-dismissible-modal.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+      "docs_id": "components-modal--docs",
+      "registry_item": "sanofi-modal-non-dismissible-modal-atomic-story"
+    },
+    {
+      "story_id": "components-modal--with-icon",
+      "story_name": "With Icon",
+      "component_id": "modal",
+      "component_name": "Modal",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--with-icon.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/modal/templates/html.with-icon.template.html",
+      "output_path": "design-system-plugin/outputs/html/modal-with-icon.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+      "docs_id": "components-modal--docs",
+      "registry_item": "sanofi-modal-with-icon-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-modal--docs"
+  }
+}

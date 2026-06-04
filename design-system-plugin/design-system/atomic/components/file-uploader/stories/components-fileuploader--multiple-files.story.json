@@ -1,0 +1,103 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-fileuploader--multiple-files",
+  "component_id": "file-uploader",
+  "component_name": "FileUploader",
+  "story_id": "components-fileuploader--multiple-files",
+  "story_name": "Multiple Files",
+  "export_name": "MultipleFiles",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-fileuploader--multiple-files&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-fileuploader--multiple-files&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/FileUploader.stories-Bd1qFH3r.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/components-fileuploader--multiple-files.iframe.html",
+    "import_path": "./src/components/FileUploader/FileUploader.stories.tsx",
+    "component_path": "./src/components/FileUploader/FileUploader.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{label:\"Upload multiple files\",accept:\".pdf,.doc,.docx\",maxSize:10,maxFiles:5,multiple:!0}",
+    "values": {
+      "label": "Upload multiple files",
+      "accept": ".pdf,.doc,.docx",
+      "maxSize": 10,
+      "maxFiles": 5,
+      "multiple": true
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{label:{control:\"text\",description:\"Label for the file uploader\"},accept:{control:\"text\",description:\"Accepted file types (e.g., '.xlsx,.pdf')\"},maxSize:{control:\"number\",description:\"Maximum file size in MB\",table:{defaultValue:{summary:\"50\"}}},maxFiles:{control:\"number\",description:\"Maximum number of files allowed\",table:{defaultValue:{summary:\"3\"}}},multiple:{control:\"boolean\",description:\"Allow multiple file selection\",table:{defaultValue:{summary:\"false\"}}},disabled:{control:\"boolean\",description:\"Whether the component is disabled\",table:{defaultValue:{summary:\"false\"}}},required:{control:\"boolean\",description:\"Whether the field is required\",table:{defaultValue:{summary:\"false\"}}},state:{control:\"select\",options:Object.values(ae),description:\"Form control state\",table:{defaultValue:{summary:ae.DEFAULT}}},brandTheme:{control:\"select\",options:Object.values(z),description:\"Brand theme\",table:{defaultValue:{summary:z.primary}}}}",
+    "fields": [
+      "label",
+      "accept",
+      "maxSize",
+      "maxFiles",
+      "multiple",
+      "disabled",
+      "required",
+      "state",
+      "brandTheme"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    label: \"Upload multiple files\",\n    accept: \".pdf,.doc,.docx\",\n    maxSize: 10,\n    maxFiles: 5,\n    multiple: true\n  }\n}",
+    "story_object_source": "{args:{label:\"Upload multiple files\",accept:\".pdf,.doc,.docx\",maxSize:10,maxFiles:5,multiple:!0}}"
+  },
+  "template": {
+    "id": "file-uploader-multiple-files-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/file-uploader/templates/html.multiple-files.template.html",
+    "output_path": "design-system-plugin/outputs/html/file-uploader-multiple-files.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/file-uploader.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "file-uploader",
+    "local_path": "design-system-plugin/design-system/primitives/components/file-uploader/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-fileuploader--docs",
+    "story_id": "components-fileuploader--multiple-files",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/file-uploader.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/file-uploader/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/file-uploader/assets/components-fileuploader--multiple-files.iframe.html"
+  }
+}

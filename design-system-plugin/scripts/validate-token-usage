@@ -1,0 +1,140 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "checkbox.prototype.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const tokenCssPath = path.join(pluginRoot, "design-system", "tokens", "tokens.css");
+const allowlistPath = path.join(pluginRoot, "design-system", "tokens", "token-allowlist.txt");
+const reportPath = path.join(reportDir, "token-usage.report.json");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function extractTokenNames(source) {
+  const names = new Set();
+  const re = /(--elements-[A-Za-z0-9_-]+)\s*:/g;
+  let match;
+  while ((match = re.exec(source))) names.add(match[1]);
+  return names;
+}
+
+function extractVarRefs(source) {
+  const refs = [];
+  const re = /var\(\s*(--elements-[A-Za-z0-9_-]+)/g;
+  let match;
+  while ((match = re.exec(source))) refs.push(match[1]);
+  return refs;
+}
+
+function findMatches(source, re) {
+  const matches = [];
+  let match;
+  while ((match = re.exec(source))) {
+    matches.push(match[0].trim());
+  }
+  return [...new Set(matches)];
+}
+
+function extractBoxShadowDeclarations(source) {
+  const declarations = [];
+  const re = /box-shadow\s*:\s*([^;]+);/g;
+  let match;
+  while ((match = re.exec(source))) {
+    declarations.push({
+      declaration: match[0].replace(/\s+/g, " ").trim(),
+      value: match[1].replace(/\s+/g, " ").trim()
+    });
+  }
+  return declarations;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = read(target);
+const tokenNames = new Set([
+  ...extractTokenNames(read(tokenCssPath)),
+  ...extractTokenNames(read(allowlistPath))
+]);
+const refs = extractVarRefs(html);
+const unknownRefs = [...new Set(refs.filter((ref) => !tokenNames.has(ref)))];
+const rawHex = findMatches(html, /#[0-9A-Fa-f]{3,8}\b/g);
+const rawColorFns = findMatches(html, /\b(?:rgb|rgba|hsl|hsla)\s*\([^)]*\)/g);
+const rawPx = findMatches(html, /(?:^|[^\w-])\d+(?:\.\d+)?px\b/g);
+const directCoreColorRefs = [
+  ...new Set(refs.filter((ref) => ref.startsWith("--elements-color-core-")))
+];
+const greenPrimaryBlocks = findMatches(
+  html,
+  /\.(?:trend-bar|elements-progress-fill)\s*\{[^}]*var\(\s*--elements-color-(?:data-sequential-green|semantic-accent-success|components-tag-semantic_green)[A-Za-z0-9_-]*/gs
+);
+const boxShadowDeclarations = extractBoxShadowDeclarations(html);
+const rawBoxShadow = [
+  ...new Set(
+    boxShadowDeclarations
+      .filter((item) => item.value !== "none" && !/^var\(\s*--elements-core-elevation-0[1-5]\s*\)$/.test(item.value))
+      .map((item) => item.declaration)
+  )
+];
+const hasTokenStylesheet = /href=["'][^"']*tokens\.css["']/.test(html);
+const failures = [];
+
+if (!hasTokenStylesheet) failures.push("missing tokens.css stylesheet link");
+if (unknownRefs.length) failures.push(`unknown token references: ${unknownRefs.join(", ")}`);
+if (rawHex.length) failures.push(`raw hex color values: ${rawHex.join(", ")}`);
+if (rawColorFns.length) failures.push(`raw color function values: ${rawColorFns.join(", ")}`);
+if (rawPx.length) failures.push(`raw px values: ${rawPx.join(", ")}`);
+if (directCoreColorRefs.length) {
+  failures.push(
+    `direct core color token references: ${directCoreColorRefs.join(", ")}; use semantic, component, or data visualization color tokens in generated HTML`
+  );
+}
+if (greenPrimaryBlocks.length) {
+  failures.push(
+    `green token used as primary visual accent in chart/progress CSS: ${greenPrimaryBlocks.join(", ")}`
+  );
+}
+if (rawBoxShadow.length) {
+  failures.push(
+    `raw box-shadow values: ${rawBoxShadow.join(", ")}; use --elements-core-elevation-01..05 tokens`
+  );
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-token-usage",
+  target: path.relative(pluginRoot, target),
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    token_refs: refs.length,
+    unique_token_refs: new Set(refs).size,
+    has_tokens_css_link: hasTokenStylesheet,
+    direct_core_color_refs: directCoreColorRefs.length,
+    green_primary_blocks: greenPrimaryBlocks.length,
+    box_shadow_declarations: boxShadowDeclarations.length,
+    raw_box_shadow: rawBoxShadow.length
+  },
+  failures,
+  details: {
+    unknown_refs: unknownRefs,
+    raw_hex: rawHex,
+    raw_color_functions: rawColorFns,
+    raw_px: rawPx,
+    direct_core_color_refs: directCoreColorRefs,
+    green_primary_blocks: greenPrimaryBlocks,
+    box_shadow_declarations: boxShadowDeclarations,
+    raw_box_shadow: rawBoxShadow
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Token usage validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Token usage OK: ${path.relative(pluginRoot, target)}`);

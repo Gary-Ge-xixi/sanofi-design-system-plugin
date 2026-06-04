@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ChipList (Deprecated)",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/ChipList (Deprecated)",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "chip-list-deprecated",
+      "data_attribute": "data-primitive=\"chip-list-deprecated\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-chiplist-deprecated--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chiplist-deprecated--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

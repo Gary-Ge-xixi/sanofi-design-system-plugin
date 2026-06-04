@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-hero-complete-package",
+  "title": "Hero complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Hero package covering Docs plus all Storybook story atoms.",
+  "component_id": "hero",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-hero"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/hero.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/hero/hero.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/hero.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/hero/hero.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/docs/hero.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/hero/docs/hero.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/hero/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/hero-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/hero-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/hero.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/hero/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-hero--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-hero--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 14,
+    "materialized_stories": 14,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-hero--content-after-hero",
+      "story_name": "Content After Hero",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-content-after-hero-atomic-story"
+    },
+    {
+      "story_id": "components-hero--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-default-atomic-story"
+    },
+    {
+      "story_id": "components-hero--full-screen",
+      "story_name": "Full Screen",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-full-screen-atomic-story"
+    },
+    {
+      "story_id": "components-hero--full-screen-with-navigation-header",
+      "story_name": "Full Screen With Navigation Header",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-full-screen-with-navigation-header-atomic-story"
+    },
+    {
+      "story_id": "components-hero--full-screen-with-video",
+      "story_name": "Full Screen With Video",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-full-screen-with-video-atomic-story"
+    },
+    {
+      "story_id": "components-hero--justify-center",
+      "story_name": "Justify Center",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-justify-center-atomic-story"
+    },
+    {
+      "story_id": "components-hero--justify-end",
+      "story_name": "Justify End",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-justify-end-atomic-story"
+    },
+    {
+      "story_id": "components-hero--overlay-black-style",
+      "story_name": "Overlay Black Style",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-overlay-black-style-atomic-story"
+    },
+    {
+      "story_id": "components-hero--overlay-white-style",
+      "story_name": "Overlay White Style",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-overlay-white-style-atomic-story"
+    },
+    {
+      "story_id": "components-hero--responsive-images-with-picture",
+      "story_name": "Responsive Images With Picture",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-responsive-images-with-picture-atomic-story"
+    },
+    {
+      "story_id": "components-hero--variant-compact",
+      "story_name": "Variant Compact",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-variant-compact-atomic-story"
+    },
+    {
+      "story_id": "components-hero--variant-dynamic",
+      "story_name": "Variant Dynamic",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-variant-dynamic-atomic-story"
+    },
+    {
+      "story_id": "components-hero--with-video",
+      "story_name": "With Video",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-with-video-atomic-story"
+    },
+    {
+      "story_id": "components-hero--with-video-hls",
+      "story_name": "With Video HLS",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-hero-with-video-hls-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-hero--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/hero/hero.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/hero/docs/hero.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "hero",
+      "Hero",
+      "hero complete",
+      "Hero complete package",
+      "hero docs"
+    ],
+    "when_to_use": "Use first for any Hero generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Hero behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

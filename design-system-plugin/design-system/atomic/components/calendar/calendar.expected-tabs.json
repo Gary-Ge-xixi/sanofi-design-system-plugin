@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "calendar",
+  "component_name": "Calendar",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Calendar"
+  },
+  "docs": [
+    {
+      "id": "components-calendar--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/DatePicker/Calendar/Calendar.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-calendar--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+    },
+    {
+      "id": "components-calendar--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+    },
+    {
+      "id": "components-calendar--range-selection",
+      "name": "Range Selection",
+      "export_name": "RangeSelection",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+    },
+    {
+      "id": "components-calendar--with-date-constraints",
+      "name": "With Date Constraints",
+      "export_name": "WithDateConstraints",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+    }
+  ]
+}

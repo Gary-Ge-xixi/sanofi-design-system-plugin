@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-typography-rule-usage",
+  "target": "outputs/html/customer-detail-date-query.resolved.html",
+  "rule": "typography-font-stack",
+  "status": "pass",
+  "checked": {
+    "required_attributes": [
+      "data-typography-rule=\"typography-font-stack\"",
+      "data-source-doc-id=\"foundations-typography--docs"
+    ],
+    "required_css_fragments": [
+      "\"Sanofi Sans\"",
+      "\"Noto Sans SC\"",
+      "--elements-core-font-family-sans"
+    ],
+    "forbidden_css_fragments": [
+      "Arial",
+      "Nunito Sans"
+    ]
+  },
+  "failures": []
+}

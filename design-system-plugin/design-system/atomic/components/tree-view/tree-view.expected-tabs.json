@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tree-view",
+  "component_name": "TreeView",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/TreeView"
+  },
+  "docs": [
+    {
+      "id": "components-treeview--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/TreeView/TreeView.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-treeview--color-accent",
+      "name": "Color Accent",
+      "export_name": "ColorAccent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--custom-leading-visuals",
+      "name": "Custom Leading Visuals",
+      "export_name": "CustomLeadingVisuals",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--decorations",
+      "name": "Decorations",
+      "export_name": "Decorations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--file-explorer",
+      "name": "File Explorer",
+      "export_name": "FileExplorer",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--inside-sidebar",
+      "name": "Inside Sidebar",
+      "export_name": "InsideSidebar",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--playground",
+      "name": "Playground",
+      "export_name": "Playground",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--rtl",
+      "name": "RTL",
+      "export_name": "RTL",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    }
+  ]
+}

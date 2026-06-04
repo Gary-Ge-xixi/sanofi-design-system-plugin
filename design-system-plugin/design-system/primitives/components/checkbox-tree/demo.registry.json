@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "CheckboxTree",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-checkboxtree--collapsible",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-checkboxtree--color-variations",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-checkboxtree--deeply-nested",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-checkboxtree--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

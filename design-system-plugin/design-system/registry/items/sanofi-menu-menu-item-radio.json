@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-menu-item-radio",
+  "title": "Menu/MenuItemRadio primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Menu/MenuItemRadio.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "menu-menu-item-radio",
+  "docs_id": "components-menu-menuitemradio--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemradio--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemradio--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemradio--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 2,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-menu-item-radio",
+      "Menu/MenuItemRadio",
+      "Menu/Menu Item Radio"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Menu/MenuItemRadio primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

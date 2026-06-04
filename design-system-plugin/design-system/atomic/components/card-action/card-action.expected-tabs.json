@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card-action",
+  "component_name": "Card/Action",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Card/Action"
+  },
+  "docs": [
+    {
+      "id": "components-card-action--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Card/CardAction.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-card-action--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardAction.stories.tsx"
+    }
+  ]
+}

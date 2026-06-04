@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>客户详情审计</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --example-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --example-sidebar-width: 18rem;
+        --example-topbar-height: 5rem;
+        --example-control-height: 2.75rem;
+        --example-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --example-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --example-muted-bg: var(--elements-color-semantic-accent-neutral_default);
+        --example-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --example-border: var(--elements-color-semantic-border-default);
+        --dashboard-surface-bg: var(--example-surface-bg);
+        --dashboard-border: var(--example-border);
+        --dashboard-active-bg: var(--example-active-bg);
+        font-family: var(--example-font-family);
+        letter-spacing: var(--elements-core-font-letterspacing-default);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--example-page-bg);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body { margin: 0; block-size: 100vh; overflow: hidden; font-family: var(--example-font-family); letter-spacing: var(--elements-core-font-letterspacing-default); background: var(--example-page-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, p { margin-block-start: 0; margin-block-end: 0; letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .shell { block-size: 100vh; overflow: hidden; display: grid; grid-template-columns: var(--example-sidebar-width) minmax(0, 1fr); grid-template-rows: var(--example-topbar-height) minmax(0, 1fr); }
+      .topbar { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--example-surface-bg); border-block-end: 0.0625rem solid var(--example-border); box-shadow: var(--elements-core-elevation-02); z-index: 4; }
+      .brand { display: flex; align-items: center; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .brand img { inline-size: 5.875rem; block-size: auto; display: block; }
+      .brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--example-border); }
+      .app-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .topbar-actions { display: inline-flex; align-items: center; justify-content: flex-end; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .user-chip { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.5rem; padding-inline: var(--elements-spacing-md); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-rounded); background: var(--example-muted-bg); font-size: var(--elements-font-size-200); }
+      .user-chip.is-plain { border-color: transparent; background: transparent; border-radius: var(--elements-radius-none); padding-inline: var(--elements-spacing-none); font-size: var(--elements-font-size-300); color: var(--elements-color-semantic-text-default_inverse); }
+      .topbar-switch { display: inline-flex; align-items: center; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-accent-default); font-size: var(--elements-font-size-300); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .sidebar { grid-row: 2; position: sticky; inset-block-start: var(--example-topbar-height); block-size: calc(100vh - var(--example-topbar-height)); background: var(--example-surface-bg); border-inline-end: 0.0625rem solid var(--example-border); overflow: auto; padding: var(--elements-spacing-md); }
+      .nav-list { list-style: none; display: grid; gap: var(--elements-spacing-2xs); margin: 0; padding: 0; }
+      .sidebar-title { display: block; padding: var(--elements-spacing-2xs) var(--elements-spacing-md); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); }
+      .sidebar-footer { margin-block-start: var(--elements-spacing-md); padding: var(--elements-spacing-md); border-block-start: 0.0625rem solid var(--example-border); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      .nav-item { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.75rem; padding-inline: var(--elements-spacing-md); border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); }
+      .nav-item.is-active { background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .nav-item.has-toggle { justify-content: space-between; }
+      .nav-item-main { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .nav-chevron { inline-size: 1.25rem; block-size: 1.25rem; flex: 0 0 auto; color: currentColor; }
+      .nav-sub-list { list-style: none; display: grid; gap: var(--elements-spacing-2xs); margin: 0; padding: var(--elements-spacing-2xs) 0 var(--elements-spacing-sm); }
+      .nav-sub-item { display: flex; align-items: center; min-block-size: 2.75rem; padding-inline: var(--elements-spacing-2xl) var(--elements-spacing-md); border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); }
+      .nav-sub-item.is-active { background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .planning-sidebar-toggle { margin-block-start: var(--elements-spacing-4xl); display: flex; justify-content: flex-end; color: var(--elements-color-semantic-text-subtle_inverse); }
+      .planning-sidebar-toggle button { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border: 0; border-radius: var(--elements-radius-sm); background: transparent; color: inherit; cursor: pointer; }
+      .nav-icon, .select-chevron, .inline-link-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; inline-size: 1.25rem; block-size: 1.25rem; color: currentColor; }
+      svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .main { grid-column: 2; grid-row: 2; min-inline-size: 0; min-block-size: 0; block-size: 100%; padding: var(--elements-spacing-xl); padding-block-end: var(--elements-spacing-6xl); overflow: auto; }
+      .container { inline-size: 100%; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .container-content { min-inline-size: 0; }
+      .page-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); min-inline-size: 0; }
+      .panel, .breadcrumb, .page-header, .save-bar-anchor { grid-column: 1 / -1; min-inline-size: 0; }
+      .panel { background: var(--example-surface-bg); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-lg); }
+      .breadcrumb { display: flex; align-items: center; gap: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); line-height: var(--elements-font-lineheight-2); }
+      .breadcrumb strong { color: var(--elements-color-semantic-text-default_inverse); }
+      .page-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--elements-spacing-xl); row-gap: var(--elements-spacing-sm); align-items: start; margin-block-end: var(--elements-spacing-2xs); }
+      .page-header-main { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; }
+      .page-title-text { font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); overflow-wrap: anywhere; }
+      .page-description { max-inline-size: 56rem; color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); line-height: var(--elements-font-lineheight-3); font-weight: var(--elements-font-weight-regular); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .page-header-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .section-title { font-size: var(--elements-font-size-500); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); margin-block-end: var(--elements-spacing-sm); }
+      .toolbar, .form-grid, .detail-grid, .summary-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--elements-spacing-lg); row-gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .toolbar { align-items: end; background: var(--example-muted-bg); padding: var(--elements-spacing-md); border-radius: var(--elements-radius-sm); }
+      .toolbar .field { grid-column: span 3; }
+      .toolbar-actions { grid-column: span 3; display: flex; justify-content: flex-end; align-items: end; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .customer-query-actions { grid-column: 1 / -1; justify-content: flex-start; }
+      .aggregation-toolbar .field { grid-column: span 2; }
+      .aggregation-toolbar .field:first-child { grid-column: span 3; }
+      .aggregation-toolbar .toolbar-actions { grid-column: span 3; }
+      .customer-date-query-toolbar .field:first-child { grid-column: span 4; }
+      .planning-card { display: grid; gap: var(--elements-spacing-md); }
+      .planning-header-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .planning-header-line .page-title-text { display: inline-flex; align-items: center; gap: var(--elements-spacing-md); }
+      .planning-title-divider { color: var(--elements-color-semantic-text-subtle_inverse); font-weight: var(--elements-font-weight-regular); }
+      .progress-link { display: inline-flex; align-items: center; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .planning-section-strip { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.75rem; border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding-inline: var(--elements-spacing-md); font-size: var(--elements-font-size-400); font-weight: var(--elements-font-weight-bold); }
+      .planning-query-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-spacing-sm); align-items: end; background: var(--example-muted-bg); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); }
+      .planning-query-grid .field { grid-column: span 3; }
+      .planning-query-actions { grid-column: span 3; display: flex; align-items: end; justify-content: flex-end; gap: var(--elements-spacing-sm); }
+      .planning-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-sm); min-block-size: var(--example-control-height); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-surface-bg); padding-inline: var(--elements-spacing-md); }
+      .planning-search-shell input { min-block-size: 2.25rem; border: 0; background: transparent; padding-inline: 0; outline: 0; }
+      .planning-search-shell .nav-icon { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .planning-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); inline-size: min(100%, 58rem); border-radius: var(--elements-radius-sm); background: var(--example-active-bg); overflow: hidden; }
+      .planning-tab { min-block-size: 2.75rem; border: 0; background: transparent; color: var(--elements-color-semantic-text-subtle_inverse); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .planning-tab[aria-selected="true"] { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .planning-table-section { padding: 0; overflow: hidden; }
+      .planning-table-scroll { inline-size: 100%; overflow: auto; }
+      .planning-table { min-inline-size: 96rem; table-layout: fixed; }
+      .planning-table th, .planning-table td { vertical-align: middle; white-space: nowrap; }
+      .planning-table th:first-child, .planning-table td:first-child { inline-size: 20rem; white-space: normal; }
+      .planning-group-row td, .planning-subheader-row th { background: var(--example-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .planning-product-cell { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr); align-items: center; column-gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .planning-hospital-cell { display: flex; align-items: center; min-inline-size: 0; }
+      .tree-toggle { appearance: none; display: inline-grid; place-items: center; inline-size: 1.25rem; block-size: 1.25rem; min-inline-size: 1.25rem; min-block-size: 1.25rem; padding: var(--elements-spacing-none); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-rounded); background: var(--example-surface-bg); color: var(--elements-color-semantic-text-subtle_inverse); line-height: 1; vertical-align: middle; user-select: none; flex: 0 0 auto; }
+      .tree-toggle-icon { display: inline-flex; align-items: center; justify-content: center; inline-size: 0.875rem; block-size: 0.875rem; color: currentColor; }
+      .tree-toggle svg { inline-size: 0.875rem; block-size: 0.875rem; }
+      .tree-toggle:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+      .tree-toggle[aria-expanded="true"] { background: var(--example-muted-bg); }
+      .planning-hospital-cell { padding-inline-start: var(--elements-spacing-2xl); }
+      .target-input { inline-size: 6.75rem; min-block-size: 2.25rem; text-align: center; padding-inline: var(--elements-spacing-sm); }
+      .target-final { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .target-delta { color: var(--elements-color-semantic-text-error_inverse); font-size: var(--elements-font-size-100); }
+      .planning-action-bar { justify-content: center; inset-block-end: 0; inset-inline-start: var(--example-sidebar-width); inset-inline-end: 0; border-radius: var(--elements-radius-none); border-inline: 0; border-block-end: 0; }
+      .planning-action-bar .btn-row { justify-content: center; }
+      .planning-action-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--example-border); }
+      .form-grid .field { grid-column: span 4; }
+      .detail-grid .field, .summary-grid .field { grid-column: span 3; }
+      .field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; }
+      .field label, .field-name { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); font-weight: var(--elements-font-weight-bold); }
+      .required { color: var(--elements-color-semantic-text-error_inverse); }
+      input, select, textarea { inline-size: 100%; min-block-size: var(--example-control-height); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-surface-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; padding-inline: var(--elements-spacing-md); }
+      .select-control, .date-picker-control { position: relative; display: block; min-inline-size: 0; }
+      .select-control select { appearance: none; padding-inline-start: var(--elements-spacing-md); padding-inline-end: var(--elements-spacing-4xl); }
+      .date-picker-control input { padding-inline-start: var(--elements-spacing-md); padding-inline-end: var(--elements-spacing-4xl); }
+      .select-control .select-chevron, .date-picker-control .date-picker-icon { position: absolute; inset-inline-end: var(--elements-spacing-md); inset-block-start: 50%; transform: translateY(-50%); pointer-events: none; color: var(--elements-color-semantic-text-subtle_inverse); }
+      textarea { padding-block: var(--elements-spacing-sm); min-block-size: 6rem; resize: vertical; }
+      input[readonly] { background: var(--example-muted-bg); }
+      .value { min-block-size: var(--example-control-height); display: flex; align-items: center; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding-inline: var(--elements-spacing-md); font-size: var(--elements-font-size-300); }
+      .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--elements-spacing-md); }
+      .btn { min-block-size: var(--example-control-height); border-radius: var(--elements-radius-sm); border: 0.0625rem solid var(--elements-color-semantic-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; white-space: nowrap; }
+      .btn-primary { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .btn-secondary { background: var(--example-surface-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .btn-danger { background: var(--example-surface-bg); color: var(--elements-color-semantic-text-error_inverse); border-color: var(--elements-color-semantic-border-error); }
+      .badge-row { display: flex; flex-wrap: wrap; gap: var(--elements-spacing-sm); align-items: center; }
+      .badge { display: inline-flex; align-items: center; min-block-size: 1.75rem; border-radius: var(--elements-radius-rounded); padding-inline: var(--elements-spacing-sm); background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-size: var(--elements-font-size-100); font-weight: var(--elements-font-weight-bold); }
+      .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--elements-spacing-md); }
+      .customer-summary-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .kpi-card { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); background: var(--example-muted-bg); }
+      .kpi-label { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); line-height: var(--elements-font-lineheight-2); font-weight: var(--elements-font-weight-bold); }
+      .kpi-value { font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .kpi-meta { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); line-height: var(--elements-font-lineheight-2); }
+      .aggregation-layout { display: grid; grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr); gap: var(--elements-grid-gutter-lg); align-items: stretch; }
+      .chart-box { min-inline-size: 0; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); background: var(--example-muted-bg); }
+      .chart-bars { display: grid; gap: var(--elements-spacing-sm); margin-block-start: var(--elements-spacing-md); }
+      .chart-row { display: grid; grid-template-columns: 5rem minmax(0, 1fr) 4rem; gap: var(--elements-spacing-sm); align-items: center; font-size: var(--elements-font-size-200); }
+      .chart-track { block-size: 0.75rem; border-radius: var(--elements-radius-rounded); background: var(--example-surface-bg); overflow: hidden; border: 0.0625rem solid var(--example-border); }
+      .chart-fill { display: block; block-size: 100%; border-radius: inherit; background: var(--elements-color-semantic-background-brand); }
+      .chart-note { margin-block-start: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); line-height: var(--elements-font-lineheight-2); }
+      .record-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-md); margin-block-end: var(--elements-spacing-md); }
+      .pagination { display: flex; justify-content: space-between; align-items: center; gap: var(--elements-spacing-md); margin-block-start: var(--elements-spacing-md); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      .notice { border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding: var(--elements-spacing-md); font-size: var(--elements-font-size-300); }
+      .notice strong { color: var(--elements-color-semantic-text-error_inverse); }
+      table { inline-size: 100%; border-collapse: collapse; min-inline-size: 54rem; font-size: var(--elements-font-size-300); }
+      th, td { border: 0.0625rem solid var(--example-border); padding: var(--elements-spacing-sm) var(--elements-spacing-md); text-align: start; vertical-align: top; }
+      th { background: var(--example-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .table-scroll { overflow-x: auto; }
+      .save-bar { position: fixed; inset-inline-start: calc(var(--example-sidebar-width) + var(--elements-spacing-xl)); inset-inline-end: var(--elements-spacing-xl); inset-block-end: var(--elements-spacing-md); display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); background: var(--example-surface-bg); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); box-shadow: var(--elements-core-elevation-03); z-index: 6; }
+      .save-bar.planning-action-bar { justify-content: center; inset-block-end: 0; inset-inline-start: var(--example-sidebar-width); inset-inline-end: 0; border-radius: var(--elements-radius-none); border-inline: 0; border-block-end: 0; }
+      @media (max-width: 72rem) { .toolbar .field, .toolbar-actions, .form-grid .field, .detail-grid .field, .summary-grid .field, .planning-query-grid .field, .planning-query-actions { grid-column: span 6; } .kpi-grid, .customer-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .aggregation-layout { grid-template-columns: minmax(0, 1fr); } }
+      @media (max-width: 56rem) { .shell { grid-template-columns: minmax(0, 1fr); } .sidebar { display: none; } .main { grid-column: 1; } .topbar { padding-inline: var(--elements-spacing-md); } .save-bar { inset-inline-start: var(--elements-spacing-md); inset-inline-end: var(--elements-spacing-md); } }
+      @media (max-width: 40rem) { .main { padding: var(--elements-spacing-md); } .toolbar .field, .toolbar-actions, .form-grid .field, .detail-grid .field, .summary-grid .field, .planning-query-grid .field, .planning-query-actions { grid-column: 1 / -1; } .toolbar-actions, .planning-query-actions { justify-content: stretch; } .toolbar-actions .btn, .planning-query-actions .btn { flex: 1; } .page-header { grid-template-columns: minmax(0, 1fr); } .page-header-actions { justify-content: flex-start; } .planning-tabs { inline-size: 100%; } .planning-action-bar .btn-row { justify-content: flex-start; overflow-x: auto; } .kpi-grid { grid-template-columns: minmax(0, 1fr); } .record-toolbar, .pagination { align-items: stretch; flex-direction: column; } }
+
+      .snf-button { display: inline-flex; align-items: center; justify-content: center; gap: var(--elements-spacing-2xs); min-block-size: 2.5rem; border: 0.0625rem solid var(--elements-color-semantic-accent-default); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); white-space: nowrap; cursor: pointer; transition: border-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), background-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), color var(--elements-motion-duration-150) var(--elements-motion-ease-out), transform var(--elements-motion-duration-75) var(--elements-motion-ease-out); }
+      .snf-button:hover { background: var(--elements-color-semantic-background-brand-subtle); }
+      .snf-button:active { transform: translateY(0.0625rem); }
+      .snf-button--primary { background: var(--elements-color-semantic-accent-default); color: var(--elements-color-components-tooltip-bg-default); }
+      .snf-button--primary:hover { background: var(--elements-color-semantic-accent-hover); }
+      .snf-button--tertiary { border-color: transparent; background: transparent; }
+      .snf-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
+      .snf-icon, .snf-button-icon, .snf-search-icon, .snf-select-chevron, .snf-date-picker-icon, .snf-nav-chevron { inline-size: 1.5rem; block-size: 1.5rem; display: inline-grid; place-items: center; flex: 0 0 auto; }
+      .snf-icon svg, .snf-button-icon svg, .snf-search-icon svg, .snf-select-chevron svg, .snf-date-picker-icon svg, .snf-nav-chevron svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .snf-sidebar { grid-row: 2; display: grid; grid-template-rows: auto 1fr auto; gap: var(--elements-spacing-md); padding: var(--elements-spacing-md) var(--elements-spacing-sm); background: var(--dashboard-surface-bg); border-inline-end: 0.0625rem solid var(--dashboard-border); overflow: hidden; }
+      .snf-sidebar-heading { padding-inline: var(--elements-spacing-sm); font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-sidebar-content { min-block-size: 0; overflow: auto; }
+      .snf-nav-list, .snf-nav-children { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--elements-spacing-2xs); }
+      .snf-nav-link, .snf-nav-child { display: flex; align-items: center; min-block-size: 2.5rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); padding-inline: var(--elements-spacing-sm); }
+      .snf-nav-link { justify-content: space-between; }
+      .snf-nav-child { padding-inline-start: var(--elements-spacing-3xl); }
+      .snf-nav-link[aria-current="page"], .snf-nav-child[aria-current="page"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .snf-nav-link:hover, .snf-nav-child:hover { background: var(--dashboard-active-bg); }
+      .snf-nav-item-main { display: flex; align-items: center; gap: var(--elements-spacing-md); }
+      .snf-sidebar-footer { border-block-start: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .snf-container-content { inline-size: 100%; min-inline-size: 0; padding-inline: var(--elements-spacing-xl); }
+      .snf-layout-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); align-items: start; min-inline-size: 0; }
+      .snf-field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-field-label { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-control-shell { inline-size: 100%; min-inline-size: 0; min-block-size: 2.5rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-2xs); padding-inline: var(--elements-spacing-sm); }
+      .snf-search-input { inline-size: 100%; min-inline-size: 0; min-block-size: 2.25rem; border: 0; background: transparent; color: inherit; padding: 0; font: inherit; outline: 0; }
+      .snf-select-shell { position: relative; min-inline-size: 0; }
+      .snf-select-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; cursor: pointer; }
+      .snf-select-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-select-listbox { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline: 0; z-index: 20; display: grid; gap: var(--elements-spacing-3xs); max-block-size: 12rem; overflow: auto; margin: 0; padding: var(--elements-spacing-2xs); list-style: none; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-select-listbox[hidden] { display: none; }
+      .snf-select-option { border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-sm); cursor: pointer; color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-select-option:hover, .snf-select-option[aria-selected="true"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .snf-date-picker-shell { position: relative; min-inline-size: 0; }
+      .snf-date-picker-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; white-space: nowrap; cursor: pointer; }
+      .snf-date-picker-value { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .snf-date-picker-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-date-picker-dialog { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline-start: 0; z-index: 25; min-inline-size: 18rem; padding: var(--elements-spacing-sm); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-date-picker-dialog[hidden] { display: none; }
+      .snf-date-picker-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); margin-block-end: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .snf-date-picker-close { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border: 0; border-radius: var(--elements-radius-rounded); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+      .snf-date-picker-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--elements-spacing-3xs); text-align: center; font-size: var(--elements-font-size-100); }
+      .snf-date-picker-calendar span { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-date-picker-calendar button { min-block-size: 2rem; border: 0.0625rem solid transparent; border-radius: var(--elements-radius-sm); background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; cursor: pointer; }
+      .snf-card { display: grid; gap: var(--elements-spacing-md); min-block-size: 11rem; padding: var(--elements-spacing-lg); background: var(--dashboard-surface-bg); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); }
+      .snf-tag { display: inline-flex; align-items: center; inline-size: fit-content; border: 0.0625rem solid var(--elements-color-components-tag-branded-border); border-radius: var(--elements-radius-rounded); background: var(--elements-color-components-tag-branded-bg-subtle); color: var(--elements-color-components-tag-branded-text); padding: var(--elements-spacing-3xs) var(--elements-spacing-sm); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .snf-tag--semantic-success { border-color: var(--elements-color-components-tag-semantic_green-border); background: var(--elements-color-components-tag-semantic_green-bg-solid); color: var(--elements-color-components-tag-semantic_green-text-inverse); }
+      .snf-progress { overflow: hidden; min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-neutral-subtle); }
+      .snf-progress-fill { inline-size: var(--progress-value); min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .snf-tabs { display: flex; gap: var(--elements-spacing-sm); border-block-end: 0.0625rem solid var(--dashboard-border); margin-block-end: var(--elements-spacing-md); }
+      .snf-tab { border: 0; border-block-end: 0.1875rem solid transparent; background: transparent; color: var(--elements-color-semantic-text-default_inverse); padding: var(--elements-spacing-sm) var(--elements-spacing-md); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .snf-tab[aria-selected="true"] { color: var(--elements-color-semantic-text-accent-default); border-block-end-color: var(--elements-color-semantic-accent-default); }
+      .snf-button:focus-visible, .snf-nav-link:focus-visible, .snf-nav-child:focus-visible, .snf-control-shell:focus-within, .snf-control-shell:focus-visible, .snf-tab:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-business-standard="business-page-standards" data-default-rule="business-admin-defaults" data-default-overrides="none" data-page-profile="entity-detail" data-page-family="entity-detail" data-business-task="read-and-audit" data-reference-fit="business-page-family" data-reference-fit-rule="business-page-family-reference-fit" data-density="business-default" data-token-source="foundations-colors--docs" data-typography-rule="typography-font-stack" data-page-layout-typography="business-layout-typography" data-app-shell-scroll="content-only" data-scroll-rule="business-app-shell-scroll" data-icon-rule="icon-usage" data-elevation-rule="elevation-usage" data-pattern="entity-detail"  data-source-doc-id="foundations-typography--docs foundations-layout--docs components-pageheader--docs components-container--docs components-grid--docs foundations-elevation--docs components-icon--docs components-buttonicon--docs">
+    <div class="shell" data-app-shell="business-admin" data-app-shell-scroll="content-only">
+      <header class="topbar" data-app-shell-part="topbar" data-scroll-fixed="true" data-primitive="navigation-header" data-source-component="navigation-header" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs foundations-elevation--docs" data-token-source="foundations-colors--docs" data-elevation-role="header" data-elevation-token="--elements-core-elevation-02">
+        <div class="brand">
+          <img src="../../design-system/assets/brand/sanofi-logo-full.svg" alt="Sanofi" data-brand-asset-id="sanofi-logo-full">
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="app-name">OneCommercial 业务管理</span>
+        </div>
+        <div class="topbar-actions"><span class="user-chip ">张敏 · 区域运营</span></div>
+      </header>
+      <aside class="sidebar" data-primitive="sidebar" data-source-component="sidebar" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs" data-sidebar-part="root" data-token-source="foundations-colors--docs" data-nav-default="with-icons">
+        <div class="sidebar-title" data-sidebar-part="header">业务工作台</div>
+        <nav aria-label="主导航" data-sidebar-part="content">
+          <ul class="nav-list" data-sidebar-part="section">
+            <li data-sidebar-part="item"><a class="nav-item " href="business-query-form.resolved.html"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="form" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 4h12v16H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path></svg></span><span>客户档案维护</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item is-active" href="business-entity-detail.resolved.html" aria-current="page" data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="detail" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="5"></circle><path d="m16 16 4 4"></path><path d="M9 11h4"></path></svg></span><span>客户详情审计</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item " href="information-aggregation.resolved.html"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="aggregation" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path><path d="M8 8v8"></path><path d="M12 10v6"></path><path d="M16 7v9"></path></svg></span><span>信息聚合</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item " href="#"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="import" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3v10"></path><path d="m8 9 4 4 4-4"></path><path d="M5 19h14"></path></svg></span><span>导入结果</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item " href="#"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="permission" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 5 6v5c0 4 3 7 7 9 4-2 7-5 7-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span>权限配置</span></a></li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer" data-sidebar-part="footer">默认展开 · 图标导航</div>
+      </aside>
+      <main class="main" data-app-shell-part="content" data-scroll-region="content">
+        <section class="container" data-primitive="container" data-source-component="container" data-story-id="components-container--fixed" data-source-doc-id="foundations-layout--docs components-container--docs" data-container-part="root" data-container-mode="fixed" data-container-width-token="--elements-container-width-2xl" data-layout-rule="layout-grid-container">
+          <div class="container-content" data-container-part="contentContainer">
+            <div class="page-grid" data-primitive="grid" data-source-component="grid" data-story-id="components-grid--desktop" data-source-doc-id="foundations-layout--docs components-grid--docs" data-layout-rule="layout-grid-container" data-grid-part="root" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg">
+              
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>数据管理</strong><span>›</span><span>客户详情审计</span></nav>
+          <section class="page-header" data-section="detail-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+            <div class="page-header-main" data-pageheader-part="content">
+              <h1 class="page-title-text" data-pageheader-part="title">淮北市疾病预防控制中心</h1>
+              <p class="page-description" data-pageheader-part="description">客户编码 CDC-340600 · 华东大区 · 更新时间 2026-06-04 09:30</p>
+            </div>
+            <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-field-type="status">待审批</span><span class="badge" data-field-type="permission">详情只读</span></div>
+          </section>
+          <section class="panel" data-section="summary-fields" data-grid-part="item">
+            <div class="summary-grid" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3">
+              <div class="field" data-field-id="current_stock" data-field-type="quantity" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">当前库存</span><span class="value">8,420 支</span></div>
+              <div class="field" data-field-id="annual_target" data-field-type="quantity" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">年度目标</span><span class="value">12,000 支</span></div>
+              <div class="field" data-field-id="budget_amount" data-field-type="money" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">预算金额</span><span class="value">860,000 CNY</span></div>
+              <div class="field" data-field-id="approval_status" data-field-type="status" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">审批状态</span><span class="value">待审批</span></div>
+            </div>
+          </section>
+          <section class="panel" data-section="field-groups" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-interaction-state="readonly permission-denied loading error" data-state-copy-key="readonly">
+            <h2 class="section-title">基础信息</h2>
+            <div class="detail-grid" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3">
+              <div class="field" data-field-id="customer_code" data-field-type="text" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">客户编码</span><span class="value">CDC-340600</span></div>
+              <div class="field" data-field-id="customer_name" data-field-type="text" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">客户名称</span><span class="value">淮北市疾病预防控制中心</span></div>
+              <div class="field" data-field-id="province" data-field-type="enum" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">省份</span><span class="value">安徽省</span></div>
+              <div class="field" data-field-id="customer_group" data-field-type="enum" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">客户分组</span><span class="value">正式客户</span></div>
+              <div class="field" data-field-id="owner_user" data-field-type="relation" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">负责人</span><span class="value">张敏</span></div>
+              <div class="field" data-field-id="permission_scope" data-field-type="permission" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">权限范围</span><span class="value">华东大区只读</span></div>
+              <div class="field" data-field-id="effective_date" data-field-type="date" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">生效日期</span><span class="value">2026-01-01</span></div>
+              <div class="field" data-field-id="lock_status" data-field-type="status" data-required="false" data-editable="false" data-permission="read" data-field-source="business-data-model-standard"><span class="field-name">锁定状态</span><span class="value">未锁定</span></div>
+            </div>
+          </section>
+          <section class="panel table-scroll" data-section="status-history" data-grid-part="item" data-business-module="business-table" data-table-contract="business-table" data-fallback-module="business-table" data-fallback-reason="No official Table/DataGrid primitive is registered locally." data-module-contract="business-table" data-interaction-state="readonly loading error" data-state-copy-key="readonly">
+            <h2 class="section-title">状态历史</h2>
+            <table aria-label="客户状态历史">
+              <thead><tr><th scope="col">时间</th><th scope="col">状态</th><th scope="col">操作人</th><th scope="col">说明</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-04 09:30</td><td>待审批</td><td>张敏</td><td>更新年度目标数量并提交审批。</td></tr>
+                <tr><td>2026-06-03 17:10</td><td>草稿</td><td>张敏</td><td>补充预算金额和权限范围。</td></tr>
+                <tr><td>2026-06-01 10:20</td><td>已同步</td><td>系统</td><td>客户主数据从 MDM 同步。</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="panel" data-section="related-actions" data-grid-part="item" data-interaction-state="permission-denied readonly" data-state-copy-key="permission_denied">
+            <h2 class="section-title">相关操作</h2>
+            <p class="notice">当前账号只有详情查看权限，审批和编辑操作需切换至区域运营负责人。</p>
+            <div class="btn-row"><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >查看库存明细</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-business-flow="export">导出详情</button><button class="btn btn-primary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >申请编辑权限</button><button class="btn btn-danger" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-business-flow="reject">驳回</button></div>
+          </section>
+
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package">
+      (() => {
+        const closeSelect = (root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          if (!trigger || !listbox) return;
+          trigger.setAttribute("aria-expanded", "false");
+          listbox.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          const valueNode = root.querySelector("[data-select-value]");
+          if (!trigger || !listbox || !valueNode) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            listbox.hidden = !nextExpanded;
+          });
+
+          listbox.querySelectorAll("[role='option']").forEach((option) => {
+            option.addEventListener("click", () => {
+              listbox.querySelectorAll("[role='option']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              option.setAttribute("aria-selected", "true");
+              valueNode.textContent = option.textContent.trim();
+              closeSelect(root);
+            });
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeSelect(root);
+          });
+        });
+
+        const closeDatePicker = (root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+          trigger.setAttribute("aria-expanded", "false");
+          dialog.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            dialog.hidden = !nextExpanded;
+          });
+
+          root.querySelectorAll("[data-date-picker-close]").forEach((closeButton) => {
+            closeButton.addEventListener("click", () => closeDatePicker(root));
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeDatePicker(root);
+          });
+        });
+
+        document.querySelectorAll("[data-component-id='tabs'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          root.querySelectorAll("[role='tab']").forEach((tab) => {
+            tab.addEventListener("click", () => {
+              root.querySelectorAll("[role='tab']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              tab.setAttribute("aria-selected", "true");
+            });
+          });
+        });
+
+        document.querySelectorAll("[data-sidebar-toggle]").forEach((toggle) => {
+          toggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            const expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!expanded));
+            const children = toggle.parentElement?.querySelector(".snf-nav-children");
+            if (children) children.hidden = expanded;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

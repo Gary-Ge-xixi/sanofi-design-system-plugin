@@ -1,0 +1,199 @@
+{
+  "schema_version": "0.1.0",
+  "id": "avatar",
+  "canonical_name": "avatar",
+  "component_name": "Avatar",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-avatar--docs",
+    "title": "Avatar",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar--docs",
+    "import_path": "./src/components/Avatar/Avatar.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 6,
+    "story_ids": [
+      "components-avatar--all-sizes",
+      "components-avatar--default",
+      "components-avatar--text-overflow",
+      "components-avatar--with-default-icon",
+      "components-avatar--with-initials",
+      "components-avatar--with-label"
+    ],
+    "records": [
+      {
+        "id": "components-avatar--all-sizes",
+        "name": "All Sizes",
+        "normalized_name": "all-sizes",
+        "import_path": "./src/components/Avatar/Avatar.stories.tsx",
+        "export_name": "AllSizes"
+      },
+      {
+        "id": "components-avatar--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Avatar/Avatar.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-avatar--text-overflow",
+        "name": "Text Overflow",
+        "normalized_name": "text-overflow",
+        "import_path": "./src/components/Avatar/Avatar.stories.tsx",
+        "export_name": "TextOverflow"
+      },
+      {
+        "id": "components-avatar--with-default-icon",
+        "name": "With Default Icon",
+        "normalized_name": "with-default-icon",
+        "import_path": "./src/components/Avatar/Avatar.stories.tsx",
+        "export_name": "WithDefaultIcon"
+      },
+      {
+        "id": "components-avatar--with-initials",
+        "name": "With Initials",
+        "normalized_name": "with-initials",
+        "import_path": "./src/components/Avatar/Avatar.stories.tsx",
+        "export_name": "WithInitials"
+      },
+      {
+        "id": "components-avatar--with-label",
+        "name": "With Label",
+        "normalized_name": "with-label",
+        "import_path": "./src/components/Avatar/Avatar.stories.tsx",
+        "export_name": "WithLabel"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size variant of the avatar.\"x-small\"\"small\"\"medium\"\"large\"\"x-large\"\"xx-large\"",
+        "default": "\"AvatarSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isDescriptionVisible",
+        "required": false,
+        "description": "Shows the label text below the avatar.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isNameVisible",
+        "required": false,
+        "description": "Shows the name text next to the avatar.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "all-sizes",
+      "default",
+      "text-overflow",
+      "with-default-icon",
+      "with-initials",
+      "with-label"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "all-sizes",
+      "default",
+      "text-overflow",
+      "with-default-icon",
+      "with-initials",
+      "with-label"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Avatar } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Avatar\n  image=\"https://cdn.prod.accelerator.sanofi/elements/images/Marie-Curie-avatar.jpeg\"\n  name=\"Marie Curie\" />\n  onClick={(e) => {\n\talert('Avatar clicked');\n\tconsole.log(e);\n}}\n);",
+      "import { Avatar } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Avatar name=\"Marie Curie\" />\n);",
+      "import { Avatar } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Avatar />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "avatar"
+    ],
+    "contracts": [
+      {
+        "id": "avatar",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/avatar/demo.registry.json",
+        "known_story_ids": [
+          "components-avatar--all-sizes",
+          "components-avatar--default",
+          "components-avatar--text-overflow",
+          "components-avatar--with-default-icon",
+          "components-avatar--with-initials",
+          "components-avatar--with-label",
+          "components-avatar--all-sizes",
+          "components-avatar--default",
+          "components-avatar--text-overflow",
+          "components-avatar--with-default-icon",
+          "components-avatar--with-initials",
+          "components-avatar--with-label"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md",
+    "docs_import_path": "./src/components/Avatar/Avatar.mdx",
+    "story_ids": [
+      "components-avatar--all-sizes",
+      "components-avatar--default",
+      "components-avatar--text-overflow",
+      "components-avatar--with-default-icon",
+      "components-avatar--with-initials",
+      "components-avatar--with-label"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

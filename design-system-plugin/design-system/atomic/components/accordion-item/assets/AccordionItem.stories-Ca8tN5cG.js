@@ -1,0 +1,5 @@
+import{A as o,a as t}from"./AccordionItem-7Y5B_45S.js";const i={title:"Components/Accordion.Item",component:t,argTypes:{onClick:{action:"clicked"},size:{control:"radio"}},tags:["isHidden"]},r={size:o.SMALL,title:"Accordion Title is Here",isActiveSection:!0,sectionIndex:0,onClick:()=>{alert("The onClick props is called.")},children:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},e={args:{...r}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  args: {
+    ...defaultArgs
+  }
+}`,...e.parameters?.docs?.source}}};const a=["Default"],c=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:a,default:i},Symbol.toStringTag,{value:"Module"}));export{c as A};

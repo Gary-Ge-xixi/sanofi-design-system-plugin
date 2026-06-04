@@ -1,0 +1,300 @@
+{
+  "schema_version": "0.1.0",
+  "component": {
+    "name": "Checkbox",
+    "uid": "09539f",
+    "page_id": 5229534,
+    "demo_block_id": "19e038",
+    "demo_url": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/19e038"
+  },
+  "coverage": {
+    "status": "captured-demo-sample",
+    "summary": "Checkbox demo content can be captured through the Zeroheight page save plus Storybook iframe/chunk sources. The saved page includes rendered Storybook iframe snapshots and the public Storybook chunks expose story names, args, source snippets, and component docgen metadata.",
+    "captured_at": "2026-06-02",
+    "limitations": [
+      "The browser URL normalized back to the Checkbox component page while the Demo tab content stayed available through saved iframes.",
+      "The saved Zeroheight page is useful for embedding context but should not be treated as a clean markdown page export.",
+      "Storybook chunks are minified, so the registry should store normalized story metadata instead of depending on raw chunk readability."
+    ]
+  },
+  "sources": {
+    "zeroheight_saved_page": "research/raw/html/checkbox-demo-current/checkbox.html",
+    "storybook_default_iframe": "research/raw/html/checkbox-demo-current/checkbox_files/iframe.html",
+    "storybook_group_iframe": "research/raw/html/checkbox-demo-current/checkbox_files/iframe(1).html",
+    "checkbox_story_chunk": "research/storybook/components/checkbox/Checkbox.stories-sP0G76Lf.js",
+    "checkbox_group_story_chunk": "research/storybook/components/checkbox/CheckboxGroup.stories-DrXQ9HGt.js",
+    "checkbox_component_chunk": "research/storybook/components/checkbox/Checkbox-DhaBB2L5.js",
+    "checkbox_group_component_chunk": "research/storybook/components/checkbox/CheckboxGroup-DwTbtWW0.js",
+    "component_catalog": "research/components/component-catalog.json"
+  },
+  "storybook": {
+    "base_url": "https://elements.prod.accelerator.sanofi",
+    "component_chunks": [
+      "Checkbox-DhaBB2L5.js",
+      "CheckboxGroup-DwTbtWW0.js"
+    ],
+    "css_chunks": [
+      "Checkbox-D8uO7fNM.css",
+      "CheckboxGroup-6fEPVYPZ.css"
+    ],
+    "story_chunks": [
+      "Checkbox.stories-sP0G76Lf.js",
+      "CheckboxGroup.stories-DrXQ9HGt.js"
+    ]
+  },
+  "stories": [
+    {
+      "storybook_title": "Components/Checkbox",
+      "story_name": "ColorVariations",
+      "story_id": "components-checkbox--color-variations",
+      "source_type": "render",
+      "summary": "Shows branded and neutral colors across unchecked, checked, indeterminate, disabled, and disabled checked states.",
+      "states": [
+        "Unchecked",
+        "Checked",
+        "Indeterminate",
+        "Disabled",
+        "Disabled Checked"
+      ],
+      "colors": [
+        "branded",
+        "neutral"
+      ]
+    },
+    {
+      "storybook_title": "Components/Checkbox",
+      "story_name": "Default",
+      "story_id": "components-checkbox--default",
+      "source_type": "args",
+      "summary": "Default checked checkbox.",
+      "args": {
+        "checkboxSize": "medium",
+        "color": "branded",
+        "label": "Default checkbox",
+        "disabled": false,
+        "indeterminate": false,
+        "defaultChecked": true
+      },
+      "rendered_snapshot": {
+        "source": "research/raw/html/checkbox-demo-current/checkbox_files/iframe.html",
+        "visible_text": [
+          "Default checkbox"
+        ],
+        "html_signals": [
+          "input type=\"checkbox\" checked",
+          "label for checkbox input"
+        ]
+      }
+    },
+    {
+      "storybook_title": "Components/Checkbox",
+      "story_name": "Sizes",
+      "story_id": "components-checkbox--sizes",
+      "source_type": "render",
+      "summary": "Shows small, medium, and large checkbox sizes.",
+      "visible_examples": [
+        "Small checkbox with Link",
+        "Medium checkbox",
+        "Large checkbox"
+      ]
+    },
+    {
+      "storybook_title": "Components/Checkbox",
+      "story_name": "WithLink",
+      "story_id": "components-checkbox--with-link",
+      "source_type": "render",
+      "summary": "Shows a checkbox label that contains an inline link.",
+      "visible_examples": [
+        "I accept terms and conditions to validate rules and regulations"
+      ]
+    },
+    {
+      "storybook_title": "Components/Checkbox",
+      "story_name": "WithSubtext",
+      "story_id": "components-checkbox--with-subtext",
+      "source_type": "render",
+      "summary": "Compares checkbox sizes with and without secondary subtext.",
+      "visible_examples": [
+        "Without Subtext",
+        "With Subtext",
+        "Here goes some details about the checkbox label"
+      ]
+    },
+    {
+      "storybook_title": "Components/Checkbox/CheckboxGroup",
+      "story_name": "Horizontal",
+      "story_id": "components-checkbox-checkboxgroup--horizontal",
+      "source_type": "args",
+      "summary": "Horizontal checkbox group variation.",
+      "args": {
+        "orientation": "horizontal"
+      }
+    },
+    {
+      "storybook_title": "Components/Checkbox/CheckboxGroup",
+      "story_name": "NeutralColor",
+      "story_id": "components-checkbox-checkboxgroup--neutral-color",
+      "source_type": "args",
+      "summary": "Neutral color checkbox group variation.",
+      "args": {
+        "title": "Neutral Checkbox Group",
+        "checkboxesColor": "neutral"
+      }
+    },
+    {
+      "storybook_title": "Components/Checkbox/CheckboxGroup",
+      "story_name": "SmallSize",
+      "story_id": "components-checkbox-checkboxgroup--small-size",
+      "source_type": "args",
+      "summary": "Small checkbox group variation.",
+      "args": {
+        "title": "Small Checkbox Group",
+        "checkboxesSize": "small"
+      }
+    },
+    {
+      "storybook_title": "Components/Checkbox/CheckboxGroup",
+      "story_name": "Vertical",
+      "story_id": "components-checkbox-checkboxgroup--vertical",
+      "source_type": "args",
+      "summary": "Vertical checkbox group with title, caption, error message, and six checkbox children.",
+      "args": {
+        "title": "Checkbox Group Title",
+        "caption": "Optional Caption",
+        "error": "Error Message",
+        "orientation": "vertical",
+        "checkboxesSize": "medium"
+      },
+      "children": [
+        "Checkbox A",
+        "Checkbox B",
+        "Checkbox C",
+        "Checkbox D",
+        "Checkbox E",
+        "Checkbox F"
+      ],
+      "rendered_snapshot": {
+        "source": "research/raw/html/checkbox-demo-current/checkbox_files/iframe(1).html",
+        "visible_text": [
+          "Checkbox Group Title",
+          "Optional Caption",
+          "Checkbox A",
+          "Checkbox B",
+          "Checkbox C",
+          "Checkbox D",
+          "Checkbox E",
+          "Checkbox F",
+          "Error Message"
+        ],
+        "html_signals": [
+          "fieldset aria-invalid=\"true\"",
+          "legend title",
+          "aria-describedby for error message"
+        ]
+      }
+    }
+  ],
+  "props_summary": {
+    "Checkbox": {
+      "from": "component docgen metadata and story argTypes",
+      "props": [
+        {
+          "name": "label",
+          "description": "Label text displayed next to the checkbox.",
+          "type": "ReactNode"
+        },
+        {
+          "name": "subtext",
+          "description": "Secondary text displayed below the label.",
+          "type": "ReactNode"
+        },
+        {
+          "name": "indeterminate",
+          "description": "Shows indeterminate mixed state; used for select-all when partially selected.",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "checkboxSize",
+          "description": "Size of the checkbox.",
+          "type": "small | medium | large",
+          "default": "medium"
+        },
+        {
+          "name": "color",
+          "description": "Checkbox color variant.",
+          "type": "branded | neutral",
+          "default": "branded"
+        },
+        {
+          "name": "disabled",
+          "description": "Native disabled state.",
+          "type": "boolean"
+        },
+        {
+          "name": "defaultChecked",
+          "description": "Initial checked state for uncontrolled usage.",
+          "type": "boolean"
+        }
+      ]
+    },
+    "CheckboxGroup": {
+      "from": "component docgen metadata and story args",
+      "props": [
+        {
+          "name": "children",
+          "description": "Checkbox components to render in the group.",
+          "type": "ReactNode"
+        },
+        {
+          "name": "title",
+          "description": "Group title displayed above the options.",
+          "type": "string"
+        },
+        {
+          "name": "caption",
+          "description": "Helper text displayed below the title.",
+          "type": "string"
+        },
+        {
+          "name": "error",
+          "description": "Error message displayed when validation fails.",
+          "type": "string"
+        },
+        {
+          "name": "orientation",
+          "description": "Layout direction of the checkbox options.",
+          "type": "horizontal | vertical",
+          "default": "vertical"
+        },
+        {
+          "name": "checkboxesSize",
+          "description": "Size applied to all Checkbox children.",
+          "type": "small | medium | large",
+          "default": "medium"
+        },
+        {
+          "name": "checkboxesColor",
+          "description": "Color applied to all Checkbox children.",
+          "type": "branded | neutral",
+          "default": "branded"
+        }
+      ]
+    }
+  },
+  "prototype_contract": {
+    "can_generate_html_prototype": true,
+    "required_runtime_inputs": [
+      "Elements token CSS",
+      "Story args or normalized demo registry",
+      "Rendered HTML snapshot or component import path"
+    ],
+    "validation": [
+      "Generated demos should use known story names and story ids from this registry.",
+      "Generated checkboxes should use label/input association.",
+      "CheckboxGroup demos should preserve fieldset, legend, aria-invalid, aria-describedby, caption, and error message semantics when applicable.",
+      "Raw values should be token-validated against research/tokens/elements-token-declarations.txt."
+    ]
+  },
+  "status": "generated-from-component-contract"
+}

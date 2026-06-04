@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tabs-complete-package",
+  "title": "Tabs complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Tabs package covering Docs plus all Storybook story atoms.",
+  "component_id": "tabs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tabs"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/tabs.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/tabs.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/tabs.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/tabs.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/docs/tabs.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/docs/tabs.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tabs/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tabs/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/tabs-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/tabs-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tabs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tabs/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-tabs--controlled",
+      "story_name": "Controlled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-controlled-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-default-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--default-selected-tab",
+      "story_name": "Default Selected Tab",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-default-selected-tab-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--full-width",
+      "story_name": "Full Width",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-full-width-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--lazy-mount",
+      "story_name": "Lazy Mount",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-lazy-mount-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--lazy-mount-with-unmount",
+      "story_name": "Lazy Mount With Unmount",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-lazy-mount-with-unmount-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--uncontrolled",
+      "story_name": "Uncontrolled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-uncontrolled-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--with-nav",
+      "story_name": "With Nav",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-with-nav-atomic-story"
+    },
+    {
+      "story_id": "components-tabs--with-nav-in-resizable-panel",
+      "story_name": "With Nav In Resizable Panel",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tabs-with-nav-in-resizable-panel-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tabs/tabs.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tabs/docs/tabs.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tabs",
+      "Tabs",
+      "tabs complete",
+      "Tabs complete package",
+      "tabs docs"
+    ],
+    "when_to_use": "Use first for any Tabs generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Tabs behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

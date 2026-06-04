@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-elements-research-tokens",
+  "status": "storybook-v3.48.3-extracted",
+  "source": {
+    "storybook_version_observed": "v3.48.3",
+    "primary_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/foundations-colors--docs",
+    "primary_docs_entry": "foundations-colors--docs",
+    "primary_docs_import_path": "./src/docs/3-colors.mdx",
+    "source_css": "research/storybook/assets/iframe-RDcAcrX5.css",
+    "live_check": "research/tokens/storybook-colors-live-check.json",
+    "note": "Use Storybook v3.48.3 Foundations / Colors as the local prototype token baseline. This is extracted from the Storybook CSS bundle and is not a substitute for an official npm package token export."
+  },
+  "files": {
+    "css": "tokens.css",
+    "allowlist": "token-allowlist.txt",
+    "generated_manifest": "token-manifest.generated.json"
+  },
+  "counts": {
+    "unique_token_names": 640,
+    "unique_declaration_strings": 836,
+    "color_token_names": 467
+  },
+  "usage_contract": {
+    "required_prefix": "--elements-",
+    "source_priority": [
+      "Storybook v3.48.3 Foundations / Colors",
+      "Storybook CSS bundle extracted token declarations",
+      "Zeroheight component pages for component behavior only"
+    ],
+    "prototype_styles_must_reference_tokens": true,
+    "blocked_raw_values": [
+      "hex-color",
+      "rgb-color",
+      "px-length"
+    ]
+  }
+}

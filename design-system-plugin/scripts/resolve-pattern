@@ -1,0 +1,249 @@
+#!/usr/bin/env node
+const { resolvePattern } = require("./resolve-pattern-runtime");
+resolvePattern(process.argv.slice(2));
+process.exit(0);
+
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const resolverDir = path.join(pluginRoot, "design-system", "contracts", "resolvers");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const contractIndexPath = path.join(pluginRoot, "design-system", "contracts", "components", "component-contract-index.json");
+const fallbackPolicyPath = path.join(pluginRoot, "design-system", "policies", "fallback-policy.json");
+const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "pattern-resolver.schema.json");
+const outputPath = path.join(resolverDir, "latest-resolution.json");
+const adminOutputPath = path.join(resolverDir, "admin-dashboard.resolution.json");
+const reportPath = path.join(reportDir, "pattern-resolver.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath);
+}
+
+function contractByPrimitive(index, primitiveId) {
+  return (index.contracts || []).find((contract) => (contract.primitive_ids || []).includes(primitiveId));
+}
+
+function primitiveRef(index, primitiveId, preferredStoryId) {
+  const contract = contractByPrimitive(index, primitiveId);
+  return {
+    primitive_id: primitiveId,
+    component_contract_id: contract?.id || "unknown",
+    docs_id: contract?.docs_id || "unknown",
+    story_id: preferredStoryId || contract?.primitive_ids?.[0] || "unknown"
+  };
+}
+
+function fallback(policy, module) {
+  return policy.fallbacks.find((item) => item.module === module) || {
+    module,
+    status: "unsupported",
+    reason: "No fallback policy registered.",
+    must_not_claim_primitive: true
+  };
+}
+
+fs.mkdirSync(resolverDir, { recursive: true });
+fs.mkdirSync(reportDir, { recursive: true });
+
+const prompt = process.argv.slice(2).join(" ").trim() || "中医药后台管理首页";
+const contractIndex = readJson(contractIndexPath);
+const fallbackPolicy = readJson(fallbackPolicyPath);
+const schema = readJson(schemaPath);
+
+const primitiveStories = {
+  container: "components-container--fixed",
+  grid: "components-grid--desktop",
+  "navigation-header": "components-navigationheader--default",
+  sidebar: "components-sidebar--default",
+  menu: "components-menu--default",
+  "search-input": "components-searchinput--default",
+  select: "components-select--default",
+  button: "components-button--primary",
+  card: "components-card--default",
+  tag: "components-tag--semantic",
+  tabs: "components-tabs--default",
+  "progress-bar": "components-progressbar--default"
+};
+
+const requiredPrimitives = Object.keys(primitiveStories);
+const primitiveRefs = requiredPrimitives.map((id) => primitiveRef(contractIndex, id, primitiveStories[id]));
+const tableFallback = fallback(fallbackPolicy, "table");
+const chartFallback = fallback(fallbackPolicy, "chart");
+const metricFallback = fallback(fallbackPolicy, "metric-card");
+const pageHeaderFallback = fallback(fallbackPolicy, "page-header");
+const modalFallback = fallback(fallbackPolicy, "modal");
+
+const sections = [
+  {
+    id: "admin-shell",
+    label: "Admin shell",
+    type: "layout",
+    required_primitives: ["container", "grid", "navigation-header", "sidebar", "menu"],
+    optional_primitives: [],
+    fallback_modules: [],
+    provenance: primitiveRefs.filter((item) => ["container", "grid", "navigation-header", "sidebar", "menu"].includes(item.primitive_id))
+  },
+  {
+    id: "layout-container",
+    label: "Layout container",
+    type: "layout",
+    required_primitives: ["container"],
+    optional_primitives: [],
+    fallback_modules: [],
+    provenance: primitiveRefs.filter((item) => item.primitive_id === "container")
+  },
+  {
+    id: "layout-grid",
+    label: "Layout grid",
+    type: "layout",
+    required_primitives: ["grid"],
+    optional_primitives: [],
+    fallback_modules: [],
+    provenance: primitiveRefs.filter((item) => item.primitive_id === "grid")
+  },
+  {
+    id: "navigation",
+    label: "Navigation",
+    type: "navigation",
+    required_primitives: ["navigation-header", "sidebar", "menu"],
+    optional_primitives: ["button"],
+    fallback_modules: [],
+    provenance: primitiveRefs.filter((item) => ["navigation-header", "sidebar", "menu", "button"].includes(item.primitive_id))
+  },
+  {
+    id: "filter-toolbar",
+    label: "Filter toolbar",
+    type: "controls",
+    required_primitives: ["search-input", "select", "button"],
+    optional_primitives: [],
+    fallback_modules: ["date-picker"],
+    provenance: primitiveRefs.filter((item) => ["search-input", "select", "button"].includes(item.primitive_id))
+  },
+  {
+    id: "kpi-summary",
+    label: "KPI summary",
+    type: "summary",
+    required_primitives: ["card", "tag", "progress-bar"],
+    optional_primitives: [],
+    fallback_modules: ["metric-card"],
+    provenance: primitiveRefs.filter((item) => ["card", "tag", "progress-bar"].includes(item.primitive_id))
+  },
+  {
+    id: "work-queue",
+    label: "Work queue",
+    type: "workflow",
+    required_primitives: ["card", "tag", "button"],
+    optional_primitives: ["tabs"],
+    fallback_modules: [],
+    provenance: primitiveRefs.filter((item) => ["card", "tag", "button", "tabs"].includes(item.primitive_id))
+  },
+  {
+    id: "data-table-fallback",
+    label: "Data table fallback",
+    type: "fallback",
+    required_primitives: ["tag", "button"],
+    optional_primitives: ["tabs"],
+    fallback_modules: ["table"],
+    provenance: primitiveRefs.filter((item) => ["tag", "button", "tabs"].includes(item.primitive_id))
+  },
+  {
+    id: "chart-fallback",
+    label: "Chart fallback",
+    type: "fallback",
+    required_primitives: ["card", "tag"],
+    optional_primitives: ["progress-bar"],
+    fallback_modules: ["chart"],
+    provenance: primitiveRefs.filter((item) => ["card", "tag", "progress-bar"].includes(item.primitive_id))
+  }
+];
+
+const fallbacks = [tableFallback, chartFallback, metricFallback, pageHeaderFallback, modalFallback];
+const unsupportedGaps = fallbacks
+  .filter((item) => item.status === "docs-only-gap" || item.status === "token-only-pattern")
+  .map((item) => ({
+    module: item.module,
+    status: item.status,
+    reason: item.reason,
+    must_not_claim_primitive: item.must_not_claim_primitive !== false
+  }));
+
+const docsIds = [...new Set(primitiveRefs.map((item) => item.docs_id).filter((id) => id !== "unknown"))];
+const storyIds = [...new Set(primitiveRefs.map((item) => item.story_id).filter((id) => id !== "unknown"))];
+const resolution = {
+  schema_version: schema.schema_version,
+  id: "admin-dashboard-resolution",
+  generated_at: new Date().toISOString(),
+  prompt,
+  intent: /后台|admin|dashboard|首页|管理/.test(prompt)
+    ? "admin-dashboard"
+    : "admin-dashboard",
+  page_type: "admin-dashboard",
+  pattern_id: "admin-dashboard",
+  renderer_target: "html",
+  sections,
+  required_primitives: requiredPrimitives,
+  optional_primitives: ["tabs", "progress-bar"],
+  primitive_refs: primitiveRefs,
+  fallbacks,
+  unsupported_gaps: unsupportedGaps,
+  source_provenance: {
+    pattern_id: "admin-dashboard",
+    docs_ids: docsIds,
+    story_ids: storyIds,
+    token_source: "foundations-colors--docs",
+    layout_rule: "layout-grid-container",
+    layout_source: "foundations-layout--docs",
+    fallback_reasons: fallbacks.map((item) => ({
+      module: item.module,
+      status: item.status,
+      reason: item.reason
+    })),
+    component_contract_index: rel(contractIndexPath),
+    fallback_policy: rel(fallbackPolicyPath),
+    layout_rule_path: "design-system-plugin/design-system/rules/layout-grid-container.json"
+  }
+};
+
+fs.writeFileSync(outputPath, JSON.stringify(resolution, null, 2) + "\n");
+fs.writeFileSync(adminOutputPath, JSON.stringify(resolution, null, 2) + "\n");
+
+const missingSections = schema.required_admin_sections.filter(
+  (id) => !sections.some((section) => section.id === id)
+);
+const failures = [];
+if (missingSections.length) failures.push(`missing admin sections: ${missingSections.join(", ")}`);
+if (resolution.renderer_target !== "html") failures.push("renderer target must be html");
+if (!resolution.fallbacks.some((item) => item.module === "table")) failures.push("missing table fallback");
+if (!resolution.fallbacks.some((item) => item.module === "chart")) failures.push("missing chart fallback");
+
+fs.writeFileSync(reportPath, JSON.stringify({
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "resolve-pattern",
+  generated_at: resolution.generated_at,
+  checked: {
+    sections: sections.length,
+    required_primitives: requiredPrimitives.length,
+    fallbacks: fallbacks.length,
+    unsupported_gaps: unsupportedGaps.length,
+    missing_sections: missingSections.length
+  },
+  failures,
+  output: {
+    latest_resolution: rel(outputPath),
+    admin_resolution: rel(adminOutputPath)
+  }
+}, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Pattern resolver failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Pattern resolver OK: ${resolution.page_type}, ${sections.length} sections`);

@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-isi-tray--isi-with-indication",
+  "component_id": "isi-tray",
+  "component_name": "ISI Tray",
+  "story_id": "components-isi-tray--isi-with-indication",
+  "story_name": "ISI With Indication",
+  "export_name": "ISIWithIndication",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-isi-tray--isi-with-indication&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-isi-tray--isi-with-indication&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/IsiTray.stories-Cf7K8VXF.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/components-isi-tray--isi-with-indication.iframe.html",
+    "import_path": "./src/components/IsiTray/IsiTray.stories.tsx",
+    "component_path": "./src/components/IsiTray/IsiTray.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{titleVariant:_.TITLE_5,layout:c.HALF,containerProps:{xl:\"fixed\"},firstColumnHeader:\"Important Safety Informations\",secondColumnHeader:\"Indication\",mobileHeaderLabel:\"Important Safety Informations and Indication\",footerContent:e.jsx(l.Root,{children:e.jsxs(l.Item,{lg:12,children:[e.jsx(i,{variant:s.BODY_MEDIUM,children:\"FOOTER CONTENT\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget vitae libero volutpat commodo gravida faucibus id sed.\"})]})}),firstColumnContent:e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget vitae libero volutpat commodo gravida faucibus id sed.\"}),secondColumnContent:e.jsxs(e.Fragment,{children:[e.jsx(i,{as:\"p\",variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Blandit cursus feugiat consectetur egestas massa sed nunc. Ullamcorper ultrices facilisi odio ultrices in enim arcu. Elit tempus et dapibus velit viverra et. Sed amet morbi lobortis aliquet risus id malesuada mattis volutpat. Enim adipiscing nisl quam leo nam tincidunt feugiat. Eget in et ac fringilla. Quis nec amet morbi netus aliquam a et. Ultricies quis blandit nullam duis libero ut tristique dolor vitae.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Posuere sed turpis a scelerisque scelerisque. Consectetur eget mattis magna scelerisque vitae. Scelerisque arcu magna nec tortor fringilla egestas. Eget quis duis placerat donec quam amet sit mus leo. Imperdiet dolor viverra pellentesque diam nunc elit viverra magna sed. Nec pellentesque est morbi commodo metus in.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Condimentum quis tellus est maecenas id non. Fringilla ut id sit mattis pellentesque varius. Massa bibendum velit lectus vitae. Lorem id sit at sed amet bibendum id feugiat pellentesque.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Euismod feugiat tellus rhoncus viverra placerat congue risus. Sem felis quisque proin viverra. Nunc vitae ut tempor fermentum aenean elementum tellus morbi. Pharetra vulputate elementum amet sit eget euismod sed elit. Pharetra eget quis nunc nam ut eleifend. Tortor id commodo nulla porttitor adipiscing vulputate congue arcu sed. Dui in facilisi consequat eget sapien nisi.\"})]})}",
+    "values": {
+      "titleVariant": "title-5",
+      "layout": "half",
+      "containerProps": {
+        "extraction_status": "raw_expression",
+        "value": "{xl:\"fixed\"}"
+      },
+      "firstColumnHeader": "Important Safety Informations",
+      "secondColumnHeader": "Indication",
+      "mobileHeaderLabel": "Important Safety Informations and Indication",
+      "footerContent": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsx(l.Root,{children:e.jsxs(l.Item,{lg:12,children:[e.jsx(i,{variant:s.BODY_MEDIUM,children:\"FOOTER CONTENT\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget vitae libero volutpat commodo gravida faucibus id sed.\"})]})})"
+      },
+      "firstColumnContent": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget vitae libero volutpat commodo gravida faucibus id sed.\"})"
+      },
+      "secondColumnContent": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsxs(e.Fragment,{children:[e.jsx(i,{as:\"p\",variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Blandit cursus feugiat consectetur egestas massa sed nunc. Ullamcorper ultrices facilisi odio ultrices in enim arcu. Elit tempus et dapibus velit viverra et. Sed amet morbi lobortis aliquet risus id malesuada mattis volutpat. Enim adipiscing nisl quam leo nam tincidunt feugiat. Eget in et ac fringilla. Quis nec amet morbi netus aliquam a et. Ultricies quis blandit nullam duis libero ut tristique dolor vitae.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Posuere sed turpis a scelerisque scelerisque. Consectetur eget mattis magna scelerisque vitae. Scelerisque arcu magna nec tortor fringilla egestas. Eget quis duis placerat donec quam amet sit mus leo. Imperdiet dolor viverra pellentesque diam nunc elit viverra magna sed. Nec pellentesque est morbi commodo metus in.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Condimentum quis tellus est maecenas id non. Fringilla ut id sit mattis pellentesque varius. Massa bibendum velit lectus vitae. Lorem id sit at sed amet bibendum id feugiat pellentesque.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Euismod feugiat tellus rhoncus viverra placerat congue risus. Sem felis quisque proin viverra. Nunc vitae ut tempor fermentum aenean elementum tellus morbi. Pharetra vulputate elementum amet sit eget euismod sed elit. Pharetra eget quis nunc nam ut eleifend. Tortor id commodo nulla porttitor adipiscing vulputate congue arcu sed. Dui in facilisi consequat eget sapien nisi.\"})]})"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{layout:{options:Object.values(c),control:{type:\"select\"},description:\"layout\"}}",
+    "fields": [
+      "layout"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    titleVariant: TitleVariant.TITLE_5,\n    layout: IsiTrayLayout.HALF,\n    containerProps: {\n      xl: \"fixed\"\n    },\n    firstColumnHeader: \"Important Safety Informations\",\n    secondColumnHeader: \"Indication\",\n    mobileHeaderLabel: \"Important Safety Informations and Indication\",\n    footerContent: <Grid.Root>\n        <Grid.Item lg={12}>\n          <Typography variant={TypographyVariant.BODY_MEDIUM}>\n            FOOTER CONTENT\n          </Typography>\n          <Typography variant={TypographyVariant.BODY_MEDIUM}>\n            Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus\n            faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu.\n            Lectus ullamcorper scelerisque consectetur nam porttitor auctor\n            diam. Amet eget vitae libero volutpat commodo gravida faucibus id\n            sed.\n          </Typography>\n        </Grid.Item>\n      </Grid.Root>,\n    firstColumnContent: <Typography variant={TypographyVariant.BODY_MEDIUM}>\n        Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus\n        faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus\n        ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget\n        vitae libero volutpat commodo gravida faucibus id sed.\n      </Typography>,\n    secondColumnContent: <>\n        <Typography as=\"p\" variant={TypographyVariant.BODY_MEDIUM}>\n          Lorem ipsum dolor sit amet consectetur. Blandit cursus feugiat\n          consectetur egestas massa sed nunc. Ullamcorper ultrices facilisi odio\n          ultrices in enim arcu. Elit tempus et dapibus velit viverra et. Sed\n          amet morbi lobortis aliquet risus id malesuada mattis volutpat. Enim\n          adipiscing nisl quam leo nam tincidunt feugiat. Eget in et ac\n          fringilla. Quis nec amet morbi netus aliquam a et. Ultricies quis\n          blandit nullam duis libero ut tristique dolor vitae.\n        </Typography>\n\n        <Typography variant={TypographyVariant.BODY_MEDIUM}>\n          Posuere sed turpis a scelerisque scelerisque. Consectetur eget mattis\n          magna scelerisque vitae. Scelerisque arcu magna nec tortor fringilla\n          egestas. Eget quis duis placerat donec quam amet sit mus leo.\n          Imperdiet dolor viverra pellentesque diam nunc elit viverra magna sed.\n          Nec pellentesque est morbi commodo metus in.\n        </Typography>\n\n        <Typography variant={TypographyVariant.BODY_MEDIUM}>\n          Condimentum quis tellus est maecenas id non. Fringilla ut id sit\n          mattis pellentesque varius. Massa bibendum velit lectus vitae. Lorem\n          id sit at sed amet bibendum id feugiat pellentesque.\n        </Typography>\n\n        <Typography variant={TypographyVariant.BODY_MEDIUM}>\n          Euismod feugiat tellus rhoncus viverra placerat congue risus. Sem\n          felis quisque proin viverra. Nunc vitae ut tempor fermentum aenean\n          elementum tellus morbi. Pharetra vulputate elementum amet sit eget\n          euismod sed elit. Pharetra eget quis nunc nam ut eleifend. Tortor id\n          commodo nulla porttitor adipiscing vulputate congue arcu sed. Dui in\n          facilisi consequat eget sapien nisi.\n        </Typography>\n      </>\n  },\n  render: args => {\n    return <IsiTray {...args} />;\n  }\n}",
+    "story_object_source": "{args:{titleVariant:_.TITLE_5,layout:c.HALF,containerProps:{xl:\"fixed\"},firstColumnHeader:\"Important Safety Informations\",secondColumnHeader:\"Indication\",mobileHeaderLabel:\"Important Safety Informations and Indication\",footerContent:e.jsx(l.Root,{children:e.jsxs(l.Item,{lg:12,children:[e.jsx(i,{variant:s.BODY_MEDIUM,children:\"FOOTER CONTENT\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget vitae libero volutpat commodo gravida faucibus id sed.\"})]})}),firstColumnContent:e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Tempus nunc faucibus cursus faucibus quam nam. Dolor habitasse morbi sit odio consequat arcu. Lectus ullamcorper scelerisque consectetur nam porttitor auctor diam. Amet eget vitae libero volutpat commodo gravida faucibus id sed.\"}),secondColumnContent:e.jsxs(e.Fragment,{children:[e.jsx(i,{as:\"p\",variant:s.BODY_MEDIUM,children:\"Lorem ipsum dolor sit amet consectetur. Blandit cursus feugiat consectetur egestas massa sed nunc. Ullamcorper ultrices facilisi odio ultrices in enim arcu. Elit tempus et dapibus velit viverra et. Sed amet morbi lobortis aliquet risus id malesuada mattis volutpat. Enim adipiscing nisl quam leo nam tincidunt feugiat. Eget in et ac fringilla. Quis nec amet morbi netus aliquam a et. Ultricies quis blandit nullam duis libero ut tristique dolor vitae.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Posuere sed turpis a scelerisque scelerisque. Consectetur eget mattis magna scelerisque vitae. Scelerisque arcu magna nec tortor fringilla egestas. Eget quis duis placerat donec quam amet sit mus leo. Imperdiet dolor viverra pellentesque diam nunc elit viverra magna sed. Nec pellentesque est morbi commodo metus in.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Condimentum quis tellus est maecenas id non. Fringilla ut id sit mattis pellentesque varius. Massa bibendum velit lectus vitae. Lorem id sit at sed amet bibendum id feugiat pellentesque.\"}),e.jsx(i,{variant:s.BODY_MEDIUM,children:\"Euismod feugiat tellus rhoncus viverra placerat congue risus. Sem felis quisque proin viverra. Nunc vitae ut tempor fermentum aenean elementum tellus morbi. Pharetra vulputate elementum amet sit eget euismod sed elit. Pharetra eget quis nunc nam ut eleifend. Tortor id commodo nulla porttitor adipiscing vulputate congue arcu sed. Dui in facilisi consequat eget sapien nisi.\"})]})},render:t=>e.jsx(x,{...t})}"
+  },
+  "template": {
+    "id": "isi-tray-isi-with-indication-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/isi-tray/templates/html.isi-with-indication.template.html",
+    "output_path": "design-system-plugin/outputs/html/isi-tray-isi-with-indication.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "isi-tray",
+    "local_path": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-isi-tray--docs",
+    "story_id": "components-isi-tray--isi-with-indication",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/isi-tray/assets/components-isi-tray--isi-with-indication.iframe.html"
+  }
+}

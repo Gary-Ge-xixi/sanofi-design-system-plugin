@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-datepicker--with-min-and-max-dates",
+  "component_id": "date-picker",
+  "component_name": "DatePicker",
+  "story_id": "components-datepicker--with-min-and-max-dates",
+  "story_name": "With Min And Max Dates",
+  "export_name": "WithMinAndMaxDates",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-datepicker--with-min-and-max-dates&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-datepicker--with-min-and-max-dates&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/DatePicker.stories-mj8qg6gV.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--with-min-and-max-dates.iframe.html",
+    "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+    "component_path": "./src/components/DatePicker/DatePicker.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{label:\"Restricted Date Picker\",required:!1,size:s.LARGE,state:c.DEFAULT,subText:\"Only dates between June 10 and June 20 are selectable\",inverse:!1,clearable:!1,defaultValue:\"2024-06-15\",minDate:\"2024-06-10\",maxDate:\"2024-06-20\"}",
+    "values": {
+      "label": "Restricted Date Picker",
+      "required": false,
+      "size": "large",
+      "state": "default",
+      "subText": "Only dates between June 10 and June 20 are selectable",
+      "inverse": false,
+      "clearable": false,
+      "defaultValue": "2024-06-15",
+      "minDate": "2024-06-10",
+      "maxDate": "2024-06-20"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mode:{control:\"select\",options:[\"single\",\"range\"],description:\"DatePicker mode - single date or range selection\"},calendarCount:{control:\"number\",description:\"Number of calendars to display (1 or 2, only works with range mode)\",min:1,max:2},size:{control:\"select\",options:Object.values(s),description:\"Input size\"},state:{control:\"select\",options:Object.values(c),description:\"Input state\"},iconAfter:{control:{type:\"select\",labels:{[u.ARROW_UPWARD]:\"Arrow upward\",[u.ARROW_DOWNWARD]:\"Arrow downward\"}},mapping:I,options:Object.keys(I),description:\"Input icon\"},onChange:{action:\"changed\"},defaultSelectorType:{control:\"select\",options:Object.values(o).filter(e=>e!==o.QUARTER),description:\"Default selector type\"},picker:{control:\"select\",options:Object.values(o),description:\"Picker granularity (day, month, quarter, year)\"}}",
+    "fields": [
+      "mode",
+      "calendarCount",
+      "size",
+      "state",
+      "iconAfter",
+      "onChange",
+      "defaultSelectorType",
+      "picker"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    label: \"Restricted Date Picker\",\n    required: false,\n    size: InputSize.LARGE,\n    state: FormControlState.DEFAULT,\n    subText: \"Only dates between June 10 and June 20 are selectable\",\n    inverse: false,\n    clearable: false,\n    defaultValue: \"2024-06-15\",\n    minDate: \"2024-06-10\",\n    maxDate: \"2024-06-20\"\n  },\n  render: args => <div style={{\n    display: \"grid\",\n    gap: \"16px\"\n  }}>\n      <DatePicker {...args} />\n      <DatePicker {...args} label=\"Restricted Month Picker\" subText=\"Only months between April and August 2024 are selectable\" picker={SelectorType.MONTH} defaultValue=\"2024-06\" minDate=\"2024-04-01\" maxDate=\"2024-08-31\" />\n      <DatePicker {...args} label=\"Restricted Quarter Picker\" subText=\"Only quarters between Q4 2023 and Q3 2024 are selectable\" picker={SelectorType.QUARTER} defaultValue=\"2024-Q2\" minDate=\"2023-10-01\" maxDate=\"2024-09-30\" />\n      <DatePicker {...args} label=\"Restricted Year Picker\" subText=\"Only years between 2022 and 2025 are selectable\" picker={SelectorType.YEAR} defaultValue=\"2023\" minDate=\"2022-01-01\" maxDate=\"2025-12-31\" />\n    </div>,\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByLabelText(\"Restricted Date Picker (Optional)\"));\n  }\n}",
+    "story_object_source": "{args:{label:\"Restricted Date Picker\",required:!1,size:s.LARGE,state:c.DEFAULT,subText:\"Only dates between June 10 and June 20 are selectable\",inverse:!1,clearable:!1,defaultValue:\"2024-06-15\",minDate:\"2024-06-10\",maxDate:\"2024-06-20\"},render:e=>n.jsxs(\"div\",{style:{display:\"grid\",gap:\"16px\"},children:[n.jsx(i,{...e}),n.jsx(i,{...e,label:\"Restricted Month Picker\",subText:\"Only months between April and August 2024 are selectable\",picker:o.MONTH,defaultValue:\"2024-06\",minDate:\"2024-04-01\",maxDate:\"2024-08-31\"}),n.jsx(i,{...e,label:\"Restricted Quarter Picker\",subText:\"Only quarters between Q4 2023 and Q3 2024 are selectable\",picker:o.QUARTER,defaultValue:\"2024-Q2\",minDate:\"2023-10-01\",maxDate:\"2024-09-30\"}),n.jsx(i,{...e,label:\"Restricted Year Picker\",subText:\"Only years between 2022 and 2025 are selectable\",picker:o.YEAR,defaultValue:\"2023\",minDate:\"2022-01-01\",maxDate:\"2025-12-31\"})]}),play:async({canvasElement:e})=>{const a=r(e);await t.click(a.getByLabelText(\"Restricted Date Picker (Optional)\"))}}"
+  },
+  "template": {
+    "id": "date-picker-with-min-and-max-dates-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/date-picker/templates/html.with-min-and-max-dates.template.html",
+    "output_path": "design-system-plugin/outputs/html/date-picker-with-min-and-max-dates.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "date-picker",
+    "local_path": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "story_id": "components-datepicker--with-min-and-max-dates",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--with-min-and-max-dates.iframe.html"
+  }
+}

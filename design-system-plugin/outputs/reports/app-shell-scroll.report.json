@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-app-shell-scroll",
+  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
+  "rule": "design-system/rules/business-app-shell-scroll.json",
+  "status": "pass",
+  "checked": {
+    "has_body_block_size": true,
+    "has_body_overflow_hidden": true,
+    "has_shell_block_size": true,
+    "has_shell_overflow_hidden": true,
+    "has_main_min_block_size_zero": true,
+    "has_main_overflow_auto": true
+  },
+  "failures": []
+}

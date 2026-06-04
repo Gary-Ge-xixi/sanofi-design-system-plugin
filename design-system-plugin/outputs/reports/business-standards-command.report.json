@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds business standards",
+  "status": "pass",
+  "generated_at": "2026-06-04T13:36:40.875Z",
+  "run": {
+    "script": "validate-business-standards",
+    "command": "node design-system-plugin/scripts/validate-business-standards",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "Business standards OK: 15 areas, 10 page profiles, 14 rules, 3 module contracts\n",
+    "stderr": ""
+  }
+}

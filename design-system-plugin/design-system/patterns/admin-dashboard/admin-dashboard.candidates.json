@@ -1,0 +1,129 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-dashboard-candidates",
+  "status": "candidate",
+  "source_report": "../../../../research/components/admin-dashboard-elements-map.json",
+  "zeroheight_source_report": "../../../../research/components/admin-dashboard-zeroheight-map.json",
+  "target_example": "../../../outputs/html/tcm-admin-home.html",
+  "candidate_primitives": [
+    {
+      "id": "sidebar",
+      "source_title": "Components/Sidebar",
+      "story_ids": [
+        "components-sidebar--default",
+        "components-sidebar--collapsed",
+        "components-sidebar--expanded",
+        "components-sidebar--sticky-behavior"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "search-input",
+      "source_title": "Components/SearchInput",
+      "story_ids": [
+        "components-searchinput--default",
+        "components-searchinput--sizes",
+        "components-searchinput--submit-variant"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "select",
+      "source_title": "Components/Select",
+      "story_ids": [
+        "components-select--default",
+        "components-select--sizes"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "button",
+      "source_title": "Components/Button",
+      "story_ids": [
+        "components-button--primary",
+        "components-button--secondary",
+        "components-button--tertiary"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "card",
+      "source_title": "Components/Card",
+      "story_ids": [
+        "components-card--default",
+        "components-card--card-custom-number",
+        "components-card--list-density-view"
+      ],
+      "priority": 5
+    },
+    {
+      "id": "status-indicator",
+      "source_title": "Components/Tag or Components/ChipStatus",
+      "story_ids": [
+        "components-tag--semantic",
+        "components-chipstatus--style-gallery"
+      ],
+      "priority": 6
+    },
+    {
+      "id": "tabs",
+      "source_title": "Components/Tabs",
+      "story_ids": [
+        "components-tabs--default",
+        "components-tabs--controlled",
+        "components-tabs--with-nav"
+      ],
+      "priority": 7
+    },
+    {
+      "id": "progress-bar",
+      "source_title": "Components/ProgressBar",
+      "story_ids": [
+        "components-progressbar--default",
+        "components-progressbar--all-states",
+        "components-progressbar--all-sizes"
+      ],
+      "priority": 8
+    },
+    {
+      "id": "page-header",
+      "source_title": "Components/PageHeader",
+      "story_ids": [
+        "components-pageheader--default",
+        "components-pageheader--title-custom"
+      ],
+      "priority": 9
+    },
+    {
+      "id": "pagination",
+      "source_title": "Components/Pagination",
+      "story_ids": [
+        "components-pagination--default",
+        "components-pagination--compact"
+      ],
+      "priority": 10
+    }
+  ],
+  "pattern_gaps": [
+    {
+      "module": "metric-card",
+      "status": "compose_from_card_and_status_indicator",
+      "reason": "No dedicated Metric or KPI primitive found."
+    },
+    {
+      "module": "data-table",
+      "status": "token_only_pattern_until_official_source_found",
+      "reason": "No Table, DataTable, Data Grid, or Data component found."
+    },
+    {
+      "module": "bar-chart",
+      "status": "token_only_pattern_until_official_source_found",
+      "reason": "No Chart or visualization component found."
+    }
+  ],
+  "next_steps": [
+    "Download Storybook chunks or rendered iframe snapshots for each candidate primitive.",
+    "Normalize one primitive registry per candidate under design-system/primitives/components/.",
+    "Promote admin-dashboard-candidates to a ready admin-dashboard pattern only after required primitives validate."
+  ]
+}

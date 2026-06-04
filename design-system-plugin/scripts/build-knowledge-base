@@ -1,0 +1,631 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const knowledgeDir = path.join(pluginRoot, "design-system", "knowledge");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function normalizeName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function storybookUrl(entry) {
+  const mode = entry.type === "docs" ? "docs" : "story";
+  return `https://elements.prod.accelerator.sanofi/?path=/${mode}/${entry.id}`;
+}
+
+function relFromWorkspace(absPath) {
+  return path.relative(workspaceRoot, absPath);
+}
+
+function readOptionalJson(relativePath, fallback) {
+  if (!exists(relativePath)) return fallback;
+  return readJson(relativePath);
+}
+
+function listFiles(relativeDir, predicate = () => true) {
+  const absoluteDir = path.join(workspaceRoot, relativeDir);
+  if (!fs.existsSync(absoluteDir)) return [];
+  return fs
+    .readdirSync(absoluteDir)
+    .map((file) => path.join(relativeDir, file))
+    .filter((file) => fs.statSync(path.join(workspaceRoot, file)).isFile())
+    .filter(predicate)
+    .sort();
+}
+
+function writeJson(relativePath, data) {
+  fs.writeFileSync(
+    path.join(workspaceRoot, relativePath),
+    JSON.stringify(data, null, 2) + "\n"
+  );
+}
+
+function writeText(relativePath, content) {
+  fs.writeFileSync(path.join(workspaceRoot, relativePath), content);
+}
+
+function markdownTable(rows, columns) {
+  const header = `| ${columns.map((column) => column.label).join(" | ")} |`;
+  const divider = `| ${columns.map(() => "---").join(" | ")} |`;
+  const body = rows.map((row) =>
+    `| ${columns
+      .map((column) => String(column.value(row) ?? "").replace(/\n/g, " "))
+      .join(" | ")} |`
+  );
+  return [header, divider, ...body].join("\n");
+}
+
+fs.mkdirSync(knowledgeDir, { recursive: true });
+fs.mkdirSync(reportDir, { recursive: true });
+
+const storybookIndex = readJson("research/storybook/index.json");
+const storybookEntries = Object.values(storybookIndex.entries || {});
+const zeroheightComponents = readOptionalJson("research/components/component-catalog.json", []);
+const primitiveIndex = readJson("design-system-plugin/design-system/primitives/primitive-index.json");
+const tokenManifest = readJson("design-system-plugin/design-system/tokens/token-manifest.json");
+const generatedTokenManifest = readJson(
+  "design-system-plugin/design-system/tokens/token-manifest.generated.json"
+);
+const patternIndex = readOptionalJson("design-system-plugin/design-system/patterns/pattern-index.json", {});
+const templateIndex = readOptionalJson("design-system-plugin/design-system/templates/template-index.json", {});
+const rulesIndex = readOptionalJson("design-system-plugin/design-system/rules/rules-index.json", {});
+const docsMarkdownIndex = readOptionalJson(
+  "design-system-plugin/design-system/knowledge/docs-index.json",
+  null
+);
+const componentContractIndex = readOptionalJson(
+  "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+  null
+);
+const semanticTokenMap = readOptionalJson(
+  "design-system-plugin/design-system/contracts/semantic-token-map.json",
+  null
+);
+const localRegistry = readOptionalJson(
+  "design-system-plugin/design-system/registry/registry.json",
+  null
+);
+const atomicLibrary = readOptionalJson(
+  "design-system-plugin/design-system/atomic/atomic-component-index.json",
+  null
+);
+
+const rawComponentCaptures = listFiles("research/raw/components", (file) => file.endsWith(".txt")).map(
+  (file) => {
+    const bytes = fs.statSync(path.join(workspaceRoot, file)).size;
+    return {
+      local_path: file,
+      bytes,
+      reliability: bytes >= 1000 ? "limited" : "invalid",
+      note:
+        bytes >= 1000
+          ? "Raw text capture; use only after manual review."
+          : "Too small to be treated as component documentation."
+    };
+  }
+);
+
+const storybookDocs = storybookEntries
+  .filter((entry) => entry.type === "docs")
+  .map((entry) => ({
+    id: entry.id,
+    title: entry.title,
+    name: entry.name,
+    import_path: entry.importPath,
+    url: storybookUrl(entry),
+    category: entry.title.split("/")[0],
+    tags: entry.tags || []
+  }))
+  .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
+
+const storybookStories = storybookEntries
+  .filter((entry) => entry.type === "story")
+  .map((entry) => ({
+    id: entry.id,
+    title: entry.title,
+    name: entry.name,
+    export_name: entry.exportName,
+    import_path: entry.importPath,
+    component_path: entry.componentPath,
+    url: storybookUrl(entry),
+    category: entry.title.split("/")[0],
+    tags: entry.tags || []
+  }))
+  .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
+
+const zeroheightByName = new Map(
+  zeroheightComponents.map((component) => [normalizeName(component.name), component])
+);
+
+const primitivesByComponent = new Map();
+for (const primitive of primitiveIndex.primitives || []) {
+  const key = normalizeName(primitive.component);
+  if (!primitivesByComponent.has(key)) primitivesByComponent.set(key, []);
+  primitivesByComponent.get(key).push({
+    id: primitive.id,
+    component: primitive.component,
+    status: primitive.status,
+    contract_path: primitive.path
+      ? `design-system-plugin/design-system/primitives/${primitive.path}`
+      : null,
+    demo_registry_path: primitive.demo_registry
+      ? `design-system-plugin/design-system/primitives/${primitive.demo_registry}`
+      : null
+  });
+}
+
+const storybookTitles = [
+  ...new Set(
+    storybookEntries
+      .filter((entry) => entry.title?.startsWith("Components/"))
+      .map((entry) => entry.title)
+  )
+].sort();
+
+const componentSources = storybookTitles.map((title) => {
+  const componentName = title.replace(/^Components\//, "");
+  const key = normalizeName(componentName);
+  const lastSegmentKey = normalizeName(componentName.split(/[/.]/).pop());
+  const docs = storybookDocs.find((entry) => entry.title === title) || null;
+  const stories = storybookStories.filter((entry) => entry.title === title);
+  const zeroheight = zeroheightByName.get(key) || null;
+  const primitives = primitivesByComponent.get(key) || primitivesByComponent.get(lastSegmentKey) || [];
+  const rawCapture = rawComponentCaptures.find(
+    (capture) => normalizeName(path.basename(capture.local_path, ".txt")) === key
+  );
+
+  let coverage = "storybook-indexed";
+  if (primitives.some((primitive) => primitive.status === "ready")) coverage = "primitive-ready";
+  else if (primitives.length) coverage = "primitive-static-contract";
+
+  return {
+    name: componentName,
+    normalized_name: key,
+    coverage,
+    primary_storybook: {
+      docs_id: docs?.id || null,
+      docs_url: docs?.url || null,
+      import_path: docs?.import_path || null,
+      story_count: stories.length,
+      stories
+    },
+    secondary_zeroheight: zeroheight
+      ? {
+          uid: zeroheight.uid,
+          page_id: zeroheight.page_id,
+          url: zeroheight.url,
+          updated_at: zeroheight.updated_at,
+          tab_count: zeroheight.tabs?.length || 0,
+          tabs: zeroheight.tabs || []
+        }
+      : null,
+    local_raw_capture: rawCapture || null,
+    primitive_contracts: primitives
+  };
+});
+
+const zeroheightOnly = zeroheightComponents
+  .filter((component) => !componentSources.some((item) => item.normalized_name === normalizeName(component.name)))
+  .map((component) => ({
+    name: component.name,
+    normalized_name: normalizeName(component.name),
+    coverage: "zeroheight-only-secondary",
+    secondary_zeroheight: {
+      uid: component.uid,
+      page_id: component.page_id,
+      url: component.url,
+      updated_at: component.updated_at,
+      tab_count: component.tabs?.length || 0,
+      tabs: component.tabs || []
+    }
+  }));
+
+const tokenSources = {
+  primary_docs_url: tokenManifest.source.primary_docs_url,
+  storybook_version_observed: tokenManifest.source.storybook_version_observed,
+  primary_docs_entry: tokenManifest.source.primary_docs_entry,
+  source_css: tokenManifest.source.source_css,
+  live_check: tokenManifest.source.live_check,
+  local_files: {
+    tokens_css: "design-system-plugin/design-system/tokens/tokens.css",
+    token_manifest: "design-system-plugin/design-system/tokens/token-manifest.json",
+    generated_manifest: "design-system-plugin/design-system/tokens/token-manifest.generated.json",
+    allowlist: "design-system-plugin/design-system/tokens/token-allowlist.txt",
+    colors_audit: "research/tokens/colors-audit-2026-06-02.md"
+  },
+  counts: generatedTokenManifest.counts,
+  brand_policy: {
+    brand_name: "Sanofi Miracle Purple",
+    base: "#7A00E6",
+    darkest: "#23004C",
+    green_usage: "success/status only, or explicitly labeled data series; never primary brand/accent"
+  }
+};
+
+const sourceIndex = {
+  schema_version: "0.1.0",
+  generated_at: new Date().toISOString(),
+  purpose:
+    "Storybook-first Sanofi Elements local knowledge base for prototype source indexing.",
+  source_priority: [
+    "primary: Storybook v3.48.3 docs, stories, and CSS bundle",
+    "secondary: Zeroheight component catalog and page tabs",
+    "derived: local primitive contracts, patterns, templates, rules, examples, and generated prototypes",
+    "invalid_or_limited: undersized raw component text captures and private-page HTML shells"
+  ],
+  primary_sources: [
+    {
+      id: "storybook-index",
+      type: "storybook-index",
+      local_path: "research/storybook/index.json",
+      source_url: "https://elements.prod.accelerator.sanofi",
+      reliability: "primary",
+      counts: {
+        entries: storybookEntries.length,
+        docs: storybookDocs.length,
+        stories: storybookStories.length
+      }
+    },
+    {
+      id: "storybook-colors",
+      type: "storybook-docs",
+      local_path: "design-system-plugin/design-system/tokens/token-manifest.json",
+      source_url: tokenManifest.source.primary_docs_url,
+      reliability: "primary",
+      note: "Token source baseline. Brand/accent is Sanofi Miracle Purple, not green."
+    },
+    {
+      id: "storybook-css-bundle",
+      type: "storybook-css",
+      local_path: tokenManifest.source.source_css,
+      source_url: "https://elements.prod.accelerator.sanofi",
+      reliability: "primary-extracted"
+    }
+  ].concat(docsMarkdownIndex ? [
+    {
+      id: "storybook-docs-markdown-corpus",
+      type: "storybook-docs-md-corpus",
+      local_path: "design-system-plugin/design-system/knowledge/docs-index.json",
+      markdown_index_path: "design-system-plugin/design-system/knowledge/docs-index.md",
+      docs_dir_path: "design-system-plugin/design-system/knowledge/docs",
+      source_url: "https://elements.prod.accelerator.sanofi",
+      reliability: "primary-extracted",
+      note: "Local Markdown materialization of Storybook docs tabs captured with opencli.",
+      counts: docsMarkdownIndex.counts || {},
+      docs_entries_total: docsMarkdownIndex.scope?.docs_entries_total || 0
+    }
+  ] : []
+  ),
+  secondary_sources: [
+    {
+      id: "zeroheight-component-catalog",
+      type: "zeroheight-styleguide-catalog",
+      local_path: "research/components/component-catalog.json",
+      source_url: "https://elements.sanofidesign.com/557b0250b",
+      reliability: "secondary",
+      counts: {
+        component_pages: zeroheightComponents.length
+      },
+      note: "Use for navigation, page URLs, visible tabs, and historical page metadata only."
+    }
+  ],
+  derived_sources: [
+    ...(componentContractIndex ? [{
+      id: "component-contract-index",
+      type: "component-contract-registry",
+      local_path: "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+      reliability: "derived",
+      counts: componentContractIndex.counts || {}
+    }] : []),
+    ...(semanticTokenMap ? [{
+      id: "semantic-token-map",
+      type: "semantic-token-map",
+      local_path: "design-system-plugin/design-system/contracts/semantic-token-map.json",
+      reliability: "derived",
+      source_token_doc: semanticTokenMap.source?.primary_docs_entry || "foundations-colors--docs"
+    }] : []),
+    ...(localRegistry ? [{
+      id: "local-registry",
+      type: "ai-registry",
+      local_path: "design-system-plugin/design-system/registry/registry.json",
+      reliability: "derived",
+      renderer_target: localRegistry.renderer_target || "html",
+      counts: localRegistry.counts || {}
+    }] : []),
+    ...(atomicLibrary ? [{
+      id: "atomic-component-library",
+      type: "atomic-story-library",
+      local_path: "design-system-plugin/design-system/atomic/atomic-component-index.json",
+      reliability: "derived",
+      renderer_target: atomicLibrary.renderer_target || "html",
+      counts: atomicLibrary.counts || {}
+    }] : []),
+    {
+      id: "fallback-policy",
+      type: "policy",
+      local_path: "design-system-plugin/design-system/policies/fallback-policy.json",
+      reliability: "policy"
+    },
+    {
+      id: "naming-standard",
+      type: "policy",
+      local_path: "design-system-plugin/design-system/policies/naming-standard.json",
+      reliability: "policy"
+    },
+    {
+      id: "source-provenance-policy",
+      type: "policy",
+      local_path: "design-system-plugin/design-system/policies/source-provenance.json",
+      reliability: "policy"
+    },
+    {
+      id: "primitive-index",
+      type: "primitive-registry",
+      local_path: "design-system-plugin/design-system/primitives/primitive-index.json",
+      reliability: "derived"
+    },
+    {
+      id: "pattern-index",
+      type: "pattern-registry",
+      local_path: "design-system-plugin/design-system/patterns/pattern-index.json",
+      reliability: "derived"
+    },
+    {
+      id: "template-index",
+      type: "template-registry",
+      local_path: "design-system-plugin/design-system/templates/template-index.json",
+      reliability: "derived"
+    },
+    {
+      id: "rules-index",
+      type: "rules-registry",
+      local_path: "design-system-plugin/design-system/rules/rules-index.json",
+      reliability: "derived"
+    }
+  ],
+  invalid_or_limited_sources: rawComponentCaptures,
+  counts: {
+    storybook_entries: storybookEntries.length,
+    storybook_docs: storybookDocs.length,
+    storybook_stories: storybookStories.length,
+    storybook_component_titles: componentSources.length,
+    zeroheight_component_pages: zeroheightComponents.length,
+    zeroheight_only_secondary: zeroheightOnly.length,
+    primitive_contract_components: primitivesByComponent.size,
+    raw_component_captures: rawComponentCaptures.length,
+    invalid_raw_component_captures: rawComponentCaptures.filter(
+      (capture) => capture.reliability === "invalid"
+    ).length,
+    storybook_docs_markdown_records: docsMarkdownIndex?.docs?.length || 0,
+    storybook_docs_markdown_extracted: docsMarkdownIndex?.counts?.extracted || 0,
+    component_contracts: componentContractIndex?.counts?.component_contracts || 0,
+    semantic_token_roles: semanticTokenMap?.roles ? Object.keys(semanticTokenMap.roles).length : 0,
+    local_registry_items: localRegistry?.counts?.items || 0,
+    atomic_story_components: atomicLibrary?.counts?.components || 0,
+    atomic_stories: atomicLibrary?.counts?.stories || 0
+  },
+  output_files: {
+    readme: "design-system-plugin/design-system/knowledge/README.md",
+    source_index_markdown: "design-system-plugin/design-system/knowledge/source-index.md",
+    source_index_json: "design-system-plugin/design-system/knowledge/source-index.json",
+    storybook_pages_json: "design-system-plugin/design-system/knowledge/storybook-pages.json",
+    components_json: "design-system-plugin/design-system/knowledge/components.json",
+    tokens_json: "design-system-plugin/design-system/knowledge/tokens.json",
+    coverage_json: "design-system-plugin/design-system/knowledge/coverage.json",
+    docs_index_json: docsMarkdownIndex
+      ? "design-system-plugin/design-system/knowledge/docs-index.json"
+      : null,
+    docs_index_markdown: docsMarkdownIndex
+      ? "design-system-plugin/design-system/knowledge/docs-index.md"
+      : null,
+    component_contract_index: componentContractIndex
+      ? "design-system-plugin/design-system/contracts/components/component-contract-index.json"
+      : null,
+    semantic_token_map: semanticTokenMap
+      ? "design-system-plugin/design-system/contracts/semantic-token-map.json"
+      : null,
+    local_registry: localRegistry
+      ? "design-system-plugin/design-system/registry/registry.json"
+      : null,
+    atomic_component_index: atomicLibrary
+      ? "design-system-plugin/design-system/atomic/atomic-component-index.json"
+      : null
+  }
+};
+
+const storybookPages = {
+  schema_version: "0.1.0",
+  generated_at: sourceIndex.generated_at,
+  docs: storybookDocs,
+  stories: storybookStories
+};
+
+const components = {
+  schema_version: "0.1.0",
+  generated_at: sourceIndex.generated_at,
+  policy: {
+    primary_source: "Storybook Components docs and stories",
+    secondary_source: "Zeroheight component pages",
+    raw_capture_policy: "Do not use invalid raw captures as component docs."
+  },
+  components: componentSources,
+  zeroheight_only_secondary: zeroheightOnly
+};
+
+const coverage = {
+  schema_version: "0.1.0",
+  generated_at: sourceIndex.generated_at,
+  summary: sourceIndex.counts,
+  by_coverage: componentSources.reduce((acc, component) => {
+    acc[component.coverage] = (acc[component.coverage] || 0) + 1;
+    return acc;
+  }, {}),
+  token_counts: generatedTokenManifest.counts,
+  primitive_index: {
+    local_path: "design-system-plugin/design-system/primitives/primitive-index.json",
+    primitives: primitiveIndex.primitives || []
+  },
+  pattern_index: {
+    local_path: "design-system-plugin/design-system/patterns/pattern-index.json",
+    patterns: patternIndex.patterns || patternIndex
+  },
+  template_index: {
+    local_path: "design-system-plugin/design-system/templates/template-index.json",
+    templates: templateIndex.templates || templateIndex
+  },
+  rules_index: {
+    local_path: "design-system-plugin/design-system/rules/rules-index.json",
+    rules: rulesIndex.rules || rulesIndex
+  }
+};
+
+const mdComponentRows = componentSources.map((component) => ({
+  name: component.name,
+  coverage: component.coverage,
+  docs: component.primary_storybook.docs_id || "",
+  stories: component.primary_storybook.story_count,
+  zeroheight: component.secondary_zeroheight?.url ? "yes" : "no",
+  primitives: component.primitive_contracts.map((primitive) => primitive.id).join(", ")
+}));
+
+const sourceIndexMarkdown = `# Sanofi Elements Source Index
+
+Generated: ${sourceIndex.generated_at}
+
+## Source Priority
+
+1. Primary: Storybook v3.48.3 docs, stories, and CSS bundle.
+2. Secondary: Zeroheight component catalog and visible page tabs.
+3. Derived: local primitive contracts, patterns, templates, rules, examples, and generated prototypes.
+4. Invalid or limited: undersized raw component text captures and private-page HTML shells.
+
+## Primary Sources
+
+- Storybook index: \`research/storybook/index.json\`
+- Storybook base URL: \`https://elements.prod.accelerator.sanofi\`
+- Colors source: \`${tokenManifest.source.primary_docs_url}\`
+- Storybook CSS bundle: \`${tokenManifest.source.source_css}\`
+${docsMarkdownIndex ? `- Storybook docs Markdown corpus: \`design-system-plugin/design-system/knowledge/docs-index.json\`` : ""}
+${componentContractIndex ? `- Component contract index: \`design-system-plugin/design-system/contracts/components/component-contract-index.json\`` : ""}
+${semanticTokenMap ? `- Semantic token map: \`design-system-plugin/design-system/contracts/semantic-token-map.json\`` : ""}
+${localRegistry ? `- Local AI registry: \`design-system-plugin/design-system/registry/registry.json\`` : ""}
+${atomicLibrary ? `- Atomic component library: \`design-system-plugin/design-system/atomic/atomic-component-index.json\`` : ""}
+
+## Token Contract
+
+- Brand/accent: Sanofi Miracle Purple.
+- Brand base: \`#7A00E6\`
+- Brand darkest: \`#23004C\`
+- Green: success/status only, or explicitly labeled data series. Never use green as primary brand/accent.
+- Local token dependency: \`design-system-plugin/design-system/tokens/tokens.css\`
+
+## Coverage Counts
+
+${markdownTable(
+  [
+    ["Storybook entries", sourceIndex.counts.storybook_entries],
+    ["Storybook docs", sourceIndex.counts.storybook_docs],
+    ["Storybook stories", sourceIndex.counts.storybook_stories],
+    ["Storybook component titles", sourceIndex.counts.storybook_component_titles],
+    ["Zeroheight component pages", sourceIndex.counts.zeroheight_component_pages],
+    ["Primitive contract components", sourceIndex.counts.primitive_contract_components],
+    ["Storybook docs Markdown records", sourceIndex.counts.storybook_docs_markdown_records],
+    ["Storybook docs Markdown extracted", sourceIndex.counts.storybook_docs_markdown_extracted],
+    ["Component contracts", sourceIndex.counts.component_contracts],
+    ["Semantic token roles", sourceIndex.counts.semantic_token_roles],
+    ["Local registry items", sourceIndex.counts.local_registry_items],
+    ["Atomic story components", sourceIndex.counts.atomic_story_components],
+    ["Atomic stories", sourceIndex.counts.atomic_stories],
+    ["Invalid raw component captures", sourceIndex.counts.invalid_raw_component_captures]
+  ].map(([label, value]) => ({ label, value })),
+  [
+    { label: "Metric", value: (row) => row.label },
+    { label: "Value", value: (row) => row.value }
+  ]
+)}
+
+## Component Source Map
+
+${markdownTable(mdComponentRows, [
+  { label: "Component", value: (row) => row.name },
+  { label: "Coverage", value: (row) => row.coverage },
+  { label: "Docs ID", value: (row) => row.docs },
+  { label: "Stories", value: (row) => row.stories },
+  { label: "Zeroheight", value: (row) => row.zeroheight },
+  { label: "Primitives", value: (row) => row.primitives }
+])}
+
+## Generated Knowledge Files
+
+- \`source-index.json\`: source priority, reliability, and output map.
+- \`storybook-pages.json\`: all Storybook docs and stories.
+- \`components.json\`: component-level source map.
+- \`tokens.json\`: token source contract and brand policy.
+- \`coverage.json\`: coverage summary for primitives, patterns, templates, and rules.
+${docsMarkdownIndex ? "- `docs-index.json`: local Markdown corpus for Storybook docs tabs.\n- `docs/*.md`: one local Markdown file per Storybook docs tab." : ""}
+${componentContractIndex ? "- `../contracts/components/component-contract-index.json`: AI-executable component contracts." : ""}
+${semanticTokenMap ? "- `../contracts/semantic-token-map.json`: semantic token role map." : ""}
+`;
+
+const readme = `# Sanofi Elements Knowledge Base
+
+This folder is the source-indexed knowledge base for the local design-system plugin.
+
+Use this folder as the retrieval entry point before generating or validating prototypes.
+
+## Read Order
+
+1. \`source-index.json\`
+2. \`components.json\`
+3. \`tokens.json\`
+4. \`coverage.json\`
+5. \`storybook-pages.json\`
+${docsMarkdownIndex ? "6. `docs-index.json`, then the relevant file under `docs/*.md`" : ""}
+${componentContractIndex ? "7. `../contracts/components/component-contract-index.json` before selecting components" : ""}
+${semanticTokenMap ? "8. `../contracts/semantic-token-map.json` before selecting tokens" : ""}
+
+## Policy
+
+- Storybook v3.48.3 is the primary source.
+- Zeroheight is secondary and used for page navigation/tab metadata.
+- Raw captures under \`research/raw/components/*.txt\` are not trusted as full component docs.
+- Generated HTML must use local Elements tokens and registered primitive contracts.
+`;
+
+writeJson("design-system-plugin/design-system/knowledge/source-index.json", sourceIndex);
+writeJson("design-system-plugin/design-system/knowledge/storybook-pages.json", storybookPages);
+writeJson("design-system-plugin/design-system/knowledge/components.json", components);
+writeJson("design-system-plugin/design-system/knowledge/tokens.json", {
+  schema_version: "0.1.0",
+  generated_at: sourceIndex.generated_at,
+  token_sources: tokenSources
+});
+writeJson("design-system-plugin/design-system/knowledge/coverage.json", coverage);
+writeText("design-system-plugin/design-system/knowledge/source-index.md", sourceIndexMarkdown);
+writeText("design-system-plugin/design-system/knowledge/README.md", readme);
+
+writeJson("design-system-plugin/outputs/reports/knowledge-base.report.json", {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "build-knowledge-base",
+  generated_at: sourceIndex.generated_at,
+  outputs: sourceIndex.output_files,
+  counts: sourceIndex.counts
+});
+
+console.log(
+  `Knowledge base OK: ${componentSources.length} Storybook component titles, ${storybookStories.length} stories, ${zeroheightComponents.length} secondary pages`
+);

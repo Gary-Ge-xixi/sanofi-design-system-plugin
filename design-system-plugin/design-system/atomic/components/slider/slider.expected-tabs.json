@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "slider",
+  "component_name": "Slider",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Slider"
+  },
+  "docs": [
+    {
+      "id": "components-slider--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Slider/Slider.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-slider--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--range",
+      "name": "Range",
+      "export_name": "Range",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-bottom-legend",
+      "name": "With Bottom Legend",
+      "export_name": "WithBottomLegend",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-custom-scale",
+      "name": "With Custom Scale",
+      "export_name": "WithCustomScale",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-label",
+      "name": "With Label",
+      "export_name": "WithLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-legend",
+      "name": "With Legend",
+      "export_name": "WithLegend",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    }
+  ]
+}

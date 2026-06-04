@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-radio",
+  "title": "Radio primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Radio.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "radio",
+  "docs_id": "components-radio--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/radio/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/radio/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/radio.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 5,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "radio",
+      "Radio",
+      "Radio"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Radio primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

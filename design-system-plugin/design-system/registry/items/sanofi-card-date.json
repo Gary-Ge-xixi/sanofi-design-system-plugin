@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-date",
+  "title": "Card/Date primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Card/Date.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "card-date",
+  "docs_id": "components-card-date--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-date/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-date/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-date/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/card-date/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-date.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-date.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-date--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-date--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-date--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-date.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-date",
+      "Card/Date",
+      "Card/Date"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Card/Date primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

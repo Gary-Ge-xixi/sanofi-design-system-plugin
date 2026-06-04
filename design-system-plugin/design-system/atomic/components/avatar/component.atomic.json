@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "avatar",
+  "component_name": "Avatar",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-avatar--all-sizes",
+      "story_name": "All Sizes",
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--all-sizes.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.all-sizes.template.html",
+      "output_path": "design-system-plugin/outputs/html/avatar-all-sizes.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "docs_id": "components-avatar--docs",
+      "registry_item": "sanofi-avatar-all-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--default",
+      "story_name": "Default",
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/avatar-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "docs_id": "components-avatar--docs",
+      "registry_item": "sanofi-avatar-default-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--text-overflow",
+      "story_name": "Text Overflow",
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--text-overflow.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.text-overflow.template.html",
+      "output_path": "design-system-plugin/outputs/html/avatar-text-overflow.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "docs_id": "components-avatar--docs",
+      "registry_item": "sanofi-avatar-text-overflow-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--with-default-icon",
+      "story_name": "With Default Icon",
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--with-default-icon.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.with-default-icon.template.html",
+      "output_path": "design-system-plugin/outputs/html/avatar-with-default-icon.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "docs_id": "components-avatar--docs",
+      "registry_item": "sanofi-avatar-with-default-icon-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--with-initials",
+      "story_name": "With Initials",
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--with-initials.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.with-initials.template.html",
+      "output_path": "design-system-plugin/outputs/html/avatar-with-initials.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "docs_id": "components-avatar--docs",
+      "registry_item": "sanofi-avatar-with-initials-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--with-label",
+      "story_name": "With Label",
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--with-label.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.with-label.template.html",
+      "output_path": "design-system-plugin/outputs/html/avatar-with-label.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "docs_id": "components-avatar--docs",
+      "registry_item": "sanofi-avatar-with-label-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-avatar--docs"
+  }
+}

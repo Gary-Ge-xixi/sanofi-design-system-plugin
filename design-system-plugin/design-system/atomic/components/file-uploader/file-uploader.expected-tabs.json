@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "file-uploader",
+  "component_name": "FileUploader",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/FileUploader"
+  },
+  "docs": [
+    {
+      "id": "components-fileuploader--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/FileUploader/FileUploader.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-fileuploader--controlled",
+      "name": "Controlled",
+      "export_name": "Controlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/FileUploader/FileUploader.stories.tsx"
+    },
+    {
+      "id": "components-fileuploader--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/FileUploader/FileUploader.stories.tsx"
+    },
+    {
+      "id": "components-fileuploader--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/FileUploader/FileUploader.stories.tsx"
+    },
+    {
+      "id": "components-fileuploader--multiple-files",
+      "name": "Multiple Files",
+      "export_name": "MultipleFiles",
+      "semantic_type": "variant",
+      "import_path": "./src/components/FileUploader/FileUploader.stories.tsx"
+    },
+    {
+      "id": "components-fileuploader--preloaded-files",
+      "name": "Preloaded Files",
+      "export_name": "PreloadedFiles",
+      "semantic_type": "variant",
+      "import_path": "./src/components/FileUploader/FileUploader.stories.tsx"
+    }
+  ]
+}

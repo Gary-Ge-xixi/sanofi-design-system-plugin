@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-date",
+  "canonical_name": "card-date",
+  "component_name": "Card/Date",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-card-date--docs",
+    "title": "Card/Date",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-date--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-date--docs",
+    "import_path": "./src/components/Card/CardDate.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-card-date--default"
+    ],
+    "records": [
+      {
+        "id": "components-card-date--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Card/CardDate.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "date",
+        "required": true,
+        "description": "The card dateDate",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "invertDayAndMonth",
+        "required": false,
+        "description": "Swaps day and month order (for non-US formats)boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "Error: Cannot read properties of undefined (reading 'getDate')  at jf (/assets/react-18-DHSRfmXe.js:8:47860))  at nc (/assets/react-18-DHSRfmXe.js:8:70539))  at qv (/assets/react-18-DHSRfmXe.js:8:80863))  at f1 (/assets/react-18-DHSRfmXe.js:8:116408))  at Vm (/assets/react-18-DHSRfmXe.js:8:115490))  at _c (/assets/react-18-DHSRfmXe.js:8:115328))  at l1 (/assets/react-18-DHSRfmXe.js:8:112168))  at A1 (/assets/react-18-DHSRfmXe.js:8:123805))  at MessagePort._t (/assets/react-18-DHSRfmXe.js:1:1790))"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "card-date"
+    ],
+    "contracts": [
+      {
+        "id": "card-date",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/card-date/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/card-date/demo.registry.json",
+        "known_story_ids": [
+          "components-card-date--default",
+          "components-card-date--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-date--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-card-date--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-date--docs.md",
+    "docs_import_path": "./src/components/Card/CardDate.stories.tsx",
+    "story_ids": [
+      "components-card-date--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "id": "drawer-docs-contract",
+  "component_id": "drawer",
+  "component_name": "Drawer",
+  "docs_id": "components-drawer--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-drawer--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-drawer--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "position",
+        "required": false,
+        "description": "The position of the drawer\"start\"\"end\"\"top\"\"bottom\"",
+        "default": "\"DrawerPosition.START\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "The size of the drawer\"small\"\"medium\"\"large\"\"full\"",
+        "default": "\"DrawerSize.SMALL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isVisible",
+        "required": false,
+        "description": "Whether the drawer is visible or notboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "hasOverlay",
+        "required": false,
+        "description": "Whether the drawer has an overlay or notboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-drawer--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "// Height control for top/bottom drawers\n<Drawer\ndrawerTitle=\"Mobile Friendly\"\nposition=\"bottom\"\nmaxContentHeight=\"70vh\"  // 70% of viewport height\nisVisible={isVisible}\ncontent={<FormWithManyFields />}\n/>\n\n// Width control for start/end drawers\n<Drawer\ndrawerTitle=\"Custom Width Drawer\"\nposition=\"end\"\ncustomDrawerWidth=\"500px\"  // Exactly 500 pixels wide\nisVisible={isVisible}\ncontent={<SidebarContent />}\n/>\n\n// Responsive width using viewport units\n<Drawer\ndrawerTitle=\"Responsive Drawer\"\nposition=\"start\"\ncustomDrawerWidth=\"40vw\"  // 40% of viewport width\nisVisible={isVisible}\ncontent={<NavigationMenu />}\n/>\n\n// Use default behavior (size prop based)\n<Drawer\ndrawerTitle=\"Default\"\nposition=\"end\"\nsize=\"medium\"  // Uses default medium width (30rem)\nisVisible={isVisible}\ncontent={<StandardContent />}\n/>\n\n// Hide footer when needed\n<Drawer\nposition=\"end\"\nshowFooter={false}\nisVisible={isVisible}\ncontent={<StandardContent />}\n/>",
+      "import { Drawer, Button, ButtonVariant } from \"@sanofi-accelerator/elements\";\nimport { useState } from \"react\";\n\nexport const MyComponent = () => {\n  const [isVisible, setIsVisible] = useState(false);\n\n  const footerContent = (\n    <>\n      <Button\n        label='Cancel'\n        variant={ButtonVariant.TERTIARY}\n        onClick={() => {\n          alert('Cancel action');\n        }}\n      />\n      <Button label='Confirm' onClick={() => alert('Confirm action')} />\n    </>\n  );\n\n  <Drawer\n    drawerTitle='Non dismissible drawer'\n    textContent='This drawer cannot be dismissed by clicking outside of it. It can only be closed by clicking the buttons.'\n    footerContent={footerContent}\n    isClosable={false}\n    isVisible={isVisible}\n  />\n\n};",
+      "beforeAll(() => {\n  HTMLDialogElement.prototype.show = vi.fn().mockImplementation(function (\n    this: HTMLDialogElement\n  ) {\n    this.open = true;\n  });\n  HTMLDialogElement.prototype.showModal = vi.fn().mockImplementation(function (\n    this: HTMLDialogElement\n  ) {\n    this.open = true;\n  });\n  HTMLDialogElement.prototype.close = vi.fn().mockImplementation(function (\n    this: HTMLDialogElement\n  ) {\n    this.open = false;\n  });\n});"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-drawer--bottom-side",
+      "name": "Bottom Side",
+      "export_name": "BottomSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--custom-content-height",
+      "name": "Custom Content Height",
+      "export_name": "CustomContentHeight",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--custom-drawer-width",
+      "name": "Custom Drawer Width",
+      "export_name": "CustomDrawerWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--end-side",
+      "name": "End Side",
+      "export_name": "EndSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--non-dismissible",
+      "name": "Non Dismissible",
+      "export_name": "NonDismissible",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--start-side",
+      "name": "Start Side",
+      "export_name": "StartSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--top-side",
+      "name": "Top Side",
+      "export_name": "TopSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-drawer--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json"
+  }
+}

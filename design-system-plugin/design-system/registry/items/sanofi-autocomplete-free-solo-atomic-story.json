@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-autocomplete-free-solo-atomic-story",
+  "title": "Autocomplete Free Solo atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-autocomplete--free-solo.",
+  "atomic_story_id": "components-autocomplete--free-solo",
+  "component_id": "autocomplete",
+  "docs_id": "components-autocomplete--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-autocomplete"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/stories/components-autocomplete--free-solo.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/stories/components-autocomplete--free-solo.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/assets/components-autocomplete--free-solo.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/assets/components-autocomplete--free-solo.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/templates/html.free-solo.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/templates/html.free-solo.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-autocomplete--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-autocomplete--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-autocomplete--docs",
+    "story_id": "components-autocomplete--free-solo",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/autocomplete/stories/components-autocomplete--free-solo.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/autocomplete/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-autocomplete--free-solo&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-autocomplete--free-solo&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Autocomplete.stories-xY30zCRZ.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "autocomplete",
+      "Autocomplete",
+      "Free Solo",
+      "components-autocomplete--free-solo",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Autocomplete Free Solo Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "render-atomic-html",
+  "story_id": "components-textinput--default",
+  "input": "design-system-plugin/design-system/atomic/components/text-input/stories/components-textinput--default.story.json",
+  "output": "design-system-plugin/outputs/html/text-input-default.atomic.html",
+  "checked": {
+    "component_id": "text-input",
+    "renderer_target": "html"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Tag",
+  "stories": [
+    {
+      "story_id": "components-tag--categorical",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tag--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-tag--overview",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tag--semantic",
+      "story_name": "Semantic"
+    },
+    {
+      "story_id": "components-tag--sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tag--variants",
+      "story_name": "Variants"
+    },
+    {
+      "story_id": "components-tag--with-icon",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

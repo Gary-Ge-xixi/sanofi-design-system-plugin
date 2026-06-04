@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-layout-typography",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Default business/admin page typography and layout contract for generated pages when no explicit visual override is requested.",
+  "source_provenance": {
+    "typography_docs_id": "foundations-typography--docs",
+    "layout_docs_id": "foundations-layout--docs",
+    "page_header_docs_id": "components-pageheader--docs",
+    "container_docs_id": "components-container--docs",
+    "grid_docs_id": "components-grid--docs",
+    "typography_docs_path": "../knowledge/docs/foundations-typography--docs.md",
+    "layout_docs_path": "../knowledge/docs/foundations-layout--docs.md",
+    "page_header_docs_path": "../knowledge/docs/components-pageheader--docs.md",
+    "container_docs_path": "../knowledge/docs/components-container--docs.md",
+    "grid_docs_path": "../knowledge/docs/components-grid--docs.md"
+  },
+  "typography_defaults": {
+    "letter_spacing": "--elements-core-font-letterspacing-default",
+    "page_title": {
+      "font_size": "--elements-font-size-700",
+      "line_height": "--elements-font-lineheight-4",
+      "font_weight": "--elements-font-weight-bold"
+    },
+    "page_description": {
+      "font_size": "--elements-font-size-300",
+      "line_height": "--elements-font-lineheight-3",
+      "font_weight": "--elements-font-weight-regular"
+    },
+    "section_title": {
+      "font_size": "--elements-font-size-500",
+      "line_height": "--elements-font-lineheight-4",
+      "font_weight": "--elements-font-weight-bold"
+    }
+  },
+  "layout_defaults": {
+    "container": {
+      "primitive": "container",
+      "mode": "fixed",
+      "width_token": "--elements-container-width-2xl",
+      "required_parts": [
+        "root",
+        "contentContainer"
+      ]
+    },
+    "grid": {
+      "primitive": "grid",
+      "columns": 12,
+      "gutter_token": "--elements-grid-gutter-lg",
+      "required_parts": [
+        "root",
+        "item"
+      ]
+    },
+    "page_header": {
+      "primitive": "page-header",
+      "story_id": "components-pageheader--default",
+      "required_parts": [
+        "root",
+        "title",
+        "description",
+        "actions"
+      ],
+      "layout": "title and description are stacked in the main area; status badges or actions sit in a separate action area."
+    }
+  },
+  "html_contract": {
+    "required_page_markers": [
+      "data-page-layout-typography=\"business-layout-typography\"",
+      "data-typography-rule=\"typography-font-stack\"",
+      "data-layout-rule=\"layout-grid-container\""
+    ],
+    "required_page_header_markers": [
+      "data-primitive=\"page-header\"",
+      "data-source-component=\"page-header\"",
+      "data-story-id=\"components-pageheader--default\"",
+      "data-source-doc-id=\"components-pageheader--docs",
+      "data-pageheader-part=\"root\"",
+      "data-pageheader-part=\"title\"",
+      "data-pageheader-part=\"description\""
+    ],
+    "required_layout_markers": [
+      "data-primitive=\"container\"",
+      "data-container-part=\"contentContainer\"",
+      "data-primitive=\"grid\"",
+      "data-grid-part=\"root\"",
+      "data-grid-part=\"item\"",
+      "data-grid-columns=\"12\"",
+      "data-grid-gap-token=\"--elements-grid-gutter-lg\""
+    ],
+    "required_css_fragments": [
+      "letter-spacing: var(--elements-core-font-letterspacing-default);",
+      ".page-title-text {",
+      "font-size: var(--elements-font-size-700);",
+      "line-height: var(--elements-font-lineheight-4);",
+      ".page-description {",
+      "font-size: var(--elements-font-size-300);",
+      "line-height: var(--elements-font-lineheight-3);",
+      ".section-title {",
+      "font-size: var(--elements-font-size-500);"
+    ],
+    "forbidden_css_fragments": [
+      "letter-spacing: -",
+      "letter-spacing: var(--elements-core-font-letterspacing-tight)",
+      "line-height: 1.2",
+      "align-items: baseline"
+    ]
+  },
+  "generation_policy": [
+    "Use the PageHeader primitive for business/admin page title regions instead of a generic bordered panel.",
+    "The page title and subtitle must be stacked and tokenized; do not place subtitle inline with the title.",
+    "Generated business/admin pages use default letter spacing unless the user explicitly requests a different typographic treatment.",
+    "Container and Grid anatomy must be present in generated pages, not only mentioned as provenance.",
+    "Business page sections should occupy Grid.Item regions; do not place task panels directly under main without the docs-backed grid wrapper."
+  ],
+  "validator": "../../scripts/validate-page-layout-typography"
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "radio-radio-group-complete-standard-package",
+  "component_id": "radio-radio-group",
+  "component_name": "Radio/RadioGroup",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/docs/radio-radio-group.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-radio-radiogroup--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/radio-radio-group-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-radio-radiogroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal",
+      "story_name": "Horizontal",
+      "export_name": "Horizontal",
+      "semantic_type": "variant",
+      "variant": "horizontal",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-radio-radiogroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "story_name": "Horizontal Radios With Error",
+      "export_name": "HorizontalRadiosWithError",
+      "semantic_type": "variant",
+      "variant": "horizontal-radios-with-error",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal-radios-with-error.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal-radios-with-error.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-radio-radiogroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-radio-radiogroup--with-error",
+      "story_name": "With Error",
+      "export_name": "WithError",
+      "semantic_type": "variant",
+      "variant": "with-error",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--with-error.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/radio-radio-group-with-error.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-radio-radiogroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/radio-radio-group/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/radio-radio-group-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-radio-radiogroup--default",
+        "output_path": "design-system-plugin/outputs/html/radio-radio-group-default.atomic.html"
+      },
+      {
+        "story_id": "components-radio-radiogroup--horizontal",
+        "output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal.atomic.html"
+      },
+      {
+        "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+        "output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal-radios-with-error.atomic.html"
+      },
+      {
+        "story_id": "components-radio-radiogroup--with-error",
+        "output_path": "design-system-plugin/outputs/html/radio-radio-group-with-error.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-radio-radio-group-complete-package.json",
+    "story_item_prefix": "sanofi-radio-radio-group-"
+  },
+  "validation": {
+    "required_story_count": 4,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/radio-radio-group/docs/radio-radio-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

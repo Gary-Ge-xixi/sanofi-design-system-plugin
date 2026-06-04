@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-density",
+  "status": "ready",
+  "severity": "error",
+  "density_id": "admin-compact",
+  "source_provenance": {
+    "page_profile": "../page-profiles/admin-data-entry-table.profile.json",
+    "layout_docs": [
+      "foundations-layout--docs",
+      "components-grid--docs",
+      "components-container--docs"
+    ],
+    "token_source": "foundations-colors--docs"
+  },
+  "css_variables": {
+    "--admin-density-control-height": "3.5rem",
+    "--admin-density-control-padding-inline": "1rem",
+    "--admin-density-toolbar-gap": "1rem",
+    "--admin-density-toolbar-padding": "1rem",
+    "--admin-density-table-cell-padding-block": "1rem",
+    "--admin-density-table-cell-padding-inline": "1rem",
+    "--admin-density-table-min-width": "64rem",
+    "--admin-density-sidebar-width": "20.625rem",
+    "--admin-density-topbar-height": "6.25rem"
+  },
+  "html_contract": {
+    "required_attributes": [
+      "data-density=\"admin-compact\"",
+      "data-density-rule=\"admin-density\""
+    ],
+    "required_css_fragments": [
+      "--admin-density-control-height: 3.5rem",
+      "--admin-density-sidebar-width: 20.625rem",
+      "--admin-density-topbar-height: 6.25rem",
+      "--admin-density-table-min-width: 64rem",
+      "min-block-size: var(--admin-density-control-height)",
+      "min-inline-size: var(--admin-density-table-min-width)"
+    ],
+    "forbidden_css_fragments": [
+      "font-size: 24px",
+      "grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr"
+    ]
+  },
+  "generation_policy": [
+    "Admin data-entry pages must use compact density and must not inherit marketing or documentation-page spacing.",
+    "Query filters must stay in a single toolbar row on desktop and wrap only at narrow breakpoints.",
+    "Table cells must be dense enough for six columns to remain readable in the first viewport on desktop."
+  ]
+}

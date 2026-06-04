@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-status-overview-atomic-story",
+  "title": "ChipStatus Overview atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-chipstatus--overview.",
+  "atomic_story_id": "components-chipstatus--overview",
+  "component_id": "chip-status",
+  "docs_id": "components-chipstatus--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-status"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/stories/components-chipstatus--overview.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/stories/components-chipstatus--overview.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/assets/ChipStatus.stories-rpCGSfEw.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/assets/ChipStatus.stories-rpCGSfEw.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/assets/components-chipstatus--overview.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/assets/components-chipstatus--overview.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/templates/html.overview.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/templates/html.overview.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-status.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-status.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-status/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-status/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipstatus--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipstatus--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipstatus--docs",
+    "story_id": "components-chipstatus--overview",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/chip-status/stories/components-chipstatus--overview.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/chip-status/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chipstatus--overview&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chipstatus--overview&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipStatus.stories-rpCGSfEw.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-status/assets/ChipStatus.stories-rpCGSfEw.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-status.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-status/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-status",
+      "ChipStatus",
+      "Overview",
+      "components-chipstatus--overview",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ChipStatus Overview Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

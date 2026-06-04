@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-dropdown-complete-standard-package",
+  "component_id": "chip-dropdown",
+  "component_name": "ChipDropdown",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-chipdropdown--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/docs/chip-dropdown.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chipdropdown--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--disabled-items-and-icons",
+      "story_name": "Disabled Items And Icons",
+      "export_name": "DisabledItemsAndIcons",
+      "semantic_type": "variant",
+      "variant": "disabled-items-and-icons",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--disabled-items-and-icons.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-disabled-items-and-icons.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--multi-select",
+      "story_name": "Multi Select",
+      "export_name": "MultiSelect",
+      "semantic_type": "variant",
+      "variant": "multi-select",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--multi-select.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-multi-select.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--overview",
+      "story_name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "variant": "overview",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--overview.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-overview.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--real-world-admin-vs-readonly",
+      "story_name": "Real World Admin Vs Readonly",
+      "export_name": "RealWorldAdminVsReadonly",
+      "semantic_type": "variant",
+      "variant": "real-world-admin-vs-readonly",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--real-world-admin-vs-readonly.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-real-world-admin-vs-readonly.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-controlled",
+      "story_name": "With Chip Status Controlled",
+      "export_name": "WithChipStatusControlled",
+      "semantic_type": "variant",
+      "variant": "with-chip-status-controlled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-chip-status-controlled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-controlled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit",
+      "story_name": "With Chip Status Inherit",
+      "export_name": "WithChipStatusInherit",
+      "semantic_type": "variant",
+      "variant": "with-chip-status-inherit",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-chip-status-inherit.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-inherit.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "story_name": "With Chip Status Inherit Multi Select",
+      "export_name": "WithChipStatusInheritMultiSelect",
+      "semantic_type": "variant",
+      "variant": "with-chip-status-inherit-multi-select",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-chip-status-inherit-multi-select.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-inherit-multi-select.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chipdropdown--with-render-item",
+      "story_name": "With Render Item",
+      "export_name": "WithRenderItem",
+      "semantic_type": "variant",
+      "variant": "with-render-item",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-render-item.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-dropdown-with-render-item.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chipdropdown--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/chip-dropdown/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/chip-dropdown-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-chipdropdown--default",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-default.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--disabled-items-and-icons",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-disabled-items-and-icons.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--multi-select",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-multi-select.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--overview",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-overview.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--real-world-admin-vs-readonly",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-real-world-admin-vs-readonly.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--with-chip-status-controlled",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-controlled.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--with-chip-status-inherit",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-inherit.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-inherit-multi-select.atomic.html"
+      },
+      {
+        "story_id": "components-chipdropdown--with-render-item",
+        "output_path": "design-system-plugin/outputs/html/chip-dropdown-with-render-item.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-chip-dropdown-complete-package.json",
+    "story_item_prefix": "sanofi-chip-dropdown-"
+  },
+  "validation": {
+    "required_story_count": 9,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-chipdropdown--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-dropdown/docs/chip-dropdown.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

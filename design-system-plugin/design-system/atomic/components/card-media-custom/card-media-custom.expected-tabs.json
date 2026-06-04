@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card-media-custom",
+  "component_name": "Card/MediaCustom",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Card/MediaCustom"
+  },
+  "docs": [
+    {
+      "id": "components-card-mediacustom--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Card/CardMediaCustom.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-card-mediacustom--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardMediaCustom.stories.tsx"
+    }
+  ]
+}

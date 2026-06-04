@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TextInput complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-textinput--docs">
+        <h1>TextInput Complete Package</h1>
+        <p>Docs: components-textinput--docs. Stories: 15/15.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-textinput--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs">
+          <h2>Default</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="default" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Default</span><code>components-textinput--default</code></article>
+          <p><code>components-textinput--default</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--default-inverse" data-source-doc-id="components-textinput--docs">
+          <h2>Default Inverse</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--default-inverse" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="default-inverse" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Default Inverse</span><code>components-textinput--default-inverse</code></article>
+          <p><code>components-textinput--default-inverse</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--disabled" data-source-doc-id="components-textinput--docs">
+          <h2>Disabled</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--disabled" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="disabled" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Disabled</span><code>components-textinput--disabled</code></article>
+          <p><code>components-textinput--disabled</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--disabled-inverse" data-source-doc-id="components-textinput--docs">
+          <h2>Disabled Inverse</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--disabled-inverse" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="disabled-inverse" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Disabled Inverse</span><code>components-textinput--disabled-inverse</code></article>
+          <p><code>components-textinput--disabled-inverse</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--error-inverse" data-source-doc-id="components-textinput--docs">
+          <h2>Error Inverse</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--error-inverse" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="error-inverse" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Error Inverse</span><code>components-textinput--error-inverse</code></article>
+          <p><code>components-textinput--error-inverse</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--error-state" data-source-doc-id="components-textinput--docs">
+          <h2>Error State</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--error-state" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="error-state" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Error State</span><code>components-textinput--error-state</code></article>
+          <p><code>components-textinput--error-state</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--filled" data-source-doc-id="components-textinput--docs">
+          <h2>Filled</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--filled" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="filled" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Filled</span><code>components-textinput--filled</code></article>
+          <p><code>components-textinput--filled</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--filled-inverse" data-source-doc-id="components-textinput--docs">
+          <h2>Filled Inverse</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--filled-inverse" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="filled-inverse" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Filled Inverse</span><code>components-textinput--filled-inverse</code></article>
+          <p><code>components-textinput--filled-inverse</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--sizes" data-source-doc-id="components-textinput--docs">
+          <h2>Sizes</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--sizes" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="sizes" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Sizes</span><code>components-textinput--sizes</code></article>
+          <p><code>components-textinput--sizes</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--success-inverse" data-source-doc-id="components-textinput--docs">
+          <h2>Success Inverse</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--success-inverse" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="success-inverse" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Success Inverse</span><code>components-textinput--success-inverse</code></article>
+          <p><code>components-textinput--success-inverse</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--success-state" data-source-doc-id="components-textinput--docs">
+          <h2>Success State</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--success-state" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="success-state" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Success State</span><code>components-textinput--success-state</code></article>
+          <p><code>components-textinput--success-state</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--type-email" data-source-doc-id="components-textinput--docs">
+          <h2>Type Email</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--type-email" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="type-email" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Type Email</span><code>components-textinput--type-email</code></article>
+          <p><code>components-textinput--type-email</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--type-password" data-source-doc-id="components-textinput--docs">
+          <h2>Type Password</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--type-password" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="type-password" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Type Password</span><code>components-textinput--type-password</code></article>
+          <p><code>components-textinput--type-password</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--type-tel" data-source-doc-id="components-textinput--docs">
+          <h2>Type Tel</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--type-tel" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="type-tel" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>Type Tel</span><code>components-textinput--type-tel</code></article>
+          <p><code>components-textinput--type-tel</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-textinput--with-tooltip" data-source-doc-id="components-textinput--docs">
+          <h2>With Tooltip</h2>
+          <article data-primitive="text-input" data-pattern="atomic-component-sample" data-story-id="components-textinput--with-tooltip" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs" data-variant="with-tooltip" data-state="variant" class="sample-shell"><strong>TextInput</strong><span>With Tooltip</span><code>components-textinput--with-tooltip</code></article>
+          <p><code>components-textinput--with-tooltip</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-textinput--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/text-input.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/text-input/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

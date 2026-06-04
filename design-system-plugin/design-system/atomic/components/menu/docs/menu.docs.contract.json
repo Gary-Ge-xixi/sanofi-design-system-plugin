@@ -1,0 +1,166 @@
+{
+  "schema_version": "0.1.0",
+  "id": "menu-docs-contract",
+  "component_id": "menu",
+  "component_name": "Menu",
+  "docs_id": "components-menu--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-menu--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "isContextMenu",
+        "required": false,
+        "description": "Opens on right-click instead of left-click.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isOpen",
+        "required": false,
+        "description": "Controls menu visibility (controlled mode).boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onOpenChange",
+        "required": false,
+        "description": "Callback fired when menu opens/closes.((isOpen: boolean) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "Dropdown expands to trigger width.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "openOnHover",
+        "required": false,
+        "description": "Opens on hover instead of click.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disableAnimation",
+        "required": false,
+        "description": "Disables open/close animations.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "role",
+        "required": false,
+        "description": "\"menu\"\"combobox\"",
+        "default": "\"menu\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-menu--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Menu, Button } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n  <Menu> // Menu Container\n    <Menu.Trigger> // Menu Trigger contains the element that will open the menu\n      <Button label=\"Click Me\" /> // This can be any React element that has a ref\n    </Menu.Trigger>\n    <Menu.Dropdown> // Menu Dropdown is the menu that will open and contains the menu items\n      <Menu.Item\n        iconBefore={<Menu.Item.Icon name={IconName.EDIT} />}\n        iconAfter={<Menu.Item.Icon name={IconName.CHEVRON_RIGHT} />}\n        description=\"Description goes here\"\n        shortcut=\"⌘S\"\n      >\n        Menu item 1\n      </Menu.Item>\n      <Menu.SubMenu label=\"SubMenu\"> // You can add SubMenus to the Menu\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.SubMenu label=\"SubMenu\">\n          <Menu.Item>SubMenu item</Menu.Item>\n          <Menu.Item>SubMenu item</Menu.Item>\n        </Menu.SubMenu>\n      </Menu.SubMenu>\n\n      {/*\n        You can have as many Menu.Item components as you want here\n\n        The different types of Menu items are:\n        - Menu.SubMenu\n        - Menu.Item\n        - Menu.RadioItem\n        - Menu.CheckboxItem\n        - Menu.ImageItem\n\n      */}\n    </Menu.Dropdown>\n  </Menu>\n\n),\n};",
+      "import { Menu } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n<Menu isContextMenu> // isContextMenu props will make the menu open on right-click\n  <Menu.Dropdown> // no need for a trigger element only the dropdown\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.SubMenu label=\"SubMenu\" data-testid=\"menu-item-xxx\">\n      <Menu.Item>SubMenu item</Menu.Item>\n      <Menu.Item>SubMenu item</Menu.Item>\n      <Menu.Item>SubMenu item</Menu.Item>\n      <Menu.SubMenu label=\"SubMenu\" data-testid=\"sub-menu-item-xxx\">\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.Item>SubMenu item</Menu.Item>\n      </Menu.SubMenu>\n    </Menu.SubMenu>\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.Item>Menu item</Menu.Item>\n  </Menu.Dropdown>\n</Menu>\n\n),\n};"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-menu--checkbox",
+      "name": "Checkbox",
+      "export_name": "Checkbox",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--context-menu",
+      "name": "Context Menu",
+      "export_name": "ContextMenu",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--image",
+      "name": "Image",
+      "export_name": "Image",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--selected",
+      "name": "Selected",
+      "export_name": "Selected",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--with-scroll",
+      "name": "With Scroll",
+      "export_name": "WithScroll",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--with-sections",
+      "name": "With Sections",
+      "export_name": "WithSections",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    },
+    {
+      "id": "components-menu--with-sub-menus",
+      "name": "With Sub Menus",
+      "export_name": "WithSubMenus",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/Menu.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json"
+  }
+}

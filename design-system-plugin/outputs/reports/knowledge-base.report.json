@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-knowledge-base",
+  "generated_at": "2026-06-02T13:03:17.020Z",
+  "outputs": {
+    "readme": "design-system-plugin/design-system/knowledge/README.md",
+    "source_index_markdown": "design-system-plugin/design-system/knowledge/source-index.md",
+    "source_index_json": "design-system-plugin/design-system/knowledge/source-index.json",
+    "storybook_pages_json": "design-system-plugin/design-system/knowledge/storybook-pages.json",
+    "components_json": "design-system-plugin/design-system/knowledge/components.json",
+    "tokens_json": "design-system-plugin/design-system/knowledge/tokens.json",
+    "coverage_json": "design-system-plugin/design-system/knowledge/coverage.json",
+    "docs_index_json": "design-system-plugin/design-system/knowledge/docs-index.json",
+    "docs_index_markdown": "design-system-plugin/design-system/knowledge/docs-index.md",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json",
+    "local_registry": "design-system-plugin/design-system/registry/registry.json",
+    "atomic_component_index": "design-system-plugin/design-system/atomic/atomic-component-index.json"
+  },
+  "counts": {
+    "storybook_entries": 540,
+    "storybook_docs": 111,
+    "storybook_stories": 429,
+    "storybook_component_titles": 95,
+    "zeroheight_component_pages": 37,
+    "zeroheight_only_secondary": 6,
+    "primitive_contract_components": 12,
+    "raw_component_captures": 23,
+    "invalid_raw_component_captures": 23,
+    "storybook_docs_markdown_records": 111,
+    "storybook_docs_markdown_extracted": 111,
+    "component_contracts": 95,
+    "semantic_token_roles": 10,
+    "local_registry_items": 16,
+    "atomic_story_components": 1,
+    "atomic_stories": 1
+  }
+}

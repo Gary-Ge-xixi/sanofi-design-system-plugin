@@ -1,0 +1,151 @@
+{
+  "schema_version": "0.1.0",
+  "id": "breadcrumb-docs-contract",
+  "component_id": "breadcrumb",
+  "component_name": "Breadcrumb",
+  "docs_id": "components-breadcrumb--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "itemsBeforeCollapse",
+        "required": false,
+        "description": "If max items is exceeded, the number of items to show before the ellipsis.number",
+        "default": "0",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "itemsAfterCollapse",
+        "required": false,
+        "description": "If max items is exceeded, the number of items to show after the ellipsis.number",
+        "default": "0",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxItems",
+        "required": false,
+        "description": "Specifies the maximum number of breadcrumbs to display. When there are more than the maximum number, only the first itemsBeforeCollapse and last itemsAfterCollapse will be shown, with an ellipsis in between.number",
+        "default": "6",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Breadcrumb.Item components representing the path.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class for the breadcrumb container.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "noWrap",
+        "required": false,
+        "description": "Prevent breadcrumb items from wrapping to new lines when there's insufficient space.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "ellipsis",
+        "required": false,
+        "description": "Enable ellipsis mode with tooltip when text overflows the container.-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxWidth",
+        "required": false,
+        "description": "Maximum width for ellipsed text in pixels (default: 150)-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Breadcrumb } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Breadcrumb itemsBeforeCollapse={2} itemsAfterCollapse={2} maxItems={6}>\n    <Breadcrumb.Item href=\"#\">\n      Home\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Investor Relations\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Financial Results and Investor Events\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Middle Quarter Results\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Quarterly Results\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item deactivate>\n      Second quarter 2023 results\n    </Breadcrumb.Item>\n  </Breadcrumb>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-breadcrumb--collapsed",
+      "name": "Collapsed",
+      "export_name": "Collapsed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--custom-max-width",
+      "name": "Custom Max Width",
+      "export_name": "CustomMaxWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--ellipsis-truncation",
+      "name": "Ellipsis Truncation",
+      "export_name": "EllipsisTruncation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--not-collapsed",
+      "name": "Not Collapsed",
+      "export_name": "NotCollapsed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--one-item-on-each-side",
+      "name": "One Item On Each Side",
+      "export_name": "OneItemOnEachSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--two-items-on-each-side",
+      "name": "Two Items On Each Side",
+      "export_name": "TwoItemsOnEachSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--wrap-vs-no-wrap",
+      "name": "Wrap Vs No Wrap",
+      "export_name": "WrapVsNoWrap",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+  }
+}

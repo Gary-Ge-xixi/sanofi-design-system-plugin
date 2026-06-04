@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-link-link-standalone-standalone-atomic-story",
+  "title": "Link/LinkStandalone Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-link-linkstandalone--default.",
+  "atomic_story_id": "components-link-linkstandalone--default",
+  "component_id": "link-link-standalone",
+  "docs_id": "components-link-linkstandalone--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-link-link-standalone"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/link-link-standalone/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/components-link-linkstandalone--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/components-link-linkstandalone--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.standalone.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.standalone.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/link-link-standalone/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/link-link-standalone/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-link-linkstandalone--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-link-linkstandalone--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-link-linkstandalone--docs",
+    "story_id": "components-link-linkstandalone--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/link-link-standalone/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-link-linkstandalone--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-link-linkstandalone--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/LinkStandalone.stories-CLDvP_Zv.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/link-link-standalone/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "link-link-standalone",
+      "Link/LinkStandalone",
+      "Default",
+      "components-link-linkstandalone--default",
+      "standalone",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Link/LinkStandalone Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

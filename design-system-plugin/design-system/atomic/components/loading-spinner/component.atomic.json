@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "loading-spinner",
+  "component_name": "LoadingSpinner",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-loadingspinner--default",
+      "story_name": "Default",
+      "component_id": "loading-spinner",
+      "component_name": "LoadingSpinner",
+      "variant": "classic",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/stories/components-loadingspinner--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/loading-spinner/templates/html.classic.template.html",
+      "output_path": "design-system-plugin/outputs/html/loading-spinner-classic.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/LoadingSpinner.stories-DJHvb7wY.js",
+      "docs_id": "components-loadingspinner--docs",
+      "registry_item": "sanofi-loading-spinner-classic-atomic-story"
+    },
+    {
+      "story_id": "components-loadingspinner--sanofi-dot",
+      "story_name": "Sanofi Dot",
+      "component_id": "loading-spinner",
+      "component_name": "LoadingSpinner",
+      "variant": "sanofi-dot",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/loading-spinner/stories/components-loadingspinner--sanofi-dot.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/loading-spinner/templates/html.sanofi-dot.template.html",
+      "output_path": "design-system-plugin/outputs/html/loading-spinner-sanofi-dot.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/loading-spinner/assets/LoadingSpinner.stories-DJHvb7wY.js",
+      "docs_id": "components-loadingspinner--docs",
+      "registry_item": "sanofi-loading-spinner-sanofi-dot-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-loading-spinner--docs"
+  }
+}

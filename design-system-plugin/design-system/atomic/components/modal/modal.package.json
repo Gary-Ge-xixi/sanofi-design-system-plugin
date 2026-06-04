@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "modal-complete-standard-package",
+  "component_id": "modal",
+  "component_name": "Modal",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-modal--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/modal/docs/modal.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-modal--customisation",
+      "story_name": "Customisation",
+      "export_name": "Customisation",
+      "semantic_type": "variant",
+      "variant": "customisation",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--customisation.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/modal-customisation.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-modal--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-modal--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/modal-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-modal--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-modal--non-dismissible-modal",
+      "story_name": "Non Dismissible Modal",
+      "export_name": "NonDismissibleModal",
+      "semantic_type": "variant",
+      "variant": "non-dismissible-modal",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--non-dismissible-modal.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/modal-non-dismissible-modal.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-modal--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-modal--with-icon",
+      "story_name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "variant": "with-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--with-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/modal-with-icon.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-modal--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/modal/modal.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/modal-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-modal--customisation",
+        "output_path": "design-system-plugin/outputs/html/modal-customisation.atomic.html"
+      },
+      {
+        "story_id": "components-modal--default",
+        "output_path": "design-system-plugin/outputs/html/modal-default.atomic.html"
+      },
+      {
+        "story_id": "components-modal--non-dismissible-modal",
+        "output_path": "design-system-plugin/outputs/html/modal-non-dismissible-modal.atomic.html"
+      },
+      {
+        "story_id": "components-modal--with-icon",
+        "output_path": "design-system-plugin/outputs/html/modal-with-icon.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-modal-complete-package.json",
+    "story_item_prefix": "sanofi-modal-"
+  },
+  "validation": {
+    "required_story_count": 4,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/modal/modal.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/modal/docs/modal.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

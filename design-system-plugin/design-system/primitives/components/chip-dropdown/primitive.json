@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ChipDropdown",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/ChipDropdown",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "chip-dropdown",
+      "data_attribute": "data-primitive=\"chip-dropdown\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-chipdropdown--default",
+      "components-chipdropdown--disabled-items-and-icons",
+      "components-chipdropdown--multi-select",
+      "components-chipdropdown--overview",
+      "components-chipdropdown--real-world-admin-vs-readonly",
+      "components-chipdropdown--with-chip-status-controlled",
+      "components-chipdropdown--with-chip-status-inherit",
+      "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "components-chipdropdown--with-render-item"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chipdropdown--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

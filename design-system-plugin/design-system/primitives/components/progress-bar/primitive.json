@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ProgressBar",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/ProgressBar",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "progress-bar",
+      "data_attribute": "data-primitive=\"progress-bar\"",
+      "required_semantics": [
+        "role=\"progressbar\"",
+        "aria-valuenow",
+        "aria-valuemin",
+        "aria-valuemax"
+      ],
+      "supported_states": [
+        "default",
+        "all-states",
+        "custom-value-text"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-progressbar--default",
+      "components-progressbar--all-states",
+      "components-progressbar--all-densities",
+      "components-progressbar--all-sizes",
+      "components-progressbar--custom-value-text"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-progressbar--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

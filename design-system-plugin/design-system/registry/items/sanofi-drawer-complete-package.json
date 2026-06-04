@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-drawer-complete-package",
+  "title": "Drawer complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Drawer package covering Docs plus all Storybook story atoms.",
+  "component_id": "drawer",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-drawer"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/drawer.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/drawer.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/drawer-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/drawer-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/drawer.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/drawer/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-drawer--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-drawer--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 8,
+    "materialized_stories": 8,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-drawer--bottom-side",
+      "story_name": "Bottom Side",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-bottom-side-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--custom-content-height",
+      "story_name": "Custom Content Height",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-custom-content-height-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--custom-drawer-width",
+      "story_name": "Custom Drawer Width",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-custom-drawer-width-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-default-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--end-side",
+      "story_name": "End Side",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-end-side-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--non-dismissible",
+      "story_name": "Non Dismissible",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-non-dismissible-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--start-side",
+      "story_name": "Start Side",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-start-side-atomic-story"
+    },
+    {
+      "story_id": "components-drawer--top-side",
+      "story_name": "Top Side",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-drawer-top-side-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "drawer",
+      "Drawer",
+      "drawer complete",
+      "Drawer complete package",
+      "drawer docs"
+    ],
+    "when_to_use": "Use first for any Drawer generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Drawer behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

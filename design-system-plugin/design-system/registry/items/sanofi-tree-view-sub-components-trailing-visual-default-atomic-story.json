@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tree-view-sub-components-trailing-visual-default-atomic-story",
+  "title": "TreeView/SubComponents/TrailingVisual Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-treeview-subcomponents-trailingvisual--default.",
+  "atomic_story_id": "components-treeview-subcomponents-trailingvisual--default",
+  "component_id": "tree-view-sub-components-trailing-visual",
+  "docs_id": "components-treeview-subcomponents-trailingvisual--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tree-view-sub-components-trailing-visual"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/stories/components-treeview-subcomponents-trailingvisual--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/stories/components-treeview-subcomponents-trailingvisual--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/assets/TreeViewTrailingVisual.stories-4U4uOI9z.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/assets/TreeViewTrailingVisual.stories-4U4uOI9z.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/assets/components-treeview-subcomponents-trailingvisual--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/assets/components-treeview-subcomponents-trailingvisual--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-trailing-visual.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-trailing-visual.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-trailing-visual/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-trailing-visual/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-trailingvisual--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-trailingvisual--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-trailingvisual--docs",
+    "story_id": "components-treeview-subcomponents-trailingvisual--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/stories/components-treeview-subcomponents-trailingvisual--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-treeview-subcomponents-trailingvisual--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-treeview-subcomponents-trailingvisual--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TreeViewTrailingVisual.stories-4U4uOI9z.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/assets/TreeViewTrailingVisual.stories-4U4uOI9z.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-trailing-visual.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-trailing-visual/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tree-view-sub-components-trailing-visual",
+      "TreeView/SubComponents/TrailingVisual",
+      "Default",
+      "components-treeview-subcomponents-trailingvisual--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact TreeView/SubComponents/TrailingVisual Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card-date",
+  "component_name": "Card/Date",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Card/Date"
+  },
+  "docs": [
+    {
+      "id": "components-card-date--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Card/CardDate.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-card-date--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardDate.stories.tsx"
+    }
+  ]
+}

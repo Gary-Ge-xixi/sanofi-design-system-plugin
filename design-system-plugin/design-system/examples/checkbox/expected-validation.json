@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1.0",
+  "expected": {
+    "token_usage": "pass",
+    "primitive_usage": "pass",
+    "page_pattern": "pass"
+  },
+  "minimum_story_count": 9,
+  "minimum_registered_primitives": 2
+}

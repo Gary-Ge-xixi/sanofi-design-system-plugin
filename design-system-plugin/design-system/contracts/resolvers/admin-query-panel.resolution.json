@@ -1,0 +1,496 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-query-panel-resolution",
+  "generated_at": "2026-06-04T10:40:18.923Z",
+  "prompt": "OneCommercial CDC库存查询填报后台",
+  "intent": "admin-query-panel",
+  "page_type": "admin-query-panel",
+  "page_subtype": "data-entry-table-page",
+  "pattern_id": "admin-query-panel",
+  "registry_item": "sanofi-admin-query-panel",
+  "template_id": "onecommercial-admin-query-panel",
+  "renderer_target": "html",
+  "business_context": {
+    "product": "OneCommercial",
+    "domain": "CDC inventory",
+    "primary_task": "query-and-fill",
+    "language": "zh-CN"
+  },
+  "sections": [
+    {
+      "id": "admin-shell",
+      "label": "Admin Shell",
+      "type": "layout",
+      "required_primitives": [
+        "container",
+        "grid",
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "container",
+          "component_contract_id": "container",
+          "docs_id": "components-container--docs",
+          "story_id": "components-container--fixed"
+        },
+        {
+          "primitive_id": "grid",
+          "component_contract_id": "grid",
+          "docs_id": "components-grid--docs",
+          "story_id": "components-grid--desktop"
+        },
+        {
+          "primitive_id": "navigation-header",
+          "component_contract_id": "navigation-header",
+          "docs_id": "components-navigationheader--docs",
+          "story_id": "components-navigationheader--default"
+        },
+        {
+          "primitive_id": "sidebar",
+          "component_contract_id": "sidebar",
+          "docs_id": "components-sidebar--docs",
+          "story_id": "components-sidebar--default"
+        },
+        {
+          "primitive_id": "menu",
+          "component_contract_id": "menu",
+          "docs_id": "components-menu--docs",
+          "story_id": "components-menu--default"
+        },
+        {
+          "primitive_id": "icon",
+          "component_contract_id": "icon",
+          "docs_id": "components-icon--docs",
+          "story_id": "components-icon--gallery"
+        }
+      ]
+    },
+    {
+      "id": "layout-container",
+      "label": "Layout Container",
+      "type": "layout",
+      "required_primitives": [
+        "container"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "container",
+          "component_contract_id": "container",
+          "docs_id": "components-container--docs",
+          "story_id": "components-container--fixed"
+        }
+      ]
+    },
+    {
+      "id": "layout-grid",
+      "label": "Layout Grid",
+      "type": "layout",
+      "required_primitives": [
+        "grid"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "grid",
+          "component_contract_id": "grid",
+          "docs_id": "components-grid--docs",
+          "story_id": "components-grid--desktop"
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation",
+      "type": "navigation",
+      "required_primitives": [
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "navigation-header",
+          "component_contract_id": "navigation-header",
+          "docs_id": "components-navigationheader--docs",
+          "story_id": "components-navigationheader--default"
+        },
+        {
+          "primitive_id": "sidebar",
+          "component_contract_id": "sidebar",
+          "docs_id": "components-sidebar--docs",
+          "story_id": "components-sidebar--default"
+        },
+        {
+          "primitive_id": "menu",
+          "component_contract_id": "menu",
+          "docs_id": "components-menu--docs",
+          "story_id": "components-menu--default"
+        },
+        {
+          "primitive_id": "icon",
+          "component_contract_id": "icon",
+          "docs_id": "components-icon--docs",
+          "story_id": "components-icon--gallery"
+        }
+      ]
+    },
+    {
+      "id": "breadcrumb",
+      "label": "Breadcrumb",
+      "type": "navigation",
+      "required_primitives": [
+        "icon"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "icon",
+          "component_contract_id": "icon",
+          "docs_id": "components-icon--docs",
+          "story_id": "components-icon--gallery"
+        }
+      ]
+    },
+    {
+      "id": "query-toolbar",
+      "label": "Query Toolbar",
+      "type": "controls",
+      "required_primitives": [
+        "select",
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "select",
+          "component_contract_id": "select",
+          "docs_id": "components-select--docs",
+          "story_id": "components-select--default"
+        },
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        }
+      ]
+    },
+    {
+      "id": "primary-actions",
+      "label": "Primary Actions",
+      "type": "controls",
+      "required_primitives": [
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        }
+      ]
+    },
+    {
+      "id": "editable-data-table-fallback",
+      "label": "Editable Data Table Fallback",
+      "type": "fallback",
+      "required_primitives": [
+        "text-input",
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [
+        "table"
+      ],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        },
+        {
+          "primitive_id": "text-input",
+          "component_contract_id": "text-input",
+          "docs_id": "components-textinput--docs",
+          "story_id": "components-textinput--default"
+        }
+      ]
+    },
+    {
+      "id": "pagination",
+      "label": "Pagination",
+      "type": "navigation",
+      "required_primitives": [
+        "pagination",
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        },
+        {
+          "primitive_id": "pagination",
+          "component_contract_id": "pagination",
+          "docs_id": "components-pagination--docs",
+          "story_id": "components-pagination--default"
+        }
+      ]
+    },
+    {
+      "id": "save-bar",
+      "label": "Save Bar",
+      "type": "controls",
+      "required_primitives": [
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        }
+      ]
+    }
+  ],
+  "forbidden_sections": [
+    "kpi-summary",
+    "work-queue",
+    "chart-fallback"
+  ],
+  "delivery_contract": null,
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "select",
+    "button",
+    "text-input",
+    "pagination"
+  ],
+  "optional_primitives": [
+    "search-input"
+  ],
+  "required_rules": [
+    "layout-grid-container",
+    "typography-font-stack",
+    "admin-template-navigation",
+    "admin-query-panel-template",
+    "admin-density",
+    "admin-data-entry-table-reference-fit"
+  ],
+  "page_profile": {
+    "id": "admin-data-entry-table",
+    "path": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+    "required_module_contracts": [
+      "select-filter",
+      "data-table-fallback"
+    ],
+    "density_id": "admin-compact",
+    "reference_fit_id": "admin-data-entry-table-reference-fit"
+  },
+  "primitive_refs": [
+    {
+      "primitive_id": "container",
+      "component_contract_id": "container",
+      "docs_id": "components-container--docs",
+      "story_id": "components-container--fixed"
+    },
+    {
+      "primitive_id": "grid",
+      "component_contract_id": "grid",
+      "docs_id": "components-grid--docs",
+      "story_id": "components-grid--desktop"
+    },
+    {
+      "primitive_id": "navigation-header",
+      "component_contract_id": "navigation-header",
+      "docs_id": "components-navigationheader--docs",
+      "story_id": "components-navigationheader--default"
+    },
+    {
+      "primitive_id": "sidebar",
+      "component_contract_id": "sidebar",
+      "docs_id": "components-sidebar--docs",
+      "story_id": "components-sidebar--default"
+    },
+    {
+      "primitive_id": "menu",
+      "component_contract_id": "menu",
+      "docs_id": "components-menu--docs",
+      "story_id": "components-menu--default"
+    },
+    {
+      "primitive_id": "icon",
+      "component_contract_id": "icon",
+      "docs_id": "components-icon--docs",
+      "story_id": "components-icon--gallery"
+    },
+    {
+      "primitive_id": "select",
+      "component_contract_id": "select",
+      "docs_id": "components-select--docs",
+      "story_id": "components-select--default"
+    },
+    {
+      "primitive_id": "button",
+      "component_contract_id": "button",
+      "docs_id": "components-button--docs",
+      "story_id": "components-button--primary"
+    },
+    {
+      "primitive_id": "text-input",
+      "component_contract_id": "text-input",
+      "docs_id": "components-textinput--docs",
+      "story_id": "components-textinput--default"
+    },
+    {
+      "primitive_id": "pagination",
+      "component_contract_id": "pagination",
+      "docs_id": "components-pagination--docs",
+      "story_id": "components-pagination--default"
+    },
+    {
+      "primitive_id": "search-input",
+      "component_contract_id": "search-input",
+      "docs_id": "components-searchinput--docs",
+      "story_id": "components-searchinput--default"
+    }
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "allowed_markup": [
+        "table"
+      ],
+      "must_not_claim_primitive": true
+    }
+  ],
+  "unsupported_gaps": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "must_not_claim_primitive": true
+    }
+  ],
+  "execution_inputs": {
+    "registry": "design-system-plugin/design-system/registry/registry.json",
+    "design_md": "design-system-plugin/design-system/DESIGN.md",
+    "registry_item": "design-system-plugin/design-system/registry/items/sanofi-admin-query-panel.json",
+    "pattern_index": "design-system-plugin/design-system/patterns/pattern-index.json",
+    "pattern": "design-system-plugin/design-system/patterns/admin-query-panel/admin-query-panel.pattern.json",
+    "template_index": "design-system-plugin/design-system/templates/template-index.json",
+    "template": "design-system-plugin/design-system/templates/onecommercial-admin-query-panel.template.json",
+    "rules_index": "design-system-plugin/design-system/rules/rules-index.json",
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json",
+    "page_profile_index": "design-system-plugin/design-system/page-profiles/page-profile-index.json",
+    "page_profile": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+    "module_contracts": [
+      "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json",
+      "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+    ],
+    "density_rule": "design-system-plugin/design-system/rules/admin-density.json",
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/admin-data-entry-table.rules.json",
+    "loaded_rule_count": 6,
+    "template_index_status": "ready",
+    "pattern_index_status": "ready",
+    "delivery_contract": null
+  },
+  "source_provenance": {
+    "registry_item": "sanofi-admin-query-panel",
+    "registry_item_path": "design-system-plugin/design-system/registry/items/sanofi-admin-query-panel.json",
+    "design_md_path": "design-system-plugin/design-system/DESIGN.md",
+    "pattern_id": "admin-query-panel",
+    "pattern_path": "design-system-plugin/design-system/patterns/admin-query-panel/admin-query-panel.pattern.json",
+    "template_id": "onecommercial-admin-query-panel",
+    "template_path": "design-system-plugin/design-system/templates/onecommercial-admin-query-panel.template.json",
+    "docs_ids": [
+      "components-container--docs",
+      "components-grid--docs",
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs",
+      "components-select--docs",
+      "components-button--docs",
+      "components-textinput--docs",
+      "components-pagination--docs",
+      "components-searchinput--docs"
+    ],
+    "story_ids": [
+      "components-container--fixed",
+      "components-grid--desktop",
+      "components-navigationheader--default",
+      "components-sidebar--default",
+      "components-menu--default",
+      "components-icon--gallery",
+      "components-select--default",
+      "components-button--primary",
+      "components-textinput--default",
+      "components-pagination--default",
+      "components-searchinput--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "layout_rule": "layout-grid-container",
+    "layout_source": "foundations-layout--docs",
+    "required_rules": [
+      "layout-grid-container",
+      "typography-font-stack",
+      "admin-template-navigation",
+      "admin-query-panel-template",
+      "admin-density",
+      "admin-data-entry-table-reference-fit"
+    ],
+    "delivery_contract": "none",
+    "page_profile_id": "admin-data-entry-table",
+    "page_profile_path": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+    "page_module_contracts": [
+      "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json",
+      "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+    ],
+    "density_rule_path": "design-system-plugin/design-system/rules/admin-density.json",
+    "reference_fit_rule_path": "design-system-plugin/design-system/reference-fit/admin-data-entry-table.rules.json",
+    "fallback_reasons": [
+      {
+        "module": "table",
+        "status": "token-only-pattern",
+        "reason": "No official Table/DataTable/DataGrid primitive is registered locally."
+      }
+    ],
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json",
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json"
+  }
+}

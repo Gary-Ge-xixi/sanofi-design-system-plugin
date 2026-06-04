@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "checkbox-checkbox-group",
+  "component_name": "Checkbox/CheckboxGroup",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-checkbox-checkboxgroup--horizontal",
+      "story_name": "Horizontal",
+      "component_id": "checkbox-checkbox-group",
+      "component_name": "Checkbox/CheckboxGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--horizontal.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/templates/html.horizontal.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-horizontal.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+      "docs_id": "components-checkbox-checkboxgroup--docs",
+      "registry_item": "sanofi-checkbox-checkbox-group-horizontal-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--neutral-color",
+      "story_name": "Neutral Color",
+      "component_id": "checkbox-checkbox-group",
+      "component_name": "Checkbox/CheckboxGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--neutral-color.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/templates/html.neutral-color.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-neutral-color.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+      "docs_id": "components-checkbox-checkboxgroup--docs",
+      "registry_item": "sanofi-checkbox-checkbox-group-neutral-color-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--small-size",
+      "story_name": "Small Size",
+      "component_id": "checkbox-checkbox-group",
+      "component_name": "Checkbox/CheckboxGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--small-size.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/templates/html.small-size.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-small-size.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+      "docs_id": "components-checkbox-checkboxgroup--docs",
+      "registry_item": "sanofi-checkbox-checkbox-group-small-size-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--vertical",
+      "story_name": "Vertical",
+      "component_id": "checkbox-checkbox-group",
+      "component_name": "Checkbox/CheckboxGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--vertical.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/templates/html.vertical.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-vertical.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+      "docs_id": "components-checkbox-checkboxgroup--docs",
+      "registry_item": "sanofi-checkbox-checkbox-group-vertical-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkbox-checkbox-group--docs"
+  }
+}

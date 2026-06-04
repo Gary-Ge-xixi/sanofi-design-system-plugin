@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-mega-menu-trigger-default-atomic-story",
+  "title": "MegaMenu/Trigger Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-megamenu-trigger--default.",
+  "atomic_story_id": "components-megamenu-trigger--default",
+  "component_id": "mega-menu-trigger",
+  "docs_id": "components-megamenu-trigger--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-mega-menu-trigger"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/stories/components-megamenu-trigger--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/stories/components-megamenu-trigger--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/assets/Trigger.stories-Cd7ElboE.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/assets/Trigger.stories-Cd7ElboE.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/assets/components-megamenu-trigger--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/assets/components-megamenu-trigger--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/mega-menu-trigger/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/mega-menu-trigger/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-trigger--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-megamenu-trigger--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-megamenu-trigger--docs",
+    "story_id": "components-megamenu-trigger--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/stories/components-megamenu-trigger--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-megamenu-trigger--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-megamenu-trigger--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Trigger.stories-Cd7ElboE.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/assets/Trigger.stories-Cd7ElboE.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/mega-menu-trigger/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "mega-menu-trigger",
+      "MegaMenu/Trigger",
+      "Default",
+      "components-megamenu-trigger--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact MegaMenu/Trigger Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

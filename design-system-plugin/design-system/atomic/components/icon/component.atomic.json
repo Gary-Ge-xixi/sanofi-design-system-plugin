@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "icon",
+  "component_name": "Icon",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-icon--custom-icon",
+      "story_name": "Custom Icon",
+      "component_id": "icon",
+      "component_name": "Icon",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--custom-icon.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/icon/templates/html.custom-icon.template.html",
+      "output_path": "design-system-plugin/outputs/html/icon-custom-icon.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+      "docs_id": "components-icon--docs",
+      "registry_item": "sanofi-icon-custom-icon-atomic-story"
+    },
+    {
+      "story_id": "components-icon--fallback-icons",
+      "story_name": "Fallback Icons",
+      "component_id": "icon",
+      "component_name": "Icon",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--fallback-icons.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/icon/templates/html.fallback-icons.template.html",
+      "output_path": "design-system-plugin/outputs/html/icon-fallback-icons.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+      "docs_id": "components-icon--docs",
+      "registry_item": "sanofi-icon-fallback-icons-atomic-story"
+    },
+    {
+      "story_id": "components-icon--gallery",
+      "story_name": "Gallery",
+      "component_id": "icon",
+      "component_name": "Icon",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--gallery.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/icon/templates/html.gallery.template.html",
+      "output_path": "design-system-plugin/outputs/html/icon-gallery.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+      "docs_id": "components-icon--docs",
+      "registry_item": "sanofi-icon-gallery-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-icon--docs"
+  }
+}

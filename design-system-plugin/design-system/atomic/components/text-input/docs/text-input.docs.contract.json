@@ -1,0 +1,151 @@
+{
+  "schema_version": "0.1.0",
+  "id": "text-input-docs-contract",
+  "component_id": "text-input",
+  "component_name": "TextInput",
+  "docs_id": "components-textinput--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-textinput--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "id",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-textinput--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { TextInput, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <TextInput\n    id=\"text-input\"\n    label=\"Text Input\"\n    placeholder=\"Placeholder\"\n    size={InputSize.LARGE} // or InputSize.MEDIUM\n    state={FormControlState.DEFAULT} // or FormControlState.ERROR or FormControlState.SUCCESS\n    subText=\"This is a subtext\"\n    type=\"text\"\n  />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-textinput--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--default-inverse",
+      "name": "Default Inverse",
+      "export_name": "DefaultInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--disabled-inverse",
+      "name": "Disabled Inverse",
+      "export_name": "DisabledInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--error-inverse",
+      "name": "Error Inverse",
+      "export_name": "ErrorInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--error-state",
+      "name": "Error State",
+      "export_name": "ErrorState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--filled",
+      "name": "Filled",
+      "export_name": "Filled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--filled-inverse",
+      "name": "Filled Inverse",
+      "export_name": "FilledInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--success-inverse",
+      "name": "Success Inverse",
+      "export_name": "SuccessInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--success-state",
+      "name": "Success State",
+      "export_name": "SuccessState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--type-email",
+      "name": "Type Email",
+      "export_name": "TypeEmail",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--type-password",
+      "name": "Type Password",
+      "export_name": "TypePassword",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--type-tel",
+      "name": "Type Tel",
+      "export_name": "TypeTel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--with-tooltip",
+      "name": "With Tooltip",
+      "export_name": "WithTooltip",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-textinput--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json"
+  }
+}

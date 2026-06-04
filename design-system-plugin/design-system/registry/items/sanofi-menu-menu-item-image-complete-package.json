@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-menu-item-image-complete-package",
+  "title": "Menu/MenuItemImage complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Menu/MenuItemImage package covering Docs plus all Storybook story atoms.",
+  "component_id": "menu-menu-item-image",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu-menu-item-image"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/menu-menu-item-image.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/menu-menu-item-image.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/menu-menu-item-image.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/menu-menu-item-image.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/docs/menu-menu-item-image.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/docs/menu-menu-item-image.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/menu-menu-item-image-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/menu-menu-item-image-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-menu-item-image.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-menu-item-image.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-image/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-image/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemimage--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemimage--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 1,
+    "materialized_stories": 1,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-menu-menuitemimage--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-menu-menu-item-image-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemimage--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/menu-menu-item-image.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/docs/menu-menu-item-image.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-image.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item-image/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-menu-item-image",
+      "Menu/MenuItemImage",
+      "menu-menu-item-image complete",
+      "Menu/MenuItemImage complete package",
+      "menu-menu-item-image docs"
+    ],
+    "when_to_use": "Use first for any Menu/MenuItemImage generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Menu/MenuItemImage behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

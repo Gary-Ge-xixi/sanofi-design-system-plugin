@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TextInput",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/TextInput",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "text-input",
+      "data_attribute": "data-primitive=\"text-input\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-textinput--default",
+      "components-textinput--default-inverse",
+      "components-textinput--disabled",
+      "components-textinput--disabled-inverse",
+      "components-textinput--error-inverse",
+      "components-textinput--error-state",
+      "components-textinput--filled",
+      "components-textinput--filled-inverse",
+      "components-textinput--sizes",
+      "components-textinput--success-inverse",
+      "components-textinput--success-state",
+      "components-textinput--type-email",
+      "components-textinput--type-password",
+      "components-textinput--type-tel",
+      "components-textinput--with-tooltip"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-textinput--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

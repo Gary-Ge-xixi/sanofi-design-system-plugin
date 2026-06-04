@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-card-group-docs-contract",
+  "component_id": "card-card-group",
+  "component_name": "Card/CardGroup",
+  "docs_id": "components-card-cardgroup--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-cardgroup--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Card components to display in group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "gapless",
+        "required": false,
+        "description": "Removes gaps between cards for edge-to-edge layout.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-cardgroup--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-card-cardgroup--card-grids-group",
+      "name": "Card Grids Group",
+      "export_name": "CardGridsGroup",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CardGroup/CardGroup.stories.tsx"
+    },
+    {
+      "id": "components-card-cardgroup--card-grids-group-picto",
+      "name": "Card Grids Group Picto",
+      "export_name": "CardGridsGroupPicto",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CardGroup/CardGroup.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-cardgroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json"
+  }
+}

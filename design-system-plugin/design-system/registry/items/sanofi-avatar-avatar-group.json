@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-avatar-avatar-group",
+  "title": "Avatar/AvatarGroup primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Avatar/AvatarGroup.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "avatar-avatar-group",
+  "docs_id": "components-avatar-avatargroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 4,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "avatar-avatar-group",
+      "Avatar/AvatarGroup",
+      "Avatar/Avatar Group"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Avatar/AvatarGroup primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

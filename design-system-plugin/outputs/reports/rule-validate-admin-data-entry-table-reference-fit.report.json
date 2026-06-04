@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule validate admin-data-entry-table-reference-fit",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:11:27.524Z",
+  "rule_id": "admin-data-entry-table-reference-fit",
+  "target": "design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+  "rule": {
+    "id": "admin-data-entry-table-reference-fit",
+    "path": "../reference-fit/admin-data-entry-table.rules.json",
+    "script": "../../scripts/validate-reference-fit"
+  },
+  "run": {
+    "script": "validate-reference-fit",
+    "command": "node design-system-plugin/scripts/validate-reference-fit /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "Reference fit OK: outputs/html/admin-query-panel.resolved.html\n",
+    "stderr": ""
+  },
+  "failures": []
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "title",
+  "component_name": "Title",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Title"
+  },
+  "docs": [
+    {
+      "id": "components-title--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-title--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    },
+    {
+      "id": "components-title--font-weights",
+      "name": "Font Weights",
+      "export_name": "FontWeights",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    },
+    {
+      "id": "components-title--variants",
+      "name": "Variants",
+      "export_name": "Variants",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    }
+  ]
+}

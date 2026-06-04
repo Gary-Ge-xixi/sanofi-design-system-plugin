@@ -1,0 +1,223 @@
+{
+  "schema_version": "0.1.0",
+  "id": "drawer-complete-standard-package",
+  "component_id": "drawer",
+  "component_name": "Drawer",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 8,
+    "materialized_stories": 8,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-drawer--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-drawer--bottom-side",
+      "story_name": "Bottom Side",
+      "export_name": "BottomSide",
+      "semantic_type": "variant",
+      "variant": "bottom-side",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--bottom-side.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-bottom-side.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--custom-content-height",
+      "story_name": "Custom Content Height",
+      "export_name": "CustomContentHeight",
+      "semantic_type": "variant",
+      "variant": "custom-content-height",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--custom-content-height.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-custom-content-height.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--custom-drawer-width",
+      "story_name": "Custom Drawer Width",
+      "export_name": "CustomDrawerWidth",
+      "semantic_type": "variant",
+      "variant": "custom-drawer-width",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--custom-drawer-width.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-custom-drawer-width.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--end-side",
+      "story_name": "End Side",
+      "export_name": "EndSide",
+      "semantic_type": "variant",
+      "variant": "end-side",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--end-side.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-end-side.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--non-dismissible",
+      "story_name": "Non Dismissible",
+      "export_name": "NonDismissible",
+      "semantic_type": "variant",
+      "variant": "non-dismissible",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--non-dismissible.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-non-dismissible.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--start-side",
+      "story_name": "Start Side",
+      "export_name": "StartSide",
+      "semantic_type": "variant",
+      "variant": "start-side",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--start-side.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-start-side.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-drawer--top-side",
+      "story_name": "Top Side",
+      "export_name": "TopSide",
+      "semantic_type": "variant",
+      "variant": "top-side",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/drawer/stories/components-drawer--top-side.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/drawer-top-side.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-drawer--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/drawer-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-drawer--bottom-side",
+        "output_path": "design-system-plugin/outputs/html/drawer-bottom-side.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--custom-content-height",
+        "output_path": "design-system-plugin/outputs/html/drawer-custom-content-height.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--custom-drawer-width",
+        "output_path": "design-system-plugin/outputs/html/drawer-custom-drawer-width.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--default",
+        "output_path": "design-system-plugin/outputs/html/drawer-default.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--end-side",
+        "output_path": "design-system-plugin/outputs/html/drawer-end-side.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--non-dismissible",
+        "output_path": "design-system-plugin/outputs/html/drawer-non-dismissible.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--start-side",
+        "output_path": "design-system-plugin/outputs/html/drawer-start-side.atomic.html"
+      },
+      {
+        "story_id": "components-drawer--top-side",
+        "output_path": "design-system-plugin/outputs/html/drawer-top-side.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-drawer-complete-package.json",
+    "story_item_prefix": "sanofi-drawer-"
+  },
+  "validation": {
+    "required_story_count": 8,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

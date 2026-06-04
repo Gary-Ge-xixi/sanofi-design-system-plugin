@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-docs-md",
+  "checked": {
+    "docs_records": 111,
+    "expected_docs_records": 111,
+    "missing_paths": 0,
+    "required_doc_id": "getting-started--docs",
+    "required_doc_path": "design-system-plugin/design-system/knowledge/docs/getting-started--docs.md"
+  },
+  "counts": {
+    "extracted": 111
+  },
+  "failures": []
+}

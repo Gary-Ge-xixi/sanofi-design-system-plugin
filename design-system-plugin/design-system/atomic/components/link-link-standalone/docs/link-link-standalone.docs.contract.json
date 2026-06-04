@@ -1,0 +1,156 @@
+{
+  "schema_version": "0.1.0",
+  "id": "link-link-standalone-docs-contract",
+  "component_id": "link-link-standalone",
+  "component_name": "Link/LinkStandalone",
+  "docs_id": "components-link-linkstandalone--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-link-linkstandalone--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-link-linkstandalone--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "href",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the link text and icon.\"small\"\"medium\"\"large\"",
+        "default": "\"LinkSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Standalone variant type.\"standalone\": Default color scheme\"standaloneInverse\": For dark backgrounds\"inverseAccent\": Accent color on dark backgrounds\"standalone\"\"standaloneInverse\"\"inverseAccent\"",
+        "default": "\"LinkVariant.STANDALONE\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the link interaction.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "iconPosition",
+        "required": false,
+        "description": "Position of the icon relative to text.\"start\"\"end\"",
+        "default": "\"IconPosition.END\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "hasAnimation",
+        "required": false,
+        "description": "Enables hover/focus animation.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "function",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "target",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for link elements.{ container?: string; icon?: string; content?: string \\",
+        "default": "undefined; } \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "ariaLabel",
+        "required": false,
+        "description": "Accessible label when link text is not descriptive enough.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-link-linkstandalone--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-link-linkstandalone--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--inverse-accent",
+      "name": "Inverse Accent",
+      "export_name": "InverseAccent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--position-icon",
+      "name": "Position Icon",
+      "export_name": "PositionIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    },
+    {
+      "id": "components-link-linkstandalone--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Link/LinkStandalone.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-link-linkstandalone--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-link-linkstandalone--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json"
+  }
+}

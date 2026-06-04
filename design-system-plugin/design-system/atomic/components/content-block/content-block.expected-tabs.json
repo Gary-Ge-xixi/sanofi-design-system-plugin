@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "content-block",
+  "component_name": "ContentBlock",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ContentBlock"
+  },
+  "docs": [
+    {
+      "id": "components-contentblock--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ContentBlock/ContentBlock.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-contentblock--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--interactive",
+      "name": "Interactive",
+      "export_name": "Interactive",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--interactive-disabled",
+      "name": "Interactive Disabled",
+      "export_name": "InteractiveDisabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--interactive-selected",
+      "name": "Interactive Selected",
+      "export_name": "InteractiveSelected",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--interactive-with-decorative-button",
+      "name": "Interactive With Decorative Button",
+      "export_name": "InteractiveWithDecorativeButton",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--non-interactive-with-multiple-actions",
+      "name": "Non Interactive With Multiple Actions",
+      "export_name": "NonInteractiveWithMultipleActions",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--padding-sizes",
+      "name": "Padding Sizes",
+      "export_name": "PaddingSizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--selectable-list",
+      "name": "Selectable List",
+      "export_name": "SelectableList",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--selectable-radio-list",
+      "name": "Selectable Radio List",
+      "export_name": "SelectableRadioList",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    },
+    {
+      "id": "components-contentblock--with-link",
+      "name": "With Link",
+      "export_name": "WithLink",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+    }
+  ]
+}

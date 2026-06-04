@@ -1,0 +1,144 @@
+{
+  "schema_version": "0.1.0",
+  "id": "slider-docs-contract",
+  "component_id": "slider",
+  "component_name": "Slider",
+  "docs_id": "components-slider--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-slider--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "label",
+        "required": false,
+        "description": "Accessible label for the slider.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "thumbLabels",
+        "required": false,
+        "description": "Accessible labels for each thumb (for range sliders).string[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showLegend",
+        "required": false,
+        "description": "Shows current value(s) as legend text.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showSteps",
+        "required": false,
+        "description": "Shows step markers along the track.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "legendPosition",
+        "required": false,
+        "description": "Position of the legend\"top\"\"bottom\"",
+        "default": "\"SliderLegendPosition.TOP\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "minValue",
+        "required": false,
+        "description": "-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxValue",
+        "required": false,
+        "description": "-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "step",
+        "required": false,
+        "description": "-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-slider--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Slider } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Slider\n  label=\"Volume\"\n  minValue={0}\n  maxValue={100}\n  step={1}\n  showLegend\n  legendPosition=\"top\"\n/>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-slider--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--range",
+      "name": "Range",
+      "export_name": "Range",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-bottom-legend",
+      "name": "With Bottom Legend",
+      "export_name": "WithBottomLegend",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-custom-scale",
+      "name": "With Custom Scale",
+      "export_name": "WithCustomScale",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-label",
+      "name": "With Label",
+      "export_name": "WithLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "components-slider--with-legend",
+      "name": "With Legend",
+      "export_name": "WithLegend",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Slider/Slider.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-slider--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/slider.contract.json"
+  }
+}

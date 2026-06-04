@@ -1,0 +1,357 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "local-registry-validation.report.json");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function fail(failures, message) {
+  failures.push(message);
+}
+
+function localFilePathsFromItem(item) {
+  return (item.files || [])
+    .map((file) => file.path)
+    .filter((filePath) => typeof filePath === "string")
+    .filter((filePath) => filePath.startsWith("design-system-plugin/") || filePath.startsWith("docs/"));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+
+if (!exists("design-system-plugin/components.json")) {
+  fail(failures, "components.json is missing");
+}
+
+if (!exists("design-system-plugin/design-system/registry/registry.json")) {
+  fail(failures, "registry.json is missing; run scripts/build-local-registry first");
+}
+
+let componentsConfig = null;
+let registry = null;
+if (!failures.length) {
+  componentsConfig = readJson("design-system-plugin/components.json");
+  registry = readJson("design-system-plugin/design-system/registry/registry.json");
+}
+
+const itemRecords = [];
+const itemNames = new Set();
+const dependencyNames = new Set();
+const checkedPaths = [];
+
+if (componentsConfig && registry) {
+  if (componentsConfig.renderer_target !== "html") {
+    fail(failures, "components.json renderer_target must be html");
+  }
+  if (componentsConfig.registry?.primary !== "./design-system/registry/registry.json") {
+    fail(failures, "components.json registry.primary must point to ./design-system/registry/registry.json");
+  }
+  if (componentsConfig.aliases?.design_md !== "./design-system/DESIGN.md") {
+    fail(failures, "components.json aliases.design_md must point to ./design-system/DESIGN.md");
+  }
+  for (const alias of Object.values(componentsConfig.aliases || {})) {
+    const normalizedAlias = alias.startsWith("./")
+      ? `design-system-plugin/${alias.slice(2)}`
+      : `design-system-plugin/${alias}`;
+    checkedPaths.push(normalizedAlias);
+    if (!exists(normalizedAlias)) {
+      fail(failures, `components.json alias path does not exist: ${alias}`);
+    }
+  }
+  for (const [commandName, commandPath] of Object.entries(componentsConfig.commands || {})) {
+    const normalizedCommandPath = commandPath.startsWith("./")
+      ? `design-system-plugin/${commandPath.slice(2)}`
+      : `design-system-plugin/${commandPath}`;
+    checkedPaths.push(normalizedCommandPath);
+    if (!exists(normalizedCommandPath)) {
+      fail(failures, `components.json command path does not exist: ${commandName} -> ${commandPath}`);
+    }
+  }
+
+  if (registry.renderer_target !== "html") {
+    fail(failures, "registry renderer_target must be html");
+  }
+
+  for (const itemRef of registry.items || []) {
+    if (itemNames.has(itemRef.name)) {
+      fail(failures, `duplicate registry item name: ${itemRef.name}`);
+    }
+    itemNames.add(itemRef.name);
+    checkedPaths.push(itemRef.path);
+    if (!exists(itemRef.path)) {
+      fail(failures, `registry item file missing: ${itemRef.path}`);
+      continue;
+    }
+    const item = readJson(itemRef.path);
+    itemRecords.push(item);
+    for (const dependency of item.registryDependencies || []) {
+      dependencyNames.add(dependency);
+    }
+
+    for (const requiredField of ["schema_version", "name", "title", "type", "renderer_target", "files", "source_provenance"]) {
+      if (item[requiredField] === undefined) {
+        fail(failures, `${itemRef.name} missing required field: ${requiredField}`);
+      }
+    }
+    if (item.renderer_target !== "html") {
+      fail(failures, `${itemRef.name} renderer_target must be html`);
+    }
+    if (!String(item.type || "").startsWith("registry:")) {
+      fail(failures, `${itemRef.name} type must start with registry:`);
+    }
+    for (const localPath of localFilePathsFromItem(item)) {
+      checkedPaths.push(localPath);
+      if (!exists(localPath)) {
+        fail(failures, `${itemRef.name} references missing local file: ${localPath}`);
+      }
+    }
+  }
+
+  for (const dependency of dependencyNames) {
+    if (!itemNames.has(dependency)) {
+      fail(failures, `registry dependency not found: ${dependency}`);
+    }
+  }
+
+  const requiredItems = [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-admin-dashboard",
+    "sanofi-admin-query-panel"
+  ];
+  if (exists("design-system-plugin/design-system/atomic/atomic-component-index.json")) {
+    requiredItems.push("sanofi-button-primary-atomic-story");
+  }
+  if (exists("design-system-plugin/design-system/atomic/components/button/button.package.json")) {
+    requiredItems.push("sanofi-button-complete-package");
+  }
+  for (const requiredItem of requiredItems) {
+    if (!itemNames.has(requiredItem)) {
+      fail(failures, `required registry item missing: ${requiredItem}`);
+    }
+  }
+
+  const tokens = itemRecords.find((item) => item.name === "sanofi-elements-tokens");
+  if (tokens) {
+    if (!tokens.files?.some((file) => file.path?.endsWith("foundations-motion--docs.md"))) {
+      fail(failures, "sanofi-elements-tokens must reference foundations-motion--docs.md");
+    }
+  }
+
+  const workflow = itemRecords.find((item) => item.name === "sanofi-design-prototype-generator");
+  if (workflow) {
+    if (!workflow.files?.some((file) => file.role === "design-md" && file.path === "design-system-plugin/design-system/DESIGN.md")) {
+      fail(failures, "sanofi-design-prototype-generator must include DESIGN.md as design-md");
+    }
+    if (workflow.source_provenance?.design_md !== "design-system-plugin/design-system/DESIGN.md") {
+      fail(failures, "sanofi-design-prototype-generator must record DESIGN.md provenance");
+    }
+  }
+
+  const admin = itemRecords.find((item) => item.name === "sanofi-admin-dashboard");
+  if (admin) {
+    const requiredSections = ["pattern_id", "resolver", "required_primitives", "fallbacks"];
+    for (const field of requiredSections) {
+      if (!admin[field]) fail(failures, `sanofi-admin-dashboard missing ${field}`);
+    }
+    if (admin.pattern_id !== "admin-dashboard") {
+      fail(failures, "sanofi-admin-dashboard pattern_id must be admin-dashboard");
+    }
+    if (!admin.resolver?.script?.endsWith("scripts/resolve-pattern")) {
+      fail(failures, "sanofi-admin-dashboard resolver script must point to scripts/resolve-pattern");
+    }
+    if (!Array.isArray(admin.source_provenance?.docs_ids) || !admin.source_provenance.docs_ids.length) {
+      fail(failures, "sanofi-admin-dashboard must include docs provenance");
+    }
+    if (!Array.isArray(admin.fallbacks) || !admin.fallbacks.some((fallback) => fallback.module === "table")) {
+      fail(failures, "sanofi-admin-dashboard must declare table fallback");
+    }
+    if (!Array.isArray(admin.fallbacks) || !admin.fallbacks.some((fallback) => fallback.module === "chart")) {
+      fail(failures, "sanofi-admin-dashboard must declare chart fallback");
+    }
+  }
+
+  const adminQuery = itemRecords.find((item) => item.name === "sanofi-admin-query-panel");
+  if (adminQuery) {
+    for (const field of ["pattern_id", "template_id", "page_subtype", "resolver", "renderer", "required_primitives", "fallbacks"]) {
+      if (!adminQuery[field]) fail(failures, `sanofi-admin-query-panel missing ${field}`);
+    }
+    if (adminQuery.pattern_id !== "admin-query-panel") {
+      fail(failures, "sanofi-admin-query-panel pattern_id must be admin-query-panel");
+    }
+    if (adminQuery.template_id !== "onecommercial-admin-query-panel") {
+      fail(failures, "sanofi-admin-query-panel template_id must be onecommercial-admin-query-panel");
+    }
+    if (adminQuery.page_subtype !== "data-entry-table-page") {
+      fail(failures, "sanofi-admin-query-panel page_subtype must be data-entry-table-page");
+    }
+    for (const primitive of ["container", "grid", "navigation-header", "sidebar", "menu", "icon", "select", "button", "text-input", "pagination"]) {
+      if (!(adminQuery.required_primitives || []).includes(primitive)) {
+        fail(failures, `sanofi-admin-query-panel missing required primitive: ${primitive}`);
+      }
+    }
+    for (const forbiddenPrimitive of ["card", "tabs", "progress-bar"]) {
+      if ((adminQuery.required_primitives || []).includes(forbiddenPrimitive)) {
+        fail(failures, `sanofi-admin-query-panel must not require generic dashboard primitive: ${forbiddenPrimitive}`);
+      }
+    }
+    if (!adminQuery.resolver?.script?.endsWith("scripts/resolve-pattern")) {
+      fail(failures, "sanofi-admin-query-panel resolver script must point to scripts/resolve-pattern");
+    }
+    if (!adminQuery.renderer?.script?.endsWith("scripts/render-resolved-html")) {
+      fail(failures, "sanofi-admin-query-panel renderer script must point to scripts/render-resolved-html");
+    }
+    if (!Array.isArray(adminQuery.source_provenance?.docs_ids) || !adminQuery.source_provenance.docs_ids.includes("components-icon--docs")) {
+      fail(failures, "sanofi-admin-query-panel must include Icon docs provenance");
+    }
+    if (!Array.isArray(adminQuery.fallbacks) || !adminQuery.fallbacks.some((fallback) => fallback.module === "table")) {
+      fail(failures, "sanofi-admin-query-panel must declare table fallback");
+    }
+    for (const role of ["page-profile", "density-rule", "reference-fit-rule"]) {
+      if (!adminQuery.files?.some((file) => file.role === role)) {
+        fail(failures, `sanofi-admin-query-panel missing ${role} file`);
+      }
+    }
+    const pageModuleContracts = (adminQuery.files || []).filter((file) => file.role === "page-module-contract");
+    for (const requiredContract of ["select-filter.contract.json", "data-table-fallback.contract.json"]) {
+      if (!pageModuleContracts.some((file) => file.path?.endsWith(requiredContract))) {
+        fail(failures, `sanofi-admin-query-panel missing page module contract: ${requiredContract}`);
+      }
+    }
+    for (const requiredRule of ["admin-density", "admin-data-entry-table-reference-fit"]) {
+      if (!(adminQuery.required_rules || []).includes(requiredRule)) {
+        fail(failures, `sanofi-admin-query-panel missing required rule: ${requiredRule}`);
+      }
+    }
+  }
+
+  const componentItems = itemRecords.filter((item) => item.type === "registry:component");
+  if (componentItems.length < 12) {
+    fail(failures, `expected at least 12 component registry items, found ${componentItems.length}`);
+  }
+  for (const item of componentItems) {
+    if (!item.component_id) {
+      fail(failures, `${item.name} missing component_id`);
+    }
+    if (!item.source_provenance?.component_contract || item.source_provenance.component_contract === "unsupported") {
+      fail(failures, `${item.name} missing component contract provenance`);
+    }
+  }
+
+  const storyItems = itemRecords.filter((item) => item.type === "registry:story");
+  for (const item of storyItems) {
+    if (!item.atomic_story_id) fail(failures, `${item.name} missing atomic_story_id`);
+    if (!item.component_id) fail(failures, `${item.name} missing component_id`);
+    if (!item.files?.some((file) => file.role === "atomic-story")) {
+      fail(failures, `${item.name} missing atomic-story file`);
+    }
+    if (!item.files?.some((file) => file.role === "raw-story-bundle")) {
+      fail(failures, `${item.name} missing raw-story-bundle file`);
+    }
+    if (!item.source_provenance?.story_id) fail(failures, `${item.name} missing story provenance`);
+    if (!item.source_provenance?.component_contract) {
+      fail(failures, `${item.name} missing component contract provenance`);
+    }
+  }
+
+  const packageItems = itemRecords.filter((item) => item.type === "registry:package");
+  for (const item of packageItems) {
+    if (!item.component_id) fail(failures, `${item.name} missing component_id`);
+    if (item.coverage?.story_coverage_status !== "complete") {
+      fail(failures, `${item.name} package coverage must be complete`);
+    }
+    if (item.coverage?.expected_docs < 1) {
+      fail(failures, `${item.name} must cover at least 1 docs tab`);
+    }
+    if (item.coverage?.materialized_stories !== item.coverage?.expected_stories) {
+      fail(failures, `${item.name} must materialize all expected stories`);
+    }
+    for (const role of ["atomic-component-package", "expected-tabs", "docs-contract", "atomic-component-contract", "example-html", "component-contract", "source-doc"]) {
+      if (!item.files?.some((file) => file.role === role)) {
+        fail(failures, `${item.name} missing ${role} file`);
+      }
+    }
+  }
+  const buttonPackage = packageItems.find((item) => item.name === "sanofi-button-complete-package");
+  if (exists("design-system-plugin/design-system/atomic/components/button/button.package.json")) {
+    if (!buttonPackage) {
+      fail(failures, "sanofi-button-complete-package registry item missing");
+    } else {
+      if (buttonPackage.component_id !== "button") {
+        fail(failures, "sanofi-button-complete-package component_id must be button");
+      }
+      if (buttonPackage.coverage?.expected_docs !== 1) {
+        fail(failures, "sanofi-button-complete-package must cover 1 docs tab");
+      }
+      if (buttonPackage.coverage?.expected_stories !== 13) {
+        fail(failures, "sanofi-button-complete-package must cover 13 stories");
+      }
+      if (buttonPackage.coverage?.materialized_stories !== 13) {
+        fail(failures, "sanofi-button-complete-package must materialize 13 stories");
+      }
+      if (!buttonPackage.files?.some((file) => file.role === "atomic-component-package")) {
+        fail(failures, "sanofi-button-complete-package missing package file");
+      }
+      if (!buttonPackage.files?.some((file) => file.role === "docs-contract")) {
+        fail(failures, "sanofi-button-complete-package missing docs contract file");
+      }
+      const buttonStoryItems = storyItems.filter((item) => item.component_id === "button");
+      if (buttonStoryItems.length < 13) {
+        fail(failures, `expected at least 13 Button story registry items, found ${buttonStoryItems.length}`);
+      }
+      for (const requiredButtonStory of [
+        "sanofi-button-primary-atomic-story",
+        "sanofi-button-primary-neutral-atomic-story",
+        "sanofi-button-overview-atomic-story",
+        "sanofi-button-overview-inverse-atomic-story",
+        "sanofi-button-default-atomic-story",
+        "sanofi-button-secondary-atomic-story",
+        "sanofi-button-secondary-neutral-atomic-story",
+        "sanofi-button-tertiary-atomic-story",
+        "sanofi-button-tertiary-neutral-atomic-story",
+        "sanofi-button-primary-destruct-atomic-story",
+        "sanofi-button-secondary-destruct-atomic-story",
+        "sanofi-button-tertiary-destruct-atomic-story",
+        "sanofi-button-button-link-atomic-story"
+      ]) {
+        if (!itemNames.has(requiredButtonStory)) {
+          fail(failures, `required Button story registry item missing: ${requiredButtonStory}`);
+        }
+      }
+    }
+  }
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-local-registry",
+  checked: {
+    item_count: itemRecords.length,
+    dependency_count: dependencyNames.size,
+    local_paths: [...new Set(checkedPaths)].length
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Local registry validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(
+  `Local registry OK: ${itemRecords.length} items, ${dependencyNames.size} dependencies, ${report.checked.local_paths} local paths`
+);

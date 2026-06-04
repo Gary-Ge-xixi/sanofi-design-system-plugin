@@ -1,0 +1,144 @@
+{
+  "schema_version": "0.1.0",
+  "id": "accordion",
+  "canonical_name": "accordion",
+  "component_name": "Accordion",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-accordion--docs",
+    "title": "Accordion",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion--docs",
+    "import_path": "./src/components/Accordion/Accordion.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-accordion--default",
+      "components-accordion--medium-accordion-with-slots",
+      "components-accordion--small-accordion"
+    ],
+    "records": [
+      {
+        "id": "components-accordion--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Accordion/Accordion.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-accordion--medium-accordion-with-slots",
+        "name": "Medium Accordion With Slots",
+        "normalized_name": "medium-accordion-with-slots",
+        "import_path": "./src/components/Accordion/Accordion.stories.tsx",
+        "export_name": "MediumAccordionWithSlots"
+      },
+      {
+        "id": "components-accordion--small-accordion",
+        "name": "Small Accordion",
+        "normalized_name": "small-accordion",
+        "import_path": "./src/components/Accordion/Accordion.stories.tsx",
+        "export_name": "SmallAccordion"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": true,
+        "description": "Accordion.Item components to render.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "medium-accordion-with-slots",
+      "small-accordion"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "medium-accordion-with-slots",
+      "small-accordion"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Accordion } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Accordion isExclusive={false}>\n    <Accordion.Item\n      title={\"Accordion Title is Here\"}\n      size={AccordionSize.MEDIUM}\n      isActiveSection={true}\n      sectionIndex={0}\n      onClick={() => {\n        alert(\"The onClick props is called.\");\n      }}\n    >\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    </Accordion.Item>\n</Accordion>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "accordion"
+    ],
+    "contracts": [
+      {
+        "id": "accordion",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/accordion/demo.registry.json",
+        "known_story_ids": [
+          "components-accordion--default",
+          "components-accordion--medium-accordion-with-slots",
+          "components-accordion--small-accordion",
+          "components-accordion--default",
+          "components-accordion--medium-accordion-with-slots",
+          "components-accordion--small-accordion"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md",
+    "docs_import_path": "./src/components/Accordion/Accordion.mdx",
+    "story_ids": [
+      "components-accordion--default",
+      "components-accordion--medium-accordion-with-slots",
+      "components-accordion--small-accordion"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

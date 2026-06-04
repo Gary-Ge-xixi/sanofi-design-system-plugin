@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Video Thumbnail",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Video Thumbnail",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "video-thumbnail",
+      "data_attribute": "data-primitive=\"video-thumbnail\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-video-thumbnail--default",
+      "components-video-thumbnail--disabled-status",
+      "components-video-thumbnail--mp-4-video-tracking",
+      "components-video-thumbnail--no-embedded-player",
+      "components-video-thumbnail--no-title",
+      "components-video-thumbnail--sanofi-video",
+      "components-video-thumbnail--streaming-video",
+      "components-video-thumbnail--vimeo-video",
+      "components-video-thumbnail--vimeo-video-tracking",
+      "components-video-thumbnail--youtube-video-tracking"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

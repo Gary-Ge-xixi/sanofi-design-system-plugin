@@ -1,0 +1,386 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function readText(relativePath) {
+  return fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8");
+}
+
+function writeText(relativePath, content) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, content);
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function attr(value) {
+  return escapeHtml(value);
+}
+
+function className(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function formatHeight(value) {
+  return String(value || "not extracted").replace(/px\b/g, " px");
+}
+
+function attrs(attributes) {
+  return Object.entries(attributes || {})
+    .filter(([, value]) => value !== false && value !== undefined && value !== null)
+    .map(([key, value]) => (value === true ? key : `${key}="${attr(value)}"`))
+    .join(" ");
+}
+
+function bindingFor(componentAtomic, variant) {
+  return componentAtomic.color_token_bindings?.variants?.[variant] || {};
+}
+
+function renderButtonCss(componentAtomic) {
+  const variantCss = Object.entries(componentAtomic.color_token_bindings?.variants || {})
+    .map(([variant, binding]) => {
+      const cls = className(variant);
+      return `
+      .v-${cls} {
+        --button-bg: ${binding.background};
+        --button-text: ${binding.text};
+        --button-border: ${binding.border};
+        --button-hover-bg: ${binding.hover_background || binding.background};
+        --button-active-bg: ${binding.active_background || binding.hover_background || binding.background};
+      }`;
+    })
+    .join("\n");
+
+  const sizeCss = (componentAtomic.size_matrix?.items || [])
+    .map((size) => {
+      const fontSize = size.id === "xsmall" ? ".75rem" : size.id === "small" ? ".875rem" : "1rem";
+      return `
+      .s-${className(size.id)} {
+        min-block-size: ${size.render_height};
+        padding-inline: ${size.render_padding_inline};
+        gap: ${size.render_gap};
+        font-size: ${fontSize};
+      }`;
+    })
+    .join("\n");
+
+  return `${variantCss}
+${sizeCss}`;
+}
+
+function renderButtonSample(componentAtomic, options) {
+  const variant = options.variant;
+  const size = options.size || "medium";
+  const state = options.state || "default";
+  const storyId = options.story_id || storyIdForVariant(componentAtomic, variant);
+  const asAnchor = Boolean(options.asAnchor);
+  const dataAttrs = attrs({
+    href: asAnchor ? options.href || "#" : undefined,
+    target: asAnchor && options.target ? options.target : undefined,
+    rel: asAnchor && options.target === "_blank" ? "noreferrer" : undefined,
+    type: asAnchor ? undefined : "button",
+    class: [
+      "elements-button",
+      `v-${className(variant)}`,
+      `s-${className(size)}`,
+      `state-${className(state)}`,
+      options.fullWidth ? "is-full-width" : "",
+      state === "loading" ? "is-loading" : "",
+      state === "focus" ? "is-focus" : "",
+      state === "hover" ? "is-hover" : "",
+      state === "active" ? "is-active" : ""
+    ].filter(Boolean).join(" "),
+    "data-primitive": "button",
+    "data-pattern": "atomic-component-sample",
+    "data-variant": variant,
+    "data-size": size,
+    "data-state": state,
+    "data-story-id": storyId,
+    "data-source-doc-id": componentAtomic.source_provenance.docs_id,
+    "data-token-source": componentAtomic.source_provenance.token_source,
+    "aria-busy": state === "loading" ? "true" : undefined,
+    "aria-disabled": asAnchor && (state === "disabled" || state === "loading") ? "true" : undefined,
+    tabindex: asAnchor && (state === "disabled" || state === "loading") ? "-1" : undefined,
+    "data-active": state === "active" ? "true" : undefined,
+    disabled: !asAnchor && (state === "disabled" || state === "loading")
+  });
+  const iconStart = options.iconPosition === "start"
+    ? `<span class="button-icon" aria-hidden="true">-&gt;</span>`
+    : "";
+  const iconEnd = options.iconPosition === "end"
+    ? `<span class="button-icon" aria-hidden="true">-&gt;</span>`
+    : "";
+  const loader = state === "loading" ? `<span class="button-loader" aria-hidden="true"></span>` : "";
+  const label = escapeHtml(options.label || "Action");
+  const tag = asAnchor ? "a" : "button";
+  return `<${tag} ${dataAttrs}>${loader}${iconStart}<span class="button-label">${label}</span>${iconEnd}</${tag}>`;
+}
+
+function storyIdForVariant(componentAtomic, variant) {
+  const item = (componentAtomic.variant_matrix?.items || []).find((candidate) => candidate.id === variant);
+  return item?.story_id || "components-button--secondary-neutral";
+}
+
+function renderRows(items, renderItem) {
+  return items.map(renderItem).join("\n");
+}
+
+function renderTokenRows(binding) {
+  const rows = [
+    ["background", binding.background],
+    ["text", binding.text],
+    ["border", binding.border],
+    ["hover_background", binding.hover_background],
+    ["active_background", binding.active_background]
+  ].filter(([, value]) => value);
+  return rows.map(([role, token]) => `
+              <tr>
+                <th scope="row">${escapeHtml(role)}</th>
+                <td><code>${escapeHtml(token)}</code></td>
+              </tr>`).join("\n");
+}
+
+function renderButtonReferenceHtml(story, componentAtomic, template) {
+  const semanticVariant = story.story_semantics?.expected_variant;
+  const selectedVariant = story.args.values.variant || (semanticVariant && semanticVariant !== "not_applicable" ? semanticVariant : "primary");
+  const selectedBinding = bindingFor(componentAtomic, selectedVariant);
+  const isLinkStory = story.story_semantics?.semantic_type === "link" || story.args.values.as === "a";
+  const variantSamples = renderRows(componentAtomic.variant_matrix.items, (variant) => `
+            <div class="sample-cell">
+              <span class="cell-label">${escapeHtml(variant.id)}</span>
+              ${renderButtonSample(componentAtomic, {
+                variant: variant.id,
+                story_id: variant.story_id,
+                size: "medium",
+                state: "default",
+                label: "Action"
+              })}
+            </div>`);
+
+  const sizeRows = renderRows(componentAtomic.size_matrix.items, (size) => `
+              <tr>
+                <th scope="row">${escapeHtml(size.id)}</th>
+                <td>${escapeHtml(formatHeight(size.official_height))}</td>
+                <td><code>${escapeHtml(size.render_height)}</code></td>
+                <td><code>${escapeHtml(size.render_padding_inline)}</code></td>
+                <td>${renderButtonSample(componentAtomic, {
+                  variant: selectedVariant,
+                  story_id: story.story_id,
+                  size: size.id,
+                  state: "default",
+                  label: "Action",
+                  asAnchor: isLinkStory,
+                  target: story.args.values.target
+                })}</td>
+              </tr>`);
+
+  const stateSamples = renderRows(componentAtomic.state_matrix.items, (state) => `
+            <div class="sample-cell">
+              <span class="cell-label">${escapeHtml(state.id)}</span>
+              ${renderButtonSample(componentAtomic, {
+                variant: selectedVariant,
+                story_id: story.story_id,
+                size: "medium",
+                state: state.id,
+                label: state.id === "loading" ? "Loading" : "Action",
+                asAnchor: isLinkStory,
+                target: story.args.values.target
+              })}
+            </div>`);
+
+  const iconSamples = [
+    ["start icon", "start", false, "default"],
+    ["end icon", "end", false, "default"],
+    ["full width", "start", true, "default"],
+    ["loading", "start", false, "loading"]
+  ].map(([label, iconPosition, fullWidth, state]) => `
+            <div class="sample-cell ${fullWidth ? "wide-cell" : ""}">
+              <span class="cell-label">${escapeHtml(label)}</span>
+              ${renderButtonSample(componentAtomic, {
+                variant: selectedVariant,
+                story_id: story.story_id,
+                size: "medium",
+                state,
+                iconPosition,
+                fullWidth,
+                asAnchor: isLinkStory,
+                target: story.args.values.target,
+                label: state === "loading" ? "Loading" : "Action"
+              })}
+            </div>`).join("\n");
+
+  const sourceRows = [
+    ["docs id", componentAtomic.source_provenance.docs_id],
+    ["story id", story.story_id],
+    ["token source", componentAtomic.source_provenance.token_source],
+    ["story bundle", componentAtomic.source_provenance.story_bundle],
+    ["component contract", componentAtomic.source_provenance.component_contract],
+    ["primitive contract", componentAtomic.source_provenance.primitive_contract]
+  ].map(([label, value]) => `
+              <tr>
+                <th scope="row">${escapeHtml(label)}</th>
+                <td><code>${escapeHtml(value)}</code></td>
+              </tr>`).join("\n");
+
+  const replacements = {
+    component_name: escapeHtml(story.component_name),
+    story_name: escapeHtml(story.story_name),
+    story_id: escapeHtml(story.story_id),
+    docs_id: escapeHtml(componentAtomic.source_provenance.docs_id),
+    token_source: escapeHtml(componentAtomic.source_provenance.token_source),
+    variant: escapeHtml(selectedVariant),
+    label: escapeHtml(story.args.values.label),
+    original_source: escapeHtml(story.render_strategy.source),
+    button_variant_css: renderButtonCss(componentAtomic),
+    variant_samples: variantSamples,
+    size_rows: sizeRows,
+    state_samples: stateSamples,
+    icon_samples: iconSamples,
+    token_rows: renderTokenRows(selectedBinding),
+    source_rows: sourceRows,
+    variant_count: componentAtomic.variant_matrix.items.length,
+    size_count: componentAtomic.size_matrix.items.length,
+    state_count: componentAtomic.state_matrix.items.length
+  };
+
+  return template.replace(/\{\{([a-zA-Z0-9_]+)\}\}/g, (_, key) => replacements[key] ?? "");
+}
+
+function renderGenericSample(story) {
+  const docsId = story.source_provenance.docs_id;
+  const tokenSource = story.source_provenance.token_source;
+  const primitiveId = story.component_id;
+  const storyId = story.story_id;
+  const state = story.states?.values?.find((value) => value && value !== "enabled" && value !== "default") || "default";
+  const variant = story.args?.values?.variant || story.story_name;
+  const common = {
+    "data-primitive": primitiveId,
+    "data-pattern": "atomic-component-sample",
+    "data-story-id": storyId,
+    "data-source-doc-id": docsId,
+    "data-token-source": tokenSource,
+    "data-variant": variant,
+    "data-state": state
+  };
+  const label = escapeHtml(story.story_name || story.component_name);
+  if (primitiveId === "search-input") {
+    return `<label class="sample-shell">Search<span><input ${attrs({
+      ...common,
+      class: "sample-control",
+      type: "search",
+      placeholder: story.args?.values?.placeholder || "Search"
+    })} /></span></label>`;
+  }
+  if (primitiveId === "select") {
+    return `<label class="sample-shell">Select<select ${attrs({ ...common, class: "sample-control" })}><option>${label}</option></select></label>`;
+  }
+  if (primitiveId === "tabs") {
+    return `<div class="sample-shell" ${attrs({ ...common, role: "tablist" })}><button class="sample-control" type="button" role="tab" aria-selected="true">${label}</button><button class="sample-control" type="button" role="tab" aria-selected="false">Related</button></div>`;
+  }
+  if (primitiveId === "progress-bar") {
+    return `<div class="sample-shell"><div ${attrs({ ...common, class: "sample-control", role: "progressbar", "aria-valuenow": "64", "aria-valuemin": "0", "aria-valuemax": "100" })}>64%</div></div>`;
+  }
+  if (primitiveId === "tag") {
+    return `<span ${attrs({ ...common, class: "sample-control", "data-variant": story.args?.values?.variant || "neutral" })}>${label}</span>`;
+  }
+  if (primitiveId === "card") {
+    return `<article ${attrs({ ...common, class: "sample-shell" })}><strong>${escapeHtml(story.component_name)}</strong><span>${label}</span></article>`;
+  }
+  if (primitiveId === "checkbox" || primitiveId === "checkbox-group") {
+    const inputId = `sample-${className(storyId)}`;
+    return `<fieldset class="sample-shell" ${attrs(primitiveId === "checkbox-group" ? common : {})}><legend>${escapeHtml(story.component_name)}</legend><input ${attrs({ ...(primitiveId === "checkbox" ? common : {}), id: inputId, type: "checkbox" })} /><label for="${attr(inputId)}">${label}</label></fieldset>`;
+  }
+  if (primitiveId === "radio" || primitiveId === "radio-radio-group") {
+    const inputId = `sample-${className(storyId)}`;
+    return `<fieldset class="sample-shell" ${attrs(common)}><legend>${escapeHtml(story.component_name)}</legend><input id="${attr(inputId)}" type="radio" checked /><label for="${attr(inputId)}">${label}</label></fieldset>`;
+  }
+  if (primitiveId === "sidebar") {
+    return `<aside ${attrs({ ...common, "data-sidebar-part": "root" })}><div data-sidebar-part="header">${escapeHtml(story.component_name)}</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">${label}</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>`;
+  }
+  if (primitiveId === "menu") {
+    return `<nav ${attrs(common)}><a class="sample-control" aria-current="page" href="#">${label}</a></nav>`;
+  }
+  if (primitiveId === "button" || primitiveId === "button-icon") {
+    return `<button ${attrs({ ...common, class: "sample-control", type: "button" })}>${label}</button>`;
+  }
+  return `<article ${attrs({ ...common, class: "sample-shell" })}><strong>${escapeHtml(story.component_name)}</strong><span>${label}</span><code>${escapeHtml(storyId)}</code></article>`;
+}
+
+const storyId = process.argv[2];
+if (!storyId) {
+  console.error("Usage: render-atomic-html <story-id>");
+  process.exit(1);
+}
+
+const index = readJson("design-system-plugin/design-system/atomic/atomic-component-index.json");
+const storyRef = (index.stories || []).find((story) => story.story_id === storyId);
+if (!storyRef) {
+  console.error(`Atomic story not found: ${storyId}`);
+  process.exit(1);
+}
+
+const story = readJson(storyRef.path);
+const template = readText(story.template.local_path);
+let html;
+
+if (story.component_id === "button") {
+  const componentAtomic = readJson("design-system-plugin/design-system/atomic/components/button/component.atomic.json");
+  html = renderButtonReferenceHtml(story, componentAtomic, template);
+} else {
+const replacements = {
+  component_name: story.component_name,
+  story_name: story.story_name,
+  story_id: story.story_id,
+  docs_id: story.source_provenance.docs_id,
+  token_source: story.source_provenance.token_source,
+  variant: story.args.values.variant || story.story_name,
+  label: story.args.values.label || story.story_name,
+  original_source: story.render_strategy.source,
+  sample_markup: renderGenericSample(story)
+};
+
+  html = template.replace(/\{\{([a-zA-Z0-9_]+)\}\}/g, (_, key) => (
+    key === "sample_markup" ? replacements[key] || "" : escapeHtml(replacements[key] ?? "")
+  ));
+}
+writeText(story.template.output_path, html);
+writeJson("design-system-plugin/outputs/reports/atomic-html-renderer.report.json", {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "render-atomic-html",
+  story_id: story.story_id,
+  input: storyRef.path,
+  output: story.template.output_path,
+  checked: {
+    component_id: story.component_id,
+    variant: story.args.values.variant,
+    renderer_target: story.renderer_target
+  }
+});
+
+console.log(`Atomic HTML renderer OK: ${story.template.output_path}`);

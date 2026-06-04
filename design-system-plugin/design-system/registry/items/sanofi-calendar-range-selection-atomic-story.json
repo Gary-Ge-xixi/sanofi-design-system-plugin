@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-calendar-range-selection-atomic-story",
+  "title": "Calendar Range Selection atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-calendar--range-selection.",
+  "atomic_story_id": "components-calendar--range-selection",
+  "component_id": "calendar",
+  "docs_id": "components-calendar--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-calendar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--range-selection.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--range-selection.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/assets/components-calendar--range-selection.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/assets/components-calendar--range-selection.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/templates/html.range-selection.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/templates/html.range-selection.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/calendar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/calendar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "story_id": "components-calendar--range-selection",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--range-selection.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-calendar--range-selection&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-calendar--range-selection&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Calendar.stories-DLyXysUD.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "calendar",
+      "Calendar",
+      "Range Selection",
+      "components-calendar--range-selection",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Calendar Range Selection Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

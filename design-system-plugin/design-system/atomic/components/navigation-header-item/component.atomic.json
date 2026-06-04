@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "navigation-header-item",
+  "component_name": "NavigationHeader.Item",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-navigationheader-item--default",
+      "story_name": "Default",
+      "component_id": "navigation-header-item",
+      "component_name": "NavigationHeader.Item",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-item/stories/components-navigationheader-item--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/navigation-header-item/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/navigation-header-item-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header-item/assets/Item.stories-BAPFNE8E.js",
+      "docs_id": "components-navigationheader-item--docs",
+      "registry_item": "sanofi-navigation-header-item-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-navigation-header-item--docs"
+  }
+}

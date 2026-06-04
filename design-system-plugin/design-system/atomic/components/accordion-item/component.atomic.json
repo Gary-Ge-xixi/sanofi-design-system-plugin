@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "accordion-item",
+  "component_name": "Accordion.Item",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-accordion-item--default",
+      "story_name": "Default",
+      "component_id": "accordion-item",
+      "component_name": "Accordion.Item",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/accordion-item/stories/components-accordion-item--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/accordion-item/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/accordion-item-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/accordion-item/assets/AccordionItem.stories-Ca8tN5cG.js",
+      "docs_id": "components-accordion-item--docs",
+      "registry_item": "sanofi-accordion-item-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-accordion-item--docs"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "CascadingMenu",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/CascadingMenu",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "cascading-menu",
+      "data_attribute": "data-primitive=\"cascading-menu\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-cascadingmenu--example"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-admin-defaults",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Default generation values for business/admin pages when the user does not explicitly request a different navigation, size, density, grid, or select behavior.",
+  "applies_when": [
+    "The user asks for a business/admin page without explicit visual overrides.",
+    "The page profile is entity-form, entity-detail, information-aggregation, approval-workflow, import-result, report-dashboard, permission-admin, or admin-data-entry-table.",
+    "No user prompt requests text-only navigation, compact controls, large controls, dense grid, or custom select styling."
+  ],
+  "source_provenance": {
+    "select_docs": "../knowledge/docs/components-select--docs.md",
+    "date_picker_docs": "../knowledge/docs/components-datepicker--docs.md",
+    "page_header_docs": "../knowledge/docs/components-pageheader--docs.md",
+    "component_size_policy": "component-size-policy.json",
+    "layout_rule": "layout-grid-container.json",
+    "layout_typography_rule": "business-layout-typography.json",
+    "scroll_rule": "business-app-shell-scroll.json",
+    "navigation_rule": "admin-template-navigation.json",
+    "density_rule": "density-standards.json"
+  },
+  "component_defaults": {
+    "size": "medium",
+    "default_source_priority": [
+      "explicit_user_or_component_spec_override",
+      "api_reference_default",
+      "local_business_admin_default",
+      "storybook_story_args",
+      "usage_snippet"
+    ],
+    "select": {
+      "size": "medium",
+      "edge_safe": true,
+      "default_authority": "api_reference_default",
+      "story_arg_conflict": {
+        "conflicting_value": "InputSize.LARGE",
+        "resolution": "ignore_story_arg_for_default_generation"
+      },
+      "runtime_required": true,
+      "required_runtime_attrs": [
+        "data-component-runtime=\"sanofi-local-atomic-components\"",
+        "data-render-source=\"local-atomic-component-package\"",
+        "data-component-id=\"select\"",
+        "data-component-instance"
+      ],
+      "required_attrs": [
+        "data-select-size=\"medium\"",
+        "data-select-shell=\"normal\"",
+        "data-select-edge-safe=\"true\"",
+        "role=\"combobox\"",
+        "role=\"listbox\""
+      ],
+      "forbidden_default_attrs": [
+        "data-select-size=\"large\"",
+        "data-select-edge-safe=\"false\"",
+        "visible select[data-primitive=\"select\"]"
+      ]
+    },
+    "date_picker": {
+      "size": "medium",
+      "shell": "normal",
+      "edge_safe": true,
+      "default_authority": "api_reference_default",
+      "story_arg_conflict": {
+        "conflicting_value": "InputSize.LARGE",
+        "resolution": "ignore_story_arg_for_default_generation"
+      },
+      "runtime_required": true,
+      "default_mode": "single",
+      "default_selector_type": "day",
+      "clearable": true,
+      "required_runtime_attrs": [
+        "data-component-runtime=\"sanofi-local-atomic-components\"",
+        "data-render-source=\"local-atomic-component-package\"",
+        "data-component-id=\"date-picker\"",
+        "data-component-instance"
+      ],
+      "required_attrs": [
+        "data-date-picker-size=\"medium\"",
+        "data-date-picker-shell=\"normal\"",
+        "data-date-picker-edge-safe=\"true\"",
+        "data-date-picker-mode=\"single\"",
+        "data-date-picker-trigger=\"true\"",
+        "data-date-picker-dialog=\"true\""
+      ],
+      "forbidden_default_attrs": [
+        "data-date-picker-size=\"large\"",
+        "data-date-picker-edge-safe=\"false\""
+      ],
+      "allowed_story_ids": [
+        "components-datepicker--default",
+        "components-datepicker--medium-size",
+        "components-datepicker--range",
+        "components-datepicker--with-icon",
+        "components-datepicker--with-clearable",
+        "components-datepicker--with-error",
+        "components-datepicker--disabled"
+      ]
+    },
+    "button": {
+      "size": "medium",
+      "required_attrs": [
+        "data-button-size=\"medium\""
+      ],
+      "forbidden_default_attrs": [
+        "data-button-size=\"large\""
+      ]
+    }
+  },
+  "navigation_defaults": {
+    "left_navigation": {
+      "default_icon_policy": "with-icons",
+      "override_allowed_when": "Only when the user explicitly requests text-only navigation.",
+      "required_attrs": [
+        "data-nav-default=\"with-icons\"",
+        "data-primitive=\"icon\"",
+        "data-icon-name"
+      ],
+      "minimum_icon_coverage": "Every top-level visible nav item must include one icon primitive."
+    }
+  },
+  "grid_defaults_by_page_family": {
+    "entity-form": {
+      "desktop_grid_columns": 12,
+      "desktop_field_span": 4,
+      "desktop_fields_per_row": 3,
+      "required_attrs": [
+        "data-grid-mode=\"normal-12\"",
+        "data-field-span-desktop=\"4\""
+      ]
+    },
+    "entity-detail": {
+      "desktop_grid_columns": 12,
+      "desktop_summary_field_span": 3,
+      "desktop_detail_field_span": 3,
+      "desktop_fields_per_row": 4,
+      "required_attrs": [
+        "data-grid-mode=\"normal-12\"",
+        "data-field-span-desktop=\"3\""
+      ]
+    },
+    "admin-data-entry-table": {
+      "desktop_grid_columns": 12,
+      "density": "admin-compact",
+      "note": "Data-entry table pages may use compact density because first-viewport table readability is the page-specific default."
+    }
+  },
+  "typography_defaults": {
+    "letter_spacing": "--elements-core-font-letterspacing-default",
+    "page_title": "--elements-font-size-700",
+    "page_title_line_height": "--elements-font-lineheight-4",
+    "page_description": "--elements-font-size-300",
+    "page_description_line_height": "--elements-font-lineheight-3",
+    "section_title": "--elements-font-size-500",
+    "section_title_line_height": "--elements-font-lineheight-4",
+    "field_label": "--elements-font-size-200",
+    "field_value": "--elements-font-size-300"
+  },
+  "page_header_defaults": {
+    "primitive": "page-header",
+    "source_component": "page-header",
+    "story_id": "components-pageheader--default",
+    "required_parts": [
+      "root",
+      "title",
+      "description",
+      "actions"
+    ],
+    "layout": "Title and description are stacked in the main area. Status badges, quick state chips, and actions sit in the separate actions area."
+  },
+  "scroll_defaults": {
+    "mode": "content-only",
+    "body": {
+      "block_size": "100vh",
+      "overflow": "hidden"
+    },
+    "shell": {
+      "block_size": "100vh",
+      "overflow": "hidden"
+    },
+    "content_region": {
+      "selector": ".main",
+      "min_block_size": "0",
+      "overflow": "auto"
+    },
+    "required_attrs": [
+      "data-app-shell-scroll=\"content-only\"",
+      "data-scroll-rule=\"business-app-shell-scroll\"",
+      "data-app-shell-part=\"topbar\"",
+      "data-scroll-fixed=\"true\"",
+      "data-app-shell-part=\"content\"",
+      "data-scroll-region=\"content\""
+    ]
+  },
+  "spacing_defaults": {
+    "page_padding": "--elements-spacing-xl",
+    "panel_padding": "--elements-spacing-lg",
+    "grid_gap": "--elements-spacing-lg",
+    "field_gap": "--elements-spacing-2xs"
+  },
+  "generation_policy": [
+    "Do not use page-local compressed grid or custom control size when the prompt does not ask for it.",
+    "Defaults are page-family-specific. Entity forms default to three form fields per row on desktop; entity detail pages default to four readonly fields per row.",
+    "Left navigation defaults to icon plus label. Text-only navigation is an explicit override, not the default.",
+    "Select controls must reserve trailing space for the indicator and must not visually stick to the right edge.",
+    "DatePicker controls default to medium size, normal shell, and edge-safe trailing calendar icon spacing.",
+    "API reference defaults override Storybook story args and usage snippets when they conflict. Storybook examples may demonstrate large controls, but generated defaults must still be medium unless the user explicitly asks for large.",
+    "Select and DatePicker controls must use local runtime-equivalent markup when official runtime access is unavailable; story IDs and docs IDs alone are not accepted proof.",
+    "Validators must fail generated pages that omit default markers when no override is declared.",
+    "Typography and layout defaults are part of the default rule: title regions must use PageHeader, default letter spacing, and Container/Grid structure.",
+    "Business/admin generated pages default to content-only scrolling: topbar and navigation are fixed app shell regions, and only the main content region scrolls."
+  ],
+  "validator": "../../scripts/validate-business-page-examples"
+}

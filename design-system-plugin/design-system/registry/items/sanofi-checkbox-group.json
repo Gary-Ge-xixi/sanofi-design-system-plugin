@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-checkbox-group",
+  "title": "CheckboxGroup primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for CheckboxGroup.",
+  "status": "ready",
+  "component_id": "checkbox-group",
+  "docs_id": "components-checkbox-checkboxgroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/checkbox/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/checkbox/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-checkbox-checkboxgroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-checkbox-checkboxgroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkbox-checkboxgroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 4,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "checkbox-group",
+      "CheckboxGroup",
+      "Checkbox Group"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official CheckboxGroup primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

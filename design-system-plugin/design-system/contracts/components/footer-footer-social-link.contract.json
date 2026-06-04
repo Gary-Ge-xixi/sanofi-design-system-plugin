@@ -1,0 +1,132 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer-footer-social-link",
+  "canonical_name": "footer-footer-social-link",
+  "component_name": "Footer/FooterSocialLink",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-footer-footersociallink--docs",
+    "title": "Footer/FooterSocialLink",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-footersociallink--docs",
+    "import_path": "./src/components/Footer/FooterSocialLink.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-footer-footersociallink--default"
+    ],
+    "records": [
+      {
+        "id": "components-footer-footersociallink--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Footer/FooterSocialLink.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "ariaLabel",
+        "required": false,
+        "description": "Accessible label when link text is not descriptive enough.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the link text and icon.\"small\"\"medium\"\"large\"",
+        "default": "\"LinkSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the link interaction.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "footer-footer-social-link"
+    ],
+    "contracts": [
+      {
+        "id": "footer-footer-social-link",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/demo.registry.json",
+        "known_story_ids": [
+          "components-footer-footersociallink--default",
+          "components-footer-footersociallink--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-footersociallink--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-footersociallink--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md",
+    "docs_import_path": "./src/components/Footer/FooterSocialLink.stories.tsx",
+    "story_ids": [
+      "components-footer-footersociallink--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

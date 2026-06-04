@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-pagination--controlled",
+  "component_id": "pagination",
+  "component_name": "Pagination",
+  "story_id": "components-pagination--controlled",
+  "story_name": "Controlled",
+  "export_name": "Controlled",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "standard",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-pagination--controlled&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-pagination--controlled&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Pagination.stories-CYmP5KV3.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/pagination/assets/Pagination.stories-CYmP5KV3.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/pagination/assets/components-pagination--controlled.iframe.html",
+    "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+    "component_path": "./src/components/Pagination/index.ts"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...a}",
+    "values": {
+      "totalPages": 10,
+      "sizeVariant": "default",
+      "variant": "standard",
+      "showLabelsOnDesktop": false,
+      "showFirstAndLastPageButtons": false,
+      "aria-label": "Pagination"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{currentPage:{description:\"Current page\",control:{type:\"number\"}},totalPages:{description:\"Total number of pages\",control:{type:\"number\"}},onPageChange:{description:\"Callback when page is changed\",action:\"onPageChange\"},sizeVariant:{description:\"Size variant\",control:{type:\"select\",options:Object.values(g)}},variant:{description:\"Pagination mode\",control:{type:\"select\",options:Object.values(t)}},showLabelsOnDesktop:{description:\"Show labels on desktop\",control:{type:\"boolean\"}},showFirstAndLastPageButtons:{description:\"Show first and last page buttons\",control:{type:\"boolean\"}}}",
+    "fields": [
+      "currentPage",
+      "totalPages",
+      "onPageChange",
+      "sizeVariant",
+      "variant",
+      "showLabelsOnDesktop",
+      "showFirstAndLastPageButtons"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "standard"
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs\n  },\n  render: function Render(args) {\n    const [, updateArgs] = useArgs<{\n      currentPage: number;\n    }>();\n    return <Pagination {...args} currentPage={args.currentPage} totalPages={17} onPageChange={(e, page) => {\n      console.log(\"You also have access to the object event\", e);\n      updateArgs({\n        currentPage: page\n      });\n    }} />;\n  }\n}",
+    "story_object_source": "{args:{...a},render:function(u){const[,p]=A();return m.jsx(l,{...u,currentPage:u.currentPage,totalPages:17,onPageChange:(d,P)=>{console.log(\"You also have access to the object event\",d),p({currentPage:P})}})}}"
+  },
+  "template": {
+    "id": "pagination-standard-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/pagination/templates/html.standard.template.html",
+    "output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "pagination",
+    "local_path": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-pagination--docs",
+    "story_id": "components-pagination--controlled",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/pagination/assets/Pagination.stories-CYmP5KV3.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/pagination/assets/components-pagination--controlled.iframe.html"
+  }
+}

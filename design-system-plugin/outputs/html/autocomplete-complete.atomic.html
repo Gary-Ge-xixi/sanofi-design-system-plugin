@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autocomplete complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-autocomplete--docs">
+        <h1>Autocomplete Complete Package</h1>
+        <p>Docs: components-autocomplete--docs. Stories: 14/14.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-autocomplete--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--async-search" data-source-doc-id="components-autocomplete--docs">
+          <h2>Async Search</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--async-search" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="async-search" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Async Search</span><code>components-autocomplete--async-search</code></article>
+          <p><code>components-autocomplete--async-search</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--async-search-error" data-source-doc-id="components-autocomplete--docs">
+          <h2>Async Search Error</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--async-search-error" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="async-search-error" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Async Search Error</span><code>components-autocomplete--async-search-error</code></article>
+          <p><code>components-autocomplete--async-search-error</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--async-search-multiple" data-source-doc-id="components-autocomplete--docs">
+          <h2>Async Search Multiple</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--async-search-multiple" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="async-search-multiple" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Async Search Multiple</span><code>components-autocomplete--async-search-multiple</code></article>
+          <p><code>components-autocomplete--async-search-multiple</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--chips-outside" data-source-doc-id="components-autocomplete--docs">
+          <h2>Chips Outside</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--chips-outside" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="chips-outside" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Chips Outside</span><code>components-autocomplete--chips-outside</code></article>
+          <p><code>components-autocomplete--chips-outside</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--default" data-source-doc-id="components-autocomplete--docs">
+          <h2>Default</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--default" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="default" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Default</span><code>components-autocomplete--default</code></article>
+          <p><code>components-autocomplete--default</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--free-solo" data-source-doc-id="components-autocomplete--docs">
+          <h2>Free Solo</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--free-solo" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="free-solo" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Free Solo</span><code>components-autocomplete--free-solo</code></article>
+          <p><code>components-autocomplete--free-solo</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--multiple" data-source-doc-id="components-autocomplete--docs">
+          <h2>Multiple</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--multiple" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="multiple" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>Multiple</span><code>components-autocomplete--multiple</code></article>
+          <p><code>components-autocomplete--multiple</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-description" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Description</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-description" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-description" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Description</span><code>components-autocomplete--with-description</code></article>
+          <p><code>components-autocomplete--with-description</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-description-multiple" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Description Multiple</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-description-multiple" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-description-multiple" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Description Multiple</span><code>components-autocomplete--with-description-multiple</code></article>
+          <p><code>components-autocomplete--with-description-multiple</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-render-option" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Render Option</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-render-option" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-render-option" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Render Option</span><code>components-autocomplete--with-render-option</code></article>
+          <p><code>components-autocomplete--with-render-option</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-render-option-custom-layout" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Render Option Custom Layout</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-render-option-custom-layout" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-render-option-custom-layout" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Render Option Custom Layout</span><code>components-autocomplete--with-render-option-custom-layout</code></article>
+          <p><code>components-autocomplete--with-render-option-custom-layout</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-render-option-multiple" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Render Option Multiple</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-render-option-multiple" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-render-option-multiple" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Render Option Multiple</span><code>components-autocomplete--with-render-option-multiple</code></article>
+          <p><code>components-autocomplete--with-render-option-multiple</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-tooltips" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Tooltips</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-tooltips" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-tooltips" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Tooltips</span><code>components-autocomplete--with-tooltips</code></article>
+          <p><code>components-autocomplete--with-tooltips</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-autocomplete--with-tooltips-multiple" data-source-doc-id="components-autocomplete--docs">
+          <h2>With Tooltips Multiple</h2>
+          <article data-primitive="autocomplete" data-pattern="atomic-component-sample" data-story-id="components-autocomplete--with-tooltips-multiple" data-source-doc-id="components-autocomplete--docs" data-token-source="foundations-colors--docs" data-variant="with-tooltips-multiple" data-state="variant" class="sample-shell"><strong>Autocomplete</strong><span>With Tooltips Multiple</span><code>components-autocomplete--with-tooltips-multiple</code></article>
+          <p><code>components-autocomplete--with-tooltips-multiple</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-autocomplete--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/autocomplete.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/autocomplete/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

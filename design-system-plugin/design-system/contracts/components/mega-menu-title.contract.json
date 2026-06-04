@@ -1,0 +1,147 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mega-menu-title",
+  "canonical_name": "mega-menu-title",
+  "component_name": "MegaMenu/Title",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-megamenu-title--docs",
+    "title": "MegaMenu/Title",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-title--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-title--docs",
+    "import_path": "./src/components/NavigationHeader/MegaMenu/Title/Title.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-megamenu-title--default"
+    ],
+    "records": [
+      {
+        "id": "components-megamenu-title--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/NavigationHeader/MegaMenu/Title/Title.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Color is one of --elements-color-semantic-text-... css variable or currentColor to inherit color from parent\"disabled\"\"success\"\"error\"\"strong\"\"subtle\"\"highlight\"\"info\"\"alert\"\"inverse\"\"default\"\"accent-active\"\"accent-default\"\"accent-hover\"\"helpertext\"\"currentColor\"Show 7 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "mega-menu-title",
+      "title"
+    ],
+    "contracts": [
+      {
+        "id": "mega-menu-title",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/mega-menu-title/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/mega-menu-title/demo.registry.json",
+        "known_story_ids": [
+          "components-megamenu-title--default",
+          "components-megamenu-title--default"
+        ]
+      },
+      {
+        "id": "title",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/title/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/title/demo.registry.json",
+        "known_story_ids": [
+          "components-title--default",
+          "components-title--font-weights",
+          "components-title--variants",
+          "components-title--default",
+          "components-title--font-weights",
+          "components-title--variants"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-title--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu-title--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-title--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/MegaMenu/Title/Title.stories.tsx",
+    "story_ids": [
+      "components-megamenu-title--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

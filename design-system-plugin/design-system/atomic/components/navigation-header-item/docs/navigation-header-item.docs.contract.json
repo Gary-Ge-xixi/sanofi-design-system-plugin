@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.1.0",
+  "id": "navigation-header-item-docs-contract",
+  "component_id": "navigation-header-item",
+  "component_name": "NavigationHeader.Item",
+  "docs_id": "components-navigationheader-item--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-item--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-item--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "md",
+        "required": false,
+        "description": "Should display the item on md viewport sizeboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "lg",
+        "required": false,
+        "description": "Should display the item on lg viewport sizeboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xl",
+        "required": false,
+        "description": "Should display the item on xl viewport sizeboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxl",
+        "required": false,
+        "description": "Should display the item on 2xl viewport sizeboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxxl",
+        "required": false,
+        "description": "Should display the item on 3xl viewport sizeboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-item--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-navigationheader-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/Item/Item.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-item--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-item.contract.json"
+  }
+}

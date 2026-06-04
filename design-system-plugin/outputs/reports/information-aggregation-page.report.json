@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-information-aggregation-page",
+  "generated_at": "2026-06-04T10:50:20.771Z",
+  "target": "design-system-plugin/outputs/html/information-aggregation.resolved.html",
+  "checks": {
+    "target": "design-system-plugin/outputs/html/information-aggregation.resolved.html",
+    "page_profile": true,
+    "page_family": true,
+    "business_task": true,
+    "sections": {
+      "breadcrumb": true,
+      "aggregation-header": true,
+      "filter-toolbar": true,
+      "dashboard-summary": true,
+      "chart-region": true,
+      "record-list": true,
+      "pagination": true
+    },
+    "modules": {
+      "business_form": 1,
+      "business_chart": 2,
+      "business_table": 1
+    },
+    "filters": 4,
+    "kpis": 4,
+    "chart_rows": 4,
+    "table_columns": 7,
+    "table_rows": 5,
+    "select_controls": 2,
+    "select_medium_controls": 2,
+    "select_normal_shell_controls": 2,
+    "select_edge_safe_controls": 2,
+    "select_combobox_controls": 2,
+    "select_listbox_controls": 2,
+    "visible_native_select_primitives": 0,
+    "hidden_native_select_helpers": 0,
+    "date_picker_controls": 1,
+    "date_picker_medium_controls": 1,
+    "date_picker_edge_safe_controls": 1,
+    "date_picker_normal_shell_controls": 1,
+    "date_picker_trigger_controls": 1,
+    "date_picker_dialog_controls": 1,
+    "local_runtime_script_count": 1,
+    "nav_items": 5,
+    "nav_icons": 5,
+    "grid_items": 7
+  },
+  "failures": []
+}

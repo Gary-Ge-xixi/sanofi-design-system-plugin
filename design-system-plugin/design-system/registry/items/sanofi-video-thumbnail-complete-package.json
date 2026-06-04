@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-video-thumbnail-complete-package",
+  "title": "Video Thumbnail complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Video Thumbnail package covering Docs plus all Storybook story atoms.",
+  "component_id": "video-thumbnail",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-video-thumbnail"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/docs/video-thumbnail.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/docs/video-thumbnail.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/video-thumbnail-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/video-thumbnail-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-video-thumbnail--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-video-thumbnail--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 10,
+    "materialized_stories": 10,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-video-thumbnail--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-default-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--disabled-status",
+      "story_name": "Disabled Status",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-disabled-status-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--mp-4-video-tracking",
+      "story_name": "MP 4 Video Tracking",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-mp-4-video-tracking-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--no-embedded-player",
+      "story_name": "No Embedded Player",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-no-embedded-player-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--no-title",
+      "story_name": "No Title",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-no-title-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--sanofi-video",
+      "story_name": "Sanofi Video",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-sanofi-video-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--streaming-video",
+      "story_name": "Streaming Video",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-streaming-video-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video",
+      "story_name": "Vimeo Video",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-vimeo-video-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video-tracking",
+      "story_name": "Vimeo Video Tracking",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-vimeo-video-tracking-atomic-story"
+    },
+    {
+      "story_id": "components-video-thumbnail--youtube-video-tracking",
+      "story_name": "Youtube Video Tracking",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-video-thumbnail-youtube-video-tracking-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/video-thumbnail/docs/video-thumbnail.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "video-thumbnail",
+      "Video Thumbnail",
+      "video-thumbnail complete",
+      "Video Thumbnail complete package",
+      "video-thumbnail docs"
+    ],
+    "when_to_use": "Use first for any Video Thumbnail generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Video Thumbnail behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "component": "PageHeader",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-pageheader--container-type-fixed",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pageheader--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pageheader--title-custom",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

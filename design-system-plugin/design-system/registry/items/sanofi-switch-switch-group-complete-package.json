@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-switch-switch-group-complete-package",
+  "title": "Switch/SwitchGroup complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Switch/SwitchGroup package covering Docs plus all Storybook story atoms.",
+  "component_id": "switch-switch-group",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-switch-switch-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/switch-switch-group.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/switch-switch-group.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/switch-switch-group.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/switch-switch-group.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/docs/switch-switch-group.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/docs/switch-switch-group.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/switch-switch-group-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/switch-switch-group-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 1,
+    "materialized_stories": 1,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-switch-switchgroup--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-switch-switch-group-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch-switchgroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/switch-switch-group/switch-switch-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/switch-switch-group/docs/switch-switch-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "switch-switch-group",
+      "Switch/SwitchGroup",
+      "switch-switch-group complete",
+      "Switch/SwitchGroup complete package",
+      "switch-switch-group docs"
+    ],
+    "when_to_use": "Use first for any Switch/SwitchGroup generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Switch/SwitchGroup behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

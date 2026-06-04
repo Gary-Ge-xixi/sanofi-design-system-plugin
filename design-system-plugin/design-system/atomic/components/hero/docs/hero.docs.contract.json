@@ -1,0 +1,186 @@
+{
+  "schema_version": "0.1.0",
+  "id": "hero-docs-contract",
+  "component_id": "hero",
+  "component_name": "Hero",
+  "docs_id": "components-hero--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-hero--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-hero--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "title",
+        "required": true,
+        "description": "Main heading contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "description",
+        "required": true,
+        "description": "Subheading/description contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "floating",
+        "required": false,
+        "description": "Float content card over background edge.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "overlayStyle",
+        "required": false,
+        "description": "Overlay style\"default\"\"black\"\"white\"",
+        "default": "\"OverlayStyles.DEFAULT\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "titleLineClamp",
+        "required": false,
+        "description": "Maximum lines for title before truncation.number\"none\"",
+        "default": "3",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "descriptionLineClamp",
+        "required": false,
+        "description": "Maximum lines for description before truncation.number\"none\"",
+        "default": "3",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "eyebrows",
+        "required": false,
+        "description": "Eyebrow labels with optional icons{ text: string; iconName?: \"error\" \\",
+        "default": "\"warning\" \\",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-hero--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Hero, IconName, InputSize, Button, ButtonSize, TextInput } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Hero\n    floating\n    title=\"Hero title\"\n    description=\"Hero description on three lines maximum\"\n    eyebrows={[\n        {\n            iconName: IconName.CALENDAR_MONTH,\n            text: \"Icon eyebrow\",\n        },\n        {\n            iconName: IconName.SUPERVISED_USER_CIRCLE,\n            text: \"Icon eyebrow\",\n        },\n    ]}\n    image={{\n        src: \"https://cdn.prod.accelerator.sanofi/....\",\n        alt: \"Alt text\",\n        legend: \"Legend of the picture\",\n    }}\n    input={\n        <TextInput\n            aria-label=\"Email\"\n            size={InputSize.LARGE}\n            type=\"email\"\n            placeholder=\"Placeholder\"\n        />\n    }\n    button={\n        <Button\n            size={ButtonSize.LARGE}\n            label=\"Call to action\"\n        />\n    }\n  />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-hero--content-after-hero",
+      "name": "Content After Hero",
+      "export_name": "ContentAfterHero",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--full-screen",
+      "name": "Full Screen",
+      "export_name": "FullScreen",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--full-screen-with-navigation-header",
+      "name": "Full Screen With Navigation Header",
+      "export_name": "FullScreenWithNavigationHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--full-screen-with-video",
+      "name": "Full Screen With Video",
+      "export_name": "FullScreenWithVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--justify-center",
+      "name": "Justify Center",
+      "export_name": "JustifyCenter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--justify-end",
+      "name": "Justify End",
+      "export_name": "JustifyEnd",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--overlay-black-style",
+      "name": "Overlay Black Style",
+      "export_name": "OverlayBlackStyle",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--overlay-white-style",
+      "name": "Overlay White Style",
+      "export_name": "OverlayWhiteStyle",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--responsive-images-with-picture",
+      "name": "Responsive Images With Picture",
+      "export_name": "ResponsiveImagesWithPicture",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--variant-compact",
+      "name": "Variant Compact",
+      "export_name": "VariantCompact",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--variant-dynamic",
+      "name": "Variant Dynamic",
+      "export_name": "VariantDynamic",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--with-video",
+      "name": "With Video",
+      "export_name": "WithVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--with-video-hls",
+      "name": "With Video HLS",
+      "export_name": "WithVideoHLS",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-hero--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-hero--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json"
+  }
+}

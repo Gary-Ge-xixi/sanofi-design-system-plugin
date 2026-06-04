@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-breadcrumb--two-items-on-each-side",
+  "component_id": "breadcrumb",
+  "component_name": "Breadcrumb",
+  "story_id": "components-breadcrumb--two-items-on-each-side",
+  "story_name": "Two Items On Each Side",
+  "export_name": "TwoItemsOnEachSide",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-breadcrumb--two-items-on-each-side&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-breadcrumb--two-items-on-each-side&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Breadcrumb.stories-onpltWiw.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--two-items-on-each-side.iframe.html",
+    "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+    "component_path": "./src/components/Breadcrumb/Breadcrumb.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...t,itemsBeforeCollapse:2,itemsAfterCollapse:2}",
+    "values": {
+      "itemsBeforeCollapse": 2,
+      "itemsAfterCollapse": 2,
+      "maxItems": 6,
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "[e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Home\"},1),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Investor Relations\"},3),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Financial Results and Investor Events\"},4),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Middle Quarter Results\"},5),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Quarterly Results\"},6),e.jsx(r.Item,{deactivate:!0,children:\"Second quarter 2023 results\"},7)]"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{itemsBeforeCollapse:{control:{type:\"number\"},description:\"If max items is exceeded, the number of items to show before the ellipsis.\"},itemsAfterCollapse:{control:{type:\"number\"},description:\"If max items is exceeded, the number of items to show after the ellipsis.\"},maxItems:{control:{type:\"number\"},description:\"Specifies the maximum number of breadcrumbs to display. When there are more than the maximum number, only the first itemsBeforeCollapse and last itemsAfterCollapse will be shown, with an ellipsis in between.\"},noWrap:{control:{type:\"boolean\"},description:\"Prevent breadcrumb items from wrapping to new lines when there's insufficient space.\"},ellipsis:{control:{type:\"boolean\"},description:\"Enable ellipsis mode with tooltip when text overflows the container.\"},maxWidth:{control:{type:\"number\"},description:\"Maximum width for ellipsed text in pixels (default: 150)\"}}",
+    "fields": [
+      "itemsBeforeCollapse",
+      "itemsAfterCollapse",
+      "maxItems",
+      "noWrap",
+      "ellipsis",
+      "maxWidth"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    itemsBeforeCollapse: 2,\n    itemsAfterCollapse: 2\n  }\n}",
+    "story_object_source": "{args:{...t,itemsBeforeCollapse:2,itemsAfterCollapse:2}}"
+  },
+  "template": {
+    "id": "breadcrumb-two-items-on-each-side-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.two-items-on-each-side.template.html",
+    "output_path": "design-system-plugin/outputs/html/breadcrumb-two-items-on-each-side.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "breadcrumb",
+    "local_path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "story_id": "components-breadcrumb--two-items-on-each-side",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--two-items-on-each-side.iframe.html"
+  }
+}

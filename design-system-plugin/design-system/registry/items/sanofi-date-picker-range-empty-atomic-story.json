@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-date-picker-range-empty-atomic-story",
+  "title": "DatePicker Range Empty atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-datepicker--range-empty.",
+  "atomic_story_id": "components-datepicker--range-empty",
+  "component_id": "date-picker",
+  "docs_id": "components-datepicker--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-date-picker"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-empty.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-empty.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--range-empty.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--range-empty.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/templates/html.range-empty.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/templates/html.range-empty.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/date-picker.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "story_id": "components-datepicker--range-empty",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-empty.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-datepicker--range-empty&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-datepicker--range-empty&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/DatePicker.stories-mj8qg6gV.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "date-picker",
+      "DatePicker",
+      "Range Empty",
+      "components-datepicker--range-empty",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact DatePicker Range Empty Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

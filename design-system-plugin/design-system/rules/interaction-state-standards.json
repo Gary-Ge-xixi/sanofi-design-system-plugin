@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1.0",
+  "id": "interaction-state-standards",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Generated business pages must render operational interaction states as explicit rules, not as ad hoc decoration.",
+  "source_provenance": {
+    "interaction_standard": "../business/interaction-state-standard.json",
+    "task_flows": "../business/task-flow-standard.json"
+  },
+  "required_states": [
+    "loading",
+    "empty",
+    "error",
+    "readonly",
+    "disabled",
+    "permission-denied",
+    "dirty-form",
+    "sticky-save-bar"
+  ],
+  "state_policy": [
+    "Loading states must preserve layout geometry.",
+    "Empty states must keep user context and next action visible.",
+    "Readonly states must keep values visible.",
+    "Disabled states caused by permission must include a reason.",
+    "Dirty forms must expose unsaved state before navigation.",
+    "Sticky save bars must not cover final content or pagination."
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

@@ -1,0 +1,234 @@
+{
+  "schema_version": "0.1.0",
+  "patterns": [
+    {
+      "id": "form-checkbox-group",
+      "status": "ready",
+      "path": "forms/checkbox-group.pattern.json",
+      "required_primitives": [
+        "checkbox-group",
+        "checkbox"
+      ]
+    },
+    {
+      "id": "admin-dashboard-candidates",
+      "status": "candidate",
+      "path": "admin-dashboard/admin-dashboard.candidates.json",
+      "required_primitives": [
+        "sidebar",
+        "search-input",
+        "select",
+        "button",
+        "card",
+        "status-indicator",
+        "tabs",
+        "progress-bar",
+        "page-header"
+      ]
+    },
+    {
+      "id": "admin-dashboard",
+      "status": "ready",
+      "path": "admin-dashboard/admin-dashboard.pattern.json",
+      "required_primitives": [
+        "container",
+        "grid",
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon",
+        "search-input",
+        "select",
+        "button",
+        "card",
+        "tag"
+      ],
+      "optional_primitives": [
+        "tabs",
+        "progress-bar"
+      ],
+      "fallback_modules": [
+        "table",
+        "chart",
+        "metric-card"
+      ],
+      "required_rules": [
+        "layout-grid-container",
+        "typography-font-stack",
+        "admin-template-navigation",
+        "admin-delivery-contract"
+      ],
+      "delivery_contract": "admin-dashboard-desktop-delivery"
+    },
+    {
+      "id": "admin-query-panel",
+      "status": "ready",
+      "path": "admin-query-panel/admin-query-panel.pattern.json",
+      "template_id": "onecommercial-admin-query-panel",
+      "page_subtype": "data-entry-table-page",
+      "required_primitives": [
+        "container",
+        "grid",
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon",
+        "select",
+        "button",
+        "text-input",
+        "pagination"
+      ],
+      "optional_primitives": [
+        "search-input"
+      ],
+      "fallback_modules": [
+        "table"
+      ],
+      "required_rules": [
+        "layout-grid-container",
+        "typography-font-stack",
+        "admin-template-navigation",
+        "admin-query-panel-template",
+        "admin-density",
+        "admin-data-entry-table-reference-fit"
+      ],
+      "prompt_keywords": [
+        "OneCommercial",
+        "CDC",
+        "库存",
+        "查询",
+        "填报",
+        "筛选",
+        "数据填报",
+        "后台表格"
+      ]
+    },
+    {
+      "id": "report-dashboard",
+      "status": "ready",
+      "path": "report-dashboard/report-dashboard.pattern.json",
+      "template_id": "report-dashboard",
+      "page_subtype": "report-dashboard-page",
+      "required_primitives": [
+        "container",
+        "grid",
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon",
+        "search-input",
+        "select",
+        "button",
+        "card",
+        "tag"
+      ],
+      "optional_primitives": [
+        "tabs",
+        "progress-bar"
+      ],
+      "fallback_modules": [
+        "table",
+        "unsupported-chart-types"
+      ],
+      "required_rules": [
+        "business-page-standards",
+        "chart-usage",
+        "table-usage",
+        "density-standards",
+        "admin-dashboard-chart-reference-fit"
+      ],
+      "prompt_keywords": [
+        "报表",
+        "dashboard",
+        "report",
+        "数据看板",
+        "BarChart"
+      ]
+    },
+    {
+      "id": "information-aggregation",
+      "status": "ready",
+      "path": "information-aggregation/information-aggregation.pattern.json",
+      "template_id": "information-aggregation",
+      "page_subtype": "information-aggregation-page",
+      "required_primitives": [
+        "container",
+        "grid",
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon",
+        "search-input",
+        "select",
+        "date-picker",
+        "button",
+        "card",
+        "tag",
+        "pagination"
+      ],
+      "fallback_modules": [
+        "table",
+        "unsupported-chart-types"
+      ],
+      "required_rules": [
+        "business-page-standards",
+        "information-aggregation-page",
+        "business-layout-typography",
+        "business-app-shell-scroll",
+        "chart-usage",
+        "table-usage",
+        "form-usage",
+        "business-page-family-reference-fit"
+      ],
+      "prompt_keywords": [
+        "信息聚合",
+        "聚合查询",
+        "query dashboard list",
+        "aggregation",
+        "查询列表看板"
+      ]
+    },
+    {
+      "id": "customer-detail-date-query",
+      "status": "ready",
+      "path": "customer-detail-date-query/customer-detail-date-query.pattern.json",
+      "template_id": "customer-detail-date-query",
+      "page_subtype": "customer-detail-date-query-page",
+      "required_primitives": [
+        "container",
+        "grid",
+        "navigation-header",
+        "sidebar",
+        "menu",
+        "icon",
+        "search-input",
+        "select",
+        "date-picker",
+        "button",
+        "card",
+        "tag",
+        "pagination"
+      ],
+      "fallback_modules": [
+        "table"
+      ],
+      "required_rules": [
+        "business-page-standards",
+        "business-admin-defaults",
+        "business-layout-typography",
+        "business-app-shell-scroll",
+        "form-usage",
+        "table-usage",
+        "business-page-family-reference-fit"
+      ],
+      "prompt_keywords": [
+        "客户明细",
+        "日期查询",
+        "客户详情查询",
+        "customer detail",
+        "date query",
+        "复杂查询表单"
+      ]
+    }
+  ]
+}

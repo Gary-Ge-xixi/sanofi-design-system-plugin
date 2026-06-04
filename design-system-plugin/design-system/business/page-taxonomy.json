@@ -1,0 +1,114 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-page-taxonomy",
+  "status": "ready",
+  "purpose": "Classify business/admin pages before selecting patterns, modules, density, and reference-fit rules.",
+  "page_families": [
+    {
+      "id": "admin-data-entry-table",
+      "status": "ready",
+      "profile": "../page-profiles/admin-data-entry-table.profile.json",
+      "aliases": ["query-list", "fill-table", "data-entry", "库存填报", "查询填报"],
+      "primary_task": "query-and-fill",
+      "required_sections": ["breadcrumb", "query-toolbar", "primary-actions", "editable-data-table-fallback", "pagination", "save-bar"],
+      "required_modules": ["select-filter", "business-table"],
+      "reference_fit": "../reference-fit/admin-data-entry-table.rules.json"
+    },
+    {
+      "id": "approval-workflow",
+      "status": "standard-ready",
+      "profile": "../page-profiles/approval-workflow.profile.json",
+      "aliases": ["审批", "审核", "approve", "reject"],
+      "primary_task": "review-and-decide",
+      "required_sections": ["breadcrumb", "case-summary", "approval-timeline", "decision-panel", "related-records"],
+      "required_modules": ["business-table", "business-form"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "entity-detail",
+      "status": "standard-ready",
+      "profile": "../page-profiles/entity-detail.profile.json",
+      "aliases": ["详情", "detail", "record view"],
+      "primary_task": "read-and-audit",
+      "required_sections": ["breadcrumb", "detail-header", "field-groups", "status-history", "related-actions"],
+      "required_modules": ["business-form", "business-table"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "entity-form",
+      "status": "standard-ready",
+      "profile": "../page-profiles/entity-form.profile.json",
+      "aliases": ["新建", "编辑", "create", "edit", "form"],
+      "primary_task": "create-or-edit",
+      "required_sections": ["breadcrumb", "form-header", "form-sections", "validation-summary", "sticky-save-bar"],
+      "required_modules": ["business-form"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "import-result",
+      "status": "standard-ready",
+      "profile": "../page-profiles/import-result.profile.json",
+      "aliases": ["导入结果", "import result", "upload result"],
+      "primary_task": "import-and-reconcile",
+      "required_sections": ["breadcrumb", "import-summary", "error-table", "download-actions", "next-step-actions"],
+      "required_modules": ["business-table"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "report-dashboard",
+      "status": "standard-ready",
+      "profile": "../page-profiles/report-dashboard.profile.json",
+      "aliases": ["报表", "dashboard", "report"],
+      "primary_task": "monitor-and-compare",
+      "required_sections": ["breadcrumb", "filter-toolbar", "kpi-summary", "chart-region", "data-table-fallback"],
+      "required_modules": ["business-chart", "business-table"],
+      "reference_fit": "../reference-fit/admin-dashboard-chart.rules.json"
+    },
+    {
+      "id": "information-aggregation",
+      "status": "standard-ready",
+      "profile": "../page-profiles/information-aggregation.profile.json",
+      "aliases": ["信息聚合", "查询列表看板", "aggregation", "query dashboard list", "聚合查询"],
+      "primary_task": "aggregate-and-investigate",
+      "required_sections": ["breadcrumb", "aggregation-header", "filter-toolbar", "dashboard-summary", "chart-region", "record-list", "pagination"],
+      "required_modules": ["business-form", "business-chart", "business-table"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "customer-detail-date-query",
+      "status": "standard-ready",
+      "profile": "../page-profiles/customer-detail-date-query.profile.json",
+      "aliases": ["客户明细", "日期查询", "customer detail", "date query", "复杂查询表单"],
+      "primary_task": "query-customer-detail-by-date",
+      "required_sections": ["breadcrumb", "query-header", "date-query-form", "customer-summary", "customer-detail-table", "result-actions", "pagination"],
+      "required_modules": ["business-form", "business-table"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "permission-admin",
+      "status": "standard-ready",
+      "profile": "../page-profiles/permission-admin.profile.json",
+      "aliases": ["权限", "角色", "permission", "role admin"],
+      "primary_task": "assign-and-review-access",
+      "required_sections": ["breadcrumb", "principal-selector", "permission-matrix", "change-summary", "sticky-save-bar"],
+      "required_modules": ["business-table", "business-form"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    },
+    {
+      "id": "exception-state",
+      "status": "standard-ready",
+      "profile": "../page-profiles/exception-state.profile.json",
+      "aliases": ["异常", "错误", "empty", "error", "permission denied"],
+      "primary_task": "recover-or-explain",
+      "required_sections": ["state-summary", "diagnostic-context", "recovery-actions"],
+      "required_modules": ["business-form"],
+      "reference_fit": "../reference-fit/business-page-family.rules.json"
+    }
+  ],
+  "selection_policy": [
+    "Resolve page family from business task before selecting components.",
+    "Use page profile required sections as the skeleton; do not invent marketing sections for operational pages.",
+    "If a required component primitive is missing, use the module contract fallback and mark the reason.",
+    "Every page family must have a reference-fit rule before it can be called delivery-ready."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-calendar",
+  "title": "Calendar primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Calendar.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "calendar",
+  "docs_id": "components-calendar--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/calendar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/calendar/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/calendar/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/calendar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 4,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "calendar",
+      "Calendar",
+      "Calendar"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Calendar primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-carousel-complete-package",
+  "title": "Carousel complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Carousel package covering Docs plus all Storybook story atoms.",
+  "component_id": "carousel",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-carousel"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/carousel.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/carousel.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/carousel.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/carousel.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/docs/carousel.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/docs/carousel.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/carousel-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/carousel-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/carousel.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/carousel/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-carousel--carousel-one-item-view",
+      "story_name": "Carousel One Item View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-carousel-carousel-one-item-view-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--carousel-with-card-group",
+      "story_name": "Carousel With Card Group",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-carousel-carousel-with-card-group-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--carousel-with-image",
+      "story_name": "Carousel With Image",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-carousel-carousel-with-image-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-carousel-default-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--rtl-carousel",
+      "story_name": "RTL Carousel",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-carousel-rtl-carousel-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-carousel--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/carousel/carousel.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/carousel/docs/carousel.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "carousel",
+      "Carousel",
+      "carousel complete",
+      "Carousel complete package",
+      "carousel docs"
+    ],
+    "when_to_use": "Use first for any Carousel generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Carousel behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

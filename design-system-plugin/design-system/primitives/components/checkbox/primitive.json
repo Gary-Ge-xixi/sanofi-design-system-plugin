@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Checkbox",
+  "status": "ready",
+  "source": {
+    "demo_registry": "demo.registry.json",
+    "elements_page": "https://elements.sanofidesign.com/557b0250b/p/09539f-checkbox/b/19e038",
+    "storybook_title": "Components/Checkbox",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "checkbox",
+      "data_attribute": "data-primitive=\"checkbox\"",
+      "required_semantics": [
+        "input type=\"checkbox\"",
+        "label associated with input"
+      ],
+      "supported_sizes": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "supported_colors": [
+        "branded",
+        "neutral"
+      ],
+      "supported_states": [
+        "unchecked",
+        "checked",
+        "indeterminate",
+        "disabled",
+        "disabled checked"
+      ]
+    },
+    {
+      "id": "checkbox-group",
+      "data_attribute": "data-primitive=\"checkbox-group\"",
+      "required_semantics": [
+        "fieldset",
+        "legend",
+        "aria-invalid when error exists",
+        "aria-describedby when error exists"
+      ],
+      "supported_orientations": [
+        "vertical",
+        "horizontal"
+      ],
+      "supported_sizes": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "supported_colors": [
+        "branded",
+        "neutral"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-checkbox--default",
+      "components-checkbox--sizes",
+      "components-checkbox--with-subtext",
+      "components-checkbox--color-variations",
+      "components-checkbox--with-link",
+      "components-checkbox-checkboxgroup--vertical",
+      "components-checkbox-checkboxgroup--horizontal",
+      "components-checkbox-checkboxgroup--small-size",
+      "components-checkbox-checkboxgroup--neutral-color"
+    ]
+  },
+  "html_generation": {
+    "container_class": "elements-checkbox",
+    "group_class": "elements-checkbox-group",
+    "required_attributes": [
+      "data-source-component",
+      "data-primitive",
+      "data-story-id"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

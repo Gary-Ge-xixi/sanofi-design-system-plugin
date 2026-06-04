@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-video-thumbnail--youtube-video-tracking",
+  "component_id": "video-thumbnail",
+  "component_name": "Video Thumbnail",
+  "story_id": "components-video-thumbnail--youtube-video-tracking",
+  "story_name": "Youtube Video Tracking",
+  "export_name": "YoutubeVideoTracking",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-video-thumbnail--youtube-video-tracking&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-video-thumbnail--youtube-video-tracking&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/components-video-thumbnail--youtube-video-tracking.iframe.html",
+    "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+    "component_path": "./src/components/VideoThumbnail/VideoThumbnail.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...a,size:{width:560},videoUrl:\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\",title:\"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"}",
+    "values": {
+      "onClick": {
+        "extraction_status": "raw_expression",
+        "value": "()=>console.log(\"clicked\")"
+      },
+      "disabled": false,
+      "withEmbeddedPlayer": true,
+      "size": {
+        "extraction_status": "raw_expression",
+        "value": "{width:560}"
+      },
+      "videoUrl": "https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW",
+      "title": "Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry."
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onClick:{action:\"clicked\"},videoUrl:{control:\"text\",description:\"The video url\"},title:{control:\"text\",description:\"The video title\"},withEmbeddedPlayer:{control:\"boolean\",description:\"The video player is embedded or not\"},titleSize:{description:\"The title size\",control:\"select\",options:Object.values(S)}}",
+    "fields": [
+      "onClick",
+      "videoUrl",
+      "title",
+      "withEmbeddedPlayer",
+      "titleSize"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    size: {\n      width: 560\n    },\n    videoUrl: \"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\",\n    title: \"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"\n  },\n  render: args => <Test {...args} />\n}",
+    "story_object_source": "{args:{...a,size:{width:560},videoUrl:\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\",title:\"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"},render:r=>e.jsx(E,{...r})}"
+  },
+  "template": {
+    "id": "video-thumbnail-youtube-video-tracking-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/templates/html.youtube-video-tracking.template.html",
+    "output_path": "design-system-plugin/outputs/html/video-thumbnail-youtube-video-tracking.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "video-thumbnail",
+    "local_path": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "story_id": "components-video-thumbnail--youtube-video-tracking",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/components-video-thumbnail--youtube-video-tracking.iframe.html"
+  }
+}

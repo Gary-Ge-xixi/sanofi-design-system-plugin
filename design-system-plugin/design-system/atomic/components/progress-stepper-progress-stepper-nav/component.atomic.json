@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "progress-stepper-progress-stepper-nav",
+  "component_name": "ProgressStepper/ProgressStepperNav",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-progressstepper-progresssteppernav--default",
+      "story_name": "Default",
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+      "docs_id": "components-progressstepper-progresssteppernav--docs",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-default-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--interactive",
+      "story_name": "Interactive Example",
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--interactive.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.interactive-example.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-interactive-example.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+      "docs_id": "components-progressstepper-progresssteppernav--docs",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-interactive-example-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--many-steps",
+      "story_name": "Many Steps",
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--many-steps.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.many-steps.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-many-steps.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+      "docs_id": "components-progressstepper-progresssteppernav--docs",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-many-steps-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--with-initial-step",
+      "story_name": "With Initial Step",
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--with-initial-step.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.with-initial-step.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-with-initial-step.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+      "docs_id": "components-progressstepper-progresssteppernav--docs",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-with-initial-step-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--without-descriptions",
+      "story_name": "Without Descriptions",
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--without-descriptions.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.without-descriptions.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-without-descriptions.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+      "docs_id": "components-progressstepper-progresssteppernav--docs",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-without-descriptions-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-progress-stepper-progress-stepper-nav--docs"
+  }
+}

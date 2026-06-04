@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Checkbox/CheckboxGroup",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-checkbox-checkboxgroup--horizontal",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--neutral-color",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--small-size",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--vertical",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

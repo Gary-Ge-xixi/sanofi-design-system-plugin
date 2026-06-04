@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1.0",
+  "id": "exception-state",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "exception-state",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "recover-or-explain",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "content-standards",
+    "interaction-state-standards",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-form"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "state-summary",
+      "diagnostic-context",
+      "recovery-actions"
+    ],
+    "forbidden_sections": [
+      "data-entry-table",
+      "decorative-chart"
+    ],
+    "required_attrs": [
+      "data-page-family=\"exception-state\"",
+      "data-business-task=\"recover-or-explain\""
+    ]
+  },
+  "state_requirements": [
+    "empty",
+    "error",
+    "permission-denied",
+    "locked"
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tree-view-sub-components-item",
+  "canonical_name": "tree-view-sub-components-item",
+  "component_name": "TreeView/SubComponents/Item",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-treeview-subcomponents-item--docs",
+    "title": "TreeView/SubComponents/Item",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-item--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview-subcomponents-item--docs",
+    "import_path": "./src/components/TreeView/TreeViewItem.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-treeview-subcomponents-item--default"
+    ],
+    "records": [
+      {
+        "id": "components-treeview-subcomponents-item--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/TreeView/TreeViewItem.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "id",
+        "required": true,
+        "description": "Unique node identifier (used for expand state tracking).string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Label text and optional LeadingVisual/TrailingVisual/SubTree.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the item.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "current",
+        "required": false,
+        "description": "Marks this as the currently active/selected item.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultExpanded",
+        "required": false,
+        "description": "Initial expanded state (uncontrolled).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "Error: u?.setProps is not a function  at Wu (/assets/react-18-DHSRfmXe.js:8:93160))  at jv (/assets/react-18-DHSRfmXe.js:8:97493))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))  at jv (/assets/react-18-DHSRfmXe.js:8:96888))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))  at jv (/assets/react-18-DHSRfmXe.js:8:96888))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))  at jv (/assets/react-18-DHSRfmXe.js:8:96888))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "tree-view-sub-components-item"
+    ],
+    "contracts": [
+      {
+        "id": "tree-view-sub-components-item",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-item/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-item/demo.registry.json",
+        "known_story_ids": [
+          "components-treeview-subcomponents-item--default",
+          "components-treeview-subcomponents-item--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview-subcomponents-item--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-item--docs.md",
+    "docs_import_path": "./src/components/TreeView/TreeViewItem.stories.tsx",
+    "story_ids": [
+      "components-treeview-subcomponents-item--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

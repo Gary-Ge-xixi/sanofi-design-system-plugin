@@ -1,0 +1,1039 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const cp = require("child_process");
+const { pathToFileURL } = require("url");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const scriptsDir = path.join(pluginRoot, "scripts");
+const designSystemDir = path.join(pluginRoot, "design-system");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+
+const defaultHtmlTargets = [
+  path.join(htmlDir, "information-aggregation.resolved.html"),
+  path.join(htmlDir, "admin-query-panel.resolved.html"),
+  path.join(htmlDir, "admin-dashboard.resolved.html")
+];
+
+const htmlValidatorScripts = new Set([
+  "validate-token-usage",
+  "validate-primitive-usage",
+  "validate-page-pattern",
+  "validate-layout-rule-usage",
+  "validate-typography-rule-usage",
+  "validate-page-layout-typography",
+  "validate-app-shell-scroll",
+  "validate-information-aggregation-page",
+  "validate-admin-template-navigation",
+  "validate-admin-delivery-contract",
+  "validate-component-runtime",
+  "validate-admin-query-panel-template",
+  "validate-admin-page-profile",
+  "validate-reference-fit",
+  "validate-elevation-usage",
+  "validate-icon-usage",
+  "validate-provenance"
+]);
+
+const renderValidatorChain = [
+  ["validate-token-usage", "html"],
+  ["validate-primitive-usage", "html"],
+  ["validate-page-pattern", "html"],
+  ["validate-layout-rule-usage", "html"],
+  ["validate-typography-rule-usage", "html"],
+  ["validate-page-layout-typography", "html"],
+  ["validate-app-shell-scroll", "html"],
+  ["validate-admin-template-navigation", "html"],
+  ["validate-admin-query-panel-template", "html"],
+  ["validate-admin-page-profile", "html"],
+  ["validate-reference-fit", "html"],
+  ["validate-elevation-usage", "html"],
+  ["validate-provenance", "html"],
+  ["validate-pattern-resolver", "none"],
+  ["validate-local-registry", "none"]
+];
+
+function ensureDir(dirPath) {
+  fs.mkdirSync(dirPath, { recursive: true });
+}
+
+function rel(filePath, base = pluginRoot) {
+  return path.relative(base, filePath) || ".";
+}
+
+function workspaceRel(filePath) {
+  return rel(filePath, workspaceRoot);
+}
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function readJsonMaybe(filePath, fallback = null) {
+  if (!fs.existsSync(filePath)) return fallback;
+  try {
+    return readJson(filePath);
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function readTextMaybe(filePath, fallback = "") {
+  if (!fs.existsSync(filePath)) return fallback;
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function slug(input) {
+  return String(input || "item")
+    .toLowerCase()
+    .replace(/[^a-z0-9._-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 96) || "item";
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function writeReport(name, data, markdown) {
+  ensureDir(reportDir);
+  const jsonPath = path.join(reportDir, `${name}.report.json`);
+  const mdPath = path.join(reportDir, `${name}.report.md`);
+  fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2) + "\n");
+  fs.writeFileSync(mdPath, markdown.trimEnd() + "\n");
+  return { jsonPath, mdPath };
+}
+
+function printReportPaths(paths) {
+  console.log(`Report JSON: ${workspaceRel(paths.jsonPath)}`);
+  console.log(`Report MD: ${workspaceRel(paths.mdPath)}`);
+}
+
+function printUsage() {
+  console.log(`Sanofi Elements Design System Maintenance Toolkit
+
+Usage:
+  scripts/sanofi-ds help
+  scripts/sanofi-ds doctor
+  scripts/sanofi-ds component inspect <component-id>
+  scripts/sanofi-ds token diff
+  scripts/sanofi-ds profile inspect <profile-id>
+  scripts/sanofi-ds business standards
+  scripts/sanofi-ds rule list
+  scripts/sanofi-ds rule validate <rule-id> [html-file]
+  scripts/sanofi-ds gap list
+  scripts/sanofi-ds render "<prompt>" --profile <profile-id> [--validate] [--screenshot]
+  scripts/sanofi-ds report dashboard
+
+Purpose:
+  Use this command as the productized maintenance entrypoint. The existing
+  build/render/validate scripts remain internal primitives that this toolkit
+  orchestrates.
+`);
+}
+
+function commandExists(filePath) {
+  return fs.existsSync(filePath);
+}
+
+function runNodeScript(scriptName, args = []) {
+  const scriptPath = path.join(scriptsDir, scriptName);
+  if (!fs.existsSync(scriptPath)) {
+    return {
+      script: scriptName,
+      command: `node ${workspaceRel(scriptPath)} ${args.join(" ")}`.trim(),
+      status: "fail",
+      status_code: 127,
+      stdout: "",
+      stderr: `missing script: ${workspaceRel(scriptPath)}`
+    };
+  }
+  const result = cp.spawnSync(process.execPath, [scriptPath, ...args], {
+    cwd: pluginRoot,
+    encoding: "utf8",
+    maxBuffer: 1024 * 1024 * 24
+  });
+  return {
+    script: scriptName,
+    command: `node ${workspaceRel(scriptPath)} ${args.map(String).join(" ")}`.trim(),
+    status: result.status === 0 ? "pass" : "fail",
+    status_code: result.status,
+    stdout: result.stdout || "",
+    stderr: result.stderr || ""
+  };
+}
+
+function resolveUserPath(input, fallback) {
+  if (!input) return fallback;
+  const candidates = [
+    path.resolve(process.cwd(), input),
+    path.resolve(pluginRoot, input),
+    path.resolve(workspaceRoot, input)
+  ];
+  return candidates.find((candidate) => fs.existsSync(candidate)) || path.resolve(process.cwd(), input);
+}
+
+function defaultHtmlTarget() {
+  return defaultHtmlTargets.find((target) => fs.existsSync(target)) || defaultHtmlTargets[0];
+}
+
+function newestResolvedHtml() {
+  if (!fs.existsSync(htmlDir)) return defaultHtmlTarget();
+  const files = fs.readdirSync(htmlDir)
+    .filter((file) => file.endsWith(".resolved.html"))
+    .map((file) => path.join(htmlDir, file))
+    .filter((file) => fs.existsSync(file))
+    .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
+  return files[0] || defaultHtmlTarget();
+}
+
+function collectStatusReports() {
+  if (!fs.existsSync(reportDir)) return [];
+  return fs.readdirSync(reportDir)
+    .filter((file) => file.endsWith(".report.json"))
+    .map((file) => {
+      const filePath = path.join(reportDir, file);
+      const json = readJsonMaybe(filePath, {});
+      return {
+        file,
+        path: workspaceRel(filePath),
+        status: json.status || json.result || "unknown",
+        script: json.script || json.command || "unknown",
+        generated_at: json.generated_at || json.checked_at || json.timestamp || "unknown"
+      };
+    })
+    .sort((a, b) => a.file.localeCompare(b.file));
+}
+
+function allScriptNames() {
+  return fs.readdirSync(scriptsDir)
+    .filter((file) => !file.startsWith("."))
+    .sort();
+}
+
+function getRegistry() {
+  return readJsonMaybe(path.join(designSystemDir, "registry", "registry.json"), {});
+}
+
+function getRulesIndex() {
+  return readJsonMaybe(path.join(designSystemDir, "rules", "rules-index.json"), { rules: [] });
+}
+
+function getCoverageMatrix() {
+  return readJsonMaybe(path.join(designSystemDir, "atomic", "component-coverage-matrix.json"), {});
+}
+
+function getAtomicIndex() {
+  return readJsonMaybe(path.join(designSystemDir, "atomic", "atomic-component-index.json"), {});
+}
+
+function getContractIndex() {
+  return readJsonMaybe(path.join(designSystemDir, "contracts", "components", "component-contract-index.json"), {});
+}
+
+function inferContracts(contractIndex) {
+  if (Array.isArray(contractIndex.contracts)) return contractIndex.contracts;
+  if (Array.isArray(contractIndex.components)) return contractIndex.components;
+  if (Array.isArray(contractIndex.items)) return contractIndex.items;
+  return [];
+}
+
+function componentIdOf(item) {
+  return item?.component_id || item?.id || item?.componentId || item?.name;
+}
+
+function componentNameOf(item) {
+  return item?.component_name || item?.component || item?.title || item?.name || componentIdOf(item);
+}
+
+function commandDoctor() {
+  const registry = getRegistry();
+  const coverage = getCoverageMatrix();
+  const atomic = getAtomicIndex();
+  const contracts = getContractIndex();
+  const rules = getRulesIndex();
+  const scripts = allScriptNames();
+  const keyFiles = [
+    "design-system/DESIGN.md",
+    "design-system/registry/registry.json",
+    "design-system/tokens/tokens.css",
+    "design-system/tokens/token-manifest.json",
+    "design-system/tokens/token-manifest.generated.json",
+    "design-system/contracts/components/component-contract-index.json",
+    "design-system/atomic/component-coverage-matrix.json",
+    "design-system/page-profiles/admin-data-entry-table.profile.json",
+    "design-system/reference-fit/admin-data-entry-table.rules.json",
+    "design-system/business/business-standards-index.json",
+    "design-system/reference-fit/business-page-family.rules.json",
+    "design-system/policies/fallback-policy.json",
+    "outputs/html/admin-query-panel.resolved.html"
+  ];
+  const fileChecks = keyFiles.map((item) => {
+    const absolute = path.join(pluginRoot, item);
+    return {
+      path: item,
+      exists: fs.existsSync(absolute)
+    };
+  });
+  const reports = collectStatusReports();
+  const reportCounts = reports.reduce((acc, item) => {
+    acc[item.status] = (acc[item.status] || 0) + 1;
+    return acc;
+  }, {});
+  const failures = [];
+  if (fileChecks.some((item) => !item.exists)) failures.push("missing key files");
+  if (!registry.counts) failures.push("registry counts unavailable");
+  if (!coverage.summary) failures.push("component coverage summary unavailable");
+  if (!rules.rules?.length) failures.push("rules index empty");
+  if (!scripts.length) failures.push("scripts directory empty");
+
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds doctor",
+    status: failures.length ? "fail" : "pass",
+    generated_at: new Date().toISOString(),
+    summary: {
+      scripts: scripts.length,
+      registry_items: registry.counts?.items ?? "unknown",
+      docs: registry.counts?.docs ?? "unknown",
+      stories: registry.counts?.stories ?? atomic.counts?.stories ?? "unknown",
+      component_contracts: registry.counts?.component_contracts ?? contracts.counts?.component_contracts ?? "unknown",
+      atomic_components: atomic.counts?.components ?? coverage.summary?.total_components ?? "unknown",
+      completed_components: coverage.summary?.completed_components ?? "unknown",
+      rules: rules.rules?.length ?? 0,
+      reports: reports.length,
+      report_status_counts: reportCounts
+    },
+    file_checks: fileChecks,
+    failures
+  };
+
+  const markdown = `# Design System Maintenance Doctor
+
+Status: ${data.status}
+
+| Metric | Value |
+|---|---:|
+| Scripts | ${data.summary.scripts} |
+| Registry items | ${data.summary.registry_items} |
+| Docs | ${data.summary.docs} |
+| Stories | ${data.summary.stories} |
+| Component contracts | ${data.summary.component_contracts} |
+| Atomic components | ${data.summary.atomic_components} |
+| Completed components | ${data.summary.completed_components} |
+| Rules | ${data.summary.rules} |
+| Reports | ${data.summary.reports} |
+
+## Key Files
+
+| File | Status |
+|---|---|
+${fileChecks.map((item) => `| \`${item.path}\` | ${item.exists ? "present" : "missing"} |`).join("\n")}
+
+## Report Status Counts
+
+${Object.entries(reportCounts).map(([status, count]) => `- ${status}: ${count}`).join("\n") || "- No report files found."}
+`;
+
+  const paths = writeReport("maintenance-doctor", data, markdown);
+  console.log(`Doctor status: ${data.status}`);
+  printReportPaths(paths);
+  if (failures.length) process.exitCode = 1;
+}
+
+function commandComponentInspect(args) {
+  const sub = args.shift();
+  if (sub !== "inspect") {
+    console.error("Usage: scripts/sanofi-ds component inspect <component-id>");
+    process.exitCode = 2;
+    return;
+  }
+  const rawId = args.shift();
+  if (!rawId) {
+    console.error("Missing component id.");
+    process.exitCode = 2;
+    return;
+  }
+  const id = slug(rawId);
+
+  const coverage = getCoverageMatrix();
+  const atomic = getAtomicIndex();
+  const contractIndex = getContractIndex();
+  const coverageRows = Array.isArray(coverage.components) ? coverage.components : [];
+  const atomicRows = Array.isArray(atomic.components) ? atomic.components : [];
+  const contracts = inferContracts(contractIndex);
+  const matchById = (item) => slug(componentIdOf(item)) === id || slug(componentNameOf(item)) === id;
+  const coverageRow = coverageRows.find(matchById) || null;
+  const atomicRow = atomicRows.find(matchById) || null;
+  const contract = contracts.find(matchById) || null;
+  const packagePath = path.join(designSystemDir, "atomic", "components", id, `${id}.package.json`);
+  const docsContractPath = path.join(designSystemDir, "atomic", "components", id, "docs", `${id}.docs.contract.json`);
+  const domReportPath = path.join(reportDir, `${id}-complete-dom-validation.report.json`);
+  const factoryReportPath = path.join(reportDir, `component-package-factory.${id}.report.json`);
+  const packageJson = readJsonMaybe(packagePath, null);
+  const domReport = readJsonMaybe(domReportPath, null);
+  const factoryReport = readJsonMaybe(factoryReportPath, null);
+  const storyCount = coverageRow?.story_count ?? atomicRow?.story_count ?? packageJson?.story_count ?? packageJson?.stories?.length ?? "unknown";
+  const packageStatus = coverageRow?.package_status || coverageRow?.status || factoryReport?.status || (packageJson ? "present" : "missing");
+
+  const failures = [];
+  if (!coverageRow) failures.push("component not found in coverage matrix");
+  if (!contract) failures.push("component not found in contract index");
+  if (!packageJson) failures.push("component package not found");
+
+  const data = {
+    schema_version: "0.1.0",
+    command: `sanofi-ds component inspect ${id}`,
+    status: failures.length ? "fail" : "pass",
+    generated_at: new Date().toISOString(),
+    component_id: id,
+    component_name: componentNameOf(coverageRow || atomicRow || contract) || id,
+    story_count: storyCount,
+    package_status: packageStatus,
+    files: {
+      package: fs.existsSync(packagePath) ? workspaceRel(packagePath) : null,
+      docs_contract: fs.existsSync(docsContractPath) ? workspaceRel(docsContractPath) : null,
+      dom_report: fs.existsSync(domReportPath) ? workspaceRel(domReportPath) : null,
+      factory_report: fs.existsSync(factoryReportPath) ? workspaceRel(factoryReportPath) : null
+    },
+    reports: {
+      dom_status: domReport?.status || "unknown",
+      factory_status: factoryReport?.status || "unknown"
+    },
+    coverage: coverageRow,
+    contract,
+    failures
+  };
+
+  const markdown = `# Component Inspect: ${id}
+
+Status: ${data.status}
+
+| Field | Value |
+|---|---|
+| Component | ${data.component_name} |
+| Story count | ${data.story_count} |
+| Package status | ${data.package_status} |
+| DOM validation | ${data.reports.dom_status} |
+| Factory report | ${data.reports.factory_status} |
+
+## Files
+
+| File | Path |
+|---|---|
+| Package | ${data.files.package ? `\`${data.files.package}\`` : "missing"} |
+| Docs contract | ${data.files.docs_contract ? `\`${data.files.docs_contract}\`` : "missing"} |
+| DOM report | ${data.files.dom_report ? `\`${data.files.dom_report}\`` : "missing"} |
+| Factory report | ${data.files.factory_report ? `\`${data.files.factory_report}\`` : "missing"} |
+
+## Failures
+
+${failures.length ? failures.map((item) => `- ${item}`).join("\n") : "- None"}
+`;
+
+  const paths = writeReport(`component-inspect-${id}`, data, markdown);
+  console.log(`Component ${id}: ${data.status}`);
+  printReportPaths(paths);
+  if (failures.length) process.exitCode = 1;
+}
+
+function tokenNamesFromCss(source) {
+  const names = new Set();
+  const re = /(--elements-[A-Za-z0-9_-]+)\s*:/g;
+  let match;
+  while ((match = re.exec(source))) names.add(match[1]);
+  return names;
+}
+
+function collectTokenNames(value, names = new Set()) {
+  if (!value) return names;
+  if (typeof value === "string") {
+    if (value.startsWith("--elements-")) names.add(value);
+    return names;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectTokenNames(item, names));
+    return names;
+  }
+  if (typeof value === "object") {
+    if (typeof value.name === "string" && value.name.startsWith("--elements-")) names.add(value.name);
+    Object.values(value).forEach((item) => collectTokenNames(item, names));
+  }
+  return names;
+}
+
+function commandTokenDiff() {
+  const manifestPath = path.join(designSystemDir, "tokens", "token-manifest.json");
+  const generatedPath = path.join(designSystemDir, "tokens", "token-manifest.generated.json");
+  const cssPath = path.join(designSystemDir, "tokens", "tokens.css");
+  const manifest = readJsonMaybe(manifestPath, {});
+  const generated = readJsonMaybe(generatedPath, {});
+  const cssTokens = tokenNamesFromCss(readTextMaybe(cssPath));
+  const generatedTokens = collectTokenNames(generated);
+  const missingFromGenerated = [...cssTokens].filter((name) => !generatedTokens.has(name)).sort();
+  const generatedNotInCss = [...generatedTokens].filter((name) => !cssTokens.has(name)).sort();
+  const countMismatches = [];
+  const manifestUnique = manifest.counts?.unique_token_names;
+  const generatedUnique = generated.counts?.css_token_names;
+  if (manifestUnique !== undefined && generatedUnique !== undefined && manifestUnique !== generatedUnique) {
+    countMismatches.push(`source manifest unique_token_names=${manifestUnique}, generated css_token_names=${generatedUnique}`);
+  }
+  const failures = [];
+  if (!fs.existsSync(manifestPath)) failures.push("missing token-manifest.json");
+  if (!fs.existsSync(generatedPath)) failures.push("missing token-manifest.generated.json");
+  if (!fs.existsSync(cssPath)) failures.push("missing tokens.css");
+  if (missingFromGenerated.length) failures.push("tokens.css names missing from generated manifest");
+  if (countMismatches.length) failures.push("token count mismatch");
+
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds token diff",
+    status: failures.length ? "fail" : "pass",
+    generated_at: new Date().toISOString(),
+    counts: {
+      source_manifest_unique_token_names: manifestUnique ?? "unknown",
+      generated_css_token_names: generatedUnique ?? "unknown",
+      css_token_names: cssTokens.size,
+      generated_manifest_token_names: generatedTokens.size,
+      generated_not_in_css: generatedNotInCss.length,
+      css_missing_from_generated: missingFromGenerated.length
+    },
+    count_mismatches: countMismatches,
+    generated_not_in_css: generatedNotInCss,
+    css_missing_from_generated: missingFromGenerated,
+    failures
+  };
+
+  const markdown = `# Token Diff
+
+Status: ${data.status}
+
+| Metric | Value |
+|---|---:|
+| Source manifest unique tokens | ${data.counts.source_manifest_unique_token_names} |
+| Generated CSS token count | ${data.counts.generated_css_token_names} |
+| tokens.css declarations | ${data.counts.css_token_names} |
+| Generated manifest token names | ${data.counts.generated_manifest_token_names} |
+| Generated names not in CSS | ${data.counts.generated_not_in_css} |
+| CSS names missing from generated | ${data.counts.css_missing_from_generated} |
+
+## Count Mismatches
+
+${countMismatches.length ? countMismatches.map((item) => `- ${item}`).join("\n") : "- None"}
+
+## Failures
+
+${failures.length ? failures.map((item) => `- ${item}`).join("\n") : "- None"}
+`;
+
+  const paths = writeReport("token-diff", data, markdown);
+  console.log(`Token diff: ${data.status}`);
+  printReportPaths(paths);
+  if (failures.length) process.exitCode = 1;
+}
+
+function commandProfileInspect(args) {
+  const sub = args.shift();
+  if (sub !== "inspect") {
+    console.error("Usage: scripts/sanofi-ds profile inspect <profile-id>");
+    process.exitCode = 2;
+    return;
+  }
+  const rawId = args.shift();
+  if (!rawId) {
+    console.error("Missing profile id.");
+    process.exitCode = 2;
+    return;
+  }
+  const id = slug(rawId);
+  const profilePath = path.join(designSystemDir, "page-profiles", `${id}.profile.json`);
+  const profile = readJsonMaybe(profilePath, null);
+  const failures = [];
+  if (!profile) failures.push("profile not found");
+  const data = {
+    schema_version: "0.1.0",
+    command: `sanofi-ds profile inspect ${id}`,
+    status: failures.length ? "fail" : "pass",
+    generated_at: new Date().toISOString(),
+    profile_id: id,
+    file: fs.existsSync(profilePath) ? workspaceRel(profilePath) : null,
+    canonical_pattern_id: profile?.canonical_pattern_id || "unknown",
+    canonical_template_id: profile?.canonical_template_id || "unknown",
+    required_rules: profile?.required_rules || [],
+    required_module_contracts: profile?.required_module_contracts || [],
+    required_sections: profile?.section_contract?.required_sections || [],
+    forbidden_sections: profile?.section_contract?.forbidden_sections || [],
+    fallback_policy: profile?.fallback_policy || {},
+    failures
+  };
+
+  const markdown = `# Page Profile Inspect: ${id}
+
+Status: ${data.status}
+
+| Field | Value |
+|---|---|
+| File | ${data.file ? `\`${data.file}\`` : "missing"} |
+| Pattern | ${data.canonical_pattern_id} |
+| Template | ${data.canonical_template_id} |
+
+## Required Rules
+
+${data.required_rules.map((item) => `- ${item}`).join("\n") || "- None"}
+
+## Required Module Contracts
+
+${data.required_module_contracts.map((item) => `- ${item}`).join("\n") || "- None"}
+
+## Required Sections
+
+${data.required_sections.map((item) => `- ${item}`).join("\n") || "- None"}
+
+## Forbidden Sections
+
+${data.forbidden_sections.map((item) => `- ${item}`).join("\n") || "- None"}
+`;
+
+  const paths = writeReport(`profile-inspect-${id}`, data, markdown);
+  console.log(`Profile ${id}: ${data.status}`);
+  printReportPaths(paths);
+  if (failures.length) process.exitCode = 1;
+}
+
+function commandRuleList() {
+  const rulesIndex = getRulesIndex();
+  const rules = Array.isArray(rulesIndex.rules) ? rulesIndex.rules : [];
+  const rulesDir = path.join(designSystemDir, "rules");
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds rule list",
+    status: rules.length ? "pass" : "fail",
+    generated_at: new Date().toISOString(),
+    count: rules.length,
+    rules: rules.map((rule) => {
+      const scriptPath = rule.script ? path.resolve(rulesDir, rule.script) : null;
+      const rulePath = rule.path ? path.resolve(rulesDir, rule.path) : null;
+      return {
+        id: rule.id,
+        path: rule.path,
+        rule_file_exists: rulePath ? fs.existsSync(rulePath) : false,
+        script: rule.script,
+        script_exists: scriptPath ? fs.existsSync(scriptPath) : false
+      };
+    })
+  };
+
+  const markdown = `# Rule List
+
+Status: ${data.status}
+
+| Rule | Rule file | Script |
+|---|---|---|
+${data.rules.map((rule) => `| ${rule.id} | ${rule.rule_file_exists ? "present" : "missing"} | ${rule.script_exists ? "present" : "missing"} |`).join("\n")}
+`;
+
+  const paths = writeReport("rule-list", data, markdown);
+  console.log(`Rules: ${rules.length}`);
+  printReportPaths(paths);
+  if (!rules.length) process.exitCode = 1;
+}
+
+function commandRuleValidate(args) {
+  const rawId = args.shift();
+  if (!rawId) {
+    console.error("Usage: scripts/sanofi-ds rule validate <rule-id> [html-file]");
+    process.exitCode = 2;
+    return;
+  }
+  const id = slug(rawId);
+  const targetArg = args.shift();
+  const rulesIndex = getRulesIndex();
+  const rules = Array.isArray(rulesIndex.rules) ? rulesIndex.rules : [];
+  const rule = rules.find((item) => slug(item.id) === id);
+  const failures = [];
+  let run = null;
+  let target = null;
+  if (!rule) {
+    failures.push(`rule not found: ${id}`);
+  } else {
+    const scriptName = path.basename(rule.script || "");
+    if (htmlValidatorScripts.has(scriptName)) {
+      target = resolveUserPath(targetArg, defaultHtmlTarget());
+    }
+    run = runNodeScript(scriptName, target ? [target] : []);
+    if (run.status !== "pass") failures.push(`validator failed: ${scriptName}`);
+  }
+  const data = {
+    schema_version: "0.1.0",
+    command: `sanofi-ds rule validate ${id}`,
+    status: failures.length ? "fail" : "pass",
+    generated_at: new Date().toISOString(),
+    rule_id: id,
+    target: target ? workspaceRel(target) : null,
+    rule,
+    run,
+    failures
+  };
+
+  const markdown = `# Rule Validate: ${id}
+
+Status: ${data.status}
+
+| Field | Value |
+|---|---|
+| Target | ${data.target ? `\`${data.target}\`` : "not required"} |
+| Script | ${rule?.script || "unknown"} |
+| Exit code | ${run?.status_code ?? "not run"} |
+
+## Output
+
+\`\`\`text
+${(run?.stdout || "").trim() || "(no stdout)"}
+\`\`\`
+
+## Errors
+
+\`\`\`text
+${(run?.stderr || "").trim() || "(no stderr)"}
+\`\`\`
+`;
+
+  const paths = writeReport(`rule-validate-${id}`, data, markdown);
+  console.log(`Rule ${id}: ${data.status}`);
+  printReportPaths(paths);
+  if (failures.length) process.exitCode = 1;
+}
+
+function commandGapList() {
+  const fallbackPolicyPath = path.join(designSystemDir, "policies", "fallback-policy.json");
+  const profilePath = path.join(designSystemDir, "page-profiles", "admin-data-entry-table.profile.json");
+  const fallbackPolicy = readJsonMaybe(fallbackPolicyPath, { fallbacks: [] });
+  const profile = readJsonMaybe(profilePath, {});
+  const fallbacks = Array.isArray(fallbackPolicy.fallbacks) ? fallbackPolicy.fallbacks : [];
+  const profileFallbacks = profile.fallback_policy || {};
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds gap list",
+    status: "pass",
+    generated_at: new Date().toISOString(),
+    fallback_policy_file: workspaceRel(fallbackPolicyPath),
+    fallback_count: fallbacks.length,
+    fallbacks,
+    profile_fallback_policy: profileFallbacks
+  };
+  const markdown = `# Fallback Gap List
+
+Status: ${data.status}
+
+| Module | Status | Reason |
+|---|---|---|
+${fallbacks.map((item) => `| ${item.module} | ${item.status} | ${item.reason || ""} |`).join("\n")}
+
+## Profile Fallback Policy
+
+\`\`\`json
+${JSON.stringify(profileFallbacks, null, 2)}
+\`\`\`
+`;
+  const paths = writeReport("fallback-gap", data, markdown);
+  console.log(`Fallback gaps: ${fallbacks.length}`);
+  printReportPaths(paths);
+}
+
+function commandBusinessStandards() {
+  const run = runNodeScript("validate-business-standards", []);
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds business standards",
+    status: run.status,
+    generated_at: new Date().toISOString(),
+    run
+  };
+  const markdown = `# Business Standards
+
+Status: ${data.status}
+
+## Output
+
+\`\`\`text
+${(run.stdout || "").trim() || "(no stdout)"}
+\`\`\`
+
+## Errors
+
+\`\`\`text
+${(run.stderr || "").trim() || "(no stderr)"}
+\`\`\`
+`;
+  const paths = writeReport("business-standards-command", data, markdown);
+  console.log(`Business standards: ${data.status}`);
+  printReportPaths(paths);
+  if (run.status !== "pass") process.exitCode = run.status_code || 1;
+}
+
+function parseRenderArgs(args) {
+  const options = {
+    profile: null,
+    validate: false,
+    screenshot: false,
+    promptParts: []
+  };
+  for (let i = 0; i < args.length; i += 1) {
+    const arg = args[i];
+    if (arg === "--profile") {
+      options.profile = args[i + 1] || null;
+      i += 1;
+    } else if (arg === "--validate") {
+      options.validate = true;
+    } else if (arg === "--screenshot") {
+      options.screenshot = true;
+    } else {
+      options.promptParts.push(arg);
+    }
+  }
+  options.prompt = options.promptParts.join(" ").trim();
+  return options;
+}
+
+function captureScreenshot(htmlPath) {
+  const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+  if (!fs.existsSync(chromePath)) {
+    return {
+      status: "warn",
+      reason: "Google Chrome executable not found",
+      output: null
+    };
+  }
+  const outputPath = path.join(reportDir, `${path.basename(htmlPath, ".html")}-desktop-1440.png`);
+  const result = cp.spawnSync(chromePath, [
+    "--headless=new",
+    "--disable-gpu",
+    "--hide-scrollbars",
+    "--window-size=1440,900",
+    `--screenshot=${outputPath}`,
+    pathToFileURL(htmlPath).href
+  ], {
+    cwd: pluginRoot,
+    encoding: "utf8",
+    maxBuffer: 1024 * 1024 * 12
+  });
+  return {
+    status: result.status === 0 ? "pass" : "fail",
+    output: fs.existsSync(outputPath) ? workspaceRel(outputPath) : null,
+    status_code: result.status,
+    stdout: result.stdout || "",
+    stderr: result.stderr || ""
+  };
+}
+
+function commandRender(args) {
+  const options = parseRenderArgs(args);
+  if (!options.prompt) {
+    console.error('Usage: scripts/sanofi-ds render "<prompt>" --profile <profile-id> [--validate] [--screenshot]');
+    process.exitCode = 2;
+    return;
+  }
+
+  const steps = [];
+  const failures = [];
+  const resolveRun = runNodeScript("resolve-pattern", [options.prompt]);
+  steps.push(resolveRun);
+  if (resolveRun.status !== "pass") failures.push("resolve-pattern failed");
+
+  const resolutionPath = path.join(designSystemDir, "contracts", "resolvers", "latest-resolution.json");
+  const resolution = readJsonMaybe(resolutionPath, {});
+  const resolvedProfile = resolution.page_profile?.id || resolution.page_profile_id || resolution.page_profile || null;
+  if (options.profile && resolvedProfile && slug(options.profile) !== slug(resolvedProfile)) {
+    failures.push(`resolved profile mismatch: expected ${options.profile}, got ${resolvedProfile}`);
+  }
+
+  const renderRun = runNodeScript("render-resolved-html", []);
+  steps.push(renderRun);
+  if (renderRun.status !== "pass") failures.push("render-resolved-html failed");
+
+  const htmlPath = newestResolvedHtml();
+  const validatorRuns = [];
+  if (options.validate) {
+    for (const [scriptName, targetType] of renderValidatorChain) {
+      const run = runNodeScript(scriptName, targetType === "html" ? [htmlPath] : []);
+      validatorRuns.push(run);
+      if (run.status !== "pass") failures.push(`${scriptName} failed`);
+    }
+  }
+
+  const screenshot = options.screenshot ? captureScreenshot(htmlPath) : null;
+  if (screenshot?.status === "fail") failures.push("screenshot capture failed");
+
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds render",
+    status: failures.length ? "fail" : "pass",
+    generated_at: new Date().toISOString(),
+    prompt: options.prompt,
+    expected_profile: options.profile,
+    resolved_profile: resolvedProfile,
+    resolution: {
+      path: workspaceRel(resolutionPath),
+      registry_item: resolution.registry_item || resolution.registry_item_name || resolution.registry_match?.name || "unknown",
+      pattern_id: resolution.pattern_id || resolution.canonical_pattern_id || "unknown",
+      template_id: resolution.template_id || "unknown"
+    },
+    html_output: workspaceRel(htmlPath),
+    steps,
+    validator_runs: validatorRuns,
+    screenshot,
+    failures
+  };
+
+  const markdown = `# Render Report
+
+Status: ${data.status}
+
+| Field | Value |
+|---|---|
+| Prompt | ${escapeHtml(options.prompt)} |
+| Expected profile | ${options.profile || "not specified"} |
+| Resolved profile | ${resolvedProfile || "unknown"} |
+| HTML output | \`${data.html_output}\` |
+| Screenshot | ${screenshot?.output ? `\`${screenshot.output}\`` : screenshot ? screenshot.status : "not requested"} |
+
+## Steps
+
+| Script | Status | Exit |
+|---|---|---:|
+${steps.map((step) => `| ${step.script} | ${step.status} | ${step.status_code} |`).join("\n")}
+
+## Validators
+
+${validatorRuns.length ? `| Script | Status | Exit |
+|---|---|---:|
+${validatorRuns.map((run) => `| ${run.script} | ${run.status} | ${run.status_code} |`).join("\n")}` : "- Not requested"}
+
+## Failures
+
+${failures.length ? failures.map((item) => `- ${item}`).join("\n") : "- None"}
+`;
+  const paths = writeReport("render", data, markdown);
+  console.log(`Render status: ${data.status}`);
+  console.log(`HTML: ${data.html_output}`);
+  if (screenshot?.output) console.log(`Screenshot: ${screenshot.output}`);
+  printReportPaths(paths);
+  if (failures.length) process.exitCode = 1;
+}
+
+function commandReportDashboard() {
+  const registry = getRegistry();
+  const coverage = getCoverageMatrix();
+  const rules = getRulesIndex();
+  const fallbackPolicy = readJsonMaybe(path.join(designSystemDir, "policies", "fallback-policy.json"), { fallbacks: [] });
+  const reports = collectStatusReports();
+  const reportCounts = reports.reduce((acc, item) => {
+    acc[item.status] = (acc[item.status] || 0) + 1;
+    return acc;
+  }, {});
+  const htmlPath = path.join(reportDir, "design-system-maintenance-dashboard.html");
+  const html = `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sanofi Elements Maintenance Dashboard</title>
+  <style>
+    body { margin: 0; font-family: "Sanofi Sans", "Noto Sans SC", Arial, sans-serif; color: #111; background: #f4f4f4; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px; }
+    h1 { font-size: 32px; margin: 0 0 8px; }
+    h2 { font-size: 20px; margin: 28px 0 12px; }
+    .muted { color: #666; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+    .metric { font-size: 28px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #ddd; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #eee; text-align: left; font-size: 14px; }
+    th { background: #fafafa; }
+    .pass { color: #0b7a3b; }
+    .fail { color: #b42318; }
+    .unknown, .warn { color: #8a5a00; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Sanofi Elements Maintenance Dashboard</h1>
+  <p class="muted">Generated at ${escapeHtml(new Date().toISOString())}. This page summarizes the local design-system maintenance state.</p>
+  <section class="grid">
+    <div class="card"><div class="muted">Registry items</div><div class="metric">${escapeHtml(registry.counts?.items ?? "unknown")}</div></div>
+    <div class="card"><div class="muted">Component contracts</div><div class="metric">${escapeHtml(registry.counts?.component_contracts ?? "unknown")}</div></div>
+    <div class="card"><div class="muted">Completed components</div><div class="metric">${escapeHtml(coverage.summary?.completed_components ?? "unknown")}</div></div>
+    <div class="card"><div class="muted">Rules</div><div class="metric">${escapeHtml(rules.rules?.length ?? 0)}</div></div>
+  </section>
+  <h2>Report Status</h2>
+  <section class="grid">
+${Object.entries(reportCounts).map(([status, count]) => `    <div class="card"><div class="muted">${escapeHtml(status)}</div><div class="metric ${escapeHtml(status)}">${escapeHtml(count)}</div></div>`).join("\n")}
+  </section>
+  <h2>Fallback Gaps</h2>
+  <table>
+    <thead><tr><th>Module</th><th>Status</th><th>Reason</th></tr></thead>
+    <tbody>
+${(fallbackPolicy.fallbacks || []).map((item) => `      <tr><td>${escapeHtml(item.module)}</td><td>${escapeHtml(item.status)}</td><td>${escapeHtml(item.reason || "")}</td></tr>`).join("\n")}
+    </tbody>
+  </table>
+  <h2>Recent Report Index</h2>
+  <table>
+    <thead><tr><th>Report</th><th>Status</th><th>Script</th></tr></thead>
+    <tbody>
+${reports.slice(-80).map((item) => `      <tr><td>${escapeHtml(item.file)}</td><td class="${escapeHtml(item.status)}">${escapeHtml(item.status)}</td><td>${escapeHtml(item.script)}</td></tr>`).join("\n")}
+    </tbody>
+  </table>
+</main>
+</body>
+</html>
+`;
+  ensureDir(reportDir);
+  fs.writeFileSync(htmlPath, html);
+  const data = {
+    schema_version: "0.1.0",
+    command: "sanofi-ds report dashboard",
+    status: "pass",
+    generated_at: new Date().toISOString(),
+    dashboard: workspaceRel(htmlPath),
+    report_status_counts: reportCounts,
+    fallback_count: (fallbackPolicy.fallbacks || []).length
+  };
+  const paths = writeReport("maintenance-dashboard", data, `# Maintenance Dashboard
+
+Status: pass
+
+Dashboard: \`${workspaceRel(htmlPath)}\`
+`);
+  console.log(`Dashboard: ${workspaceRel(htmlPath)}`);
+  printReportPaths(paths);
+}
+
+function main() {
+  const args = process.argv.slice(2);
+  const command = args.shift();
+  if (!command || command === "help" || command === "--help" || command === "-h") {
+    printUsage();
+    return;
+  }
+  if (command === "doctor") return commandDoctor();
+  if (command === "component") return commandComponentInspect(args);
+  if (command === "token" && args[0] === "diff") return commandTokenDiff();
+  if (command === "profile") return commandProfileInspect(args);
+  if (command === "business" && args[0] === "standards") return commandBusinessStandards();
+  if (command === "rule" && args[0] === "list") return commandRuleList();
+  if (command === "rule" && args[0] === "validate") return commandRuleValidate(args.slice(1));
+  if (command === "gap" && args[0] === "list") return commandGapList();
+  if (command === "render") return commandRender(args);
+  if (command === "report" && args[0] === "dashboard") return commandReportDashboard();
+  console.error(`Unknown command: ${command}`);
+  printUsage();
+  process.exitCode = 2;
+}
+
+main();

@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-query-panel-template",
+  "severity": "error",
+  "status": "ready",
+  "source_provenance": {
+    "template_id": "onecommercial-admin-query-panel",
+    "pattern_id": "admin-query-panel",
+    "template_path": "design-system-plugin/design-system/templates/onecommercial-admin-query-panel.template.json",
+    "pattern_path": "design-system-plugin/design-system/patterns/admin-query-panel/admin-query-panel.pattern.json"
+  },
+  "html_contract": {
+    "required_attributes": [
+      "data-registry-item=\"sanofi-admin-query-panel\"",
+      "data-template-id=\"onecommercial-admin-query-panel\"",
+      "data-page-subtype=\"data-entry-table-page\"",
+      "data-pattern=\"admin-query-panel\"",
+      "data-template-part=\"query-toolbar\"",
+      "data-template-part=\"editable-table\"",
+      "data-template-part=\"save-bar\"",
+      "data-list-kind=\"sidebar-navigation\"",
+      "data-list-kind=\"sidebar-sub-list\"",
+      "data-menu-level=\"0\"",
+      "data-menu-level=\"1\"",
+      "data-table-list-role=\"fallback\"",
+      "data-story-id=\"components-sidebar--expanded\"",
+      "data-story-id=\"components-menu--with-sub-menus\"",
+      "data-story-id=\"components-menu-menuitem--default\"",
+      "data-select-part=\"trigger\"",
+      "data-select-native=\"false\"",
+      "data-select-size=\"medium\"",
+      "role=\"combobox\"",
+      "data-story-id=\"components-select--default\""
+    ],
+    "forbidden_markers": [
+      "data-section=\"kpi-summary\"",
+      "data-section=\"chart-fallback\"",
+      "data-section=\"work-queue\""
+    ]
+  },
+  "generation_policy": [
+    "OneCommercial CDC inventory query/fill pages must use the admin-query-panel pattern instead of the generic admin-dashboard pattern.",
+    "The page must include a filter toolbar, primary actions, editable table fallback, pagination, and save bar.",
+    "Icon usage in the sidebar must be resolved as the Icon primitive with components-icon--gallery provenance.",
+    "Sidebar and nested menu lists must preserve Sidebar/Menu story provenance and explicit parent/child list levels.",
+    "Query filters must render Select as the Elements non-native medium combobox shell by default, with native select used only as a hidden semantic layer.",
+    "Editable table fallback must identify itself as a table list fallback and use softened semantic table borders.",
+    "Do not add KPI cards, chart panels, or generic work queues to this page subtype."
+  ]
+}

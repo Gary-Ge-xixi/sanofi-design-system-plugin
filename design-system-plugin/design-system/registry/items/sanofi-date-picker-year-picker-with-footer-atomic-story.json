@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-date-picker-year-picker-with-footer-atomic-story",
+  "title": "DatePicker Year Picker With Footer atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-datepicker--year-picker-with-footer.",
+  "atomic_story_id": "components-datepicker--year-picker-with-footer",
+  "component_id": "date-picker",
+  "docs_id": "components-datepicker--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-date-picker"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--year-picker-with-footer.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--year-picker-with-footer.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--year-picker-with-footer.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--year-picker-with-footer.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/date-picker/templates/html.year-picker-with-footer.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/date-picker/templates/html.year-picker-with-footer.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/date-picker.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "story_id": "components-datepicker--year-picker-with-footer",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--year-picker-with-footer.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-datepicker--year-picker-with-footer&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-datepicker--year-picker-with-footer&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/DatePicker.stories-mj8qg6gV.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "date-picker",
+      "DatePicker",
+      "Year Picker With Footer",
+      "components-datepicker--year-picker-with-footer",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact DatePicker Year Picker With Footer Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

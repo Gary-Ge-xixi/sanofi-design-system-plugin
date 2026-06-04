@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "id": "atomic-component-package",
+  "type": "standard",
+  "renderer_target": "html",
+  "required_fields": [
+    "schema_version",
+    "id",
+    "component_id",
+    "component_name",
+    "renderer_target",
+    "coverage",
+    "docs_contract",
+    "story_atoms",
+    "component_contract",
+    "primitive_contract",
+    "token_bindings",
+    "render_outputs",
+    "registry",
+    "validation",
+    "source_provenance"
+  ],
+  "coverage_requirements": [
+    "coverage.expected_docs",
+    "coverage.expected_stories",
+    "coverage.materialized_stories",
+    "coverage.docs_contract_status",
+    "coverage.story_coverage_status"
+  ],
+  "story_requirements": [
+    "story_id",
+    "story_name",
+    "semantic_type",
+    "atomic_story_path",
+    "render_output_path",
+    "source_provenance"
+  ],
+  "notes": [
+    "A complete package is the AI-callable component entrypoint. It must not be confused with a single Storybook story.",
+    "Every Storybook tab listed in the expected-tabs file must be accounted for.",
+    "Story-specific semantics such as link, overview, and inverse matrix behavior must be represented explicitly."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "component": "CheckboxTree",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/CheckboxTree",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "checkbox-tree",
+      "data_attribute": "data-primitive=\"checkbox-tree\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-checkboxtree--collapsible",
+      "components-checkboxtree--color-variations",
+      "components-checkboxtree--deeply-nested",
+      "components-checkboxtree--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkboxtree--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

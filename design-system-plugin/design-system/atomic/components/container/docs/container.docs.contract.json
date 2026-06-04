@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1.0",
+  "id": "container-docs-contract",
+  "component_id": "container",
+  "component_name": "Container",
+  "docs_id": "components-container--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-container--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "sm",
+        "required": false,
+        "description": "Set the container type on sm viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "md",
+        "required": false,
+        "description": "Set the container type on md viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "lg",
+        "required": false,
+        "description": "Set the container type on lg viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xl",
+        "required": false,
+        "description": "Set the container type on xl viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxl",
+        "required": false,
+        "description": "Set the container type on 2xl viewport size\"fixed\"\"fluid\"",
+        "default": "\"fixed\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxxl",
+        "required": false,
+        "description": "Set the container type on 3xl viewport size\"fixed\"\"fluid\"",
+        "default": "\"fixed\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for container elements.{ contentContainer?: string; }",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-container--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Container } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Container>\n  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\n</Container>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-container--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Container/Container.stories.tsx"
+    },
+    {
+      "id": "components-container--fixed",
+      "name": "Fixed",
+      "export_name": "Fixed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Container/Container.stories.tsx"
+    },
+    {
+      "id": "components-container--fluid",
+      "name": "Fluid",
+      "export_name": "Fluid",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Container/Container.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-container--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/container.contract.json"
+  }
+}

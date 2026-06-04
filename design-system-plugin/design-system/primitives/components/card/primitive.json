@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/Card",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "card",
+      "data_attribute": "data-primitive=\"card\"",
+      "required_semantics": [
+        "article or section for standalone content",
+        "heading when card introduces content"
+      ],
+      "supported_stories": [
+        "Default",
+        "Card Custom Number",
+        "List Density View"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-card--default",
+      "components-card--card-custom-number",
+      "components-card--list-density-view",
+      "components-card-content--default",
+      "components-card-cardgroup--card-grids-group",
+      "components-card--card-custom-picto",
+      "components-card--card-image",
+      "components-card--card-image-clickable",
+      "components-card--card-imageshow-full-content",
+      "components-card--card-video",
+      "components-card--learning-module",
+      "components-card--list-center-content-view",
+      "components-card--list-date-view",
+      "components-card--list-image-ratio-view",
+      "components-card--list-image-view",
+      "components-card--list-picto-view"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "schema_version": "0.1.0",
+  "id": "date-picker",
+  "canonical_name": "date-picker",
+  "component_name": "DatePicker",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-datepicker--docs",
+    "title": "DatePicker",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-datepicker--docs",
+    "import_path": "./src/components/DatePicker/DatePicker.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 23,
+    "story_ids": [
+      "components-datepicker--default",
+      "components-datepicker--disabled",
+      "components-datepicker--disabled-range",
+      "components-datepicker--dual-calendar",
+      "components-datepicker--dual-calendar-clearable",
+      "components-datepicker--dual-calendar-partial-range",
+      "components-datepicker--dual-calendar-with-footer",
+      "components-datepicker--dual-calendar-with-prefilled-range",
+      "components-datepicker--medium-size",
+      "components-datepicker--month-picker",
+      "components-datepicker--quarter-picker",
+      "components-datepicker--range",
+      "components-datepicker--range-empty",
+      "components-datepicker--range-partial",
+      "components-datepicker--range-with-error",
+      "components-datepicker--range-with-footer",
+      "components-datepicker--with-clearable",
+      "components-datepicker--with-error",
+      "components-datepicker--with-footer",
+      "components-datepicker--with-icon",
+      "components-datepicker--with-min-and-max-dates",
+      "components-datepicker--year-picker",
+      "components-datepicker--year-picker-with-footer"
+    ],
+    "records": [
+      {
+        "id": "components-datepicker--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-datepicker--disabled",
+        "name": "Disabled",
+        "normalized_name": "disabled",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "Disabled"
+      },
+      {
+        "id": "components-datepicker--disabled-range",
+        "name": "Disabled Range",
+        "normalized_name": "disabled-range",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "DisabledRange"
+      },
+      {
+        "id": "components-datepicker--dual-calendar",
+        "name": "Dual Calendar",
+        "normalized_name": "dual-calendar",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "DualCalendar"
+      },
+      {
+        "id": "components-datepicker--dual-calendar-clearable",
+        "name": "Dual Calendar Clearable",
+        "normalized_name": "dual-calendar-clearable",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "DualCalendarClearable"
+      },
+      {
+        "id": "components-datepicker--dual-calendar-partial-range",
+        "name": "Dual Calendar Partial Range",
+        "normalized_name": "dual-calendar-partial-range",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "DualCalendarPartialRange"
+      },
+      {
+        "id": "components-datepicker--dual-calendar-with-footer",
+        "name": "Dual Calendar With Footer",
+        "normalized_name": "dual-calendar-with-footer",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "DualCalendarWithFooter"
+      },
+      {
+        "id": "components-datepicker--dual-calendar-with-prefilled-range",
+        "name": "Dual Calendar With Prefilled Range",
+        "normalized_name": "dual-calendar-with-prefilled-range",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "DualCalendarWithPrefilledRange"
+      },
+      {
+        "id": "components-datepicker--medium-size",
+        "name": "Medium Size",
+        "normalized_name": "medium-size",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "MediumSize"
+      },
+      {
+        "id": "components-datepicker--month-picker",
+        "name": "Month Picker",
+        "normalized_name": "month-picker",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "MonthPicker"
+      },
+      {
+        "id": "components-datepicker--quarter-picker",
+        "name": "Quarter Picker",
+        "normalized_name": "quarter-picker",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "QuarterPicker"
+      },
+      {
+        "id": "components-datepicker--range",
+        "name": "Range",
+        "normalized_name": "range",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "Range"
+      },
+      {
+        "id": "components-datepicker--range-empty",
+        "name": "Range Empty",
+        "normalized_name": "range-empty",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "RangeEmpty"
+      },
+      {
+        "id": "components-datepicker--range-partial",
+        "name": "Range Partial",
+        "normalized_name": "range-partial",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "RangePartial"
+      },
+      {
+        "id": "components-datepicker--range-with-error",
+        "name": "Range With Error",
+        "normalized_name": "range-with-error",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "RangeWithError"
+      },
+      {
+        "id": "components-datepicker--range-with-footer",
+        "name": "Range With Footer",
+        "normalized_name": "range-with-footer",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "RangeWithFooter"
+      },
+      {
+        "id": "components-datepicker--with-clearable",
+        "name": "With Clearable",
+        "normalized_name": "with-clearable",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "WithClearable"
+      },
+      {
+        "id": "components-datepicker--with-error",
+        "name": "With Error",
+        "normalized_name": "with-error",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "WithError"
+      },
+      {
+        "id": "components-datepicker--with-footer",
+        "name": "With Footer",
+        "normalized_name": "with-footer",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "WithFooter"
+      },
+      {
+        "id": "components-datepicker--with-icon",
+        "name": "With Icon",
+        "normalized_name": "with-icon",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "WithIcon"
+      },
+      {
+        "id": "components-datepicker--with-min-and-max-dates",
+        "name": "With Min And Max Dates",
+        "normalized_name": "with-min-and-max-dates",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "WithMinAndMaxDates"
+      },
+      {
+        "id": "components-datepicker--year-picker",
+        "name": "Year Picker",
+        "normalized_name": "year-picker",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "YearPicker"
+      },
+      {
+        "id": "components-datepicker--year-picker-with-footer",
+        "name": "Year Picker With Footer",
+        "normalized_name": "year-picker-with-footer",
+        "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+        "export_name": "YearPickerWithFooter"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "required",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Input size\"small\"\"medium\"\"large\"",
+        "default": "\"\\\"medium\\\"\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "state",
+        "required": false,
+        "description": "Input state\"success\"\"error\"\"default\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "disabled",
+      "disabled-range",
+      "dual-calendar",
+      "dual-calendar-clearable",
+      "dual-calendar-partial-range",
+      "dual-calendar-with-footer",
+      "dual-calendar-with-prefilled-range",
+      "medium-size",
+      "month-picker",
+      "quarter-picker",
+      "range",
+      "range-empty",
+      "range-partial",
+      "range-with-error",
+      "range-with-footer",
+      "with-clearable",
+      "with-error",
+      "with-footer",
+      "with-icon",
+      "with-min-and-max-dates",
+      "year-picker",
+      "year-picker-with-footer"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "disabled",
+      "disabled-range",
+      "dual-calendar",
+      "dual-calendar-clearable",
+      "dual-calendar-partial-range",
+      "dual-calendar-with-footer",
+      "dual-calendar-with-prefilled-range",
+      "medium-size",
+      "month-picker",
+      "quarter-picker",
+      "range",
+      "range-empty",
+      "range-partial",
+      "range-with-error",
+      "range-with-footer",
+      "with-clearable",
+      "with-error",
+      "with-footer",
+      "with-icon",
+      "with-min-and-max-dates",
+      "year-picker",
+      "year-picker-with-footer"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { DatePicker, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nconst SingleDatePicker = () => {\n  const [date, setDate] = useState(\"2021-01-01\");\n\n  return (\n    <DatePicker\n      id=\"date-picker\"\n      label=\"Select Date\"\n      size={InputSize.LARGE} // or InputSize.MEDIUM\n      state={FormControlState.DEFAULT} // or FormControlState.ERROR or FormControlState.SUCCESS\n      subText=\"Choose a single date\"\n      value={date}\n      onChange={(event) => setDate(event.target.value)}\n      clearable\n    />\n  );\n};",
+      "import { DatePicker, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nconst RangeDatePicker = () => {\n  const [dateRange, setDateRange] = useState({ start: \"2021-01-01\", end: \"2021-01-15\" });\n\n  return (\n    <DatePicker\n      mode=\"range\"\n      id=\"range-picker\"\n      label=\"Select Date Range\"\n      size={InputSize.LARGE}\n      state={FormControlState.DEFAULT}\n      subText=\"Choose start and end dates\"\n      value={dateRange}\n      onChange={(event) => setDateRange(event.target.value)}\n      clearable\n    />\n  );\n};",
+      "import { DatePicker, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nconst DualCalendarPicker = () => {\n  const [dateRange, setDateRange] = useState({ start: \"2021-01-01\", end: \"2021-02-15\" });\n\n  return (\n    <DatePicker\n      mode=\"range\"\n      calendarCount={2}\n      id=\"dual-calendar-picker\"\n      label=\"Select Date Range\"\n      size={InputSize.LARGE}\n      state={FormControlState.DEFAULT}\n      subText=\"Navigate through two synchronized calendars\"\n      value={dateRange}\n      onChange={(event) => setDateRange(event.target.value)}\n      clearable\n    />\n  );\n};"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "date-picker"
+    ],
+    "contracts": [
+      {
+        "id": "date-picker",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/date-picker/demo.registry.json",
+        "known_story_ids": [
+          "components-datepicker--default",
+          "components-datepicker--disabled",
+          "components-datepicker--disabled-range",
+          "components-datepicker--dual-calendar",
+          "components-datepicker--dual-calendar-clearable",
+          "components-datepicker--dual-calendar-partial-range",
+          "components-datepicker--dual-calendar-with-footer",
+          "components-datepicker--dual-calendar-with-prefilled-range",
+          "components-datepicker--medium-size",
+          "components-datepicker--month-picker",
+          "components-datepicker--quarter-picker",
+          "components-datepicker--range",
+          "components-datepicker--range-empty",
+          "components-datepicker--range-partial",
+          "components-datepicker--range-with-error",
+          "components-datepicker--range-with-footer",
+          "components-datepicker--with-clearable",
+          "components-datepicker--with-error",
+          "components-datepicker--with-footer",
+          "components-datepicker--with-icon",
+          "components-datepicker--with-min-and-max-dates",
+          "components-datepicker--year-picker",
+          "components-datepicker--year-picker-with-footer",
+          "components-datepicker--default",
+          "components-datepicker--disabled",
+          "components-datepicker--disabled-range",
+          "components-datepicker--dual-calendar",
+          "components-datepicker--dual-calendar-clearable",
+          "components-datepicker--dual-calendar-partial-range",
+          "components-datepicker--dual-calendar-with-footer",
+          "components-datepicker--dual-calendar-with-prefilled-range",
+          "components-datepicker--medium-size",
+          "components-datepicker--month-picker",
+          "components-datepicker--quarter-picker",
+          "components-datepicker--range",
+          "components-datepicker--range-empty",
+          "components-datepicker--range-partial",
+          "components-datepicker--range-with-error",
+          "components-datepicker--range-with-footer",
+          "components-datepicker--with-clearable",
+          "components-datepicker--with-error",
+          "components-datepicker--with-footer",
+          "components-datepicker--with-icon",
+          "components-datepicker--with-min-and-max-dates",
+          "components-datepicker--year-picker",
+          "components-datepicker--year-picker-with-footer"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-datepicker--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+    "docs_import_path": "./src/components/DatePicker/DatePicker.mdx",
+    "story_ids": [
+      "components-datepicker--default",
+      "components-datepicker--disabled",
+      "components-datepicker--disabled-range",
+      "components-datepicker--dual-calendar",
+      "components-datepicker--dual-calendar-clearable",
+      "components-datepicker--dual-calendar-partial-range",
+      "components-datepicker--dual-calendar-with-footer",
+      "components-datepicker--dual-calendar-with-prefilled-range",
+      "components-datepicker--medium-size",
+      "components-datepicker--month-picker",
+      "components-datepicker--quarter-picker",
+      "components-datepicker--range",
+      "components-datepicker--range-empty",
+      "components-datepicker--range-partial",
+      "components-datepicker--range-with-error",
+      "components-datepicker--range-with-footer",
+      "components-datepicker--with-clearable",
+      "components-datepicker--with-error",
+      "components-datepicker--with-footer",
+      "components-datepicker--with-icon",
+      "components-datepicker--with-min-and-max-dates",
+      "components-datepicker--year-picker",
+      "components-datepicker--year-picker-with-footer"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

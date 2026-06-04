@@ -1,0 +1,320 @@
+{
+  "schema_version": "0.1.0",
+  "id": "calendar",
+  "canonical_name": "calendar",
+  "component_name": "Calendar",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-calendar--docs",
+    "title": "Calendar",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-calendar--docs",
+    "import_path": "./src/components/DatePicker/Calendar/Calendar.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-calendar--default",
+      "components-calendar--disabled",
+      "components-calendar--range-selection",
+      "components-calendar--with-date-constraints"
+    ],
+    "records": [
+      {
+        "id": "components-calendar--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-calendar--disabled",
+        "name": "Disabled",
+        "normalized_name": "disabled",
+        "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx",
+        "export_name": "Disabled"
+      },
+      {
+        "id": "components-calendar--range-selection",
+        "name": "Range Selection",
+        "normalized_name": "range-selection",
+        "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx",
+        "export_name": "RangeSelection"
+      },
+      {
+        "id": "components-calendar--with-date-constraints",
+        "name": "With Date Constraints",
+        "normalized_name": "with-date-constraints",
+        "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx",
+        "export_name": "WithDateConstraints"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "selectedDate",
+        "required": false,
+        "description": "Currently selected date.stringDate",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSelectedDateChange",
+        "required": false,
+        "description": "Callback fired when a date is selected.((date: string) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "picker",
+        "required": false,
+        "description": "Picker granularity for selection behavior.\"day\"\"month\"\"year\"\"quarter\"",
+        "default": "\"SelectorType.DAY\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSelectedMonthChange",
+        "required": false,
+        "description": "Callback for month selection (monthIndex: 0-11).((year: number, monthIndex: number) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSelectedQuarterChange",
+        "required": false,
+        "description": "Callback for quarter selection (quarter: 1-4).((year: number, quarter: number) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSelectedYearChange",
+        "required": false,
+        "description": "Callback for year selection.((year: number) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "selectedRange",
+        "required": false,
+        "description": "Currently selected date range.DateRange",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "rangeSelectionState",
+        "required": false,
+        "description": "Current range selection state.\"start\"\"end\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onDateHover",
+        "required": false,
+        "description": "Callback fired when hovering over a date.((date: string \\",
+        "default": "null) => void)",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "hoveredDate",
+        "required": false,
+        "description": "Currently hovered date (for range preview).stringnull",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabledDates",
+        "required": false,
+        "description": "Dates to disable (function, string array, or Date array).string[] \\",
+        "default": "((date: Date) => boolean) \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fromDatePicker",
+        "required": false,
+        "description": "boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "externalPeriod",
+        "required": false,
+        "description": "Externally controlled displayed month/year.{ year: number; month: number; }",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onExternalPeriodChange",
+        "required": false,
+        "description": "Callback when displayed period changes.((period: { year: number; month: number; }) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "minSelectableDate",
+        "required": false,
+        "description": "Minimum selectable date.Date",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxSelectableDate",
+        "required": false,
+        "description": "Maximum selectable date.Date",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "minDate",
+        "required": false,
+        "description": "Minimum navigable date (for month navigation).Date",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxDate",
+        "required": false,
+        "description": "Maximum navigable date (for month navigation).Date",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "autoFocus",
+        "required": false,
+        "description": "Auto-focus the calendar on mount.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onNavigateToNextCalendar",
+        "required": false,
+        "description": "Callback for next calendar navigation (dual calendar).(() => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onNavigateToPreviousCalendar",
+        "required": false,
+        "description": "Callback for previous calendar navigation (dual calendar).(() => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultSelectorType",
+        "required": false,
+        "description": "Default selector view type.\"day\"\"month\"\"year\"\"quarter\"",
+        "default": "\"SelectorType.DAY\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "footerContent",
+        "required": false,
+        "description": "Custom footer content renderer.(() => ReactNode)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showFooterDivider",
+        "required": false,
+        "description": "Shows divider above footer.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "disabled",
+      "range-selection",
+      "with-date-constraints"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "disabled",
+      "range-selection",
+      "with-date-constraints"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Calendar } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Calendar\n    onSelectedDateChange={(event) => console.log(event.target.value)}\n  />\n);\n\n// to disable specific days\nconst Component = () => (\n  <Calendar\n    onSelectedDateChange={(event) => console.log(event.target.value)}\n    disabledDates={[\n            \"2025-02-01\",\n            \"2025-02-06\",\n            \"2025-02-12\",\n            \"2025-02-15\",\n            \"2025-02-18\",\n            \"2025-02-20\",\n            \"2025-02-23\",\n            \"2025-02-26\",\n          ]}\n  />\n);\n\n// to disable weekends\nconst Component = () => (\n  <Calendar\n    onSelectedDateChange={(event) => console.log(event.target.value)}\n    disabledDates={(date) => [0, 6].includes(date.getDay())}\n  />\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Calendar } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Calendar\n    onSelectedDateChange={(event) => console.log(event.target.value)}\n  />\n);\n\n// to disable specific days\nconst Component = () => (\n  <Calendar\n    onSelectedDateChange={(event) => console.log(event.target.value)}\n    disabledDates={[\n            \"2025-02-01\",\n            \"2025-02-06\",\n            \"2025-02-12\",\n            \"2025-02-15\",\n            \"2025-02-18\",\n            \"2025-02-20\",\n            \"2025-02-23\",\n            \"2025-02-26\",\n          ]}\n  />\n);\n\n// to disable weekends\nconst Component = () => (\n  <Calendar\n    onSelectedDateChange={(event) => console.log(event.target.value)}\n    disabledDates={(date) => [0, 6].includes(date.getDay())}\n  />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "calendar"
+    ],
+    "contracts": [
+      {
+        "id": "calendar",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/calendar/demo.registry.json",
+        "known_story_ids": [
+          "components-calendar--default",
+          "components-calendar--disabled",
+          "components-calendar--range-selection",
+          "components-calendar--with-date-constraints",
+          "components-calendar--default",
+          "components-calendar--disabled",
+          "components-calendar--range-selection",
+          "components-calendar--with-date-constraints"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-calendar--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md",
+    "docs_import_path": "./src/components/DatePicker/Calendar/Calendar.mdx",
+    "story_ids": [
+      "components-calendar--default",
+      "components-calendar--disabled",
+      "components-calendar--range-selection",
+      "components-calendar--with-date-constraints"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

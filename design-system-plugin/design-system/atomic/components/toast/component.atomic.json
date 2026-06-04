@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "toast",
+  "component_name": "Toast",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-toast--default",
+      "story_name": "Default",
+      "component_id": "toast",
+      "component_name": "Toast",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/toast-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "docs_id": "components-toast--docs",
+      "registry_item": "sanofi-toast-default-atomic-story"
+    },
+    {
+      "story_id": "components-toast--dual-action",
+      "story_name": "Dual Action",
+      "component_id": "toast",
+      "component_name": "Toast",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--dual-action.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.dual-action.template.html",
+      "output_path": "design-system-plugin/outputs/html/toast-dual-action.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "docs_id": "components-toast--docs",
+      "registry_item": "sanofi-toast-dual-action-atomic-story"
+    },
+    {
+      "story_id": "components-toast--example",
+      "story_name": "Example",
+      "component_id": "toast",
+      "component_name": "Toast",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--example.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.example.template.html",
+      "output_path": "design-system-plugin/outputs/html/toast-example.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "docs_id": "components-toast--docs",
+      "registry_item": "sanofi-toast-example-atomic-story"
+    },
+    {
+      "story_id": "components-toast--single-action",
+      "story_name": "Single Action",
+      "component_id": "toast",
+      "component_name": "Toast",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--single-action.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.single-action.template.html",
+      "output_path": "design-system-plugin/outputs/html/toast-single-action.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "docs_id": "components-toast--docs",
+      "registry_item": "sanofi-toast-single-action-atomic-story"
+    },
+    {
+      "story_id": "components-toast--toast-statuses",
+      "story_name": "Toast Statuses",
+      "component_id": "toast",
+      "component_name": "Toast",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--toast-statuses.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.toast-statuses.template.html",
+      "output_path": "design-system-plugin/outputs/html/toast-toast-statuses.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "docs_id": "components-toast--docs",
+      "registry_item": "sanofi-toast-toast-statuses-atomic-story"
+    },
+    {
+      "story_id": "components-toast--toast-with-buttons",
+      "story_name": "Toast With Buttons",
+      "component_id": "toast",
+      "component_name": "Toast",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--toast-with-buttons.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.toast-with-buttons.template.html",
+      "output_path": "design-system-plugin/outputs/html/toast-toast-with-buttons.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "docs_id": "components-toast--docs",
+      "registry_item": "sanofi-toast-toast-with-buttons-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-toast--docs"
+  }
+}

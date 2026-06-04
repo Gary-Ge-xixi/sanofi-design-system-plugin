@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-radio-radio-group",
+  "title": "Radio/RadioGroup primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Radio/RadioGroup.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "radio-radio-group",
+  "docs_id": "components-radio-radiogroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio-radio-group/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/radio-radio-group/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 4,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "radio-radio-group",
+      "Radio/RadioGroup",
+      "Radio/Radio Group"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Radio/RadioGroup primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

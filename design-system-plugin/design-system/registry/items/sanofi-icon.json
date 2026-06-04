@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-icon",
+  "title": "Icon primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Icon.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "icon",
+  "docs_id": "components-icon--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/icon/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/icon/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/icon/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/icon.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 3,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "icon",
+      "Icon",
+      "Icon"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Icon primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

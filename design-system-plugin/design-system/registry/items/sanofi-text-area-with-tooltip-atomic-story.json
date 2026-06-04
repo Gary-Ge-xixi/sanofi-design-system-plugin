@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-text-area-with-tooltip-atomic-story",
+  "title": "TextArea With Tooltip atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-textarea--with-tooltip.",
+  "atomic_story_id": "components-textarea--with-tooltip",
+  "component_id": "text-area",
+  "docs_id": "components-textarea--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-text-area"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-area/stories/components-textarea--with-tooltip.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/text-area/stories/components-textarea--with-tooltip.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-area/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/text-area/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-area/assets/TextArea.stories-Dzrot5qL.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/text-area/assets/TextArea.stories-Dzrot5qL.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-area/assets/components-textarea--with-tooltip.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/text-area/assets/components-textarea--with-tooltip.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-area/templates/html.with-tooltip.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/text-area/templates/html.with-tooltip.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/text-area.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/text-area/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/text-area/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-textarea--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-textarea--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-textarea--docs",
+    "story_id": "components-textarea--with-tooltip",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/text-area/stories/components-textarea--with-tooltip.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/text-area/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-textarea--with-tooltip&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-textarea--with-tooltip&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TextArea.stories-Dzrot5qL.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/text-area/assets/TextArea.stories-Dzrot5qL.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/text-area/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "text-area",
+      "TextArea",
+      "With Tooltip",
+      "components-textarea--with-tooltip",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact TextArea With Tooltip Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

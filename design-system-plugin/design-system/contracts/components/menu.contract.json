@@ -1,0 +1,279 @@
+{
+  "schema_version": "0.1.0",
+  "id": "menu",
+  "canonical_name": "menu",
+  "component_name": "Menu",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-menu--docs",
+    "title": "Menu",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-menu--docs",
+    "import_path": "./src/components/Menu/Menu.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 9,
+    "story_ids": [
+      "components-menu--checkbox",
+      "components-menu--context-menu",
+      "components-menu--default",
+      "components-menu--image",
+      "components-menu--selected",
+      "components-menu--sizes",
+      "components-menu--with-scroll",
+      "components-menu--with-sections",
+      "components-menu--with-sub-menus"
+    ],
+    "records": [
+      {
+        "id": "components-menu--checkbox",
+        "name": "Checkbox",
+        "normalized_name": "checkbox",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "Checkbox"
+      },
+      {
+        "id": "components-menu--context-menu",
+        "name": "Context Menu",
+        "normalized_name": "context-menu",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "ContextMenu"
+      },
+      {
+        "id": "components-menu--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-menu--image",
+        "name": "Image",
+        "normalized_name": "image",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "Image"
+      },
+      {
+        "id": "components-menu--selected",
+        "name": "Selected",
+        "normalized_name": "selected",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "Selected"
+      },
+      {
+        "id": "components-menu--sizes",
+        "name": "Sizes",
+        "normalized_name": "sizes",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "Sizes"
+      },
+      {
+        "id": "components-menu--with-scroll",
+        "name": "With Scroll",
+        "normalized_name": "with-scroll",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "WithScroll"
+      },
+      {
+        "id": "components-menu--with-sections",
+        "name": "With Sections",
+        "normalized_name": "with-sections",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "WithSections"
+      },
+      {
+        "id": "components-menu--with-sub-menus",
+        "name": "With Sub Menus",
+        "normalized_name": "with-sub-menus",
+        "import_path": "./src/components/Menu/Menu.stories.tsx",
+        "export_name": "WithSubMenus"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "isContextMenu",
+        "required": false,
+        "description": "Opens on right-click instead of left-click.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isOpen",
+        "required": false,
+        "description": "Controls menu visibility (controlled mode).boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onOpenChange",
+        "required": false,
+        "description": "Callback fired when menu opens/closes.((isOpen: boolean) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "Dropdown expands to trigger width.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "openOnHover",
+        "required": false,
+        "description": "Opens on hover instead of click.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disableAnimation",
+        "required": false,
+        "description": "Disables open/close animations.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "role",
+        "required": false,
+        "description": "\"menu\"\"combobox\"",
+        "default": "\"menu\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "checkbox",
+      "context-menu",
+      "default",
+      "image",
+      "selected",
+      "sizes",
+      "with-scroll",
+      "with-sections",
+      "with-sub-menus"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "checkbox",
+      "context-menu",
+      "default",
+      "image",
+      "selected",
+      "sizes",
+      "with-scroll",
+      "with-sections",
+      "with-sub-menus"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Menu, Button } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n  <Menu> // Menu Container\n    <Menu.Trigger> // Menu Trigger contains the element that will open the menu\n      <Button label=\"Click Me\" /> // This can be any React element that has a ref\n    </Menu.Trigger>\n    <Menu.Dropdown> // Menu Dropdown is the menu that will open and contains the menu items\n      <Menu.Item\n        iconBefore={<Menu.Item.Icon name={IconName.EDIT} />}\n        iconAfter={<Menu.Item.Icon name={IconName.CHEVRON_RIGHT} />}\n        description=\"Description goes here\"\n        shortcut=\"⌘S\"\n      >\n        Menu item 1\n      </Menu.Item>\n      <Menu.SubMenu label=\"SubMenu\"> // You can add SubMenus to the Menu\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.SubMenu label=\"SubMenu\">\n          <Menu.Item>SubMenu item</Menu.Item>\n          <Menu.Item>SubMenu item</Menu.Item>\n        </Menu.SubMenu>\n      </Menu.SubMenu>\n\n      {/*\n        You can have as many Menu.Item components as you want here\n\n        The different types of Menu items are:\n        - Menu.SubMenu\n        - Menu.Item\n        - Menu.RadioItem\n        - Menu.CheckboxItem\n        - Menu.ImageItem\n\n      */}\n    </Menu.Dropdown>\n  </Menu>\n\n),\n};",
+      "import { Menu } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n<Menu isContextMenu> // isContextMenu props will make the menu open on right-click\n  <Menu.Dropdown> // no need for a trigger element only the dropdown\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.SubMenu label=\"SubMenu\" data-testid=\"menu-item-xxx\">\n      <Menu.Item>SubMenu item</Menu.Item>\n      <Menu.Item>SubMenu item</Menu.Item>\n      <Menu.Item>SubMenu item</Menu.Item>\n      <Menu.SubMenu label=\"SubMenu\" data-testid=\"sub-menu-item-xxx\">\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.Item>SubMenu item</Menu.Item>\n        <Menu.Item>SubMenu item</Menu.Item>\n      </Menu.SubMenu>\n    </Menu.SubMenu>\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.Item>Menu item</Menu.Item>\n    <Menu.Item>Menu item</Menu.Item>\n  </Menu.Dropdown>\n</Menu>\n\n),\n};"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "menu"
+    ],
+    "contracts": [
+      {
+        "id": "menu",
+        "status": "storybook-backed-static-contract",
+        "contract_path": "design-system-plugin/design-system/primitives/components/menu/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/menu/demo.registry.json",
+        "known_story_ids": [
+          "components-menu--default",
+          "components-menu--selected",
+          "components-menu--with-sections",
+          "components-menu--with-sub-menus",
+          "components-menu--sizes",
+          "components-menu--checkbox",
+          "components-menu--context-menu",
+          "components-menu--image",
+          "components-menu--with-scroll",
+          "components-menu--checkbox",
+          "components-menu--context-menu",
+          "components-menu--default",
+          "components-menu--image",
+          "components-menu--selected",
+          "components-menu--sizes",
+          "components-menu--with-scroll",
+          "components-menu--with-sections",
+          "components-menu--with-sub-menus"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-menu--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-menu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md",
+    "docs_import_path": "./src/components/Menu/Menu.mdx",
+    "story_ids": [
+      "components-menu--checkbox",
+      "components-menu--context-menu",
+      "components-menu--default",
+      "components-menu--image",
+      "components-menu--selected",
+      "components-menu--sizes",
+      "components-menu--with-scroll",
+      "components-menu--with-sections",
+      "components-menu--with-sub-menus"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

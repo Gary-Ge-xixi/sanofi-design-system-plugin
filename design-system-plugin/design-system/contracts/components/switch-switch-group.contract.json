@@ -1,0 +1,146 @@
+{
+  "schema_version": "0.1.0",
+  "id": "switch-switch-group",
+  "canonical_name": "switch-switch-group",
+  "component_name": "Switch/SwitchGroup",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-switch-switchgroup--docs",
+    "title": "Switch/SwitchGroup",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-switch-switchgroup--docs",
+    "import_path": "./src/components/SwitchGroup/SwitchGroup.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-switch-switchgroup--default"
+    ],
+    "records": [
+      {
+        "id": "components-switch-switchgroup--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/SwitchGroup/SwitchGroup.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Group title displayed above the switches.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "caption",
+        "required": false,
+        "description": "Helper text displayed below the title.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "error",
+        "required": false,
+        "description": "Error message displayed when validation fails.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Switch components to render in the group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "switchesSize",
+        "required": false,
+        "description": "Size applied to all Switch children.\"small\"\"medium\"\"large\"",
+        "default": "\"SwitchSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { SwitchGroup, Switch, SwitchSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <SwitchGroup\n    title=\"Switch Group Title\"\n    caption=\"Optional Caption\"\n    error=\"Optional Error Message\"\n    switchesSize={SwitchSize.MEDIUM}\n  >\n    <Switch label=\"Checkbox A\" />\n    <Switch label=\"Checkbox B\" />\n    <Switch label=\"Checkbox C\" />\n    <Switch label=\"Checkbox D\" />\n    <Switch label=\"Checkbox E\" />\n    <Switch label=\"Checkbox F\" />\n  </SwitchGroup>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "switch-switch-group"
+    ],
+    "contracts": [
+      {
+        "id": "switch-switch-group",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/switch-switch-group/demo.registry.json",
+        "known_story_ids": [
+          "components-switch-switchgroup--default",
+          "components-switch-switchgroup--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-switch-switchgroup--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-switch-switchgroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md",
+    "docs_import_path": "./src/components/SwitchGroup/SwitchGroup.mdx",
+    "story_ids": [
+      "components-switch-switchgroup--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

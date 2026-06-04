@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "calendar-complete-standard-package",
+  "component_id": "calendar",
+  "component_name": "Calendar",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-calendar--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/calendar/docs/calendar.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-calendar--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/calendar-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-calendar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-calendar--disabled",
+      "story_name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "variant": "disabled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--disabled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/calendar-disabled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-calendar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-calendar--range-selection",
+      "story_name": "Range Selection",
+      "export_name": "RangeSelection",
+      "semantic_type": "variant",
+      "variant": "range-selection",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--range-selection.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/calendar-range-selection.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-calendar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-calendar--with-date-constraints",
+      "story_name": "With Date Constraints",
+      "export_name": "WithDateConstraints",
+      "semantic_type": "variant",
+      "variant": "with-date-constraints",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--with-date-constraints.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/calendar-with-date-constraints.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-calendar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/calendar/calendar.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/calendar-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-calendar--default",
+        "output_path": "design-system-plugin/outputs/html/calendar-default.atomic.html"
+      },
+      {
+        "story_id": "components-calendar--disabled",
+        "output_path": "design-system-plugin/outputs/html/calendar-disabled.atomic.html"
+      },
+      {
+        "story_id": "components-calendar--range-selection",
+        "output_path": "design-system-plugin/outputs/html/calendar-range-selection.atomic.html"
+      },
+      {
+        "story_id": "components-calendar--with-date-constraints",
+        "output_path": "design-system-plugin/outputs/html/calendar-with-date-constraints.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-calendar-complete-package.json",
+    "story_item_prefix": "sanofi-calendar-"
+  },
+  "validation": {
+    "required_story_count": 4,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/calendar/calendar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/calendar/docs/calendar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

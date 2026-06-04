@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-media-custom-docs-contract",
+  "component_id": "card-media-custom",
+  "component_name": "Card/MediaCustom",
+  "docs_id": "components-card-mediacustom--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-mediacustom--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-mediacustom--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "The card media custom childrenReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isCentered",
+        "required": false,
+        "description": "Centers the media verticallyboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "endSide",
+        "required": false,
+        "description": "Positions media on the end side (right in LTR)boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classnames",
+        "required": false,
+        "description": "Custom CSS classes{ container?: string; }",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-mediacustom--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-card-mediacustom--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardMediaCustom.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-mediacustom--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-mediacustom--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json"
+  }
+}

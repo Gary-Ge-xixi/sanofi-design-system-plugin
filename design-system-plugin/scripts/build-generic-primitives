@@ -1,0 +1,144 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function readJsonOrNull(relativePath) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function unique(values) {
+  return [...new Set((values || []).filter(Boolean))];
+}
+
+const primitiveIndexPath = "design-system-plugin/design-system/primitives/primitive-index.json";
+const existingIndex = readJsonOrNull(primitiveIndexPath) || { primitives: [] };
+const contractIndex = readJson("design-system-plugin/design-system/contracts/components/component-contract-index.json");
+const existingById = new Map((existingIndex.primitives || []).map((primitive) => [primitive.id, primitive]));
+const outputPrimitives = new Map();
+let generated = 0;
+let updated = 0;
+
+for (const primitive of existingIndex.primitives || []) {
+  outputPrimitives.set(primitive.id, primitive);
+}
+
+for (const contractRef of contractIndex.contracts || []) {
+  const componentId = contractRef.id;
+  const contract = readJson(contractRef.local_contract_path);
+  const storyIds = unique(contract.stories?.story_ids || contract.source_provenance?.story_ids || []);
+  const existing = existingById.get(componentId);
+  const primitivePath = existing?.path || `components/${componentId}/primitive.json`;
+  const demoRegistryPath = existing?.demo_registry || `components/${componentId}/demo.registry.json`;
+  const absolutePrimitivePath = `design-system-plugin/design-system/primitives/${primitivePath}`;
+  const primitiveContract = readJsonOrNull(absolutePrimitivePath);
+  const supportedPrimitives = primitiveContract?.supported_primitives?.length
+    ? primitiveContract.supported_primitives
+    : [
+        {
+          id: componentId,
+          data_attribute: `data-primitive="${componentId}"`,
+          required_semantics: ["component package sample", "source-provenance markers"]
+        }
+      ];
+  const nextPrimitiveContract = {
+    ...(primitiveContract || {}),
+    schema_version: primitiveContract?.schema_version || "0.1.0",
+    component: primitiveContract?.component || contractRef.component_name,
+    status: primitiveContract?.status || "component-contract-backed-generic-primitive",
+    source: {
+      ...(primitiveContract?.source || {}),
+      storybook_title: primitiveContract?.source?.storybook_title || `Components/${contractRef.component_name}`,
+      storybook_index: primitiveContract?.source?.storybook_index || "../../../../research/storybook/index.json",
+      component_contract: contractRef.local_contract_path
+    },
+    supported_primitives: supportedPrimitives,
+    story_contract: {
+      ...(primitiveContract?.story_contract || {}),
+      required_attribute: "data-story-id",
+      known_story_ids: unique([
+        ...(primitiveContract?.story_contract?.known_story_ids || []),
+        ...storyIds
+      ])
+    },
+    source_provenance: {
+      docs_id: contractRef.docs_id,
+      component_contract: contractRef.local_contract_path,
+      token_source: "foundations-colors--docs"
+    }
+  };
+
+  const demoRegistry = readJsonOrNull(`design-system-plugin/design-system/primitives/${demoRegistryPath}`) || {
+    schema_version: "0.1.0",
+    component: contractRef.component_name,
+    status: "generated-from-component-contract",
+    stories: []
+  };
+  const demoStoriesById = new Map((demoRegistry.stories || []).map((story) => [story.story_id, story]));
+  for (const storyId of storyIds) {
+    if (!demoStoriesById.has(storyId)) {
+      demoStoriesById.set(storyId, {
+        story_id: storyId,
+        source: "component-contract-story-index"
+      });
+    }
+  }
+  const nextDemoRegistry = {
+    ...demoRegistry,
+    schema_version: demoRegistry.schema_version || "0.1.0",
+    component: demoRegistry.component || contractRef.component_name,
+    status: demoRegistry.status || "generated-from-component-contract",
+    stories: [...demoStoriesById.values()].sort((a, b) => a.story_id.localeCompare(b.story_id))
+  };
+
+  writeJson(absolutePrimitivePath, nextPrimitiveContract);
+  writeJson(`design-system-plugin/design-system/primitives/${demoRegistryPath}`, nextDemoRegistry);
+  if (primitiveContract) updated += 1;
+  else generated += 1;
+
+  outputPrimitives.set(componentId, {
+    id: componentId,
+    component: contractRef.component_name,
+    status: nextPrimitiveContract.status,
+    path: primitivePath,
+    demo_registry: demoRegistryPath
+  });
+}
+
+const primitives = [...outputPrimitives.values()].sort((a, b) => a.id.localeCompare(b.id));
+const nextIndex = {
+  ...existingIndex,
+  schema_version: "0.2.0",
+  coverage_status: "component-contract-backed",
+  source_catalog: "component-contract-index.json",
+  components_total: contractIndex.contracts?.length || 0,
+  primitives_total: primitives.length,
+  primitives
+};
+
+writeJson(primitiveIndexPath, nextIndex);
+writeJson("design-system-plugin/outputs/reports/generic-primitives-build.report.json", {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "build-generic-primitives",
+  generated,
+  updated,
+  primitives: primitives.length,
+  component_contracts: contractIndex.contracts?.length || 0
+});
+
+console.log(`Generic primitives built: ${primitives.length} primitives (${generated} generated, ${updated} updated)`);

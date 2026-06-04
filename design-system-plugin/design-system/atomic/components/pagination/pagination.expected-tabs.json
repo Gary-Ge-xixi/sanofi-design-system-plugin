@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "pagination",
+  "component_name": "Pagination",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Pagination"
+  },
+  "docs": [
+    {
+      "id": "components-pagination--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Pagination/Pagination.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-pagination--compact",
+      "name": "Compact",
+      "export_name": "Compact",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    },
+    {
+      "id": "components-pagination--compact-with-first-and-last-buttons",
+      "name": "Compact With First And Last Buttons",
+      "export_name": "CompactWithFirstAndLastButtons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    },
+    {
+      "id": "components-pagination--compact-with-input",
+      "name": "Compact With Input",
+      "export_name": "CompactWithInput",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    },
+    {
+      "id": "components-pagination--compact-with-input-and-first-last-buttons",
+      "name": "Compact With Input And First Last Buttons",
+      "export_name": "CompactWithInputAndFirstLastButtons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    },
+    {
+      "id": "components-pagination--controlled",
+      "name": "Controlled",
+      "export_name": "Controlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    },
+    {
+      "id": "components-pagination--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    },
+    {
+      "id": "components-pagination--mobile",
+      "name": "Mobile",
+      "export_name": "Mobile",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Pagination/Pagination.stories.tsx"
+    }
+  ]
+}

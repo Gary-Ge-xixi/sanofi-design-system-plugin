@@ -1,0 +1,319 @@
+{
+  "schema_version": "0.1.0",
+  "id": "video-thumbnail",
+  "canonical_name": "video-thumbnail",
+  "component_name": "Video Thumbnail",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-video-thumbnail--docs",
+    "title": "Video Thumbnail",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-video-thumbnail--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-video-thumbnail--docs",
+    "import_path": "./src/components/VideoThumbnail/VideoThumbnail.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 10,
+    "story_ids": [
+      "components-video-thumbnail--default",
+      "components-video-thumbnail--disabled-status",
+      "components-video-thumbnail--mp-4-video-tracking",
+      "components-video-thumbnail--no-embedded-player",
+      "components-video-thumbnail--no-title",
+      "components-video-thumbnail--sanofi-video",
+      "components-video-thumbnail--streaming-video",
+      "components-video-thumbnail--vimeo-video",
+      "components-video-thumbnail--vimeo-video-tracking",
+      "components-video-thumbnail--youtube-video-tracking"
+    ],
+    "records": [
+      {
+        "id": "components-video-thumbnail--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-video-thumbnail--disabled-status",
+        "name": "Disabled Status",
+        "normalized_name": "disabled-status",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "DisabledStatus"
+      },
+      {
+        "id": "components-video-thumbnail--mp-4-video-tracking",
+        "name": "MP 4 Video Tracking",
+        "normalized_name": "mp-4-video-tracking",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "MP4VideoTracking"
+      },
+      {
+        "id": "components-video-thumbnail--no-embedded-player",
+        "name": "No Embedded Player",
+        "normalized_name": "no-embedded-player",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "NoEmbeddedPlayer"
+      },
+      {
+        "id": "components-video-thumbnail--no-title",
+        "name": "No Title",
+        "normalized_name": "no-title",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "NoTitle"
+      },
+      {
+        "id": "components-video-thumbnail--sanofi-video",
+        "name": "Sanofi Video",
+        "normalized_name": "sanofi-video",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "SanofiVideo"
+      },
+      {
+        "id": "components-video-thumbnail--streaming-video",
+        "name": "Streaming Video",
+        "normalized_name": "streaming-video",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "StreamingVideo"
+      },
+      {
+        "id": "components-video-thumbnail--vimeo-video",
+        "name": "Vimeo Video",
+        "normalized_name": "vimeo-video",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "VimeoVideo"
+      },
+      {
+        "id": "components-video-thumbnail--vimeo-video-tracking",
+        "name": "Vimeo Video Tracking",
+        "normalized_name": "vimeo-video-tracking",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "VimeoVideoTracking"
+      },
+      {
+        "id": "components-video-thumbnail--youtube-video-tracking",
+        "name": "Youtube Video Tracking",
+        "normalized_name": "youtube-video-tracking",
+        "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+        "export_name": "YoutubeVideoTracking"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Callback fired when thumbnail is clicked.((event?: MouseEvent) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables interaction with the thumbnail.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "withEmbeddedPlayer",
+        "required": false,
+        "description": "The video player is embedded or notboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "videoUrl",
+        "required": false,
+        "description": "The video urlstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Explicit dimensions for the thumbnail.Size",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "titleSize",
+        "required": false,
+        "description": "The title sizestring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "The video titleReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "imageUrl",
+        "required": false,
+        "description": "Thumbnail image URL displayed before video plays.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "alt",
+        "required": false,
+        "description": "Alt text for the thumbnail image (accessibility).string",
+        "default": "\"\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "captions",
+        "required": false,
+        "description": "Caption/subtitle file URLs keyed by ISO 639 language code.VideoCaptionUrls",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onLoadedMetadata",
+        "required": false,
+        "description": "Callback fired when video metadata is loaded.ReactEventHandler<HTMLVideoElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isPrivacyEnhancedMode",
+        "required": false,
+        "description": "Uses YouTube's privacy-enhanced mode (youtube-nocookie.com).boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "disabled-status",
+      "mp-4-video-tracking",
+      "no-embedded-player",
+      "no-title",
+      "sanofi-video",
+      "streaming-video",
+      "vimeo-video",
+      "vimeo-video-tracking",
+      "youtube-video-tracking"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "disabled-status",
+      "mp-4-video-tracking",
+      "no-embedded-player",
+      "no-title",
+      "sanofi-video",
+      "streaming-video",
+      "vimeo-video",
+      "vimeo-video-tracking",
+      "youtube-video-tracking"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { VideoThumbnail } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <VideoThumbnail\n    videoUrl={\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\"}\n    imageUrl={\"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\"}\n    title={\"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"}\n    withEmbeddedPlayer={true}\n  />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "video-thumbnail"
+    ],
+    "contracts": [
+      {
+        "id": "video-thumbnail",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/video-thumbnail/demo.registry.json",
+        "known_story_ids": [
+          "components-video-thumbnail--default",
+          "components-video-thumbnail--disabled-status",
+          "components-video-thumbnail--mp-4-video-tracking",
+          "components-video-thumbnail--no-embedded-player",
+          "components-video-thumbnail--no-title",
+          "components-video-thumbnail--sanofi-video",
+          "components-video-thumbnail--streaming-video",
+          "components-video-thumbnail--vimeo-video",
+          "components-video-thumbnail--vimeo-video-tracking",
+          "components-video-thumbnail--youtube-video-tracking",
+          "components-video-thumbnail--default",
+          "components-video-thumbnail--disabled-status",
+          "components-video-thumbnail--mp-4-video-tracking",
+          "components-video-thumbnail--no-embedded-player",
+          "components-video-thumbnail--no-title",
+          "components-video-thumbnail--sanofi-video",
+          "components-video-thumbnail--streaming-video",
+          "components-video-thumbnail--vimeo-video",
+          "components-video-thumbnail--vimeo-video-tracking",
+          "components-video-thumbnail--youtube-video-tracking"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-video-thumbnail--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-video-thumbnail--docs.md",
+    "docs_import_path": "./src/components/VideoThumbnail/VideoThumbnail.mdx",
+    "story_ids": [
+      "components-video-thumbnail--default",
+      "components-video-thumbnail--disabled-status",
+      "components-video-thumbnail--mp-4-video-tracking",
+      "components-video-thumbnail--no-embedded-player",
+      "components-video-thumbnail--no-title",
+      "components-video-thumbnail--sanofi-video",
+      "components-video-thumbnail--streaming-video",
+      "components-video-thumbnail--vimeo-video",
+      "components-video-thumbnail--vimeo-video-tracking",
+      "components-video-thumbnail--youtube-video-tracking"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

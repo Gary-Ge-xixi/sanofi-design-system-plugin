@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-component-coverage-matrix",
+  "output": "design-system-plugin/design-system/atomic/component-coverage-matrix.json",
+  "summary": {
+    "total_components": 95,
+    "total_docs": 95,
+    "total_stories": 425,
+    "completed_components": 93,
+    "unsupported_components": 2,
+    "accounted_components": 95,
+    "remaining_components": 0,
+    "remaining_renderable_components": 0,
+    "unsupported_estimated_hours": 5.6,
+    "estimated_remaining_hours": 0,
+    "estimated_remaining_workdays_single_agent": {
+      "low": 0,
+      "high": 0
+    },
+    "tiers": {
+      "S": {
+        "count": 48,
+        "story_count": 74,
+        "estimated_hours": 134.4,
+        "complete": 46,
+        "unsupported": 2,
+        "remaining": 0
+      },
+      "M": {
+        "count": 29,
+        "story_count": 151,
+        "estimated_hours": 153.7,
+        "complete": 29,
+        "unsupported": 0,
+        "remaining": 0
+      },
+      "L": {
+        "count": 13,
+        "story_count": 120,
+        "estimated_hours": 102.7,
+        "complete": 13,
+        "unsupported": 0,
+        "remaining": 0
+      },
+      "XL": {
+        "count": 5,
+        "story_count": 80,
+        "estimated_hours": 56.5,
+        "complete": 5,
+        "unsupported": 0,
+        "remaining": 0
+      }
+    }
+  }
+}

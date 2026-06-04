@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Drawer",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-drawer--bottom-side",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--custom-content-height",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--custom-drawer-width",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--end-side",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--non-dismissible",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--start-side",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-drawer--top-side",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

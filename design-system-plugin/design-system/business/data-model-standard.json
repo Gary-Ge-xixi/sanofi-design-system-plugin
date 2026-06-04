@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-data-model-standard",
+  "status": "ready",
+  "purpose": "Field and column metadata standard for generated business pages.",
+  "required_field_metadata": [
+    "field_id",
+    "label_zh",
+    "type",
+    "required",
+    "editable",
+    "display_format",
+    "validation",
+    "permission",
+    "source"
+  ],
+  "field_types": [
+    {
+      "type": "text",
+      "required_metadata": ["max_length", "placeholder", "empty_display"]
+    },
+    {
+      "type": "number",
+      "required_metadata": ["min", "max", "precision", "thousands_separator"]
+    },
+    {
+      "type": "quantity",
+      "required_metadata": ["unit", "min", "precision", "editable"]
+    },
+    {
+      "type": "date",
+      "required_metadata": ["format", "timezone_policy"]
+    },
+    {
+      "type": "date-range",
+      "required_metadata": ["start_field", "end_field", "inclusive_policy"]
+    },
+    {
+      "type": "money",
+      "required_metadata": ["currency", "precision", "negative_policy"]
+    },
+    {
+      "type": "status",
+      "required_metadata": ["status_set", "visual_tone", "copy"]
+    },
+    {
+      "type": "permission",
+      "required_metadata": ["role", "scope", "readonly_reason"]
+    },
+    {
+      "type": "action",
+      "required_metadata": ["action_id", "label", "danger_level", "confirmation"]
+    },
+    {
+      "type": "enum",
+      "required_metadata": ["options", "multi_select", "unknown_value_policy"]
+    },
+    {
+      "type": "relation",
+      "required_metadata": ["entity", "display_field", "lookup_policy"]
+    }
+  ],
+  "column_policy": {
+    "identity_columns": ["编码", "名称"],
+    "business_value_columns": ["数量", "金额", "状态", "时间"],
+    "permission_columns": ["角色", "权限范围", "可编辑"],
+    "action_columns": ["操作"],
+    "priority_policy": "Identity, status, numeric value, permission, and action columns must remain visible before low-priority descriptive columns."
+  }
+}

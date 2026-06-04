@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds render",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:08:39.855Z",
+  "prompt": "OneCommercial CDC库存查询填报后台",
+  "expected_profile": "admin-data-entry-table",
+  "resolved_profile": "admin-data-entry-table",
+  "resolution": {
+    "path": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json",
+    "registry_item": "sanofi-admin-query-panel",
+    "pattern_id": "admin-query-panel",
+    "template_id": "onecommercial-admin-query-panel"
+  },
+  "html_output": "design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+  "steps": [
+    {
+      "script": "resolve-pattern",
+      "command": "node design-system-plugin/scripts/resolve-pattern OneCommercial CDC库存查询填报后台",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Pattern resolved: sanofi-admin-query-panel -> admin-query-panel (onecommercial-admin-query-panel)\n",
+      "stderr": ""
+    },
+    {
+      "script": "render-resolved-html",
+      "command": "node design-system-plugin/scripts/render-resolved-html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "HTML rendered: outputs/html/admin-query-panel.resolved.html (onecommercial-admin-query-panel)\n",
+      "stderr": ""
+    }
+  ],
+  "validator_runs": [
+    {
+      "script": "validate-token-usage",
+      "command": "node design-system-plugin/scripts/validate-token-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Token usage OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-primitive-usage",
+      "command": "node design-system-plugin/scripts/validate-primitive-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Primitive usage OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-page-pattern",
+      "command": "node design-system-plugin/scripts/validate-page-pattern /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Page pattern OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-layout-rule-usage",
+      "command": "node design-system-plugin/scripts/validate-layout-rule-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Layout rule OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-typography-rule-usage",
+      "command": "node design-system-plugin/scripts/validate-typography-rule-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Typography rule OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-admin-template-navigation",
+      "command": "node design-system-plugin/scripts/validate-admin-template-navigation /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Admin template navigation OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-admin-query-panel-template",
+      "command": "node design-system-plugin/scripts/validate-admin-query-panel-template /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Admin query panel template OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-admin-page-profile",
+      "command": "node design-system-plugin/scripts/validate-admin-page-profile /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Admin page profile OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-reference-fit",
+      "command": "node design-system-plugin/scripts/validate-reference-fit /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Reference fit OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-provenance",
+      "command": "node design-system-plugin/scripts/validate-provenance /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Provenance OK: outputs/html/admin-query-panel.resolved.html\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-pattern-resolver",
+      "command": "node design-system-plugin/scripts/validate-pattern-resolver",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Pattern resolver OK: admin-query-panel (onecommercial-admin-query-panel)\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate-local-registry",
+      "command": "node design-system-plugin/scripts/validate-local-registry",
+      "status": "pass",
+      "status_code": 0,
+      "stdout": "Local registry OK: 620 items, 97 dependencies, 2892 local paths\n",
+      "stderr": ""
+    }
+  ],
+  "screenshot": {
+    "status": "pass",
+    "output": "design-system-plugin/outputs/reports/admin-query-panel.resolved-desktop-1440.png",
+    "status_code": 0,
+    "stdout": "",
+    "stderr": "107823 bytes written to file /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/reports/admin-query-panel.resolved-desktop-1440.png\n"
+  },
+  "failures": []
+}

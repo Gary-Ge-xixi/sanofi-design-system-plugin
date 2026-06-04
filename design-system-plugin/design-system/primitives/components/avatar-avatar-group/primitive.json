@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Avatar/AvatarGroup",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Avatar/AvatarGroup",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "avatar-avatar-group",
+      "data_attribute": "data-primitive=\"avatar-avatar-group\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-avatar-avatargroup--avatar-group-two-items",
+      "components-avatar-avatargroup--avatar-group-with-counter",
+      "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "components-avatar-avatargroup--avatar-group-without-counter"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

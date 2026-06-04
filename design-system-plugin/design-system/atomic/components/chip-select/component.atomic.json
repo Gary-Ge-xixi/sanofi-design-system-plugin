@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-select",
+  "component_name": "ChipSelect",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-chipselect--default",
+      "story_name": "Default",
+      "component_id": "chip-select",
+      "component_name": "ChipSelect",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/stories/components-chipselect--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-select/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-select-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+      "docs_id": "components-chipselect--docs",
+      "registry_item": "sanofi-chip-select-default-atomic-story"
+    },
+    {
+      "story_id": "components-chipselect--long-label",
+      "story_name": "Long Label",
+      "component_id": "chip-select",
+      "component_name": "ChipSelect",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/stories/components-chipselect--long-label.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-select/templates/html.long-label.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-select-long-label.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+      "docs_id": "components-chipselect--docs",
+      "registry_item": "sanofi-chip-select-long-label-atomic-story"
+    },
+    {
+      "story_id": "components-chipselect--style-variations",
+      "story_name": "Style Variations",
+      "component_id": "chip-select",
+      "component_name": "ChipSelect",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/stories/components-chipselect--style-variations.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-select/templates/html.style-variations.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-select-style-variations.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+      "docs_id": "components-chipselect--docs",
+      "registry_item": "sanofi-chip-select-style-variations-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chip-select--docs"
+  }
+}

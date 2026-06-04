@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-navigationheader--with-auto-overflow",
+  "component_id": "navigation-header",
+  "component_name": "NavigationHeader",
+  "story_id": "components-navigationheader--with-auto-overflow",
+  "story_name": "With Auto Overflow",
+  "export_name": "WithAutoOverflow",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-navigationheader--with-auto-overflow&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-navigationheader--with-auto-overflow&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/NavigationHeader.stories-ktjXC91P.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header/assets/NavigationHeader.stories-ktjXC91P.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/navigation-header/assets/components-navigationheader--with-auto-overflow.iframe.html",
+    "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{logoWidth:100}",
+    "values": {
+      "logoWidth": 100
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mobileMenuIcon:{control:\"object\"},sticky:{control:\"boolean\"},mobileMenuFitContent:{control:\"boolean\"},contained:{control:\"boolean\"},fullWidth:{control:\"boolean\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoWidth:{control:{type:\"range\",min:50,max:500,step:1}},megaMenuTriggerMode:{options:Object.keys(V),mapping:V,control:{type:\"select\"}},burgerMd:{control:\"boolean\"},isBackgroundBranded:{control:\"boolean\"}}",
+    "fields": [
+      "mobileMenuIcon",
+      "sticky",
+      "mobileMenuFitContent",
+      "contained",
+      "fullWidth",
+      "logoSrc",
+      "logoWidth",
+      "megaMenuTriggerMode",
+      "burgerMd",
+      "isBackgroundBranded"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    logoWidth: 100\n  },\n  render: function Render({\n    logoWidth,\n    ...rest\n  }) {\n    const sanofiLogo = useGetSanofiLogo(rest.isBackgroundBranded);\n    return <>\n        <Toast />\n        <NavigationHeader.Root logo={<img src={sanofiLogo} style={{\n        width: \\`\\${logoWidth}px\\`\n      }} alt=\"Logo\" />} isBackgroundBranded={rest.isBackgroundBranded} mobileMenuIcon={<ButtonIcon icon={IconName.MENU} size={ButtonSize.SMALL} variant={ButtonVariant.TERTIARY} inverse={rest.isBackgroundBranded} />} {...rest}>\n          <NavigationHeader.StartContent enableAutoOverflow>\n            <NavigationHeader.Item>\n              <Menu openOnHover>\n                <Menu.Trigger>\n                  <NavigationHeader.Action>\n                    Products <Menu.Item.Icon name={IconName.EXPAND_MORE} />\n                  </NavigationHeader.Action>\n                </Menu.Trigger>\n                <Menu.Dropdown>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Product 1\")}>\n                    Product 1\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Product 2\")}>\n                    Product 2\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Product 3\")}>\n                    Product 3\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Product 4\")}>\n                    Product 4\n                  </Menu.Item>\n                </Menu.Dropdown>\n              </Menu>\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <Menu openOnHover>\n                <Menu.Trigger>\n                  <NavigationHeader.Action>\n                    Solutions <Menu.Item.Icon name={IconName.EXPAND_MORE} />\n                  </NavigationHeader.Action>\n                </Menu.Trigger>\n                <Menu.Dropdown>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Solution 1\")}>\n                    Solution 1\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Solution 2\")}>\n                    Solution 2\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Solution 3\")}>\n                    Solution 3\n                  </Menu.Item>\n                </Menu.Dropdown>\n              </Menu>\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <Menu openOnHover>\n                <Menu.Trigger>\n                  <NavigationHeader.Action>\n                    Resources <Menu.Item.Icon name={IconName.EXPAND_MORE} />\n                  </NavigationHeader.Action>\n                </Menu.Trigger>\n                <Menu.Dropdown>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Documentation\")}>\n                    Documentation\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Blog\")}>\n                    Blog\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Community\")}>\n                    Community\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Support\")}>\n                    Support\n                  </Menu.Item>\n                </Menu.Dropdown>\n              </Menu>\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <Menu openOnHover>\n                <Menu.Trigger>\n                  <NavigationHeader.Action>\n                    Company <Menu.Item.Icon name={IconName.EXPAND_MORE} />\n                  </NavigationHeader.Action>\n                </Menu.Trigger>\n                <Menu.Dropdown>\n                  <Menu.Item onClick={() => notifyItemClicked(\"About Us\")}>\n                    About Us\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Careers\")}>\n                    Careers\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Contact\")}>\n                    Contact\n                  </Menu.Item>\n                </Menu.Dropdown>\n              </Menu>\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <Menu openOnHover>\n                <Menu.Trigger>\n                  <NavigationHeader.Action>\n                    Pricing <Menu.Item.Icon name={IconName.EXPAND_MORE} />\n                  </NavigationHeader.Action>\n                </Menu.Trigger>\n                <Menu.Dropdown>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Plans\")}>\n                    Plans\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Enterprise\")}>\n                    Enterprise\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"FAQ\")}>\n                    FAQ\n                  </Menu.Item>\n                </Menu.Dropdown>\n              </Menu>\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <Menu openOnHover>\n                <Menu.Trigger>\n                  <NavigationHeader.Action onClick={() => notifyItemClicked(\"Partners\")}>\n                    Partners <Menu.Item.Icon name={IconName.EXPAND_MORE} />\n                  </NavigationHeader.Action>\n                </Menu.Trigger>\n                <Menu.Dropdown>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Find a Partner\")}>\n                    Find a Partner\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Become a Partner\")}>\n                    Become a Partner\n                  </Menu.Item>\n                  <Menu.Item onClick={() => notifyItemClicked(\"Partner Portal\")}>\n                    Partner Portal\n                  </Menu.Item>\n                </Menu.Dropdown>\n              </Menu>\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <NavigationHeader.Action onClick={() => notifyItemClicked(\"About\")}>\n                About\n              </NavigationHeader.Action>\n            </NavigationHeader.Item>\n          </NavigationHeader.StartContent>\n          <NavigationHeader.EndContent>\n            <NavigationHeader.Item>\n              <ButtonIcon icon={IconName.SEARCH} variant={ButtonVariant.TERTIARY} inverse={rest.isBackgroundBranded} />\n            </NavigationHeader.Item>\n            <NavigationHeader.Item>\n              <Button label=\"Get Started\" variant={ButtonVariant.PRIMARY} inverse={rest.isBackgroundBranded} />\n            </NavigationHeader.Item>\n          </NavigationHeader.EndContent>\n          <NavigationHeader.QuickAction>\n            <ButtonIcon icon={IconName.SEARCH} size={ButtonSize.SMALL} inverse={!rest.isBackgroundBranded} />\n          </NavigationHeader.QuickAction>\n        </NavigationHeader.Root>\n      </>;\n  }\n}",
+    "story_object_source": "{args:{logoWidth:100},render:function({logoWidth:i,...o}){const a=j(o.isBackgroundBranded);return e.jsxs(e.Fragment,{children:[e.jsx(Q,{}),e.jsxs(t.Root,{logo:e.jsx(\"img\",{src:a,style:{width:`${i}px`},alt:\"Logo\"}),isBackgroundBranded:o.isBackgroundBranded,mobileMenuIcon:e.jsx(u,{icon:s.MENU,size:I.SMALL,variant:m.TERTIARY,inverse:o.isBackgroundBranded}),...o,children:[e.jsxs(t.StartContent,{enableAutoOverflow:!0,children:[e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Products \",e.jsx(n.Item.Icon,{name:s.EXPAND_MORE})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{onClick:()=>l(\"Product 1\"),children:\"Product 1\"}),e.jsx(n.Item,{onClick:()=>l(\"Product 2\"),children:\"Product 2\"}),e.jsx(n.Item,{onClick:()=>l(\"Product 3\"),children:\"Product 3\"}),e.jsx(n.Item,{onClick:()=>l(\"Product 4\"),children:\"Product 4\"})]})]})}),e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Solutions \",e.jsx(n.Item.Icon,{name:s.EXPAND_MORE})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{onClick:()=>l(\"Solution 1\"),children:\"Solution 1\"}),e.jsx(n.Item,{onClick:()=>l(\"Solution 2\"),children:\"Solution 2\"}),e.jsx(n.Item,{onClick:()=>l(\"Solution 3\"),children:\"Solution 3\"})]})]})}),e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Resources \",e.jsx(n.Item.Icon,{name:s.EXPAND_MORE})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{onClick:()=>l(\"Documentation\"),children:\"Documentation\"}),e.jsx(n.Item,{onClick:()=>l(\"Blog\"),children:\"Blog\"}),e.jsx(n.Item,{onClick:()=>l(\"Community\"),children:\"Community\"}),e.jsx(n.Item,{onClick:()=>l(\"Support\"),children:\"Support\"})]})]})}),e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Company \",e.jsx(n.Item.Icon,{name:s.EXPAND_MORE})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{onClick:()=>l(\"About Us\"),children:\"About Us\"}),e.jsx(n.Item,{onClick:()=>l(\"Careers\"),children:\"Careers\"}),e.jsx(n.Item,{onClick:()=>l(\"Contact\"),children:\"Contact\"})]})]})}),e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Pricing \",e.jsx(n.Item.Icon,{name:s.EXPAND_MORE})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{onClick:()=>l(\"Plans\"),children:\"Plans\"}),e.jsx(n.Item,{onClick:()=>l(\"Enterprise\"),children:\"Enterprise\"}),e.jsx(n.Item,{onClick:()=>l(\"FAQ\"),children:\"FAQ\"})]})]})}),e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{onClick:()=>l(\"Partners\"),children:[\"Partners \",e.jsx(n.Item.Icon,{name:s.EXPAND_MORE})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{onClick:()=>l(\"Find a Partner\"),children:\"Find a Partner\"}),e.jsx(n.Item,{onClick:()=>l(\"Become a Partner\"),children:\"Become a Partner\"}),e.jsx(n.Item,{onClick:()=>l(\"Partner Portal\"),children:\"Partner Portal\"})]})]})}),e.jsx(t.Item,{children:e.jsx(t.Action,{onClick:()=>l(\"About\"),children:\"About\"})})]}),e.jsxs(t.EndContent,{children:[e.jsx(t.Item,{children:e.jsx(u,{icon:s.SEARCH,variant:m.TERTIARY,inverse:o.isBackgroundBranded})}),e.jsx(t.Item,{children:e.jsx(b,{label:\"Get Started\",variant:m.PRIMARY,inverse:o.isBackgroundBranded})})]}),e.jsx(t.QuickAction,{children:e.jsx(u,{icon:s.SEARCH,size:I.SMALL,inverse:!o.isBackgroundBranded})})]})]})}}"
+  },
+  "template": {
+    "id": "navigation-header-with-auto-overflow-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/navigation-header/templates/html.with-auto-overflow.template.html",
+    "output_path": "design-system-plugin/outputs/html/navigation-header-with-auto-overflow.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "navigation-header",
+    "local_path": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader--docs",
+    "story_id": "components-navigationheader--with-auto-overflow",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/navigation-header/assets/NavigationHeader.stories-ktjXC91P.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/navigation-header/assets/components-navigationheader--with-auto-overflow.iframe.html"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer-footer-social-link-docs-contract",
+  "component_id": "footer-footer-social-link",
+  "component_name": "Footer/FooterSocialLink",
+  "docs_id": "components-footer-footersociallink--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-footersociallink--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "ariaLabel",
+        "required": false,
+        "description": "Accessible label when link text is not descriptive enough.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the link text and icon.\"small\"\"medium\"\"large\"",
+        "default": "\"LinkSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the link interaction.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-footersociallink--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-footer-footersociallink--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/FooterSocialLink.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-footersociallink--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json"
+  }
+}

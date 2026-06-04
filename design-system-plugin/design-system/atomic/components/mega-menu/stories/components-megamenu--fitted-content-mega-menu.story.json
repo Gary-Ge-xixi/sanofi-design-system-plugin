@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-megamenu--fitted-content-mega-menu",
+  "component_id": "mega-menu",
+  "component_name": "MegaMenu",
+  "story_id": "components-megamenu--fitted-content-mega-menu",
+  "story_name": "Fitted Content Mega Menu",
+  "export_name": "FittedContentMegaMenu",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-megamenu--fitted-content-mega-menu&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-megamenu--fitted-content-mega-menu&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/MegaMenu.stories-AOtR0ynp.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/components-megamenu--fitted-content-mega-menu.iframe.html",
+    "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mobileMenuIcon:{control:\"object\"},sticky:{control:\"boolean\"},mobileMenuFitContent:{control:\"boolean\"},contained:{control:\"boolean\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoWidth:{control:{type:\"range\",min:50,max:500,step:1}},triggerMode:{options:Object.keys(j),mapping:j,control:{type:\"select\"}}}",
+    "fields": [
+      "mobileMenuIcon",
+      "sticky",
+      "mobileMenuFitContent",
+      "contained",
+      "logoSrc",
+      "logoWidth",
+      "triggerMode"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  parameters: {\n    viewport: {\n      defaultViewport: \"iphone6\"\n    }\n  },\n  render: () => {\n    const sanofiLogo = useGetSanofiLogo();\n    return <NavigationHeader.Root sticky={false} logo={<Image src={sanofiLogo} alt=\"Sanofi company logo\" />} style={{\n      width: \"100%\",\n      position: \"fixed\",\n      top: 0,\n      left: 0\n    }} mobileMenuIcon={<MegaMenu.Trigger menuContent={<MyCustomMegaMenu3 />} hasActiveShadow={false}>\n            <ButtonIcon icon={IconName.MENU} size={ButtonSize.SMALL} variant={ButtonVariant.TERTIARY} data-testid=\"button\" />\n          </MegaMenu.Trigger>} mobileMenuFitContent={true}>\n        <NavigationHeader.StartContent>\n          <NavigationHeader.Item>\n            <MegaMenu.Trigger menuContent={<MyCustomMegaMenu3 />}>\n              <NavigationHeader.Action data-testid=\"item1\">\n                Nav Item\n              </NavigationHeader.Action>\n            </MegaMenu.Trigger>\n          </NavigationHeader.Item>\n          <NavigationHeader.Item>\n            <MegaMenu.Trigger>\n              <NavigationHeader.Action data-testid=\"item2\">\n                Nav Item\n              </NavigationHeader.Action>\n            </MegaMenu.Trigger>\n          </NavigationHeader.Item>\n        </NavigationHeader.StartContent>\n        <NavigationHeader.QuickAction>\n          <ButtonIcon icon={IconName.SEARCH} size={ButtonSize.SMALL} inverse />\n        </NavigationHeader.QuickAction>\n      </NavigationHeader.Root>;\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await playScenario(canvas);\n  }\n}",
+    "story_object_source": "{parameters:{viewport:{defaultViewport:\"iphone6\"}},render:()=>{const a=M();return e.jsxs(i.Root,{sticky:!1,logo:e.jsx(h,{src:a,alt:\"Sanofi company logo\"}),style:{width:\"100%\",position:\"fixed\",top:0,left:0},mobileMenuIcon:e.jsx(t.Trigger,{menuContent:e.jsx(A,{}),hasActiveShadow:!1,children:e.jsx(d,{icon:r.MENU,size:c.SMALL,variant:s.TERTIARY,\"data-testid\":\"button\"})}),mobileMenuFitContent:!0,children:[e.jsxs(i.StartContent,{children:[e.jsx(i.Item,{children:e.jsx(t.Trigger,{menuContent:e.jsx(A,{}),children:e.jsx(i.Action,{\"data-testid\":\"item1\",children:\"Nav Item\"})})}),e.jsx(i.Item,{children:e.jsx(t.Trigger,{children:e.jsx(i.Action,{\"data-testid\":\"item2\",children:\"Nav Item\"})})})]}),e.jsx(i.QuickAction,{children:e.jsx(d,{icon:r.SEARCH,size:c.SMALL,inverse:!0})})]})},play:async({canvasElement:a})=>{const o=v(a);await I(o)}}"
+  },
+  "template": {
+    "id": "mega-menu-fitted-content-mega-menu-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/mega-menu/templates/html.fitted-content-mega-menu.template.html",
+    "output_path": "design-system-plugin/outputs/html/mega-menu-fitted-content-mega-menu.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "mega-menu",
+    "local_path": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu--docs",
+    "story_id": "components-megamenu--fitted-content-mega-menu",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/mega-menu/assets/components-megamenu--fitted-content-mega-menu.iframe.html"
+  }
+}

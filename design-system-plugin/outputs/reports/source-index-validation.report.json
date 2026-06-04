@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-source-index",
+  "checked": {
+    "indexed_paths": 70,
+    "missing_paths": 0,
+    "component_records": 95
+  },
+  "failures": [],
+  "details": {
+    "missing_paths": []
+  }
+}

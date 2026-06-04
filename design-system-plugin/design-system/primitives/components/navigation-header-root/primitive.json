@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "NavigationHeader.Root",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/NavigationHeader.Root",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-root.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "navigation-header-root",
+      "data_attribute": "data-primitive=\"navigation-header-root\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-navigationheader-root--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-root--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-root.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

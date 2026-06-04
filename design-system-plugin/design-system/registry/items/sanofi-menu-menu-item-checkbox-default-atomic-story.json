@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-menu-item-checkbox-default-atomic-story",
+  "title": "Menu/MenuItemCheckbox Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-menu-menuitemcheckbox--default.",
+  "atomic_story_id": "components-menu-menuitemcheckbox--default",
+  "component_id": "menu-menu-item-checkbox",
+  "docs_id": "components-menu-menuitemcheckbox--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu-menu-item-checkbox"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/stories/components-menu-menuitemcheckbox--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/stories/components-menu-menuitemcheckbox--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/MenuItemCheckbox.stories-B36Rt0Sk.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/MenuItemCheckbox.stories-B36Rt0Sk.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/components-menu-menuitemcheckbox--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/components-menu-menuitemcheckbox--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "story_id": "components-menu-menuitemcheckbox--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/stories/components-menu-menuitemcheckbox--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu-menuitemcheckbox--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu-menuitemcheckbox--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/MenuItemCheckbox.stories-B36Rt0Sk.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/MenuItemCheckbox.stories-B36Rt0Sk.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-menu-item-checkbox",
+      "Menu/MenuItemCheckbox",
+      "Default",
+      "components-menu-menuitemcheckbox--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Menu/MenuItemCheckbox Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Button",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/Button",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "button",
+      "data_attribute": "data-primitive=\"button\"",
+      "required_semantics": [
+        "button element for actions",
+        "anchor element only for navigation"
+      ],
+      "supported_variants": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "primary-neutral",
+        "secondary-neutral",
+        "tertiary-neutral",
+        "destructive"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-button--primary",
+      "components-button--primary-neutral",
+      "components-button--overview",
+      "components-button--overview-inverse",
+      "components-button--default",
+      "components-button--secondary",
+      "components-button--secondary-neutral",
+      "components-button--tertiary",
+      "components-button--tertiary-neutral",
+      "components-button--primary-destruct",
+      "components-button--secondary-destruct",
+      "components-button--tertiary-destruct",
+      "components-button--button-link"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

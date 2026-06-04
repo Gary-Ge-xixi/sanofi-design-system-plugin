@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-icon-complete-package",
+  "title": "Icon complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Icon package covering Docs plus all Storybook story atoms.",
+  "component_id": "icon",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-icon"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/icon.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/icon/icon.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/icon.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/icon/icon.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/docs/icon.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/icon/docs/icon.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/icon/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/icon-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/icon-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/icon.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/icon/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-icon--custom-icon",
+      "story_name": "Custom Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-icon-custom-icon-atomic-story"
+    },
+    {
+      "story_id": "components-icon--fallback-icons",
+      "story_name": "Fallback Icons",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-icon-fallback-icons-atomic-story"
+    },
+    {
+      "story_id": "components-icon--gallery",
+      "story_name": "Gallery",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-icon-gallery-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/icon/icon.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/icon/docs/icon.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "icon",
+      "Icon",
+      "icon complete",
+      "Icon complete package",
+      "icon docs"
+    ],
+    "when_to_use": "Use first for any Icon generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Icon behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

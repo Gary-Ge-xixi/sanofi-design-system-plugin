@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Hero",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-hero--content-after-hero",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--full-screen",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--full-screen-with-navigation-header",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--full-screen-with-video",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--justify-center",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--justify-end",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--overlay-black-style",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--overlay-white-style",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--responsive-images-with-picture",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--variant-compact",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--variant-dynamic",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--with-video",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-hero--with-video-hls",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

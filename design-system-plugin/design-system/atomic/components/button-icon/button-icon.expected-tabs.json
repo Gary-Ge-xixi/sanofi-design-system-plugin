@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "button-icon",
+  "component_name": "ButtonIcon",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ButtonIcon"
+  },
+  "docs": [
+    {
+      "id": "components-buttonicon--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-buttonicon--primary",
+      "name": "Primary",
+      "export_name": "Primary",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--primary-destruct",
+      "name": "Primary Destruct",
+      "export_name": "PrimaryDestruct",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--primary-neutral",
+      "name": "Primary Neutral",
+      "export_name": "PrimaryNeutral",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--secondary",
+      "name": "Secondary",
+      "export_name": "Secondary",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--secondary-destruct",
+      "name": "Secondary Destruct",
+      "export_name": "SecondaryDestruct",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--secondary-neutral",
+      "name": "Secondary Neutral",
+      "export_name": "SecondaryNeutral",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--tertiary",
+      "name": "Tertiary",
+      "export_name": "Tertiary",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--tertiary-destruct",
+      "name": "Tertiary Destruct",
+      "export_name": "TertiaryDestruct",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    },
+    {
+      "id": "components-buttonicon--tertiary-neutral",
+      "name": "Tertiary Neutral",
+      "export_name": "TertiaryNeutral",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx"
+    }
+  ]
+}

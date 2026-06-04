@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "id": "cascading-menu-item-docs-contract",
+  "component_id": "cascading-menu-item",
+  "component_name": "CascadingMenu/Item",
+  "docs_id": "components-cascadingmenu-item--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-cascadingmenu-item--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu-item--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label for a CascadingMenu itemReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Render as another componentElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Content of the menu-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-cascadingmenu-item--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-cascadingmenu-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/CascadingMenu/Item/Item.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu-item--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu-item.contract.json"
+  }
+}

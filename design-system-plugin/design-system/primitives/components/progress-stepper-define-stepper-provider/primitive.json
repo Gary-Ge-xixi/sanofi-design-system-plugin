@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ProgressStepper/defineStepper Provider",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/ProgressStepper/defineStepper Provider",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-define-stepper-provider.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "progress-stepper-define-stepper-provider",
+      "data_attribute": "data-primitive=\"progress-stepper-define-stepper-provider\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": []
+  },
+  "source_provenance": {
+    "docs_id": "components-progressstepper-definestepper-provider--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-define-stepper-provider.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

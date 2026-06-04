@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "id": "checkbox-checkbox-group-docs-contract",
+  "component_id": "checkbox-checkbox-group",
+  "component_name": "Checkbox/CheckboxGroup",
+  "docs_id": "components-checkbox-checkboxgroup--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-checkbox-checkboxgroup--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-checkbox-checkboxgroup--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Group title displayed above the options.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "caption",
+        "required": false,
+        "description": "Helper text displayed below the title.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "error",
+        "required": false,
+        "description": "Error message displayed when validation fails.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Checkbox components to render in the group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "orientation",
+        "required": false,
+        "description": "Layout direction of the checkbox options.\"horizontal\"\"vertical\"",
+        "default": "\"Orientation.VERTICAL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checkboxesSize",
+        "required": false,
+        "description": "Size applied to all Checkbox children.\"small\"\"medium\"\"large\"",
+        "default": "\"CheckboxSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checkboxesColor",
+        "required": false,
+        "description": "Color applied to all Checkbox children.\"neutral\"\"branded\"",
+        "default": "\"CheckboxColor.BRANDED\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-checkbox-checkboxgroup--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { CheckboxGroup, Checkbox, Orientation } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <CheckboxGroup\n    title=\"Checkbox Group Title\"\n    caption=\"Optional Caption\"\n    orientation={Orientation.VERTICAL}\n    error=\"Optional Error Message\"\n  >\n    <Checkbox label=\"Checkbox A\" value=\"1' />\n    <Checkbox label=\"Checkbox B\" value=\"2' />\n    <Checkbox label=\"Checkbox C\" value=\"3' />\n    <Checkbox label=\"Checkbox D\" value=\"4' />\n    <Checkbox label=\"Checkbox E\" value=\"5' />\n    <Checkbox label=\"Checkbox F\" value=\"6' />\n  </CheckboxGroup>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-checkbox-checkboxgroup--horizontal",
+      "name": "Horizontal",
+      "export_name": "Horizontal",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    },
+    {
+      "id": "components-checkbox-checkboxgroup--neutral-color",
+      "name": "Neutral Color",
+      "export_name": "NeutralColor",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    },
+    {
+      "id": "components-checkbox-checkboxgroup--small-size",
+      "name": "Small Size",
+      "export_name": "SmallSize",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    },
+    {
+      "id": "components-checkbox-checkboxgroup--vertical",
+      "name": "Vertical",
+      "export_name": "Vertical",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox-checkboxgroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-checkbox-checkboxgroup--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json"
+  }
+}

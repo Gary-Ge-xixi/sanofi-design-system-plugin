@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.1.0",
+  "id": "navigation-header-start-content",
+  "canonical_name": "navigation-header-start-content",
+  "component_name": "NavigationHeader.StartContent",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-navigationheader-startcontent--docs",
+    "title": "NavigationHeader.StartContent",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-startcontent--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-startcontent--docs",
+    "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-navigationheader-startcontent--custom-overflow-label",
+      "components-navigationheader-startcontent--default",
+      "components-navigationheader-startcontent--with-auto-overflow"
+    ],
+    "records": [
+      {
+        "id": "components-navigationheader-startcontent--custom-overflow-label",
+        "name": "Custom Overflow Label",
+        "normalized_name": "custom-overflow-label",
+        "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx",
+        "export_name": "CustomOverflowLabel"
+      },
+      {
+        "id": "components-navigationheader-startcontent--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-navigationheader-startcontent--with-auto-overflow",
+        "name": "With Auto Overflow",
+        "normalized_name": "with-auto-overflow",
+        "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx",
+        "export_name": "WithAutoOverflow"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "overflowLabel",
+        "required": false,
+        "description": "Label for the 'More' overflow button (only used when enableAutoOverflow is true)string",
+        "default": "\"More\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "overflowAriaLabel",
+        "required": false,
+        "description": "Accessible label for the 'More' overflow button (only used when enableAutoOverflow is true)string",
+        "default": "\"Show more items\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "enableAutoOverflow",
+        "required": false,
+        "description": "Enable automatic overflow handling with a 'More' button. When enabled, items that don't fit will be moved to a dropdown menu.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "custom-overflow-label",
+      "default",
+      "with-auto-overflow"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "custom-overflow-label",
+      "default",
+      "with-auto-overflow"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "navigation-header-start-content"
+    ],
+    "contracts": [
+      {
+        "id": "navigation-header-start-content",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/demo.registry.json",
+        "known_story_ids": [
+          "components-navigationheader-startcontent--custom-overflow-label",
+          "components-navigationheader-startcontent--default",
+          "components-navigationheader-startcontent--with-auto-overflow",
+          "components-navigationheader-startcontent--custom-overflow-label",
+          "components-navigationheader-startcontent--default",
+          "components-navigationheader-startcontent--with-auto-overflow"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-startcontent--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-startcontent--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-startcontent--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx",
+    "story_ids": [
+      "components-navigationheader-startcontent--custom-overflow-label",
+      "components-navigationheader-startcontent--default",
+      "components-navigationheader-startcontent--with-auto-overflow"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

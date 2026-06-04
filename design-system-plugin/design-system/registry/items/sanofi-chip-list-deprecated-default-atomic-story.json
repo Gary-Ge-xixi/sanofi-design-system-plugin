@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-list-deprecated-default-atomic-story",
+  "title": "ChipList (Deprecated) Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-chiplist-deprecated--default.",
+  "atomic_story_id": "components-chiplist-deprecated--default",
+  "component_id": "chip-list-deprecated",
+  "docs_id": "components-chiplist-deprecated--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-list-deprecated"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/stories/components-chiplist-deprecated--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/stories/components-chiplist-deprecated--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/ChipList.stories-BdfXsrfi.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/ChipList.stories-BdfXsrfi.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/components-chiplist-deprecated--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/components-chiplist-deprecated--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chiplist-deprecated--docs",
+    "story_id": "components-chiplist-deprecated--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/stories/components-chiplist-deprecated--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chiplist-deprecated--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chiplist-deprecated--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipList.stories-BdfXsrfi.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/ChipList.stories-BdfXsrfi.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-list-deprecated",
+      "ChipList (Deprecated)",
+      "Default",
+      "components-chiplist-deprecated--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ChipList (Deprecated) Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

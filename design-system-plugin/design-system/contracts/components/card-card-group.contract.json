@@ -1,0 +1,145 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-card-group",
+  "canonical_name": "card-card-group",
+  "component_name": "Card/CardGroup",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-card-cardgroup--docs",
+    "title": "Card/CardGroup",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-cardgroup--docs",
+    "import_path": "./src/components/CardGroup/CardGroup.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 2,
+    "story_ids": [
+      "components-card-cardgroup--card-grids-group",
+      "components-card-cardgroup--card-grids-group-picto"
+    ],
+    "records": [
+      {
+        "id": "components-card-cardgroup--card-grids-group",
+        "name": "Card Grids Group",
+        "normalized_name": "card-grids-group",
+        "import_path": "./src/components/CardGroup/CardGroup.stories.tsx",
+        "export_name": "CardGridsGroup"
+      },
+      {
+        "id": "components-card-cardgroup--card-grids-group-picto",
+        "name": "Card Grids Group Picto",
+        "normalized_name": "card-grids-group-picto",
+        "import_path": "./src/components/CardGroup/CardGroup.stories.tsx",
+        "export_name": "CardGridsGroupPicto"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Card components to display in group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "gapless",
+        "required": false,
+        "description": "Removes gaps between cards for edge-to-edge layout.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "card-grids-group",
+      "card-grids-group-picto"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "card-grids-group",
+      "card-grids-group-picto"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "card-card-group"
+    ],
+    "contracts": [
+      {
+        "id": "card-card-group",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/card-card-group/demo.registry.json",
+        "known_story_ids": [
+          "components-card-cardgroup--card-grids-group",
+          "components-card-cardgroup--card-grids-group-picto",
+          "components-card-cardgroup--card-grids-group",
+          "components-card-cardgroup--card-grids-group-picto"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-cardgroup--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-card-cardgroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md",
+    "docs_import_path": "./src/components/CardGroup/CardGroup.stories.tsx",
+    "story_ids": [
+      "components-card-cardgroup--card-grids-group",
+      "components-card-cardgroup--card-grids-group-picto"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

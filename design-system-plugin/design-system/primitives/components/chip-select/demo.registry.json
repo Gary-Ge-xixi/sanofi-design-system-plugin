@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ChipSelect",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-chipselect--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipselect--long-label",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipselect--style-variations",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

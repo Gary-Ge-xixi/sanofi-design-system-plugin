@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "theme-provider",
+  "component_name": "ThemeProvider",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ThemeProvider"
+  },
+  "docs": [
+    {
+      "id": "components-themeprovider--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/ThemeProvider/ThemeProvider.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-themeprovider--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/ThemeProvider/ThemeProvider.stories.tsx"
+    }
+  ]
+}

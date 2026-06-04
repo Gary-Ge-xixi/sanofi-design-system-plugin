@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-chipdropdown--with-chip-status-inherit",
+  "component_id": "chip-dropdown",
+  "component_name": "ChipDropdown",
+  "story_id": "components-chipdropdown--with-chip-status-inherit",
+  "story_name": "With Chip Status Inherit",
+  "export_name": "WithChipStatusInherit",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chipdropdown--with-chip-status-inherit&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chipdropdown--with-chip-status-inherit&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipDropdown.stories-Byl21KXR.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/ChipDropdown.stories-Byl21KXR.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/components-chipdropdown--with-chip-status-inherit.iframe.html",
+    "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx",
+    "component_path": "./src/components/ChipDropdown/ChipDropdown.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...m.args,items:E,mode:x.INHERIT}",
+    "values": {
+      "render": {
+        "extraction_status": "raw_expression",
+        "value": "P"
+      },
+      "args": {
+        "extraction_status": "raw_expression",
+        "value": "{children:\"Select Options\",items:Q,selectedItems:[],multiSelect:!1,disabled:!1,size:C.MEDIUM,emphasis:u.STRONG,color:n.BRANDED,brandTheme:G.primary,placeholder:\"Select an option...\",showChevron:!0,maxItemsVisible:6,respectTriggerWidth:!1}"
+      },
+      "items": {
+        "extraction_status": "raw_expression",
+        "value": "E"
+      },
+      "mode": "inherit"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:{description:\"The content to display inside the chip trigger\",control:\"text\"},items:{description:\"Array of dropdown items\",control:\"object\"},selectedItems:{description:\"Currently selected item IDs\",control:\"object\"},multiSelect:{description:\"Whether multiple selection is allowed\",control:\"boolean\"},disabled:{description:\"Whether the chip is disabled\",control:\"boolean\"},size:{description:\"Size variant of the chip\",control:\"radio\",options:[C.SMALL,C.MEDIUM]},emphasis:{description:\"Visual emphasis of the chip\",control:\"radio\",options:[u.SUBTLE,u.STRONG,u.OUTLINE]},color:{description:\"Color variant of the chip\",control:\"radio\",options:Object.values(n)},mode:{description:\"Inherit: trigger color follows selected item status (single-select). Controlled: consumer manages trigger color.\",control:\"radio\",options:Object.values(x)},brandTheme:{description:\"Brand theme variant\",control:\"radio\",options:[G.primary,G.secondary,G.tertiary]},placeholder:{description:\"Placeholder text when no items are selected\",control:\"text\"},showChevron:{description:\"Whether to show chevron icon\",control:\"boolean\"},maxItemsVisible:{description:\"Maximum number of items visible in dropdown\",control:\"number\"},respectTriggerWidth:{description:\"Whether dropdown should respect trigger width\",control:\"boolean\"}}",
+    "fields": [
+      "children",
+      "items",
+      "selectedItems",
+      "multiSelect",
+      "disabled",
+      "size",
+      "emphasis",
+      "color",
+      "mode",
+      "brandTheme",
+      "placeholder",
+      "showChevron",
+      "maxItemsVisible",
+      "respectTriggerWidth"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  parameters: {\n    layout: \"padded\"\n  },\n  args: {\n    ...Default.args,\n    items: statusItems,\n    mode: ChipDropdownMode.INHERIT\n  },\n  render: () => <InheritSingleSelectDemo />\n}",
+    "story_object_source": "{parameters:{layout:\"padded\"},args:{...m.args,items:E,mode:x.INHERIT},render:()=>e.jsx(ee,{})}"
+  },
+  "template": {
+    "id": "chip-dropdown-with-chip-status-inherit-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/templates/html.with-chip-status-inherit.template.html",
+    "output_path": "design-system-plugin/outputs/html/chip-dropdown-with-chip-status-inherit.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "chip-dropdown",
+    "local_path": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chipdropdown--docs",
+    "story_id": "components-chipdropdown--with-chip-status-inherit",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/ChipDropdown.stories-Byl21KXR.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/components-chipdropdown--with-chip-status-inherit.iframe.html"
+  }
+}

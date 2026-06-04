@@ -1,0 +1,139 @@
+{
+  "schema_version": "0.1.0",
+  "id": "toast-docs-contract",
+  "component_id": "toast",
+  "component_name": "Toast",
+  "docs_id": "components-toast--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-toast--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title of the Toaststring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "text",
+        "required": false,
+        "description": "Subtitle of the Toaststring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Variant-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "displayCloseButton",
+        "required": false,
+        "description": "Display Close buttonboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "position",
+        "required": false,
+        "description": "Position-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "duration",
+        "required": false,
+        "description": "Duration of the Toast. Set to Infinite to make a non-dismissible Toast-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "actions",
+        "required": false,
+        "description": "Display one or two actions on the Toast-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "offset",
+        "required": false,
+        "description": "Offset for the Toast-",
+        "default": "unknown",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-toast--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { createToast, Button } from \"@sanofi-accelerator/elements\";\n\nexport default () => {\nconst notify = () => {\n  createToast({\n    title: 'A Toast was successfully created.',\n    variant: 'success'\n  })\n}\n\nreturn (\n  <>\n    <Toast />\n    <Button onClick={notify} label=\"Notify\" />\n  </>\n);\n}",
+      "import { createToast } from \"@sanofi-accelerator/elements\";\n\ncreateToast({\ntitle: 'Toast title',\nvariant: 'success'\nactions: [{ label: 'Confirm', onClick: (evt, closeToast) => {...} }]\n})",
+      "import { createToast } from \"@sanofi-accelerator/elements\";\n\ncreateToast({\ntitle: 'Toast title',\nvariant: 'success'\nactions: [\n{ label: 'Confirm', onClick: (evt, closeToast) => {...} },\n{ label: 'Dismiss', onClick: (evt, closeToast) => {...} }\n]\n})"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-toast--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--dual-action",
+      "name": "Dual Action",
+      "export_name": "DualAction",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--example",
+      "name": "Example",
+      "export_name": "Example",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--single-action",
+      "name": "Single Action",
+      "export_name": "SingleAction",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--toast-statuses",
+      "name": "Toast Statuses",
+      "export_name": "ToastStatuses",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--toast-with-buttons",
+      "name": "Toast With Buttons",
+      "export_name": "ToastWithButtons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json"
+  }
+}

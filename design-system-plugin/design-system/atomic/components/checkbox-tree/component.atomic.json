@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "checkbox-tree",
+  "component_name": "CheckboxTree",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-checkboxtree--collapsible",
+      "story_name": "Collapsible",
+      "component_id": "checkbox-tree",
+      "component_name": "CheckboxTree",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/stories/components-checkboxtree--collapsible.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/templates/html.collapsible.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-tree-collapsible.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/CheckboxTree.stories-Bci02ql2.js",
+      "docs_id": "components-checkboxtree--docs",
+      "registry_item": "sanofi-checkbox-tree-collapsible-atomic-story"
+    },
+    {
+      "story_id": "components-checkboxtree--color-variations",
+      "story_name": "Color Variations",
+      "component_id": "checkbox-tree",
+      "component_name": "CheckboxTree",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/stories/components-checkboxtree--color-variations.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/templates/html.color-variations.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-tree-color-variations.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/CheckboxTree.stories-Bci02ql2.js",
+      "docs_id": "components-checkboxtree--docs",
+      "registry_item": "sanofi-checkbox-tree-color-variations-atomic-story"
+    },
+    {
+      "story_id": "components-checkboxtree--deeply-nested",
+      "story_name": "Deeply Nested",
+      "component_id": "checkbox-tree",
+      "component_name": "CheckboxTree",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/stories/components-checkboxtree--deeply-nested.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/templates/html.deeply-nested.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-tree-deeply-nested.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/CheckboxTree.stories-Bci02ql2.js",
+      "docs_id": "components-checkboxtree--docs",
+      "registry_item": "sanofi-checkbox-tree-deeply-nested-atomic-story"
+    },
+    {
+      "story_id": "components-checkboxtree--default",
+      "story_name": "Default",
+      "component_id": "checkbox-tree",
+      "component_name": "CheckboxTree",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/stories/components-checkboxtree--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-tree-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/CheckboxTree.stories-Bci02ql2.js",
+      "docs_id": "components-checkboxtree--docs",
+      "registry_item": "sanofi-checkbox-tree-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkbox-tree--docs"
+  }
+}

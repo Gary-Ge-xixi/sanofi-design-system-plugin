@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "banner",
+  "component_name": "Banner",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-banner--custom-icon",
+      "story_name": "Custom Icon",
+      "component_id": "banner",
+      "component_name": "Banner",
+      "variant": "neutral",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--custom-icon.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/banner/templates/html.neutral.template.html",
+      "output_path": "design-system-plugin/outputs/html/banner-neutral.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "docs_id": "components-banner--docs",
+      "registry_item": "sanofi-banner-neutral-atomic-story"
+    },
+    {
+      "story_id": "components-banner--default",
+      "story_name": "Default",
+      "component_id": "banner",
+      "component_name": "Banner",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/banner/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/banner-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "docs_id": "components-banner--docs",
+      "registry_item": "sanofi-banner-default-atomic-story"
+    },
+    {
+      "story_id": "components-banner--global",
+      "story_name": "Global",
+      "component_id": "banner",
+      "component_name": "Banner",
+      "variant": "success",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--global.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/banner/templates/html.success.template.html",
+      "output_path": "design-system-plugin/outputs/html/banner-success.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "docs_id": "components-banner--docs",
+      "registry_item": "sanofi-banner-success-atomic-story"
+    },
+    {
+      "story_id": "components-banner--overview",
+      "story_name": "Overview",
+      "component_id": "banner",
+      "component_name": "Banner",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--overview.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/banner/templates/html.overview.template.html",
+      "output_path": "design-system-plugin/outputs/html/banner-overview.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "docs_id": "components-banner--docs",
+      "registry_item": "sanofi-banner-overview-atomic-story"
+    },
+    {
+      "story_id": "components-banner--with-close-icon",
+      "story_name": "With Close Icon",
+      "component_id": "banner",
+      "component_name": "Banner",
+      "variant": "info",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-close-icon.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/banner/templates/html.info.template.html",
+      "output_path": "design-system-plugin/outputs/html/banner-info.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "docs_id": "components-banner--docs",
+      "registry_item": "sanofi-banner-info-atomic-story"
+    },
+    {
+      "story_id": "components-banner--with-contents",
+      "story_name": "With Contents",
+      "component_id": "banner",
+      "component_name": "Banner",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-contents.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/banner/templates/html.with-contents.template.html",
+      "output_path": "design-system-plugin/outputs/html/banner-with-contents.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "docs_id": "components-banner--docs",
+      "registry_item": "sanofi-banner-with-contents-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-banner--docs"
+  }
+}

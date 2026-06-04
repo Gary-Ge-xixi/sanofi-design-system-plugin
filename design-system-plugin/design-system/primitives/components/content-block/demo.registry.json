@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ContentBlock",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-contentblock--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--interactive",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--interactive-disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--interactive-selected",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--interactive-with-decorative-button",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--padding-sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--selectable-list",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--selectable-radio-list",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-contentblock--with-link",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

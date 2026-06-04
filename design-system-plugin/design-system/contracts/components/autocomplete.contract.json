@@ -1,0 +1,443 @@
+{
+  "schema_version": "0.1.0",
+  "id": "autocomplete",
+  "canonical_name": "autocomplete",
+  "component_name": "Autocomplete",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-autocomplete--docs",
+    "title": "Autocomplete",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-autocomplete--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-autocomplete--docs",
+    "import_path": "./src/components/Autocomplete/Autocomplete.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 14,
+    "story_ids": [
+      "components-autocomplete--async-search",
+      "components-autocomplete--async-search-error",
+      "components-autocomplete--async-search-multiple",
+      "components-autocomplete--chips-outside",
+      "components-autocomplete--default",
+      "components-autocomplete--free-solo",
+      "components-autocomplete--multiple",
+      "components-autocomplete--with-description",
+      "components-autocomplete--with-description-multiple",
+      "components-autocomplete--with-render-option",
+      "components-autocomplete--with-render-option-custom-layout",
+      "components-autocomplete--with-render-option-multiple",
+      "components-autocomplete--with-tooltips",
+      "components-autocomplete--with-tooltips-multiple"
+    ],
+    "records": [
+      {
+        "id": "components-autocomplete--async-search",
+        "name": "Async Search",
+        "normalized_name": "async-search",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "AsyncSearch"
+      },
+      {
+        "id": "components-autocomplete--async-search-error",
+        "name": "Async Search Error",
+        "normalized_name": "async-search-error",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "AsyncSearchError"
+      },
+      {
+        "id": "components-autocomplete--async-search-multiple",
+        "name": "Async Search Multiple",
+        "normalized_name": "async-search-multiple",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "AsyncSearchMultiple"
+      },
+      {
+        "id": "components-autocomplete--chips-outside",
+        "name": "Chips Outside",
+        "normalized_name": "chips-outside",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "ChipsOutside"
+      },
+      {
+        "id": "components-autocomplete--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-autocomplete--free-solo",
+        "name": "Free Solo",
+        "normalized_name": "free-solo",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "FreeSolo"
+      },
+      {
+        "id": "components-autocomplete--multiple",
+        "name": "Multiple",
+        "normalized_name": "multiple",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "Multiple"
+      },
+      {
+        "id": "components-autocomplete--with-description",
+        "name": "With Description",
+        "normalized_name": "with-description",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithDescription"
+      },
+      {
+        "id": "components-autocomplete--with-description-multiple",
+        "name": "With Description Multiple",
+        "normalized_name": "with-description-multiple",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithDescriptionMultiple"
+      },
+      {
+        "id": "components-autocomplete--with-render-option",
+        "name": "With Render Option",
+        "normalized_name": "with-render-option",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithRenderOption"
+      },
+      {
+        "id": "components-autocomplete--with-render-option-custom-layout",
+        "name": "With Render Option Custom Layout",
+        "normalized_name": "with-render-option-custom-layout",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithRenderOptionCustomLayout"
+      },
+      {
+        "id": "components-autocomplete--with-render-option-multiple",
+        "name": "With Render Option Multiple",
+        "normalized_name": "with-render-option-multiple",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithRenderOptionMultiple"
+      },
+      {
+        "id": "components-autocomplete--with-tooltips",
+        "name": "With Tooltips",
+        "normalized_name": "with-tooltips",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithTooltips"
+      },
+      {
+        "id": "components-autocomplete--with-tooltips-multiple",
+        "name": "With Tooltips Multiple",
+        "normalized_name": "with-tooltips-multiple",
+        "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+        "export_name": "WithTooltipsMultiple"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "size",
+        "required": false,
+        "description": "Input field size.\"small\"\"medium\"\"large\"",
+        "default": "\"InputSize.LARGE\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label displayed above the input.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "placeholder",
+        "required": false,
+        "description": "Placeholder text when empty.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "state",
+        "required": false,
+        "description": "Validation state.\"success\"\"error\"\"default\"",
+        "default": "\"FormControlState.DEFAULT\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subText",
+        "required": false,
+        "description": "Helper or error text below the input.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "description": "Applies inverse styling for dark backgrounds.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "options",
+        "required": true,
+        "description": "Available options for selection.Option[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "multiple",
+        "required": false,
+        "description": "Enables multi-select mode with chips.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "value",
+        "required": false,
+        "description": "Currently selected value(s).string \\",
+        "default": "string[]",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "description": "Callback fired when selection changes.((event: SelectChangeEvent<string \\",
+        "default": "string[]>) => void)",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "CSS class names for component parts.({ iconWrapperBefore?: string; iconWrapperAfter?: string; input?: string \\",
+        "default": "undefined; } & { wrapper?: string \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxItemsVisible",
+        "required": false,
+        "description": "Maximum visible options before scrolling.number",
+        "default": "6",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "notFoundMessageI18n",
+        "required": false,
+        "description": "Message shown when no options match the search.string",
+        "default": "\"No results found...\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "filterFunction",
+        "required": false,
+        "description": "Custom filter function for options.((option: Option, searchValue: string) => boolean)",
+        "default": "Case-insensitive label match",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxInputLines",
+        "required": false,
+        "description": "Maximum number of lines of the input when multiple chips overflownumber",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSearchTextChange",
+        "required": false,
+        "description": "((searchText: string) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "searchedOptions",
+        "required": false,
+        "description": "Option[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "freeSolo",
+        "required": false,
+        "description": "Enable free solo mode - allows users to enter custom values not in the options listboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showTooltips",
+        "required": false,
+        "description": "Whether to show tooltips on hover for option labelsboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tooltipPosition",
+        "required": false,
+        "description": "Tooltip position for option tooltips\"top-start\"\"top\"\"top-end\"\"right-start\"\"right\"\"right-end\"\"bottom-start\"\"bottom\"\"bottom-end\"\"left-start\"\"left\"\"left-end\"Show 4 more...",
+        "default": "TOP",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "chipsOutside",
+        "required": false,
+        "description": "Whether to display selected chips outside the input area instead of insideboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "allowCustomValues",
+        "required": false,
+        "description": "Allow users to add custom values that are not in the options listboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "async-search",
+      "async-search-error",
+      "async-search-multiple",
+      "chips-outside",
+      "default",
+      "free-solo",
+      "multiple",
+      "with-description",
+      "with-description-multiple",
+      "with-render-option",
+      "with-render-option-custom-layout",
+      "with-render-option-multiple",
+      "with-tooltips",
+      "with-tooltips-multiple"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "async-search",
+      "async-search-error",
+      "async-search-multiple",
+      "chips-outside",
+      "default",
+      "free-solo",
+      "multiple",
+      "with-description",
+      "with-description-multiple",
+      "with-render-option",
+      "with-render-option-custom-layout",
+      "with-render-option-multiple",
+      "with-tooltips",
+      "with-tooltips-multiple"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Autocomplete, FormControlState, InputSize, TooltipPosition } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Autocomplete\n  id=\"autocomplete\"\n  label=\"Autocomplete\"\n  placeholder=\"Type something\"\n  options={[\n    { value: \"option1\", label: \"This is a very long option label that will be truncated\" },\n    { value: \"option2\", label: \"Another extremely long option label that demonstrates tooltip functionality\" },\n  ]}\n  showTooltips={true}\n  tooltipPosition={TooltipPosition.TOP}\n/>\n);",
+      "import { Autocomplete, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Autocomplete\n  id=\"autocomplete\"\n  label=\"Autocomplete\"\n  placeholder=\"Type something\"\n  subText=\"This is a subtext\"\n  state={FormControlState.DEFAULT}\n  inverse={false}\n  disabled={false}\n  required={false}\n  multiple={false}\n  size={InputSize.LARGE}\n  maxItemsVisible={3}\n  options={[\n      { value: \"afghanistan\", label: \"Afghanistan\" },\n      { value: \"albania\", label: \"Albania\" },\n      { value: \"algeria\", label: \"Algeria\" },\n      .......,\n      .......,\n      .......,\n  ]}\n/>\n);",
+      "function startsWithFilterFunction(option: Option, searchValue: string) {\nreturn option.label.toLowerCase().startsWith(searchValue.toLowerCase());\n}"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "autocomplete"
+    ],
+    "contracts": [
+      {
+        "id": "autocomplete",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/autocomplete/demo.registry.json",
+        "known_story_ids": [
+          "components-autocomplete--async-search",
+          "components-autocomplete--async-search-error",
+          "components-autocomplete--async-search-multiple",
+          "components-autocomplete--chips-outside",
+          "components-autocomplete--default",
+          "components-autocomplete--free-solo",
+          "components-autocomplete--multiple",
+          "components-autocomplete--with-description",
+          "components-autocomplete--with-description-multiple",
+          "components-autocomplete--with-render-option",
+          "components-autocomplete--with-render-option-custom-layout",
+          "components-autocomplete--with-render-option-multiple",
+          "components-autocomplete--with-tooltips",
+          "components-autocomplete--with-tooltips-multiple",
+          "components-autocomplete--async-search",
+          "components-autocomplete--async-search-error",
+          "components-autocomplete--async-search-multiple",
+          "components-autocomplete--chips-outside",
+          "components-autocomplete--default",
+          "components-autocomplete--free-solo",
+          "components-autocomplete--multiple",
+          "components-autocomplete--with-description",
+          "components-autocomplete--with-description-multiple",
+          "components-autocomplete--with-render-option",
+          "components-autocomplete--with-render-option-custom-layout",
+          "components-autocomplete--with-render-option-multiple",
+          "components-autocomplete--with-tooltips",
+          "components-autocomplete--with-tooltips-multiple"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-autocomplete--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-autocomplete--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-autocomplete--docs.md",
+    "docs_import_path": "./src/components/Autocomplete/Autocomplete.mdx",
+    "story_ids": [
+      "components-autocomplete--async-search",
+      "components-autocomplete--async-search-error",
+      "components-autocomplete--async-search-multiple",
+      "components-autocomplete--chips-outside",
+      "components-autocomplete--default",
+      "components-autocomplete--free-solo",
+      "components-autocomplete--multiple",
+      "components-autocomplete--with-description",
+      "components-autocomplete--with-description-multiple",
+      "components-autocomplete--with-render-option",
+      "components-autocomplete--with-render-option-custom-layout",
+      "components-autocomplete--with-render-option-multiple",
+      "components-autocomplete--with-tooltips",
+      "components-autocomplete--with-tooltips-multiple"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

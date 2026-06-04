@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-page-pattern",
+  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
+  "status": "pass",
+  "checked": {
+    "required_markers": [
+      "doctype",
+      "language",
+      "viewport",
+      "title",
+      "main-landmark",
+      "design-system-marker",
+      "pattern-marker"
+    ],
+    "no_nested_demo_panels": true
+  },
+  "failures": []
+}

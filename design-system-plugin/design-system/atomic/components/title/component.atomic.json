@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "title",
+  "component_name": "Title",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-title--default",
+      "story_name": "Default",
+      "component_id": "title",
+      "component_name": "Title",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/title/stories/components-title--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/title/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/title-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/title/assets/Title.stories-DTgm5Viz.js",
+      "docs_id": "components-title--docs",
+      "registry_item": "sanofi-title-default-atomic-story"
+    },
+    {
+      "story_id": "components-title--font-weights",
+      "story_name": "Font Weights",
+      "component_id": "title",
+      "component_name": "Title",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/title/stories/components-title--font-weights.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/title/templates/html.font-weights.template.html",
+      "output_path": "design-system-plugin/outputs/html/title-font-weights.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/title/assets/Title.stories-BFzTSF7_.js",
+      "docs_id": "components-title--docs",
+      "registry_item": "sanofi-title-font-weights-atomic-story"
+    },
+    {
+      "story_id": "components-title--variants",
+      "story_name": "Variants",
+      "component_id": "title",
+      "component_name": "Title",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/title/stories/components-title--variants.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/title/templates/html.variants.template.html",
+      "output_path": "design-system-plugin/outputs/html/title-variants.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/title/assets/Title.stories-BFzTSF7_.js",
+      "docs_id": "components-title--docs",
+      "registry_item": "sanofi-title-variants-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-title--docs"
+  }
+}

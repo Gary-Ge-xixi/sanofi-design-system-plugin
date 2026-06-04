@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Sidebar",
+  "stories": [
+    {
+      "story_id": "components-sidebar--collapsed",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-sidebar--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-sidebar--expanded",
+      "story_name": "Expanded"
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible-controlled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-sidebar--sticky-behavior",
+      "story_name": "Sticky Behavior"
+    },
+    {
+      "story_id": "components-sidebar--without-header",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

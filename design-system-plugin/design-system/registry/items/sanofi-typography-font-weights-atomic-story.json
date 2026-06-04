@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-typography-font-weights-atomic-story",
+  "title": "Typography Font Weights atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-typography--font-weights.",
+  "atomic_story_id": "components-typography--font-weights",
+  "component_id": "typography",
+  "docs_id": "components-typography--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-typography"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--font-weights.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--font-weights.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/typography/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/assets/components-typography--font-weights.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/typography/assets/components-typography--font-weights.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/templates/html.font-weights.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/typography/templates/html.font-weights.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/typography.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/typography.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/typography/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/typography/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-typography--docs",
+    "story_id": "components-typography--font-weights",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--font-weights.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/typography/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-typography--font-weights&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-typography--font-weights&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Typography.stories-DZyzV-Hy.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/typography.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/typography/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "typography",
+      "Typography",
+      "Font Weights",
+      "components-typography--font-weights",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Typography Font Weights Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

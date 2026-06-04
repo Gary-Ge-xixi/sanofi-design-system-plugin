@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-task-flow-standard",
+  "status": "ready",
+  "purpose": "Canonical workflow states for business/admin page generation.",
+  "flows": [
+    {
+      "id": "query",
+      "states": ["idle", "filtering", "loading", "results", "empty", "error"],
+      "required_controls": ["筛选", "重置"],
+      "validation": "Filters must preserve selected values while loading and show an empty state when no records match."
+    },
+    {
+      "id": "fill",
+      "states": ["draft", "dirty", "validating", "save-disabled", "save-ready", "saving", "saved", "save-error", "locked"],
+      "required_controls": ["保存", "提交"],
+      "validation": "Dirty state must be visible before save; locked state must prevent editing without hiding submitted data."
+    },
+    {
+      "id": "approval",
+      "states": ["pending", "reviewing", "approved", "rejected", "returned", "withdrawn"],
+      "required_controls": ["通过", "驳回", "退回修改"],
+      "validation": "Approval pages must show decision reason input when reject or return is selected."
+    },
+    {
+      "id": "submit",
+      "states": ["draft", "validation-error", "confirming", "submitted"],
+      "required_controls": ["提交", "取消"],
+      "validation": "Submit must not be enabled when required fields are invalid."
+    },
+    {
+      "id": "reject",
+      "states": ["reason-required", "confirming", "rejected"],
+      "required_controls": ["驳回", "取消"],
+      "validation": "Reject actions require a visible reason field and confirmation copy."
+    },
+    {
+      "id": "lock",
+      "states": ["editable", "locked", "unlock-requested"],
+      "required_controls": ["锁定", "申请解锁"],
+      "validation": "Locked pages must render readonly values, not disabled invisible data."
+    },
+    {
+      "id": "import",
+      "states": ["ready", "uploading", "parsing", "partial-success", "failed", "completed"],
+      "required_controls": ["批量导入", "下载错误明细"],
+      "validation": "Import result must separate accepted rows from rejected rows and expose download action for errors."
+    },
+    {
+      "id": "export",
+      "states": ["ready", "exporting", "exported", "export-error"],
+      "required_controls": ["导出"],
+      "validation": "Export actions must preserve active filters and show progress when export is asynchronous."
+    },
+    {
+      "id": "bulk-action",
+      "states": ["none-selected", "selection", "confirming", "processing", "completed", "partial-failed"],
+      "required_controls": ["批量操作", "取消选择"],
+      "validation": "Bulk actions require selection count, confirmation, and partial failure feedback."
+    }
+  ],
+  "global_policy": [
+    "Every mutating flow must include disabled, loading, success, and error states.",
+    "State copy must come from content-standard.json.",
+    "Permission denial must use interaction-state-standard.json rather than hiding the whole workflow."
+  ]
+}

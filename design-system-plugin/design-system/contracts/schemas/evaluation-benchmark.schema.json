@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "id": "evaluation-benchmark",
+  "type": "standard",
+  "required_case_fields": [
+    "id",
+    "prompt",
+    "expected_page_type",
+    "expected_sections",
+    "expected_primitives",
+    "expected_fallbacks"
+  ],
+  "score_dimensions": [
+    "resolver_status",
+    "required_section_coverage",
+    "primitive_coverage",
+    "fallback_accuracy",
+    "provenance_coverage",
+    "validator_status"
+  ],
+  "pass_policy": {
+    "validator_pass_rate": 1,
+    "unsupported_gap_declaration_rate": 1,
+    "blocked_color_violations": 0
+  }
+}

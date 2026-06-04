@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-pattern-resolver",
+  "checked": {
+    "pattern_id": "customer-detail-date-query",
+    "registry_item": "sanofi-customer-detail-date-query",
+    "template_id": "customer-detail-date-query",
+    "page_subtype": "customer-detail-date-query-page",
+    "delivery_contract": "none",
+    "sections": 7,
+    "missing_sections": 0,
+    "forbidden_sections": 0,
+    "required_primitives": 13,
+    "fallbacks": 1,
+    "required_rules": 9
+  },
+  "failures": []
+}

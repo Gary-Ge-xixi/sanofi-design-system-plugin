@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "container",
+  "component_name": "Container",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-container--default",
+      "story_name": "Default",
+      "component_id": "container",
+      "component_name": "Container",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/container/stories/components-container--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/container/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/container-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/container/assets/Container.stories-CIMsm6W1.js",
+      "docs_id": "components-container--docs",
+      "registry_item": "sanofi-container-default-atomic-story"
+    },
+    {
+      "story_id": "components-container--fixed",
+      "story_name": "Fixed",
+      "component_id": "container",
+      "component_name": "Container",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/container/stories/components-container--fixed.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/container/templates/html.fixed.template.html",
+      "output_path": "design-system-plugin/outputs/html/container-fixed.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/container/assets/Container.stories-CIMsm6W1.js",
+      "docs_id": "components-container--docs",
+      "registry_item": "sanofi-container-fixed-atomic-story"
+    },
+    {
+      "story_id": "components-container--fluid",
+      "story_name": "Fluid",
+      "component_id": "container",
+      "component_name": "Container",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/container/stories/components-container--fluid.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/container/templates/html.fluid.template.html",
+      "output_path": "design-system-plugin/outputs/html/container-fluid.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/container/assets/Container.stories-CIMsm6W1.js",
+      "docs_id": "components-container--docs",
+      "registry_item": "sanofi-container-fluid-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-container--docs"
+  }
+}

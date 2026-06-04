@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ChipStatus",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-chipstatus--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipstatus--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipstatus--overview",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipstatus--style-gallery",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

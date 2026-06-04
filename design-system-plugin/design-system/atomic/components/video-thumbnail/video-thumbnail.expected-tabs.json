@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "video-thumbnail",
+  "component_name": "Video Thumbnail",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Video Thumbnail"
+  },
+  "docs": [
+    {
+      "id": "components-video-thumbnail--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-video-thumbnail--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--disabled-status",
+      "name": "Disabled Status",
+      "export_name": "DisabledStatus",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--mp-4-video-tracking",
+      "name": "MP 4 Video Tracking",
+      "export_name": "MP4VideoTracking",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--no-embedded-player",
+      "name": "No Embedded Player",
+      "export_name": "NoEmbeddedPlayer",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--no-title",
+      "name": "No Title",
+      "export_name": "NoTitle",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--sanofi-video",
+      "name": "Sanofi Video",
+      "export_name": "SanofiVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--streaming-video",
+      "name": "Streaming Video",
+      "export_name": "StreamingVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--vimeo-video",
+      "name": "Vimeo Video",
+      "export_name": "VimeoVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--vimeo-video-tracking",
+      "name": "Vimeo Video Tracking",
+      "export_name": "VimeoVideoTracking",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    },
+    {
+      "id": "components-video-thumbnail--youtube-video-tracking",
+      "name": "Youtube Video Tracking",
+      "export_name": "YoutubeVideoTracking",
+      "semantic_type": "variant",
+      "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx"
+    }
+  ]
+}

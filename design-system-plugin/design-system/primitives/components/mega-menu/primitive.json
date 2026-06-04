@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "MegaMenu",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/MegaMenu",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "mega-menu",
+      "data_attribute": "data-primitive=\"mega-menu\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-megamenu--example",
+      "components-megamenu--fitted-content-mega-menu",
+      "components-megamenu--nav-header-custom-placement"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

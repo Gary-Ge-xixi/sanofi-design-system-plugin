@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TreeView",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-treeview--color-accent",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-treeview--custom-leading-visuals",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-treeview--decorations",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-treeview--file-explorer",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-treeview--inside-sidebar",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-treeview--playground",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-treeview--rtl",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

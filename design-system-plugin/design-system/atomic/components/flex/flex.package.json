@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "id": "flex-complete-standard-package",
+  "component_id": "flex",
+  "component_name": "Flex",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-flex--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/flex/docs/flex.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-flex--align-content",
+      "story_name": "Align Content",
+      "export_name": "AlignContent",
+      "semantic_type": "variant",
+      "variant": "align-content",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--align-content.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-align-content.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-flex--as-child-list",
+      "story_name": "As Child List",
+      "export_name": "AsChildList",
+      "semantic_type": "variant",
+      "variant": "as-child-list",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--as-child-list.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-as-child-list.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-flex--column-stack",
+      "story_name": "Column Stack",
+      "export_name": "ColumnStack",
+      "semantic_type": "variant",
+      "variant": "column-stack",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--column-stack.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-column-stack.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-flex--flex-shorthand",
+      "story_name": "Flex Shorthand",
+      "export_name": "FlexShorthand",
+      "semantic_type": "variant",
+      "variant": "flex-shorthand",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--flex-shorthand.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-flex-shorthand.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-flex--horizontal-flow",
+      "story_name": "Horizontal Flow",
+      "export_name": "HorizontalFlow",
+      "semantic_type": "variant",
+      "variant": "horizontal-flow",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--horizontal-flow.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-horizontal-flow.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-flex--justify-distribution",
+      "story_name": "Justify Distribution",
+      "export_name": "JustifyDistribution",
+      "semantic_type": "variant",
+      "variant": "justify-distribution",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--justify-distribution.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-justify-distribution.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-flex--wrapping-grid",
+      "story_name": "Wrapping Grid",
+      "export_name": "WrappingGrid",
+      "semantic_type": "variant",
+      "variant": "wrapping-grid",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--wrapping-grid.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/flex-wrapping-grid.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-flex--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/flex/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/flex/flex.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/flex-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-flex--align-content",
+        "output_path": "design-system-plugin/outputs/html/flex-align-content.atomic.html"
+      },
+      {
+        "story_id": "components-flex--as-child-list",
+        "output_path": "design-system-plugin/outputs/html/flex-as-child-list.atomic.html"
+      },
+      {
+        "story_id": "components-flex--column-stack",
+        "output_path": "design-system-plugin/outputs/html/flex-column-stack.atomic.html"
+      },
+      {
+        "story_id": "components-flex--flex-shorthand",
+        "output_path": "design-system-plugin/outputs/html/flex-flex-shorthand.atomic.html"
+      },
+      {
+        "story_id": "components-flex--horizontal-flow",
+        "output_path": "design-system-plugin/outputs/html/flex-horizontal-flow.atomic.html"
+      },
+      {
+        "story_id": "components-flex--justify-distribution",
+        "output_path": "design-system-plugin/outputs/html/flex-justify-distribution.atomic.html"
+      },
+      {
+        "story_id": "components-flex--wrapping-grid",
+        "output_path": "design-system-plugin/outputs/html/flex-wrapping-grid.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-flex-complete-package.json",
+    "story_item_prefix": "sanofi-flex-"
+  },
+  "validation": {
+    "required_story_count": 7,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/flex/flex.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/flex/docs/flex.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

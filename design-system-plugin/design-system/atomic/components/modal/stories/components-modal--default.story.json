@@ -1,0 +1,114 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-modal--default",
+  "component_id": "modal",
+  "component_name": "Modal",
+  "story_id": "components-modal--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-modal--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-modal--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Modal.stories-Bu82RoLa.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--default.iframe.html",
+    "import_path": "./src/components/Modal/Modal.stories.tsx",
+    "component_path": "./src/components/Modal/Modal.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...j,slotContent:null,textContent:\"This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height.\"}",
+    "values": {
+      "title": "Modal Title",
+      "subtitle": "Modal Subtitle",
+      "textContent": "This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height.",
+      "slotContent": {
+        "extraction_status": "raw_expression",
+        "value": "null"
+      },
+      "size": {
+        "extraction_status": "raw_expression",
+        "value": "void 0"
+      },
+      "isVisible": false,
+      "isClosable": true,
+      "onClose": {
+        "extraction_status": "raw_expression",
+        "value": "()=>{}"
+      },
+      "footerContent": {
+        "extraction_status": "raw_expression",
+        "value": "null"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{isVisible:{description:\"Whether the modal is visible or not\",control:{type:\"boolean\"}},isClosable:{description:\"Whether the modal can be closed by clicking outside of it\",control:{type:\"boolean\"}},hasOverlay:{description:\"Whether the modal has an overlay\",control:{type:\"boolean\"}},icon:{description:\"Icon displayed before the title in the modal header\",control:!1}}",
+    "fields": [
+      "isVisible",
+      "isClosable",
+      "hasOverlay",
+      "icon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    slotContent: null,\n    textContent: \"This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height.\"\n  },\n  render: function Render(args) {\n    const [, updateArgs] = useArgs<{\n      isVisible: boolean;\n    }>();\n    function showModal() {\n      updateArgs({\n        isVisible: true\n      });\n    }\n    const footerContent = <>\n        <Button label=\"Cancel\" variant={ButtonVariant.TERTIARY} onClick={() => {\n        updateArgs({\n          isVisible: false\n        });\n      }} />\n        <Button label=\"Confirm\" onClick={() => notify(args)} />\n      </>;\n    return <>\n        <p>\n          <Typography variant={TypographyVariant.BODY_MEDIUM} data-testid=\"content\">\n            This example shows a modal with content. It has a title, subtitle,\n            text content, slot content which can be a video or an image and a\n            footer content. The bottom section can be customised using the\n            footerContent prop.\n          </Typography>\n        </p>\n        <Button label=\"Open Modal\" onClick={showModal} data-testid=\"button\"></Button>\n        <Toast />\n        <Modal {...args} footerContent={footerContent} onClose={() => {\n        notify({\n          ...args,\n          text: \"The onClose props is called.\"\n        });\n        updateArgs({\n          isVisible: false\n        });\n      }} />\n      </>;\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByTestId(\"button\"));\n  }\n}",
+    "story_object_source": "{args:{...j,slotContent:null,textContent:\"This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height.\"},render:function(n){const[,o]=S();function i(){o({isVisible:!0})}const l=e.jsxs(e.Fragment,{children:[e.jsx(b,{label:\"Cancel\",variant:L.TERTIARY,onClick:()=>{o({isVisible:!1})}}),e.jsx(b,{label:\"Confirm\",onClick:()=>k(n)})]});return e.jsxs(e.Fragment,{children:[e.jsx(\"p\",{children:e.jsx(v,{variant:x.BODY_MEDIUM,\"data-testid\":\"content\",children:\"This example shows a modal with content. It has a title, subtitle, text content, slot content which can be a video or an image and a footer content. The bottom section can be customised using the footerContent prop.\"})}),e.jsx(b,{label:\"Open Modal\",onClick:i,\"data-testid\":\"button\"}),e.jsx(A,{}),e.jsx(T,{...n,footerContent:l,onClose:()=>{k({...n,text:\"The onClose props is called.\"}),o({isVisible:!1})}})]})},play:async({canvasElement:t})=>{const n=O(t);await N.click(n.getByTestId(\"button\"))}}"
+  },
+  "template": {
+    "id": "modal-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/modal/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/modal-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "modal",
+    "local_path": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "story_id": "components-modal--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--default.iframe.html"
+  }
+}

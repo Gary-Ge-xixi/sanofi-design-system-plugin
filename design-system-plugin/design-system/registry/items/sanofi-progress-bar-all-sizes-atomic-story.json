@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-progress-bar-all-sizes-atomic-story",
+  "title": "ProgressBar All Sizes atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-progressbar--all-sizes.",
+  "atomic_story_id": "components-progressbar--all-sizes",
+  "component_id": "progress-bar",
+  "docs_id": "components-progressbar--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-progress-bar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-sizes.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-sizes.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/components-progressbar--all-sizes.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/assets/components-progressbar--all-sizes.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.all-sizes.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.all-sizes.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-progressbar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-progressbar--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-progressbar--docs",
+    "story_id": "components-progressbar--all-sizes",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-sizes.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/progress-bar/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-progressbar--all-sizes&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-progressbar--all-sizes&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ProgressBar.stories-UKhzCY0f.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "progress-bar",
+      "ProgressBar",
+      "All Sizes",
+      "components-progressbar--all-sizes",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ProgressBar All Sizes Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

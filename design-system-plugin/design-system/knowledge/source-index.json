@@ -1,0 +1,334 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-02T13:03:17.020Z",
+  "purpose": "Storybook-first Sanofi Elements local knowledge base for prototype source indexing.",
+  "source_priority": [
+    "primary: Storybook v3.48.3 docs, stories, and CSS bundle",
+    "secondary: Zeroheight component catalog and page tabs",
+    "derived: local primitive contracts, patterns, templates, rules, examples, and generated prototypes",
+    "invalid_or_limited: undersized raw component text captures and private-page HTML shells"
+  ],
+  "primary_sources": [
+    {
+      "id": "storybook-index",
+      "type": "storybook-index",
+      "local_path": "research/storybook/index.json",
+      "source_url": "https://elements.prod.accelerator.sanofi",
+      "reliability": "primary",
+      "counts": {
+        "entries": 540,
+        "docs": 111,
+        "stories": 429
+      }
+    },
+    {
+      "id": "storybook-colors",
+      "type": "storybook-docs",
+      "local_path": "design-system-plugin/design-system/tokens/token-manifest.json",
+      "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/foundations-colors--docs",
+      "reliability": "primary",
+      "note": "Token source baseline. Brand/accent is Sanofi Miracle Purple, not green."
+    },
+    {
+      "id": "storybook-css-bundle",
+      "type": "storybook-css",
+      "local_path": "research/storybook/assets/iframe-RDcAcrX5.css",
+      "source_url": "https://elements.prod.accelerator.sanofi",
+      "reliability": "primary-extracted"
+    },
+    {
+      "id": "storybook-docs-markdown-corpus",
+      "type": "storybook-docs-md-corpus",
+      "local_path": "design-system-plugin/design-system/knowledge/docs-index.json",
+      "markdown_index_path": "design-system-plugin/design-system/knowledge/docs-index.md",
+      "docs_dir_path": "design-system-plugin/design-system/knowledge/docs",
+      "source_url": "https://elements.prod.accelerator.sanofi",
+      "reliability": "primary-extracted",
+      "note": "Local Markdown materialization of Storybook docs tabs captured with opencli.",
+      "counts": {
+        "extracted": 111
+      },
+      "docs_entries_total": 111
+    }
+  ],
+  "secondary_sources": [
+    {
+      "id": "zeroheight-component-catalog",
+      "type": "zeroheight-styleguide-catalog",
+      "local_path": "research/components/component-catalog.json",
+      "source_url": "https://elements.sanofidesign.com/557b0250b",
+      "reliability": "secondary",
+      "counts": {
+        "component_pages": 37
+      },
+      "note": "Use for navigation, page URLs, visible tabs, and historical page metadata only."
+    }
+  ],
+  "derived_sources": [
+    {
+      "id": "component-contract-index",
+      "type": "component-contract-registry",
+      "local_path": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+      "reliability": "derived",
+      "counts": {
+        "component_contracts": 95,
+        "primitive_contracts_expected": 12,
+        "primitive_contracts_covered": 12,
+        "props_extracted_contracts": 93,
+        "docs_only_contracts": 83,
+        "primitive_linked_contracts": 12
+      }
+    },
+    {
+      "id": "semantic-token-map",
+      "type": "semantic-token-map",
+      "local_path": "design-system-plugin/design-system/contracts/semantic-token-map.json",
+      "reliability": "derived",
+      "source_token_doc": "foundations-colors--docs"
+    },
+    {
+      "id": "local-registry",
+      "type": "ai-registry",
+      "local_path": "design-system-plugin/design-system/registry/registry.json",
+      "reliability": "derived",
+      "renderer_target": "html",
+      "counts": {
+        "items": 16,
+        "component_items": 12,
+        "story_items": 1,
+        "block_items": 1,
+        "style_items": 1,
+        "lib_items": 1,
+        "docs": 111,
+        "stories": 429,
+        "component_contracts": 95
+      }
+    },
+    {
+      "id": "atomic-component-library",
+      "type": "atomic-story-library",
+      "local_path": "design-system-plugin/design-system/atomic/atomic-component-index.json",
+      "reliability": "derived",
+      "renderer_target": "html",
+      "counts": {
+        "components": 1,
+        "stories": 1
+      }
+    },
+    {
+      "id": "fallback-policy",
+      "type": "policy",
+      "local_path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "reliability": "policy"
+    },
+    {
+      "id": "naming-standard",
+      "type": "policy",
+      "local_path": "design-system-plugin/design-system/policies/naming-standard.json",
+      "reliability": "policy"
+    },
+    {
+      "id": "source-provenance-policy",
+      "type": "policy",
+      "local_path": "design-system-plugin/design-system/policies/source-provenance.json",
+      "reliability": "policy"
+    },
+    {
+      "id": "primitive-index",
+      "type": "primitive-registry",
+      "local_path": "design-system-plugin/design-system/primitives/primitive-index.json",
+      "reliability": "derived"
+    },
+    {
+      "id": "pattern-index",
+      "type": "pattern-registry",
+      "local_path": "design-system-plugin/design-system/patterns/pattern-index.json",
+      "reliability": "derived"
+    },
+    {
+      "id": "template-index",
+      "type": "template-registry",
+      "local_path": "design-system-plugin/design-system/templates/template-index.json",
+      "reliability": "derived"
+    },
+    {
+      "id": "rules-index",
+      "type": "rules-registry",
+      "local_path": "design-system-plugin/design-system/rules/rules-index.json",
+      "reliability": "derived"
+    }
+  ],
+  "invalid_or_limited_sources": [
+    {
+      "local_path": "research/raw/components/accordion.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/avatar.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/banner.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/breadcrumb.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/button.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/card.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/carousel.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/checkbox.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/chip.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/date-picker.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/divider.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/drawer.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/footer.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/hero-section.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/icon.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/isi-tray.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/link.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/loading-spinner.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/mega-menu.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/menu.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/modal-dialog.txt",
+      "bytes": 388,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/navigation-header.txt",
+      "bytes": 87,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    },
+    {
+      "local_path": "research/raw/components/page-header.txt",
+      "bytes": 87,
+      "reliability": "invalid",
+      "note": "Too small to be treated as component documentation."
+    }
+  ],
+  "counts": {
+    "storybook_entries": 540,
+    "storybook_docs": 111,
+    "storybook_stories": 429,
+    "storybook_component_titles": 95,
+    "zeroheight_component_pages": 37,
+    "zeroheight_only_secondary": 6,
+    "primitive_contract_components": 12,
+    "raw_component_captures": 23,
+    "invalid_raw_component_captures": 23,
+    "storybook_docs_markdown_records": 111,
+    "storybook_docs_markdown_extracted": 111,
+    "component_contracts": 95,
+    "semantic_token_roles": 10,
+    "local_registry_items": 16,
+    "atomic_story_components": 1,
+    "atomic_stories": 1
+  },
+  "output_files": {
+    "readme": "design-system-plugin/design-system/knowledge/README.md",
+    "source_index_markdown": "design-system-plugin/design-system/knowledge/source-index.md",
+    "source_index_json": "design-system-plugin/design-system/knowledge/source-index.json",
+    "storybook_pages_json": "design-system-plugin/design-system/knowledge/storybook-pages.json",
+    "components_json": "design-system-plugin/design-system/knowledge/components.json",
+    "tokens_json": "design-system-plugin/design-system/knowledge/tokens.json",
+    "coverage_json": "design-system-plugin/design-system/knowledge/coverage.json",
+    "docs_index_json": "design-system-plugin/design-system/knowledge/docs-index.json",
+    "docs_index_markdown": "design-system-plugin/design-system/knowledge/docs-index.md",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json",
+    "local_registry": "design-system-plugin/design-system/registry/registry.json",
+    "atomic_component_index": "design-system-plugin/design-system/atomic/atomic-component-index.json"
+  }
+}

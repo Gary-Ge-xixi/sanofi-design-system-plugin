@@ -1,0 +1,520 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-business-standards",
+  "generated_at": "2026-06-04T13:36:40.863Z",
+  "checked": {
+    "coverage_areas": 15,
+    "page_profiles": 10,
+    "task_flows": 9,
+    "data_model_field_types": 11,
+    "module_contracts": 3,
+    "rules": 14,
+    "cursor_rule": 1
+  },
+  "evidence": {
+    "coverage_areas": [
+      {
+        "id": "business-page-taxonomy",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/business/page-taxonomy.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-task-flows",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/business/task-flow-standard.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-data-model",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/business/data-model-standard.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-table",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-chart",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-form",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-density",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/rules/density-standards.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-layout-typography",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/rules/business-layout-typography.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-app-shell-scroll",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/rules/business-app-shell-scroll.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-icon-usage",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/rules/icon-usage.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-content",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/business/content-standard.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-interaction-states",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/business/interaction-state-standard.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-elevation",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/rules/elevation-usage.json",
+        "file_status": "present"
+      },
+      {
+        "id": "business-visual-acceptance",
+        "status": "ready",
+        "path": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+        "file_status": "present"
+      },
+      {
+        "id": "cursor-workflow",
+        "status": "ready",
+        "path": ".cursor/rules/sanofi-design-system.mdc",
+        "file_status": "present"
+      }
+    ],
+    "page_profiles": [
+      {
+        "id": "admin-data-entry-table",
+        "path": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+        "file_status": "present",
+        "status": "ready",
+        "required_rules": [
+          "layout-grid-container",
+          "typography-font-stack",
+          "admin-template-navigation",
+          "admin-query-panel-template",
+          "admin-density",
+          "admin-data-entry-table-reference-fit"
+        ],
+        "required_module_contracts": [
+          "select-filter",
+          "data-table-fallback"
+        ]
+      },
+      {
+        "id": "approval-workflow",
+        "path": "design-system-plugin/design-system/page-profiles/approval-workflow.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "content-standards",
+          "interaction-state-standards",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-table",
+          "business-form"
+        ]
+      },
+      {
+        "id": "entity-detail",
+        "path": "design-system-plugin/design-system/page-profiles/entity-detail.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "content-standards",
+          "interaction-state-standards",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-form",
+          "business-table"
+        ]
+      },
+      {
+        "id": "entity-form",
+        "path": "design-system-plugin/design-system/page-profiles/entity-form.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "form-usage",
+          "content-standards",
+          "interaction-state-standards",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-form"
+        ]
+      },
+      {
+        "id": "import-result",
+        "path": "design-system-plugin/design-system/page-profiles/import-result.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "table-usage",
+          "content-standards",
+          "interaction-state-standards",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-table"
+        ]
+      },
+      {
+        "id": "report-dashboard",
+        "path": "design-system-plugin/design-system/page-profiles/report-dashboard.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "chart-usage",
+          "table-usage",
+          "density-standards",
+          "admin-dashboard-chart-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-chart",
+          "business-table"
+        ]
+      },
+      {
+        "id": "information-aggregation",
+        "path": "design-system-plugin/design-system/page-profiles/information-aggregation.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "form-usage",
+          "chart-usage",
+          "table-usage",
+          "density-standards",
+          "business-layout-typography",
+          "business-app-shell-scroll",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-form",
+          "business-chart",
+          "business-table"
+        ]
+      },
+      {
+        "id": "customer-detail-date-query",
+        "path": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "business-admin-defaults",
+          "content-standards",
+          "interaction-state-standards",
+          "business-layout-typography",
+          "business-app-shell-scroll",
+          "form-usage",
+          "table-usage",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-form",
+          "business-table"
+        ]
+      },
+      {
+        "id": "permission-admin",
+        "path": "design-system-plugin/design-system/page-profiles/permission-admin.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "table-usage",
+          "form-usage",
+          "interaction-state-standards",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-table",
+          "business-form"
+        ]
+      },
+      {
+        "id": "exception-state",
+        "path": "design-system-plugin/design-system/page-profiles/exception-state.profile.json",
+        "file_status": "present",
+        "status": "standard-ready",
+        "required_rules": [
+          "business-page-standards",
+          "content-standards",
+          "interaction-state-standards",
+          "business-page-family-reference-fit"
+        ],
+        "required_module_contracts": [
+          "business-form"
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "id": "business-page-standards",
+        "path": "design-system-plugin/design-system/rules/business-page-standards.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "table-usage",
+        "path": "design-system-plugin/design-system/rules/table-usage.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "chart-usage",
+        "path": "design-system-plugin/design-system/rules/chart-usage.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "form-usage",
+        "path": "design-system-plugin/design-system/rules/form-usage.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "density-standards",
+        "path": "design-system-plugin/design-system/rules/density-standards.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "business-layout-typography",
+        "path": "design-system-plugin/design-system/rules/business-layout-typography.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-page-layout-typography",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "business-app-shell-scroll",
+        "path": "design-system-plugin/design-system/rules/business-app-shell-scroll.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-app-shell-scroll",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "icon-usage",
+        "path": "design-system-plugin/design-system/rules/icon-usage.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-icon-usage",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "content-standards",
+        "path": "design-system-plugin/design-system/rules/content-standards.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "interaction-state-standards",
+        "path": "design-system-plugin/design-system/rules/interaction-state-standards.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "business-admin-defaults",
+        "path": "design-system-plugin/design-system/rules/business-admin-defaults.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-page-examples",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "elevation-usage",
+        "path": "design-system-plugin/design-system/rules/elevation-usage.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-elevation-usage",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "business-page-family-reference-fit",
+        "path": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "admin-dashboard-chart-reference-fit",
+        "path": "design-system-plugin/design-system/reference-fit/admin-dashboard-chart.rules.json",
+        "rule_file_status": "present",
+        "script": "design-system-plugin/scripts/validate-business-standards",
+        "script_status": "present",
+        "status": "ready"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "business-table",
+        "path": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+        "file_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "business-chart",
+        "path": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+        "file_status": "present",
+        "status": "ready"
+      },
+      {
+        "id": "business-form",
+        "path": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+        "file_status": "present",
+        "status": "ready"
+      }
+    ],
+    "cursor": {
+      "path": ".cursor/rules/sanofi-design-system.mdc",
+      "file_status": "present",
+      "required_markers": [
+        {
+          "marker": "business-standards-index.json",
+          "present": true
+        },
+        {
+          "marker": "sanofi-ds business standards",
+          "present": true
+        },
+        {
+          "marker": "validate-business-standards",
+          "present": true
+        },
+        {
+          "marker": "validate-design-md",
+          "present": true
+        },
+        {
+          "marker": "validate-local-registry",
+          "present": true
+        }
+      ]
+    },
+    "entrypoints": {
+      "design_md": {
+        "path": "design-system-plugin/design-system/DESIGN.md",
+        "file_status": "present",
+        "markers": [
+          {
+            "marker": "business/business-standards-index.json",
+            "present": true
+          },
+          {
+            "marker": "contracts/page-modules/business-table.contract.json",
+            "present": true
+          },
+          {
+            "marker": "contracts/page-modules/business-chart.contract.json",
+            "present": true
+          },
+          {
+            "marker": "contracts/page-modules/business-form.contract.json",
+            "present": true
+          },
+          {
+            "marker": "rules/icon-usage.json",
+            "present": true
+          },
+          {
+            "marker": "scripts/validate-business-standards",
+            "present": true
+          }
+        ]
+      },
+      "skill": {
+        "path": "design-system-plugin/skills/design-prototype-generator/SKILL.md",
+        "file_status": "present",
+        "markers": [
+          {
+            "marker": "design-system/business/business-standards-index.json",
+            "present": true
+          },
+          {
+            "marker": "business-table.contract.json",
+            "present": true
+          },
+          {
+            "marker": "business-chart.contract.json",
+            "present": true
+          },
+          {
+            "marker": "business-form.contract.json",
+            "present": true
+          },
+          {
+            "marker": "rules/icon-usage.json",
+            "present": true
+          },
+          {
+            "marker": "scripts/validate-business-standards",
+            "present": true
+          }
+        ]
+      },
+      "components_json": {
+        "path": "design-system-plugin/components.json",
+        "file_status": "present",
+        "aliases": {
+          "business_standards": "./design-system/business",
+          "cursor_rules": "../.cursor/rules"
+        },
+        "commands": {
+          "validate_business_standards": "./scripts/validate-business-standards",
+          "validate_icon_usage": "./scripts/validate-icon-usage",
+          "business_standards": "./scripts/business-standards"
+        }
+      }
+    }
+  },
+  "failures": []
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-drawer--custom-drawer-width",
+  "component_id": "drawer",
+  "component_name": "Drawer",
+  "story_id": "components-drawer--custom-drawer-width",
+  "story_name": "Custom Drawer Width",
+  "export_name": "CustomDrawerWidth",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-drawer--custom-drawer-width&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-drawer--custom-drawer-width&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Drawer.stories-D3FsDaaP.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/drawer/assets/components-drawer--custom-drawer-width.iframe.html",
+    "import_path": "./src/components/Drawer/Drawer.stories.tsx",
+    "component_path": "./src/components/Drawer/Drawer.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...h,drawerTitle:\"Custom Drawer Width\",position:o.END,isVisible:!1,customDrawerWidth:\"500px\"}",
+    "values": {
+      "drawerTitle": "Custom Drawer Width",
+      "position": "end",
+      "size": "medium",
+      "isVisible": false,
+      "hasOverlay": true,
+      "backButtonCallback": {
+        "extraction_status": "raw_expression",
+        "value": "()=>{console.log(\"Back button clicked\")}"
+      },
+      "customDrawerWidth": "500px"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{isVisible:{description:\"Whether the drawer is visible or not\",control:{type:\"boolean\"}},hasOverlay:{description:\"Whether the drawer has an overlay or not\",control:{type:\"boolean\"}},position:{description:\"The position of the drawer\",control:\"select\",options:Object.values(o)},size:{description:\"The size of the drawer\",control:\"select\",options:Object.values(L)},showBackButton:{description:\"Whether to show the back button or not\",control:\"boolean\"},showFooter:{description:\"Whether to render the drawer footer\",control:\"boolean\"},maxContentHeight:{description:\"Custom max height for drawer content area (e.g., '80vh', '500px')\",control:\"text\"},customDrawerWidth:{description:\"Custom width for start/end positioned drawers (e.g., '400px', '50vw')\",control:\"text\"}}",
+    "fields": [
+      "isVisible",
+      "hasOverlay",
+      "position",
+      "size",
+      "showBackButton",
+      "showFooter",
+      "maxContentHeight",
+      "customDrawerWidth"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    drawerTitle: \"Custom Drawer Width\",\n    position: DrawerPosition.END,\n    isVisible: false,\n    customDrawerWidth: \"500px\"\n  },\n  render: function Render(args) {\n    const [, updateArgs] = useArgs<{\n      isVisible: boolean;\n      customDrawerWidth?: string;\n      position: DrawerPosition;\n    }>();\n    const footerContent = <>\n        <Button label=\"Apply Width\" onClick={() => {\n        alert(\\`Applied with customDrawerWidth: \\${args.customDrawerWidth || \"default (size-based)\"}\\`);\n        updateArgs({\n          isVisible: false\n        });\n      }} />\n        <Button label=\"Cancel\" data-testid=\"cancel-drawer\" variant={ButtonVariant.TERTIARY} onClick={() => {\n        updateArgs({\n          isVisible: false\n        });\n      }} />\n      </>;\n    const richContent = <div style={{\n      padding: \"1rem\"\n    }}>\n        <Typography variant={TypographyVariant.BODY_SMALL}>\n          Current customDrawerWidth:{\" \"}\n          <strong>{args.customDrawerWidth || \"default (size-based)\"}</strong>\n        </Typography>\n        <br />\n\n        <div style={{\n        backgroundColor: \"#e8f5e8\",\n        padding: \"1rem\",\n        borderRadius: \"4px\",\n        marginBottom: \"1rem\"\n      }}>\n          <Typography variant={TypographyVariant.BODY_SMALL}>\n            ✅ Start/End drawer width is now customizable!\n            <br />\n            • Default: Based on size prop (22.5rem, 30rem, 37.5rem, 90%)\n            <br />• Current: {args.customDrawerWidth || \"size-based default\"}\n            <br />• Perfect for content-specific layouts\n          </Typography>\n        </div>\n\n        <div style={{\n        marginBottom: \"1rem\"\n      }}>\n          <Typography variant={TypographyVariant.BODY_MEDIUM}>\n            <strong>Sample Content:</strong>\n          </Typography>\n          <br />\n          <Select required placeholder=\"Select option\" options={[{\n          value: \"option1\",\n          label: \"Option 1\"\n        }, {\n          value: \"option2\",\n          label: \"Option 2\"\n        }, {\n          value: \"option3\",\n          label: \"Option 3\"\n        }]} />\n        </div>\n\n        <div style={{\n        backgroundColor: \"#f0f8ff\",\n        padding: \"1rem\",\n        borderRadius: \"4px\",\n        marginBottom: \"1rem\"\n      }}>\n          <Typography variant={TypographyVariant.BODY_SMALL}>\n            <strong>Benefits of Custom Width:</strong>\n          </Typography>\n          <div style={{\n          margin: \"0.5rem 0\",\n          paddingLeft: \"1rem\"\n        }}>\n            <Typography variant={TypographyVariant.BODY_SMALL}>\n              • ✅ Perfect width for your specific content\n            </Typography>\n            <Typography variant={TypographyVariant.BODY_SMALL}>\n              • ✅ Responsive: Always 100% on mobile\n            </Typography>\n            <Typography variant={TypographyVariant.BODY_SMALL}>\n              • ✅ Flexible: Use px, vw, %, rem, or any CSS unit\n            </Typography>\n            <Typography variant={TypographyVariant.BODY_SMALL}>\n              • ✅ Fallback: Uses size prop when not specified\n            </Typography>\n          </div>\n        </div>\n\n        <Typography variant={TypographyVariant.BODY_SMALL}>\n          Notice how this drawer can be precisely sized for your content needs.\n          On mobile, it automatically becomes full-width for optimal experience.\n        </Typography>\n\n        <div style={{\n        backgroundColor: \"#fff3e0\",\n        padding: \"1rem\",\n        borderRadius: \"4px\",\n        marginTop: \"1rem\"\n      }}>\n          <Typography variant={TypographyVariant.BODY_SMALL}>\n            💡 <strong>Position Independence:</strong> This feature only works\n            for start/end positioned drawers. Top/bottom drawers use the\n            maxContentHeight prop instead.\n          </Typography>\n        </div>\n      </div>;\n    return <>\n        <div style={{\n        padding: \"2rem\",\n        textAlign: \"center\"\n      }}>\n          <Typography variant={TypographyVariant.BODY_MEDIUM}>\n            This story demonstrates the new <strong>customDrawerWidth</strong>{\" \"}\n            prop that allows users to customize the width for start/end\n            positioned drawers.\n          </Typography>\n          <br />\n          <Typography variant={TypographyVariant.BODY_SMALL}>\n            Try different width values to see the difference. Perfect for\n            content-specific layouts!\n          </Typography>\n          <br />\n          <div style={{\n          display: \"flex\",\n          flexWrap: \"wrap\",\n          gap: \"1rem\",\n          justifyContent: \"center\",\n          marginTop: \"1rem\"\n        }}>\n            <Button label=\"Default (size-based)\" onClick={() => updateArgs({\n            isVisible: true,\n            customDrawerWidth: undefined,\n            position: DrawerPosition.END\n          })} data-testid=\"default-width\" />\n            <Button label=\"Narrow (300px)\" onClick={() => updateArgs({\n            isVisible: true,\n            customDrawerWidth: \"300px\",\n            position: DrawerPosition.END\n          })} data-testid=\"narrow-width\" />\n            <Button label=\"Medium (500px)\" onClick={() => updateArgs({\n            isVisible: true,\n            customDrawerWidth: \"500px\",\n            position: DrawerPosition.END\n          })} data-testid=\"medium-width\" />\n            <Button label=\"Wide (700px)\" onClick={() => updateArgs({\n            isVisible: true,\n            customDrawerWidth: \"700px\",\n            position: DrawerPosition.END\n          })} data-testid=\"wide-width\" />\n            <Button label=\"Viewport-based (40vw)\" onClick={() => updateArgs({\n            isVisible: true,\n            customDrawerWidth: \"40vw\",\n            position: DrawerPosition.END\n          })} data-testid=\"viewport-width\" />\n            <Button label=\"Start Position\" onClick={() => updateArgs({\n            isVisible: true,\n            customDrawerWidth: \"450px\",\n            position: DrawerPosition.START\n          })} data-testid=\"start-position\" />\n          </div>\n\n          <div style={{\n          marginTop: \"1rem\",\n          padding: \"1rem\",\n          backgroundColor: \"#fff3cd\",\n          borderRadius: \"4px\"\n        }}>\n            <Typography variant={TypographyVariant.BODY_SMALL}>\n              💡 <strong>Mobile Behavior:</strong> All custom widths become 100%\n              on mobile devices for optimal touch experience.\n            </Typography>\n          </div>\n        </div>\n        <Drawer content={richContent} footerContent={footerContent} onClose={() => updateArgs({\n        isVisible: false\n      })} {...args} />\n      </>;\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    const mediumButton = canvas.getByTestId(\"medium-width\");\n    await userEvent.click(mediumButton);\n\n    // Wait for drawer to open and render\n    await new Promise(resolve => setTimeout(resolve, 500));\n  }\n}",
+    "story_object_source": "{args:{...h,drawerTitle:\"Custom Drawer Width\",position:o.END,isVisible:!1,customDrawerWidth:\"500px\"},render:function(n){const[,r]=q(),i=e.jsxs(e.Fragment,{children:[e.jsx(l,{label:\"Apply Width\",onClick:()=>{alert(`Applied with customDrawerWidth: ${n.customDrawerWidth||\"default (size-based)\"}`),r({isVisible:!1})}}),e.jsx(l,{label:\"Cancel\",\"data-testid\":\"cancel-drawer\",variant:A.TERTIARY,onClick:()=>{r({isVisible:!1})}})]}),c=e.jsxs(\"div\",{style:{padding:\"1rem\"},children:[e.jsxs(a,{variant:s.BODY_SMALL,children:[\"Current customDrawerWidth:\",\" \",e.jsx(\"strong\",{children:n.customDrawerWidth||\"default (size-based)\"})]}),e.jsx(\"br\",{}),e.jsx(\"div\",{style:{backgroundColor:\"#e8f5e8\",padding:\"1rem\",borderRadius:\"4px\",marginBottom:\"1rem\"},children:e.jsxs(a,{variant:s.BODY_SMALL,children:[\"✅ Start/End drawer width is now customizable!\",e.jsx(\"br\",{}),\"• Default: Based on size prop (22.5rem, 30rem, 37.5rem, 90%)\",e.jsx(\"br\",{}),\"• Current: \",n.customDrawerWidth||\"size-based default\",e.jsx(\"br\",{}),\"• Perfect for content-specific layouts\"]})}),e.jsxs(\"div\",{style:{marginBottom:\"1rem\"},children:[e.jsx(a,{variant:s.BODY_MEDIUM,children:e.jsx(\"strong\",{children:\"Sample Content:\"})}),e.jsx(\"br\",{}),e.jsx(F,{required:!0,placeholder:\"Select option\",options:[{value:\"option1\",label:\"Option 1\"},{value:\"option2\",label:\"Option 2\"},{value:\"option3\",label:\"Option 3\"}]})]}),e.jsxs(\"div\",{style:{backgroundColor:\"#f0f8ff\",padding:\"1rem\",borderRadius:\"4px\",marginBottom:\"1rem\"},children:[e.jsx(a,{variant:s.BODY_SMALL,children:e.jsx(\"strong\",{children:\"Benefits of Custom Width:\"})}),e.jsxs(\"div\",{style:{margin:\"0.5rem 0\",paddingLeft:\"1rem\"},children:[e.jsx(a,{variant:s.BODY_SMALL,children:\"• ✅ Perfect width for your specific content\"}),e.jsx(a,{variant:s.BODY_SMALL,children:\"• ✅ Responsive: Always 100% on mobile\"}),e.jsx(a,{variant:s.BODY_SMALL,children:\"• ✅ Flexible: Use px, vw, %, rem, or any CSS unit\"}),e.jsx(a,{variant:s.BODY_SMALL,children:\"• ✅ Fallback: Uses size prop when not specified\"})]})]}),e.jsx(a,{variant:s.BODY_SMALL,children:\"Notice how this drawer can be precisely sized for your content needs. On mobile, it automatically becomes full-width for optimal experience.\"}),e.jsx(\"div\",{style:{backgroundColor:\"#fff3e0\",padding:\"1rem\",borderRadius:\"4px\",marginTop:\"1rem\"},children:e.jsxs(a,{variant:s.BODY_SMALL,children:[\"💡 \",e.jsx(\"strong\",{children:\"Position Independence:\"}),\" This feature only works for start/end positioned drawers. Top/bottom drawers use the maxContentHeight prop instead.\"]})})]});return e.jsxs(e.Fragment,{children:[e.jsxs(\"div\",{style:{padding:\"2rem\",textAlign:\"center\"},children:[e.jsxs(a,{variant:s.BODY_MEDIUM,children:[\"This story demonstrates the new \",e.jsx(\"strong\",{children:\"customDrawerWidth\"}),\" \",\"prop that allows users to customize the width for start/end positioned drawers.\"]}),e.jsx(\"br\",{}),e.jsx(a,{variant:s.BODY_SMALL,children:\"Try different width values to see the difference. Perfect for content-specific layouts!\"}),e.jsx(\"br\",{}),e.jsxs(\"div\",{style:{display:\"flex\",flexWrap:\"wrap\",gap:\"1rem\",justifyContent:\"center\",marginTop:\"1rem\"},children:[e.jsx(l,{label:\"Default (size-based)\",onClick:()=>r({isVisible:!0,customDrawerWidth:void 0,position:o.END}),\"data-testid\":\"default-width\"}),e.jsx(l,{label:\"Narrow (300px)\",onClick:()=>r({isVisible:!0,customDrawerWidth:\"300px\",position:o.END}),\"data-testid\":\"narrow-width\"}),e.jsx(l,{label:\"Medium (500px)\",onClick:()=>r({isVisible:!0,customDrawerWidth:\"500px\",position:o.END}),\"data-testid\":\"medium-width\"}),e.jsx(l,{label:\"Wide (700px)\",onClick:()=>r({isVisible:!0,customDrawerWidth:\"700px\",position:o.END}),\"data-testid\":\"wide-width\"}),e.jsx(l,{label:\"Viewport-based (40vw)\",onClick:()=>r({isVisible:!0,customDrawerWidth:\"40vw\",position:o.END}),\"data-testid\":\"viewport-width\"}),e.jsx(l,{label:\"Start Position\",onClick:()=>r({isVisible:!0,customDrawerWidth:\"450px\",position:o.START}),\"data-testid\":\"start-position\"})]}),e.jsx(\"div\",{style:{marginTop:\"1rem\",padding:\"1rem\",backgroundColor:\"#fff3cd\",borderRadius:\"4px\"},children:e.jsxs(a,{variant:s.BODY_SMALL,children:[\"💡 \",e.jsx(\"strong\",{children:\"Mobile Behavior:\"}),\" All custom widths become 100% on mobile devices for optimal touch experience.\"]})})]}),e.jsx(v,{content:c,footerContent:i,onClose:()=>r({isVisible:!1}),...n})]})},play:async({canvasElement:t})=>{const r=y(t).getByTestId(\"medium-width\");await g.click(r),await new Promise(i=>setTimeout(i,500))}}"
+  },
+  "template": {
+    "id": "drawer-custom-drawer-width-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/drawer/templates/html.custom-drawer-width.template.html",
+    "output_path": "design-system-plugin/outputs/html/drawer-custom-drawer-width.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "drawer",
+    "local_path": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "story_id": "components-drawer--custom-drawer-width",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/drawer/assets/components-drawer--custom-drawer-width.iframe.html"
+  }
+}

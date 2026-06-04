@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-calendar-disabled-atomic-story",
+  "title": "Calendar Disabled atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-calendar--disabled.",
+  "atomic_story_id": "components-calendar--disabled",
+  "component_id": "calendar",
+  "docs_id": "components-calendar--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-calendar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--disabled.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--disabled.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/assets/components-calendar--disabled.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/assets/components-calendar--disabled.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/templates/html.disabled.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/templates/html.disabled.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/calendar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/calendar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "story_id": "components-calendar--disabled",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/calendar/stories/components-calendar--disabled.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-calendar--disabled&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-calendar--disabled&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Calendar.stories-DLyXysUD.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "calendar",
+      "Calendar",
+      "Disabled",
+      "components-calendar--disabled",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Calendar Disabled Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

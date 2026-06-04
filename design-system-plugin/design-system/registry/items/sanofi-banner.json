@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-banner",
+  "title": "Banner primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Banner.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "banner",
+  "docs_id": "components-banner--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/banner/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/banner/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/banner/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/banner.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 6,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "banner",
+      "Banner",
+      "Banner"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Banner primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

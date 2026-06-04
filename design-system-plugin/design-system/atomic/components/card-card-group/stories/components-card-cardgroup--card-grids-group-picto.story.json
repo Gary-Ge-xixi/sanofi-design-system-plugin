@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-card-cardgroup--card-grids-group-picto",
+  "component_id": "card-card-group",
+  "component_name": "Card/CardGroup",
+  "story_id": "components-card-cardgroup--card-grids-group-picto",
+  "story_name": "Card Grids Group Picto",
+  "export_name": "CardGridsGroupPicto",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card-cardgroup--card-grids-group-picto&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card-cardgroup--card-grids-group-picto&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CardGroup.stories-DXUr9FfL.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/card-card-group/assets/components-card-cardgroup--card-grids-group-picto.iframe.html",
+    "import_path": "./src/components/CardGroup/CardGroup.stories.tsx",
+    "component_path": "./src/components/CardGroup/CardGroup.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{}",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  decorators: [Story => <div style={{\n    padding: \"2rem\",\n    display: \"flex\",\n    justifyContent: \"center\"\n  }}>\n        <Story />\n      </div>],\n  render: () => {\n    return <CardGroup>\n        {cardContentData.map(el => <CardInternal key={el.id} cardContentData={el} hasPicto />)}\n      </CardGroup>;\n  }\n}",
+    "story_object_source": "{decorators:[r=>t.jsx(\"div\",{style:{padding:\"2rem\",display:\"flex\",justifyContent:\"center\"},children:t.jsx(r,{})})],render:()=>t.jsx(n,{children:p.map(r=>t.jsx(m,{cardContentData:r,hasPicto:!0},r.id))})}"
+  },
+  "template": {
+    "id": "card-card-group-card-grids-group-picto-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/card-card-group/templates/html.card-grids-group-picto.template.html",
+    "output_path": "design-system-plugin/outputs/html/card-card-group-card-grids-group-picto.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "card-card-group",
+    "local_path": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-cardgroup--docs",
+    "story_id": "components-card-cardgroup--card-grids-group-picto",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/card-card-group/assets/components-card-cardgroup--card-grids-group-picto.iframe.html"
+  }
+}

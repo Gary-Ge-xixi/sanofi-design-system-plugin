@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "outputs": {
+    "query": "design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html",
+    "home": "design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html",
+    "source_map_json": "design-system-plugin/outputs/reports/oneorbit-component-source-map.json",
+    "source_map_markdown": "design-system-plugin/outputs/reports/oneorbit-component-source-map.md"
+  },
+  "runtime": {
+    "component_runtime": "sanofi-local-atomic-components",
+    "render_source": "local-atomic-component-package",
+    "default_size": "medium"
+  },
+  "source_entry_count": 32
+}

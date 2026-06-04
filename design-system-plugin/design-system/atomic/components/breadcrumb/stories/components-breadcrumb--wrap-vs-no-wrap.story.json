@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-breadcrumb--wrap-vs-no-wrap",
+  "component_id": "breadcrumb",
+  "component_name": "Breadcrumb",
+  "story_id": "components-breadcrumb--wrap-vs-no-wrap",
+  "story_name": "Wrap Vs No Wrap",
+  "export_name": "WrapVsNoWrap",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-breadcrumb--wrap-vs-no-wrap&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-breadcrumb--wrap-vs-no-wrap&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Breadcrumb.stories-onpltWiw.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--wrap-vs-no-wrap.iframe.html",
+    "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+    "component_path": "./src/components/Breadcrumb/Breadcrumb.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...t,itemsBeforeCollapse:0,itemsAfterCollapse:0,maxItems:10,ellipsis:!0,maxWidth:150}",
+    "values": {
+      "itemsBeforeCollapse": 0,
+      "itemsAfterCollapse": 0,
+      "maxItems": 10,
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "[e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Home\"},1),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Investor Relations\"},3),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Financial Results and Investor Events\"},4),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Middle Quarter Results\"},5),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Quarterly Results\"},6),e.jsx(r.Item,{deactivate:!0,children:\"Second quarter 2023 results\"},7)]"
+      },
+      "ellipsis": true,
+      "maxWidth": 150
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{itemsBeforeCollapse:{control:{type:\"number\"},description:\"If max items is exceeded, the number of items to show before the ellipsis.\"},itemsAfterCollapse:{control:{type:\"number\"},description:\"If max items is exceeded, the number of items to show after the ellipsis.\"},maxItems:{control:{type:\"number\"},description:\"Specifies the maximum number of breadcrumbs to display. When there are more than the maximum number, only the first itemsBeforeCollapse and last itemsAfterCollapse will be shown, with an ellipsis in between.\"},noWrap:{control:{type:\"boolean\"},description:\"Prevent breadcrumb items from wrapping to new lines when there's insufficient space.\"},ellipsis:{control:{type:\"boolean\"},description:\"Enable ellipsis mode with tooltip when text overflows the container.\"},maxWidth:{control:{type:\"number\"},description:\"Maximum width for ellipsed text in pixels (default: 150)\"}}",
+    "fields": [
+      "itemsBeforeCollapse",
+      "itemsAfterCollapse",
+      "maxItems",
+      "noWrap",
+      "ellipsis",
+      "maxWidth"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    itemsBeforeCollapse: 0,\n    itemsAfterCollapse: 0,\n    maxItems: 10,\n    ellipsis: true,\n    maxWidth: 150\n  },\n  render: args => {\n    return <>\n        <Title variant={TitleVariant.TITLE_5}>\n          Compare wrapping behavior with and without the noWrap prop\n        </Title>\n\n        <div style={{\n        marginBottom: \"36px\",\n        marginTop: \"24px\"\n      }}>\n          <Typography variant={TypographyVariant.BODY_SMALL} color={TypographyColor.STRONG}>\n            🔄 Default behavior (noWrap=false) - items wrap to new lines:\n          </Typography>\n          <div style={{\n          width: \"300px\",\n          padding: \"var(--elements-spacing-md)\",\n          backgroundColor: \"var(--elements-color-semantic-background-neutral-subtle)\"\n        }}>\n            <Breadcrumb {...args} noWrap={false}>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={1}>\n                Home\n              </Breadcrumb.Item>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={2}>\n                Products and Services\n              </Breadcrumb.Item>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={3}>\n                Healthcare Solutions\n              </Breadcrumb.Item>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={4}>\n                Medical Devices\n              </Breadcrumb.Item>\n              <Breadcrumb.Item deactivate key={5}>\n                Current Page\n              </Breadcrumb.Item>\n            </Breadcrumb>\n          </div>\n        </div>\n\n        <div>\n          <Typography variant={TypographyVariant.BODY_SMALL} color={TypographyColor.STRONG}>\n            ➡️ No wrap behavior (noWrap=true) - items stay on single line:\n          </Typography>\n          <div style={{\n          width: \"300px\",\n          padding: \"var(--elements-spacing-md)\",\n          backgroundColor: \"var(--elements-color-semantic-background-neutral-subtle)\"\n        }}>\n            <Breadcrumb {...args} noWrap={true}>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={1}>\n                Home\n              </Breadcrumb.Item>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={2} ellipsis={args.ellipsis as boolean} maxWidth={args.maxWidth as number}>\n                Products and Services\n              </Breadcrumb.Item>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={3} ellipsis={args.ellipsis as boolean} maxWidth={args.maxWidth as number}>\n                Healthcare Solutions\n              </Breadcrumb.Item>\n              <Breadcrumb.Item href=\"#\" as=\"a\" key={4} ellipsis={args.ellipsis as boolean} maxWidth={args.maxWidth as number}>\n                Medical Devices\n              </Breadcrumb.Item>\n              <Breadcrumb.Item deactivate key={5} ellipsis={args.ellipsis as boolean} maxWidth={args.maxWidth as number}>\n                Current Page\n              </Breadcrumb.Item>\n            </Breadcrumb>\n          </div>\n        </div>\n      </>;\n  }\n}",
+    "story_object_source": "{args:{...t,itemsBeforeCollapse:0,itemsAfterCollapse:0,maxItems:10,ellipsis:!0,maxWidth:150},render:a=>e.jsxs(e.Fragment,{children:[e.jsx(P,{variant:W.TITLE_5,children:\"Compare wrapping behavior with and without the noWrap prop\"}),e.jsxs(\"div\",{style:{marginBottom:\"36px\",marginTop:\"24px\"},children:[e.jsx(n,{variant:m.BODY_SMALL,color:i.STRONG,children:\"🔄 Default behavior (noWrap=false) - items wrap to new lines:\"}),e.jsx(\"div\",{style:{width:\"300px\",padding:\"var(--elements-spacing-md)\",backgroundColor:\"var(--elements-color-semantic-background-neutral-subtle)\"},children:e.jsxs(r,{...a,noWrap:!1,children:[e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Home\"},1),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Products and Services\"},2),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Healthcare Solutions\"},3),e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Medical Devices\"},4),e.jsx(r.Item,{deactivate:!0,children:\"Current Page\"},5)]})})]}),e.jsxs(\"div\",{children:[e.jsx(n,{variant:m.BODY_SMALL,color:i.STRONG,children:\"➡️ No wrap behavior (noWrap=true) - items stay on single line:\"}),e.jsx(\"div\",{style:{width:\"300px\",padding:\"var(--elements-spacing-md)\",backgroundColor:\"var(--elements-color-semantic-background-neutral-subtle)\"},children:e.jsxs(r,{...a,noWrap:!0,children:[e.jsx(r.Item,{href:\"#\",as:\"a\",children:\"Home\"},1),e.jsx(r.Item,{href:\"#\",as:\"a\",ellipsis:a.ellipsis,maxWidth:a.maxWidth,children:\"Products and Services\"},2),e.jsx(r.Item,{href:\"#\",as:\"a\",ellipsis:a.ellipsis,maxWidth:a.maxWidth,children:\"Healthcare Solutions\"},3),e.jsx(r.Item,{href:\"#\",as:\"a\",ellipsis:a.ellipsis,maxWidth:a.maxWidth,children:\"Medical Devices\"},4),e.jsx(r.Item,{deactivate:!0,ellipsis:a.ellipsis,maxWidth:a.maxWidth,children:\"Current Page\"},5)]})})]})]})}"
+  },
+  "template": {
+    "id": "breadcrumb-wrap-vs-no-wrap-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.wrap-vs-no-wrap.template.html",
+    "output_path": "design-system-plugin/outputs/html/breadcrumb-wrap-vs-no-wrap.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "breadcrumb",
+    "local_path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "story_id": "components-breadcrumb--wrap-vs-no-wrap",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--wrap-vs-no-wrap.iframe.html"
+  }
+}

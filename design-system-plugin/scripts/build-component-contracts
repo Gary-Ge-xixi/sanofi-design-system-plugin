@@ -1,0 +1,361 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const contractsDir = path.join(pluginRoot, "design-system", "contracts", "components");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const componentsPath = path.join(pluginRoot, "design-system", "knowledge", "components.json");
+const docsIndexPath = path.join(pluginRoot, "design-system", "knowledge", "docs-index.json");
+const storybookIndexPath = path.join(workspaceRoot, "research", "storybook", "index.json");
+const primitiveIndexPath = path.join(pluginRoot, "design-system", "primitives", "primitive-index.json");
+const primitivesRoot = path.join(pluginRoot, "design-system", "primitives");
+const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "component-contract.schema.json");
+const indexPath = path.join(contractsDir, "component-contract-index.json");
+const markdownIndexPath = path.join(contractsDir, "component-contract-index.md");
+const reportPath = path.join(reportDir, "component-contracts.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function readText(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath);
+}
+
+function normalizeId(value) {
+  return String(value || "")
+    .replace(/^Components\//, "")
+    .replace(/^components\//, "")
+    .replace(/\(Deprecated\)/gi, "deprecated")
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function splitMarkdownRow(line) {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((part) => part.trim());
+}
+
+function extractProps(markdown) {
+  const lines = markdown.split(/\r?\n/);
+  const props = [];
+  let inTable = false;
+  for (const line of lines) {
+    if (/^\|\s*Name\s*\|\s*Description\s*\|\s*Default\s*\|/i.test(line)) {
+      inTable = true;
+      continue;
+    }
+    if (!inTable) continue;
+    if (/^\|\s*-+/.test(line)) continue;
+    if (!/^\|/.test(line)) {
+      if (props.length) break;
+      continue;
+    }
+    const cells = splitMarkdownRow(line);
+    if (cells.length < 3 || !cells[0] || cells[0].toLowerCase() === "name") continue;
+    const rawName = cells[0].replace(/\*$/, "").trim();
+    props.push({
+      name: rawName || "unknown",
+      required: /\*/.test(cells[0]),
+      description: cells[1] || "unknown",
+      default: cells[2] || "unknown",
+      extraction_status: rawName ? "extracted" : "unknown"
+    });
+  }
+  return props;
+}
+
+function extractCodeFences(markdown) {
+  const snippets = [];
+  const re = /```(?:[A-Za-z0-9_-]+)?\n([\s\S]*?)```/g;
+  let match;
+  while ((match = re.exec(markdown))) {
+    const code = match[1].trim();
+    if (code) snippets.push(code);
+    if (snippets.length >= 3) break;
+  }
+  return snippets;
+}
+
+function firstMeaningfulParagraph(markdown) {
+  const withoutFrontMatter = markdown.replace(/^---[\s\S]*?---\s*/, "");
+  const lines = withoutFrontMatter.split(/\r?\n/);
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("- Storybook") || trimmed.startsWith("|")) continue;
+    if (trimmed.startsWith("```")) continue;
+    if (trimmed.length > 30) return trimmed;
+  }
+  return "unknown";
+}
+
+function extractHeadings(markdown, heading) {
+  const re = new RegExp(`^#{2,4}\\s+${heading}\\s*$([\\s\\S]*?)(?=^#{1,4}\\s+|\\z)`, "im");
+  const match = markdown.match(re);
+  if (!match) return [];
+  return extractCodeFences(match[1]).slice(0, 2);
+}
+
+function readPrimitiveContracts(primitiveIndex) {
+  const contracts = [];
+  for (const primitive of primitiveIndex.primitives || []) {
+    const contractPath = primitive.path ? path.join(primitivesRoot, primitive.path) : null;
+    const demoPath = primitive.demo_registry ? path.join(primitivesRoot, primitive.demo_registry) : null;
+    const contract = contractPath && fs.existsSync(contractPath) ? readJson(contractPath) : null;
+    const demo = demoPath && fs.existsSync(demoPath) ? readJson(demoPath) : null;
+    contracts.push({
+      ...primitive,
+      normalized_component: normalizeId(primitive.component),
+      contract_path: contractPath ? rel(contractPath) : null,
+      demo_registry_path: demoPath ? rel(demoPath) : null,
+      known_story_ids: [
+        ...(contract?.story_contract?.known_story_ids || []),
+        ...((demo?.stories || []).map((story) => story.story_id))
+      ]
+    });
+  }
+  return contracts;
+}
+
+function primitiveMatches(componentName, primitive) {
+  const componentId = normalizeId(componentName);
+  const lastSegment = normalizeId(String(componentName || "").split(/[/.]/).pop());
+  return (
+    componentId === primitive.normalized_component ||
+    lastSegment === primitive.normalized_component ||
+    componentId === primitive.id ||
+    lastSegment === primitive.id
+  );
+}
+
+function storyState(story) {
+  const name = String(story.name || story.export_name || story.exportName || "unknown");
+  return {
+    id: story.id,
+    name,
+    normalized_name: normalizeId(name),
+    import_path: story.import_path || story.importPath || "unknown",
+    export_name: story.export_name || story.exportName || "unknown"
+  };
+}
+
+fs.mkdirSync(contractsDir, { recursive: true });
+fs.mkdirSync(reportDir, { recursive: true });
+
+const components = readJson(componentsPath).components || [];
+const docsIndex = readJson(docsIndexPath);
+const storybookIndex = readJson(storybookIndexPath);
+const primitiveIndex = readJson(primitiveIndexPath);
+const schema = readJson(schemaPath);
+const docsById = new Map((docsIndex.docs || []).map((doc) => [doc.id, doc]));
+const storybookById = new Map(Object.values(storybookIndex.entries || {}).map((entry) => [entry.id, entry]));
+const primitiveContracts = readPrimitiveContracts(primitiveIndex);
+const contracts = [];
+
+for (const component of components) {
+  const docsId = component.primary_storybook?.docs_id;
+  const docsRecord = docsById.get(docsId);
+  const markdownPath = docsRecord?.local_md_path ? path.join(workspaceRoot, docsRecord.local_md_path) : null;
+  const markdown = markdownPath && fs.existsSync(markdownPath) ? readText(markdownPath) : "";
+  const props = extractProps(markdown);
+  const snippets = extractCodeFences(markdown);
+  const matchedPrimitives = primitiveContracts.filter((primitive) => primitiveMatches(component.name, primitive));
+  const storyRecords = (component.primary_storybook?.stories || []).map((story) => {
+    const entry = storybookById.get(story.id) || story;
+    return storyState(entry);
+  });
+  const storyIds = storyRecords.map((story) => story.id).filter(Boolean);
+  const variants = [...new Set(storyRecords.map((story) => story.normalized_name).filter(Boolean))];
+  const contractId = normalizeId(component.name);
+  const unknowns = [];
+
+  if (!props.length) unknowns.push("props:not_extracted");
+  if (!matchedPrimitives.length) unknowns.push("primitive:unsupported");
+  if (!snippets.length) unknowns.push("usage_snippets:not_extracted");
+
+  const contract = {
+    schema_version: schema.schema_version,
+    id: contractId,
+    canonical_name: contractId,
+    component_name: component.name,
+    category: "Components",
+    status: matchedPrimitives.length ? "primitive-linked" : "docs-only",
+    docs: {
+      storybook_id: docsId || "unknown",
+      title: component.primary_storybook?.docs_url ? component.name : component.name,
+      local_md_path: docsRecord?.local_md_path || "unknown",
+      source_url: docsRecord?.source_url || component.primary_storybook?.docs_url || "unknown",
+      import_path: docsRecord?.import_path || component.primary_storybook?.import_path || "unknown",
+      extraction_status: markdown ? "extracted" : "not_extracted"
+    },
+    stories: {
+      count: storyRecords.length,
+      story_ids: storyIds,
+      records: storyRecords
+    },
+    props: {
+      extraction_status: props.length ? "extracted" : "not_extracted",
+      items: props
+    },
+    states: {
+      extraction_status: storyRecords.length ? "from_story_names" : "not_extracted",
+      items: variants
+    },
+    variants: {
+      extraction_status: variants.length ? "from_story_names_and_props" : "not_extracted",
+      items: variants
+    },
+    slots: {
+      extraction_status: "not_extracted",
+      items: [],
+      note: "Slots are not reliably extractable from current MD/index sources."
+    },
+    anatomy: {
+      extraction_status: markdown.includes("## Anatomy") ? "extracted" : "not_extracted",
+      snippets: extractHeadings(markdown, "Anatomy")
+    },
+    usage_snippets: {
+      extraction_status: snippets.length ? "extracted" : "not_extracted",
+      snippets
+    },
+    accessibility: {
+      extraction_status: /accessibility|aria|keyboard|label/i.test(markdown) ? "mentioned_in_docs" : "unknown",
+      notes: /accessibility|aria|keyboard|label/i.test(markdown)
+        ? ["Accessibility terms are present in the docs. Validate exact behavior before production use."]
+        : ["unknown"]
+    },
+    token_bindings: {
+      extraction_status: "not_extracted",
+      roles: [],
+      note: "Use semantic-token-map.json and component primitive contracts for HTML styling."
+    },
+    primitive: {
+      status: matchedPrimitives.length ? "linked" : "unsupported",
+      ids: matchedPrimitives.map((primitive) => primitive.id),
+      contracts: matchedPrimitives.map((primitive) => ({
+        id: primitive.id,
+        status: primitive.status,
+        contract_path: primitive.contract_path,
+        demo_registry_path: primitive.demo_registry_path,
+        known_story_ids: primitive.known_story_ids
+      }))
+    },
+    fallback_policy: matchedPrimitives.length
+      ? {
+          status: "not_required",
+          reason: "Component has at least one registered primitive contract."
+        }
+      : {
+          status: "docs-only-gap",
+          reason: "No registered primitive exists for this component in the first-version local registry."
+        },
+    usage_guidance: {
+      when_to_use: firstMeaningfulParagraph(markdown),
+      when_not_to_use: "unknown"
+    },
+    source_provenance: {
+      docs_id: docsId || "unknown",
+      docs_path: docsRecord?.local_md_path || "unknown",
+      docs_import_path: docsRecord?.import_path || component.primary_storybook?.import_path || "unknown",
+      story_ids: storyIds,
+      token_source: "foundations-colors--docs",
+      storybook_index: "research/storybook/index.json"
+    },
+    unknowns
+  };
+
+  const outputPath = path.join(contractsDir, `${contractId}.contract.json`);
+  fs.writeFileSync(outputPath, JSON.stringify(contract, null, 2) + "\n");
+  contracts.push({
+    id: contract.id,
+    component_name: contract.component_name,
+    status: contract.status,
+    docs_id: contract.docs.storybook_id,
+    story_count: contract.stories.count,
+    prop_count: contract.props.items.length,
+    primitive_ids: contract.primitive.ids,
+    local_contract_path: rel(outputPath),
+    unknowns: contract.unknowns
+  });
+}
+
+const primitiveCoverage = primitiveContracts.map((primitive) => ({
+  id: primitive.id,
+  component: primitive.component,
+  status: primitive.status,
+  covered_by_contracts: contracts
+    .filter((contract) => contract.primitive_ids.includes(primitive.id))
+    .map((contract) => contract.id)
+}));
+
+const index = {
+  schema_version: "0.1.0",
+  generated_at: new Date().toISOString(),
+  source: {
+    components: "design-system-plugin/design-system/knowledge/components.json",
+    docs_index: "design-system-plugin/design-system/knowledge/docs-index.json",
+    storybook_index: "research/storybook/index.json",
+    primitive_index: "design-system-plugin/design-system/primitives/primitive-index.json",
+    schema: "design-system-plugin/design-system/contracts/schemas/component-contract.schema.json"
+  },
+  counts: {
+    component_contracts: contracts.length,
+    primitive_contracts_expected: primitiveContracts.length,
+    primitive_contracts_covered: primitiveCoverage.filter((item) => item.covered_by_contracts.length).length,
+    props_extracted_contracts: contracts.filter((contract) => contract.prop_count > 0).length,
+    docs_only_contracts: contracts.filter((contract) => contract.status === "docs-only").length,
+    primitive_linked_contracts: contracts.filter((contract) => contract.status === "primitive-linked").length
+  },
+  primitive_coverage: primitiveCoverage,
+  contracts
+};
+
+const markdown = [
+  "# Component Contract Index",
+  "",
+  `Generated: ${index.generated_at}`,
+  "",
+  "## Counts",
+  "",
+  ...Object.entries(index.counts).map(([key, value]) => `- ${key}: ${value}`),
+  "",
+  "## Contracts",
+  "",
+  "| ID | Component | Status | Docs | Stories | Props | Primitives |",
+  "| --- | --- | --- | --- | --- | --- | --- |",
+  ...contracts.map((contract) =>
+    `| ${contract.id} | ${contract.component_name} | ${contract.status} | ${contract.docs_id} | ${contract.story_count} | ${contract.prop_count} | ${contract.primitive_ids.join(", ")} |`
+  ),
+  ""
+].join("\n");
+
+fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + "\n");
+fs.writeFileSync(markdownIndexPath, markdown);
+fs.writeFileSync(reportPath, JSON.stringify({
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "build-component-contracts",
+  generated_at: index.generated_at,
+  counts: index.counts,
+  output: {
+    index: rel(indexPath),
+    markdown_index: rel(markdownIndexPath),
+    contracts_dir: rel(contractsDir)
+  }
+}, null, 2) + "\n");
+
+console.log(
+  `Component contracts OK: ${contracts.length} contracts, ${index.counts.primitive_contracts_covered}/${primitiveContracts.length} primitives covered`
+);

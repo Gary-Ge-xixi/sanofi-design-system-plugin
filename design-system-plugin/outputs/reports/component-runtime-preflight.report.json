@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "script": "component-runtime/scripts/preflight-elements-package.mjs",
+  "status": "blocked",
+  "checked": {
+    "package_name": "@sanofi-accelerator/elements",
+    "expected_registry": "https://npm.pkg.github.com",
+    "configured_registry": "undefined",
+    "has_expected_registry": false,
+    "has_package_token": false,
+    "token_source": "none",
+    "resolved_package_json": "unresolved"
+  },
+  "remediation": {
+    "npmrc": [
+      "@sanofi-accelerator:registry=https://npm.pkg.github.com",
+      "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}"
+    ],
+    "token_scope": "read:packages",
+    "install_command": "npm install @sanofi-accelerator/elements"
+  },
+  "failures": [
+    "missing npm scope registry: @sanofi-accelerator:registry=https://npm.pkg.github.com",
+    "missing GitHub Packages token for @sanofi-accelerator/elements",
+    "cannot resolve @sanofi-accelerator/elements/package.json"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-treeview--custom-leading-visuals",
+  "component_id": "tree-view",
+  "component_name": "TreeView",
+  "story_id": "components-treeview--custom-leading-visuals",
+  "story_name": "Custom Leading Visuals",
+  "export_name": "CustomLeadingVisuals",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-treeview--custom-leading-visuals&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-treeview--custom-leading-visuals&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TreeView.stories-BvkdLgBu.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--custom-leading-visuals.iframe.html",
+    "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+    "component_path": "./src/components/TreeView/TreeView.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{\"aria-label\":\"Settings tree\",decoration:i.ARROW_FOLDER}",
+    "values": {
+      "aria-label": "Settings tree",
+      "decoration": "arrow-folder"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{decoration:{options:Object.values(i),control:{type:\"select\"}},colorAccent:{options:Object.values(m),control:{type:\"select\"}},showNodeLines:{control:\"boolean\"}}",
+    "fields": [
+      "decoration",
+      "colorAccent",
+      "showNodeLines"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    \"aria-label\": \"Settings tree\",\n    decoration: TreeViewDecoration.ARROW_FOLDER\n  },\n  render: args => <TreeView {...args}>\n      <TreeView.Item id=\"account\" defaultExpanded>\n        <TreeView.LeadingVisual>\n          <Icon name={IconName.PERSON} size={1} filled={false} />\n        </TreeView.LeadingVisual>\n        Account\n        <TreeView.SubTree>\n          <TreeView.Item id=\"security\" defaultExpanded>\n            <TreeView.LeadingVisual>\n              <Icon name={IconName.SHIELD} size={1} filled={false} />\n            </TreeView.LeadingVisual>\n            Security\n            <TreeView.SubTree>\n              <TreeView.Item id=\"passwords\">\n                <TreeView.LeadingVisual>\n                  <Icon name={IconName.KEY} size={1} filled={false} />\n                </TreeView.LeadingVisual>\n                Passwords\n              </TreeView.Item>\n              <TreeView.Item id=\"two-factor\">\n                <TreeView.LeadingVisual>\n                  <Icon name={IconName.FINGERPRINT} size={1} filled={false} />\n                </TreeView.LeadingVisual>\n                Two-Factor Auth\n              </TreeView.Item>\n            </TreeView.SubTree>\n          </TreeView.Item>\n          <TreeView.Item id=\"notifications\">\n            <TreeView.LeadingVisual>\n              <Icon name={IconName.NOTIFICATIONS} size={1} filled={false} />\n            </TreeView.LeadingVisual>\n            Notifications\n          </TreeView.Item>\n        </TreeView.SubTree>\n      </TreeView.Item>\n      <TreeView.Item id=\"help\">\n        <TreeView.LeadingVisual>\n          <Icon name={IconName.HELP} size={1} filled={false} />\n        </TreeView.LeadingVisual>\n        Help\n      </TreeView.Item>\n    </TreeView>\n}",
+    "story_object_source": "{args:{\"aria-label\":\"Settings tree\",decoration:i.ARROW_FOLDER},render:n=>e.jsxs(r,{...n,children:[e.jsxs(r.Item,{id:\"account\",defaultExpanded:!0,children:[e.jsx(r.LeadingVisual,{children:e.jsx(c,{name:a.PERSON,size:1,filled:!1})}),\"Account\",e.jsxs(r.SubTree,{children:[e.jsxs(r.Item,{id:\"security\",defaultExpanded:!0,children:[e.jsx(r.LeadingVisual,{children:e.jsx(c,{name:a.SHIELD,size:1,filled:!1})}),\"Security\",e.jsxs(r.SubTree,{children:[e.jsxs(r.Item,{id:\"passwords\",children:[e.jsx(r.LeadingVisual,{children:e.jsx(c,{name:a.KEY,size:1,filled:!1})}),\"Passwords\"]}),e.jsxs(r.Item,{id:\"two-factor\",children:[e.jsx(r.LeadingVisual,{children:e.jsx(c,{name:a.FINGERPRINT,size:1,filled:!1})}),\"Two-Factor Auth\"]})]})]}),e.jsxs(r.Item,{id:\"notifications\",children:[e.jsx(r.LeadingVisual,{children:e.jsx(c,{name:a.NOTIFICATIONS,size:1,filled:!1})}),\"Notifications\"]})]})]}),e.jsxs(r.Item,{id:\"help\",children:[e.jsx(r.LeadingVisual,{children:e.jsx(c,{name:a.HELP,size:1,filled:!1})}),\"Help\"]})]})}"
+  },
+  "template": {
+    "id": "tree-view-custom-leading-visuals-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tree-view/templates/html.custom-leading-visuals.template.html",
+    "output_path": "design-system-plugin/outputs/html/tree-view-custom-leading-visuals.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tree-view",
+    "local_path": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "story_id": "components-treeview--custom-leading-visuals",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--custom-leading-visuals.iframe.html"
+  }
+}

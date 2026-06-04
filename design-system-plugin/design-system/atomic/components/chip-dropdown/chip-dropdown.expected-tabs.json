@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-dropdown",
+  "component_name": "ChipDropdown",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ChipDropdown"
+  },
+  "docs": [
+    {
+      "id": "components-chipdropdown--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-chipdropdown--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--disabled-items-and-icons",
+      "name": "Disabled Items And Icons",
+      "export_name": "DisabledItemsAndIcons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--multi-select",
+      "name": "Multi Select",
+      "export_name": "MultiSelect",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--real-world-admin-vs-readonly",
+      "name": "Real World Admin Vs Readonly",
+      "export_name": "RealWorldAdminVsReadonly",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-chip-status-controlled",
+      "name": "With Chip Status Controlled",
+      "export_name": "WithChipStatusControlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-chip-status-inherit",
+      "name": "With Chip Status Inherit",
+      "export_name": "WithChipStatusInherit",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "name": "With Chip Status Inherit Multi Select",
+      "export_name": "WithChipStatusInheritMultiSelect",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    },
+    {
+      "id": "components-chipdropdown--with-render-item",
+      "name": "With Render Item",
+      "export_name": "WithRenderItem",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipDropdown/ChipDropdown.stories.tsx"
+    }
+  ]
+}

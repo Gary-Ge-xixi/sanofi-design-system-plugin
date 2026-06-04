@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tooltip-inline-atomic-story",
+  "title": "Tooltip Inline atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-tooltip--inline.",
+  "atomic_story_id": "components-tooltip--inline",
+  "component_id": "tooltip",
+  "docs_id": "components-tooltip--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tooltip"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/stories/components-tooltip--inline.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/stories/components-tooltip--inline.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/assets/components-tooltip--inline.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/assets/components-tooltip--inline.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tooltip/templates/html.inline.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/tooltip/templates/html.inline.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tooltip.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "story_id": "components-tooltip--inline",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/tooltip/stories/components-tooltip--inline.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/tooltip/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tooltip--inline&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tooltip--inline&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tooltip.stories-CHRJF3N4.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tooltip",
+      "Tooltip",
+      "Inline",
+      "components-tooltip--inline",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Tooltip Inline Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

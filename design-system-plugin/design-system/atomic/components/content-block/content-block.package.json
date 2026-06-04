@@ -1,0 +1,263 @@
+{
+  "schema_version": "0.1.0",
+  "id": "content-block-complete-standard-package",
+  "component_id": "content-block",
+  "component_name": "ContentBlock",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 10,
+    "materialized_stories": 10,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-contentblock--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-contentblock--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--interactive",
+      "story_name": "Interactive",
+      "export_name": "Interactive",
+      "semantic_type": "variant",
+      "variant": "interactive",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-interactive.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--interactive-disabled",
+      "story_name": "Interactive Disabled",
+      "export_name": "InteractiveDisabled",
+      "semantic_type": "variant",
+      "variant": "interactive-disabled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive-disabled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-interactive-disabled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--interactive-selected",
+      "story_name": "Interactive Selected",
+      "export_name": "InteractiveSelected",
+      "semantic_type": "variant",
+      "variant": "interactive-selected",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive-selected.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-interactive-selected.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--interactive-with-decorative-button",
+      "story_name": "Interactive With Decorative Button",
+      "export_name": "InteractiveWithDecorativeButton",
+      "semantic_type": "variant",
+      "variant": "interactive-with-decorative-button",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive-with-decorative-button.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-interactive-with-decorative-button.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+      "story_name": "Non Interactive With Multiple Actions",
+      "export_name": "NonInteractiveWithMultipleActions",
+      "semantic_type": "variant",
+      "variant": "non-interactive-with-multiple-actions",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--non-interactive-with-multiple-actions.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-non-interactive-with-multiple-actions.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--padding-sizes",
+      "story_name": "Padding Sizes",
+      "export_name": "PaddingSizes",
+      "semantic_type": "variant",
+      "variant": "padding-sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--padding-sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-padding-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--selectable-list",
+      "story_name": "Selectable List",
+      "export_name": "SelectableList",
+      "semantic_type": "variant",
+      "variant": "selectable-list",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--selectable-list.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-selectable-list.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--selectable-radio-list",
+      "story_name": "Selectable Radio List",
+      "export_name": "SelectableRadioList",
+      "semantic_type": "variant",
+      "variant": "selectable-radio-list",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--selectable-radio-list.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-selectable-radio-list.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-contentblock--with-link",
+      "story_name": "With Link",
+      "export_name": "WithLink",
+      "semantic_type": "variant",
+      "variant": "with-link",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--with-link.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/content-block-with-link.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-contentblock--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/content-block-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-contentblock--default",
+        "output_path": "design-system-plugin/outputs/html/content-block-default.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--interactive",
+        "output_path": "design-system-plugin/outputs/html/content-block-interactive.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--interactive-disabled",
+        "output_path": "design-system-plugin/outputs/html/content-block-interactive-disabled.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--interactive-selected",
+        "output_path": "design-system-plugin/outputs/html/content-block-interactive-selected.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--interactive-with-decorative-button",
+        "output_path": "design-system-plugin/outputs/html/content-block-interactive-with-decorative-button.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+        "output_path": "design-system-plugin/outputs/html/content-block-non-interactive-with-multiple-actions.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--padding-sizes",
+        "output_path": "design-system-plugin/outputs/html/content-block-padding-sizes.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--selectable-list",
+        "output_path": "design-system-plugin/outputs/html/content-block-selectable-list.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--selectable-radio-list",
+        "output_path": "design-system-plugin/outputs/html/content-block-selectable-radio-list.atomic.html"
+      },
+      {
+        "story_id": "components-contentblock--with-link",
+        "output_path": "design-system-plugin/outputs/html/content-block-with-link.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-content-block-complete-package.json",
+    "story_item_prefix": "sanofi-content-block-"
+  },
+  "validation": {
+    "required_story_count": 10,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

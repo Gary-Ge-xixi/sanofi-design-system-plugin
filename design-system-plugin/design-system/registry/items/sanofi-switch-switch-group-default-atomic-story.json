@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-switch-switch-group-default-atomic-story",
+  "title": "Switch/SwitchGroup Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-switch-switchgroup--default.",
+  "atomic_story_id": "components-switch-switchgroup--default",
+  "component_id": "switch-switch-group",
+  "docs_id": "components-switch-switchgroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-switch-switch-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/stories/components-switch-switchgroup--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/stories/components-switch-switchgroup--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/assets/SwitchGroup.stories-D54VHrfL.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/assets/SwitchGroup.stories-D54VHrfL.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/assets/components-switch-switchgroup--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/assets/components-switch-switchgroup--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/switch-switch-group/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch-switchgroup--docs",
+    "story_id": "components-switch-switchgroup--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/switch-switch-group/stories/components-switch-switchgroup--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/switch-switch-group/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-switch-switchgroup--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-switch-switchgroup--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/SwitchGroup.stories-D54VHrfL.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/switch-switch-group/assets/SwitchGroup.stories-D54VHrfL.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "switch-switch-group",
+      "Switch/SwitchGroup",
+      "Default",
+      "components-switch-switchgroup--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Switch/SwitchGroup Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

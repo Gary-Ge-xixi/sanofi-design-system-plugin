@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-card-sections--default",
+  "component_id": "card-sections",
+  "component_name": "Card/Sections",
+  "story_id": "components-card-sections--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card-sections--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card-sections--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CardSection.stories-q14VGGHH.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/card-sections/assets/CardSection.stories-q14VGGHH.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/card-sections/assets/components-card-sections--default.iframe.html",
+    "import_path": "./src/components/Card/CardSection.stories.tsx",
+    "component_path": "./src/components/Card/CardSection.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...t}",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:{description:\"The card section children\",control:{disable:!0}}}",
+    "fields": [
+      "children"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs\n  }\n}",
+    "story_object_source": "{args:{...t}}"
+  },
+  "template": {
+    "id": "card-sections-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/card-sections/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/card-sections-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "card-sections",
+    "local_path": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-sections--docs",
+    "story_id": "components-card-sections--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card-sections/assets/CardSection.stories-q14VGGHH.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/card-sections/assets/components-card-sections--default.iframe.html"
+  }
+}

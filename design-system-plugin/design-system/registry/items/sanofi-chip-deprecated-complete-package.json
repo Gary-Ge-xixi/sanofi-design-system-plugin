@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-deprecated-complete-package",
+  "title": "Chip (Deprecated) complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Chip (Deprecated) package covering Docs plus all Storybook story atoms.",
+  "component_id": "chip-deprecated",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-deprecated"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-deprecated/docs/chip-deprecated.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-deprecated/docs/chip-deprecated.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-deprecated/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-deprecated/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/chip-deprecated-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/chip-deprecated-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chip-deprecated--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chip-deprecated--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 8,
+    "materialized_stories": 8,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chip-deprecated--active",
+      "story_name": "Active",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-active-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--clickable",
+      "story_name": "Clickable",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-clickable-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-default-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--deletable",
+      "story_name": "Deletable",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-deletable-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--icon",
+      "story_name": "Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-icon-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--icon-and-deletable",
+      "story_name": "Icon And Deletable",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-icon-and-deletable-atomic-story"
+    },
+    {
+      "story_id": "components-chip-deprecated--sizes",
+      "story_name": "Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-deprecated-sizes-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chip-deprecated--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-deprecated/docs/chip-deprecated.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-deprecated",
+      "Chip (Deprecated)",
+      "chip-deprecated complete",
+      "Chip (Deprecated) complete package",
+      "chip-deprecated docs"
+    ],
+    "when_to_use": "Use first for any Chip (Deprecated) generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Chip (Deprecated) behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

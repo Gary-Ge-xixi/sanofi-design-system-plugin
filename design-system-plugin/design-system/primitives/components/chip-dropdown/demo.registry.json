@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ChipDropdown",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-chipdropdown--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--disabled-items-and-icons",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--multi-select",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--overview",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--real-world-admin-vs-readonly",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-controlled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-chipdropdown--with-render-item",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

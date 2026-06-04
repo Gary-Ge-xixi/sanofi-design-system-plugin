@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "search-input",
+  "component_name": "SearchInput",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/SearchInput"
+  },
+  "docs": [
+    {
+      "id": "components-searchinput--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/SearchInput/SearchInput.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-searchinput--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--error-state",
+      "name": "Error State",
+      "export_name": "ErrorState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-variant",
+      "name": "Submit Variant",
+      "export_name": "SubmitVariant",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-variant-sizes",
+      "name": "Submit Variant Sizes",
+      "export_name": "SubmitVariantSizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-with-button-icon",
+      "name": "Submit With Button Icon",
+      "export_name": "SubmitWithButtonIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    },
+    {
+      "id": "components-searchinput--submit-with-custom-buttons",
+      "name": "Submit With Custom Buttons",
+      "export_name": "SubmitWithCustomButtons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/SearchInput/SearchInput.stories.tsx"
+    }
+  ]
+}

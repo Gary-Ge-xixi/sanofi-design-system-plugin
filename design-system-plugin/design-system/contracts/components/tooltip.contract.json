@@ -1,0 +1,295 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tooltip",
+  "canonical_name": "tooltip",
+  "component_name": "Tooltip",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-tooltip--docs",
+    "title": "Tooltip",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-tooltip--docs",
+    "import_path": "./src/components/Tooltip/Tooltip.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 8,
+    "story_ids": [
+      "components-tooltip--auto-placement",
+      "components-tooltip--default",
+      "components-tooltip--inline",
+      "components-tooltip--max-width",
+      "components-tooltip--overflowing",
+      "components-tooltip--placement",
+      "components-tooltip--with-icon",
+      "components-tooltip--within-list"
+    ],
+    "records": [
+      {
+        "id": "components-tooltip--auto-placement",
+        "name": "Auto Placement",
+        "normalized_name": "auto-placement",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "AutoPlacement"
+      },
+      {
+        "id": "components-tooltip--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-tooltip--inline",
+        "name": "Inline",
+        "normalized_name": "inline",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "Inline"
+      },
+      {
+        "id": "components-tooltip--max-width",
+        "name": "Max Width",
+        "normalized_name": "max-width",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "MaxWidth"
+      },
+      {
+        "id": "components-tooltip--overflowing",
+        "name": "Overflowing",
+        "normalized_name": "overflowing",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "Overflowing"
+      },
+      {
+        "id": "components-tooltip--placement",
+        "name": "Placement",
+        "normalized_name": "placement",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "Placement"
+      },
+      {
+        "id": "components-tooltip--with-icon",
+        "name": "With Icon",
+        "normalized_name": "with-icon",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "WithIcon"
+      },
+      {
+        "id": "components-tooltip--within-list",
+        "name": "Within List",
+        "normalized_name": "within-list",
+        "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+        "export_name": "WithinList"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "label",
+        "required": true,
+        "description": "Content of the TooltipReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "position",
+        "required": false,
+        "description": "Position of the Tooltip\"top-start\"\"top\"\"top-end\"\"right-start\"\"right\"\"right-end\"\"bottom-start\"\"bottom\"\"bottom-end\"\"left-start\"\"left\"\"left-end\"Show 4 more...",
+        "default": "\"TooltipPosition.TOP\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxWidth",
+        "required": false,
+        "description": "Set the max-width of the Tooltip contentnumber",
+        "default": "378",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tooltipOffset",
+        "required": false,
+        "description": "Distance in pixels from trigger element.number",
+        "default": "8",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "arrowPadding",
+        "required": false,
+        "description": "Padding for the tooltip arrow from edges.number",
+        "default": "10",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isOpen",
+        "required": false,
+        "description": "Programmatically opens the Tooltipboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "description": "Set the background-color to darkboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "delay",
+        "required": false,
+        "description": "Set a delay before Tooltip opens (in ms)number \\",
+        "default": "{ open?: number; close?: number; } \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shiftOffset",
+        "required": false,
+        "description": "Fine-tune position shifting for edge cases.{ mainAxis?: number; crossAxis?: number; } \\",
+        "default": "undefined",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "CSS class names for component parts.{ triggerWrapper?: string; tooltipWrapper?: string; titleWrapper?: string \\",
+        "default": "undefined; labelWrapper?: string \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "preventFocusableChildren",
+        "required": false,
+        "description": "If true, the Tooltip will make its children focusable.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "capturePointer",
+        "required": false,
+        "description": "If false, pointer events pass through the tooltip (e.g. scrolling)boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title of the Tooltip-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "auto-placement",
+      "default",
+      "inline",
+      "max-width",
+      "overflowing",
+      "placement",
+      "with-icon",
+      "within-list"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "auto-placement",
+      "default",
+      "inline",
+      "max-width",
+      "overflowing",
+      "placement",
+      "with-icon",
+      "within-list"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Tooltip, Button, Title, Typography } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Tooltip\n  position=\"right-start\"\n  title=\"Tooltip Title\"\n  label=\"This is the tooltip content.\"\n>\n  <Button label=\"Hover me\" />\n</Tooltip>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Tooltip, Button, Title, Typography } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Tooltip\n  position=\"right-start\"\n  title=\"Tooltip Title\"\n  label=\"This is the tooltip content.\"\n>\n  <Button label=\"Hover me\" />\n</Tooltip>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "tooltip"
+    ],
+    "contracts": [
+      {
+        "id": "tooltip",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/tooltip/demo.registry.json",
+        "known_story_ids": [
+          "components-tooltip--auto-placement",
+          "components-tooltip--default",
+          "components-tooltip--inline",
+          "components-tooltip--max-width",
+          "components-tooltip--overflowing",
+          "components-tooltip--placement",
+          "components-tooltip--with-icon",
+          "components-tooltip--within-list",
+          "components-tooltip--auto-placement",
+          "components-tooltip--default",
+          "components-tooltip--inline",
+          "components-tooltip--max-width",
+          "components-tooltip--overflowing",
+          "components-tooltip--placement",
+          "components-tooltip--with-icon",
+          "components-tooltip--within-list"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-tooltip--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md",
+    "docs_import_path": "./src/components/Tooltip/Tooltip.mdx",
+    "story_ids": [
+      "components-tooltip--auto-placement",
+      "components-tooltip--default",
+      "components-tooltip--inline",
+      "components-tooltip--max-width",
+      "components-tooltip--overflowing",
+      "components-tooltip--placement",
+      "components-tooltip--with-icon",
+      "components-tooltip--within-list"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

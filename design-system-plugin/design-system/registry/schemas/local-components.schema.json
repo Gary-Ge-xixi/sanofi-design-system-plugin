@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "id": "local-components-config",
+  "type": "standard",
+  "required_fields": [
+    "schema_version",
+    "name",
+    "renderer_target",
+    "registry",
+    "source_priority",
+    "aliases",
+    "commands",
+    "remote_sources"
+  ],
+  "renderer_targets": ["html"],
+  "notes": [
+    "This config plays the same project-configuration role that components.json plays in shadcn-style workflows.",
+    "Normal generation must resolve local registry items before loading local Markdown docs.",
+    "Remote links are refresh sources, not generation-time dependencies."
+  ]
+}

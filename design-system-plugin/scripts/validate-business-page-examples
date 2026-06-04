@@ -1,0 +1,538 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+const targets = [
+  {
+    id: "business-query-form",
+    file: path.join(htmlDir, "business-query-form.resolved.html"),
+    profile: "entity-form",
+    family: "entity-form",
+    task: "create-or-edit",
+    requiredSections: ["breadcrumb", "form-header", "query-panel", "form-sections", "validation-summary", "sticky-save-bar"],
+    requiredModules: ["business-form"],
+    requiredStates: ["dirty-form", "validation-error", "saving", "saved", "readonly", "permission-denied"],
+    minFields: 10,
+    defaultGrid: {
+      selector: "form-grid",
+      span: "4"
+    },
+    expectedDatePickers: 1
+  },
+  {
+    id: "business-entity-detail",
+    file: path.join(htmlDir, "business-entity-detail.resolved.html"),
+    profile: "entity-detail",
+    family: "entity-detail",
+    task: "read-and-audit",
+    requiredSections: ["breadcrumb", "detail-header", "field-groups", "status-history", "related-actions"],
+    requiredModules: ["business-form", "business-table"],
+    requiredStates: ["readonly", "permission-denied", "loading", "error"],
+    minFields: 8,
+    defaultGrid: {
+      selector: "detail-grid",
+      span: "3"
+    },
+    expectedDatePickers: 0
+  },
+  {
+    id: "information-aggregation",
+    file: path.join(htmlDir, "information-aggregation.resolved.html"),
+    profile: "information-aggregation",
+    family: "information-aggregation",
+    task: "aggregate-and-investigate",
+    requiredSections: ["breadcrumb", "aggregation-header", "filter-toolbar", "dashboard-summary", "chart-region", "record-list", "pagination"],
+    requiredModules: ["business-form", "business-chart", "business-table"],
+    requiredStates: ["loading", "empty", "error", "readonly", "permission-denied"],
+    minFields: 12,
+    defaultGrid: {
+      selector: "toolbar",
+      span: "3"
+    },
+    expectedDatePickers: 1
+  },
+  {
+    id: "customer-detail-date-query",
+    file: path.join(htmlDir, "customer-detail-date-query.resolved.html"),
+    profile: "customer-detail-date-query",
+    family: "customer-detail-date-query",
+    task: "query-customer-detail-by-date",
+    requiredSections: ["breadcrumb", "query-header", "date-query-form", "customer-summary", "customer-detail-table", "result-actions", "pagination"],
+    requiredModules: ["business-form", "business-table"],
+    requiredStates: ["loading", "empty", "error", "readonly", "permission-denied"],
+    minFields: 18,
+    defaultGrid: {
+      selector: "toolbar",
+      span: "3"
+    },
+    expectedDatePickers: 1
+  },
+  {
+    id: "business-planning-target-adjustment",
+    file: path.join(htmlDir, "business-planning-target-adjustment.resolved.html"),
+    profile: "admin-data-entry-table",
+    family: "admin-data-entry-table",
+    task: "query-fill-submit-target-adjustment",
+    requiredSections: ["breadcrumb", "target-adjustment-header", "query-toolbar", "primary-actions", "target-tabs", "editable-data-table-fallback", "save-bar"],
+    requiredModules: ["business-form", "business-table"],
+    requiredStates: ["loading", "empty", "error", "dirty-form", "saving", "saved", "readonly", "disabled", "permission-denied", "locked"],
+    minFields: 18,
+    defaultGrid: {
+      selector: "planning-query-grid",
+      span: "3"
+    },
+    expectedDatePickers: 0
+  }
+];
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  const matches = source.match(pattern);
+  return matches ? matches.length : 0;
+}
+
+function extractTagAttrs(source, tagName) {
+  const attrs = [];
+  const re = new RegExp(`<${tagName}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(source))) attrs.push(match[1]);
+  return attrs;
+}
+
+function isVisuallyHiddenSelect(attrs) {
+  return (
+    /\bhidden\b/i.test(attrs) ||
+    /aria-hidden=["']true["']/i.test(attrs) ||
+    /data-select-native=["']true["']/i.test(attrs) ||
+    /style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)
+  );
+}
+
+function includesAttr(source, name, value) {
+  return source.includes(`${name}="${value}"`);
+}
+
+function includesClass(source, className) {
+  return Array.from(source.matchAll(/class="([^"]+)"/g))
+    .some((match) => match[1].split(/\s+/).includes(className));
+}
+
+function extractBoxShadowDeclarations(source) {
+  const declarations = [];
+  const re = /box-shadow\s*:\s*([^;]+);/g;
+  let match;
+  while ((match = re.exec(source))) {
+    declarations.push({
+      declaration: match[0].replace(/\s+/g, " ").trim(),
+      value: match[1].replace(/\s+/g, " ").trim()
+    });
+  }
+  return declarations;
+}
+
+function extractCssDeclarations(source, property) {
+  const declarations = [];
+  const re = new RegExp(`${property}\\s*:\\s*([^;]+);`, "g");
+  let match;
+  while ((match = re.exec(source))) {
+    declarations.push({
+      declaration: match[0].replace(/\s+/g, " ").trim(),
+      value: match[1].replace(/\s+/g, " ").trim()
+    });
+  }
+  return declarations;
+}
+
+function ensureDir(dirPath) {
+  fs.mkdirSync(dirPath, { recursive: true });
+}
+
+ensureDir(reportDir);
+
+const failures = [];
+const checks = [];
+
+for (const target of targets) {
+  if (!fs.existsSync(target.file)) {
+    failures.push(`${target.id}: missing file ${rel(target.file)}`);
+    continue;
+  }
+
+  const html = fs.readFileSync(target.file, "utf8");
+  const boxShadowDeclarations = extractBoxShadowDeclarations(html);
+  const rawBoxShadow = boxShadowDeclarations.filter((item) => (
+    item.value !== "none" &&
+    !/^var\(\s*--elements-core-elevation-0[1-5]\s*\)$/.test(item.value)
+  ));
+  const letterSpacingDeclarations = extractCssDeclarations(html, "letter-spacing");
+  const invalidLetterSpacing = letterSpacingDeclarations.filter((item) => (
+    item.value !== "0" &&
+    item.value !== "0rem" &&
+    item.value !== "var(--elements-core-font-letterspacing-default)"
+  ));
+  const nativeSelectAttrs = extractTagAttrs(html, "select");
+  const visibleNativeSelectPrimitiveCount = nativeSelectAttrs.filter((attrs) => (
+    /data-primitive=["']select["']/i.test(attrs) && !isVisuallyHiddenSelect(attrs)
+  )).length;
+  const targetChecks = {
+    id: target.id,
+    path: rel(target.file),
+    sections: {},
+    modules: {},
+    states: {},
+    field_metadata_count: count(html, /data-field-id="/g),
+    nav_items: count(html, /class="nav-item/g),
+    nav_icons: count(html, /class="nav-icon"/g),
+    select_controls: count(html, /data-component-id="select"/g),
+    select_medium_controls: count(html, /data-select-size="medium"/g),
+    select_normal_shell_controls: count(html, /data-select-shell="normal"/g),
+    select_edge_safe_controls: count(html, /data-select-edge-safe="true"/g),
+    select_combobox_controls: count(html, /role="combobox"[^>]*(?:aria-haspopup="listbox"|data-select-trigger)/g),
+    select_listbox_controls: count(html, /role="listbox"/g),
+    visible_native_select_primitives: visibleNativeSelectPrimitiveCount,
+    hidden_native_select_helpers: nativeSelectAttrs.length - visibleNativeSelectPrimitiveCount,
+    date_picker_controls: count(html, /data-date-picker-root="true"/g),
+    date_picker_medium_controls: count(html, /data-date-picker-size="medium"/g),
+    date_picker_edge_safe_controls: count(html, /data-date-picker-edge-safe="true"/g),
+    date_picker_normal_shell_controls: count(html, /data-date-picker-shell="normal"/g),
+    date_picker_trigger_controls: count(html, /data-date-picker-trigger="true"/g),
+    date_picker_dialog_controls: count(html, /data-date-picker-dialog="true"/g),
+    local_runtime_script_count: count(html, /<script\b[^>]*data-component-runtime="sanofi-local-atomic-components"/g),
+    elevation_markers: count(html, /data-elevation-role="/g),
+    box_shadow_declarations: boxShadowDeclarations.length,
+    raw_box_shadow: rawBoxShadow.length,
+    page_header_roots: count(html, /data-pageheader-part="root"/g),
+    page_header_titles: count(html, /data-pageheader-part="title"/g),
+    page_header_descriptions: count(html, /data-pageheader-part="description"/g),
+    container_content_parts: count(html, /data-container-part="contentContainer"/g),
+    grid_roots: count(html, /data-grid-part="root"/g),
+    grid_items: count(html, /data-grid-part="item"/g),
+    invalid_letter_spacing: invalidLetterSpacing.length,
+    forbidden_table_claims: []
+  };
+
+  for (const [name, value] of [
+    ["data-business-standard", "business-page-standards"],
+    ["data-default-rule", "business-admin-defaults"],
+    ["data-default-overrides", "none"],
+    ["data-page-profile", target.profile],
+    ["data-page-family", target.family],
+    ["data-business-task", target.task],
+    ["data-reference-fit", "business-page-family"],
+    ["data-page-layout-typography", "business-layout-typography"],
+    ["data-app-shell-scroll", "content-only"],
+    ["data-scroll-rule", "business-app-shell-scroll"],
+    ["data-elevation-rule", "elevation-usage"],
+    ["data-brand-asset-id", "sanofi-logo-full"]
+  ]) {
+    const present = includesAttr(html, name, value);
+    targetChecks[`${name}:${value}`] = present;
+    if (!present) failures.push(`${target.id}: missing ${name}="${value}"`);
+  }
+
+  for (const section of target.requiredSections) {
+    const present = includesAttr(html, "data-section", section);
+    targetChecks.sections[section] = present;
+    if (!present) failures.push(`${target.id}: missing section ${section}`);
+  }
+
+  for (const moduleId of target.requiredModules) {
+    const moduleMarker = `data-business-module="${moduleId}"`;
+    const present = html.includes(moduleMarker);
+    targetChecks.modules[moduleId] = present;
+    if (!present) failures.push(`${target.id}: missing module ${moduleId}`);
+  }
+
+  for (const state of target.requiredStates) {
+    const present = html.includes(state);
+    targetChecks.states[state] = present;
+    if (!present) failures.push(`${target.id}: missing interaction state ${state}`);
+  }
+
+  if (targetChecks.field_metadata_count < target.minFields) {
+    failures.push(`${target.id}: field metadata count must be at least ${target.minFields}, got ${targetChecks.field_metadata_count}`);
+  }
+
+  if (!html.includes('data-nav-default="with-icons"')) {
+    failures.push(`${target.id}: missing default navigation marker data-nav-default="with-icons"`);
+  }
+
+  if (targetChecks.nav_items === 0) {
+    failures.push(`${target.id}: no left navigation items found`);
+  } else if (targetChecks.nav_icons < targetChecks.nav_items) {
+    failures.push(`${target.id}: default navigation requires one icon per nav item, got ${targetChecks.nav_icons}/${targetChecks.nav_items}`);
+  }
+
+  if (html.includes('data-select-size="large"') || html.includes('data-date-picker-size="large"') || html.includes('data-button-size="large"') || html.includes('data-control-size="large"')) {
+    failures.push(`${target.id}: default component size must be medium unless explicitly overridden`);
+  }
+
+  if (!html.includes('data-elevation-role="header"') || !html.includes('data-elevation-token="--elements-core-elevation-02"')) {
+    failures.push(`${target.id}: default header must use elevation role header with --elements-core-elevation-02`);
+  }
+
+  if (target.id === "business-query-form" && (!html.includes('data-elevation-role="sticky-action"') || !html.includes('data-elevation-token="--elements-core-elevation-03"'))) {
+    failures.push(`${target.id}: sticky save bar must use elevation role sticky-action with --elements-core-elevation-03`);
+  }
+
+  if (targetChecks.raw_box_shadow) {
+    failures.push(`${target.id}: raw box-shadow detected; use Elements elevation tokens`);
+  }
+
+  if (targetChecks.invalid_letter_spacing) {
+    failures.push(`${target.id}: invalid letter-spacing detected; use --elements-core-font-letterspacing-default`);
+  }
+
+  if (!html.includes('data-primitive="page-header"') || !html.includes('data-source-component="page-header"') || !html.includes('data-story-id="components-pageheader--default"')) {
+    failures.push(`${target.id}: page title region must use the PageHeader primitive default story`);
+  }
+
+  for (const marker of [
+    'data-app-shell="business-admin"',
+    'data-app-shell-part="topbar"',
+    'data-scroll-fixed="true"',
+    'data-app-shell-part="content"',
+    'data-scroll-region="content"'
+  ]) {
+    if (!html.includes(marker)) failures.push(`${target.id}: missing app shell scroll marker ${marker}`);
+  }
+
+  if (!/body\s*\{[^}]*block-size:\s*100vh;[^}]*overflow:\s*hidden;/s.test(html)) {
+    failures.push(`${target.id}: body must be viewport locked with overflow hidden`);
+  }
+
+  if (!/\.(?:shell|template-shell)\s*\{[^}]*block-size:\s*100vh;[^}]*overflow:\s*hidden;/s.test(html)) {
+    failures.push(`${target.id}: app shell must be viewport locked with overflow hidden`);
+  }
+
+  if (!/\.main\s*\{[^}]*min-block-size:\s*0;[^}]*overflow:\s*auto;/s.test(html)) {
+    failures.push(`${target.id}: main content must own vertical scrolling`);
+  }
+
+  if (!html.includes('class="page-title-text"') || !html.includes('class="page-description"')) {
+    failures.push(`${target.id}: page title and subtitle must use page-title-text/page-description classes`);
+  }
+
+  if (!html.includes('font-size: var(--elements-font-size-700);') || !html.includes('line-height: var(--elements-font-lineheight-4);')) {
+    failures.push(`${target.id}: page title must use default title size and line-height tokens`);
+  }
+
+  if (!html.includes('font-size: var(--elements-font-size-300);') || !html.includes('line-height: var(--elements-font-lineheight-3);')) {
+    failures.push(`${target.id}: page description must use default subtitle size and line-height tokens`);
+  }
+
+  const requiredGridItems = target.requiredSections.filter((section) => section !== "sticky-save-bar").length;
+  if (!targetChecks.container_content_parts || !targetChecks.grid_roots || targetChecks.grid_items < requiredGridItems) {
+    failures.push(`${target.id}: page layout must include Container contentContainer and Grid root/item structure`);
+  }
+
+  if (targetChecks.visible_native_select_primitives) {
+    failures.push(`${target.id}: visible native select[data-primitive="select"] is forbidden, got ${targetChecks.visible_native_select_primitives}`);
+  }
+
+  if (targetChecks.select_controls !== targetChecks.select_medium_controls) {
+    failures.push(`${target.id}: every Select must default to medium size, got ${targetChecks.select_medium_controls}/${targetChecks.select_controls}`);
+  }
+
+  if (targetChecks.select_controls !== targetChecks.select_normal_shell_controls) {
+    failures.push(`${target.id}: every Select must use normal shell, got ${targetChecks.select_normal_shell_controls}/${targetChecks.select_controls}`);
+  }
+
+  if (targetChecks.select_controls !== targetChecks.select_edge_safe_controls) {
+    failures.push(`${target.id}: every Select must use edge-safe default shell, got ${targetChecks.select_edge_safe_controls}/${targetChecks.select_controls}`);
+  }
+
+  if (targetChecks.select_controls !== targetChecks.select_combobox_controls) {
+    failures.push(`${target.id}: every Select must expose a component combobox trigger, got ${targetChecks.select_combobox_controls}/${targetChecks.select_controls}`);
+  }
+
+  if (targetChecks.select_controls !== targetChecks.select_listbox_controls) {
+    failures.push(`${target.id}: every Select must expose a component-owned listbox, got ${targetChecks.select_listbox_controls}/${targetChecks.select_controls}`);
+  }
+
+  if (targetChecks.select_controls && !html.includes('class="select-chevron"') && !html.includes('class="snf-select-chevron"')) {
+    failures.push(`${target.id}: default select shell must include a trailing indicator with safe padding`);
+  }
+
+  if ((targetChecks.select_controls || targetChecks.date_picker_controls) && !targetChecks.local_runtime_script_count) {
+    failures.push(`${target.id}: runtime Select/DatePicker controls require the local component runtime script`);
+  }
+
+  if (target.expectedDatePickers && targetChecks.date_picker_controls < target.expectedDatePickers) {
+    failures.push(`${target.id}: expected at least ${target.expectedDatePickers} DatePicker default controls, got ${targetChecks.date_picker_controls}`);
+  }
+
+  if (targetChecks.date_picker_controls !== targetChecks.date_picker_medium_controls) {
+    failures.push(`${target.id}: every DatePicker must default to medium size, got ${targetChecks.date_picker_medium_controls}/${targetChecks.date_picker_controls}`);
+  }
+
+  if (targetChecks.date_picker_controls !== targetChecks.date_picker_edge_safe_controls) {
+    failures.push(`${target.id}: every DatePicker must use edge-safe default shell, got ${targetChecks.date_picker_edge_safe_controls}/${targetChecks.date_picker_controls}`);
+  }
+
+  if (targetChecks.date_picker_controls !== targetChecks.date_picker_normal_shell_controls) {
+    failures.push(`${target.id}: every DatePicker must use normal shell, got ${targetChecks.date_picker_normal_shell_controls}/${targetChecks.date_picker_controls}`);
+  }
+
+  if (targetChecks.date_picker_controls !== targetChecks.date_picker_trigger_controls) {
+    failures.push(`${target.id}: every DatePicker must expose a trigger, got ${targetChecks.date_picker_trigger_controls}/${targetChecks.date_picker_controls}`);
+  }
+
+  if (targetChecks.date_picker_controls !== targetChecks.date_picker_dialog_controls) {
+    failures.push(`${target.id}: every DatePicker must expose a dialog, got ${targetChecks.date_picker_dialog_controls}/${targetChecks.date_picker_controls}`);
+  }
+
+  if (!html.includes('data-grid-mode="normal-12"')) {
+    failures.push(`${target.id}: default grid mode must be normal-12`);
+  }
+
+  if (!includesClass(html, target.defaultGrid.selector) || !html.includes(`data-field-span-desktop="${target.defaultGrid.span}"`)) {
+    failures.push(`${target.id}: ${target.defaultGrid.selector} must use default desktop field span ${target.defaultGrid.span}`);
+  }
+
+  for (const forbidden of ['data-primitive="table"', 'data-primitive="datagrid"', 'data-source-component="table"', 'data-source-component="datagrid"']) {
+    if (html.includes(forbidden)) {
+      targetChecks.forbidden_table_claims.push(forbidden);
+      failures.push(`${target.id}: forbidden unsupported table claim present: ${forbidden}`);
+    }
+  }
+
+  if (target.id === "business-entity-detail" && !html.includes('data-fallback-module="business-table"')) {
+    failures.push(`${target.id}: missing business-table fallback marker`);
+  }
+
+  if (target.id === "business-query-form" && !html.includes('data-business-task="query"')) {
+    failures.push(`${target.id}: missing query task panel`);
+  }
+
+  if (target.id === "information-aggregation") {
+    for (const marker of [
+      'data-chart-contract="business-chart"',
+      'data-chart-kind="bar"',
+      'data-source-component="BarChart"',
+      'data-chart-prop="chartData"',
+      'data-chart-prop="xAxis"',
+      'data-fallback-module="business-chart"',
+      'data-fallback-module="business-table"',
+      'data-pagination="true"'
+    ]) {
+      if (!html.includes(marker)) failures.push(`${target.id}: missing aggregation marker ${marker}`);
+    }
+    if (count(html, /data-kpi-id="/g) < 4) failures.push(`${target.id}: KPI count must be at least 4`);
+    if (count(html, /class="chart-row"/g) < 4) failures.push(`${target.id}: chart row count must be at least 4`);
+    if (count(html, /<th\b[^>]*scope="col"/g) < 6) failures.push(`${target.id}: table column count must be at least 6`);
+  }
+
+  if (target.id === "customer-detail-date-query") {
+    for (const marker of [
+      'data-page-profile="customer-detail-date-query"',
+      'data-page-family="customer-detail-date-query"',
+      'data-business-task="query-customer-detail-by-date"',
+      'data-section="date-query-form"',
+      'data-section="customer-summary"',
+      'data-section="customer-detail-table"',
+      'data-section="result-actions"',
+      'data-date-picker-mode="range"',
+      'class="toolbar aggregation-toolbar customer-date-query-toolbar"',
+      'data-output-state-official-runtime="absent"',
+      'data-output-state-local-atomic-runtime="present"',
+      'data-output-state-explicit-fallback="present"',
+      'data-fallback-module="table"',
+      'data-fallback-reason="No official Table/DataGrid primitive is registered locally."',
+      'data-pagination="true"'
+    ]) {
+      if (!html.includes(marker)) failures.push(`${target.id}: missing customer detail date query marker ${marker}`);
+    }
+    if (count(html, /data-customer-summary-item="/g) < 4) failures.push(`${target.id}: customer summary item count must be at least 4`);
+    if (!html.includes(".snf-date-picker-value { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }")) {
+      failures.push(`${target.id}: DatePicker value must use nowrap/hidden/ellipsis CSS`);
+    }
+    if (!html.includes(".customer-date-query-toolbar .field:first-child { grid-column: span 4; }")) {
+      failures.push(`${target.id}: customer date query toolbar must reserve wider first field for date range`);
+    }
+    if (count(html, /<th\b[^>]*scope="col"/g) < 8) failures.push(`${target.id}: detail table column count must be at least 8`);
+    if (count(html, /<tbody>\s*<tr/g) < 1 || count(html, /<tr><td>2026-/g) < 5) failures.push(`${target.id}: detail table must include at least 5 date rows`);
+    if (!html.includes('data-filter-count="7"')) failures.push(`${target.id}: filter count marker must be 7`);
+    if (!html.includes("生成导出任务") || !html.includes("查看客户详情")) {
+      failures.push(`${target.id}: result actions must include export and view-detail actions`);
+    }
+  }
+
+  if (target.id === "business-planning-target-adjustment") {
+    for (const marker of [
+      'data-page-profile="admin-data-entry-table"',
+      'data-page-family="admin-data-entry-table"',
+      'data-business-task="query-fill-submit-target-adjustment"',
+      'data-density="admin-compact"',
+      'data-section="target-adjustment-header"',
+      'data-section="query-toolbar"',
+      'data-section="target-tabs"',
+      'data-section="editable-data-table-fallback"',
+      'data-section="save-bar"',
+      'data-tabs-mode="segmented"',
+      'role="tablist"',
+      'aria-selected="true"',
+      'data-fallback-module="business-table"',
+      'data-fallback-reason="No official Table/DataGrid primitive is registered locally."',
+      'data-no-pagination="true"',
+      'data-output-state-official-runtime="absent"',
+      'data-output-state-local-atomic-runtime="present"',
+      'data-output-state-explicit-fallback="present"',
+      'Business Planning',
+      'ZD-001 李雷',
+      '待提交',
+      '查看进度',
+      '提交申请单'
+    ]) {
+      if (!html.includes(marker)) failures.push(`${target.id}: missing planning target adjustment marker ${marker}`);
+    }
+    if (count(html, /data-filter-count="3"/g) < 1) failures.push(`${target.id}: query toolbar must expose exactly 3 default search filters`);
+    if (count(html, /data-primitive="search-input"/g) < 3) failures.push(`${target.id}: query toolbar must include at least 3 SearchInput controls`);
+    if (count(html, /role="tab"/g) < 4) failures.push(`${target.id}: target dimension tabs must include 4 tabs`);
+    if (!html.includes(">机构目标<")) failures.push(`${target.id}: active target tab must include 机构目标`);
+    if (count(html, /<th\b[^>]*scope="col"/g) < 10) failures.push(`${target.id}: target table must include at least 10 columns`);
+    if (count(html, /data-row-kind="product"/g) < 3) failures.push(`${target.id}: target table must include at least 3 product rows`);
+    if (count(html, /data-row-kind="hospital"/g) < 4) failures.push(`${target.id}: target table must include at least 4 hospital rows`);
+    if (count(html, /class="target-input"/g) < 6) failures.push(`${target.id}: target table must include at least 6 editable target inputs`);
+    if (!html.includes('data-action="save"') || !html.includes('data-action="refresh-assessment"') || !html.includes('data-action="confirm-issue"') || !html.includes('data-action="submit-approval"')) {
+      failures.push(`${target.id}: sticky action bar must include save, refresh assessment, confirm issue, and submit approval actions`);
+    }
+  }
+
+  if (/background:\s*#[0-9a-fA-F]/.test(html) || /color:\s*#[0-9a-fA-F]/.test(html) || /border-color:\s*#[0-9a-fA-F]/.test(html)) {
+    failures.push(`${target.id}: raw color usage detected`);
+  }
+
+  checks.push(targetChecks);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-business-page-examples",
+  generated_at: new Date().toISOString(),
+  checked_pages: checks.length,
+  checks,
+  failures
+};
+
+fs.writeFileSync(path.join(reportDir, "business-page-examples.report.json"), JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  path.join(reportDir, "business-page-examples.report.md"),
+  `# Business Page Examples Validation\n\nStatus: ${report.status}\n\n| Page | Fields | Nav icons | Select edge-safe | DatePicker medium | DatePicker edge-safe | PageHeader | Grid items | Invalid letter spacing | Raw shadow |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n${checks.map((item) => `| ${item.id} | ${item.field_metadata_count} | ${item.nav_icons}/${item.nav_items} | ${item.select_edge_safe_controls}/${item.select_controls} | ${item.date_picker_medium_controls}/${item.date_picker_controls} | ${item.date_picker_edge_safe_controls}/${item.date_picker_controls} | ${item.page_header_titles}/${item.page_header_descriptions} | ${item.grid_items} | ${item.invalid_letter_spacing} | ${item.raw_box_shadow} |`).join("\n")}\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Business page examples validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Business page examples OK: ${checks.length} pages`);

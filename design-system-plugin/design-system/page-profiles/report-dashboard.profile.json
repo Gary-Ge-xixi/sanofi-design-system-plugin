@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "id": "report-dashboard",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "report-dashboard",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "monitor-and-compare",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "chart-usage",
+    "table-usage",
+    "density-standards",
+    "admin-dashboard-chart-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-chart",
+    "business-table"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "filter-toolbar",
+      "kpi-summary",
+      "chart-region",
+      "data-table-fallback"
+    ],
+    "forbidden_sections": [
+      "marketing-hero"
+    ],
+    "required_attrs": [
+      "data-page-family=\"report-dashboard\"",
+      "data-business-task=\"monitor-and-compare\""
+    ]
+  },
+  "state_requirements": [
+    "loading",
+    "empty",
+    "error"
+  ]
+}

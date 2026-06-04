@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "breadcrumb",
+  "component_name": "Breadcrumb",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Breadcrumb"
+  },
+  "docs": [
+    {
+      "id": "components-breadcrumb--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-breadcrumb--collapsed",
+      "name": "Collapsed",
+      "export_name": "Collapsed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--custom-max-width",
+      "name": "Custom Max Width",
+      "export_name": "CustomMaxWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--ellipsis-truncation",
+      "name": "Ellipsis Truncation",
+      "export_name": "EllipsisTruncation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--not-collapsed",
+      "name": "Not Collapsed",
+      "export_name": "NotCollapsed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--one-item-on-each-side",
+      "name": "One Item On Each Side",
+      "export_name": "OneItemOnEachSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--two-items-on-each-side",
+      "name": "Two Items On Each Side",
+      "export_name": "TwoItemsOnEachSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-breadcrumb--wrap-vs-no-wrap",
+      "name": "Wrap Vs No Wrap",
+      "export_name": "WrapVsNoWrap",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx"
+    }
+  ]
+}

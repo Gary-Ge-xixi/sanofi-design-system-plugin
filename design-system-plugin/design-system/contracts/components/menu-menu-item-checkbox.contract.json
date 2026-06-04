@@ -1,0 +1,167 @@
+{
+  "schema_version": "0.1.0",
+  "id": "menu-menu-item-checkbox",
+  "canonical_name": "menu-menu-item-checkbox",
+  "component_name": "Menu/MenuItemCheckbox",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-menu-menuitemcheckbox--docs",
+    "title": "Menu/MenuItemCheckbox",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-menuitemcheckbox--docs",
+    "import_path": "./src/components/Menu/dropdown/items/MenuItemCheckbox.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-menu-menuitemcheckbox--default"
+    ],
+    "records": [
+      {
+        "id": "components-menu-menuitemcheckbox--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Menu/dropdown/items/MenuItemCheckbox.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "description",
+        "required": false,
+        "description": "Description text below the labelstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shortcut",
+        "required": false,
+        "description": "Keyboard shortcut hint (e.g., \"Ctrl+C\")string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Label contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "value",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Item size.\"small\"\"medium\"",
+        "default": "\"MenuItemSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the item.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Callback fired when item is clicked((event: MouseEvent<HTMLLIElement, MouseEvent>, menuItemEvent?: Event) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tooltip",
+        "required": false,
+        "description": "Tooltip content when hoveringReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "menu-menu-item-checkbox"
+    ],
+    "contracts": [
+      {
+        "id": "menu-menu-item-checkbox",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/demo.registry.json",
+        "known_story_ids": [
+          "components-menu-menuitemcheckbox--default",
+          "components-menu-menuitemcheckbox--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-menuitemcheckbox--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+    "docs_import_path": "./src/components/Menu/dropdown/items/MenuItemCheckbox.stories.tsx",
+    "story_ids": [
+      "components-menu-menuitemcheckbox--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

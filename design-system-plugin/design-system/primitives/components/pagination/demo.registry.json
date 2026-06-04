@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Pagination",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-pagination--compact",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pagination--compact-with-first-and-last-buttons",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pagination--compact-with-input",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pagination--compact-with-input-and-first-last-buttons",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pagination--controlled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pagination--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-pagination--mobile",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

@@ -1,0 +1,730 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const atomicRoot = path.join(pluginRoot, "design-system", "atomic");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function readJsonOrNull(relativePath) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function walk(dir, predicate, results = []) {
+  if (!fs.existsSync(dir)) return results;
+  for (const entry of fs.readdirSync(dir)) {
+    const absolutePath = path.join(dir, entry);
+    if (fs.statSync(absolutePath).isDirectory()) {
+      walk(absolutePath, predicate, results);
+    } else if (predicate(absolutePath)) {
+      results.push(absolutePath);
+    }
+  }
+  return results.sort();
+}
+
+function rel(absolutePath) {
+  return path.relative(workspaceRoot, absolutePath).replaceAll(path.sep, "/");
+}
+
+function slugify(value) {
+  return String(value || "unknown")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function atomicRegistrySlug(story) {
+  if (story.component_id !== "button") {
+    return slugify(story.story_name);
+  }
+  if (story.story_semantics?.semantic_type && story.story_semantics.semantic_type !== "variant") {
+    return slugify(story.story_name);
+  }
+  return slugify(story.args?.values?.variant || story.story_name);
+}
+
+const BUTTON_VARIANTS = [
+  ["primary", "High-emphasis, brand-colored button for primary actions"],
+  ["primary-neutral", "High-emphasis, neutral-colored button for primary actions without brand color"],
+  ["primary-destruct", "High-emphasis, red/danger button for destructive primary actions"],
+  ["secondary", "Medium-emphasis, outlined brand-colored button for secondary actions"],
+  ["secondary-neutral", "Medium-emphasis, outlined neutral button for secondary actions"],
+  ["secondary-destruct", "Medium-emphasis, outlined red/danger button for destructive secondary actions"],
+  ["tertiary", "Low-emphasis, text-only brand-colored button for tertiary actions"],
+  ["tertiary-neutral", "Low-emphasis, text-only neutral button for tertiary actions"],
+  ["tertiary-destruct", "Low-emphasis, text-only red/danger button for destructive tertiary actions"]
+];
+
+const BUTTON_SIZES = [
+  {
+    id: "xsmall",
+    storybook_enum: "ButtonSize.XSMALL",
+    official_height: "24px",
+    render_height: "1.5rem",
+    render_padding_inline: "var(--elements-spacing-sm)",
+    render_gap: "var(--elements-spacing-2xs)",
+    typography_variant: "BUTTON_XSMALL",
+    usage: "Inline actions and dense UIs"
+  },
+  {
+    id: "small",
+    storybook_enum: "ButtonSize.SMALL",
+    official_height: "32px",
+    render_height: "2rem",
+    render_padding_inline: "var(--elements-spacing-md)",
+    render_gap: "var(--elements-spacing-2xs)",
+    typography_variant: "BUTTON_SMALL",
+    usage: "Compact spaces like tables and cards"
+  },
+  {
+    id: "medium",
+    storybook_enum: "ButtonSize.MEDIUM",
+    official_height: "40px",
+    render_height: "2.5rem",
+    render_padding_inline: "var(--elements-spacing-lg)",
+    render_gap: "var(--elements-spacing-2xs)",
+    typography_variant: "BUTTON",
+    usage: "Default size for most use cases"
+  },
+  {
+    id: "large",
+    storybook_enum: "ButtonSize.LARGE",
+    official_height: "48px",
+    render_height: "3rem",
+    render_padding_inline: "var(--elements-spacing-xl)",
+    render_gap: "var(--elements-spacing-sm)",
+    typography_variant: "BUTTON",
+    usage: "Hero sections and prominent CTAs"
+  }
+];
+
+const BUTTON_STATES = [
+  {
+    id: "default",
+    storybook_source: "ButtonsTable Default column",
+    attrs: {}
+  },
+  {
+    id: "hover",
+    storybook_source: "parameters.pseudo.hover -> .is-hover",
+    class_name: "is-hover",
+    attrs: {}
+  },
+  {
+    id: "active",
+    storybook_source: "parameters.pseudo.active -> .is-active and keyboard data-active",
+    class_name: "is-active",
+    attrs: { "data-active": "true" }
+  },
+  {
+    id: "focus",
+    storybook_source: "parameters.pseudo.focusVisible -> .is-focus",
+    class_name: "is-focus",
+    attrs: {}
+  },
+  {
+    id: "disabled",
+    storybook_source: "ButtonsTable disabled={true}",
+    attrs: { disabled: true }
+  },
+  {
+    id: "loading",
+    storybook_source: "ButtonsTable isLoading={true}; component disables interactions while loading",
+    attrs: { disabled: true, "aria-busy": "true" }
+  }
+];
+
+function readButtonExpectedTabs() {
+  return readJsonOrNull("design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json") || {
+    docs: [],
+    stories: []
+  };
+}
+
+function storyIdForVariant(variant) {
+  if (variant === "primary-destruct") return "components-button--primary-destruct";
+  if (variant === "secondary-destruct") return "components-button--secondary-destruct";
+  if (variant === "tertiary-destruct") return "components-button--tertiary-destruct";
+  return `components-button--${variant}`;
+}
+
+function buildButtonDocsContract(contract, expectedTabs) {
+  const propsFromDocgen = [
+    {
+      name: "variant",
+      required: false,
+      default: "ButtonVariant.PRIMARY",
+      description: "Visual style variant of the button.",
+      values: BUTTON_VARIANTS.map(([id, description]) => ({ value: id, description })),
+      extraction_status: "from_component_contract_and_button_docgen"
+    },
+    {
+      name: "size",
+      required: false,
+      default: "ButtonSize.MEDIUM",
+      description: "Size of the button.",
+      values: BUTTON_SIZES.map((size) => ({
+        value: size.id,
+        official_height: size.official_height,
+        usage: size.usage
+      })),
+      extraction_status: "from_component_contract_and_button_docgen"
+    },
+    {
+      name: "label",
+      required: true,
+      description: "Text content displayed inside the button. Required for the accessible name.",
+      type: "string",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "icon",
+      required: false,
+      description: "Icon to display alongside the label.",
+      type: "IconName",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "iconPosition",
+      required: false,
+      default: "IconPosition.START",
+      description: "Position of the icon relative to the label.",
+      values: ["start", "end"],
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "inverse",
+      required: false,
+      default: false,
+      description: "Applies inverse styling for use on dark backgrounds.",
+      type: "boolean",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "fullWidth",
+      required: false,
+      default: false,
+      description: "Expands the button to fill its container width.",
+      type: "boolean",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "disabled",
+      required: false,
+      description: "Disables the button.",
+      type: "boolean",
+      extraction_status: "from_button_docgen_tags"
+    },
+    {
+      name: "isLoading",
+      required: false,
+      default: false,
+      description: "Displays a loading spinner and disables interactions while an action is in progress.",
+      type: "boolean",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "as",
+      required: false,
+      description: "Overrides the default HTML tag. Use anchor semantics only for navigation/link behavior.",
+      type: "ElementType",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "href",
+      required: false,
+      description: "URL used when the button is rendered as an anchor.",
+      type: "string",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "target",
+      required: false,
+      description: "Target window for anchor usage.",
+      type: "string",
+      extraction_status: "from_button_docgen"
+    },
+    {
+      name: "brandTheme",
+      required: false,
+      default: "BrandTheme.primary",
+      description: "Overrides the theme at component level.",
+      values: ["primary", "secondary", "tertiary"],
+      extraction_status: "from_button_docgen"
+    }
+  ];
+
+  return {
+    schema_version: "0.1.0",
+    id: "button-docs-contract",
+    component_id: "button",
+    component_name: "Button",
+    docs_id: "components-button--docs",
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-button--docs",
+    local_md_path: "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+    purpose: {
+      extraction_status: "from_docs_md",
+      text: "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation."
+    },
+    api_props: {
+      extraction_status: "from_component_contract_and_button_docgen",
+      props: propsFromDocgen,
+      component_contract_props: contract?.props?.items || []
+    },
+    usage: {
+      when_to_use: [
+        "Use for actions that submit, confirm, cancel, open UI, or trigger a workflow.",
+        "Use Button Link only when the element navigates like a link."
+      ],
+      when_not_to_use: [
+        "Do not use Button Link for non-navigation actions.",
+        "Do not invent variants outside the expected Button tabs."
+      ],
+      snippets: contract?.usage_snippets?.snippets || []
+    },
+    story_tabs: expectedTabs.stories || [],
+    accessibility: {
+      extraction_status: "from_button_docgen_and_html_semantics",
+      rules: [
+        "Label is required because it provides the accessible name.",
+        "Use button markup for actions.",
+        "Use anchor markup only for `as='a'` with `href`.",
+        "Represent disabled and loading as non-interactive states.",
+        "Keep visible focus indication for keyboard users."
+      ]
+    },
+    source_provenance: {
+      docs_id: "components-button--docs",
+      docs_path: "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+      storybook_index: "research/storybook/index.json",
+      storybook_bundle: "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+      component_contract: "design-system-plugin/design-system/contracts/components/button.contract.json"
+    }
+  };
+}
+
+function buttonColorBindings() {
+  const primaryText = "var(--elements-color-semantic-text-default)";
+  const defaultText = "var(--elements-color-semantic-text-default_inverse)";
+  const accentText = "var(--elements-color-semantic-text-accent-default)";
+  const destructText = "var(--elements-color-semantic-text-error)";
+  return {
+    extraction_status: "token_guided_from_tokens_css_and_button_docgen",
+    note: "Component-level Button background tokens are used where available. Other visual roles use semantic tokens; exact production CSS classes are not fully extracted in this stage.",
+    variants: {
+      primary: {
+        background: "var(--elements-color-semantic-accent-default)",
+        text: primaryText,
+        border: "var(--elements-color-semantic-accent-default)",
+        hover_background: "var(--elements-color-semantic-accent-hover)",
+        active_background: "var(--elements-color-semantic-accent-active)"
+      },
+      "primary-neutral": {
+        background: "var(--elements-color-semantic-accent-neutral_default)",
+        text: defaultText,
+        border: "var(--elements-color-semantic-border-default)",
+        hover_background: "var(--elements-color-semantic-accent-neutral_hover)",
+        active_background: "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "primary-destruct": {
+        background: "var(--elements-color-semantic-destruct-default)",
+        text: primaryText,
+        border: "var(--elements-color-semantic-destruct-default)",
+        hover_background: "var(--elements-color-semantic-destruct-hover)",
+        active_background: "var(--elements-color-semantic-destruct-active)"
+      },
+      secondary: {
+        background: "var(--elements-color-components-button-bg-secondary)",
+        text: accentText,
+        border: "var(--elements-color-semantic-accent-default)",
+        hover_background: "var(--elements-color-semantic-background-brand-subtle)",
+        active_background: "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "secondary-neutral": {
+        background: "var(--elements-color-components-button-bg-secondary-neutral)",
+        text: defaultText,
+        border: "var(--elements-color-semantic-border-default)",
+        hover_background: "var(--elements-color-semantic-accent-neutral_hover)",
+        active_background: "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "secondary-destruct": {
+        background: "var(--elements-color-semantic-background-error-subtle)",
+        text: destructText,
+        border: "var(--elements-color-semantic-border-error)",
+        hover_background: "var(--elements-color-semantic-background-error)",
+        active_background: "var(--elements-color-semantic-destruct-active)"
+      },
+      tertiary: {
+        background: "transparent",
+        text: accentText,
+        border: "transparent",
+        hover_background: "var(--elements-color-semantic-background-brand-subtle)",
+        active_background: "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "tertiary-neutral": {
+        background: "transparent",
+        text: defaultText,
+        border: "transparent",
+        hover_background: "var(--elements-color-semantic-accent-neutral_hover)",
+        active_background: "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "tertiary-destruct": {
+        background: "transparent",
+        text: destructText,
+        border: "transparent",
+        hover_background: "var(--elements-color-semantic-background-error-subtle)",
+        active_background: "var(--elements-color-semantic-background-error)"
+      }
+    },
+    states: {
+      focus_outline: "var(--elements-color-semantic-accent-focus)",
+      disabled_text: "var(--elements-color-semantic-text-disabled_inverse)",
+      disabled_border: "var(--elements-color-semantic-border-subtle)",
+      disabled_background: "var(--elements-color-semantic-background-neutral)"
+    }
+  };
+}
+
+function buildButtonComponentAtomic(component, componentStories) {
+  const contractPath = "design-system-plugin/design-system/contracts/components/button.contract.json";
+  const primitivePath = "design-system-plugin/design-system/primitives/components/button/primitive.json";
+  const expectedTabsPath = "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json";
+  const docsContractPath = "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json";
+  const packagePath = "design-system-plugin/design-system/atomic/components/button/button.package.json";
+  const contract = readJsonOrNull(contractPath);
+  const expectedTabs = readButtonExpectedTabs();
+  const storiesById = new Map(componentStories.map((story) => [story.story_id, story]));
+  const variants = BUTTON_VARIANTS.map(([id, description]) => {
+    const story_id = storyIdForVariant(id);
+    const materialized = storiesById.get(story_id);
+    return {
+      id,
+      story_id,
+      description,
+      source: "Button docgen variant enum and Storybook story index",
+      status: materialized ? "materialized" : "available_not_materialized",
+      atomic_story_path: materialized?.path || "not_materialized"
+    };
+  });
+  const expectedStoryItems = (expectedTabs.stories || []).map((expected) => {
+    const materialized = storiesById.get(expected.id);
+    return {
+      story_id: expected.id,
+      story_name: expected.name,
+      export_name: expected.export_name,
+      semantic_type: expected.semantic_type,
+      variant: expected.variant || "not_applicable",
+      expected_element: expected.element || (expected.semantic_type === "link" ? "a" : "button"),
+      status: materialized ? "materialized" : "missing",
+      atomic_story_path: materialized?.path || "missing",
+      render_output_path: materialized?.output_path || "missing",
+      source_provenance: {
+        storybook_index: "research/storybook/index.json",
+        docs_id: "components-button--docs",
+        token_source: "foundations-colors--docs"
+      }
+    };
+  });
+  const docsContract = buildButtonDocsContract(contract, expectedTabs);
+  writeJson(docsContractPath, docsContract);
+
+  const componentAtomic = {
+    schema_version: "0.2.0",
+    atomic_contract_version: "0.2.0",
+    component_id: component.component_id,
+    component_name: component.component_name,
+    renderer_target: "html",
+    component_identity: {
+      canonical_id: "button",
+      package_import: "@sanofi-accelerator/elements/Button",
+      docs_id: "components-button--docs",
+      category: "Components"
+    },
+    stories: componentStories.map((story) => ({
+      story_id: story.story_id,
+      story_name: story.story_name,
+      path: story.path,
+      variant: story.variant,
+      semantic_type: story.semantic_type || "variant",
+      status: "materialized",
+      template_path: story.template_path,
+      output_path: story.output_path || "not_rendered"
+    })),
+    expected_tabs: {
+      local_path: expectedTabsPath,
+      docs: expectedTabs.docs || [],
+      stories: expectedStoryItems
+    },
+    docs_contract: {
+      local_path: docsContractPath,
+      status: "generated"
+    },
+    api_arg_types: {
+      extraction_status: "from_component_contract_and_story_bundle",
+      props: contract?.props?.items || [],
+      argTypes: [
+        "variant",
+        "size",
+        "label",
+        "icon",
+        "iconPosition",
+        "inverse",
+        "fullWidth",
+        "disabled",
+        "isLoading",
+        "onClick",
+      "brandTheme"
+      ]
+    },
+    variant_matrix: {
+      extraction_status: "from_button_docgen_and_storybook_story_index",
+      items: variants
+    },
+    size_matrix: {
+      extraction_status: "from_button_docgen",
+      exact_css_status: "official_height_extracted_padding_token_guided",
+      source_note: "Button docgen exposes official heights. Padding/gap render values are token-guided until production CSS modules are fully extracted.",
+      items: BUTTON_SIZES
+    },
+    state_matrix: {
+      extraction_status: "from_storybook_overview_table_and_pseudo_parameters",
+      items: BUTTON_STATES
+    },
+    spacing_model: {
+      extraction_status: "from_storybook_layout_and_token_guided_rendering",
+      story_layout: {
+        stack_gap: "20px in StoryLayout source",
+        table_cell_padding: "10px in ButtonsTable source"
+      },
+      render_tokens: {
+        panel_gap: "var(--elements-spacing-lg)",
+        row_gap: "var(--elements-spacing-md)",
+        cell_gap: "var(--elements-spacing-sm)",
+        radius: "var(--elements-radius-rounded)"
+      },
+      note: "Storybook layout spacing is recorded as source evidence. Rendered HTML uses Elements spacing/radius tokens."
+    },
+    color_token_bindings: buttonColorBindings(),
+    anatomy_slots: {
+      extraction_status: "from_button_component_docgen_and_render_function",
+      items: [
+        { id: "root", element: "button or anchor", source: "Button component render uses configurable as tag" },
+        { id: "content-container", element: "span", source: "Button render function" },
+        { id: "label", element: "label text", required: true, source: "Button docgen label required" },
+        { id: "start-icon", prop: "icon + iconPosition=start", source: "Button docgen iconPosition enum" },
+        { id: "end-icon", prop: "icon + iconPosition=end", source: "Button docgen iconPosition enum" },
+        { id: "loader", prop: "isLoading", source: "Button render function and docgen" }
+      ]
+    },
+    accessibility_rules: {
+      extraction_status: "from_button_docgen_and_html_semantics",
+      rules: [
+        "Use button element for actions.",
+        "Use anchor element only when as='a' with href is explicitly required.",
+        "label is required because it provides the accessible name.",
+        "disabled and isLoading both disable user interaction.",
+        "focus-visible must be represented with a visible focus indicator."
+      ]
+    },
+    render_templates: {
+      html: "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      outputs: componentStories.map((story) => story.output_path).filter(Boolean)
+    },
+    validation_rules: [
+      "No raw hex/rgb/hsl colors in rendered HTML.",
+      "No direct core color token refs in rendered HTML.",
+      "All data-primitive values must exist in primitive-index.json.",
+      "All data-story-id values must exist in Button primitive known_story_ids.",
+      "Every rendered sample must carry data-source-doc-id and data-token-source."
+    ],
+    source_provenance: {
+      docs_id: "components-button--docs",
+      docs_path: "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+      story_ids: (expectedTabs.stories || []).map((story) => story.id),
+      materialized_story_ids: componentStories.map((story) => story.story_id),
+      storybook_index: "research/storybook/index.json",
+      storybook_stories: "research/storybook/stories.json",
+      story_bundle: "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+      component_contract: contractPath,
+      primitive_contract: primitivePath,
+      token_source: "foundations-colors--docs",
+      token_css: "design-system-plugin/design-system/tokens/tokens.css"
+    }
+  };
+
+  const packageDoc = {
+    schema_version: "0.1.0",
+    id: "button-complete-standard-package",
+    component_id: "button",
+    component_name: "Button",
+    renderer_target: "html",
+    coverage: {
+      expected_docs: (expectedTabs.docs || []).length,
+      expected_stories: (expectedTabs.stories || []).length,
+      materialized_stories: expectedStoryItems.filter((story) => story.status === "materialized").length,
+      docs_contract_status: "generated",
+      story_coverage_status: expectedStoryItems.every((story) => story.status === "materialized") ? "complete" : "partial",
+      missing_story_ids: expectedStoryItems.filter((story) => story.status !== "materialized").map((story) => story.story_id)
+    },
+    docs_contract: {
+      docs_id: "components-button--docs",
+      local_path: docsContractPath
+    },
+    story_atoms: expectedStoryItems,
+    component_contract: contractPath,
+    primitive_contract: primitivePath,
+    component_atomic_contract: "design-system-plugin/design-system/atomic/components/button/component.atomic.json",
+    expected_tabs: expectedTabsPath,
+    token_bindings: buttonColorBindings(),
+    render_outputs: {
+      complete_html: "design-system-plugin/outputs/html/button-complete.atomic.html",
+      per_story_outputs: expectedStoryItems.map((story) => ({
+        story_id: story.story_id,
+        output_path: story.render_output_path
+      }))
+    },
+    registry: {
+      package_item: "design-system-plugin/design-system/registry/items/sanofi-button-complete-package.json",
+      story_item_prefix: "sanofi-button-"
+    },
+    validation: {
+      required_story_count: 13,
+      required_docs_count: 1,
+      required_validators: [
+        "validate-atomic-library",
+        "validate-token-usage",
+        "validate-primitive-usage",
+        "validate-page-pattern",
+        "validate-component-package-dom",
+        "validate-button-package-dom",
+        "validate-local-registry"
+      ],
+      special_semantics: [
+        "Button Link must render as anchor semantics.",
+        "Overview and Overview Inverse must remain matrix stories.",
+        "Unknown exact CSS must stay token_guided or not_extracted."
+      ]
+    },
+    source_provenance: {
+      docs_id: "components-button--docs",
+      expected_tabs: expectedTabsPath,
+      docs_contract: docsContractPath,
+      component_contract: contractPath,
+      primitive_contract: primitivePath,
+      storybook_index: "research/storybook/index.json",
+      storybook_stories: "research/storybook/stories.json",
+      story_bundle: "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+      token_source: "foundations-colors--docs",
+      token_css: "design-system-plugin/design-system/tokens/tokens.css"
+    }
+  };
+  writeJson(packagePath, packageDoc);
+
+  return componentAtomic;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const storyFiles = walk(
+  path.join(atomicRoot, "components"),
+  (filePath) => filePath.endsWith(".story.json")
+);
+
+const stories = storyFiles.map((filePath) => {
+  const story = readJson(filePath);
+  return {
+    story_id: story.story_id,
+    story_name: story.story_name,
+    component_id: story.component_id,
+    component_name: story.component_name,
+    variant: story.args?.values?.variant || "unknown",
+    semantic_type: story.story_semantics?.semantic_type || "variant",
+    expected_element: story.story_semantics?.expected_element || "button",
+    path: rel(filePath),
+    template_path: story.template?.local_path,
+    output_path: story.template?.output_path,
+    bundle_path: story.source?.local_bundle_path,
+    docs_id: story.source_provenance?.docs_id,
+    registry_item: `sanofi-${story.component_id}-${atomicRegistrySlug(story)}-atomic-story`
+  };
+});
+
+const components = Object.values(
+  stories.reduce((acc, story) => {
+    if (!acc[story.component_id]) {
+      acc[story.component_id] = {
+        component_id: story.component_id,
+        component_name: story.component_name,
+        story_count: 0,
+        stories: []
+      };
+    }
+    acc[story.component_id].story_count += 1;
+    acc[story.component_id].stories.push(story.story_id);
+    return acc;
+  }, {})
+).sort((a, b) => a.component_id.localeCompare(b.component_id));
+
+for (const component of components) {
+  const componentStories = stories
+    .filter((story) => story.component_id === component.component_id)
+    .sort((a, b) => a.story_id.localeCompare(b.story_id));
+  const componentAtomicPath = `design-system-plugin/design-system/atomic/components/${component.component_id}/component.atomic.json`;
+  if (component.component_id === "button") {
+    writeJson(componentAtomicPath, buildButtonComponentAtomic(component, componentStories));
+  } else if (!readJsonOrNull(componentAtomicPath)) {
+    writeJson(componentAtomicPath, {
+      schema_version: "0.1.0",
+      component_id: component.component_id,
+      component_name: component.component_name,
+      renderer_target: "html",
+      stories: componentStories,
+      source_provenance: {
+        docs_id: `components-${component.component_id}--docs`
+      }
+    });
+  }
+}
+
+const index = {
+  schema_version: "0.1.0",
+  generated_at: new Date().toISOString(),
+  renderer_target: "html",
+  source: {
+    storybook_index: "research/storybook/index.json",
+    storybook_stories: "research/storybook/stories.json",
+    atomic_root: "design-system-plugin/design-system/atomic"
+  },
+  counts: {
+    components: components.length,
+    stories: stories.length
+  },
+  components,
+  stories
+};
+
+writeJson("design-system-plugin/design-system/atomic/atomic-component-index.json", index);
+writeJson("design-system-plugin/outputs/reports/atomic-library-build.report.json", {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "build-atomic-library",
+  output: "design-system-plugin/design-system/atomic/atomic-component-index.json",
+  counts: index.counts
+});
+
+console.log(`Atomic library built: ${stories.length} stories across ${components.length} components`);

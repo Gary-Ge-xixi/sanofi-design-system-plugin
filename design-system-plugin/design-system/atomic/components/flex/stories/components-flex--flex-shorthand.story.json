@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-flex--flex-shorthand",
+  "component_id": "flex",
+  "component_name": "Flex",
+  "story_id": "components-flex--flex-shorthand",
+  "story_name": "Flex Shorthand",
+  "export_name": "FlexShorthand",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-flex--flex-shorthand&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-flex--flex-shorthand&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Flex.stories-D8jEajo2.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/flex/assets/components-flex--flex-shorthand.iframe.html",
+    "import_path": "./src/components/Flex/Flex.stories.tsx",
+    "component_path": "./src/components/Flex/index.ts"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...l,gap:\"sm\"}",
+    "values": {
+      "direction": "row",
+      "wrap": "nowrap",
+      "align": "stretch",
+      "justify": "start",
+      "gap": "sm",
+      "display": "flex"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{direction:{description:\"Sets `flex-direction`. Values: `row` | `row-reverse` | `column` | `column-reverse`.\",control:\"radio\",options:[\"row\",\"row-reverse\",\"column\",\"column-reverse\"],table:{defaultValue:{summary:\"row\"}}},wrap:{description:\"Sets `flex-wrap`. Values: `nowrap` | `wrap` | `wrap-reverse`.\",control:\"radio\",options:[\"nowrap\",\"wrap\",\"wrap-reverse\"],table:{defaultValue:{summary:\"nowrap\"}}},align:{description:\"Controls `align-items`. Values: `start` | `center` | `end` | `baseline` | `stretch`.\",control:\"radio\",options:[\"start\",\"center\",\"end\",\"baseline\",\"stretch\"],table:{defaultValue:{summary:\"stretch\"}}},justify:{description:\"Controls `justify-content`. Values: `start` | `center` | `end` | `between` | `around` | `evenly`.\",control:\"radio\",options:[\"start\",\"center\",\"end\",\"between\",\"around\",\"evenly\"],table:{defaultValue:{summary:\"start\"}}},alignContent:{description:\"Controls `align-content`. Only applies when `wrap` is set. Values: `start` | `center` | `end` | `between` | `around` | `evenly` | `stretch`.\",control:\"radio\",options:[void 0,\"start\",\"center\",\"end\",\"between\",\"around\",\"evenly\",\"stretch\"]},display:{description:\"Sets the CSS `display` property. Values: `flex` | `inline-flex` | `none`.\",control:\"radio\",options:[\"flex\",\"inline-flex\",\"none\"],table:{defaultValue:{summary:\"flex\"}}},gap:{description:\"Token-based gap applied on both axes. Values: `none` | `3xs` | `2xs` | `xs` | `sm` | `md` | `lg` | `xl` | `2xl` | `3xl` | `4xl` | `5xl` | `6xl` or any CSS length.\",control:\"select\",options:x},gapX:{description:\"Token-based column gap. Same values as `gap`. Overrides `gap` for the horizontal axis.\",control:\"select\",options:x},gapY:{description:\"Token-based row gap. Same values as `gap`. Overrides `gap` for the vertical axis.\",control:\"select\",options:x},asChild:{description:\"Render styles onto the single child instead of a wrapper element (Radix `asChild` pattern).\",control:\"boolean\",table:{defaultValue:{summary:\"false\"}}},flex:{description:\"Sets the CSS `flex` shorthand (grow, shrink, basis). Values: `1` | `auto` | `none` | `initial` | `1 0 200px`.\",control:\"text\"}}",
+    "fields": [
+      "direction",
+      "wrap",
+      "align",
+      "justify",
+      "alignContent",
+      "display",
+      "gap",
+      "gapX",
+      "gapY",
+      "asChild",
+      "flex"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    gap: \"sm\"\n  },\n  render: args => <StorySection title=\"Flex shorthand\" description=\"Control item sizing with the flex shorthand prop. The middle item grows twice as much.\">\n      <Flex {...args} style={{\n      width: \"100%\"\n    }}>\n        <FlexItem flex={1} label=\"flex: 1\" />\n        <FlexItem flex={2} label=\"flex: 2\" />\n        <FlexItem flex={1} label=\"flex: 1\" />\n      </Flex>\n    </StorySection>\n}",
+    "story_object_source": "{args:{...l,gap:\"sm\"},render:r=>e.jsx(o,{title:\"Flex shorthand\",description:\"Control item sizing with the flex shorthand prop. The middle item grows twice as much.\",children:e.jsxs(t,{...r,style:{width:\"100%\"},children:[e.jsx(h,{flex:1,label:\"flex: 1\"}),e.jsx(h,{flex:2,label:\"flex: 2\"}),e.jsx(h,{flex:1,label:\"flex: 1\"})]})})}"
+  },
+  "template": {
+    "id": "flex-flex-shorthand-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/flex/templates/html.flex-shorthand.template.html",
+    "output_path": "design-system-plugin/outputs/html/flex-flex-shorthand.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "flex",
+    "local_path": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "story_id": "components-flex--flex-shorthand",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/flex/assets/components-flex--flex-shorthand.iframe.html"
+  }
+}

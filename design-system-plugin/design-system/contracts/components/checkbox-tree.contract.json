@@ -1,0 +1,215 @@
+{
+  "schema_version": "0.1.0",
+  "id": "checkbox-tree",
+  "canonical_name": "checkbox-tree",
+  "component_name": "CheckboxTree",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-checkboxtree--docs",
+    "title": "CheckboxTree",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-checkboxtree--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-checkboxtree--docs",
+    "import_path": "./src/components/CheckboxTree/CheckboxTree.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-checkboxtree--collapsible",
+      "components-checkboxtree--color-variations",
+      "components-checkboxtree--deeply-nested",
+      "components-checkboxtree--default"
+    ],
+    "records": [
+      {
+        "id": "components-checkboxtree--collapsible",
+        "name": "Collapsible",
+        "normalized_name": "collapsible",
+        "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx",
+        "export_name": "Collapsible"
+      },
+      {
+        "id": "components-checkboxtree--color-variations",
+        "name": "Color Variations",
+        "normalized_name": "color-variations",
+        "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx",
+        "export_name": "ColorVariations"
+      },
+      {
+        "id": "components-checkboxtree--deeply-nested",
+        "name": "Deeply Nested",
+        "normalized_name": "deeply-nested",
+        "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx",
+        "export_name": "DeeplyNested"
+      },
+      {
+        "id": "components-checkboxtree--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title of the checkbox treestring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "caption",
+        "required": false,
+        "description": "Caption textstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "items",
+        "required": true,
+        "description": "Array of checkbox items to renderPick<CheckboxTreeItemProps, \"children\" \\",
+        "default": "\"disabled\" \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "state",
+        "required": false,
+        "description": "State of the checkbox tree\"success\"\"error\"\"default\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "error",
+        "required": false,
+        "description": "Error to display below the captionstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "description": "Callback fired when selection changes((selectedIds: string[]) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checkboxesSize",
+        "required": false,
+        "description": "Size of the checkboxes\"small\"\"medium\"\"large\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checkboxesColor",
+        "required": false,
+        "description": "Color variant of all checkboxes in the tree\"neutral\"\"branded\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "collapsible",
+        "required": false,
+        "description": "Enable expandable/collapsible sectionsboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "collapsible",
+      "color-variations",
+      "deeply-nested",
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "collapsible",
+      "color-variations",
+      "deeply-nested",
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { CheckboxTree } from '@sanofi/elements-design-system';",
+      "// Define checkbox hierarchy\nconst items = [\n  {\n    id: 'parent1',\n    label: 'Parent 1',\n    children: [\n      { id: 'child1-1', label: 'Child 1-1' },\n      { id: 'child1-2', label: 'Child 1-2' },\n    ]\n  },\n  { id: 'standalone', label: 'Standalone Item' }\n];\n\n// Implement in component\nfunction Example() {\n  const handleChange = (selectedIds) => {\n    console.log('Selected IDs:', selectedIds); // Array of selected checkbox IDs\n  };\n\n  return (\n    <CheckboxTree\n      items={items}\n      onChange={handleChange}\n    />\n  );\n}",
+      "// Set the collapsible prop to true\n<CheckboxTree\n  items={items}\n  collapsible={true}\n  onChange={handleChange}\n/>\n\n// Control initial expanded state for each item\nconst items = [\n  {\n    id: 'category1',\n    label: 'Category 1',\n    children: [...]\n  },\n  {\n    id: 'category2',\n    label: 'Category 2',\n    children: [...]\n  }\n];"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "checkbox-tree"
+    ],
+    "contracts": [
+      {
+        "id": "checkbox-tree",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/checkbox-tree/demo.registry.json",
+        "known_story_ids": [
+          "components-checkboxtree--collapsible",
+          "components-checkboxtree--color-variations",
+          "components-checkboxtree--deeply-nested",
+          "components-checkboxtree--default",
+          "components-checkboxtree--collapsible",
+          "components-checkboxtree--color-variations",
+          "components-checkboxtree--deeply-nested",
+          "components-checkboxtree--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-checkboxtree--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-checkboxtree--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-checkboxtree--docs.md",
+    "docs_import_path": "./src/components/CheckboxTree/CheckboxTree.mdx",
+    "story_ids": [
+      "components-checkboxtree--collapsible",
+      "components-checkboxtree--color-variations",
+      "components-checkboxtree--deeply-nested",
+      "components-checkboxtree--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

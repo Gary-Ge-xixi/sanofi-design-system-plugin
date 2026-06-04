@@ -1,0 +1,77 @@
+{
+  "schema_version": "0.1.0",
+  "profiles": [
+    {
+      "id": "admin-data-entry-table",
+      "path": "admin-data-entry-table.profile.json",
+      "status": "ready",
+      "renderer_target": "html",
+      "pattern_id": "admin-query-panel",
+      "template_id": "onecommercial-admin-query-panel",
+      "validator": "../../scripts/validate-admin-page-profile"
+    },
+    {
+      "id": "approval-workflow",
+      "path": "approval-workflow.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "entity-detail",
+      "path": "entity-detail.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "entity-form",
+      "path": "entity-form.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "import-result",
+      "path": "import-result.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "report-dashboard",
+      "path": "report-dashboard.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "information-aggregation",
+      "path": "information-aggregation.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-information-aggregation-page"
+    },
+    {
+      "id": "customer-detail-date-query",
+      "path": "customer-detail-date-query.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-customer-detail-date-query-page"
+    },
+    {
+      "id": "permission-admin",
+      "path": "permission-admin.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "exception-state",
+      "path": "exception-state.profile.json",
+      "status": "standard-ready",
+      "renderer_target": "html",
+      "validator": "../../scripts/validate-business-standards"
+    }
+  ]
+}

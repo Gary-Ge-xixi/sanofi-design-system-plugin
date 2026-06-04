@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card/Media",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-card-media--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card",
+  "stories": [
+    {
+      "story_id": "components-card--card-custom-number",
+      "story_name": "Card Custom Number"
+    },
+    {
+      "story_id": "components-card--card-custom-picto",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--card-image",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--card-image-clickable",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--card-imageshow-full-content",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--card-video",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-card--learning-module",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--list-center-content-view",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--list-date-view",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--list-density-view",
+      "story_name": "List Density View"
+    },
+    {
+      "story_id": "components-card--list-image-ratio-view",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--list-image-view",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card--list-picto-view",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

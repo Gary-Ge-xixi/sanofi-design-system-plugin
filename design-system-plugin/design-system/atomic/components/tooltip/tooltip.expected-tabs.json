@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tooltip",
+  "component_name": "Tooltip",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Tooltip"
+  },
+  "docs": [
+    {
+      "id": "components-tooltip--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Tooltip/Tooltip.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-tooltip--auto-placement",
+      "name": "Auto Placement",
+      "export_name": "AutoPlacement",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--inline",
+      "name": "Inline",
+      "export_name": "Inline",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--max-width",
+      "name": "Max Width",
+      "export_name": "MaxWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--overflowing",
+      "name": "Overflowing",
+      "export_name": "Overflowing",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--placement",
+      "name": "Placement",
+      "export_name": "Placement",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--with-icon",
+      "name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--within-list",
+      "name": "Within List",
+      "export_name": "WithinList",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    }
+  ]
+}

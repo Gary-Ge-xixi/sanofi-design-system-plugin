@@ -1,0 +1,241 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "atomic-library-validation.report.json");
+const indexPath = "design-system-plugin/design-system/atomic/atomic-component-index.json";
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function requirePathValue(object, pathExpression, label, failures) {
+  const value = pathExpression.split(".").reduce((current, key) => current?.[key], object);
+  const emptyArray = Array.isArray(value) && value.length === 0;
+  if (value === undefined || value === null || value === "" || emptyArray) {
+    failures.push(`missing ${label}: ${pathExpression}`);
+  }
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!exists(indexPath)) failures.push("missing atomic-component-index.json; run build-atomic-library first");
+
+const storybookIndex = exists("research/storybook/index.json")
+  ? readJson("research/storybook/index.json")
+  : { entries: {} };
+const index = failures.length ? { stories: [], counts: {} } : readJson(indexPath);
+const checkedPaths = [indexPath];
+const buttonExpectedTabsPath = "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json";
+const buttonExpectedTabs = exists(buttonExpectedTabsPath)
+  ? readJson(buttonExpectedTabsPath)
+  : { stories: [], docs: [] };
+const expectedButtonStories = new Map((buttonExpectedTabs.stories || []).map((story) => [story.id, story]));
+if (exists(buttonExpectedTabsPath)) checkedPaths.push(buttonExpectedTabsPath);
+
+function docsIdForStory(storyId, componentId) {
+  const entry = storybookIndex.entries?.[storyId];
+  if (!entry) return `components-${componentId}--docs`;
+  const docsEntry = Object.entries(storybookIndex.entries || {}).find(([, candidate]) => (
+    candidate.title === entry.title && candidate.type === "docs"
+  ));
+  return docsEntry?.[0] || `components-${componentId}--docs`;
+}
+
+const storyIds = new Set();
+for (const storyRef of index.stories || []) {
+  if (storyIds.has(storyRef.story_id)) failures.push(`duplicate atomic story id: ${storyRef.story_id}`);
+  storyIds.add(storyRef.story_id);
+  checkedPaths.push(storyRef.path);
+  if (!exists(storyRef.path)) {
+    failures.push(`missing atomic story file: ${storyRef.path}`);
+    continue;
+  }
+
+  const story = readJson(storyRef.path);
+  const entry = storybookIndex.entries?.[story.story_id];
+  if (!entry) failures.push(`${story.story_id} missing from Storybook index`);
+  if (entry && entry.exportName !== story.export_name) {
+    failures.push(`${story.story_id} export mismatch: ${story.export_name} vs ${entry.exportName}`);
+  }
+
+  for (const field of [
+    "schema_version",
+    "component_id",
+    "story_id",
+    "source",
+    "args",
+    "argTypes",
+    "render_strategy",
+    "template",
+    "component_contract",
+    "primitive",
+    "source_provenance"
+  ]) {
+    if (story[field] === undefined) failures.push(`${story.story_id} missing ${field}`);
+  }
+
+  const requiredPaths = [
+    story.source?.local_bundle_path,
+    story.source?.local_iframe_path,
+    story.template?.local_path,
+    story.component_contract?.local_path,
+    story.primitive?.local_path,
+    story.source_provenance?.storybook_index,
+    story.source_provenance?.storybook_stories
+  ].filter(Boolean);
+  for (const localPath of requiredPaths) {
+    checkedPaths.push(localPath);
+    if (!exists(localPath)) failures.push(`${story.story_id} references missing path: ${localPath}`);
+  }
+
+  if (story.renderer_target !== "html") failures.push(`${story.story_id} renderer_target must be html`);
+  if (!story.source?.story_url?.includes(`/story/${story.story_id}`)) {
+    failures.push(`${story.story_id} source.story_url must reference the story id`);
+  }
+  if (!story.source?.iframe_url?.includes(`id=${story.story_id}`)) {
+    failures.push(`${story.story_id} source.iframe_url must reference the story id`);
+  }
+  if (story.args?.extraction_status !== "extracted_from_story_bundle") {
+    failures.push(`${story.story_id} args were not extracted from the story bundle`);
+  }
+  const expectedButtonStory = story.component_id === "button" ? expectedButtonStories.get(story.story_id) : null;
+  if (story.component_id === "button") {
+    if (!story.story_semantics?.semantic_type) failures.push(`${story.story_id} missing Button story_semantics.semantic_type`);
+    if (expectedButtonStory?.semantic_type === "variant" && !story.args?.values?.variant) {
+      failures.push(`${story.story_id} variant story missing args.values.variant`);
+    }
+    if (expectedButtonStory?.semantic_type === "link" && story.story_semantics?.expected_element !== "a") {
+      failures.push(`${story.story_id} Button Link must declare anchor semantics`);
+    }
+  }
+  if (story.component_id === "button" && !story.args?.values?.label) {
+    failures.push(`${story.story_id} missing args.values.label`);
+  }
+  if (story.component_id === "button" && (!Array.isArray(story.argTypes?.fields) || !story.argTypes.fields.includes("variant"))) {
+    failures.push(`${story.story_id} argTypes must include variant`);
+  }
+  if (story.source_provenance?.docs_id !== docsIdForStory(story.story_id, story.component_id)) {
+    failures.push(`${story.story_id} docs provenance mismatch`);
+  }
+}
+
+const buttonComponentPath = "design-system-plugin/design-system/atomic/components/button/component.atomic.json";
+if (exists(buttonComponentPath)) {
+  checkedPaths.push(buttonComponentPath);
+  const buttonAtomic = readJson(buttonComponentPath);
+  const buttonDocsContractPath = "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json";
+  const buttonPackagePath = "design-system-plugin/design-system/atomic/components/button/button.package.json";
+  checkedPaths.push(buttonDocsContractPath, buttonPackagePath);
+  if (buttonAtomic.atomic_contract_version !== "0.2.0") {
+    failures.push("button component.atomic.json must use atomic_contract_version 0.2.0");
+  }
+  for (const required of [
+    "component_identity",
+    "api_arg_types",
+    "variant_matrix.items",
+    "size_matrix.items",
+    "state_matrix.items",
+    "spacing_model",
+    "color_token_bindings.variants",
+    "anatomy_slots.items",
+    "accessibility_rules.rules",
+    "render_templates.html",
+    "source_provenance.docs_id",
+    "source_provenance.story_bundle",
+    "source_provenance.token_css"
+  ]) {
+    requirePathValue(buttonAtomic, required, "Button V2 contract field", failures);
+  }
+  if ((buttonAtomic.variant_matrix?.items || []).length < 9) {
+    failures.push("Button V2 contract must include at least 9 variants");
+  }
+  if ((buttonAtomic.size_matrix?.items || []).length < 4) {
+    failures.push("Button V2 contract must include 4 sizes");
+  }
+  if ((buttonAtomic.state_matrix?.items || []).length < 6) {
+    failures.push("Button V2 contract must include 6 states");
+  }
+  const materializedIds = new Set(buttonAtomic.source_provenance?.materialized_story_ids || []);
+  for (const expectedStory of buttonExpectedTabs.stories || []) {
+    if (!materializedIds.has(expectedStory.id)) {
+      failures.push(`Button complete package missing materialized story: ${expectedStory.id}`);
+    }
+  }
+  if (!exists(buttonDocsContractPath)) {
+    failures.push("Button docs contract missing");
+  } else {
+    const docsContract = readJson(buttonDocsContractPath);
+    const propNames = new Set((docsContract.api_props?.props || []).map((prop) => prop.name));
+    for (const prop of ["variant", "size", "label", "icon", "iconPosition", "inverse", "fullWidth", "disabled", "isLoading", "as", "href", "target", "brandTheme"]) {
+      if (!propNames.has(prop)) failures.push(`Button docs contract missing API prop: ${prop}`);
+    }
+  }
+  if (!exists(buttonPackagePath)) {
+    failures.push("Button complete package index missing");
+  } else {
+    const pkg = readJson(buttonPackagePath);
+    for (const required of [
+      "coverage",
+      "docs_contract.local_path",
+      "story_atoms",
+      "component_contract",
+      "primitive_contract",
+      "token_bindings",
+      "render_outputs.complete_html",
+      "registry.package_item",
+      "source_provenance.story_bundle"
+    ]) {
+      requirePathValue(pkg, required, "Button complete package field", failures);
+    }
+    if (pkg.coverage?.expected_docs !== 1) failures.push("Button complete package must expect 1 docs tab");
+    if (pkg.coverage?.expected_stories !== 13) failures.push("Button complete package must expect 13 story tabs");
+    if (pkg.coverage?.materialized_stories !== 13) failures.push("Button complete package must materialize 13 story tabs");
+    if (pkg.coverage?.story_coverage_status !== "complete") failures.push("Button complete package story coverage must be complete");
+    const requiredValidators = new Set(pkg.validation?.required_validators || []);
+    if (!requiredValidators.has("validate-component-package-dom")) {
+      failures.push("Button complete package must require validate-component-package-dom");
+    }
+    if (!requiredValidators.has("validate-button-package-dom")) {
+      failures.push("Button complete package must require validate-button-package-dom");
+    }
+    const storyAtoms = new Map((pkg.story_atoms || []).map((story) => [story.story_id, story]));
+    for (const expectedStory of buttonExpectedTabs.stories || []) {
+      const atom = storyAtoms.get(expectedStory.id);
+      if (!atom) failures.push(`Button package missing story atom: ${expectedStory.id}`);
+      if (atom && atom.status !== "materialized") failures.push(`Button package story atom not materialized: ${expectedStory.id}`);
+      if (atom?.atomic_story_path && !exists(atom.atomic_story_path)) failures.push(`Button package story atom path missing: ${atom.atomic_story_path}`);
+    }
+    const linkAtom = storyAtoms.get("components-button--button-link");
+    if (linkAtom?.expected_element !== "a") failures.push("Button Link package atom must use anchor element");
+  }
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-atomic-library",
+  checked: {
+    stories: index.stories?.length || 0,
+    components: index.components?.length || 0,
+    local_paths: [...new Set(checkedPaths)].length
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Atomic library validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Atomic library OK: ${index.stories.length} stories across ${index.components.length} components`);

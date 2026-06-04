@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-list-deprecated",
+  "component_name": "ChipList (Deprecated)",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ChipList (Deprecated)"
+  },
+  "docs": [
+    {
+      "id": "components-chiplist-deprecated--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Chip/list/ChipList.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-chiplist-deprecated--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/list/ChipList.stories.tsx"
+    }
+  ]
+}

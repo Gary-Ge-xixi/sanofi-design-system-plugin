@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-footer-top--default",
+  "component_id": "footer-top",
+  "component_name": "Footer.Top",
+  "story_id": "components-footer-top--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-footer-top--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-footer-top--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Top.stories-DokjJHpL.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/footer-top/assets/Top.stories-DokjJHpL.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/footer-top/assets/components-footer-top--default.iframe.html",
+    "import_path": "./src/components/Footer/Top.stories.tsx",
+    "component_path": "./src/components/Footer/Top.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...k,brandLogo:{src:s,alt:\"sanofi_logo\",title:\"Sanofi\"},additionalInformation:\"This is a placeholder for additional informations.\",socialLinks:o.jsxs(o.Fragment,{children:[o.jsx(r,{platform:\"instagram\",href:\"https://www.instagram.com/\"}),o.jsx(r,{platform:\"linkedIn\",href:\"https://www.linkedin.com/\"}),o.jsx(r,{platform:\"x\",href:\"https://www.twitter.com/\"}),o.jsx(r,{platform:\"tikTok\",href:\"https://www.tiktok.com/\"}),o.jsx(r,{platform:\"youTube\",href:\"https://www.youtube.com/\"}),o.jsx(r,{platform:\"facebook\",href:\"https://www.facebook.com/\"})]}),children:o.jsxs(o.Fragment,{children:[o.jsxs(e,{children:[o.jsx(i,{href:\"#\",children:\"Category 1\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 2\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 3\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 4\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]})]})}",
+    "values": {
+      "brandLogo": {
+        "extraction_status": "raw_expression",
+        "value": "{src:s,alt:\"sanofi_logo\",title:\"Sanofi\"}"
+      },
+      "additionalInformation": "This is a placeholder for additional informations.",
+      "socialLinks": {
+        "extraction_status": "raw_expression",
+        "value": "o.jsxs(o.Fragment,{children:[o.jsx(r,{platform:\"instagram\",href:\"https://www.instagram.com/\"}),o.jsx(r,{platform:\"linkedIn\",href:\"https://www.linkedin.com/\"}),o.jsx(r,{platform:\"x\",href:\"https://www.twitter.com/\"}),o.jsx(r,{platform:\"tikTok\",href:\"https://www.tiktok.com/\"}),o.jsx(r,{platform:\"youTube\",href:\"https://www.youtube.com/\"}),o.jsx(r,{platform:\"facebook\",href:\"https://www.facebook.com/\"})]})"
+      },
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "o.jsxs(o.Fragment,{children:[o.jsxs(e,{children:[o.jsx(i,{href:\"#\",children:\"Category 1\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 2\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 3\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 4\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]})]})"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{brandLogo:{description:\"The brand logo\"},additionalInformation:{description:\"The additional information\"},socialLinks:{description:\"The social links\"},classNames:{description:\"The class names\"}}",
+    "fields": [
+      "brandLogo",
+      "additionalInformation",
+      "socialLinks",
+      "classNames"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    brandLogo: {\n      src: sanofiLogoInverse,\n      alt: \"sanofi_logo\",\n      title: \"Sanofi\"\n    },\n    additionalInformation: \"This is a placeholder for additional informations.\",\n    socialLinks: <>\n        <FooterSocialLink platform=\"instagram\" href=\"https://www.instagram.com/\" />\n        <FooterSocialLink platform=\"linkedIn\" href=\"https://www.linkedin.com/\" />\n        <FooterSocialLink platform=\"x\" href=\"https://www.twitter.com/\" />\n        <FooterSocialLink platform=\"tikTok\" href=\"https://www.tiktok.com/\" />\n        <FooterSocialLink platform=\"youTube\" href=\"https://www.youtube.com/\" />\n        <FooterSocialLink platform=\"facebook\" href=\"https://www.facebook.com/\" />\n      </>,\n    children: <>\n        <FooterColumn>\n          <FooterTitleLink href=\"#\">Category 1</FooterTitleLink>\n          <FooterLink href=\"#\">Link 1</FooterLink>\n          <FooterLink href=\"#\">Link 2</FooterLink>\n          <FooterLink href=\"#\">Link 3</FooterLink>\n          <FooterLink href=\"#\">Link 4</FooterLink>\n          <FooterLink href=\"#\">Link 5</FooterLink>\n        </FooterColumn>\n        <FooterColumn>\n          <FooterTitleLink>Category 2</FooterTitleLink>\n          <FooterLink href=\"#\">Link 1</FooterLink>\n          <FooterLink href=\"#\">Link 2</FooterLink>\n          <FooterLink href=\"#\">Link 3</FooterLink>\n          <FooterLink href=\"#\">Link 4</FooterLink>\n          <FooterLink href=\"#\">Link 5</FooterLink>\n        </FooterColumn>\n        <FooterColumn>\n          <FooterTitleLink>Category 3</FooterTitleLink>\n          <FooterLink href=\"#\">Link 1</FooterLink>\n          <FooterLink href=\"#\">Link 2</FooterLink>\n          <FooterLink href=\"#\">Link 3</FooterLink>\n          <FooterLink href=\"#\">Link 4</FooterLink>\n          <FooterLink href=\"#\">Link 5</FooterLink>\n        </FooterColumn>\n        <FooterColumn>\n          <FooterTitleLink>Category 4</FooterTitleLink>\n          <FooterLink href=\"#\">Link 1</FooterLink>\n          <FooterLink href=\"#\">Link 2</FooterLink>\n          <FooterLink href=\"#\">Link 3</FooterLink>\n          <FooterLink href=\"#\">Link 4</FooterLink>\n          <FooterLink href=\"#\">Link 5</FooterLink>\n        </FooterColumn>\n      </>\n  }\n}",
+    "story_object_source": "{args:{...k,brandLogo:{src:s,alt:\"sanofi_logo\",title:\"Sanofi\"},additionalInformation:\"This is a placeholder for additional informations.\",socialLinks:o.jsxs(o.Fragment,{children:[o.jsx(r,{platform:\"instagram\",href:\"https://www.instagram.com/\"}),o.jsx(r,{platform:\"linkedIn\",href:\"https://www.linkedin.com/\"}),o.jsx(r,{platform:\"x\",href:\"https://www.twitter.com/\"}),o.jsx(r,{platform:\"tikTok\",href:\"https://www.tiktok.com/\"}),o.jsx(r,{platform:\"youTube\",href:\"https://www.youtube.com/\"}),o.jsx(r,{platform:\"facebook\",href:\"https://www.facebook.com/\"})]}),children:o.jsxs(o.Fragment,{children:[o.jsxs(e,{children:[o.jsx(i,{href:\"#\",children:\"Category 1\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 2\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 3\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]}),o.jsxs(e,{children:[o.jsx(i,{children:\"Category 4\"}),o.jsx(n,{href:\"#\",children:\"Link 1\"}),o.jsx(n,{href:\"#\",children:\"Link 2\"}),o.jsx(n,{href:\"#\",children:\"Link 3\"}),o.jsx(n,{href:\"#\",children:\"Link 4\"}),o.jsx(n,{href:\"#\",children:\"Link 5\"})]})]})}}"
+  },
+  "template": {
+    "id": "footer-top-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/footer-top/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/footer-top-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/footer-top.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "footer-top",
+    "local_path": "design-system-plugin/design-system/primitives/components/footer-top/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-top--docs",
+    "story_id": "components-footer-top--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-top.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/footer-top/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/footer-top/assets/Top.stories-DokjJHpL.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/footer-top/assets/components-footer-top--default.iframe.html"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-generic-primitives",
+  "generated": 0,
+  "updated": 95,
+  "primitives": 96,
+  "component_contracts": 95
+}

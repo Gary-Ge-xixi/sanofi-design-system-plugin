@@ -1,0 +1,21 @@
+All Components
+Accordion
+Accordion is used to present content in a collapsible and expandable format.
+
+In Practice
+On Figma UI Kit
+Component documentation meant first for designers.
+On Storybook
+Component sandbox and documentation meant first for developers.
+On Github
+Submit a component pull request if you are noticing a component fix or improvement.
+
+
+Anatomy
+
+
+Variants
+Collapsed
+Expanded
+Content: Text
+Content: Custom

@@ -1,0 +1,26 @@
+{
+  "name": "design-system-plugin",
+  "version": "0.1.0",
+  "description": "Generate Sanofi Elements compliant HTML prototypes from captured design-system assets.",
+  "author": {
+    "name": "Local Sanofi Elements research workspace"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design System Prototype Generator",
+    "shortDescription": "Generate and validate Sanofi Elements HTML prototypes from local design-system assets.",
+    "longDescription": "A local-first Sanofi Elements design-system package for turning Storybook-first knowledge, tokens, component contracts, business page profiles, patterns, templates, rules, and Cursor workflow guidance into validated HTML prototypes.",
+    "developerName": "Local Sanofi Elements research workspace",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use the local Sanofi Elements design-system registry before selecting component sources.",
+      "Generate an admin or business HTML prototype from the matched page profile, template, and rules.",
+      "Validate the generated prototype with scripts/sanofi-ds and write reports under outputs/reports.",
+      "For Cursor usage, follow .cursor/rules/sanofi-design-system.mdc and prefer design-system-plugin/scripts/sanofi-ds as the toolkit entrypoint."
+    ]
+  }
+}

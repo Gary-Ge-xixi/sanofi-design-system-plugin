@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Flex",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Flex",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "flex",
+      "data_attribute": "data-primitive=\"flex\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-flex--align-content",
+      "components-flex--as-child-list",
+      "components-flex--column-stack",
+      "components-flex--flex-shorthand",
+      "components-flex--horizontal-flow",
+      "components-flex--justify-distribution",
+      "components-flex--wrapping-grid"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

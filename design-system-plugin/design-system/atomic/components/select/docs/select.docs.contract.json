@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "id": "select-docs-contract",
+  "component_id": "select",
+  "component_name": "Select",
+  "docs_id": "components-select--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-select--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-select--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "id",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-select--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Select, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nexport const Component = () => (\n    <Select\n      id=\"select\"\n      label=\"Select\"\n      placeholder=\"Select an option\"\n      subText=\"This is a subtext\"\n      state={FormControlState.DEFAULT}\n      inverse={false}\n      disabled={false}\n      required={false}\n      multiple={false}\n      size={InputSize.LARGE}\n      maxItemsVisible={3}\n      options={[\n        { value: \"banana\", label: \"Banana\" },\n        { value: \"cherry\", label: \"Cherry\" },\n        { value: \"apple\", label: \"Apple\" },\n        { value: \"blueberry\", label: \"Blueberry\" },\n        { value: \"orange\", label: \"Orange\" },\n        { value: \"strawberry\", label: \"Strawberry\" },\n        { value: \"raspberry\", label: \"Raspberry\" },\n        { value: \"watermelon\", label: \"Watermelon\" },\n        { value: \"pineapple\", label: \"Pineapple\" },\n        { value: \"kiwi\", label: \"Kiwi\" },\n      ]}\n    />\n),"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-select--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Select/Select.stories.tsx"
+    },
+    {
+      "id": "components-select--right-to-left",
+      "name": "Right To Left",
+      "export_name": "RightToLeft",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Select/Select.stories.tsx"
+    },
+    {
+      "id": "components-select--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Select/Select.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-select--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-select--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/select.contract.json"
+  }
+}

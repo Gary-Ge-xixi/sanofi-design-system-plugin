@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-select-style-variations-atomic-story",
+  "title": "ChipSelect Style Variations atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-chipselect--style-variations.",
+  "atomic_story_id": "components-chipselect--style-variations",
+  "component_id": "chip-select",
+  "docs_id": "components-chipselect--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-select"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/stories/components-chipselect--style-variations.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/stories/components-chipselect--style-variations.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/assets/components-chipselect--style-variations.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/assets/components-chipselect--style-variations.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/templates/html.style-variations.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/templates/html.style-variations.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-select.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipselect--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipselect--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipselect--docs",
+    "story_id": "components-chipselect--style-variations",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/chip-select/stories/components-chipselect--style-variations.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/chip-select/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chipselect--style-variations&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chipselect--style-variations&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipSelect.stories-QN41ncte.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-select",
+      "ChipSelect",
+      "Style Variations",
+      "components-chipselect--style-variations",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ChipSelect Style Variations Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

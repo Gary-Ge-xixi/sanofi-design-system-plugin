@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "id": "table-usage",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Business tables must use the business-table contract and must not claim an unavailable official Table/DataGrid primitive.",
+  "source_provenance": {
+    "contract": "../contracts/page-modules/business-table.contract.json",
+    "fallback_contract": "../contracts/page-modules/data-table-fallback.contract.json",
+    "data_model": "../business/data-model-standard.json"
+  },
+  "required_attributes": [
+    "data-business-module=\"business-table\"",
+    "data-table-contract=\"business-table\"",
+    "data-fallback-module=\"business-table\"",
+    "data-fallback-reason"
+  ],
+  "forbidden_attributes": [
+    "data-primitive=\"table\"",
+    "data-primitive=\"datagrid\"",
+    "data-source-component=\"table\"",
+    "data-source-component=\"datagrid\""
+  ],
+  "required_behavior": [
+    "loading state preserves column widths",
+    "empty state keeps table context",
+    "error state includes recovery action",
+    "bulk action state includes selected count and confirmation",
+    "locked state keeps submitted values visible"
+  ],
+  "column_policy": [
+    "Every column maps to data-model-standard.json.",
+    "Identity, status, numeric value, permission, and action columns are high priority.",
+    "Action columns must not be confused with business value columns."
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

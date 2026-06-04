@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Radio/RadioGroup",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Radio/RadioGroup",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "radio-radio-group",
+      "data_attribute": "data-primitive=\"radio-radio-group\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-radio-radiogroup--default",
+      "components-radio-radiogroup--horizontal",
+      "components-radio-radiogroup--horizontal-radios-with-error",
+      "components-radio-radiogroup--with-error"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

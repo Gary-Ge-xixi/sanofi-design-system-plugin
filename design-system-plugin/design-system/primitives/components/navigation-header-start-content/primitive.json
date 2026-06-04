@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "NavigationHeader.StartContent",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/NavigationHeader.StartContent",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "navigation-header-start-content",
+      "data_attribute": "data-primitive=\"navigation-header-start-content\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-navigationheader-startcontent--custom-overflow-label",
+      "components-navigationheader-startcontent--default",
+      "components-navigationheader-startcontent--with-auto-overflow"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-startcontent--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

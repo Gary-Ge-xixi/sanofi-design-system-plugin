@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-token-usage",
+  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
+  "status": "pass",
+  "checked": {
+    "token_refs": 327,
+    "unique_token_refs": 55,
+    "has_tokens_css_link": true,
+    "direct_core_color_refs": 0,
+    "green_primary_blocks": 0,
+    "box_shadow_declarations": 4,
+    "raw_box_shadow": 0
+  },
+  "failures": [],
+  "details": {
+    "unknown_refs": [],
+    "raw_hex": [],
+    "raw_color_functions": [],
+    "raw_px": [],
+    "direct_core_color_refs": [],
+    "green_primary_blocks": [],
+    "box_shadow_declarations": [
+      {
+        "declaration": "box-shadow: var(--elements-core-elevation-02);",
+        "value": "var(--elements-core-elevation-02)"
+      },
+      {
+        "declaration": "box-shadow: var(--elements-core-elevation-03);",
+        "value": "var(--elements-core-elevation-03)"
+      },
+      {
+        "declaration": "box-shadow: var(--elements-core-elevation-02);",
+        "value": "var(--elements-core-elevation-02)"
+      },
+      {
+        "declaration": "box-shadow: var(--elements-core-elevation-02);",
+        "value": "var(--elements-core-elevation-02)"
+      }
+    ],
+    "raw_box_shadow": []
+  }
+}

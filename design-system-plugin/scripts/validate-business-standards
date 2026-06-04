@@ -1,0 +1,410 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const designSystemDir = path.join(pluginRoot, "design-system");
+const businessDir = path.join(designSystemDir, "business");
+const rulesDir = path.join(designSystemDir, "rules");
+const pageProfilesDir = path.join(designSystemDir, "page-profiles");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportJsonPath = path.join(reportDir, "business-standards.report.json");
+const reportMdPath = path.join(reportDir, "business-standards.report.md");
+
+const requiredCoverageAreas = [
+  "business-page-taxonomy",
+  "business-task-flows",
+  "business-data-model",
+  "business-table",
+  "business-chart",
+  "business-form",
+  "business-density",
+  "business-layout-typography",
+  "business-app-shell-scroll",
+  "business-icon-usage",
+  "business-content",
+  "business-interaction-states",
+  "business-elevation",
+  "business-visual-acceptance",
+  "cursor-workflow"
+];
+
+const requiredPageProfiles = [
+  "admin-data-entry-table",
+  "approval-workflow",
+  "entity-detail",
+  "entity-form",
+  "import-result",
+  "report-dashboard",
+  "information-aggregation",
+  "customer-detail-date-query",
+  "permission-admin",
+  "exception-state"
+];
+
+const requiredRules = [
+  "business-page-standards",
+  "table-usage",
+  "chart-usage",
+  "form-usage",
+  "density-standards",
+  "business-layout-typography",
+  "business-app-shell-scroll",
+  "icon-usage",
+  "content-standards",
+  "interaction-state-standards",
+  "business-admin-defaults",
+  "elevation-usage",
+  "business-page-family-reference-fit",
+  "admin-dashboard-chart-reference-fit"
+];
+
+const requiredModuleContracts = [
+  "business-table",
+  "business-chart",
+  "business-form"
+];
+
+const requiredTaskFlows = [
+  "query",
+  "fill",
+  "approval",
+  "submit",
+  "reject",
+  "lock",
+  "import",
+  "export",
+  "bulk-action"
+];
+
+const requiredFieldTypes = [
+  "text",
+  "number",
+  "quantity",
+  "date",
+  "date-range",
+  "money",
+  "status",
+  "permission",
+  "action",
+  "enum",
+  "relation"
+];
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function exists(filePath) {
+  return fs.existsSync(filePath);
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function resolveRelative(baseDir, relativePath) {
+  return path.resolve(baseDir, relativePath);
+}
+
+function pushFailure(failures, message) {
+  failures.push(message);
+}
+
+function parseJsonFile(filePath, failures, label) {
+  if (!exists(filePath)) {
+    pushFailure(failures, `missing ${label}: ${rel(filePath)}`);
+    return null;
+  }
+  try {
+    return readJson(filePath);
+  } catch (error) {
+    pushFailure(failures, `invalid JSON in ${label}: ${rel(filePath)} (${error.message})`);
+    return null;
+  }
+}
+
+function checkListContains(failures, actual, required, label) {
+  const actualSet = new Set(actual);
+  for (const item of required) {
+    if (!actualSet.has(item)) pushFailure(failures, `${label} missing: ${item}`);
+  }
+}
+
+function fileStatus(filePath) {
+  return exists(filePath) ? "present" : "missing";
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+const evidence = {
+  coverage_areas: [],
+  page_profiles: [],
+  rules: [],
+  contracts: [],
+  cursor: {},
+  entrypoints: {}
+};
+
+const standardsIndexPath = path.join(businessDir, "business-standards-index.json");
+const standardsIndex = parseJsonFile(standardsIndexPath, failures, "business standards index") || {};
+const coverageAreas = Array.isArray(standardsIndex.coverage_areas) ? standardsIndex.coverage_areas : [];
+checkListContains(failures, coverageAreas.map((item) => item.id), requiredCoverageAreas, "coverage area");
+
+for (const area of coverageAreas) {
+  const areaPath = area.path ? resolveRelative(businessDir, area.path) : null;
+  const status = areaPath ? fileStatus(areaPath) : "missing";
+  evidence.coverage_areas.push({
+    id: area.id,
+    status: area.status || "unknown",
+    path: areaPath ? rel(areaPath) : null,
+    file_status: status
+  });
+  if (!requiredCoverageAreas.includes(area.id)) continue;
+  if (area.status !== "ready") pushFailure(failures, `coverage area ${area.id} status must be ready`);
+  if (!areaPath || !exists(areaPath)) pushFailure(failures, `coverage area ${area.id} target missing`);
+  if (areaPath && exists(areaPath) && areaPath.endsWith(".json")) parseJsonFile(areaPath, failures, `coverage area ${area.id}`);
+}
+
+checkListContains(failures, standardsIndex.required_page_profiles || [], requiredPageProfiles, "standards index required_page_profiles");
+checkListContains(failures, standardsIndex.required_rules || [], requiredRules, "standards index required_rules");
+
+const pageIndexPath = path.join(pageProfilesDir, "page-profile-index.json");
+const pageIndex = parseJsonFile(pageIndexPath, failures, "page profile index") || { profiles: [] };
+const indexedProfiles = Array.isArray(pageIndex.profiles) ? pageIndex.profiles : [];
+checkListContains(failures, indexedProfiles.map((profile) => profile.id), requiredPageProfiles, "page profile index");
+for (const profileId of requiredPageProfiles) {
+  const profileRow = indexedProfiles.find((profile) => profile.id === profileId);
+  const profilePath = profileRow?.path
+    ? resolveRelative(pageProfilesDir, profileRow.path)
+    : path.join(pageProfilesDir, `${profileId}.profile.json`);
+  const profile = parseJsonFile(profilePath, failures, `page profile ${profileId}`);
+  evidence.page_profiles.push({
+    id: profileId,
+    path: rel(profilePath),
+    file_status: fileStatus(profilePath),
+    status: profile?.status || profileRow?.status || "unknown",
+    required_rules: profile?.required_rules || [],
+    required_module_contracts: profile?.required_module_contracts || []
+  });
+  if (profile && profileId !== "admin-data-entry-table") {
+    if (!profile.page_family) pushFailure(failures, `page profile ${profileId} missing page_family`);
+    if (!Array.isArray(profile.required_rules) || !profile.required_rules.length) {
+      pushFailure(failures, `page profile ${profileId} missing required_rules`);
+    }
+    if (!profile.section_contract?.required_sections?.length) {
+      pushFailure(failures, `page profile ${profileId} missing section_contract.required_sections`);
+    }
+  }
+}
+
+const rulesIndexPath = path.join(rulesDir, "rules-index.json");
+const rulesIndex = parseJsonFile(rulesIndexPath, failures, "rules index") || { rules: [] };
+const indexedRules = Array.isArray(rulesIndex.rules) ? rulesIndex.rules : [];
+checkListContains(failures, indexedRules.map((rule) => rule.id), requiredRules, "rules index");
+for (const ruleId of requiredRules) {
+  const ruleRow = indexedRules.find((rule) => rule.id === ruleId);
+  const rulePath = ruleRow?.path ? resolveRelative(rulesDir, ruleRow.path) : null;
+  const scriptPath = ruleRow?.script ? resolveRelative(rulesDir, ruleRow.script) : null;
+  const rule = rulePath ? parseJsonFile(rulePath, failures, `rule ${ruleId}`) : null;
+  evidence.rules.push({
+    id: ruleId,
+    path: rulePath ? rel(rulePath) : null,
+    rule_file_status: rulePath ? fileStatus(rulePath) : "missing",
+    script: scriptPath ? rel(scriptPath) : null,
+    script_status: scriptPath ? fileStatus(scriptPath) : "missing",
+    status: rule?.status || "unknown"
+  });
+  if (!ruleRow) continue;
+  if (!rulePath || !exists(rulePath)) pushFailure(failures, `rule ${ruleId} file missing`);
+  if (!scriptPath || !exists(scriptPath)) pushFailure(failures, `rule ${ruleId} script missing`);
+  if (rule && rule.status !== "ready") pushFailure(failures, `rule ${ruleId} status must be ready`);
+}
+
+for (const contractId of requiredModuleContracts) {
+  const contractPath = path.join(designSystemDir, "contracts", "page-modules", `${contractId}.contract.json`);
+  const contract = parseJsonFile(contractPath, failures, `module contract ${contractId}`);
+  evidence.contracts.push({
+    id: contractId,
+    path: rel(contractPath),
+    file_status: fileStatus(contractPath),
+    status: contract?.status || "unknown"
+  });
+  if (contract && contract.id !== contractId) pushFailure(failures, `module contract ${contractId} id mismatch`);
+  if (contract && contract.status !== "ready") pushFailure(failures, `module contract ${contractId} status must be ready`);
+}
+
+const taxonomy = parseJsonFile(path.join(businessDir, "page-taxonomy.json"), failures, "page taxonomy") || {};
+const families = Array.isArray(taxonomy.page_families) ? taxonomy.page_families : [];
+checkListContains(failures, families.map((family) => family.id), requiredPageProfiles, "page taxonomy family");
+for (const family of families) {
+  if (requiredPageProfiles.includes(family.id) && !family.reference_fit) {
+    pushFailure(failures, `page taxonomy family ${family.id} missing reference_fit`);
+  }
+}
+
+const taskFlows = parseJsonFile(path.join(businessDir, "task-flow-standard.json"), failures, "task flow standard") || {};
+checkListContains(failures, (taskFlows.flows || []).map((flow) => flow.id), requiredTaskFlows, "task flow");
+
+const dataModel = parseJsonFile(path.join(businessDir, "data-model-standard.json"), failures, "data model standard") || {};
+checkListContains(failures, (dataModel.field_types || []).map((field) => field.type), requiredFieldTypes, "data model field type");
+
+const content = parseJsonFile(path.join(businessDir, "content-standard.json"), failures, "content standard") || {};
+for (const requiredKey of ["business_terms", "button_copy", "empty_state_copy", "error_state_copy", "success_state_copy", "approval_status_copy"]) {
+  if (!Object.prototype.hasOwnProperty.call(content, requiredKey)) {
+    pushFailure(failures, `content standard missing ${requiredKey}`);
+  }
+}
+
+const interactions = parseJsonFile(path.join(businessDir, "interaction-state-standard.json"), failures, "interaction state standard") || {};
+checkListContains(
+  failures,
+  (interactions.states || []).map((state) => state.id),
+  ["loading", "empty", "error", "readonly", "disabled", "permission-denied", "dirty-form", "sticky-save-bar"],
+  "interaction state"
+);
+
+const cursorPath = path.join(workspaceRoot, ".cursor", "rules", "sanofi-design-system.mdc");
+const cursorText = exists(cursorPath) ? read(cursorPath) : "";
+const cursorRequiredMarkers = [
+  "business-standards-index.json",
+  "sanofi-ds business standards",
+  "validate-business-standards",
+  "validate-design-md",
+  "validate-local-registry"
+];
+evidence.cursor = {
+  path: rel(cursorPath),
+  file_status: fileStatus(cursorPath),
+  required_markers: cursorRequiredMarkers.map((marker) => ({
+    marker,
+    present: cursorText.includes(marker)
+  }))
+};
+if (!exists(cursorPath)) pushFailure(failures, "Cursor rule missing");
+for (const marker of cursorRequiredMarkers) {
+  if (!cursorText.includes(marker)) pushFailure(failures, `Cursor rule missing marker: ${marker}`);
+}
+
+const designPath = path.join(designSystemDir, "DESIGN.md");
+const skillPath = path.join(pluginRoot, "skills", "design-prototype-generator", "SKILL.md");
+const componentsPath = path.join(pluginRoot, "components.json");
+const designText = exists(designPath) ? read(designPath) : "";
+const skillText = exists(skillPath) ? read(skillPath) : "";
+const components = parseJsonFile(componentsPath, failures, "components.json") || {};
+const requiredDesignMarkers = [
+  "business/business-standards-index.json",
+  "contracts/page-modules/business-table.contract.json",
+  "contracts/page-modules/business-chart.contract.json",
+  "contracts/page-modules/business-form.contract.json",
+  "rules/icon-usage.json",
+  "scripts/validate-business-standards"
+];
+const requiredSkillMarkers = [
+  "design-system/business/business-standards-index.json",
+  "business-table.contract.json",
+  "business-chart.contract.json",
+  "business-form.contract.json",
+  "rules/icon-usage.json",
+  "scripts/validate-business-standards"
+];
+evidence.entrypoints = {
+  design_md: {
+    path: rel(designPath),
+    file_status: fileStatus(designPath),
+    markers: requiredDesignMarkers.map((marker) => ({ marker, present: designText.includes(marker) }))
+  },
+  skill: {
+    path: rel(skillPath),
+    file_status: fileStatus(skillPath),
+    markers: requiredSkillMarkers.map((marker) => ({ marker, present: skillText.includes(marker) }))
+  },
+  components_json: {
+    path: rel(componentsPath),
+    file_status: fileStatus(componentsPath),
+    aliases: {
+      business_standards: components.aliases?.business_standards || null,
+      cursor_rules: components.aliases?.cursor_rules || null
+    },
+    commands: {
+      validate_business_standards: components.commands?.validate_business_standards || null,
+      validate_icon_usage: components.commands?.validate_icon_usage || null,
+      business_standards: components.commands?.business_standards || null
+    }
+  }
+};
+for (const marker of requiredDesignMarkers) {
+  if (!designText.includes(marker)) pushFailure(failures, `DESIGN.md missing marker: ${marker}`);
+}
+for (const marker of requiredSkillMarkers) {
+  if (!skillText.includes(marker)) pushFailure(failures, `design-prototype-generator skill missing marker: ${marker}`);
+}
+if (components.aliases?.business_standards !== "./design-system/business") {
+  pushFailure(failures, "components.json missing aliases.business_standards");
+}
+if (components.aliases?.cursor_rules !== "../.cursor/rules") {
+  pushFailure(failures, "components.json missing aliases.cursor_rules");
+}
+if (components.commands?.validate_business_standards !== "./scripts/validate-business-standards") {
+  pushFailure(failures, "components.json missing commands.validate_business_standards");
+}
+if (components.commands?.validate_icon_usage !== "./scripts/validate-icon-usage") {
+  pushFailure(failures, "components.json missing commands.validate_icon_usage");
+}
+if (components.commands?.business_standards !== "./scripts/business-standards") {
+  pushFailure(failures, "components.json missing commands.business_standards");
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-business-standards",
+  generated_at: new Date().toISOString(),
+  checked: {
+    coverage_areas: requiredCoverageAreas.length,
+    page_profiles: requiredPageProfiles.length,
+    task_flows: requiredTaskFlows.length,
+    data_model_field_types: requiredFieldTypes.length,
+    module_contracts: requiredModuleContracts.length,
+    rules: requiredRules.length,
+    cursor_rule: exists(cursorPath) ? 1 : 0
+  },
+  evidence,
+  failures
+};
+
+const markdown = `# Business Standards Validation
+
+Status: ${report.status}
+
+| Area | Count |
+|---|---:|
+| Coverage areas | ${report.checked.coverage_areas} |
+| Page profiles | ${report.checked.page_profiles} |
+| Task flows | ${report.checked.task_flows} |
+| Data model field types | ${report.checked.data_model_field_types} |
+| Module contracts | ${report.checked.module_contracts} |
+| Rules | ${report.checked.rules} |
+
+## Failures
+
+${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}
+`;
+
+fs.writeFileSync(reportJsonPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(reportMdPath, markdown.trimEnd() + "\n");
+
+if (failures.length) {
+  console.error(`Business standards validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(
+  `Business standards OK: ${requiredCoverageAreas.length} areas, ${requiredPageProfiles.length} page profiles, ${requiredRules.length} rules, ${requiredModuleContracts.length} module contracts`
+);

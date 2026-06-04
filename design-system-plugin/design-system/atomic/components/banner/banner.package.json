@@ -1,0 +1,183 @@
+{
+  "schema_version": "0.1.0",
+  "id": "banner-complete-standard-package",
+  "component_id": "banner",
+  "component_name": "Banner",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 6,
+    "materialized_stories": 6,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-banner--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/banner/docs/banner.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-banner--custom-icon",
+      "story_name": "Custom Icon",
+      "export_name": "CustomIcon",
+      "semantic_type": "variant",
+      "variant": "custom-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--custom-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/banner-neutral.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-banner--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-banner--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/banner-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-banner--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-banner--global",
+      "story_name": "Global",
+      "export_name": "Global",
+      "semantic_type": "variant",
+      "variant": "global",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--global.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/banner-success.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-banner--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-banner--overview",
+      "story_name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "variant": "overview",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--overview.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/banner-overview.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-banner--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-banner--with-close-icon",
+      "story_name": "With Close Icon",
+      "export_name": "WithCloseIcon",
+      "semantic_type": "variant",
+      "variant": "with-close-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-close-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/banner-info.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-banner--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-banner--with-contents",
+      "story_name": "With Contents",
+      "export_name": "WithContents",
+      "semantic_type": "variant",
+      "variant": "with-contents",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-contents.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/banner-with-contents.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-banner--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/banner/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/banner/banner.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/banner-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-banner--custom-icon",
+        "output_path": "design-system-plugin/outputs/html/banner-neutral.atomic.html"
+      },
+      {
+        "story_id": "components-banner--default",
+        "output_path": "design-system-plugin/outputs/html/banner-default.atomic.html"
+      },
+      {
+        "story_id": "components-banner--global",
+        "output_path": "design-system-plugin/outputs/html/banner-success.atomic.html"
+      },
+      {
+        "story_id": "components-banner--overview",
+        "output_path": "design-system-plugin/outputs/html/banner-overview.atomic.html"
+      },
+      {
+        "story_id": "components-banner--with-close-icon",
+        "output_path": "design-system-plugin/outputs/html/banner-info.atomic.html"
+      },
+      {
+        "story_id": "components-banner--with-contents",
+        "output_path": "design-system-plugin/outputs/html/banner-with-contents.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-banner-complete-package.json",
+    "story_item_prefix": "sanofi-banner-"
+  },
+  "validation": {
+    "required_story_count": 6,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/banner/banner.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/banner/docs/banner.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

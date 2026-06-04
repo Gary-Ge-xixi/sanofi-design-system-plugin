@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "button-complete.atomic.html");
+const expectedTabsPath = path.join(
+  pluginRoot,
+  "design-system",
+  "atomic",
+  "components",
+  "button",
+  "button.expected-tabs.json"
+);
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const reportPath = path.join(reportDir, "button-complete-dom-validation.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function extractAttributeValues(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.readFileSync(target, "utf8");
+const expectedTabs = readJson(expectedTabsPath);
+const expectedStories = (expectedTabs.stories || []).map((story) => story.id);
+const storyRefs = [...new Set(extractAttributeValues(html, "data-story-id"))].sort();
+const missingStories = expectedStories.filter((storyId) => !storyRefs.includes(storyId));
+const extraButtonStories = storyRefs.filter((storyId) => storyId.startsWith("components-button--") && !expectedStories.includes(storyId));
+const anchorTags = [...html.matchAll(/<a\b[^>]*>/gi)].map((match) => match[0]);
+const bodyBlock = html.match(/body\s*\{[^}]*\}/s)?.[0] || "";
+
+const hasPackageRoot = /data-pattern=["']atomic-component-package["']/.test(html);
+const hasTokensCss = /href=["'][^"']*tokens\.css["']/.test(html);
+const hasDocsSource = /data-source-doc-id=["']components-button--docs["']/.test(html);
+const hasButtonLinkAnchor = anchorTags.some((tag) => (
+  /data-primitive=["']button["']/i.test(tag) &&
+  /data-story-id=["']components-button--button-link["']/i.test(tag) &&
+  /href=["'][^"']+["']/i.test(tag)
+));
+const bodyBackgroundToken = bodyBlock.match(/background:\s*var\((--elements-[^)]+)\)/)?.[1] || null;
+const rawBlackBackground = /background:\s*(?:#000|#000000|black)\b/i.test(bodyBlock);
+
+const failures = [];
+if (!hasPackageRoot) failures.push("missing atomic-component-package root");
+if (!hasTokensCss) failures.push("missing tokens.css stylesheet");
+if (!hasDocsSource) failures.push("missing components-button--docs provenance marker");
+if (storyRefs.length !== expectedStories.length) {
+  failures.push(`expected ${expectedStories.length} unique stories, found ${storyRefs.length}`);
+}
+if (missingStories.length) failures.push(`missing stories: ${missingStories.join(", ")}`);
+if (extraButtonStories.length) failures.push(`unexpected Button stories: ${extraButtonStories.join(", ")}`);
+if (!hasButtonLinkAnchor) failures.push("Button Link story must render at least one anchor with button primitive semantics");
+if (!bodyBackgroundToken) failures.push("body background must use an Elements token");
+if (rawBlackBackground) failures.push("body background must not use raw black");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-button-package-dom",
+  target: path.relative(pluginRoot, target),
+  checked: {
+    has_package_root: hasPackageRoot,
+    has_tokens_css: hasTokensCss,
+    has_docs_source: hasDocsSource,
+    expected_stories: expectedStories.length,
+    unique_story_refs: storyRefs.length,
+    has_button_link_anchor: hasButtonLinkAnchor,
+    body_background_token: bodyBackgroundToken,
+    raw_black_background: rawBlackBackground
+  },
+  failures,
+  details: {
+    missing_stories: missingStories,
+    extra_button_stories: extraButtonStories
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Button package DOM validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Button package DOM OK: ${path.relative(pluginRoot, target)}`);

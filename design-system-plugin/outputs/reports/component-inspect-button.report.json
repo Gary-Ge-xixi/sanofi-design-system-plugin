@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds component inspect button",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:11:27.019Z",
+  "component_id": "button",
+  "component_name": "Button",
+  "story_count": 13,
+  "package_status": "complete",
+  "files": {
+    "package": "design-system-plugin/design-system/atomic/components/button/button.package.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+    "dom_report": "design-system-plugin/outputs/reports/button-complete-dom-validation.report.json",
+    "factory_report": "design-system-plugin/outputs/reports/component-package-factory.button.report.json"
+  },
+  "reports": {
+    "dom_status": "pass",
+    "factory_status": "complete_existing"
+  },
+  "coverage": {
+    "component_id": "button",
+    "component_name": "Button",
+    "storybook_title": "Components/Button",
+    "docs_count": 1,
+    "story_count": 13,
+    "tier": "L",
+    "estimated_hours": 7.9,
+    "default_generation_candidate": true,
+    "deprecated": false,
+    "hook_or_provider": false,
+    "has_component_contract": false,
+    "has_primitive_contract": true,
+    "materialized_stories": 13,
+    "package_path": "design-system-plugin/design-system/atomic/components/button/button.package.json",
+    "unsupported_path": "not_created",
+    "unsupported_reason": null,
+    "package_status": "complete",
+    "missing_story_count": 0,
+    "docs_ids": [
+      "components-button--docs"
+    ],
+    "story_ids": [
+      "components-button--primary",
+      "components-button--primary-neutral",
+      "components-button--overview",
+      "components-button--overview-inverse",
+      "components-button--default",
+      "components-button--secondary",
+      "components-button--secondary-neutral",
+      "components-button--tertiary",
+      "components-button--tertiary-neutral",
+      "components-button--primary-destruct",
+      "components-button--secondary-destruct",
+      "components-button--tertiary-destruct",
+      "components-button--button-link"
+    ]
+  },
+  "contract": {
+    "id": "button",
+    "component_name": "Button",
+    "status": "primitive-linked",
+    "docs_id": "components-button--docs",
+    "story_count": 13,
+    "prop_count": 2,
+    "primitive_ids": [
+      "button"
+    ],
+    "local_contract_path": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "unknowns": []
+  },
+  "failures": []
+}

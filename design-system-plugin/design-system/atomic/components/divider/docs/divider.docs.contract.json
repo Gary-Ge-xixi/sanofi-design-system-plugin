@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "id": "divider-docs-contract",
+  "component_id": "divider",
+  "component_name": "Divider",
+  "docs_id": "components-divider--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-divider--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-divider--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "orientation",
+        "required": false,
+        "description": "The Divider orientation\"horizontal\"\"vertical\"",
+        "default": "\"DividerOrientation.HORIZONTAL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "variant",
+        "required": false,
+        "description": "The Divider variant\"strong\"\"subtle\"\"inverse\"\"default\"",
+        "default": "\"DividerStyles.DEFAULT\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "If true, the divider will take the full width of the parent containerboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "width",
+        "required": false,
+        "description": "Size of the divider (value in rem)number",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class for the divider.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-divider--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Divider } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Divider />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-divider--custom-width",
+      "name": "Custom Width",
+      "export_name": "CustomWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--orientation",
+      "name": "Orientation",
+      "export_name": "Orientation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-divider--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-divider--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/divider.contract.json"
+  }
+}

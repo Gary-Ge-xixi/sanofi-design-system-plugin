@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-flex--wrapping-grid",
+  "component_id": "flex",
+  "component_name": "Flex",
+  "story_id": "components-flex--wrapping-grid",
+  "story_name": "Wrapping Grid",
+  "export_name": "WrappingGrid",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-flex--wrapping-grid&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-flex--wrapping-grid&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Flex.stories-D8jEajo2.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/flex/assets/components-flex--wrapping-grid.iframe.html",
+    "import_path": "./src/components/Flex/Flex.stories.tsx",
+    "component_path": "./src/components/Flex/index.ts"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...l,wrap:\"wrap\",gap:\"sm\",gapY:\"xs\",justify:\"between\"}",
+    "values": {
+      "direction": "row",
+      "wrap": "wrap",
+      "align": "stretch",
+      "justify": "between",
+      "gap": "sm",
+      "display": "flex",
+      "gapY": "xs"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{direction:{description:\"Sets `flex-direction`. Values: `row` | `row-reverse` | `column` | `column-reverse`.\",control:\"radio\",options:[\"row\",\"row-reverse\",\"column\",\"column-reverse\"],table:{defaultValue:{summary:\"row\"}}},wrap:{description:\"Sets `flex-wrap`. Values: `nowrap` | `wrap` | `wrap-reverse`.\",control:\"radio\",options:[\"nowrap\",\"wrap\",\"wrap-reverse\"],table:{defaultValue:{summary:\"nowrap\"}}},align:{description:\"Controls `align-items`. Values: `start` | `center` | `end` | `baseline` | `stretch`.\",control:\"radio\",options:[\"start\",\"center\",\"end\",\"baseline\",\"stretch\"],table:{defaultValue:{summary:\"stretch\"}}},justify:{description:\"Controls `justify-content`. Values: `start` | `center` | `end` | `between` | `around` | `evenly`.\",control:\"radio\",options:[\"start\",\"center\",\"end\",\"between\",\"around\",\"evenly\"],table:{defaultValue:{summary:\"start\"}}},alignContent:{description:\"Controls `align-content`. Only applies when `wrap` is set. Values: `start` | `center` | `end` | `between` | `around` | `evenly` | `stretch`.\",control:\"radio\",options:[void 0,\"start\",\"center\",\"end\",\"between\",\"around\",\"evenly\",\"stretch\"]},display:{description:\"Sets the CSS `display` property. Values: `flex` | `inline-flex` | `none`.\",control:\"radio\",options:[\"flex\",\"inline-flex\",\"none\"],table:{defaultValue:{summary:\"flex\"}}},gap:{description:\"Token-based gap applied on both axes. Values: `none` | `3xs` | `2xs` | `xs` | `sm` | `md` | `lg` | `xl` | `2xl` | `3xl` | `4xl` | `5xl` | `6xl` or any CSS length.\",control:\"select\",options:x},gapX:{description:\"Token-based column gap. Same values as `gap`. Overrides `gap` for the horizontal axis.\",control:\"select\",options:x},gapY:{description:\"Token-based row gap. Same values as `gap`. Overrides `gap` for the vertical axis.\",control:\"select\",options:x},asChild:{description:\"Render styles onto the single child instead of a wrapper element (Radix `asChild` pattern).\",control:\"boolean\",table:{defaultValue:{summary:\"false\"}}},flex:{description:\"Sets the CSS `flex` shorthand (grow, shrink, basis). Values: `1` | `auto` | `none` | `initial` | `1 0 200px`.\",control:\"text\"}}",
+    "fields": [
+      "direction",
+      "wrap",
+      "align",
+      "justify",
+      "alignContent",
+      "display",
+      "gap",
+      "gapX",
+      "gapY",
+      "asChild",
+      "flex"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    wrap: \"wrap\",\n    gap: \"sm\",\n    gapY: \"xs\",\n    justify: \"between\"\n  },\n  render: args => <StorySection title=\"Wrapping grid\" description=\"Wrap items with separate column/row gaps for responsive blocks.\">\n      <Flex {...args}>\n        {Array.from({\n        length: 7\n      }, (_, index) => <DemoItem key={index} label={\\`Item \\${index + 1}\\`} />)}\n      </Flex>\n    </StorySection>\n}",
+    "story_object_source": "{args:{...l,wrap:\"wrap\",gap:\"sm\",gapY:\"xs\",justify:\"between\"},render:r=>e.jsx(o,{title:\"Wrapping grid\",description:\"Wrap items with separate column/row gaps for responsive blocks.\",children:e.jsx(t,{...r,children:Array.from({length:7},(s,a)=>e.jsx(n,{label:`Item ${a+1}`},a))})})}"
+  },
+  "template": {
+    "id": "flex-wrapping-grid-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/flex/templates/html.wrapping-grid.template.html",
+    "output_path": "design-system-plugin/outputs/html/flex-wrapping-grid.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "flex",
+    "local_path": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "story_id": "components-flex--wrapping-grid",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/flex/assets/components-flex--wrapping-grid.iframe.html"
+  }
+}

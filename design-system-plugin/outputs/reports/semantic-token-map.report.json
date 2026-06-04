@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-semantic-token-map",
+  "generated_at": "2026-06-02T10:57:52.230Z",
+  "checked": {
+    "total_token_names": 640,
+    "required_roles": 10,
+    "missing_roles": 0,
+    "unknown_tokens": 0
+  },
+  "failures": [],
+  "output": {
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json"
+  }
+}

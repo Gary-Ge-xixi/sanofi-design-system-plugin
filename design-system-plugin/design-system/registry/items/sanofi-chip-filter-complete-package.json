@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-filter-complete-package",
+  "title": "ChipFilter complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ChipFilter package covering Docs plus all Storybook story atoms.",
+  "component_id": "chip-filter",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-filter"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/chip-filter.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/chip-filter.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/chip-filter.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/chip-filter.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/docs/chip-filter.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/docs/chip-filter.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/chip-filter-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/chip-filter-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chipfilter--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-filter-default-atomic-story"
+    },
+    {
+      "story_id": "components-chipfilter--list-with-removal",
+      "story_name": "List Example",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-filter-list-example-atomic-story"
+    },
+    {
+      "story_id": "components-chipfilter--long-label",
+      "story_name": "Long Label",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-filter-long-label-atomic-story"
+    },
+    {
+      "story_id": "components-chipfilter--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-filter-overview-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipfilter--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-filter/chip-filter.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-filter/docs/chip-filter.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-filter",
+      "ChipFilter",
+      "chip-filter complete",
+      "ChipFilter complete package",
+      "chip-filter docs"
+    ],
+    "when_to_use": "Use first for any ChipFilter generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ChipFilter behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

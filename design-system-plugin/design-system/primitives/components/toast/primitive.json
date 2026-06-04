@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Toast",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Toast",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "toast",
+      "data_attribute": "data-primitive=\"toast\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-toast--default",
+      "components-toast--dual-action",
+      "components-toast--example",
+      "components-toast--single-action",
+      "components-toast--toast-statuses",
+      "components-toast--toast-with-buttons"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

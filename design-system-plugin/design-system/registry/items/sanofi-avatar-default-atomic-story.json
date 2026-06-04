@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-avatar-default-atomic-story",
+  "title": "Avatar Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-avatar--default.",
+  "atomic_story_id": "components-avatar--default",
+  "component_id": "avatar",
+  "docs_id": "components-avatar--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-avatar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/assets/components-avatar--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/assets/components-avatar--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/avatar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/avatar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-avatar--docs",
+    "story_id": "components-avatar--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/avatar/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-avatar--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-avatar--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Avatar.stories-B-Y76ViA.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/avatar/assets/Avatar.stories-B-Y76ViA.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "avatar",
+      "Avatar",
+      "Default",
+      "components-avatar--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Avatar Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

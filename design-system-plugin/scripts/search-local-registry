@@ -1,0 +1,99 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const registryPath = path.join(pluginRoot, "design-system", "registry", "registry.json");
+
+function readJson(absolutePath) {
+  return JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+}
+
+function normalize(value) {
+  return String(value || "").toLowerCase();
+}
+
+function normalizePhrase(value) {
+  return normalize(value).replace(/-/g, " ");
+}
+
+function tokenize(value) {
+  return normalizePhrase(value)
+    .split(/[^a-z0-9\u4e00-\u9fff]+/u)
+    .filter(Boolean);
+}
+
+function scoreItem(itemRef, item, queryText, terms) {
+  const fields = [
+    item.name,
+    item.title,
+    item.description,
+    item.type,
+    item.pattern_id,
+    item.component_id,
+    ...(item.ai?.prompt_keywords || [])
+  ].map(normalizePhrase);
+  const haystack = fields.join(" ");
+  const tokenSet = new Set(tokenize(haystack));
+  const termScore = terms.reduce((score, term) => score + (haystack.includes(term) ? 1 : 0), 0);
+  const allTermsPresent = terms.every((term) => tokenSet.has(term));
+  const phraseText = terms.join(" ");
+  const phraseScore = fields.some((field) => field.includes(phraseText)) ? 8 : 0;
+  const coverageScore = allTermsPresent ? terms.length * 3 : 0;
+  const typeScore = allTermsPresent
+    ? item.type === "registry:story"
+      ? 20
+      : item.type === "registry:package"
+        ? 2
+        : 0
+    : 0;
+  const keywordScore = fields.reduce((score, field) => {
+    if (!field || field.length < 2) return score;
+    return score + (queryText.includes(field) ? 2 : 0);
+  }, 0);
+  return termScore + keywordScore + phraseScore + coverageScore + typeScore;
+}
+
+const query = process.argv.slice(2).join(" ").trim();
+if (!query) {
+  console.error("Usage: search-local-registry <query>");
+  process.exit(1);
+}
+
+if (!fs.existsSync(registryPath)) {
+  console.error("Local registry is missing. Run scripts/build-local-registry first.");
+  process.exit(1);
+}
+
+const registry = readJson(registryPath);
+const terms = normalize(query)
+  .split(/[^a-z0-9\u4e00-\u9fff]+/u)
+  .filter(Boolean);
+const queryText = normalizePhrase(query);
+
+const results = (registry.items || [])
+  .map((itemRef) => {
+    const absoluteItemPath = path.join(workspaceRoot, itemRef.path);
+    const item = readJson(absoluteItemPath);
+    return {
+      score: scoreItem(itemRef, item, queryText, terms),
+      name: item.name,
+      title: item.title,
+      type: item.type,
+      path: itemRef.path,
+      registryDependencies: item.registryDependencies || [],
+      prompt_keywords: item.ai?.prompt_keywords || []
+    };
+  })
+  .filter((item) => item.score > 0)
+  .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+
+const output = {
+  schema_version: "0.1.0",
+  query,
+  count: results.length,
+  results
+};
+
+console.log(JSON.stringify(output, null, 2));

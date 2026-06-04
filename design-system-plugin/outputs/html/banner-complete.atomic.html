@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Banner complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-banner--docs">
+        <h1>Banner Complete Package</h1>
+        <p>Docs: components-banner--docs. Stories: 6/6.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-banner--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-banner--custom-icon" data-source-doc-id="components-banner--docs">
+          <h2>Custom Icon</h2>
+          <article data-primitive="banner" data-pattern="atomic-component-sample" data-story-id="components-banner--custom-icon" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs" data-variant="custom-icon" data-state="variant" class="sample-shell"><strong>Banner</strong><span>Custom Icon</span><code>components-banner--custom-icon</code></article>
+          <p><code>components-banner--custom-icon</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-banner--default" data-source-doc-id="components-banner--docs">
+          <h2>Default</h2>
+          <article data-primitive="banner" data-pattern="atomic-component-sample" data-story-id="components-banner--default" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs" data-variant="default" data-state="variant" class="sample-shell"><strong>Banner</strong><span>Default</span><code>components-banner--default</code></article>
+          <p><code>components-banner--default</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-banner--global" data-source-doc-id="components-banner--docs">
+          <h2>Global</h2>
+          <article data-primitive="banner" data-pattern="atomic-component-sample" data-story-id="components-banner--global" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs" data-variant="global" data-state="variant" class="sample-shell"><strong>Banner</strong><span>Global</span><code>components-banner--global</code></article>
+          <p><code>components-banner--global</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-banner--overview" data-source-doc-id="components-banner--docs">
+          <h2>Overview</h2>
+          <article data-primitive="banner" data-pattern="atomic-component-sample" data-story-id="components-banner--overview" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs" data-variant="overview" data-state="variant" class="sample-shell"><strong>Banner</strong><span>Overview</span><code>components-banner--overview</code></article>
+          <p><code>components-banner--overview</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-banner--with-close-icon" data-source-doc-id="components-banner--docs">
+          <h2>With Close Icon</h2>
+          <article data-primitive="banner" data-pattern="atomic-component-sample" data-story-id="components-banner--with-close-icon" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs" data-variant="with-close-icon" data-state="variant" class="sample-shell"><strong>Banner</strong><span>With Close Icon</span><code>components-banner--with-close-icon</code></article>
+          <p><code>components-banner--with-close-icon</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-banner--with-contents" data-source-doc-id="components-banner--docs">
+          <h2>With Contents</h2>
+          <article data-primitive="banner" data-pattern="atomic-component-sample" data-story-id="components-banner--with-contents" data-source-doc-id="components-banner--docs" data-token-source="foundations-colors--docs" data-variant="with-contents" data-state="variant" class="sample-shell"><strong>Banner</strong><span>With Contents</span><code>components-banner--with-contents</code></article>
+          <p><code>components-banner--with-contents</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-banner--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/banner.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/banner/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

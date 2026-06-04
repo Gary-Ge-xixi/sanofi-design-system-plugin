@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-button--default",
+  "component_id": "button",
+  "component_name": "Button",
+  "story_id": "components-button--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "default_controls",
+    "expected_variant": "primary",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "button.expected-tabs.json"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-button--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-button--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Button.stories-CGg2KCkY.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/button/assets/components-button--default.iframe.html",
+    "import_path": "./src/components/Button/Button.stories.tsx",
+    "component_path": "./src/components/Button/Button.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{label:\"Action\",variant:\"primary\",inverse:!1}",
+    "values": {
+      "label": "Action",
+      "variant": "primary",
+      "inverse": false
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{variant:{options:Object.keys(a),control:{type:\"select\"}},size:{options:Object.keys(c),control:{type:\"select\"}},label:{control:\"text\"},icon:{options:Object.keys(L),mapping:L,control:{type:\"select\"},description:\"The start aligned icon of the button if any\"},iconPosition:{options:Object.keys(D),control:{type:\"select\"}},inverse:{control:\"boolean\"},fullWidth:{control:\"boolean\"},disabled:{control:\"boolean\"},isLoading:{control:\"boolean\"},onClick:{action:\"clicked\"},brandTheme:{options:Object.keys(N),control:{type:\"select\"}}}",
+    "fields": [
+      "variant",
+      "size",
+      "label",
+      "icon",
+      "iconPosition",
+      "inverse",
+      "fullWidth",
+      "disabled",
+      "isLoading",
+      "onClick",
+      "brandTheme"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "primary"
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    label: \"Action\",\n    variant: \"primary\",\n    inverse: false\n  },\n  tags: [\"isHidden\"]\n}",
+    "story_object_source": "{args:{label:\"Action\",variant:\"primary\",inverse:!1},tags:[\"isHidden\"]}"
+  },
+  "template": {
+    "id": "button-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+    "output_path": "design-system-plugin/outputs/html/button-default.atomic.v2.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "button",
+    "local_path": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "story_id": "components-button--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/button/assets/components-button--default.iframe.html"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-toast--single-action",
+  "component_id": "toast",
+  "component_name": "Toast",
+  "story_id": "components-toast--single-action",
+  "story_name": "Single Action",
+  "export_name": "SingleAction",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-toast--single-action&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-toast--single-action&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Toast.stories-BnqixObE.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/toast/assets/components-toast--single-action.iframe.html",
+    "import_path": "./src/components/Toast/Toast.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{title:{type:\"string\",description:\"Title of the Toast\"},text:{type:\"string\",description:\"Subtitle of the Toast\"},variant:{description:\"Variant\",control:\"select\",options:Object.values(n)},displayCloseButton:{type:\"boolean\",description:\"Display Close button\"},position:{description:\"Position\",control:\"select\",options:Object.values(v)},duration:{control:\"number\",description:\"Duration of the Toast. Set to Infinite to make a non-dismissible Toast\"},actions:{control:\"object\",description:\"Display one or two actions on the Toast\"},offset:{control:\"number\",defaultValue:0,description:\"Offset for the Toast\"}}",
+    "fields": [
+      "title",
+      "text",
+      "variant",
+      "displayCloseButton",
+      "position",
+      "duration",
+      "actions",
+      "offset"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: (props: ToastOptions) => <ToastBar duration={Infinity} createdAt={Date.now()} visible={true} id={\"id\"} title={\"Toast title\"} variant={ToastVariant.SUCCESS} actions={[{\n    label: \"Confirm\"\n  }]} {...props} />,\n  tags: [\"isHidden\"]\n}",
+    "story_object_source": "{render:t=>e.jsx(d,{duration:1/0,createdAt:Date.now(),visible:!0,id:\"id\",title:\"Toast title\",variant:n.SUCCESS,actions:[{label:\"Confirm\"}],...t}),tags:[\"isHidden\"]}"
+  },
+  "template": {
+    "id": "toast-single-action-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.single-action.template.html",
+    "output_path": "design-system-plugin/outputs/html/toast-single-action.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "toast",
+    "local_path": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "story_id": "components-toast--single-action",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/toast/assets/components-toast--single-action.iframe.html"
+  }
+}

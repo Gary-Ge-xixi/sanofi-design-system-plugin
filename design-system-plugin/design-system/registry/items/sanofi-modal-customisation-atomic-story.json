@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-modal-customisation-atomic-story",
+  "title": "Modal Customisation atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-modal--customisation.",
+  "atomic_story_id": "components-modal--customisation",
+  "component_id": "modal",
+  "docs_id": "components-modal--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-modal"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--customisation.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--customisation.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--customisation.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--customisation.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/templates/html.customisation.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/modal/templates/html.customisation.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/modal.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/modal/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "story_id": "components-modal--customisation",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--customisation.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-modal--customisation&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-modal--customisation&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Modal.stories-Bu82RoLa.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "modal",
+      "Modal",
+      "Customisation",
+      "components-modal--customisation",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Modal Customisation Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

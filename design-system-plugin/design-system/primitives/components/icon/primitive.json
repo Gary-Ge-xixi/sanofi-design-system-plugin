@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Icon",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Icon",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "icon",
+      "data_attribute": "data-primitive=\"icon\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-icon--custom-icon",
+      "components-icon--fallback-icons",
+      "components-icon--gallery"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

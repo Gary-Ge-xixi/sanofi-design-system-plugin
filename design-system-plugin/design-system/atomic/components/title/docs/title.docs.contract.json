@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "title-docs-contract",
+  "component_id": "title",
+  "component_name": "Title",
+  "docs_id": "components-title--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-title--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-title--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Title size variant determining font size and weight.\"title-1\"\"title-2\"\"title-3\"\"title-4\"\"title-5\"",
+        "default": "\"TitleVariant.TITLE_3\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Color is one of --elements-color-semantic-text-... css variable or currentColor to inherit color from parent\"disabled\"\"success\"\"error\"\"strong\"\"subtle\"\"highlight\"\"info\"\"alert\"\"inverse\"\"default\"\"accent-active\"\"accent-default\"\"accent-hover\"\"helpertext\"\"currentColor\"Show 7 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-title--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-title--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    },
+    {
+      "id": "components-title--font-weights",
+      "name": "Font Weights",
+      "export_name": "FontWeights",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    },
+    {
+      "id": "components-title--variants",
+      "name": "Variants",
+      "export_name": "Variants",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Title/Title.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-title--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-title--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/title.contract.json"
+  }
+}

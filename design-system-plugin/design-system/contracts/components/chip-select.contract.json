@@ -1,0 +1,228 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-select",
+  "canonical_name": "chip-select",
+  "component_name": "ChipSelect",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-chipselect--docs",
+    "title": "ChipSelect",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-chipselect--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-chipselect--docs",
+    "import_path": "./src/components/ChipSelect/ChipSelect.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-chipselect--default",
+      "components-chipselect--long-label",
+      "components-chipselect--style-variations"
+    ],
+    "records": [
+      {
+        "id": "components-chipselect--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-chipselect--long-label",
+        "name": "Long Label",
+        "normalized_name": "long-label",
+        "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx",
+        "export_name": "LongLabel"
+      },
+      {
+        "id": "components-chipselect--style-variations",
+        "name": "Style Variations",
+        "normalized_name": "style-variations",
+        "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx",
+        "export_name": "StyleVariations"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": true,
+        "description": "The content to display inside the chipReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Controls the size of the chip\"small\"\"medium\"",
+        "default": "small",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "selected",
+        "required": false,
+        "description": "Whether the chip is selectedboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showIcon",
+        "required": false,
+        "description": "Whether to show the icon when selectedboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Whether the chip is disabledboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Callback function when the chip is clickedMouseEventHandler<HTMLDivElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxWidth",
+        "required": false,
+        "description": "Maximum width in pixels before text truncation (minimum: 50px)number",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onWidthCalculated",
+        "required": false,
+        "description": "Callback when width is calculated((width: number) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional class name for the chipstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Object containing class names for sub-elementsChipSelectClassNames",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "iconName",
+        "required": false,
+        "description": "The name of the icon to display when selected (defaults to 'done'). If empty, no icon will be shown\"\"\"abc\"\"access_time\"\"accessibility\"\"account_balance\"\"account_circle\"\"add\"\"add_circle\"\"add_circle_outline\"\"add_comment\"\"add_link\"\"add_photo_alternate\"\"add_shopping_cart\"\"admin_panel_settings\"\"alarm\"\"align_horizontal_center\"\"align_horizontal_left\"\"align_horizontal_right\"\"align_vertical_bottom\"\"align_vertical_center\"\"align_vertical_top\"\"analytics\"\"apartment\"\"api\"\"approval\"\"apps\"\"archive\"\"arrow_back\"\"arrow_back_ios\"\"arrow_downward\"\"arrow_drop_down\"\"arrow_drop_up\"\"arrow_forward\"\"arrow_forward_ios\"\"arrow_left\"\"arrow_left_alt\"\"arrow_outward\"\"arrow_right\"\"arrow_right_alt\"\"arrow_selector_tool\"\"arrow_upward\"\"article\"\"assignment_late\"\"assistant\"\"assistant_direction\"\"attach_file\"\"attach_money\"\"attachment\"\"auto_awesome\"\"auto_fix_high\"\"auto_graph\"\"autorenew\"\"av_timer\"\"avg_pace\"\"bar_chart\"\"bedtime\"\"biotech\"\"bolt\"\"book\"\"bookmark\"\"bookmark_add\"\"bookmark_added\"\"bookmark_border\"\"bookmark_remove\"\"bookmarks\"\"border_all\"\"border_color\"\"broken_image\"\"bug_report\"\"build\"\"build_circle\"\"calendar_month\"\"calendar_today\"\"call\"\"cancel\"\"candlestick_chart\"\"category\"\"center_focus_weak\"\"change_circle\"\"chart_data\"\"chat\"\"chat_add_on\"\"chat_bubble\"\"check\"\"check_box\"\"check_box_outline_blank\"\"check_circle\"\"check_circle_outline\"\"checklist\"\"chevron_left\"\"chevron_right\"\"circle\"\"clear\"\"close\"\"cloud\"\"cloud_done\"\"cloud_download\"\"cloud_upload\"\"co_present\"\"code\"\"collapse_all\"\"collapse_content\"\"comment\"\"compress\"\"confirmation_number\"\"contact_support\"\"content_copy\"\"content_paste\"\"content_paste_go\"\"control_point_duplicate\"\"cookie\"\"copy_all\"\"credit_card\"\"crop_7_5\"\"dangerous\"\"dark_mode\"\"dashboard\"\"dashboard_2_gear\"\"data_object\"\"data_thresholding\"\"database\"\"date_range\"\"delete\"\"delete_forever\"\"delete_outline\"\"deployed_code\"\"description\"\"design_services\"\"do_not_disturb_on\"\"dock_to_left\"\"dock_to_right\"\"docs\"\"document_scanner\"\"done\"\"done_all\"\"download\"\"download_2\"\"drag_handle\"\"drag_indicator\"\"drive_export\"\"edit\"\"edit_calendar\"\"edit_document\"\"edit_note\"\"edit_off\"\"edit_square\"\"electric_bolt\"\"email\"\"empty_dashboard\"\"error\"\"error_circle_rounded\"\"event\"\"expand\"\"expand_content\"\"expand_less\"\"expand_more\"\"experiment\"\"eye_tracking\"\"face\"\"fact_check\"\"factory\"\"fast_forward\"\"fast_rewind\"\"favorite\"\"favorite_border\"\"feedback\"\"file_copy\"\"file_download\"\"file_upload\"\"filter_alt\"\"filter_alt_off\"\"filter_list\"\"filter_list_off\"\"fingerprint\"\"first_page\"\"fit_screen\"\"flag\"\"flip\"\"flip_to_back\"\"flip_to_front\"\"folder\"\"folder_managed\"\"folder_open\"\"folder_supervised\"\"format_align_center\"\"format_align_left\"\"format_align_right\"\"format_bold\"\"format_h1\"\"format_h2\"\"format_h3\"\"format_h4\"\"format_h5\"\"format_h6\"\"format_image_left\"\"format_indent_decrease\"\"format_indent_increase\"\"format_italic\"\"format_list_bulleted\"\"format_list_numbered\"\"format_paragraph\"\"format_quote\"\"format_underlined\"\"forum\"\"front_loader\"\"fullscreen\"\"fullscreen_exit\"\"gamepad\"\"generating_tokens\"\"gesture\"\"globe\"\"grain\"\"grid_view\"\"group\"\"groups\"\"handshake\"\"handyman\"\"healing\"\"health_and_safety\"\"help\"\"help_outline\"\"hexagon\"\"highlight\"\"highlight_off\"\"history\"\"home\"\"home_health\"\"horizontal_rule\"\"hourglass\"\"hourglass_empty\"\"hub\"\"image\"\"inbox\"\"info\"\"ink_eraser\"\"insert_chart\"\"insights\"\"instant_mix\"\"inventory\"\"inventory_2\"\"invert_colors\"\"ios_share\"\"key\"\"key_off\"\"keyboard_arrow_down\"\"keyboard_arrow_left\"\"keyboard_arrow_right\"\"keyboard_arrow_up\"\"keyboard_double_arrow_left\"\"keyboard_double_arrow_right\"\"keyboard_return\"\"keyboard_tab\"\"lab_profile\"\"language\"\"last_page\"\"launch\"\"layers\"\"left_panel_close\"\"left_panel_open\"\"lens\"\"library_add\"\"library_books\"\"light_mode\"\"lightbulb\"\"line_end_circle\"\"link\"\"list\"\"local_florist\"\"local_library\"\"local_shipping\"\"location_on\"\"lock\"\"lock_clock\"\"lock_open\"\"login\"\"logout\"\"magic_button\"\"mail\"\"manage_accounts\"\"manage_search\"\"medical_information\"\"medical_services\"\"medication_liquid\"\"menu\"\"menu_book\"\"menu_open\"\"merge\"\"merge_type\"\"message\"\"mic\"\"mixture_med\"\"mode_comment\"\"more_horiz\"\"more_vert\"\"motion_photos_on\"\"motion_sensor_active\"\"move_down\"\"move_up\"\"my_location\"\"navigate_before\"\"navigate_next\"\"new_label\"\"new_window\"\"newspaper\"\"newsstand\"\"north_east\"\"note_add\"\"notes\"\"notifications\"\"notifications_active\"\"notifications_off\"\"numbers\"\"open_in_full\"\"open_in_new\"\"pageview\"\"paid\"\"palette\"\"pan_tool\"\"pause\"\"pending\"\"people\"\"perm_identity\"\"person\"\"person_add\"\"person_outline\"\"phone\"\"photo\"\"photo_camera\"\"photo_filter\"\"photo_library\"\"picture_as_pdf\"\"pie_chart\"\"pin_drop\"\"place\"\"play_arrow\"\"preview\"\"print\"\"progress_activity\"\"public\"\"push_pin\"\"question_answer\"\"radar\"\"radio_button_checked\"\"radio_button_unchecked\"\"redo\"\"refresh\"\"remove\"\"remove_shopping_cart\"\"replay\"\"restart_alt\"\"restore_from_trash\"\"reviews\"\"right_panel_close\"\"right_panel_open\"\"rocket\"\"rocket_launch\"\"rotate_90_degrees_cw\"\"rotate_left\"\"rotate_right\"\"route\"\"save\"\"save_as\"\"scale\"\"schedule\"\"schema\"\"school\"\"science\"\"screen_search_desktop\"\"search\"\"search_off\"\"send\"\"sensors\"\"settings\"\"share\"\"shield\"\"shopping_bag\"\"shopping_cart\"\"short_text\"\"show_chart\"\"sick\"\"siren\"\"skip_next\"\"skip_previous\"\"smart_toy\"\"sms\"\"sort\"\"source\"\"source_notes\"\"space_bar\"\"space_dashboard\"\"speed\"\"square\"\"stack\"\"stacked_line_chart\"\"stacks\"\"star\"\"star_border\"\"stethoscope\"\"stop\"\"stop_circle\"\"storage\"\"stream\"\"strikethrough_s\"\"subdirectory_arrow_right\"\"subject\"\"summarize\"\"sunny\"\"supervised_user_circle\"\"support\"\"support_agent\"\"swap_horiz\"\"sync\"\"sync_alt\"\"system_update_alt\"\"table\"\"table_chart\"\"table_chart_view\"\"table_rows\"\"table_view\"\"tablet\"\"task\"\"task_alt\"\"team_dashboard\"\"terminal\"\"text_fields\"\"text_format\"\"text_increase\"\"text_snippet\"\"thumb_down\"\"thumb_up\"\"thumb_up_off\"\"timeline\"\"timer\"\"tips_and_updates\"\"toggle_off\"\"toggle_on\"\"token\"\"tour\"\"track_changes\"\"transform\"\"translate\"\"trending_down\"\"trending_flat\"\"trending_up\"\"tune\"\"unarchive\"\"undo\"\"unfold_less\"\"unfold_more\"\"update\"\"upload\"\"upload_2\"\"upload_file\"\"verified\"\"verified_user\"\"vertical_shades\"\"video_library\"\"view_agenda\"\"view_column\"\"view_list\"\"view_module\"\"view_sidebar\"\"visibility\"\"visibility_off\"\"volume_down\"\"volume_mute\"\"volume_off\"\"volume_up\"\"volunteer_activism\"\"warehouse\"\"warning\"\"watch\"\"water_drop\"\"waving_hand\"\"widgets\"\"zoom_in\"\"zoom_out\"\"elements_apple\"\"elements_facebook\"\"elements_figma\"\"elements_github\"\"elements_google\"\"elements_instagram\"\"elements_linkedIn\"\"elements_medium\"\"elements_messenger\"\"elements_pinterest\"\"elements_snapchat\"\"elements_threads\"\"elements_tikTok\"\"elements_whatsApp\"\"elements_x\"\"elements_youTube\"Show 485 more...",
+        "default": "done",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Brand theme variant\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Controls the color scheme of the chip\"neutral\"\"branded\"",
+        "default": "branded",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "long-label",
+      "style-variations"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "long-label",
+      "style-variations"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { ChipSelect } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <ChipSelect\n    showIcon={true}\n    onClick={() => alert(\"The onClick props is called.\")}\n  >\n    Click to Select\n  </ChipSelect>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "chip-select"
+    ],
+    "contracts": [
+      {
+        "id": "chip-select",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/chip-select/demo.registry.json",
+        "known_story_ids": [
+          "components-chipselect--default",
+          "components-chipselect--long-label",
+          "components-chipselect--style-variations",
+          "components-chipselect--default",
+          "components-chipselect--long-label",
+          "components-chipselect--style-variations"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-chipselect--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-chipselect--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-chipselect--docs.md",
+    "docs_import_path": "./src/components/ChipSelect/ChipSelect.mdx",
+    "story_ids": [
+      "components-chipselect--default",
+      "components-chipselect--long-label",
+      "components-chipselect--style-variations"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

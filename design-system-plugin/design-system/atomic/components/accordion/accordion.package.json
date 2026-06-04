@@ -1,0 +1,123 @@
+{
+  "schema_version": "0.1.0",
+  "id": "accordion-complete-standard-package",
+  "component_id": "accordion",
+  "component_name": "Accordion",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-accordion--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/accordion/docs/accordion.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-accordion--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/accordion/stories/components-accordion--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/accordion-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-accordion--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-accordion--medium-accordion-with-slots",
+      "story_name": "Medium Accordion With Slots",
+      "export_name": "MediumAccordionWithSlots",
+      "semantic_type": "variant",
+      "variant": "medium-accordion-with-slots",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/accordion/stories/components-accordion--medium-accordion-with-slots.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/accordion-medium-accordion-with-slots.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-accordion--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-accordion--small-accordion",
+      "story_name": "Small Accordion",
+      "export_name": "SmallAccordion",
+      "semantic_type": "variant",
+      "variant": "small-accordion",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/accordion/stories/components-accordion--small-accordion.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/accordion-small-accordion.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-accordion--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/accordion/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/accordion/accordion.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/accordion-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-accordion--default",
+        "output_path": "design-system-plugin/outputs/html/accordion-default.atomic.html"
+      },
+      {
+        "story_id": "components-accordion--medium-accordion-with-slots",
+        "output_path": "design-system-plugin/outputs/html/accordion-medium-accordion-with-slots.atomic.html"
+      },
+      {
+        "story_id": "components-accordion--small-accordion",
+        "output_path": "design-system-plugin/outputs/html/accordion-small-accordion.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-accordion-complete-package.json",
+    "story_item_prefix": "sanofi-accordion-"
+  },
+  "validation": {
+    "required_story_count": 3,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/accordion/accordion.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/accordion/docs/accordion.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

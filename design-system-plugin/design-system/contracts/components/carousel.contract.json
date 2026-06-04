@@ -1,0 +1,205 @@
+{
+  "schema_version": "0.1.0",
+  "id": "carousel",
+  "canonical_name": "carousel",
+  "component_name": "Carousel",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-carousel--docs",
+    "title": "Carousel",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-carousel--docs",
+    "import_path": "./src/components/Carousel/Carousel.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 5,
+    "story_ids": [
+      "components-carousel--carousel-one-item-view",
+      "components-carousel--carousel-with-card-group",
+      "components-carousel--carousel-with-image",
+      "components-carousel--default",
+      "components-carousel--rtl-carousel"
+    ],
+    "records": [
+      {
+        "id": "components-carousel--carousel-one-item-view",
+        "name": "Carousel One Item View",
+        "normalized_name": "carousel-one-item-view",
+        "import_path": "./src/components/Carousel/Carousel.stories.tsx",
+        "export_name": "CarouselOneItemView"
+      },
+      {
+        "id": "components-carousel--carousel-with-card-group",
+        "name": "Carousel With Card Group",
+        "normalized_name": "carousel-with-card-group",
+        "import_path": "./src/components/Carousel/Carousel.stories.tsx",
+        "export_name": "CarouselWithCardGroup"
+      },
+      {
+        "id": "components-carousel--carousel-with-image",
+        "name": "Carousel With Image",
+        "normalized_name": "carousel-with-image",
+        "import_path": "./src/components/Carousel/Carousel.stories.tsx",
+        "export_name": "CarouselWithImage"
+      },
+      {
+        "id": "components-carousel--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Carousel/Carousel.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-carousel--rtl-carousel",
+        "name": "RTL Carousel",
+        "normalized_name": "rtl-carousel",
+        "import_path": "./src/components/Carousel/Carousel.stories.tsx",
+        "export_name": "RTLCarousel"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title of the carouselstring",
+        "default": "\"\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "itemsToShow",
+        "required": true,
+        "description": "Number of items to show in the carouselnumber",
+        "default": "3",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "oneItemView",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultSlide",
+        "required": false,
+        "description": "Default slide to shownumber",
+        "default": "0",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onNavigation",
+        "required": false,
+        "description": "Function to be called when navigating the carouselfunction",
+        "default": "\"\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "carousel-one-item-view",
+      "carousel-with-card-group",
+      "carousel-with-image",
+      "default",
+      "rtl-carousel"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "carousel-one-item-view",
+      "carousel-with-card-group",
+      "carousel-with-image",
+      "default",
+      "rtl-carousel"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Carousel, Typography, TypographyColor, LinkStandalone, Link, Image, Card, ButtonIcon, IconName, LinkSize } from \"@sanofi-accelerator/elements\";\n\ninterface ICardContentData {\n  id: string;\n  category?: string;\n  date?: string;\n  onClick?: () => void;\n  subText?: string;\n  title?: string;\n  link?: Array<string>;\n  imgSrc?: string;\n}\n\nconst doctor = \"https://cdn.prod.accelerator.sanofi/elements/images/doctor.png\";\nconst baby = \"https://cdn.prod.accelerator.sanofi/elements/images/baby.png\";\nconst babies = \"https://cdn.prod.accelerator.sanofi/elements/images/babies.png\";\nconst cardContentData: Array<ICardContentData> = [\n  {\n    id: \"1\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc:\n      \"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\",\n  },\n  {\n    id: \"2\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: baby,\n  },\n  {\n    id: \"3\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: babies,\n  },\n  {\n    id: \"4\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: doctor,\n  },\n  {\n    id: \"5\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc:\n      \"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\",\n  },\n  {\n    id: \"6\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: doctor,\n  },\n  {\n    id: \"7\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: baby,\n  },\n  {\n    id: \"8\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc:\n      \"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\",\n  },\n];\n\nconst cardInternal = (cardContentData: ICardContentData, hasMedia: boolean) => (\n  <Card>\n    <Card.Section>\n      {hasMedia ? (\n        <Card.Media>\n          <Image alt=\"alt text\" src={cardContentData.imgSrc ?? \"\"} />\n        </Card.Media>\n      ) : (\n        <Card.MediaCustom>\n          <Typography\n            as=\"p\"\n            variant=\"display-2\"\n            color={TypographyColor.CURRENT_COLOR}\n          >\n            {cardContentData.id}\n          </Typography>\n          <ButtonIcon\n            icon={IconName.MORE_VERT}\n            variant=\"tertiary\"\n            onClick={() => alert(\"the onclick props is called\")}\n          />\n        </Card.MediaCustom>\n      )}\n\n      <Card.Content\n        category={cardContentData.category}\n        date={cardContentData.date}\n        subText={cardContentData.subText}\n        title={cardContentData.title}\n        buttonSlot={(\n          <Card.Button\n            icon={IconName.MORE_VERT}\n            onClick={cardContentData.onClick}\n          />\n        )}\n      >\n        {cardContentData.link?.map((link) => (\n          <Link href={link} variant=\"inline\" key={link}>\n            Link\n          </Link>\n        ))}\n      </Card.Content>\n    </Card.Section>\n    <Card.Action>\n      <LinkStandalone iconName=\"arrow_forward\" href={\"#\"} size={LinkSize.SMALL}>\n        See more\n      </LinkStandalone>\n    </Card.Action>\n  </Card>\n);\n\nconst Component = () => (\n  <Carousel\n    title=\"Carousel\"\n    itemsToShow={3}\n    defaultSlide={0}\n    onNavigation={(slide: number, itemCount: number) => {\n      console.log(\"slide: \", slide, \"itemCount: \", itemCount);\n    }}\n  >\n    {cardContentData.map((el) => (\n      <div key={el.id}>{cardInternal(el, false)}</div>\n    ))}\n  </Carousel>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "carousel"
+    ],
+    "contracts": [
+      {
+        "id": "carousel",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/carousel/demo.registry.json",
+        "known_story_ids": [
+          "components-carousel--carousel-one-item-view",
+          "components-carousel--carousel-with-card-group",
+          "components-carousel--carousel-with-image",
+          "components-carousel--default",
+          "components-carousel--rtl-carousel",
+          "components-carousel--carousel-one-item-view",
+          "components-carousel--carousel-with-card-group",
+          "components-carousel--carousel-with-image",
+          "components-carousel--default",
+          "components-carousel--rtl-carousel"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-carousel--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-carousel--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md",
+    "docs_import_path": "./src/components/Carousel/Carousel.mdx",
+    "story_ids": [
+      "components-carousel--carousel-one-item-view",
+      "components-carousel--carousel-with-card-group",
+      "components-carousel--carousel-with-image",
+      "components-carousel--default",
+      "components-carousel--rtl-carousel"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

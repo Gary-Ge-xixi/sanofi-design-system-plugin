@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "progress-stepper-progress-stepper-nav",
+  "component_name": "ProgressStepper/ProgressStepperNav",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ProgressStepper/ProgressStepperNav"
+  },
+  "docs": [
+    {
+      "id": "components-progressstepper-progresssteppernav--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-progressstepper-progresssteppernav--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--interactive",
+      "name": "Interactive Example",
+      "export_name": "Interactive",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--many-steps",
+      "name": "Many Steps",
+      "export_name": "ManySteps",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--with-initial-step",
+      "name": "With Initial Step",
+      "export_name": "WithInitialStep",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--without-descriptions",
+      "name": "Without Descriptions",
+      "export_name": "WithoutDescriptions",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    }
+  ]
+}

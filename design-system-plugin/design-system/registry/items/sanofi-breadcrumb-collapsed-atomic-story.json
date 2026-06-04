@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-breadcrumb-collapsed-atomic-story",
+  "title": "Breadcrumb Collapsed atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-breadcrumb--collapsed.",
+  "atomic_story_id": "components-breadcrumb--collapsed",
+  "component_id": "breadcrumb",
+  "docs_id": "components-breadcrumb--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--collapsed.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--collapsed.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--collapsed.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--collapsed.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.collapsed.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.collapsed.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "story_id": "components-breadcrumb--collapsed",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--collapsed.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-breadcrumb--collapsed&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-breadcrumb--collapsed&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Breadcrumb.stories-onpltWiw.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "breadcrumb",
+      "Breadcrumb",
+      "Collapsed",
+      "components-breadcrumb--collapsed",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Breadcrumb Collapsed Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-toast-example-atomic-story",
+  "title": "Toast Example atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-toast--example.",
+  "atomic_story_id": "components-toast--example",
+  "component_id": "toast",
+  "docs_id": "components-toast--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-toast"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--example.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--example.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/assets/components-toast--example.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/toast/assets/components-toast--example.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/templates/html.example.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/toast/templates/html.example.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/toast.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/toast/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "story_id": "components-toast--example",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/toast/stories/components-toast--example.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-toast--example&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-toast--example&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Toast.stories-BnqixObE.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "toast",
+      "Toast",
+      "Example",
+      "components-toast--example",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Toast Example Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

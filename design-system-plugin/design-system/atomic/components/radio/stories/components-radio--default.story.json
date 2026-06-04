@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-radio--default",
+  "component_id": "radio",
+  "component_name": "Radio",
+  "story_id": "components-radio--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-radio--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-radio--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Radio.stories-C-mB9CSx.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/radio/assets/components-radio--default.iframe.html",
+    "import_path": "./src/components/Radio/Radio.stories.tsx",
+    "component_path": "./src/components/Radio/Radio.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...f,label:\"Default radio\"}",
+    "values": {
+      "sizeRadio": "medium",
+      "color": "branded",
+      "label": "Default radio",
+      "disabled": false,
+      "defaultChecked": true,
+      "onClick": {
+        "extraction_status": "raw_expression",
+        "value": "p=>{console.log(\"The radio value is: \",p.target.checked),alert(\"The onClick props is called.\")}"
+      },
+      "onChange": {
+        "extraction_status": "raw_expression",
+        "value": "p=>console.log(p)"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{sizeRadio:{control:\"select\",options:Object.values(i),description:\"The radio size\"},color:{control:\"select\",options:Object.values(l),description:\"The radio color variant\"},subtext:{control:\"text\",description:\"Optional subtext below the label\"},checked:{control:\"radio\",options:[!0,!1],description:\"The radio checked state\"},onClick:{action:\"clicked\"},onChange:{action:\"changed\"},disableAnimation:{control:\"boolean\",description:\"Disable animation for this radio instance\"}}",
+    "fields": [
+      "sizeRadio",
+      "color",
+      "subtext",
+      "checked",
+      "onClick",
+      "onChange",
+      "disableAnimation"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    label: \"Default radio\"\n  }\n}",
+    "story_object_source": "{args:{...f,label:\"Default radio\"}}"
+  },
+  "template": {
+    "id": "radio-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/radio/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/radio-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "radio",
+    "local_path": "design-system-plugin/design-system/primitives/components/radio/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-radio--docs",
+    "story_id": "components-radio--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/radio/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/radio/assets/components-radio--default.iframe.html"
+  }
+}

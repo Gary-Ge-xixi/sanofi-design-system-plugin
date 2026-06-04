@@ -1,0 +1,123 @@
+{
+  "schema_version": "0.1.0",
+  "id": "switch-docs-contract",
+  "component_id": "switch",
+  "component_name": "Switch",
+  "docs_id": "components-switch--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-switch--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the switch interaction.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the switch.\"small\"\"medium\"\"large\"",
+        "default": "\"SwitchSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "labelPosition",
+        "required": false,
+        "description": "Position of the label relative to the switch.\"start\"\"end\"",
+        "default": "\"SwitchLabelPosition.END\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "Expands to fill container width with label and switch at opposite ends.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultChecked",
+        "required": false,
+        "description": "Initial state (uncontrolled mode).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "id",
+        "required": false,
+        "description": "Unique identifier for the switch.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checked",
+        "required": false,
+        "description": "Current state (controlled mode).boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "description": "Callback fired when the switch state changes.((value: boolean) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-switch--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Switch } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Switch label=\"Switch\" />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-switch--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Switch/Switch.stories.tsx"
+    },
+    {
+      "id": "components-switch--default-checked",
+      "name": "Default Checked",
+      "export_name": "DefaultChecked",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Switch/Switch.stories.tsx"
+    },
+    {
+      "id": "components-switch--inline",
+      "name": "Inline",
+      "export_name": "Inline",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Switch/Switch.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-switch--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch.contract.json"
+  }
+}

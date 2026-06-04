@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "id": "grid",
+  "canonical_name": "grid",
+  "component_name": "Grid",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-grid--docs",
+    "title": "Grid",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-grid--docs",
+    "import_path": "./src/components/Grid/Grid.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-grid--desktop",
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-grid--tablet"
+    ],
+    "records": [
+      {
+        "id": "components-grid--desktop",
+        "name": "Desktop",
+        "normalized_name": "desktop",
+        "import_path": "./src/components/Grid/Grid.stories.tsx",
+        "export_name": "Desktop"
+      },
+      {
+        "id": "components-grid--large-mobile",
+        "name": "Large Mobile",
+        "normalized_name": "large-mobile",
+        "import_path": "./src/components/Grid/Grid.stories.tsx",
+        "export_name": "LargeMobile"
+      },
+      {
+        "id": "components-grid--mobile",
+        "name": "Mobile",
+        "normalized_name": "mobile",
+        "import_path": "./src/components/Grid/Grid.stories.tsx",
+        "export_name": "Mobile"
+      },
+      {
+        "id": "components-grid--tablet",
+        "name": "Tablet",
+        "normalized_name": "tablet",
+        "import_path": "./src/components/Grid/Grid.stories.tsx",
+        "export_name": "Tablet"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "xs",
+        "required": false,
+        "description": "Column span on xs viewport size218106345791112Show 4 more...",
+        "default": "12",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sm",
+        "required": false,
+        "description": "Column span on sm viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "md",
+        "required": false,
+        "description": "Column span on md viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "lg",
+        "required": false,
+        "description": "Column span on lg viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xl",
+        "required": false,
+        "description": "Column span on xl viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxl",
+        "required": false,
+        "description": "Column span on 2xl viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxxl",
+        "required": false,
+        "description": "Column span on 3xl viewport size218106345791112Show 4 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "desktop",
+      "large-mobile",
+      "mobile",
+      "tablet"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "desktop",
+      "large-mobile",
+      "mobile",
+      "tablet"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Grid } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Grid.Root>\n  <Grid.Item xs={6} xl={3}>1</Grid.Item>\n  <Grid.Item xs={6} xl={3}>2</Grid.Item>\n  <Grid.Item xs={6} xl={3}>3</Grid.Item>\n  <Grid.Item xs={6} xl={3}>4</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={2}>5</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={2}>6</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={4}>7</Grid.Item>\n  <Grid.Item sm={12} md={3} lg={4}>8</Grid.Item>\n</Grid.Root>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Grid } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Grid.Root>\n  <Grid.Item xs={6} xl={3}>1</Grid.Item>\n  <Grid.Item xs={6} xl={3}>2</Grid.Item>\n  <Grid.Item xs={6} xl={3}>3</Grid.Item>\n  <Grid.Item xs={6} xl={3}>4</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={2}>5</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={2}>6</Grid.Item>\n  <Grid.Item sm={4} md={3} lg={4}>7</Grid.Item>\n  <Grid.Item sm={12} md={3} lg={4}>8</Grid.Item>\n</Grid.Root>\n);",
+      "<Grid.Item sm={6} xl={3}>",
+      "<Grid.Item xs={12} sm={6} md={6} xl={3} xxl={3} xxxl={3}>"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "grid"
+    ],
+    "contracts": [
+      {
+        "id": "grid",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/grid/demo.registry.json",
+        "known_story_ids": [
+          "components-grid--desktop",
+          "components-grid--large-mobile",
+          "components-grid--mobile",
+          "components-grid--tablet",
+          "components-grid--desktop",
+          "components-grid--large-mobile",
+          "components-grid--mobile",
+          "components-grid--tablet"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-grid--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-grid--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+    "docs_import_path": "./src/components/Grid/Grid.mdx",
+    "story_ids": [
+      "components-grid--desktop",
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-grid--tablet"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

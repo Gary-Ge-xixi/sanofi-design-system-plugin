@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{component_name}} / {{story_name}}</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      main {
+        width: min(80rem, calc(100vw - var(--elements-spacing-2xl)));
+        margin: 0 auto;
+        padding-block: var(--elements-spacing-2xl);
+      }
+
+      .demo-panel {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-xl);
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+
+      .story-meta,
+      .section-header {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .story-meta h1,
+      .section-header h2 {
+        margin: 0;
+        color: var(--elements-color-semantic-text-default_inverse);
+        letter-spacing: 0;
+      }
+
+      .story-meta h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+
+      .section-header h2 {
+        font-size: 1.25rem;
+        line-height: 1.2;
+      }
+
+      .story-meta p,
+      .section-header p,
+      .cell-label,
+      td,
+      th {
+        color: var(--elements-color-semantic-text-helper_inverse);
+      }
+
+      .story-meta p,
+      .section-header p {
+        margin: 0;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--elements-spacing-sm);
+      }
+
+      .meta-item {
+        display: grid;
+        gap: var(--elements-spacing-3xs);
+        padding: var(--elements-spacing-sm);
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+      }
+
+      .meta-item strong {
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+
+      .sample-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        gap: var(--elements-spacing-sm);
+      }
+
+      .sample-cell {
+        display: grid;
+        align-content: center;
+        gap: var(--elements-spacing-2xs);
+        min-height: 6rem;
+        padding: var(--elements-spacing-sm);
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+      }
+
+      .wide-cell {
+        grid-column: 1 / -1;
+      }
+
+      .cell-label {
+        font-size: .875rem;
+      }
+
+      .elements-button {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        border: .0625rem solid var(--button-border);
+        border-radius: var(--elements-radius-rounded);
+        background: var(--button-bg);
+        color: var(--button-text);
+        font: inherit;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+      }
+
+      .elements-button.is-full-width {
+        width: 100%;
+      }
+
+      .elements-button.state-hover,
+      .elements-button.is-hover {
+        background: var(--button-hover-bg);
+      }
+
+      .elements-button.state-active,
+      .elements-button.is-active {
+        background: var(--button-active-bg);
+      }
+
+      .elements-button.state-focus,
+      .elements-button.is-focus {
+        outline: .1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: .125rem;
+      }
+
+      .elements-button.state-disabled,
+      .elements-button.state-loading,
+      .elements-button:disabled {
+        background: var(--elements-color-semantic-background-neutral);
+        border-color: var(--elements-color-semantic-border-subtle);
+        color: var(--elements-color-semantic-text-disabled_inverse);
+        cursor: not-allowed;
+        opacity: .72;
+      }
+
+      .button-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button-loader {
+        inline-size: 1rem;
+        block-size: 1rem;
+        border: .125rem solid currentColor;
+        border-block-start-color: transparent;
+        border-radius: var(--elements-radius-rounded);
+      }
+
+      {{button_variant_css}}
+
+      .matrix-table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+      }
+
+      .matrix-table th,
+      .matrix-table td {
+        padding: var(--elements-spacing-sm);
+        border-block-end: .0625rem solid var(--elements-color-semantic-border-default);
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .matrix-table th {
+        font-weight: 700;
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-neutral);
+      }
+
+      code,
+      .source-box {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      code {
+        color: var(--elements-color-semantic-text-accent-default);
+        white-space: normal;
+      }
+
+      .source-box {
+        overflow: auto;
+        max-height: 24rem;
+        margin: 0;
+        padding: var(--elements-spacing-md);
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-neutral);
+        white-space: pre-wrap;
+      }
+
+      @media (max-width: 48rem) {
+        main {
+          width: min(100vw - var(--elements-spacing-md), 80rem);
+          padding-block: var(--elements-spacing-md);
+        }
+
+        .demo-panel {
+          padding: var(--elements-spacing-md);
+        }
+
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .matrix-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main
+      data-pattern="atomic-story"
+      data-atomic-story-id="{{story_id}}"
+      data-source-doc-id="{{docs_id}}"
+      data-story-id="{{story_id}}"
+      data-token-source="{{token_source}}"
+    >
+      <article class="demo-panel" data-pattern="atomic-component-reference">
+        <header class="story-meta">
+          <h1>{{component_name}} / {{story_name}}</h1>
+          <p>{{story_id}} · variant {{variant}}</p>
+        </header>
+
+        <section class="meta-grid" aria-label="Contract coverage">
+          <div class="meta-item">
+            <span>Variants</span>
+            <strong>{{variant_count}}</strong>
+          </div>
+          <div class="meta-item">
+            <span>Sizes</span>
+            <strong>{{size_count}}</strong>
+          </div>
+          <div class="meta-item">
+            <span>States</span>
+            <strong>{{state_count}}</strong>
+          </div>
+        </section>
+
+        <section aria-labelledby="variants-title">
+          <header class="section-header">
+            <h2 id="variants-title">Variant Matrix</h2>
+            <p>Storybook Button variants rendered through local atomic contract.</p>
+          </header>
+          <div class="sample-grid">
+{{variant_samples}}
+          </div>
+        </section>
+
+        <section aria-labelledby="sizes-title">
+          <header class="section-header">
+            <h2 id="sizes-title">Size And Spacing</h2>
+            <p>Official height source is Button docgen; render spacing uses Elements tokens.</p>
+          </header>
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th scope="col">Size</th>
+                <th scope="col">Official Height</th>
+                <th scope="col">Render Height</th>
+                <th scope="col">Padding Inline</th>
+                <th scope="col">Sample</th>
+              </tr>
+            </thead>
+            <tbody>
+{{size_rows}}
+            </tbody>
+          </table>
+        </section>
+
+        <section aria-labelledby="states-title">
+          <header class="section-header">
+            <h2 id="states-title">State Matrix</h2>
+            <p>Default, hover, active, focus, disabled, and loading states from Storybook overview table.</p>
+          </header>
+          <div class="sample-grid">
+{{state_samples}}
+          </div>
+        </section>
+
+        <section aria-labelledby="anatomy-title">
+          <header class="section-header">
+            <h2 id="anatomy-title">Anatomy Slots</h2>
+            <p>Root, label, icon positions, full width, and loader are rendered as callable slots.</p>
+          </header>
+          <div class="sample-grid">
+{{icon_samples}}
+          </div>
+        </section>
+
+        <section aria-labelledby="tokens-title">
+          <header class="section-header">
+            <h2 id="tokens-title">Token Bindings</h2>
+            <p>Selected variant token map. Generated HTML cannot use raw color values or direct core color tokens.</p>
+          </header>
+          <table class="matrix-table">
+            <tbody>
+{{token_rows}}
+            </tbody>
+          </table>
+        </section>
+
+        <section aria-labelledby="source-title">
+          <header class="section-header">
+            <h2 id="source-title">Source Provenance</h2>
+            <p>Every sample can be traced back to docs, story, primitive, token, and bundle sources.</p>
+          </header>
+          <table class="matrix-table">
+            <tbody>
+{{source_rows}}
+            </tbody>
+          </table>
+        </section>
+
+        <section aria-labelledby="source-code-title">
+          <header class="section-header">
+            <h2 id="source-code-title">Story Source</h2>
+            <p>Stored from Storybook docs source for this story.</p>
+          </header>
+          <pre class="source-box" data-pattern="atomic-story-source">{{original_source}}</pre>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

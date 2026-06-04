@@ -1,0 +1,254 @@
+{
+  "schema_version": "0.1.0",
+  "id": "breadcrumb",
+  "canonical_name": "breadcrumb",
+  "component_name": "Breadcrumb",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-breadcrumb--docs",
+    "title": "Breadcrumb",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb--docs",
+    "import_path": "./src/components/Breadcrumb/Breadcrumb.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 7,
+    "story_ids": [
+      "components-breadcrumb--collapsed",
+      "components-breadcrumb--custom-max-width",
+      "components-breadcrumb--ellipsis-truncation",
+      "components-breadcrumb--not-collapsed",
+      "components-breadcrumb--one-item-on-each-side",
+      "components-breadcrumb--two-items-on-each-side",
+      "components-breadcrumb--wrap-vs-no-wrap"
+    ],
+    "records": [
+      {
+        "id": "components-breadcrumb--collapsed",
+        "name": "Collapsed",
+        "normalized_name": "collapsed",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "Collapsed"
+      },
+      {
+        "id": "components-breadcrumb--custom-max-width",
+        "name": "Custom Max Width",
+        "normalized_name": "custom-max-width",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "CustomMaxWidth"
+      },
+      {
+        "id": "components-breadcrumb--ellipsis-truncation",
+        "name": "Ellipsis Truncation",
+        "normalized_name": "ellipsis-truncation",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "EllipsisTruncation"
+      },
+      {
+        "id": "components-breadcrumb--not-collapsed",
+        "name": "Not Collapsed",
+        "normalized_name": "not-collapsed",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "NotCollapsed"
+      },
+      {
+        "id": "components-breadcrumb--one-item-on-each-side",
+        "name": "One Item On Each Side",
+        "normalized_name": "one-item-on-each-side",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "OneItemOnEachSide"
+      },
+      {
+        "id": "components-breadcrumb--two-items-on-each-side",
+        "name": "Two Items On Each Side",
+        "normalized_name": "two-items-on-each-side",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "TwoItemsOnEachSide"
+      },
+      {
+        "id": "components-breadcrumb--wrap-vs-no-wrap",
+        "name": "Wrap Vs No Wrap",
+        "normalized_name": "wrap-vs-no-wrap",
+        "import_path": "./src/components/Breadcrumb/Breadcrumb.stories.tsx",
+        "export_name": "WrapVsNoWrap"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "itemsBeforeCollapse",
+        "required": false,
+        "description": "If max items is exceeded, the number of items to show before the ellipsis.number",
+        "default": "0",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "itemsAfterCollapse",
+        "required": false,
+        "description": "If max items is exceeded, the number of items to show after the ellipsis.number",
+        "default": "0",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxItems",
+        "required": false,
+        "description": "Specifies the maximum number of breadcrumbs to display. When there are more than the maximum number, only the first itemsBeforeCollapse and last itemsAfterCollapse will be shown, with an ellipsis in between.number",
+        "default": "6",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Breadcrumb.Item components representing the path.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class for the breadcrumb container.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "noWrap",
+        "required": false,
+        "description": "Prevent breadcrumb items from wrapping to new lines when there's insufficient space.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "ellipsis",
+        "required": false,
+        "description": "Enable ellipsis mode with tooltip when text overflows the container.-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxWidth",
+        "required": false,
+        "description": "Maximum width for ellipsed text in pixels (default: 150)-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "collapsed",
+      "custom-max-width",
+      "ellipsis-truncation",
+      "not-collapsed",
+      "one-item-on-each-side",
+      "two-items-on-each-side",
+      "wrap-vs-no-wrap"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "collapsed",
+      "custom-max-width",
+      "ellipsis-truncation",
+      "not-collapsed",
+      "one-item-on-each-side",
+      "two-items-on-each-side",
+      "wrap-vs-no-wrap"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Breadcrumb } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Breadcrumb itemsBeforeCollapse={2} itemsAfterCollapse={2} maxItems={6}>\n    <Breadcrumb.Item href=\"#\">\n      Home\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Investor Relations\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Financial Results and Investor Events\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Middle Quarter Results\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Quarterly Results\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item deactivate>\n      Second quarter 2023 results\n    </Breadcrumb.Item>\n  </Breadcrumb>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Breadcrumb } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Breadcrumb itemsBeforeCollapse={2} itemsAfterCollapse={2} maxItems={6}>\n    <Breadcrumb.Item href=\"#\">\n      Home\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Investor Relations\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Financial Results and Investor Events\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Middle Quarter Results\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item href=\"#\">\n      Quarterly Results\n    </Breadcrumb.Item>,\n    <Breadcrumb.Item deactivate>\n      Second quarter 2023 results\n    </Breadcrumb.Item>\n  </Breadcrumb>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "breadcrumb"
+    ],
+    "contracts": [
+      {
+        "id": "breadcrumb",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/breadcrumb/demo.registry.json",
+        "known_story_ids": [
+          "components-breadcrumb--collapsed",
+          "components-breadcrumb--custom-max-width",
+          "components-breadcrumb--ellipsis-truncation",
+          "components-breadcrumb--not-collapsed",
+          "components-breadcrumb--one-item-on-each-side",
+          "components-breadcrumb--two-items-on-each-side",
+          "components-breadcrumb--wrap-vs-no-wrap",
+          "components-breadcrumb--collapsed",
+          "components-breadcrumb--custom-max-width",
+          "components-breadcrumb--ellipsis-truncation",
+          "components-breadcrumb--not-collapsed",
+          "components-breadcrumb--one-item-on-each-side",
+          "components-breadcrumb--two-items-on-each-side",
+          "components-breadcrumb--wrap-vs-no-wrap"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+    "docs_import_path": "./src/components/Breadcrumb/Breadcrumb.mdx",
+    "story_ids": [
+      "components-breadcrumb--collapsed",
+      "components-breadcrumb--custom-max-width",
+      "components-breadcrumb--ellipsis-truncation",
+      "components-breadcrumb--not-collapsed",
+      "components-breadcrumb--one-item-on-each-side",
+      "components-breadcrumb--two-items-on-each-side",
+      "components-breadcrumb--wrap-vs-no-wrap"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

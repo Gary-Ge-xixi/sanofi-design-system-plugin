@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-action",
+  "canonical_name": "card-action",
+  "component_name": "Card/Action",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-card-action--docs",
+    "title": "Card/Action",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-action--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-action--docs",
+    "import_path": "./src/components/Card/CardAction.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-card-action--default"
+    ],
+    "records": [
+      {
+        "id": "components-card-action--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Card/CardAction.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "The card action childrenReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isCentered",
+        "required": false,
+        "description": "Centers the action content horizontallyboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "card-action"
+    ],
+    "contracts": [
+      {
+        "id": "card-action",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/card-action/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/card-action/demo.registry.json",
+        "known_story_ids": [
+          "components-card-action--default",
+          "components-card-action--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-action--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-card-action--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-action--docs.md",
+    "docs_import_path": "./src/components/Card/CardAction.stories.tsx",
+    "story_ids": [
+      "components-card-action--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

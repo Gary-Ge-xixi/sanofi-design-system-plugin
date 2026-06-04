@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-select--default",
+  "component_id": "select",
+  "component_name": "Select",
+  "story_id": "components-select--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-select--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-select--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Select.stories-DzNzUrtJ.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/select/assets/components-select--default.iframe.html",
+    "import_path": "./src/components/Select/Select.stories.tsx",
+    "component_path": "./src/components/Select/Select.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{id:\"select\",label:\"Select\",placeholder:\"Select an option\",subText:\"Helper text appears below\",state:b.DEFAULT,inverse:!1,disabled:!1,required:!1,multiple:!1,native:!1,size:i.LARGE,labelPosition:r.TOP,maxItemsVisible:3,options:n}",
+    "values": {
+      "id": "select",
+      "label": "Select",
+      "placeholder": "Select an option",
+      "subText": "Helper text appears below",
+      "state": "default",
+      "inverse": false,
+      "disabled": false,
+      "required": false,
+      "multiple": false,
+      "native": false,
+      "size": "large",
+      "labelPosition": "top",
+      "maxItemsVisible": 3,
+      "options": {
+        "extraction_status": "raw_expression",
+        "value": "n"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onChange:{action:\"changed\"},size:{options:Object.values(i),control:{type:\"radio\"}},labelPosition:{options:Object.values(r),control:{type:\"radio\"}}}",
+    "fields": [
+      "onChange",
+      "size",
+      "labelPosition"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    id: \"select\",\n    label: \"Select\",\n    placeholder: \"Select an option\",\n    subText: \"Helper text appears below\",\n    state: FormControlState.DEFAULT,\n    inverse: false,\n    disabled: false,\n    required: false,\n    multiple: false,\n    native: false,\n    size: InputSize.LARGE,\n    labelPosition: SelectLabelPosition.TOP,\n    maxItemsVisible: 3,\n    options\n  }\n}",
+    "story_object_source": "{args:{id:\"select\",label:\"Select\",placeholder:\"Select an option\",subText:\"Helper text appears below\",state:b.DEFAULT,inverse:!1,disabled:!1,required:!1,multiple:!1,native:!1,size:i.LARGE,labelPosition:r.TOP,maxItemsVisible:3,options:n}}"
+  },
+  "template": {
+    "id": "select-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/select/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/select-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/select.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "select",
+    "local_path": "design-system-plugin/design-system/primitives/components/select/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-select--docs",
+    "story_id": "components-select--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/select.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/select/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/select/assets/components-select--default.iframe.html"
+  }
+}

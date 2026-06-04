@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-drawer--non-dismissible",
+  "component_id": "drawer",
+  "component_name": "Drawer",
+  "story_id": "components-drawer--non-dismissible",
+  "story_name": "Non Dismissible",
+  "export_name": "NonDismissible",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-drawer--non-dismissible&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-drawer--non-dismissible&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Drawer.stories-D3FsDaaP.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/drawer/assets/components-drawer--non-dismissible.iframe.html",
+    "import_path": "./src/components/Drawer/Drawer.stories.tsx",
+    "component_path": "./src/components/Drawer/Drawer.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...h,isClosable:!1,position:o.END}",
+    "values": {
+      "drawerTitle": "Drawer Title",
+      "position": "end",
+      "size": "medium",
+      "isVisible": false,
+      "hasOverlay": true,
+      "backButtonCallback": {
+        "extraction_status": "raw_expression",
+        "value": "()=>{console.log(\"Back button clicked\")}"
+      },
+      "isClosable": false
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{isVisible:{description:\"Whether the drawer is visible or not\",control:{type:\"boolean\"}},hasOverlay:{description:\"Whether the drawer has an overlay or not\",control:{type:\"boolean\"}},position:{description:\"The position of the drawer\",control:\"select\",options:Object.values(o)},size:{description:\"The size of the drawer\",control:\"select\",options:Object.values(L)},showBackButton:{description:\"Whether to show the back button or not\",control:\"boolean\"},showFooter:{description:\"Whether to render the drawer footer\",control:\"boolean\"},maxContentHeight:{description:\"Custom max height for drawer content area (e.g., '80vh', '500px')\",control:\"text\"},customDrawerWidth:{description:\"Custom width for start/end positioned drawers (e.g., '400px', '50vw')\",control:\"text\"}}",
+    "fields": [
+      "isVisible",
+      "hasOverlay",
+      "position",
+      "size",
+      "showBackButton",
+      "showFooter",
+      "maxContentHeight",
+      "customDrawerWidth"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    isClosable: false,\n    position: DrawerPosition.END\n  },\n  render: function Render(args) {\n    return DisplayRender(args);\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    const openButton = canvas.getByTestId(\"open-drawer-end\");\n    await userEvent.click(openButton);\n\n    // Wait for drawer to open and render\n    await new Promise(resolve => setTimeout(resolve, 500));\n  }\n}",
+    "story_object_source": "{args:{...h,isClosable:!1,position:o.END},render:function(n){return b(n)},play:async({canvasElement:t})=>{const r=y(t).getByTestId(\"open-drawer-end\");await g.click(r),await new Promise(i=>setTimeout(i,500))}}"
+  },
+  "template": {
+    "id": "drawer-non-dismissible-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/drawer/templates/html.non-dismissible.template.html",
+    "output_path": "design-system-plugin/outputs/html/drawer-non-dismissible.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "drawer",
+    "local_path": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "story_id": "components-drawer--non-dismissible",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/drawer/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/drawer/assets/Drawer.stories-D3FsDaaP.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/drawer/assets/components-drawer--non-dismissible.iframe.html"
+  }
+}

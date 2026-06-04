@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "footer",
+  "component_name": "Footer",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-footer--custom-product-logo",
+      "story_name": "Custom Product Logo",
+      "component_id": "footer",
+      "component_name": "Footer",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/footer/stories/components-footer--custom-product-logo.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/footer/templates/html.custom-product-logo.template.html",
+      "output_path": "design-system-plugin/outputs/html/footer-custom-product-logo.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/footer/assets/Footer.stories-B56V8t1D.js",
+      "docs_id": "components-footer--docs",
+      "registry_item": "sanofi-footer-custom-product-logo-atomic-story"
+    },
+    {
+      "story_id": "components-footer--default",
+      "story_name": "Default",
+      "component_id": "footer",
+      "component_name": "Footer",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/footer/stories/components-footer--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/footer/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/footer-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/footer/assets/Footer.stories-B56V8t1D.js",
+      "docs_id": "components-footer--docs",
+      "registry_item": "sanofi-footer-default-atomic-story"
+    },
+    {
+      "story_id": "components-footer--simple",
+      "story_name": "Simple",
+      "component_id": "footer",
+      "component_name": "Footer",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/footer/stories/components-footer--simple.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/footer/templates/html.simple.template.html",
+      "output_path": "design-system-plugin/outputs/html/footer-simple.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/footer/assets/Footer.stories-B56V8t1D.js",
+      "docs_id": "components-footer--docs",
+      "registry_item": "sanofi-footer-simple-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-footer--docs"
+  }
+}

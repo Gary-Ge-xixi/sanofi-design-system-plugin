@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-divider-default-atomic-story",
+  "title": "Divider Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-divider--default.",
+  "atomic_story_id": "components-divider--default",
+  "component_id": "divider",
+  "docs_id": "components-divider--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-divider"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/divider/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/assets/components-divider--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/divider/assets/components-divider--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/divider/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/divider.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/divider.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/divider/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/divider/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-divider--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-divider--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-divider--docs",
+    "story_id": "components-divider--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/divider/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-divider--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-divider--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Divider.stories-CeRa4GhF.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/divider.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/divider/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "divider",
+      "Divider",
+      "Default",
+      "components-divider--default",
+      "default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Divider Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

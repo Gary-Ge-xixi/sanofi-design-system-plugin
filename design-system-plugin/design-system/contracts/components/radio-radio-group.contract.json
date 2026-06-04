@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.1.0",
+  "id": "radio-radio-group",
+  "canonical_name": "radio-radio-group",
+  "component_name": "Radio/RadioGroup",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-radio-radiogroup--docs",
+    "title": "Radio/RadioGroup",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-radio-radiogroup--docs",
+    "import_path": "./src/components/RadioGroup/RadioGroup.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 4,
+    "story_ids": [
+      "components-radio-radiogroup--default",
+      "components-radio-radiogroup--horizontal",
+      "components-radio-radiogroup--horizontal-radios-with-error",
+      "components-radio-radiogroup--with-error"
+    ],
+    "records": [
+      {
+        "id": "components-radio-radiogroup--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-radio-radiogroup--horizontal",
+        "name": "Horizontal",
+        "normalized_name": "horizontal",
+        "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx",
+        "export_name": "Horizontal"
+      },
+      {
+        "id": "components-radio-radiogroup--horizontal-radios-with-error",
+        "name": "Horizontal Radios With Error",
+        "normalized_name": "horizontal-radios-with-error",
+        "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx",
+        "export_name": "HorizontalRadiosWithError"
+      },
+      {
+        "id": "components-radio-radiogroup--with-error",
+        "name": "With Error",
+        "normalized_name": "with-error",
+        "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx",
+        "export_name": "WithError"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Radio components to render in the group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "Group title displayed above the options.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "id",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "orientation",
+        "required": false,
+        "description": "Layout direction of the radio options.\"horizontal\"\"vertical\"",
+        "default": "\"Orientation.VERTICAL\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "horizontal",
+      "horizontal-radios-with-error",
+      "with-error"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "horizontal",
+      "horizontal-radios-with-error",
+      "with-error"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { RadioGroup, Radio, Orientation } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <RadioGroup\n    title=\"Radio Group Title\"\n    caption=\"Optional Caption\"\n    orientation={Orientation.HORIZONTAL}\n    errorMessage=\"Optional Error Message\"\n  >\n    <Radio label=\"Radio 1\" value=\"1\" />\n    <Radio label=\"Radio 2\" value=\"2\" />\n    <Radio label=\"Radio 3\" value=\"3\" />\n  </RadioGroup>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "radio-radio-group"
+    ],
+    "contracts": [
+      {
+        "id": "radio-radio-group",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/radio-radio-group/demo.registry.json",
+        "known_story_ids": [
+          "components-radio-radiogroup--default",
+          "components-radio-radiogroup--horizontal",
+          "components-radio-radiogroup--horizontal-radios-with-error",
+          "components-radio-radiogroup--with-error",
+          "components-radio-radiogroup--default",
+          "components-radio-radiogroup--horizontal",
+          "components-radio-radiogroup--horizontal-radios-with-error",
+          "components-radio-radiogroup--with-error"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-radio-radiogroup--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+    "docs_import_path": "./src/components/RadioGroup/RadioGroup.mdx",
+    "story_ids": [
+      "components-radio-radiogroup--default",
+      "components-radio-radiogroup--horizontal",
+      "components-radio-radiogroup--horizontal-radios-with-error",
+      "components-radio-radiogroup--with-error"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

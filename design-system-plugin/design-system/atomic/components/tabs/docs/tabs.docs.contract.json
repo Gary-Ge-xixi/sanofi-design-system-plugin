@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tabs-docs-contract",
+  "component_id": "tabs",
+  "component_name": "Tabs",
+  "docs_id": "components-tabs--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-tabs--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Tab content including Tabs.List and Tabs.Panel components.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-tabs--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Tabs } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n<Tabs defaultSelected=\"tab1\">\n  <Tabs.List>\n    <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n    <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n    <Tabs.Tab name=\"tab3\">Tab 3</Tabs.Tab>\n  </Tabs.List>\n  <Tabs.Panel name=\"tab1\">Content for Tab 1</Tabs.Panel>\n  <Tabs.Panel name=\"tab2\">Content for Tab 2</Tabs.Panel>\n  <Tabs.Panel name=\"tab3\">Content for Tab 3</Tabs.Panel>\n</Tabs>\n),",
+      "<Tabs defaultSelected=\"tab1\" lazyMount>\n<Tabs.List>\n  <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n  <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n</Tabs.List>\n<Tabs.Panel name=\"tab1\">Content for Tab 1</Tabs.Panel>\n<Tabs.Panel name=\"tab2\">Heavy content - only mounts when selected</Tabs.Panel>\n</Tabs>",
+      "<Tabs defaultSelected=\"tab1\" lazyMount unmountOnHide>\n<Tabs.List>\n  <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n  <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n</Tabs.List>\n<Tabs.Panel name=\"tab1\">Content unmounts when deselected</Tabs.Panel>\n<Tabs.Panel name=\"tab2\">Content unmounts when deselected</Tabs.Panel>\n</Tabs>"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-tabs--controlled",
+      "name": "Controlled",
+      "export_name": "Controlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--default-selected-tab",
+      "name": "Default Selected Tab",
+      "export_name": "DefaultSelectedTab",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--full-width",
+      "name": "Full Width",
+      "export_name": "FullWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--lazy-mount",
+      "name": "Lazy Mount",
+      "export_name": "LazyMount",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--lazy-mount-with-unmount",
+      "name": "Lazy Mount With Unmount",
+      "export_name": "LazyMountWithUnmount",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--uncontrolled",
+      "name": "Uncontrolled",
+      "export_name": "Uncontrolled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--with-nav",
+      "name": "With Nav",
+      "export_name": "WithNav",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--with-nav-in-resizable-panel",
+      "name": "With Nav In Resizable Panel",
+      "export_name": "WithNavInResizablePanel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json"
+  }
+}

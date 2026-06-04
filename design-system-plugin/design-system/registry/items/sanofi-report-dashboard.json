@@ -1,0 +1,134 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-report-dashboard",
+  "title": "Sanofi report dashboard page template",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "A contract-backed report dashboard page template with BarChart, KPI summary, filters, and table fallback.",
+  "pattern_id": "report-dashboard",
+  "template_id": "report-dashboard",
+  "page_subtype": "report-dashboard-page",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    "sanofi-container",
+    "sanofi-grid",
+    "sanofi-navigation-header",
+    "sanofi-sidebar",
+    "sanofi-menu",
+    "sanofi-icon",
+    "sanofi-search-input",
+    "sanofi-select",
+    "sanofi-button",
+    "sanofi-card",
+    "sanofi-tag",
+    "sanofi-tabs",
+    "sanofi-progress-bar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/patterns/report-dashboard/report-dashboard.pattern.json",
+      "role": "pattern",
+      "target": "design-system-plugin/design-system/patterns/report-dashboard/report-dashboard.pattern.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/templates/report-dashboard.template.json",
+      "role": "template",
+      "target": "design-system-plugin/design-system/templates/report-dashboard.template.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/page-profiles/report-dashboard.profile.json",
+      "role": "page-profile",
+      "target": "design-system-plugin/design-system/page-profiles/report-dashboard.profile.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/chart-usage.json",
+      "role": "chart-rule",
+      "target": "design-system-plugin/design-system/rules/chart-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/table-usage.json",
+      "role": "table-rule",
+      "target": "design-system-plugin/design-system/rules/table-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/reference-fit/admin-dashboard-chart.rules.json",
+      "role": "reference-fit-rule",
+      "target": "design-system-plugin/design-system/reference-fit/admin-dashboard-chart.rules.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "role": "fallback-policy",
+      "target": "design-system-plugin/design-system/policies/fallback-policy.json"
+    }
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "button",
+    "card",
+    "tag"
+  ],
+  "optional_primitives": [
+    "tabs",
+    "progress-bar"
+  ],
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "chart-usage",
+    "table-usage",
+    "density-standards",
+    "admin-delivery-contract",
+    "admin-dashboard-chart-reference-fit"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern"
+    },
+    {
+      "module": "chart",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "unsupported-chart-types-fallback"
+    }
+  ],
+  "source_provenance": {
+    "pattern_id": "report-dashboard",
+    "template_id": "report-dashboard",
+    "page_profile": "design-system-plugin/design-system/page-profiles/report-dashboard.profile.json",
+    "chart_contract": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/admin-dashboard-chart.rules.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "报表",
+      "dashboard",
+      "report",
+      "数据看板",
+      "BarChart",
+      "report dashboard"
+    ],
+    "when_to_use": "Use when a prompt asks for a business report dashboard with KPI, chart, filters, and exact-value table access.",
+    "unsupported_behavior": "Use business-chart for BarChart only when its data contract is present; unsupported chart types stay explicit fallback."
+  }
+}

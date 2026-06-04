@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "id": "entity-form",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "entity-form",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "create-or-edit",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "form-usage",
+    "content-standards",
+    "interaction-state-standards",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-form"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "form-header",
+      "form-sections",
+      "validation-summary",
+      "sticky-save-bar"
+    ],
+    "forbidden_sections": [
+      "kpi-summary",
+      "decorative-chart"
+    ],
+    "required_attrs": [
+      "data-page-family=\"entity-form\"",
+      "data-business-task=\"create-or-edit\""
+    ]
+  },
+  "state_requirements": [
+    "dirty-form",
+    "validation-error",
+    "saving",
+    "saved",
+    "readonly",
+    "permission-denied"
+  ]
+}

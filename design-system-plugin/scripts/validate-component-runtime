@@ -1,0 +1,359 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const contractPath = path.join(pluginRoot, "component-runtime", "component-runtime.contract.json");
+const specPath = path.join(pluginRoot, "component-runtime", "specs", "admin-dashboard.component-spec.json");
+const sizePolicyPath = path.join(pluginRoot, "design-system", "rules", "component-size-policy.json");
+const reportPath = path.join(reportDir, "component-runtime.report.json");
+
+function readJson(filePath, fallback = null) {
+  if (!fs.existsSync(filePath)) return fallback;
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function extractAttributeValues(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+function countMatches(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function extractTagAttrs(source, tagName) {
+  const attrs = [];
+  const re = new RegExp(`<${tagName}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(source))) attrs.push(match[1]);
+  return attrs;
+}
+
+function countAttrPair(source, attribute, value) {
+  const escaped = value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return countMatches(source, new RegExp(`${attribute}=["']${escaped}["']`, "g"));
+}
+
+function countTagsWithAttrPair(source, attribute, value) {
+  const escaped = value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const attrRe = new RegExp(`${attribute}=["']${escaped}["']`, "i");
+  const tagRe = /<[a-z][a-z0-9-]*\b[^>]*>/gi;
+  let total = 0;
+  let match;
+  while ((match = tagRe.exec(source))) {
+    if (attrRe.test(match[0])) total += 1;
+  }
+  return total;
+}
+
+function fallbackTagsWithoutReason(source) {
+  const missing = [];
+  const tagRe = /<[a-z][a-z0-9-]*\b([^>]*)>/gi;
+  let match;
+  while ((match = tagRe.exec(source))) {
+    const attrs = match[1];
+    if (/data-fallback-module=["'][^"']+["']/i.test(attrs) && !/data-fallback-reason=["'][^"']+["']/i.test(attrs)) {
+      const module = attrs.match(/data-fallback-module=["']([^"']+)["']/i)?.[1] || "unknown";
+      missing.push(module);
+    }
+  }
+  return missing;
+}
+
+function isVisuallyHiddenSelect(attrs) {
+  return (
+    /\bhidden\b/i.test(attrs) ||
+    /aria-hidden=["']true["']/i.test(attrs) ||
+    /data-select-native=["']true["']/i.test(attrs) ||
+    /style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)
+  );
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing HTML target: ${target}`);
+if (!fs.existsSync(contractPath)) failures.push("missing component runtime contract");
+
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const contract = readJson(contractPath, {
+  first_round_components: [],
+  allowed_fallback_modules: [],
+  component_instance_contract: {}
+});
+const spec = readJson(specPath, { components: [] });
+const sizePolicy = readJson(sizePolicyPath, {
+  default_size: "medium",
+  forbidden_default_sizes: ["large"]
+});
+const firstRound = new Set(contract.first_round_components || []);
+const allowedFallbacks = new Set(contract.allowed_fallback_modules || []);
+const forbiddenDefaultSizes = new Set(sizePolicy.forbidden_default_sizes || ["large"]);
+const primitiveRefs = extractAttributeValues(html, "data-primitive");
+const storyRefs = extractAttributeValues(html, "data-story-id");
+const componentIds = extractAttributeValues(html, "data-component-id");
+const componentInstances = extractAttributeValues(html, "data-component-instance");
+const runtimeRefs = extractAttributeValues(html, "data-component-runtime");
+const renderSources = extractAttributeValues(html, "data-render-source");
+const fallbackModules = extractAttributeValues(html, "data-fallback-module");
+const fallbackReasons = extractAttributeValues(html, "data-fallback-reason");
+const fallbacksMissingReason = fallbackTagsWithoutReason(html);
+const officialRuntimeCount = countTagsWithAttrPair(html, "data-component-runtime", "sanofi-elements-react");
+const officialRenderSourceCount = countTagsWithAttrPair(html, "data-render-source", "@sanofi-accelerator/elements");
+const localRuntimeCount = countTagsWithAttrPair(html, "data-component-runtime", "sanofi-local-atomic-components");
+const localRenderSourceCount = countTagsWithAttrPair(html, "data-render-source", "local-atomic-component-package");
+const pageOutputStateOfficial = extractAttributeValues(html, "data-output-state-official-runtime")[0] || "unmarked";
+const pageOutputStateLocalAtomic = extractAttributeValues(html, "data-output-state-local-atomic-runtime")[0] || "unmarked";
+const pageOutputStateExplicitFallback = extractAttributeValues(html, "data-output-state-explicit-fallback")[0] || "unmarked";
+const pagePatternRefs = [
+  ...extractAttributeValues(html, "data-page-pattern"),
+  ...extractAttributeValues(html, "data-pattern")
+];
+const targetBasename = path.basename(target);
+const runtimeRequiredPage =
+  pagePatternRefs.includes("admin-dashboard") ||
+  pagePatternRefs.includes("admin-query-panel") ||
+  targetBasename === "admin-dashboard.resolved.html";
+const adminDashboardSpecApplies =
+  spec.page_pattern === "admin-dashboard" &&
+  (pagePatternRefs.includes("admin-dashboard") || targetBasename === "admin-dashboard.resolved.html");
+const runtimeRequiredPrimitives = [...new Set(primitiveRefs.filter((ref) => firstRound.has(ref)))];
+const runtimeComponentIds = [...new Set(componentIds.filter((ref) => firstRound.has(ref)))];
+const selectTags = extractTagAttrs(html, "select");
+const visibleNativeSelectPrimitiveCount = selectTags.filter((attrs) => {
+  return /data-primitive=["']select["']/i.test(attrs) && !isVisuallyHiddenSelect(attrs);
+}).length;
+const selectRuntimeRootCount = countTagsWithAttrPair(html, "data-component-id", "select");
+const selectComboboxCount = countMatches(html, /role=["']combobox["'][^>]*(?:aria-haspopup=["']listbox["']|[^>]*data-select-trigger)/gi);
+const selectListboxCount = countMatches(html, /role=["']listbox["']/gi);
+const datePickerRuntimeRootCount = countTagsWithAttrPair(html, "data-component-id", "date-picker");
+const datePickerTriggerCount = countMatches(html, /data-date-picker-trigger=["']true["']/g);
+const datePickerDialogCount = countMatches(html, /data-date-picker-dialog=["']true["']/g);
+const datePickerMediumCount = countAttrPair(html, "data-date-picker-size", "medium");
+const acceptedRuntimes = new Set(
+  contract.component_instance_contract?.accepted_component_runtimes || ["sanofi-elements-react"]
+);
+const acceptedRenderSources = new Set(
+  contract.component_instance_contract?.accepted_render_sources || ["@sanofi-accelerator/elements"]
+);
+const acceptedRuntimePattern = [...acceptedRuntimes].map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+const hasAcceptedRuntimeMarker = runtimeRefs.some((runtime) => acceptedRuntimes.has(runtime));
+const hasRenderSource = renderSources.some((source) => acceptedRenderSources.has(source));
+const hasRuntimeScript = new RegExp(`<script\\b[^>]*data-component-runtime=["'](?:${acceptedRuntimePattern})["'][^>]*>`, "i").test(html);
+const hasStoryOnlyProof =
+  storyRefs.some((storyId) => /^components-/.test(storyId)) &&
+  runtimeRequiredPrimitives.length > 0 &&
+  componentInstances.length === 0;
+const fallbackClaimsFirstRound = [...new Set(fallbackModules.filter((module) => firstRound.has(module)))];
+const unsupportedFallbackClaims = [...new Set(fallbackModules.filter((module) => !allowedFallbacks.has(module)))];
+const largeRuntimeSizeAttrs = [];
+const allTagRe = /<[a-z][a-z0-9-]*\b([^>]*)>/gi;
+let tagMatch;
+while ((tagMatch = allTagRe.exec(html))) {
+  const tagAttrs = tagMatch[1];
+  if (/data-size-policy-override=["']true["']/i.test(tagAttrs)) continue;
+  const sizeMatch = tagAttrs.match(/\bdata-[a-z0-9-]+-size=["']([^"']+)["']/i);
+  if (sizeMatch && forbiddenDefaultSizes.has(sizeMatch[1])) {
+    largeRuntimeSizeAttrs.push(tagAttrs.trim());
+  }
+}
+const forbiddenSpecSizes = (spec.components || [])
+  .filter((component) => forbiddenDefaultSizes.has(component.props?.size))
+  .map((component) => `${component.component_instance}:${component.props.size}`);
+
+if (runtimeRequiredPage || runtimeRequiredPrimitives.length) {
+  if (!hasAcceptedRuntimeMarker) {
+    failures.push(`missing accepted data-component-runtime marker: ${[...acceptedRuntimes].join(" or ")}`);
+  }
+
+  if (!hasRenderSource) {
+    failures.push(`missing accepted data-render-source marker: ${[...acceptedRenderSources].join(" or ")}`);
+  }
+
+  if (!hasRuntimeScript) {
+    failures.push("missing hydrated component runtime script marker");
+  }
+
+  if (!componentInstances.length) {
+    failures.push("missing component instance markers");
+  }
+
+  if (runtimeRequiredPrimitives.length && !runtimeComponentIds.length) {
+    failures.push(`first-round primitives lack runtime component ids: ${runtimeRequiredPrimitives.join(", ")}`);
+  }
+}
+
+if (visibleNativeSelectPrimitiveCount) {
+  failures.push("Select runtime violation: visible native select[data-primitive=\"select\"] is forbidden");
+}
+
+if (selectRuntimeRootCount) {
+  if (selectComboboxCount < selectRuntimeRootCount) {
+    failures.push(`Select runtime violation: every runtime Select needs combobox trigger, got ${selectComboboxCount}/${selectRuntimeRootCount}`);
+  }
+  if (selectListboxCount < selectRuntimeRootCount) {
+    failures.push(`Select runtime violation: every runtime Select needs component-owned listbox, got ${selectListboxCount}/${selectRuntimeRootCount}`);
+  }
+}
+
+if (datePickerRuntimeRootCount) {
+  if (datePickerTriggerCount < datePickerRuntimeRootCount) {
+    failures.push(`DatePicker runtime violation: every runtime DatePicker needs trigger, got ${datePickerTriggerCount}/${datePickerRuntimeRootCount}`);
+  }
+  if (datePickerDialogCount < datePickerRuntimeRootCount) {
+    failures.push(`DatePicker runtime violation: every runtime DatePicker needs dialog, got ${datePickerDialogCount}/${datePickerRuntimeRootCount}`);
+  }
+  if (datePickerMediumCount < datePickerRuntimeRootCount) {
+    failures.push(`DatePicker runtime violation: every runtime DatePicker must default to medium, got ${datePickerMediumCount}/${datePickerRuntimeRootCount}`);
+  }
+}
+
+if (hasStoryOnlyProof) {
+  failures.push("story-id/provenance markers alone do not prove real component runtime usage");
+}
+
+if (largeRuntimeSizeAttrs.length) {
+  failures.push(`component size policy violation: forbidden runtime default size attrs (${largeRuntimeSizeAttrs.length})`);
+}
+
+if (forbiddenSpecSizes.length) {
+  failures.push(`component spec size policy violation: ${forbiddenSpecSizes.join(", ")}`);
+}
+
+if (fallbackClaimsFirstRound.length) {
+  failures.push(`first-round components must not be fallback modules: ${fallbackClaimsFirstRound.join(", ")}`);
+}
+
+if (fallbacksMissingReason.length) {
+  failures.push(`fallback modules missing data-fallback-reason: ${fallbacksMissingReason.join(", ")}`);
+}
+
+if (officialRuntimeCount && !officialRenderSourceCount) {
+  failures.push("official runtime state must include data-render-source=\"@sanofi-accelerator/elements\"");
+}
+
+if (localRuntimeCount && !localRenderSourceCount) {
+  failures.push("local atomic runtime state must include data-render-source=\"local-atomic-component-package\"");
+}
+
+if (runtimeRequiredPage) {
+  const expectedOfficialState = officialRuntimeCount ? "present" : "absent";
+  const expectedLocalAtomicState = localRuntimeCount ? "present" : "absent";
+  const expectedFallbackState = fallbackModules.length ? "present" : "absent";
+  if (pageOutputStateOfficial !== expectedOfficialState) {
+    failures.push(`page output state mismatch for official runtime: expected ${expectedOfficialState}, got ${pageOutputStateOfficial}`);
+  }
+  if (pageOutputStateLocalAtomic !== expectedLocalAtomicState) {
+    failures.push(`page output state mismatch for local atomic runtime: expected ${expectedLocalAtomicState}, got ${pageOutputStateLocalAtomic}`);
+  }
+  if (pageOutputStateExplicitFallback !== expectedFallbackState) {
+    failures.push(`page output state mismatch for explicit fallback: expected ${expectedFallbackState}, got ${pageOutputStateExplicitFallback}`);
+  }
+}
+
+const unsupportedBlockingFallbacks = unsupportedFallbackClaims.filter((module) => firstRound.has(module));
+if (unsupportedBlockingFallbacks.length) {
+  failures.push(`unsupported first-round fallback modules: ${unsupportedBlockingFallbacks.join(", ")}`);
+}
+
+const expectedSpecComponents = adminDashboardSpecApplies
+  ? [...new Set((spec.components || []).map((component) => component.component_id))]
+  : [];
+const missingSpecComponents = expectedSpecComponents.filter((componentId) => {
+  if (!firstRound.has(componentId)) return false;
+  return !runtimeComponentIds.includes(componentId);
+});
+if (adminDashboardSpecApplies && missingSpecComponents.length) {
+  failures.push(`missing runtime instances from component spec: ${missingSpecComponents.join(", ")}`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-component-runtime",
+  target: path.relative(pluginRoot, target),
+  status: failures.length ? "fail" : "pass",
+  contract: path.relative(pluginRoot, contractPath),
+  checked: {
+    runtime_required_page: runtimeRequiredPage,
+    admin_dashboard_spec_applies: adminDashboardSpecApplies,
+    page_pattern_refs: [...new Set(pagePatternRefs)],
+    first_round_components: [...firstRound],
+    primitive_refs: primitiveRefs.length,
+    story_refs: storyRefs.length,
+    runtime_required_primitives: runtimeRequiredPrimitives,
+    runtime_component_ids: runtimeComponentIds,
+    component_instance_count: componentInstances.length,
+    runtime_marker_count: runtimeRefs.length,
+    render_source_count: renderSources.length,
+    accepted_component_runtimes: [...acceptedRuntimes],
+    accepted_render_sources: [...acceptedRenderSources],
+    has_runtime_marker: hasAcceptedRuntimeMarker,
+    has_render_source: hasRenderSource,
+    has_runtime_script: hasRuntimeScript,
+    visible_native_select_primitive_count: visibleNativeSelectPrimitiveCount,
+    select_runtime_root_count: selectRuntimeRootCount,
+    select_combobox_count: selectComboboxCount,
+    select_listbox_count: selectListboxCount,
+    date_picker_runtime_root_count: datePickerRuntimeRootCount,
+    date_picker_trigger_count: datePickerTriggerCount,
+    date_picker_dialog_count: datePickerDialogCount,
+    date_picker_medium_count: datePickerMediumCount,
+    component_size_policy: {
+      default_size: sizePolicy.default_size || "medium",
+      forbidden_default_sizes: [...forbiddenDefaultSizes],
+      large_runtime_size_attr_count: largeRuntimeSizeAttrs.length,
+      forbidden_spec_sizes: forbiddenSpecSizes
+    },
+    fallback_modules: [...new Set(fallbackModules)],
+    fallback_reason_count: fallbackReasons.length,
+    fallback_modules_missing_reason: fallbacksMissingReason,
+    allowed_fallback_modules: [...allowedFallbacks],
+    missing_spec_components: missingSpecComponents,
+    output_states: {
+      official_runtime: {
+        state: "official-runtime",
+        page_marker: pageOutputStateOfficial,
+        runtime_marker: "sanofi-elements-react",
+        render_source: "@sanofi-accelerator/elements",
+        runtime_marker_count: officialRuntimeCount,
+        render_source_count: officialRenderSourceCount,
+        valid: pageOutputStateOfficial === (officialRuntimeCount ? "present" : "absent") && (officialRuntimeCount === 0 || officialRenderSourceCount > 0)
+      },
+      local_atomic_runtime: {
+        state: "local-atomic-runtime",
+        page_marker: pageOutputStateLocalAtomic,
+        runtime_marker: "sanofi-local-atomic-components",
+        render_source: "local-atomic-component-package",
+        runtime_marker_count: localRuntimeCount,
+        render_source_count: localRenderSourceCount,
+        valid: pageOutputStateLocalAtomic === (localRuntimeCount ? "present" : "absent") && (localRuntimeCount === 0 || localRenderSourceCount > 0)
+      },
+      explicit_fallback: {
+        state: "explicit-fallback",
+        page_marker: pageOutputStateExplicitFallback,
+        fallback_module_count: fallbackModules.length,
+        fallback_reason_count: fallbackReasons.length,
+        modules: [...new Set(fallbackModules)],
+        missing_reason_modules: fallbacksMissingReason,
+        valid: pageOutputStateExplicitFallback === (fallbackModules.length ? "present" : "absent") && fallbacksMissingReason.length === 0
+      }
+    }
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Component runtime validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Component runtime OK: ${path.relative(pluginRoot, target)}`);

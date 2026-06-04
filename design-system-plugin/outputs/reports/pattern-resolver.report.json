@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "resolve-pattern-runtime",
+  "prompt": "根据日期查询客户明细复杂表单页面",
+  "selected": {
+    "registry_item": "sanofi-customer-detail-date-query",
+    "pattern_id": "customer-detail-date-query",
+    "template_id": "customer-detail-date-query",
+    "page_subtype": "customer-detail-date-query-page",
+    "page_profile": "customer-detail-date-query",
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json"
+  },
+  "counts": {
+    "sections": 7,
+    "required_primitives": 13,
+    "optional_primitives": 0,
+    "fallbacks": 1,
+    "required_rules": 9
+  },
+  "failures": []
+}

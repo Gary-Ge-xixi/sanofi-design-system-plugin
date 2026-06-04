@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule validate business-page-standards",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:36:38.093Z",
+  "rule_id": "business-page-standards",
+  "target": null,
+  "rule": {
+    "id": "business-page-standards",
+    "path": "business-page-standards.json",
+    "script": "../../scripts/validate-business-standards"
+  },
+  "run": {
+    "script": "validate-business-standards",
+    "command": "node design-system-plugin/scripts/validate-business-standards",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "Business standards OK: 11 areas, 8 page profiles, 9 rules, 3 module contracts\n",
+    "stderr": ""
+  },
+  "failures": []
+}

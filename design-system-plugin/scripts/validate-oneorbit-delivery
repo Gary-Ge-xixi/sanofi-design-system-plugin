@@ -1,0 +1,177 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const targets = {
+  query: path.join(htmlDir, "oneorbit-has-query-list.resolved.html"),
+  home: path.join(htmlDir, "oneorbit-message-todo.resolved.html")
+};
+const sourceMapJsonPath = path.join(reportDir, "oneorbit-component-source-map.json");
+const sourceMapMdPath = path.join(reportDir, "oneorbit-component-source-map.md");
+const sourceResolutionJsonPath = path.join(reportDir, "oneorbit-component-source-resolution.json");
+const sourceResolutionMdPath = path.join(reportDir, "oneorbit-component-source-resolution.md");
+const reportPath = path.join(reportDir, "oneorbit-delivery.report.json");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function countMatches(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function extractAttributeValues(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+function pushIf(condition, failures, message) {
+  if (condition) failures.push(message);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+for (const [key, target] of Object.entries(targets)) {
+  pushIf(!fs.existsSync(target), failures, `missing ${key} HTML output: ${target}`);
+}
+pushIf(!fs.existsSync(sourceMapJsonPath), failures, "missing component source map JSON report");
+pushIf(!fs.existsSync(sourceMapMdPath), failures, "missing component source map Markdown report");
+pushIf(!fs.existsSync(sourceResolutionJsonPath), failures, "missing component source resolution JSON report");
+pushIf(!fs.existsSync(sourceResolutionMdPath), failures, "missing component source resolution Markdown report");
+
+const queryHtml = fs.existsSync(targets.query) ? read(targets.query) : "";
+const homeHtml = fs.existsSync(targets.home) ? read(targets.home) : "";
+const sourceMap = fs.existsSync(sourceMapJsonPath) ? readJson(sourceMapJsonPath) : { component_sources: [], pages: [] };
+const sourceMapMd = fs.existsSync(sourceMapMdPath) ? read(sourceMapMdPath) : "";
+const sourceResolution = fs.existsSync(sourceResolutionJsonPath) ? readJson(sourceResolutionJsonPath) : { decisions: [] };
+
+for (const [key, html] of [
+  ["query", queryHtml],
+  ["home", homeHtml]
+]) {
+  const brandAssetRefs = countMatches(html, /data-brand-asset-id=["']sanofi-logo-full["']/g);
+  const nativeSelects = countMatches(html, /<select\b/gi);
+  const largeSizeAttrs = countMatches(html, /data-[a-z0-9-]+-size=["']large["']/gi);
+  const responsiveFragments = countMatches(html, /@media|max-width|min-width/g);
+  const runtimeScript = countMatches(html, /<script\b[^>]*data-component-runtime=["']sanofi-local-atomic-components["']/gi);
+  const runtimeComponents = countMatches(html, /data-component-runtime=["']sanofi-local-atomic-components["'][^>]*data-component-id=/gi);
+  pushIf(brandAssetRefs !== 1, failures, `${key} page must use exactly one fixed Sanofi logo asset`);
+  pushIf(nativeSelects > 0, failures, `${key} page must not render visible native select controls`);
+  pushIf(largeSizeAttrs > 0, failures, `${key} page must not emit large-size component defaults`);
+  pushIf(responsiveFragments > 0, failures, `${key} page must not include mobile or breakpoint adaptation logic`);
+  pushIf(!runtimeScript, failures, `${key} page missing local component runtime hydration script`);
+  pushIf(runtimeComponents < 6, failures, `${key} page has too few runtime component instances`);
+}
+
+pushIf(!/data-oneorbit-page=["']query-list["']/.test(queryHtml), failures, "query page missing query-list page marker");
+pushIf(countMatches(queryHtml, /data-component-id=["']search-input["']/g) < 4, failures, "query page must render four SearchInput runtime fields");
+pushIf(countMatches(queryHtml, /data-component-id=["']select["']/g) < 1, failures, "query page must render Select through runtime");
+pushIf(countMatches(queryHtml, /data-primitive=["']date-picker["']/g) < 3, failures, "query page must include three DatePicker range primitives");
+pushIf(countMatches(queryHtml, /data-component-id=["']tabs["']/g) < 1, failures, "query page must render status Tabs through runtime");
+pushIf(countMatches(queryHtml, /data-fallback-module=["']table["']/g) < 1, failures, "query page table must be explicitly marked as fallback");
+pushIf(countMatches(queryHtml, /class=["']oo-group-row["']/g) < 3, failures, "query page must render at least three hospital groups");
+pushIf(countMatches(queryHtml, /<tr>\s*<td>/g) < 8, failures, "query page must render at least eight table rows");
+pushIf(countMatches(queryHtml, /data-grid-part=["']item["']/g) < 8, failures, "query page must expose grid item provenance for filters");
+pushIf(countMatches(queryHtml, /data-field-control=["']root["']/g) < 8, failures, "query page filter controls must use a unified field-control root");
+pushIf(countMatches(queryHtml, /data-control-shell=["']field["']/g) < 8, failures, "query page filter controls must use a unified field-control shell");
+pushIf(countMatches(queryHtml, /data-field-control-kind=["']search-input["']/g) < 4, failures, "query page must expose search-input field-control kind");
+pushIf(countMatches(queryHtml, /data-field-control-kind=["']select["']/g) < 1, failures, "query page must expose select field-control kind");
+pushIf(countMatches(queryHtml, /data-field-control-kind=["']date-range["']/g) < 3, failures, "query page must expose date-range field-control kind");
+
+pushIf(!/data-oneorbit-page=["']message-todo["']/.test(homeHtml), failures, "home page missing message-todo page marker");
+pushIf(!homeHtml.includes("你好LIO"), failures, "home page missing welcome headline");
+pushIf(countMatches(homeHtml, /class=["'][^"']*oo-message-card/g) < 5, failures, "home page must render five message cards");
+pushIf(countMatches(homeHtml, /class=["'][^"']*oo-app-card/g) < 2, failures, "home page must render two application cards");
+pushIf(countMatches(homeHtml, /class=["'][^"']*oo-metric-card/g) < 2, failures, "home page must render two metric card blocks");
+pushIf(countMatches(homeHtml, /data-fallback-module=["']message-list["']/g) < 1, failures, "home page message list must be explicitly marked as fallback compound");
+pushIf(countMatches(homeHtml, /data-component-id=["']button["']/g) < 5, failures, "home page message actions must use Button runtime");
+pushIf(countMatches(homeHtml, /data-component-id=["']card["']/g) < 7, failures, "home page repeated surfaces must use Card runtime");
+
+const sourcePages = new Set((sourceMap.pages || []).map((page) => page.id));
+pushIf(!sourcePages.has("oneorbit-has-query-list"), failures, "source map missing query page entry");
+pushIf(!sourcePages.has("oneorbit-message-todo"), failures, "source map missing home page entry");
+
+const sourceComponents = new Set((sourceMap.component_sources || []).map((entry) => entry.component_name));
+for (const required of [
+  "NavigationHeader",
+  "Brand Asset",
+  "Container",
+  "Grid",
+  "SearchInput",
+  "Select",
+  "DatePicker",
+  "Button",
+  "Tabs",
+  "Table",
+  "Card",
+  "Icon",
+  "Card + Button + Icon"
+]) {
+  pushIf(!sourceComponents.has(required), failures, `source map missing required component source: ${required}`);
+}
+pushIf(!/runtime component/.test(sourceMapMd), failures, "source map Markdown must document runtime component classification");
+pushIf(!/explicit fallback module|compound fallback pattern/.test(sourceMapMd), failures, "source map Markdown must document fallback classification");
+
+const resolutionByTarget = new Map((sourceResolution.decisions || []).map((item) => [item.target, item]));
+for (const [target, expectedDecision] of [
+  ["table", "semantic-html-fallback"],
+  ["date-range", "docs-registry-backed-primitive"],
+  ["message-list", "compound-card-list-pattern"]
+]) {
+  const decision = resolutionByTarget.get(target);
+  pushIf(!decision, failures, `source resolution missing target: ${target}`);
+  pushIf(decision && decision.decision !== expectedDecision, failures, `source resolution target ${target} must decide ${expectedDecision}`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-oneorbit-delivery",
+  status: failures.length ? "fail" : "pass",
+  targets: {
+    query: path.relative(pluginRoot, targets.query),
+    home: path.relative(pluginRoot, targets.home),
+    source_map_json: path.relative(pluginRoot, sourceMapJsonPath),
+    source_map_markdown: path.relative(pluginRoot, sourceMapMdPath)
+  },
+  checked: {
+    query: {
+      search_input_runtime_count: countMatches(queryHtml, /data-component-id=["']search-input["']/g),
+      select_runtime_count: countMatches(queryHtml, /data-component-id=["']select["']/g),
+      date_picker_count: countMatches(queryHtml, /data-primitive=["']date-picker["']/g),
+      field_control_root_count: countMatches(queryHtml, /data-field-control=["']root["']/g),
+      field_control_shell_count: countMatches(queryHtml, /data-control-shell=["']field["']/g),
+      table_fallback_count: countMatches(queryHtml, /data-fallback-module=["']table["']/g),
+      table_group_count: countMatches(queryHtml, /class=["']oo-group-row["']/g)
+    },
+    home: {
+      message_card_count: countMatches(homeHtml, /class=["'][^"']*oo-message-card/g),
+      app_card_count: countMatches(homeHtml, /class=["'][^"']*oo-app-card/g),
+      metric_card_count: countMatches(homeHtml, /class=["'][^"']*oo-metric-card/g),
+      message_list_fallback_count: countMatches(homeHtml, /data-fallback-module=["']message-list["']/g)
+    },
+    source_map_entries: sourceMap.component_sources?.length || 0,
+    source_resolution_decisions: sourceResolution.decisions?.length || 0,
+    source_components: [...sourceComponents].sort()
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`OneOrbit delivery validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log("OneOrbit delivery OK: query-list and message-todo");

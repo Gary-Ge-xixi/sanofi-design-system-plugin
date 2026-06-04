@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "isi-tray",
+  "component_name": "ISI Tray",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ISI Tray"
+  },
+  "docs": [
+    {
+      "id": "components-isi-tray--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/IsiTray/IsiTray.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-isi-tray--isi",
+      "name": "ISI",
+      "export_name": "ISI",
+      "semantic_type": "variant",
+      "import_path": "./src/components/IsiTray/IsiTray.stories.tsx"
+    },
+    {
+      "id": "components-isi-tray--isi-with-content-and-indication",
+      "name": "ISI With Content And Indication",
+      "export_name": "ISIWithContentAndIndication",
+      "semantic_type": "variant",
+      "import_path": "./src/components/IsiTray/IsiTray.stories.tsx"
+    },
+    {
+      "id": "components-isi-tray--isi-with-indication",
+      "name": "ISI With Indication",
+      "export_name": "ISIWithIndication",
+      "semantic_type": "variant",
+      "import_path": "./src/components/IsiTray/IsiTray.stories.tsx"
+    }
+  ]
+}

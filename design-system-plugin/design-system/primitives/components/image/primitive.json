@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Image",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Image",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/image.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "image",
+      "data_attribute": "data-primitive=\"image\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-image--default",
+      "components-image--overview"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-image--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/image.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

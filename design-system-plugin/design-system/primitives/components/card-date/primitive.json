@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card/Date",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Card/Date",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-date.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "card-date",
+      "data_attribute": "data-primitive=\"card-date\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-card-date--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-date--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-date.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

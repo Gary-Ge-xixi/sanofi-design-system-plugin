@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-evaluation-benchmark",
+  "checked": {
+    "cases": 10,
+    "results": 10,
+    "validator_pass_rate": 1,
+    "blocked_color_violations": 0
+  },
+  "failures": []
+}

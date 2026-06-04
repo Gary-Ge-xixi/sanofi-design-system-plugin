@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-radio-radio-group-complete-package",
+  "title": "Radio/RadioGroup complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Radio/RadioGroup package covering Docs plus all Storybook story atoms.",
+  "component_id": "radio-radio-group",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-radio-radio-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/docs/radio-radio-group.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/docs/radio-radio-group.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/radio-radio-group-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/radio-radio-group-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-radio-radiogroup--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-radio-group-default-atomic-story"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal",
+      "story_name": "Horizontal",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-radio-group-horizontal-atomic-story"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "story_name": "Horizontal Radios With Error",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-radio-group-horizontal-radios-with-error-atomic-story"
+    },
+    {
+      "story_id": "components-radio-radiogroup--with-error",
+      "story_name": "With Error",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-radio-group-with-error-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/radio-radio-group/docs/radio-radio-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "radio-radio-group",
+      "Radio/RadioGroup",
+      "radio-radio-group complete",
+      "Radio/RadioGroup complete package",
+      "radio-radio-group docs"
+    ],
+    "when_to_use": "Use first for any Radio/RadioGroup generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Radio/RadioGroup behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

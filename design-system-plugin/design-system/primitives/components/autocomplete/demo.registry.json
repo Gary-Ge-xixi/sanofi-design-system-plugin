@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Autocomplete",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-autocomplete--async-search",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--async-search-error",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--async-search-multiple",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--chips-outside",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--free-solo",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--multiple",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-description",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-description-multiple",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option-custom-layout",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option-multiple",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-tooltips",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-autocomplete--with-tooltips-multiple",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

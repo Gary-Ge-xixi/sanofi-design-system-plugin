@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-navigation-header-start-content-default-atomic-story",
+  "title": "NavigationHeader.StartContent Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-navigationheader-startcontent--default.",
+  "atomic_story_id": "components-navigationheader-startcontent--default",
+  "component_id": "navigation-header-start-content",
+  "docs_id": "components-navigationheader-startcontent--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-navigation-header-start-content"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/stories/components-navigationheader-startcontent--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/stories/components-navigationheader-startcontent--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/components-navigationheader-startcontent--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/components-navigationheader-startcontent--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-startcontent--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-startcontent--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-navigationheader-startcontent--docs",
+    "story_id": "components-navigationheader-startcontent--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/stories/components-navigationheader-startcontent--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-navigationheader-startcontent--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-navigationheader-startcontent--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/StartContent.stories-DeVT2OXU.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "navigation-header-start-content",
+      "NavigationHeader.StartContent",
+      "Default",
+      "components-navigationheader-startcontent--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact NavigationHeader.StartContent Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

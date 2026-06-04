@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "avatar",
+  "component_name": "Avatar",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Avatar"
+  },
+  "docs": [
+    {
+      "id": "components-avatar--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Avatar/Avatar.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-avatar--all-sizes",
+      "name": "All Sizes",
+      "export_name": "AllSizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--text-overflow",
+      "name": "Text Overflow",
+      "export_name": "TextOverflow",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--with-default-icon",
+      "name": "With Default Icon",
+      "export_name": "WithDefaultIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--with-initials",
+      "name": "With Initials",
+      "export_name": "WithInitials",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--with-label",
+      "name": "With Label",
+      "export_name": "WithLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    }
+  ]
+}

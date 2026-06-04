@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-provenance",
+  "target": "outputs/html/customer-detail-date-query.resolved.html",
+  "checked": {
+    "doc_refs": 35,
+    "story_refs": 39,
+    "pattern_refs": 12,
+    "token_source_refs": 32,
+    "fallback_reasons": 1
+  },
+  "failures": []
+}

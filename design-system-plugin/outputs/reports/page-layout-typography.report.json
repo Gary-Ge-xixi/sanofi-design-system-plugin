@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-page-layout-typography",
+  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
+  "rule": "design-system/rules/business-layout-typography.json",
+  "status": "pass",
+  "checked": {
+    "page_header_roots": 1,
+    "page_header_titles": 1,
+    "page_header_descriptions": 1,
+    "page_header_actions": 1,
+    "container_content_parts": 1,
+    "grid_roots": 1,
+    "grid_items": 8,
+    "letter_spacing_declarations": 7,
+    "invalid_letter_spacing": 0,
+    "missing_page_markers": [],
+    "missing_page_header_markers": [],
+    "missing_layout_markers": [],
+    "missing_css_fragments": [],
+    "forbidden_css_fragments": []
+  },
+  "failures": []
+}

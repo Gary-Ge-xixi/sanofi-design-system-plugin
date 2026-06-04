@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-grid-complete-package",
+  "title": "Grid complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Grid package covering Docs plus all Storybook story atoms.",
+  "component_id": "grid",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-grid"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/grid.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/grid/grid.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/grid.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/grid/grid.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/docs/grid.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/grid/docs/grid.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/grid/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/grid/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/grid-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/grid-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/grid.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/grid/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-grid--desktop",
+      "story_name": "Desktop",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-grid-desktop-atomic-story"
+    },
+    {
+      "story_id": "components-grid--large-mobile",
+      "story_name": "Large Mobile",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-grid-large-mobile-atomic-story"
+    },
+    {
+      "story_id": "components-grid--mobile",
+      "story_name": "Mobile",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-grid-mobile-atomic-story"
+    },
+    {
+      "story_id": "components-grid--tablet",
+      "story_name": "Tablet",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-grid-tablet-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-grid--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/grid/grid.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/grid/docs/grid.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "grid",
+      "Grid",
+      "grid complete",
+      "Grid complete package",
+      "grid docs"
+    ],
+    "when_to_use": "Use first for any Grid generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Grid behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

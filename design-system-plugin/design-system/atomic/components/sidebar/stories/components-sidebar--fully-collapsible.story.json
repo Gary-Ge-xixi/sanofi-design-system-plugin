@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-sidebar--fully-collapsible",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "story_id": "components-sidebar--fully-collapsible",
+  "story_name": "Fully Collapsible",
+  "export_name": "FullyCollapsible",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-sidebar--fully-collapsible&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-sidebar--fully-collapsible&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Sidebar.stories-B82TPxCS.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--fully-collapsible.iframe.html",
+    "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{collapsible:{control:\"boolean\",description:\"Enable collapse/expand functionality\"},defaultCollapsed:{control:\"boolean\",description:\"Initial collapsed state\"},sticky:{control:\"boolean\",description:\"Sticky positioning at top of viewport\"},fullyCollapsible:{control:\"boolean\",description:\"Completely hide sidebar when collapsed (zero width). Use with controlled mode.\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoSmallSrc:{control:{type:\"file\",accept:\".png,.svg\"}}}",
+    "fields": [
+      "collapsible",
+      "defaultCollapsed",
+      "sticky",
+      "fullyCollapsible",
+      "logoSrc",
+      "logoSmallSrc"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: function Render() {\n    const sanofiLogo = useGetSanofiLogo();\n    const sanofiLogoSmall = useGetSanofiLogoSmall();\n    return <Flex style={{\n      height: \"100vh\"\n    }}>\n        <Sidebar.Root collapsible fullyCollapsible>\n          <Sidebar.Header logo={{\n          expanded: <Image src={sanofiLogo} alt=\"Sanofi Logo\" />,\n          collapsed: <Image src={sanofiLogoSmall} alt=\"Sanofi Logo Collapsed\" />\n        }} />\n          <Sidebar.Content>\n            <Sidebar.Section title=\"Navigation\">\n              <Sidebar.Item icon={IconName.HOME}>Home</Sidebar.Item>\n              <Sidebar.Item icon={IconName.SETTINGS}>Settings</Sidebar.Item>\n            </Sidebar.Section>\n\n            <Sidebar.Section title=\"Projects\">\n              <Sidebar.Item icon={IconName.FOLDER}>Project Alpha</Sidebar.Item>\n              <Sidebar.Item icon={IconName.FOLDER}>Project Beta</Sidebar.Item>\n            </Sidebar.Section>\n          </Sidebar.Content>\n\n          <Sidebar.Footer>\n            <Sidebar.Item icon={IconName.HELP}>Help Center</Sidebar.Item>\n            <Sidebar.UserProfile name=\"Marie Curie\" email=\"marie.curie@sanofi.com\" avatarSrc={\\`\\${SANOFI_ELEMENTS_CDN_URL}/images/Marie-Curie-avatar.jpeg\\`} icon={<Icon name={IconName.LOGOUT} />} tooltip=\"Log out\" />\n          </Sidebar.Footer>\n        </Sidebar.Root>\n\n        <Flex flex={1} direction=\"column\" style={{\n        padding: \"var(--elements-spacing-5xl)\"\n      }}>\n          <Typography color={TypographyColor.DEFAULT}>\n            <strong>Fully Collapsible - Uncontrolled Mode:</strong>\n          </Typography>\n          <br />\n          <Typography color={TypographyColor.DEFAULT}>\n            The sidebar manages its own state internally. When collapsed, a\n            floating toggle button appears automatically.\n          </Typography>\n          <br />\n          <Typography color={TypographyColor.DEFAULT}>\n            <strong>Try this:</strong>\n          </Typography>\n          <ul style={{\n          marginInlineStart: \"var(--elements-spacing-xl)\"\n        }}>\n            <li>\n              <Typography color={TypographyColor.DEFAULT}>\n                <strong>Click the toggle</strong> in the header to collapse\n              </Typography>\n            </li>\n            <li>\n              <Typography color={TypographyColor.DEFAULT}>\n                The <strong>floating button appears automatically</strong> (no\n                custom code needed)\n              </Typography>\n            </li>\n          </ul>\n        </Flex>\n      </Flex>;\n  },\n  parameters: {\n    docs: {\n      description: {\n        story: \"Uncontrolled fully collapsible mode: the sidebar manages its own state and automatically displays a floating toggle when collapsed. No external state management required.\"\n      }\n    }\n  }\n}",
+    "story_object_source": "{render:function(){const s=u(),a=E();return e.jsxs(S,{style:{height:\"100vh\"},children:[e.jsxs(o.Root,{collapsible:!0,fullyCollapsible:!0,children:[e.jsx(o.Header,{logo:{expanded:e.jsx(d,{src:s,alt:\"Sanofi Logo\"}),collapsed:e.jsx(d,{src:a,alt:\"Sanofi Logo Collapsed\"})}}),e.jsxs(o.Content,{children:[e.jsxs(o.Section,{title:\"Navigation\",children:[e.jsx(o.Item,{icon:n.HOME,children:\"Home\"}),e.jsx(o.Item,{icon:n.SETTINGS,children:\"Settings\"})]}),e.jsxs(o.Section,{title:\"Projects\",children:[e.jsx(o.Item,{icon:n.FOLDER,children:\"Project Alpha\"}),e.jsx(o.Item,{icon:n.FOLDER,children:\"Project Beta\"})]})]}),e.jsxs(o.Footer,{children:[e.jsx(o.Item,{icon:n.HELP,children:\"Help Center\"}),e.jsx(o.UserProfile,{name:\"Marie Curie\",email:\"marie.curie@sanofi.com\",avatarSrc:`${g}/images/Marie-Curie-avatar.jpeg`,icon:e.jsx(h,{name:n.LOGOUT}),tooltip:\"Log out\"})]})]}),e.jsxs(S,{flex:1,direction:\"column\",style:{padding:\"var(--elements-spacing-5xl)\"},children:[e.jsx(i,{color:r.DEFAULT,children:e.jsx(\"strong\",{children:\"Fully Collapsible - Uncontrolled Mode:\"})}),e.jsx(\"br\",{}),e.jsx(i,{color:r.DEFAULT,children:\"The sidebar manages its own state internally. When collapsed, a floating toggle button appears automatically.\"}),e.jsx(\"br\",{}),e.jsx(i,{color:r.DEFAULT,children:e.jsx(\"strong\",{children:\"Try this:\"})}),e.jsxs(\"ul\",{style:{marginInlineStart:\"var(--elements-spacing-xl)\"},children:[e.jsx(\"li\",{children:e.jsxs(i,{color:r.DEFAULT,children:[e.jsx(\"strong\",{children:\"Click the toggle\"}),\" in the header to collapse\"]})}),e.jsx(\"li\",{children:e.jsxs(i,{color:r.DEFAULT,children:[\"The \",e.jsx(\"strong\",{children:\"floating button appears automatically\"}),\" (no custom code needed)\"]})})]})]})]})},parameters:{docs:{description:{story:\"Uncontrolled fully collapsible mode: the sidebar manages its own state and automatically displays a floating toggle when collapsed. No external state management required.\"}}}}"
+  },
+  "template": {
+    "id": "sidebar-fully-collapsible-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/sidebar/templates/html.fully-collapsible.template.html",
+    "output_path": "design-system-plugin/outputs/html/sidebar-fully-collapsible.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "sidebar",
+    "local_path": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "story_id": "components-sidebar--fully-collapsible",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--fully-collapsible.iframe.html"
+  }
+}

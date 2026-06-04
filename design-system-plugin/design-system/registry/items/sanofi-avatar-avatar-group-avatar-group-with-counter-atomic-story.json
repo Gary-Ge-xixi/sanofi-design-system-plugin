@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-avatar-avatar-group-avatar-group-with-counter-atomic-story",
+  "title": "Avatar/AvatarGroup Avatar Group With Counter atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-avatar-avatargroup--avatar-group-with-counter.",
+  "atomic_story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+  "component_id": "avatar-avatar-group",
+  "docs_id": "components-avatar-avatargroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-avatar-avatar-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-with-counter.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-with-counter.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/AvatarGroup.stories-C5P1GavF.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/AvatarGroup.stories-C5P1GavF.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/components-avatar-avatargroup--avatar-group-with-counter.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/components-avatar-avatargroup--avatar-group-with-counter.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/templates/html.avatar-group-with-counter.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/templates/html.avatar-group-with-counter.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-with-counter.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-avatar-avatargroup--avatar-group-with-counter&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-avatar-avatargroup--avatar-group-with-counter&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/AvatarGroup.stories-C5P1GavF.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/AvatarGroup.stories-C5P1GavF.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "avatar-avatar-group",
+      "Avatar/AvatarGroup",
+      "Avatar Group With Counter",
+      "components-avatar-avatargroup--avatar-group-with-counter",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Avatar/AvatarGroup Avatar Group With Counter Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

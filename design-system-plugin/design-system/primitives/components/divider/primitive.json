@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Divider",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Divider",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/divider.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "divider",
+      "data_attribute": "data-primitive=\"divider\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-divider--custom-width",
+      "components-divider--default",
+      "components-divider--inverse",
+      "components-divider--orientation",
+      "components-divider--overview"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-divider--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/divider.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

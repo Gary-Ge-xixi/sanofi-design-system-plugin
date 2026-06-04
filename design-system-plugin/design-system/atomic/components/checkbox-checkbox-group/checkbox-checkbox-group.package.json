@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "checkbox-checkbox-group-complete-standard-package",
+  "component_id": "checkbox-checkbox-group",
+  "component_name": "Checkbox/CheckboxGroup",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-checkbox-checkboxgroup--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/docs/checkbox-checkbox-group.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-checkbox-checkboxgroup--horizontal",
+      "story_name": "Horizontal",
+      "export_name": "Horizontal",
+      "semantic_type": "variant",
+      "variant": "horizontal",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--horizontal.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-horizontal.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-checkbox-checkboxgroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--neutral-color",
+      "story_name": "Neutral Color",
+      "export_name": "NeutralColor",
+      "semantic_type": "variant",
+      "variant": "neutral-color",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--neutral-color.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-neutral-color.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-checkbox-checkboxgroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--small-size",
+      "story_name": "Small Size",
+      "export_name": "SmallSize",
+      "semantic_type": "variant",
+      "variant": "small-size",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--small-size.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-small-size.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-checkbox-checkboxgroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--vertical",
+      "story_name": "Vertical",
+      "export_name": "Vertical",
+      "semantic_type": "variant",
+      "variant": "vertical",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/stories/components-checkbox-checkboxgroup--vertical.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-vertical.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-checkbox-checkboxgroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox-checkbox-group/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/checkbox-checkbox-group.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/checkbox-checkbox-group-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-checkbox-checkboxgroup--horizontal",
+        "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-horizontal.atomic.html"
+      },
+      {
+        "story_id": "components-checkbox-checkboxgroup--neutral-color",
+        "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-neutral-color.atomic.html"
+      },
+      {
+        "story_id": "components-checkbox-checkboxgroup--small-size",
+        "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-small-size.atomic.html"
+      },
+      {
+        "story_id": "components-checkbox-checkboxgroup--vertical",
+        "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-vertical.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-checkbox-checkbox-group-complete-package.json",
+    "story_item_prefix": "sanofi-checkbox-checkbox-group-"
+  },
+  "validation": {
+    "required_story_count": 4,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox-checkboxgroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/checkbox-checkbox-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/docs/checkbox-checkbox-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox-checkbox-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

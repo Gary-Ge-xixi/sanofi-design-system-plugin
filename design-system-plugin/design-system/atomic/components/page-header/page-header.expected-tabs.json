@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "page-header",
+  "component_name": "PageHeader",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/PageHeader"
+  },
+  "docs": [
+    {
+      "id": "components-pageheader--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/PageHeader/PageHeader.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-pageheader--container-type-fixed",
+      "name": "Container Type Fixed",
+      "export_name": "ContainerTypeFixed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/PageHeader/PageHeader.stories.tsx"
+    },
+    {
+      "id": "components-pageheader--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/PageHeader/PageHeader.stories.tsx"
+    },
+    {
+      "id": "components-pageheader--title-custom",
+      "name": "Title Custom",
+      "export_name": "TitleCustom",
+      "semantic_type": "variant",
+      "import_path": "./src/components/PageHeader/PageHeader.stories.tsx"
+    }
+  ]
+}

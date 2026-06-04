@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Accordion",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Accordion",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "accordion",
+      "data_attribute": "data-primitive=\"accordion\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-accordion--default",
+      "components-accordion--medium-accordion-with-slots",
+      "components-accordion--small-accordion"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

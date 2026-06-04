@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.1.0",
+  "id": "search-input-complete-standard-package",
+  "component_id": "search-input",
+  "component_name": "SearchInput",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-searchinput--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/search-input/docs/search-input.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-searchinput--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--disabled",
+      "story_name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "variant": "disabled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--disabled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-disabled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--error-state",
+      "story_name": "Error State",
+      "export_name": "ErrorState",
+      "semantic_type": "variant",
+      "variant": "error-state",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--error-state.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-error-state.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--inverse",
+      "story_name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "variant": "inverse",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--inverse.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-inverse.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--sizes",
+      "story_name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "variant": "sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--submit-variant",
+      "story_name": "Submit Variant",
+      "export_name": "SubmitVariant",
+      "semantic_type": "variant",
+      "variant": "submit-variant",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--submit-variant.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-submit.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--submit-variant-sizes",
+      "story_name": "Submit Variant Sizes",
+      "export_name": "SubmitVariantSizes",
+      "semantic_type": "variant",
+      "variant": "submit-variant-sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--submit-variant-sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-submit-variant-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--submit-with-button-icon",
+      "story_name": "Submit With Button Icon",
+      "export_name": "SubmitWithButtonIcon",
+      "semantic_type": "variant",
+      "variant": "submit-with-button-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--submit-with-button-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-submit.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-searchinput--submit-with-custom-buttons",
+      "story_name": "Submit With Custom Buttons",
+      "export_name": "SubmitWithCustomButtons",
+      "semantic_type": "variant",
+      "variant": "submit-with-custom-buttons",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--submit-with-custom-buttons.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/search-input-submit.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-searchinput--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/search-input/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/search-input/search-input.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/search-input-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-searchinput--default",
+        "output_path": "design-system-plugin/outputs/html/search-input-default.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--disabled",
+        "output_path": "design-system-plugin/outputs/html/search-input-disabled.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--error-state",
+        "output_path": "design-system-plugin/outputs/html/search-input-error-state.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--inverse",
+        "output_path": "design-system-plugin/outputs/html/search-input-inverse.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--sizes",
+        "output_path": "design-system-plugin/outputs/html/search-input-sizes.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--submit-variant",
+        "output_path": "design-system-plugin/outputs/html/search-input-submit.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--submit-variant-sizes",
+        "output_path": "design-system-plugin/outputs/html/search-input-submit-variant-sizes.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--submit-with-button-icon",
+        "output_path": "design-system-plugin/outputs/html/search-input-submit.atomic.html"
+      },
+      {
+        "story_id": "components-searchinput--submit-with-custom-buttons",
+        "output_path": "design-system-plugin/outputs/html/search-input-submit.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-search-input-complete-package.json",
+    "story_item_prefix": "sanofi-search-input-"
+  },
+  "validation": {
+    "required_story_count": 9,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/search-input/search-input.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/search-input/docs/search-input.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Accordion",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-accordion--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-accordion--medium-accordion-with-slots",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-accordion--small-accordion",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

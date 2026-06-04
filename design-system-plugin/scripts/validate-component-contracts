@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const indexPath = path.join(pluginRoot, "design-system", "contracts", "components", "component-contract-index.json");
+const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "component-contract.schema.json");
+const primitiveIndexPath = path.join(pluginRoot, "design-system", "primitives", "primitive-index.json");
+const reportPath = path.join(reportDir, "component-contract-validation.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(indexPath)) failures.push("missing component-contract-index.json");
+
+const index = fs.existsSync(indexPath) ? readJson(indexPath) : { contracts: [], primitive_coverage: [] };
+const schema = readJson(schemaPath);
+const primitiveIndex = readJson(primitiveIndexPath);
+const requiredFields = schema.required_fields || [];
+
+if ((index.contracts || []).length < 95) {
+  failures.push(`expected at least 95 component contracts, found ${(index.contracts || []).length}`);
+}
+
+const primitiveCoverage = new Map((index.primitive_coverage || []).map((item) => [item.id, item]));
+for (const primitive of primitiveIndex.primitives || []) {
+  const coverage = primitiveCoverage.get(primitive.id);
+  if (!coverage || !coverage.covered_by_contracts?.length) {
+    failures.push(`primitive not covered by contracts: ${primitive.id}`);
+  }
+}
+
+let checkedContracts = 0;
+let propsExtracted = 0;
+for (const record of index.contracts || []) {
+  if (!record.local_contract_path || !exists(record.local_contract_path)) {
+    failures.push(`missing contract file: ${record.id}`);
+    continue;
+  }
+  const contract = readJson(path.join(workspaceRoot, record.local_contract_path));
+  checkedContracts += 1;
+  for (const field of requiredFields) {
+    if (!(field in contract)) failures.push(`${record.id} missing field ${field}`);
+  }
+  if (!contract.docs?.storybook_id || contract.docs.storybook_id === "unknown") {
+    failures.push(`${record.id} missing docs provenance`);
+  }
+  if (!contract.source_provenance?.token_source) {
+    failures.push(`${record.id} missing token source provenance`);
+  }
+  if (!Array.isArray(contract.unknowns)) failures.push(`${record.id} unknowns must be array`);
+  if (contract.props?.extraction_status === "extracted") propsExtracted += 1;
+}
+
+if (!propsExtracted) failures.push("no contracts extracted props from docs");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-component-contracts",
+  checked: {
+    contracts: checkedContracts,
+    primitive_coverage: index.primitive_coverage?.length || 0,
+    props_extracted_contracts: propsExtracted
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Component contract validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Component contracts OK: ${checkedContracts} contracts`);

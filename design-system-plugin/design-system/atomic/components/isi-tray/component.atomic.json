@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "isi-tray",
+  "component_name": "ISI Tray",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-isi-tray--isi",
+      "story_name": "ISI",
+      "component_id": "isi-tray",
+      "component_name": "ISI Tray",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/stories/components-isi-tray--isi.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/isi-tray/templates/html.isi.template.html",
+      "output_path": "design-system-plugin/outputs/html/isi-tray-isi.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+      "docs_id": "components-isi-tray--docs",
+      "registry_item": "sanofi-isi-tray-isi-atomic-story"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-content-and-indication",
+      "story_name": "ISI With Content And Indication",
+      "component_id": "isi-tray",
+      "component_name": "ISI Tray",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/stories/components-isi-tray--isi-with-content-and-indication.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/isi-tray/templates/html.isi-with-content-and-indication.template.html",
+      "output_path": "design-system-plugin/outputs/html/isi-tray-isi-with-content-and-indication.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+      "docs_id": "components-isi-tray--docs",
+      "registry_item": "sanofi-isi-tray-isi-with-content-and-indication-atomic-story"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-indication",
+      "story_name": "ISI With Indication",
+      "component_id": "isi-tray",
+      "component_name": "ISI Tray",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/stories/components-isi-tray--isi-with-indication.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/isi-tray/templates/html.isi-with-indication.template.html",
+      "output_path": "design-system-plugin/outputs/html/isi-tray-isi-with-indication.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+      "docs_id": "components-isi-tray--docs",
+      "registry_item": "sanofi-isi-tray-isi-with-indication-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-isi-tray--docs"
+  }
+}

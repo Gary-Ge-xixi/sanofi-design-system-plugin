@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-status",
+  "component_name": "ChipStatus",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ChipStatus"
+  },
+  "docs": [
+    {
+      "id": "components-chipstatus--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ChipStatus/ChipStatus.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-chipstatus--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipStatus/ChipStatus.stories.tsx"
+    },
+    {
+      "id": "components-chipstatus--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipStatus/ChipStatus.stories.tsx"
+    },
+    {
+      "id": "components-chipstatus--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipStatus/ChipStatus.stories.tsx"
+    },
+    {
+      "id": "components-chipstatus--style-gallery",
+      "name": "Style Variations",
+      "export_name": "StyleGallery",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipStatus/ChipStatus.stories.tsx"
+    }
+  ]
+}

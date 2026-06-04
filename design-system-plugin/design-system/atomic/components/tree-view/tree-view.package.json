@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tree-view-complete-standard-package",
+  "component_id": "tree-view",
+  "component_name": "TreeView",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-treeview--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/tree-view/docs/tree-view.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-treeview--color-accent",
+      "story_name": "Color Accent",
+      "export_name": "ColorAccent",
+      "semantic_type": "variant",
+      "variant": "color-accent",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--color-accent.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-color-accent.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-treeview--custom-leading-visuals",
+      "story_name": "Custom Leading Visuals",
+      "export_name": "CustomLeadingVisuals",
+      "semantic_type": "variant",
+      "variant": "custom-leading-visuals",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--custom-leading-visuals.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-custom-leading-visuals.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-treeview--decorations",
+      "story_name": "Decorations",
+      "export_name": "Decorations",
+      "semantic_type": "variant",
+      "variant": "decorations",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--decorations.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-decorations.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-treeview--file-explorer",
+      "story_name": "File Explorer",
+      "export_name": "FileExplorer",
+      "semantic_type": "variant",
+      "variant": "file-explorer",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--file-explorer.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-file-explorer.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-treeview--inside-sidebar",
+      "story_name": "Inside Sidebar",
+      "export_name": "InsideSidebar",
+      "semantic_type": "variant",
+      "variant": "inside-sidebar",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--inside-sidebar.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-inside-sidebar.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-treeview--playground",
+      "story_name": "Playground",
+      "export_name": "Playground",
+      "semantic_type": "variant",
+      "variant": "playground",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--playground.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-playground.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-treeview--rtl",
+      "story_name": "RTL",
+      "export_name": "RTL",
+      "semantic_type": "variant",
+      "variant": "rtl",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--rtl.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tree-view-rtl.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-treeview--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/tree-view/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/tree-view-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-treeview--color-accent",
+        "output_path": "design-system-plugin/outputs/html/tree-view-color-accent.atomic.html"
+      },
+      {
+        "story_id": "components-treeview--custom-leading-visuals",
+        "output_path": "design-system-plugin/outputs/html/tree-view-custom-leading-visuals.atomic.html"
+      },
+      {
+        "story_id": "components-treeview--decorations",
+        "output_path": "design-system-plugin/outputs/html/tree-view-decorations.atomic.html"
+      },
+      {
+        "story_id": "components-treeview--file-explorer",
+        "output_path": "design-system-plugin/outputs/html/tree-view-file-explorer.atomic.html"
+      },
+      {
+        "story_id": "components-treeview--inside-sidebar",
+        "output_path": "design-system-plugin/outputs/html/tree-view-inside-sidebar.atomic.html"
+      },
+      {
+        "story_id": "components-treeview--playground",
+        "output_path": "design-system-plugin/outputs/html/tree-view-playground.atomic.html"
+      },
+      {
+        "story_id": "components-treeview--rtl",
+        "output_path": "design-system-plugin/outputs/html/tree-view-rtl.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-tree-view-complete-package.json",
+    "story_item_prefix": "sanofi-tree-view-"
+  },
+  "validation": {
+    "required_story_count": 7,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tree-view/docs/tree-view.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

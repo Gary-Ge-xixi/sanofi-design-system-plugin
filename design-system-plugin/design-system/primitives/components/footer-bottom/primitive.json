@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Footer.Bottom",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Footer.Bottom",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-bottom.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "footer-bottom",
+      "data_attribute": "data-primitive=\"footer-bottom\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-footer-bottom--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-bottom--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-bottom.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.1.0",
+  "id": "theme-provider-docs-contract",
+  "component_id": "theme-provider",
+  "component_name": "ThemeProvider",
+  "docs_id": "components-themeprovider--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-themeprovider--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-themeprovider--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "object",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "theme",
+        "required": false,
+        "description": "string \\",
+        "default": "DeepPartial<Theme>",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "description": "\"auto\"\"light\"\"dark\"",
+        "default": "\"light\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-themeprovider--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { ThemeProvider, AppTheme } from \"@sanofi-accelerator/elements\";\n\n// Apply Dupixent brand theme\n<ThemeProvider appTheme={AppTheme.DUPIXENT}>\n<App />\n</ThemeProvider>\n\n// Or use Tzield theme\n<ThemeProvider appTheme={AppTheme.TZIELD}>\n<App />\n</ThemeProvider>",
+      "const themeConfig = {\ncolor: {\n  core: {\n    brand: {\n      base: \"#7a00e6\",\n      dark: \"#5718b0\",\n      darker: \"#3c217b\",\n      darkest: \"#23004c\",\n      darkest_alpha: \"#23004c14\",\n      light: \"#8966db\",\n      lighter: \"#b3a8e6\",\n      lightest: \"#faf5ff\",\n      lightest_alpha: \"#faf5ff14\"\n    },\n    brand_secondary: {\n      base: \"#007E60\",\n      dark: \"#0D5B44\",\n      darker: \"#0A4836\",\n      darkest: \"#003D2F\",\n      darkest_alpha: \"#003D2F14\",\n      light: \"#31C499\",\n      lighter: \"#8BE2C8\",\n      lightest: \"#F5FFFC\",\n      lightest_alpha: \"#F5FFFC14\"\n    }\n  }\n}\n}\nexport const default () => (\n<ThemeProvider theme={createTheme(themeConfig)} mode: \"light\">{app}</ThemeProvider>\n);",
+      "export type ThemeConfig = {\n  font?: {\n    lineheight?: {\n      \"1\"?: string;\n      \"2\"?: string;\n      \"3\"?: string;\n      \"4\"?: string;\n      \"5\"?: string;\n      \"6\"?: string;\n      \"7\"?: string;\n      \"8\"?: string;\n      \"9\"?: string;\n      \"10\"?: string;\n      \"11\"?: string;\n    };\n    weight?: {\n      bold?: string;\n      regular?: string;\n      light?: string;\n    };\n    size?: {\n      \"100\"?: string;\n      \"200\"?: string;\n      \"300\"?: string;\n      \"400\"?: string;\n      \"500\"?: string;\n      \"600\"?: string;\n      \"700\"?: string;\n      \"800\"?: string;\n      \"900\"?: string;\n      \"1000\"?: string;\n      \"1100\"?: string;\n      \"1200\"?: string;\n      \"1300\"?: string;\n      \"1400\"?: string;\n      \"1500\"?: string;\n    };\n    family?: {\n      serif?: string;\n      sans?: string;\n    };\n  };\n  color?: {\n    core?: {\n      neutral?: {\n        \"50\"?: string;\n        \"100\"?: string;\n        \"200\"?: string;\n        \"300\"?: string;\n        \"400\"?: string;\n        \"500\"?: string;\n        \"600\"?: string;\n        \"700\"?: string;\n        \"800\"?: string;\n        \"900\"?: string;\n        white?: string;\n        black?: string;\n      };\n      brand?: {\n        base?: string;\n        lightest?: string;\n        dark?: string;\n        darkest?: string;\n        light?: string;\n        darker?: string;\n        lightest_alpha?: string;\n        lighter?: string;\n        darkest_alpha?: string;\n      };\n      blue?: {\n        lightest?: string;\n        lightest_alpha?: string;\n        dark?: string;\n        lighter?: string;\n        darker?: string;\n        darkest_alpha?: string;\n        light?: string;\n        base?: string;\n        darkest?: string;\n      };\n      green?: {\n        light?: string;\n        darker?: string;\n        darkest_alpha?: string;\n        base?: string;\n        darkest?: string;\n        lighter?: string;\n        lightest?: string;\n        dark?: string;\n        lightest_alpha?: string;\n      };\n      red?: {\n        light?: string;\n        base?: string;\n        darker?: string;\n        dark?: string;\n        lightest?: string;\n        darkest?: string;\n        lightest_alpha?: string;\n        darkest_alpha?: string;\n        lighter?: string;\n      };\n      orange?: {\n        base?: string;\n        dark?: string;\n        light?: string;\n        lighter?: string;\n        darker?: string;\n        darkest_alpha?: string;\n        lightest?: string;\n        darkest?: string;\n        lightest_alpha?: string;\n      };\n    };\n    semantic?: {\n      accent?: {\n        disabled?: string;\n        default?: string;\n        hover?: string;\n        inverse_hover?: string;\n        focus?: string;\n        active?: string;\n        inverse?: string;\n      };\n      background?: {\n        subtle?: string;\n        infoSubtle?: string;\n        error?: string;\n        default?: string;\n        alert?: string;\n        overlayWhiteStrong?: string;\n        overlayBlackStrong?: string;\n        overlayWhiteLight?: string;\n        errorSubtle?: string;\n        brand?: string;\n        successSubtle?: string;\n        overlayBlackLight?: string;\n        success?: string;\n        alertSubtle?: string;\n        info?: string;\n      };\n      text?: {\n        highlight_inverse?: string;\n        default?: string;\n        success_inverse?: string;\n        accentDefault?: string;\n        error_inverse?: string;\n        accentHover?: string;\n        info?: string;\n        disabled?: string;\n        subtle_inverse?: string;\n        helper?: string;\n        helper_inverse?: string;\n        disabled_inverse?: string;\n        subtle?: string;\n        highlight?: string;\n        strong?: string;\n        accentActive?: string;\n        alert_inverse?: string;\n        error?: string;\n        info_inverse?: string;\n        alert?: string;\n        success?: string;\n        default_inverse?: string;\n      };\n      border?: {\n        default?: string;\n        highlight?: string;\n        error?: string;\n        success?: string;\n        subtle?: string;\n      };\n      destruct?: {\n        active_inverse?: string;\n        default?: string;\n        hover_inverse?: string;\n        hover?: string;\n        active?: string;\n        default_inverse?: string;\n      };\n    };\n  };\n  motion?: {\n    duration?: {\n      \"150\"?: string;\n      \"300\"?: string;\n      \"500\"?: string;\n      \"750\"?: string;\n      \"1000\"?: string;\n      \"1500\"?: string;\n      \"2500\"?: string;\n    };\n    ease?: {\n      linear?: string;\n      outBounce?: string;\n      out?: string;\n      inOut?: string;\n      inOutBounce?: string;\n      in?: string;\n      inBounce?: string;\n    };\n  };\n  radius?: {\n    none?: string;\n    sm?: string;\n    rounded?: string;\n    md?: string;\n    xl?: string;\n    lg?: string;\n  };\n  spacing?: {\n    lg?: string;\n    xl?: string;\n    \"3xl\"?: string;\n    \"5xl\"?: string;\n    sm?: string;\n    \"4xl\"?: string;\n    md?: string;\n    xs?: string;\n    none?: string;\n    \"6xl\"?: string;\n    \"2xs\"?: string;\n    \"3xs\"?: string;\n    \"2xl\"?: string;\n  };\n}"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-themeprovider--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/ThemeProvider/ThemeProvider.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-themeprovider--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-themeprovider--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/theme-provider.contract.json"
+  }
+}

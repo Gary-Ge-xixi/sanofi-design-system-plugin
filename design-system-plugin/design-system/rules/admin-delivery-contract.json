@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-delivery-contract",
+  "severity": "error",
+  "status": "ready",
+  "applies_to": [
+    "admin-dashboard",
+    "report-dashboard"
+  ],
+  "source_provenance": {
+    "layout_docs_id": "foundations-layout--docs",
+    "grid_docs_id": "components-grid--docs",
+    "icon_docs_id": "components-icon--docs"
+  },
+  "delivery_contract": {
+    "viewport_policy": "desktop-only",
+    "mobile_delivery": "explicit-request-only",
+    "required_screenshot_viewports": [
+      {
+        "name": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "required_asset_primitives": [
+      "icon"
+    ],
+    "required_story_ids": [
+      "components-icon--gallery"
+    ],
+    "forbidden_responsive_fragments": [
+      "@media",
+      "max-width",
+      "min-width"
+    ],
+    "forbidden_story_ids": [
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-navigationheader--mobile-view"
+    ],
+    "forbidden_glyph_fallbacks": [
+      "□",
+      "▦",
+      "▤",
+      "▥",
+      "▣",
+      "⌂",
+      "✓",
+      "◈"
+    ],
+    "required_html_markers": [
+      "data-template=\"onecommercial-admin\"",
+      "data-pattern=\"admin-dashboard\"",
+      "data-primitive=\"icon\"",
+      "data-story-id=\"components-icon--gallery\"",
+      "data-container-part=\"contentContainer\"",
+      "data-grid-part=\"root\"",
+      "data-grid-part=\"item\"",
+      "data-component-contract=\"Grid.Item\""
+    ],
+    "allowed_page_markers": [
+      "name=\"viewport\""
+    ]
+  },
+  "generation_policy": [
+    "Admin dashboard HTML is a desktop backend handoff artifact by default.",
+    "Do not introduce mobile breakpoints, hidden sidebar breakpoints, or mobile Storybook story provenance unless the request explicitly asks for mobile delivery.",
+    "Visible navigation and action icons must be rendered through the Icon primitive and must not use text glyph placeholders.",
+    "Container and Grid must preserve docs-backed component structure: Container root/contentContainer and Grid.Root/Grid.Item equivalents are required."
+  ]
+}

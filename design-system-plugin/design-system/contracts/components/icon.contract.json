@@ -1,0 +1,195 @@
+{
+  "schema_version": "0.1.0",
+  "id": "icon",
+  "canonical_name": "icon",
+  "component_name": "Icon",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-icon--docs",
+    "title": "Icon",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-icon--docs",
+    "import_path": "./src/components/Icon/Icon.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-icon--custom-icon",
+      "components-icon--fallback-icons",
+      "components-icon--gallery"
+    ],
+    "records": [
+      {
+        "id": "components-icon--custom-icon",
+        "name": "Custom Icon",
+        "normalized_name": "custom-icon",
+        "import_path": "./src/components/Icon/Icon.stories.tsx",
+        "export_name": "CustomIcon"
+      },
+      {
+        "id": "components-icon--fallback-icons",
+        "name": "Fallback Icons",
+        "normalized_name": "fallback-icons",
+        "import_path": "./src/components/Icon/Icon.stories.tsx",
+        "export_name": "FallbackIcons"
+      },
+      {
+        "id": "components-icon--gallery",
+        "name": "Gallery",
+        "normalized_name": "gallery",
+        "import_path": "./src/components/Icon/Icon.stories.tsx",
+        "export_name": "Gallery"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "name",
+        "required": true,
+        "description": "The icon name\"error\"\"warning\"IconName\"abc\"\"access_time\"\"accessibility\"\"account_balance\"\"account_circle\"\"add\"\"add_circle\"\"add_circle_outline\"\"add_comment\"... 482 more ...IconNameCustomShow 6 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "The icon size in remnumber",
+        "default": "1.5",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "description": "The inverse color iconboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "filled",
+        "required": false,
+        "description": "Should the icon be filledboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "aria-hidden",
+        "required": false,
+        "description": "Indicates whether the element is exposed to an accessibility API.Booleanish",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "MouseEventHandler<HTMLSpanElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inputSize",
+        "required": false,
+        "description": "\"small\"\"medium\"\"large\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "custom-icon",
+      "fallback-icons",
+      "gallery"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "custom-icon",
+      "fallback-icons",
+      "gallery"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Icon, IconName } from \"@sanofi-accelerator/elements\";\n\n// Basic usage\n\n<Icon name={IconName.SEARCH} />\n\n// With size\n\n<Icon name={IconName.HOME} size={2} />\n\n// Outlined variant\n\n<Icon name={IconName.FAVORITE} filled={false} />\n\n// Inverse for dark backgrounds\n\n<Icon name={IconName.SETTINGS} inverse />\n\n// Social icon\n\n<Icon name={IconName.ELEMENTS_FACEBOOK} />",
+      "import { Icon, IconNameCustom } from \"@sanofi-accelerator/elements\";\n\n// Default color (inherits from parent)\n<Icon name={IconNameCustom.HOME_HEALTH_UNREAD} />\n\n// Custom color via style prop\n<Icon\n  name={IconNameCustom.HOME_HEALTH_UNREAD}\n  style={{ color: \"var(--elements-color-semantic-accent-default)\" }}\n/>\n\n// Custom color via CSS class\n<Icon name={IconNameCustom.HOME_HEALTH_UNREAD} className=\"my-icon-class\" />",
+      "// Interactive icon - needs aria-label\n<button aria-label=\"Search\">\n  <Icon name={IconName.SEARCH} aria-hidden />\n</button>\n\n// Decorative icon - hidden from screen readers\n<Icon name={IconName.STAR} aria-hidden />"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "icon"
+    ],
+    "contracts": [
+      {
+        "id": "icon",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/icon/demo.registry.json",
+        "known_story_ids": [
+          "components-icon--custom-icon",
+          "components-icon--fallback-icons",
+          "components-icon--gallery",
+          "components-icon--custom-icon",
+          "components-icon--fallback-icons",
+          "components-icon--gallery"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-icon--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md",
+    "docs_import_path": "./src/components/Icon/Icon.mdx",
+    "story_ids": [
+      "components-icon--custom-icon",
+      "components-icon--fallback-icons",
+      "components-icon--gallery"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

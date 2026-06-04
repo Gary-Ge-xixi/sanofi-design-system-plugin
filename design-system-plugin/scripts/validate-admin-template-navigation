@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulesPath = path.join(pluginRoot, "design-system", "rules", "admin-template-navigation.json");
+const reportPath = path.join(reportDir, "admin-template-navigation.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function sidebarHtml(source) {
+  const match = source.match(/<aside\b[\s\S]*?<\/aside>/i);
+  return match ? match[0] : "";
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const sidebar = sidebarHtml(html);
+const rules = readJson(rulesPath);
+const failures = [];
+
+for (const marker of rules.html_contract.required_attributes || []) {
+  if (!html.includes(marker)) failures.push(`missing admin template marker: ${marker}`);
+}
+
+if (!sidebar) failures.push("missing sidebar aside");
+for (const marker of rules.html_contract.forbidden_sidebar_attributes || []) {
+  if (sidebar.includes(marker)) failures.push(`sidebar must not contain ${marker}`);
+}
+
+if (!/aria-current=["']page["']/i.test(sidebar)) {
+  failures.push("sidebar navigation requires one current page item");
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-admin-template-navigation",
+  target: path.relative(pluginRoot, target),
+  rule: rules.id,
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    has_sidebar: Boolean(sidebar),
+    sidebar_length: sidebar.length
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Admin template navigation validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Admin template navigation OK: ${path.relative(pluginRoot, target)}`);

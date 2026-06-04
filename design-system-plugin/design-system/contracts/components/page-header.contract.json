@@ -1,0 +1,200 @@
+{
+  "schema_version": "0.1.0",
+  "id": "page-header",
+  "canonical_name": "page-header",
+  "component_name": "PageHeader",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-pageheader--docs",
+    "title": "PageHeader",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-pageheader--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-pageheader--docs",
+    "import_path": "./src/components/PageHeader/PageHeader.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-pageheader--container-type-fixed",
+      "components-pageheader--default",
+      "components-pageheader--title-custom"
+    ],
+    "records": [
+      {
+        "id": "components-pageheader--container-type-fixed",
+        "name": "Container Type Fixed",
+        "normalized_name": "container-type-fixed",
+        "import_path": "./src/components/PageHeader/PageHeader.stories.tsx",
+        "export_name": "ContainerTypeFixed"
+      },
+      {
+        "id": "components-pageheader--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/PageHeader/PageHeader.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-pageheader--title-custom",
+        "name": "Title Custom",
+        "normalized_name": "title-custom",
+        "import_path": "./src/components/PageHeader/PageHeader.stories.tsx",
+        "export_name": "TitleCustom"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "backNavigationLink",
+        "required": false,
+        "description": "Back navigation link element.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": true,
+        "description": "Main page title (required).ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "description",
+        "required": false,
+        "description": "Description text below the title.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "eyebrows",
+        "required": false,
+        "description": "Eyebrow labels above the title.Eyebrow[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "searchInput",
+        "required": false,
+        "description": "Search input element.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tabs",
+        "required": false,
+        "description": "Tabs component for sub-navigation.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "actionButtons",
+        "required": false,
+        "description": "Action buttons displayed on the right.ReactNode[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "iconButton",
+        "required": false,
+        "description": "Icon button (e.g., settings, more options).ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "containerType",
+        "required": false,
+        "description": "Container width behavior.\"fixed\"\"fluid\"",
+        "default": "\"\\\"fluid\\\"\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "container-type-fixed",
+      "default",
+      "title-custom"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "container-type-fixed",
+      "default",
+      "title-custom"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import {\n    PageHeader,\n    IconName,\n    IconPosition,\n    LinkSize,\n    Tabs,\n    Tab,\n    LinkStandalone,\n    SearchInput,\n    InputSize,\n    Button,\n    ButtonVariant\n} from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <PageHeader\n    backNavigationLink={\n        <LinkStandalone\n            iconName={IconName.ARROW_BACK}\n            iconPosition={IconPosition.START}\n            size={LinkSize.SMALL}\n        >\n            Back\n        </LinkStandalone>\n    }\n    title=\"Page title\"\n    description=\"Page description can go here, but will always be optional.\"\n    eyebrows={[\n        { text: \"Icon eyebrow\", iconName: IconName.CALENDAR_MONTH },\n        { text: \"Icon eyebrow\", iconName: IconName.SUPERVISED_USER_CIRCLE },\n    ]}\n    searchInput={\n        <SearchInput placeholder=\"Placeholder\" size={InputSize.MEDIUM} />\n    }\n    actionButtons={[\n        <Button key={1} label=\"Primary\" variant={ButtonVariant.PRIMARY} />,\n        <Button key={2} label=\"Secondary\" variant={ButtonVariant.SECONDARY} />,\n    ]}\n    iconButton={\n        <ButtonIcon icon={IconName.MORE_VERT} variant={ButtonVariant.TERTIARY} />\n    }\n    tabs={\n        <Tabs defaultSelected=\"tab1\">\n            <Tabs.List>\n            <Tab name=\"tab1\">Item 1</Tab>\n            <Tab name=\"tab2\">Item 2</Tab>\n            <Tab name=\"tab3\">Item 3</Tab>\n            <Tab name=\"tab4\">Item 4</Tab>\n            <Tab name=\"tab5\">Item 5</Tab>\n            </Tabs.List>\n        </Tabs>\n    }\n  />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "page-header"
+    ],
+    "contracts": [
+      {
+        "id": "page-header",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/page-header/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/page-header/demo.registry.json",
+        "known_story_ids": [
+          "components-pageheader--container-type-fixed",
+          "components-pageheader--default",
+          "components-pageheader--title-custom",
+          "components-pageheader--container-type-fixed",
+          "components-pageheader--default",
+          "components-pageheader--title-custom"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-pageheader--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-pageheader--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-pageheader--docs.md",
+    "docs_import_path": "./src/components/PageHeader/PageHeader.mdx",
+    "story_ids": [
+      "components-pageheader--container-type-fixed",
+      "components-pageheader--default",
+      "components-pageheader--title-custom"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

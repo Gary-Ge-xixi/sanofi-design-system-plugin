@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-content-block-non-interactive-with-multiple-actions-atomic-story",
+  "title": "ContentBlock Non Interactive With Multiple Actions atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-contentblock--non-interactive-with-multiple-actions.",
+  "atomic_story_id": "components-contentblock--non-interactive-with-multiple-actions",
+  "component_id": "content-block",
+  "docs_id": "components-contentblock--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-content-block"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--non-interactive-with-multiple-actions.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--non-interactive-with-multiple-actions.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/assets/components-contentblock--non-interactive-with-multiple-actions.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/assets/components-contentblock--non-interactive-with-multiple-actions.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/templates/html.non-interactive-with-multiple-actions.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/templates/html.non-interactive-with-multiple-actions.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/content-block/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--non-interactive-with-multiple-actions.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-contentblock--non-interactive-with-multiple-actions&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-contentblock--non-interactive-with-multiple-actions&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ContentBlock.stories-BY6ovRMm.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "content-block",
+      "ContentBlock",
+      "Non Interactive With Multiple Actions",
+      "components-contentblock--non-interactive-with-multiple-actions",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ContentBlock Non Interactive With Multiple Actions Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

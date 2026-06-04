@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "status": "ready_to_write_complete",
+  "script": "build-component-package-factory",
+  "component_id": "toast",
+  "component_name": "Toast",
+  "tier": "M",
+  "estimated_hours": 5.3,
+  "write_mode": {
+    "write_partial": false,
+    "force": false,
+    "write_allowed": true
+  },
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 6,
+    "materialized_stories": 6,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "readiness": {
+    "can_write_complete": true,
+    "has_component_contract": true,
+    "has_primitive_contract": true,
+    "has_existing_package": false,
+    "missing_story_ids": []
+  },
+  "artifacts": {
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/toast/toast.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/toast/docs/toast.docs.contract.json",
+    "component_atomic": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json",
+    "package": "design-system-plugin/design-system/atomic/components/toast/toast.package.json"
+  },
+  "writes": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/toast.expected-tabs.json",
+      "reason": "expected-tabs"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/docs/toast.docs.contract.json",
+      "reason": "docs-contract"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/toast.package.json",
+      "reason": "component-package"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json",
+      "reason": "exists_preserved"
+    }
+  ]
+}

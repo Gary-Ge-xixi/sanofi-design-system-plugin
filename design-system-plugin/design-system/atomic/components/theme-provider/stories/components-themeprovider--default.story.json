@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-themeprovider--default",
+  "component_id": "theme-provider",
+  "component_name": "ThemeProvider",
+  "story_id": "components-themeprovider--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-themeprovider--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-themeprovider--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ThemeProvider.stories-u9nenzz3.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/theme-provider/assets/ThemeProvider.stories-u9nenzz3.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/theme-provider/assets/components-themeprovider--default.iframe.html",
+    "import_path": "./src/ThemeProvider/ThemeProvider.stories.tsx",
+    "component_path": "./src/ThemeProvider/ThemeProvider.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:e.jsxs(n.Root,{children:[e.jsx(n.Item,{xs:6,children:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"row\",gap:\"1rem\"},children:[e.jsx(i,{label:\"primary\",brandTheme:t.primary}),e.jsx(i,{label:\"secondary\",brandTheme:t.secondary}),e.jsx(i,{label:\"tertiary\",brandTheme:t.tertiary})]})}),e.jsx(n.Item,{xs:6,children:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"row\",gap:\"1rem\"},children:[e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.primary}),e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.secondary}),e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.tertiary})]})}),e.jsx(n.Item,{xs:6,children:e.jsx(h,{label:\"Checkbox\",checkboxSize:u.MEDIUM,value:\"checkbox\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(x,{label:\"Switch\",size:b.MEDIUM,onChange:()=>{},defaultChecked:!0})}),e.jsx(n.Item,{xs:6,children:e.jsx(I,{id:\"select\",required:!0,placeholder:\"Select an option\",state:S.DEFAULT,inverse:!1,disabled:!1,multiple:!1,size:m.LARGE,maxItemsVisible:3,options:[{value:\"banana\",label:\"Banana\"},{value:\"cherry\",label:\"Cherry\"},{value:\"apple\",label:\"Apple\"},{value:\"blueberry\",label:\"Blueberry\"}]})}),e.jsx(n.Item,{xs:6,children:e.jsx(T,{options:[{value:\"banana\",label:\"Banana\"},{value:\"cherry\",label:\"Cherry\"},{value:\"apple\",label:\"Apple\"},{value:\"blueberry\",label:\"Blueberry\"}],placeholder:\"Select an option\",size:m.LARGE})}),e.jsx(n.Item,{xs:6,children:e.jsx(C,{href:\"#\",target:\"_blank\",children:\"Link Standalone\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(y,{href:\"#\",target:\"_blank\",children:\"Link\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(f,{items:[{id:\"1\",label:\"Option 1\"},{id:\"2\",label:\"Option 2\"},{id:\"3\",label:\"Option 3\"}],multiSelect:!1,size:v.SMALL,children:\"Chip Dropdown\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(z,{onDelete:()=>{},size:B.SMALL,children:\"Chip Filter\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(M,{showIcon:!0,onClick:()=>{},size:j.SMALL,children:\"Chip Select\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(A,{status:D.BRAND,size:G.SMALL,children:\"Chip Status\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(L,{onSelectedDateChange:r=>console.log(r)})}),e.jsx(n.Item,{xs:6,children:e.jsx(k,{value:\"2025-01-01\",onChange:r=>console.log(r?.target?.value)})})]})}",
+    "values": {
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsxs(n.Root,{children:[e.jsx(n.Item,{xs:6,children:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"row\",gap:\"1rem\"},children:[e.jsx(i,{label:\"primary\",brandTheme:t.primary}),e.jsx(i,{label:\"secondary\",brandTheme:t.secondary}),e.jsx(i,{label:\"tertiary\",brandTheme:t.tertiary})]})}),e.jsx(n.Item,{xs:6,children:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"row\",gap:\"1rem\"},children:[e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.primary}),e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.secondary}),e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.tertiary})]})}),e.jsx(n.Item,{xs:6,children:e.jsx(h,{label:\"Checkbox\",checkboxSize:u.MEDIUM,value:\"checkbox\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(x,{label:\"Switch\",size:b.MEDIUM,onChange:()=>{},defaultChecked:!0})}),e.jsx(n.Item,{xs:6,children:e.jsx(I,{id:\"select\",required:!0,placeholder:\"Select an option\",state:S.DEFAULT,inverse:!1,disabled:!1,multiple:!1,size:m.LARGE,maxItemsVisible:3,options:[{value:\"banana\",label:\"Banana\"},{value:\"cherry\",label:\"Cherry\"},{value:\"apple\",label:\"Apple\"},{value:\"blueberry\",label:\"Blueberry\"}]})}),e.jsx(n.Item,{xs:6,children:e.jsx(T,{options:[{value:\"banana\",label:\"Banana\"},{value:\"cherry\",label:\"Cherry\"},{value:\"apple\",label:\"Apple\"},{value:\"blueberry\",label:\"Blueberry\"}],placeholder:\"Select an option\",size:m.LARGE})}),e.jsx(n.Item,{xs:6,children:e.jsx(C,{href:\"#\",target:\"_blank\",children:\"Link Standalone\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(y,{href:\"#\",target:\"_blank\",children:\"Link\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(f,{items:[{id:\"1\",label:\"Option 1\"},{id:\"2\",label:\"Option 2\"},{id:\"3\",label:\"Option 3\"}],multiSelect:!1,size:v.SMALL,children:\"Chip Dropdown\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(z,{onDelete:()=>{},size:B.SMALL,children:\"Chip Filter\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(M,{showIcon:!0,onClick:()=>{},size:j.SMALL,children:\"Chip Select\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(A,{status:D.BRAND,size:G.SMALL,children:\"Chip Status\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(L,{onSelectedDateChange:r=>console.log(r)})}),e.jsx(n.Item,{xs:6,children:e.jsx(k,{value:\"2025-01-01\",onChange:r=>console.log(r?.target?.value)})})]})"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{theme:{control:\"select\",options:Object.values(p)},children:{control:!1}}",
+    "fields": [
+      "theme",
+      "children"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    children: <Grid.Root>\n        <Grid.Item xs={6}>\n          <div style={{\n          display: \"flex\",\n          flexDirection: \"row\",\n          gap: \"1rem\"\n        }}>\n            <Button label=\"primary\" brandTheme={BrandTheme.primary} />\n            <Button label=\"secondary\" brandTheme={BrandTheme.secondary} />\n            <Button label=\"tertiary\" brandTheme={BrandTheme.tertiary} />\n          </div>\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <div style={{\n          display: \"flex\",\n          flexDirection: \"row\",\n          gap: \"1rem\"\n        }}>\n            <ButtonIcon variant={ButtonVariant.PRIMARY} size={ButtonSize.MEDIUM} icon={IconName.BOOKMARK} brandTheme={BrandTheme.primary} />\n            <ButtonIcon variant={ButtonVariant.PRIMARY} size={ButtonSize.MEDIUM} icon={IconName.BOOKMARK} brandTheme={BrandTheme.secondary} />\n            <ButtonIcon variant={ButtonVariant.PRIMARY} size={ButtonSize.MEDIUM} icon={IconName.BOOKMARK} brandTheme={BrandTheme.tertiary} />\n          </div>\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <Checkbox label=\"Checkbox\" checkboxSize={CheckboxSize.MEDIUM} value=\"checkbox\" />\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <Switch label=\"Switch\" size={SwitchSize.MEDIUM} onChange={() => {}} defaultChecked />\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <Select id=\"select\" required={true} placeholder=\"Select an option\" state={FormControlState.DEFAULT} inverse={false} disabled={false} multiple={false} size={InputSize.LARGE} maxItemsVisible={3} options={[{\n          value: \"banana\",\n          label: \"Banana\"\n        }, {\n          value: \"cherry\",\n          label: \"Cherry\"\n        }, {\n          value: \"apple\",\n          label: \"Apple\"\n        }, {\n          value: \"blueberry\",\n          label: \"Blueberry\"\n        }]} />\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <Autocomplete options={[{\n          value: \"banana\",\n          label: \"Banana\"\n        }, {\n          value: \"cherry\",\n          label: \"Cherry\"\n        }, {\n          value: \"apple\",\n          label: \"Apple\"\n        }, {\n          value: \"blueberry\",\n          label: \"Blueberry\"\n        }]} placeholder=\"Select an option\" size={InputSize.LARGE} />\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <LinkStandalone href=\"#\" target=\"_blank\">\n            Link Standalone\n          </LinkStandalone>\n        </Grid.Item>\n\n        <Grid.Item xs={6}>\n          <Link href=\"#\" target=\"_blank\">\n            Link\n          </Link>\n        </Grid.Item>\n        <Grid.Item xs={3}>\n          <ChipDropdown items={[{\n          id: \"1\",\n          label: \"Option 1\"\n        }, {\n          id: \"2\",\n          label: \"Option 2\"\n        }, {\n          id: \"3\",\n          label: \"Option 3\"\n        }]} multiSelect={false} size={ChipDropdownSize.SMALL}>\n            Chip Dropdown\n          </ChipDropdown>\n        </Grid.Item>\n        <Grid.Item xs={3}>\n          <ChipFilter onDelete={() => {}} size={ChipFilterSize.SMALL}>\n            Chip Filter\n          </ChipFilter>\n        </Grid.Item>\n        <Grid.Item xs={3}>\n          <ChipSelect showIcon={true} onClick={() => {}} size={ChipSelectSize.SMALL}>\n            Chip Select\n          </ChipSelect>\n        </Grid.Item>\n        <Grid.Item xs={3}>\n          <ChipStatus status={ChipStatusType.BRAND} size={ChipStatusSize.SMALL}>\n            Chip Status\n          </ChipStatus>\n        </Grid.Item>\n\n        <Grid.Item xs={6}>\n          <Calendar onSelectedDateChange={event => console.log(event)} />\n        </Grid.Item>\n        <Grid.Item xs={6}>\n          <DatePicker value=\"2025-01-01\" onChange={event => console.log(event?.target?.value)} />\n        </Grid.Item>\n      </Grid.Root>\n  }\n}",
+    "story_object_source": "{args:{children:e.jsxs(n.Root,{children:[e.jsx(n.Item,{xs:6,children:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"row\",gap:\"1rem\"},children:[e.jsx(i,{label:\"primary\",brandTheme:t.primary}),e.jsx(i,{label:\"secondary\",brandTheme:t.secondary}),e.jsx(i,{label:\"tertiary\",brandTheme:t.tertiary})]})}),e.jsx(n.Item,{xs:6,children:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"row\",gap:\"1rem\"},children:[e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.primary}),e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.secondary}),e.jsx(d,{variant:s.PRIMARY,size:o.MEDIUM,icon:l.BOOKMARK,brandTheme:t.tertiary})]})}),e.jsx(n.Item,{xs:6,children:e.jsx(h,{label:\"Checkbox\",checkboxSize:u.MEDIUM,value:\"checkbox\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(x,{label:\"Switch\",size:b.MEDIUM,onChange:()=>{},defaultChecked:!0})}),e.jsx(n.Item,{xs:6,children:e.jsx(I,{id:\"select\",required:!0,placeholder:\"Select an option\",state:S.DEFAULT,inverse:!1,disabled:!1,multiple:!1,size:m.LARGE,maxItemsVisible:3,options:[{value:\"banana\",label:\"Banana\"},{value:\"cherry\",label:\"Cherry\"},{value:\"apple\",label:\"Apple\"},{value:\"blueberry\",label:\"Blueberry\"}]})}),e.jsx(n.Item,{xs:6,children:e.jsx(T,{options:[{value:\"banana\",label:\"Banana\"},{value:\"cherry\",label:\"Cherry\"},{value:\"apple\",label:\"Apple\"},{value:\"blueberry\",label:\"Blueberry\"}],placeholder:\"Select an option\",size:m.LARGE})}),e.jsx(n.Item,{xs:6,children:e.jsx(C,{href:\"#\",target:\"_blank\",children:\"Link Standalone\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(y,{href:\"#\",target:\"_blank\",children:\"Link\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(f,{items:[{id:\"1\",label:\"Option 1\"},{id:\"2\",label:\"Option 2\"},{id:\"3\",label:\"Option 3\"}],multiSelect:!1,size:v.SMALL,children:\"Chip Dropdown\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(z,{onDelete:()=>{},size:B.SMALL,children:\"Chip Filter\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(M,{showIcon:!0,onClick:()=>{},size:j.SMALL,children:\"Chip Select\"})}),e.jsx(n.Item,{xs:3,children:e.jsx(A,{status:D.BRAND,size:G.SMALL,children:\"Chip Status\"})}),e.jsx(n.Item,{xs:6,children:e.jsx(L,{onSelectedDateChange:r=>console.log(r)})}),e.jsx(n.Item,{xs:6,children:e.jsx(k,{value:\"2025-01-01\",onChange:r=>console.log(r?.target?.value)})})]})}}"
+  },
+  "template": {
+    "id": "theme-provider-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/theme-provider/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/theme-provider-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/theme-provider.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "theme-provider",
+    "local_path": "design-system-plugin/design-system/primitives/components/theme-provider/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-themeprovider--docs",
+    "story_id": "components-themeprovider--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/theme-provider.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/theme-provider/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/theme-provider/assets/ThemeProvider.stories-u9nenzz3.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/theme-provider/assets/components-themeprovider--default.iframe.html"
+  }
+}

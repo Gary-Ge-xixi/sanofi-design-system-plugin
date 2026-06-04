@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "transform-tokens",
+  "outputs": {
+    "manifest": "design-system/tokens/token-manifest.generated.json",
+    "report": "outputs/reports/token-transform.report.json"
+  },
+  "source": {
+    "storybook_version_observed": "v3.48.3",
+    "primary_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/foundations-colors--docs",
+    "primary_docs_entry": "foundations-colors--docs",
+    "primary_docs_import_path": "./src/docs/3-colors.mdx",
+    "source_css": "research/storybook/assets/iframe-RDcAcrX5.css",
+    "live_check": "research/tokens/storybook-colors-live-check.json",
+    "note": "Use Storybook v3.48.3 Foundations / Colors as the local prototype token baseline. This is extracted from the Storybook CSS bundle and is not a substitute for an official npm package token export."
+  },
+  "counts": {
+    "css_token_names": 640,
+    "css_declaration_occurrences": 640,
+    "allowlist_declaration_occurrences": 836,
+    "css_var_refs": 146,
+    "unresolved_css_var_refs": 0,
+    "categories": {
+      "color": 467,
+      "other": 118,
+      "font": 31,
+      "grid": 6,
+      "spacing": 12,
+      "radius": 6
+    }
+  }
+}

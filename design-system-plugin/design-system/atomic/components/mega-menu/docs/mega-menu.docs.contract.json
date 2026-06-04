@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mega-menu-docs-contract",
+  "component_id": "mega-menu",
+  "component_name": "MegaMenu",
+  "docs_id": "components-megamenu--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "text",
+        "required": false,
+        "description": "Main textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtext",
+        "required": false,
+        "description": "Secondary textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Render as another componentElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { NavigationHeader, MegaMenu } from \"@sanofi-accelerator/elements\";\n\n<NavigationHeader.Item>\n<MegaMenu.Trigger menuContent={<MyCustomMegaMenu />}>\n  <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n</MegaMenu.Trigger>\n</NavigationHeader.Item>",
+      "import { Grid, MegaMenu } from \"@sanofi-accelerator/elements\";\n\nexport function MyCustomMegaMenu() {\nreturn (\n  <Grid.Root>\n    <Grid.Item sm={9}>\n      <MegaMenu.Title as=\"a\" href=\"#\" isLink>\n        Nav Item\n      </MegaMenu.Title>\n      <Grid.Root>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 1\"\n            subtext=\"This is a menu item subtext to give more informations\"\n          />\n        </Grid.Item>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 2\"\n            subtext=\"This is a menu item subtext to give more informations\"\n          />\n        </Grid.Item>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 3\"\n            subtext=\"This is a menu item subtext to give more informations\"\n          />\n        </Grid.Item>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 4\"\n            subtext=\"This is a menu item subtext to give more informations\"\n            disabled\n          />\n        </Grid.Item>\n      </Grid.Root>\n    </Grid.Item>\n    <Grid.Item sm={3}>\n      <MegaMenu.Title>Featured Content</MegaMenu.Title>\n    </Grid.Item>\n  </Grid.Root>\n);\n}"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-megamenu--example",
+      "name": "Example",
+      "export_name": "Example",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+    },
+    {
+      "id": "components-megamenu--fitted-content-mega-menu",
+      "name": "Fitted Content Mega Menu",
+      "export_name": "FittedContentMegaMenu",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+    },
+    {
+      "id": "components-megamenu--nav-header-custom-placement",
+      "name": "Nav Header Custom Placement",
+      "export_name": "NavHeaderCustomPlacement",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json"
+  }
+}

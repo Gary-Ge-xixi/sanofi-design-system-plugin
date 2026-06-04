@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-footer-footer-social-link-complete-package",
+  "title": "Footer/FooterSocialLink complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Footer/FooterSocialLink package covering Docs plus all Storybook story atoms.",
+  "component_id": "footer-footer-social-link",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-footer-footer-social-link"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/footer-footer-social-link.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/footer-footer-social-link.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/footer-footer-social-link.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/footer-footer-social-link.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/docs/footer-footer-social-link.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/docs/footer-footer-social-link.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/footer-footer-social-link-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/footer-footer-social-link-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 1,
+    "materialized_stories": 1,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-footer-footersociallink--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-footer-footer-social-link-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-footer-footersociallink--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/footer-footer-social-link.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/docs/footer-footer-social-link.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "footer-footer-social-link",
+      "Footer/FooterSocialLink",
+      "footer-footer-social-link complete",
+      "Footer/FooterSocialLink complete package",
+      "footer-footer-social-link docs"
+    ],
+    "when_to_use": "Use first for any Footer/FooterSocialLink generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Footer/FooterSocialLink behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

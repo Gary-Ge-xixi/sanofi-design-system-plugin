@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "switch",
+  "component_name": "Switch",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Switch"
+  },
+  "docs": [
+    {
+      "id": "components-switch--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Switch/Switch.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-switch--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Switch/Switch.stories.tsx"
+    },
+    {
+      "id": "components-switch--default-checked",
+      "name": "Default Checked",
+      "export_name": "DefaultChecked",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Switch/Switch.stories.tsx"
+    },
+    {
+      "id": "components-switch--inline",
+      "name": "Inline",
+      "export_name": "Inline",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Switch/Switch.stories.tsx"
+    }
+  ]
+}

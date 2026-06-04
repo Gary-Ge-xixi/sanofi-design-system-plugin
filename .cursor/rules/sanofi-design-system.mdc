@@ -1,0 +1,95 @@
+---
+description: Use the local Sanofi Elements design-system workflow for business/admin page generation and validation.
+alwaysApply: false
+globs: design-system-plugin/**,outputs/html/**,docs/plans/**
+---
+
+# Sanofi Elements Business Page Workflow
+
+Use this rule when generating, editing, reviewing, or validating Sanofi business/admin pages in this project.
+
+`DESIGN.md` is the design-system contract source. This Cursor rule owns Cursor execution order, required inputs, and delivery commands.
+
+## Required Inputs
+
+- Read `design-system-plugin/design-system/DESIGN.md` first.
+- Read `design-system-plugin/components.json` for aliases and commands.
+- Read `design-system-plugin/design-system/business/business-standards-index.json` before choosing a page structure.
+- Resolve the page family from `design-system-plugin/design-system/business/page-taxonomy.json`.
+- Load the matched profile from `design-system-plugin/design-system/page-profiles/`.
+- Load task, data, content, interaction, density, form, table, chart, and reference-fit rules before writing output.
+- Load `design-system-plugin/design-system/rules/elevation-usage.json` for layered UI surfaces before writing output.
+- Load `design-system-plugin/design-system/rules/business-layout-typography.json` before writing page title, subtitle, and layout wrappers.
+- Load `design-system-plugin/design-system/rules/business-app-shell-scroll.json` before writing app shell scrolling behavior.
+- Load `design-system-plugin/design-system/rules/icon-usage.json` before writing navigation, sidebar, form-control, tree-toggle, or link affordance icons.
+
+## Page Family Selection
+
+Use one of these profiles instead of a generic dashboard:
+
+- `admin-data-entry-table`
+- `approval-workflow`
+- `entity-detail`
+- `entity-form`
+- `import-result`
+- `report-dashboard`
+- `information-aggregation`
+- `permission-admin`
+- `exception-state`
+
+## Component And Fallback Rules
+
+- Do not claim an official Table/DataGrid primitive. Use `business-table.contract.json` and mark fallback reason.
+- Use `business-chart.contract.json` for dashboard/report charts. BarChart is allowed only when its required props and accessibility contract are present.
+- Use `business-form.contract.json` for create/edit, approval, detail, permission, and exception forms.
+- Use Sanofi tokens and local component contracts. Do not use raw visual values or unsupported component behavior.
+- Do not use raw `box-shadow`. Headers must use `--elements-core-elevation-02`; sticky save/action bars must use `--elements-core-elevation-03`; overlays must use `--elements-core-elevation-04`; toasts must use `--elements-core-elevation-05`.
+- Do not use raw, tight, or negative letter spacing. Use PageHeader anatomy for title/subtitle: stacked title and description, separate action area.
+- Do not use plain layout wrappers when Container/Grid anatomy is required. Generated business pages must include contentContainer, Grid root, and Grid item markers.
+- Do not let the whole document scroll for generated business/admin shells. Topbar and navigation stay fixed; only the main content region scrolls.
+- Do not use text glyphs or naked SVG as functional icons. Navigation icons, sidebar chevrons, sidebar collapse controls, search/form icons, tree expand/collapse, and link arrows must use Icon/ButtonIcon provenance with `data-icon-role`, `data-icon-name`, and `data-icon-size`.
+- For `information-aggregation`, require query filters, dashboard summary, chart context, record list, and pagination in one content region.
+
+## Commands
+
+Run these before delivery:
+
+```bash
+design-system-plugin/scripts/sanofi-ds doctor
+design-system-plugin/scripts/sanofi-ds business standards
+design-system-plugin/scripts/validate-business-standards
+design-system-plugin/scripts/validate-design-md
+design-system-plugin/scripts/validate-local-registry
+design-system-plugin/scripts/validate-icon-usage design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+```
+
+For generated information aggregation HTML, also run:
+
+```bash
+design-system-plugin/scripts/validate-information-aggregation-page design-system-plugin/outputs/html/information-aggregation.resolved.html
+design-system-plugin/scripts/validate-app-shell-scroll design-system-plugin/outputs/html/information-aggregation.resolved.html
+design-system-plugin/scripts/validate-page-layout-typography design-system-plugin/outputs/html/information-aggregation.resolved.html
+```
+
+For generated Business Planning target adjustment HTML, also run:
+
+```bash
+design-system-plugin/scripts/validate-business-planning-target-adjustment-page design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+design-system-plugin/scripts/validate-business-planning-target-adjustment-visual-details design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+design-system-plugin/scripts/validate-icon-usage design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+design-system-plugin/scripts/validate-app-shell-scroll design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+design-system-plugin/scripts/validate-page-layout-typography design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+design-system-plugin/scripts/validate-elevation-usage design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html
+```
+
+For generated admin query/fill HTML, also run:
+
+```bash
+design-system-plugin/scripts/validate-admin-page-profile design-system-plugin/outputs/html/admin-query-panel.resolved.html
+design-system-plugin/scripts/validate-elevation-usage design-system-plugin/outputs/html/admin-query-panel.resolved.html
+design-system-plugin/scripts/validate-page-layout-typography design-system-plugin/outputs/html/admin-query-panel.resolved.html
+design-system-plugin/scripts/validate-app-shell-scroll design-system-plugin/outputs/html/admin-query-panel.resolved.html
+design-system-plugin/scripts/validate-reference-fit design-system-plugin/outputs/html/admin-query-panel.resolved.html
+```
+
+Delivery is not complete until validators pass and the relevant report files under `design-system-plugin/outputs/reports/` show `status: "pass"`.

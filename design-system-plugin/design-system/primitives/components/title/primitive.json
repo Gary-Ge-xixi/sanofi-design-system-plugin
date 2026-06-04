@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Title",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Title",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/title.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "title",
+      "data_attribute": "data-primitive=\"title\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-title--default",
+      "components-title--font-weights",
+      "components-title--variants"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-title--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/title.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

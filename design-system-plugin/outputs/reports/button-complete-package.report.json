@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "render-button-package",
+  "output": "design-system-plugin/outputs/html/button-complete.atomic.html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 13,
+    "materialized_stories": 13,
+    "docs_contract_status": "generated",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "checked": {
+    "story_atoms": 13,
+    "docs_contract": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

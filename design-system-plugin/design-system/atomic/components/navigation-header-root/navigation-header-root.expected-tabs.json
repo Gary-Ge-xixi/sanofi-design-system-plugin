@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "navigation-header-root",
+  "component_name": "NavigationHeader.Root",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/NavigationHeader.Root"
+  },
+  "docs": [
+    {
+      "id": "components-navigationheader-root--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/Root/Root.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-navigationheader-root--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/Root/Root.stories.tsx"
+    }
+  ]
+}

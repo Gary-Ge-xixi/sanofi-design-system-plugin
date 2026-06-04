@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-isi-tray-isi-with-indication-atomic-story",
+  "title": "ISI Tray ISI With Indication atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-isi-tray--isi-with-indication.",
+  "atomic_story_id": "components-isi-tray--isi-with-indication",
+  "component_id": "isi-tray",
+  "docs_id": "components-isi-tray--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-isi-tray"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/stories/components-isi-tray--isi-with-indication.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/stories/components-isi-tray--isi-with-indication.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/assets/components-isi-tray--isi-with-indication.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/assets/components-isi-tray--isi-with-indication.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/isi-tray/templates/html.isi-with-indication.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/isi-tray/templates/html.isi-with-indication.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-isi-tray--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-isi-tray--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-isi-tray--docs",
+    "story_id": "components-isi-tray--isi-with-indication",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/isi-tray/stories/components-isi-tray--isi-with-indication.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/isi-tray/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-isi-tray--isi-with-indication&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-isi-tray--isi-with-indication&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/IsiTray.stories-Cf7K8VXF.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/isi-tray/assets/IsiTray.stories-Cf7K8VXF.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/isi-tray/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "isi-tray",
+      "ISI Tray",
+      "ISI With Indication",
+      "components-isi-tray--isi-with-indication",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ISI Tray ISI With Indication Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

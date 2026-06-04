@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-slider-range-atomic-story",
+  "title": "Slider Range atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-slider--range.",
+  "atomic_story_id": "components-slider--range",
+  "component_id": "slider",
+  "docs_id": "components-slider--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-slider"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/stories/components-slider--range.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/slider/stories/components-slider--range.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/slider/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/assets/Slider.stories-COdke5HX.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/slider/assets/Slider.stories-COdke5HX.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/assets/components-slider--range.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/slider/assets/components-slider--range.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/templates/html.range.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/slider/templates/html.range.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/slider.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/slider.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/slider/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/slider/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-slider--docs",
+    "story_id": "components-slider--range",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/slider/stories/components-slider--range.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/slider/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-slider--range&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-slider--range&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Slider.stories-COdke5HX.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/slider/assets/Slider.stories-COdke5HX.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/slider.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/slider/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "slider",
+      "Slider",
+      "Range",
+      "components-slider--range",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Slider Range Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

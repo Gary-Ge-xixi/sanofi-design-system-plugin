@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-sub-menu-default-atomic-story",
+  "title": "Menu/SubMenu Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-menu-submenu--default.",
+  "atomic_story_id": "components-menu-submenu--default",
+  "component_id": "menu-sub-menu",
+  "docs_id": "components-menu-submenu--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu-sub-menu"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/stories/components-menu-submenu--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/stories/components-menu-submenu--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/assets/SubMenu.stories-DWOzfIJU.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/assets/SubMenu.stories-DWOzfIJU.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/assets/components-menu-submenu--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/assets/components-menu-submenu--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-submenu--docs",
+    "story_id": "components-menu-submenu--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/menu-sub-menu/stories/components-menu-submenu--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/menu-sub-menu/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu-submenu--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu-submenu--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/SubMenu.stories-DWOzfIJU.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu-sub-menu/assets/SubMenu.stories-DWOzfIJU.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-sub-menu",
+      "Menu/SubMenu",
+      "Default",
+      "components-menu-submenu--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Menu/SubMenu Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

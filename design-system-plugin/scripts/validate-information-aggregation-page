@@ -1,0 +1,248 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(htmlDir, "information-aggregation.resolved.html");
+const target = process.argv[2] ? path.resolve(process.cwd(), process.argv[2]) : defaultHtml;
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  const matches = source.match(pattern);
+  return matches ? matches.length : 0;
+}
+
+function extractTagAttrs(source, tagName) {
+  const attrs = [];
+  const re = new RegExp(`<${tagName}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(source))) attrs.push(match[1]);
+  return attrs;
+}
+
+function isVisuallyHiddenSelect(attrs) {
+  return (
+    /\bhidden\b/i.test(attrs) ||
+    /aria-hidden=["']true["']/i.test(attrs) ||
+    /data-select-native=["']true["']/i.test(attrs) ||
+    /style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)
+  );
+}
+
+function includesAttr(source, name, value) {
+  return source.includes(`${name}="${value}"`);
+}
+
+function failIfMissing(failures, html, marker, label) {
+  if (!html.includes(marker)) failures.push(`missing ${label}: ${marker}`);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) {
+  failures.push(`missing target HTML: ${rel(target)}`);
+}
+
+const html = failures.length ? "" : fs.readFileSync(target, "utf8");
+const nativeSelectAttrs = extractTagAttrs(html, "select");
+const visibleNativeSelectPrimitiveCount = nativeSelectAttrs.filter((attrs) => (
+  /data-primitive=["']select["']/i.test(attrs) && !isVisuallyHiddenSelect(attrs)
+)).length;
+const checks = {
+  target: rel(target),
+  page_profile: includesAttr(html, "data-page-profile", "information-aggregation"),
+  page_family: includesAttr(html, "data-page-family", "information-aggregation"),
+  business_task: includesAttr(html, "data-business-task", "aggregate-and-investigate"),
+  sections: {},
+  modules: {
+    business_form: count(html, /data-business-module="business-form"/g),
+    business_chart: count(html, /data-business-module="business-chart"/g),
+    business_table: count(html, /data-business-module="business-table"/g)
+  },
+  filters: count(html, /data-field-id="agg_[^"]+"[^>]*data-editable="true"/g),
+  kpis: count(html, /data-kpi-id="/g),
+  chart_rows: count(html, /class="chart-row"/g),
+  table_columns: count(html, /<th\b[^>]*scope="col"/g),
+  table_rows: count(html, /<tr><td/g),
+  select_controls: count(html, /data-component-id="select"/g),
+  select_medium_controls: count(html, /data-select-size="medium"/g),
+  select_normal_shell_controls: count(html, /data-select-shell="normal"/g),
+  select_edge_safe_controls: count(html, /data-select-edge-safe="true"/g),
+  select_combobox_controls: count(html, /role="combobox"[^>]*(?:aria-haspopup="listbox"|data-select-trigger)/g),
+  select_listbox_controls: count(html, /role="listbox"/g),
+  visible_native_select_primitives: visibleNativeSelectPrimitiveCount,
+  hidden_native_select_helpers: nativeSelectAttrs.length - visibleNativeSelectPrimitiveCount,
+  date_picker_controls: count(html, /data-date-picker-root="true"/g),
+  date_picker_medium_controls: count(html, /data-date-picker-size="medium"/g),
+  date_picker_edge_safe_controls: count(html, /data-date-picker-edge-safe="true"/g),
+  date_picker_normal_shell_controls: count(html, /data-date-picker-shell="normal"/g),
+  date_picker_trigger_controls: count(html, /data-date-picker-trigger="true"/g),
+  date_picker_dialog_controls: count(html, /data-date-picker-dialog="true"/g),
+  local_runtime_script_count: count(html, /<script\b[^>]*data-component-runtime="sanofi-local-atomic-components"/g),
+  nav_items: count(html, /class="nav-item/g),
+  nav_icons: count(html, /class="nav-icon"/g),
+  grid_items: count(html, /data-grid-part="item"/g)
+};
+
+for (const [name, value] of [
+  ["data-business-standard", "business-page-standards"],
+  ["data-default-rule", "business-admin-defaults"],
+  ["data-page-profile", "information-aggregation"],
+  ["data-page-family", "information-aggregation"],
+  ["data-business-task", "aggregate-and-investigate"],
+  ["data-reference-fit", "business-page-family"],
+  ["data-page-layout-typography", "business-layout-typography"],
+  ["data-app-shell-scroll", "content-only"],
+  ["data-scroll-rule", "business-app-shell-scroll"],
+  ["data-elevation-rule", "elevation-usage"]
+]) {
+  if (!includesAttr(html, name, value)) failures.push(`missing ${name}="${value}"`);
+}
+
+for (const section of [
+  "breadcrumb",
+  "aggregation-header",
+  "filter-toolbar",
+  "dashboard-summary",
+  "chart-region",
+  "record-list",
+  "pagination"
+]) {
+  const present = includesAttr(html, "data-section", section);
+  checks.sections[section] = present;
+  if (!present) failures.push(`missing section ${section}`);
+}
+
+for (const marker of [
+  'data-business-module="business-form"',
+  'data-business-module="business-chart"',
+  'data-business-module="business-table"',
+  'data-form-contract="business-form"',
+  'data-chart-contract="business-chart"',
+  'data-table-contract="business-table"',
+  'data-fallback-module="business-chart"',
+  'data-fallback-module="business-table"',
+  'data-chart-kind="bar"',
+  'data-source-component="BarChart"',
+  'data-chart-prop="chartData"',
+  'data-chart-prop="xAxis"',
+  'data-pagination="true"',
+  'data-nav-default="with-icons"',
+  'data-grid-mode="normal-12"',
+  'data-date-picker-size="medium"',
+  'data-date-picker-shell="normal"',
+  'data-date-picker-edge-safe="true"',
+  'data-app-shell="business-admin"',
+  'data-scroll-fixed="true"',
+  'data-scroll-region="content"',
+  'data-pageheader-part="root"',
+  'data-container-part="contentContainer"'
+]) {
+  failIfMissing(failures, html, marker, "required marker");
+}
+
+if (checks.filters < 4) failures.push(`filter count must be at least 4, got ${checks.filters}`);
+if (checks.kpis < 4) failures.push(`KPI count must be at least 4, got ${checks.kpis}`);
+if (checks.chart_rows < 4) failures.push(`chart row count must be at least 4, got ${checks.chart_rows}`);
+if (checks.table_columns < 6) failures.push(`table column count must be at least 6, got ${checks.table_columns}`);
+if (checks.table_rows < 5) failures.push(`table body row count must be at least 5, got ${checks.table_rows}`);
+if (checks.visible_native_select_primitives) failures.push(`visible native select[data-primitive="select"] is forbidden, got ${checks.visible_native_select_primitives}`);
+if (checks.select_controls !== checks.select_medium_controls) failures.push(`every Select must default to medium size, got ${checks.select_medium_controls}/${checks.select_controls}`);
+if (checks.select_controls !== checks.select_normal_shell_controls) failures.push(`every Select must use normal shell, got ${checks.select_normal_shell_controls}/${checks.select_controls}`);
+if (checks.select_controls !== checks.select_edge_safe_controls) failures.push(`every Select must be edge-safe, got ${checks.select_edge_safe_controls}/${checks.select_controls}`);
+if (checks.select_controls !== checks.select_combobox_controls) failures.push(`every Select must expose a component combobox trigger, got ${checks.select_combobox_controls}/${checks.select_controls}`);
+if (checks.select_controls !== checks.select_listbox_controls) failures.push(`every Select must expose a component-owned listbox, got ${checks.select_listbox_controls}/${checks.select_controls}`);
+if ((checks.select_controls || checks.date_picker_controls) && !checks.local_runtime_script_count) failures.push("runtime Select/DatePicker controls require the local component runtime script");
+if (checks.date_picker_controls < 1) failures.push(`information aggregation page must include at least one DatePicker default control, got ${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_medium_controls) failures.push(`every DatePicker must default to medium size, got ${checks.date_picker_medium_controls}/${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_edge_safe_controls) failures.push(`every DatePicker must be edge-safe, got ${checks.date_picker_edge_safe_controls}/${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_normal_shell_controls) failures.push(`every DatePicker must use normal shell, got ${checks.date_picker_normal_shell_controls}/${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_trigger_controls) failures.push(`every DatePicker must expose a trigger, got ${checks.date_picker_trigger_controls}/${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_dialog_controls) failures.push(`every DatePicker must expose a dialog, got ${checks.date_picker_dialog_controls}/${checks.date_picker_controls}`);
+if (checks.nav_icons < checks.nav_items) failures.push(`default navigation requires one icon per nav item, got ${checks.nav_icons}/${checks.nav_items}`);
+
+for (const state of ["loading", "empty", "error", "readonly", "permission-denied"]) {
+  if (!html.includes(state)) failures.push(`missing interaction state ${state}`);
+}
+
+for (const forbidden of [
+  'data-primitive="table"',
+  'data-primitive="datagrid"',
+  'data-source-component="table"',
+  'data-source-component="datagrid"',
+  'data-primitive="chart"',
+  'data-primitive="dataviz"',
+  'data-button-size="large"',
+  'data-select-size="large"',
+  'data-date-picker-size="large"',
+  'data-control-size="large"'
+]) {
+  if (html.includes(forbidden)) failures.push(`forbidden marker present: ${forbidden}`);
+}
+
+if (!/body\s*\{[^}]*block-size:\s*100vh;[^}]*overflow:\s*hidden;/s.test(html)) {
+  failures.push("body must be viewport locked with overflow hidden");
+}
+if (!/\.shell\s*\{[^}]*block-size:\s*100vh;[^}]*overflow:\s*hidden;/s.test(html)) {
+  failures.push("app shell must be viewport locked with overflow hidden");
+}
+if (!/\.main\s*\{[^}]*min-block-size:\s*0;[^}]*overflow:\s*auto;/s.test(html)) {
+  failures.push("main content must own vertical scrolling");
+}
+if (/background:\s*#[0-9a-fA-F]/.test(html) || /color:\s*#[0-9a-fA-F]/.test(html) || /border-color:\s*#[0-9a-fA-F]/.test(html)) {
+  failures.push("raw color usage detected");
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-information-aggregation-page",
+  generated_at: new Date().toISOString(),
+  target: rel(target),
+  checks,
+  failures
+};
+
+fs.writeFileSync(path.join(reportDir, "information-aggregation-page.report.json"), JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  path.join(reportDir, "information-aggregation-page.report.md"),
+  `# Information Aggregation Page Validation
+
+Status: ${report.status}
+
+| Check | Count |
+|---|---:|
+| Filters | ${checks.filters} |
+| KPI cards | ${checks.kpis} |
+| Chart rows | ${checks.chart_rows} |
+| Table columns | ${checks.table_columns} |
+| Table rows | ${checks.table_rows} |
+| Nav icons | ${checks.nav_icons}/${checks.nav_items} |
+| Select edge-safe | ${checks.select_edge_safe_controls}/${checks.select_controls} |
+| Select combobox | ${checks.select_combobox_controls}/${checks.select_controls} |
+| Select listbox | ${checks.select_listbox_controls}/${checks.select_controls} |
+| Visible native Select | ${checks.visible_native_select_primitives} |
+| DatePicker medium | ${checks.date_picker_medium_controls}/${checks.date_picker_controls} |
+| DatePicker edge-safe | ${checks.date_picker_edge_safe_controls}/${checks.date_picker_controls} |
+| DatePicker trigger | ${checks.date_picker_trigger_controls}/${checks.date_picker_controls} |
+| DatePicker dialog | ${checks.date_picker_dialog_controls}/${checks.date_picker_controls} |
+
+## Failures
+
+${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}
+`
+);
+
+if (failures.length) {
+  console.error(`Information aggregation page validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Information aggregation page OK: ${rel(target)}`);

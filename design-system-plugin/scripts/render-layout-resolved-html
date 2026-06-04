@@ -1,0 +1,807 @@
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath);
+}
+
+function primitive(resolution, id) {
+  return resolution.primitive_refs.find((item) => item.primitive_id === id) || {
+    docs_id: "unknown",
+    story_id: "unknown"
+  };
+}
+
+function attrs(resolution, primitiveId, patternId, extra = {}) {
+  const ref = primitive(resolution, primitiveId);
+  const values = {
+    "data-primitive": primitiveId,
+    "data-source-component": primitiveId,
+    "data-story-id": ref.story_id,
+    "data-source-doc-id": ref.docs_id,
+    "data-pattern": patternId,
+    "data-token-source": resolution.source_provenance.token_source,
+    ...extra
+  };
+  return Object.entries(values)
+    .map(([key, value]) => `${key}="${String(value).replace(/"/g, "&quot;")}"`)
+    .join(" ");
+}
+
+function renderResolvedHtml(args = []) {
+  const resolutionPath = args[0]
+    ? path.resolve(process.cwd(), args[0])
+    : path.join(pluginRoot, "design-system", "contracts", "resolvers", "latest-resolution.json");
+  const outputPath = args[1]
+    ? path.resolve(process.cwd(), args[1])
+    : path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+  const reportDir = path.join(pluginRoot, "outputs", "reports");
+  const reportPath = path.join(reportDir, "html-renderer.report.json");
+
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.mkdirSync(reportDir, { recursive: true });
+
+  const resolution = readJson(resolutionPath);
+  const docs = [
+    ...new Set([
+      "foundations-layout--docs",
+      ...(resolution.source_provenance.docs_ids || [])
+    ])
+  ].join(" ");
+  const tokenSource = resolution.source_provenance.token_source;
+  const layoutRule = resolution.source_provenance.layout_rule || "layout-grid-container";
+  const tableFallback = resolution.fallbacks.find((item) => item.module === "table");
+  const chartFallback = resolution.fallbacks.find((item) => item.module === "chart");
+
+  const containerAttrs = attrs(resolution, "container", "layout-container", {
+    "data-layout-rule": layoutRule,
+    "data-source-doc-id": "foundations-layout--docs components-container--docs",
+    "data-container-mode": "fixed",
+    "data-container-width-token": "--elements-container-width-2xl"
+  });
+  const gridAttrs = attrs(resolution, "grid", "layout-grid", {
+    "data-layout-rule": layoutRule,
+    "data-source-doc-id": "foundations-layout--docs components-grid--docs",
+    "data-grid-columns": "12",
+    "data-grid-gap-token": "--elements-grid-gutter-lg"
+  });
+  const sidebarAttrs = attrs(resolution, "sidebar", "admin-dashboard");
+  const navAttrs = attrs(resolution, "navigation-header", "admin-dashboard");
+  const menuAttrs = attrs(resolution, "menu", "admin-dashboard");
+  const searchAttrs = attrs(resolution, "search-input", "filter-toolbar");
+  const selectAttrs = attrs(resolution, "select", "filter-toolbar");
+  const buttonAttrs = attrs(resolution, "button", "action");
+  const cardAttrs = attrs(resolution, "card", "card");
+  const tagAttrs = attrs(resolution, "tag", "status");
+  const tabsAttrs = attrs(resolution, "tabs", "work-queue");
+  const progressAttrs = attrs(resolution, "progress-bar", "progress");
+
+  const html = `<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台查询面板</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-brand-subtle);
+        --admin-sidebar-width: 16rem;
+        --admin-header-height: 3.75rem;
+        --admin-container-max: var(--elements-container-width-2xl);
+        --admin-grid-gap: var(--elements-grid-gutter-lg);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-semantic-background-brand-subtle);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-block-start: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-block-end: 0;
+      }
+
+      .admin-shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: minmax(14rem, var(--admin-sidebar-width)) minmax(0, 1fr);
+        grid-template-rows: var(--admin-header-height) minmax(0, 1fr);
+      }
+
+      .admin-sidebar {
+        grid-row: 1 / 3;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: var(--elements-spacing-md);
+        padding: var(--elements-spacing-md);
+        background: var(--elements-color-semantic-background-neutral);
+        border-right: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: var(--elements-spacing-sm);
+        padding-block-end: var(--elements-spacing-sm);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      .brand-mark {
+        display: inline-grid;
+        place-items: center;
+        inline-size: 2rem;
+        block-size: 2rem;
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-brand-subtle);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        color: var(--elements-color-semantic-text-accent-default);
+        font-weight: 700;
+      }
+
+      .muted,
+      .field-label,
+      .row-sub,
+      th {
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+
+      .sidebar-nav {
+        display: grid;
+        align-content: start;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .nav-section {
+        display: grid;
+        gap: var(--elements-spacing-3xs);
+      }
+
+      .nav-section-title {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--elements-color-semantic-text-subtle_inverse);
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-sm);
+      }
+
+      .nav-list,
+      .kpi-list,
+      .queue-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-list,
+      .queue-list {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .nav-link,
+      .button,
+      .tab-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--elements-spacing-2xs);
+        min-block-size: 2.5rem;
+        border-radius: var(--elements-radius-sm);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font: inherit;
+        text-decoration: none;
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-sm);
+      }
+
+      .nav-link {
+        justify-content: space-between;
+        inline-size: 100%;
+      }
+
+      .nav-link[aria-current="page"] {
+        border-color: var(--elements-color-semantic-accent-default);
+        background: var(--elements-color-semantic-background-brand-subtle);
+        color: var(--elements-color-semantic-text-accent-default);
+      }
+
+      .nav-count {
+        font-weight: 700;
+      }
+
+      .sidebar-footer {
+        border-top: 0.0625rem solid var(--elements-color-semantic-border-default);
+        padding-top: var(--elements-spacing-sm);
+      }
+
+      .admin-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-md);
+        min-width: 0;
+        padding-inline: var(--elements-spacing-lg);
+        background: var(--elements-color-semantic-background-neutral);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      .admin-main {
+        min-width: 0;
+        overflow: auto;
+        padding: var(--elements-spacing-md);
+      }
+
+      .admin-container {
+        inline-size: 100%;
+        max-inline-size: var(--admin-container-max);
+        margin-inline: auto;
+      }
+
+      .admin-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: var(--admin-grid-gap);
+        align-items: start;
+      }
+
+      .span-full {
+        grid-column: 1 / -1;
+      }
+
+      .span-3 {
+        grid-column: span 3;
+      }
+
+      .span-4 {
+        grid-column: span 4;
+      }
+
+      .span-8 {
+        grid-column: span 8;
+      }
+
+      .page-heading,
+      .filter-panel,
+      .kpi-card,
+      .content-card {
+        background: var(--elements-color-semantic-background-neutral);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+      }
+
+      .page-heading,
+      .filter-panel,
+      .content-card {
+        padding: var(--elements-spacing-lg);
+      }
+
+      .page-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: var(--elements-spacing-md);
+      }
+
+      .page-heading h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .button.primary {
+        border-color: var(--elements-color-semantic-accent-default);
+        background: var(--elements-color-semantic-accent-default);
+        color: var(--elements-color-semantic-text-default);
+      }
+
+      .button.secondary {
+        border-color: var(--elements-color-semantic-accent-default);
+        background: var(--elements-color-components-button-bg-secondary);
+        color: var(--elements-color-semantic-text-accent-default);
+      }
+
+      .filter-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: var(--elements-grid-gutter-lg);
+        align-items: end;
+      }
+
+      .field {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+        min-width: 0;
+      }
+
+      .field-wide {
+        grid-column: span 4;
+      }
+
+      .field-medium {
+        grid-column: span 3;
+      }
+
+      .field-action {
+        grid-column: span 2;
+      }
+
+      .field-action .button {
+        inline-size: 100%;
+        white-space: nowrap;
+      }
+
+      input,
+      select {
+        inline-size: 100%;
+        min-inline-size: 0;
+        min-block-size: 2.5rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding: var(--elements-spacing-2xs) var(--elements-spacing-sm);
+        font: inherit;
+      }
+
+      input:focus,
+      select:focus,
+      .button:focus-visible,
+      .tab-button:focus-visible,
+      .nav-link:focus-visible {
+        outline: 0.1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: var(--elements-spacing-3xs);
+      }
+
+      .kpi-card {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        min-block-size: 8rem;
+        padding: var(--elements-spacing-md);
+      }
+
+      .kpi-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .metric {
+        font-size: 2rem;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        inline-size: fit-content;
+        border-radius: var(--elements-radius-rounded);
+        border: 0.0625rem solid var(--elements-color-components-tag-branded-border);
+        background: var(--elements-color-components-tag-branded-bg-subtle);
+        color: var(--elements-color-components-tag-branded-text);
+        padding: var(--elements-spacing-3xs) var(--elements-spacing-sm);
+        font-size: 0.875rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .tag.warning {
+        border-color: var(--elements-color-components-tag-semantic_orange-border);
+        background: var(--elements-color-components-tag-semantic_orange-bg-solid);
+        color: var(--elements-color-components-tag-semantic_orange-text-inverse);
+      }
+
+      .tag.error {
+        border-color: var(--elements-color-components-tag-semantic_red-border);
+        background: var(--elements-color-components-tag-semantic_red-bg-solid);
+        color: var(--elements-color-components-tag-semantic_red-text-inverse);
+      }
+
+      .tag.info {
+        border-color: var(--elements-color-components-tag-semantic_blue-border);
+        background: var(--elements-color-components-tag-semantic_blue-bg-solid);
+        color: var(--elements-color-components-tag-semantic_blue-text-inverse);
+      }
+
+      .tag.success {
+        border-color: var(--elements-color-components-tag-semantic_green-border);
+        background: var(--elements-color-components-tag-semantic_green-bg-solid);
+        color: var(--elements-color-components-tag-semantic_green-text-inverse);
+      }
+
+      .table-header,
+      .card-header,
+      .pagination,
+      .tabs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .card-header,
+      .table-header {
+        margin-block-end: var(--elements-spacing-md);
+      }
+
+      .tabs {
+        justify-content: flex-start;
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+        margin-block-end: var(--elements-spacing-md);
+      }
+
+      .tab-button {
+        border-color: transparent;
+        border-radius: var(--elements-radius-none);
+        background: transparent;
+      }
+
+      .tab-button[aria-selected="true"] {
+        color: var(--elements-color-semantic-text-accent-default);
+        border-bottom: 0.1875rem solid var(--elements-color-semantic-accent-default);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        inline-size: 100%;
+        min-inline-size: 46rem;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: var(--elements-spacing-sm);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+
+      tbody tr:hover {
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+
+      .queue-list li {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+        padding: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+      }
+
+      .progress-stack {
+        display: grid;
+        gap: var(--elements-spacing-md);
+      }
+
+      .progress-item {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .progress-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .progress-track {
+        inline-size: 100%;
+        min-block-size: 0.5rem;
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-semantic-background-neutral-subtle);
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        min-block-size: 0.5rem;
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-semantic-accent-default);
+      }
+
+      .chart-bars {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: var(--elements-grid-gutter-md);
+        align-items: end;
+        min-block-size: 12rem;
+      }
+
+      .chart-bar {
+        min-block-size: 3rem;
+        border-radius: var(--elements-radius-sm) var(--elements-radius-sm) var(--elements-radius-none) var(--elements-radius-none);
+        background: var(--elements-color-data-sequential-purple-3);
+      }
+
+      .chart-bar.alt {
+        background: var(--elements-color-data-sequential-blue-3);
+      }
+
+      .chart-labels {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: var(--elements-grid-gutter-md);
+        margin-block-start: var(--elements-spacing-sm);
+        color: var(--elements-color-semantic-text-subtle_inverse);
+        font-size: 0.875rem;
+      }
+
+      @media (max-width: 79.9375rem) {
+        .span-3 {
+          grid-column: span 6;
+        }
+      }
+
+      @media (max-width: 64rem) {
+        .admin-shell {
+          grid-template-columns: minmax(12rem, 14rem) minmax(0, 1fr);
+        }
+
+        .span-4 {
+          grid-column: span 6;
+        }
+
+        .span-8 {
+          grid-column: 1 / -1;
+        }
+
+        .field-wide,
+        .field-medium,
+        .field-action {
+          grid-column: span 6;
+        }
+      }
+
+      @media (max-width: 47.9375rem) {
+        .admin-shell,
+        .admin-grid,
+        .filter-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .admin-sidebar {
+          grid-row: auto;
+        }
+
+        .admin-header,
+        .page-heading,
+        .table-header,
+        .pagination {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .span-3,
+        .span-4,
+        .span-8,
+        .field-wide,
+        .field-medium,
+        .field-action {
+          grid-column: 1 / -1;
+        }
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-renderer-target="html">
+    <div class="admin-shell" data-pattern="admin-query-panel" data-layout-rule="${layoutRule}" data-source-doc-id="${docs}" data-token-source="${tokenSource}">
+      <aside class="admin-sidebar" ${sidebarAttrs} data-sidebar-part="root" aria-label="后台导航">
+        <div class="sidebar-brand" data-sidebar-part="header" data-source-doc-id="components-sidebar--docs">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <div>
+            <strong>运营后台</strong>
+            <p class="muted">中医药质量工作台</p>
+          </div>
+        </div>
+        <nav class="sidebar-nav" ${menuAttrs} data-sidebar-part="content" aria-label="主导航">
+          <section class="nav-section" data-sidebar-part="section">
+            <div class="nav-section-title">工作台</div>
+            <ul class="nav-list" role="list">
+              <li data-sidebar-part="item"><a class="nav-link" href="#" aria-current="page"><span>查询面板</span><span class="nav-count">24</span></a></li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span>审批队列</span><span class="nav-count">8</span></a></li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span>库存复核</span><span class="nav-count">12</span></a></li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span>资质管理</span><span class="nav-count">5</span></a></li>
+              <li data-sidebar-part="item"><a class="nav-link" href="#"><span>报告中心</span><span class="nav-count">3</span></a></li>
+            </ul>
+          </section>
+        </nav>
+        <footer class="sidebar-footer" data-sidebar-part="footer" data-source-doc-id="components-sidebar--docs">
+          <strong>质量运营组</strong>
+          <p class="muted">今日同步 09:30</p>
+        </footer>
+      </aside>
+
+      <header class="admin-header" ${navAttrs}>
+        <div>
+          <strong>任务查询</strong>
+          <span class="muted">处理中 24 / 超时 6 / 本周新增 118</span>
+        </div>
+        <a class="button secondary" ${buttonAttrs} href="#">导出清单</a>
+      </header>
+
+      <main class="admin-main" data-page-pattern="admin-dashboard" data-pattern="admin-dashboard" data-source-doc-id="${docs}" data-token-source="${tokenSource}">
+        <div class="admin-container" ${containerAttrs}>
+          <section class="admin-grid" ${gridAttrs}>
+            <section class="page-heading span-full" data-pattern="page-header-fallback" data-grid-item-span="12" data-source-doc-id="components-pageheader--docs" data-fallback-module="page-header" data-fallback-reason="PageHeader docs exist but no primitive contract is registered yet.">
+              <div>
+                <h1>后台查询面板</h1>
+                <p class="muted">处方审核、药材库存与供应商资质集中查询。</p>
+              </div>
+              <button class="button primary" ${buttonAttrs} type="button">新建任务</button>
+            </section>
+
+            <section class="filter-panel span-full" data-pattern="filter-toolbar" data-grid-item-span="12" data-source-doc-id="components-searchinput--docs components-select--docs components-button--docs">
+              <div class="filter-grid" data-layout-rule="${layoutRule}" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg">
+                <label class="field field-wide"><span class="field-label">搜索</span><input ${searchAttrs} type="search" placeholder="处方、药材或供应商"></label>
+                <label class="field field-medium"><span class="field-label">状态</span><select ${selectAttrs}><option>全部状态</option><option>待审核</option><option>运行中</option><option>已超时</option></select></label>
+                <label class="field field-medium"><span class="field-label">科室</span><select ${selectAttrs}><option>全部科室</option><option>中医内科</option><option>药材仓储</option><option>质检中心</option></select></label>
+                <div class="field field-action"><button class="button primary" ${buttonAttrs} type="button">查询</button></div>
+              </div>
+            </section>
+
+            <article class="kpi-card span-3" ${cardAttrs} data-grid-item-span="3">
+              <div class="kpi-top"><span>待审核处方</span><span class="tag warning" ${tagAttrs} data-variant="semantic-warning">需处理</span></div>
+              <strong class="metric">128</strong>
+              <p class="muted">高风险用药提醒 6 条</p>
+            </article>
+            <article class="kpi-card span-3" ${cardAttrs} data-grid-item-span="3">
+              <div class="kpi-top"><span>煎配中工单</span><span class="tag info" ${tagAttrs} data-variant="semantic-info">运行中</span></div>
+              <strong class="metric">342</strong>
+              <p class="muted">平均完成时长 38 分钟</p>
+            </article>
+            <article class="kpi-card span-3" ${cardAttrs} data-grid-item-span="3">
+              <div class="kpi-top"><span>库存预警</span><span class="tag error" ${tagAttrs} data-variant="semantic-error">关注</span></div>
+              <strong class="metric">19</strong>
+              <p class="muted">近效期药材 7 个批次</p>
+            </article>
+            <article class="kpi-card span-3" ${cardAttrs} data-grid-item-span="3">
+              <div class="kpi-top"><span>质检通过率</span><span class="tag success" ${tagAttrs} data-variant="semantic-success">稳定</span></div>
+              <strong class="metric">96.8%</strong>
+              <p class="muted">抽检异常 3 批次</p>
+            </article>
+
+            <section class="content-card span-8" data-pattern="data-table-fallback" data-grid-item-span="8" data-source-doc-id="components-tag--docs components-button--docs" data-fallback-module="table" data-fallback-reason="${tableFallback.reason}">
+              <div class="table-header">
+                <div>
+                  <h2>库存与批次</h2>
+                  <p class="muted">按当前筛选条件显示药材批次、余量和状态。</p>
+                </div>
+                <button class="button secondary" ${buttonAttrs} type="button">查看全部</button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>药材</th><th>批次</th><th>余量</th><th>供应商</th><th>状态</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>黄芪</td><td>HQ-2605</td><td>42 kg</td><td>华北药材</td><td><span class="tag warning" ${tagAttrs} data-variant="semantic-warning">低库存</span></td></tr>
+                    <tr><td>当归</td><td>DG-2604</td><td>18 kg</td><td>川西本草</td><td><span class="tag error" ${tagAttrs} data-variant="semantic-error">近效期</span></td></tr>
+                    <tr><td>茯苓</td><td>FL-2603</td><td>88 kg</td><td>江南药业</td><td><span class="tag success" ${tagAttrs} data-variant="semantic-success">正常</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pagination">
+                <span class="muted">显示 1-3 / 24 条</span>
+                <button class="button secondary" ${buttonAttrs} type="button">下一页</button>
+              </div>
+            </section>
+
+            <aside class="content-card span-4" data-pattern="work-queue" data-grid-item-span="4" data-source-doc-id="components-card--docs components-tag--docs components-tabs--docs">
+              <div class="tabs" ${tabsAttrs} role="tablist">
+                <button class="tab-button" role="tab" aria-selected="true">待处理</button>
+                <button class="tab-button" role="tab" aria-selected="false">已完成</button>
+              </div>
+              <ul class="queue-list">
+                <li><div><strong>处方审核超时</strong><span class="tag error" ${tagAttrs} data-variant="semantic-error">8 单</span></div><p class="muted">含孕妇禁忌、儿童剂量和十八反提示。</p></li>
+                <li><div><strong>供应商资质待复核</strong><span class="tag warning" ${tagAttrs} data-variant="semantic-warning">5 家</span></div><p class="muted">两家供应商许可证将在本月到期。</p></li>
+                <li><div><strong>近效期药材复盘</strong><span class="tag info" ${tagAttrs} data-variant="semantic-info">7 批</span></div><p class="muted">建议优先调拨给周转更快门店。</p></li>
+              </ul>
+            </aside>
+
+            <section class="content-card span-8" data-pattern="chart-fallback" data-grid-item-span="8" data-source-doc-id="foundations-colors--docs" data-fallback-module="chart" data-fallback-reason="${chartFallback.reason}">
+              <div class="card-header">
+                <div>
+                  <h2>药材质检趋势</h2>
+                  <p class="muted">按近七日入库批次统计，橙色代表需复检批次。</p>
+                </div>
+                <span class="tag success" ${tagAttrs} data-variant="semantic-success">批次通过率 96.8%</span>
+              </div>
+              <div class="chart-bars" aria-label="近七日质检通过率趋势">
+                <span class="chart-bar" style="block-size: 64%;"></span>
+                <span class="chart-bar alt" style="block-size: 48%;"></span>
+                <span class="chart-bar" style="block-size: 72%;"></span>
+                <span class="chart-bar" style="block-size: 58%;"></span>
+                <span class="chart-bar" style="block-size: 78%;"></span>
+                <span class="chart-bar alt" style="block-size: 52%;"></span>
+                <span class="chart-bar" style="block-size: 86%;"></span>
+              </div>
+              <div class="chart-labels"><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span><span>周一</span><span>周二</span></div>
+            </section>
+
+            <section class="content-card span-4" data-pattern="process-progress" data-grid-item-span="4" data-source-doc-id="components-progressbar--docs components-tag--docs">
+              <div class="card-header">
+                <div>
+                  <h2>前配进度</h2>
+                  <p class="muted">按工单阶段显示当前负载。</p>
+                </div>
+              </div>
+              <div class="progress-stack">
+                <div class="progress-item">
+                  <div class="progress-row"><strong>审方完成</strong><span class="tag success" ${tagAttrs} data-variant="semantic-success">82%</span></div>
+                  <div class="progress-track" ${progressAttrs} role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="inline-size: 82%;"></div></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-row"><strong>称量配药</strong><span class="tag info" ${tagAttrs} data-variant="semantic-info">64%</span></div>
+                  <div class="progress-track" ${progressAttrs} role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="inline-size: 64%;"></div></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-row"><strong>煎煮排程</strong><span class="tag warning" ${tagAttrs} data-variant="semantic-warning">41%</span></div>
+                  <div class="progress-track" ${progressAttrs} role="progressbar" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="inline-size: 41%;"></div></div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+`;
+
+  fs.writeFileSync(outputPath, html);
+
+  const report = {
+    schema_version: "0.1.0",
+    status: "pass",
+    script: "render-layout-resolved-html",
+    generated_at: new Date().toISOString(),
+    input: rel(resolutionPath),
+    output: rel(outputPath),
+    checked: {
+      renderer_target: resolution.renderer_target,
+      sections: resolution.sections.length,
+      required_primitives: resolution.required_primitives.length,
+      layout_rule: layoutRule,
+      fallback_modules: resolution.fallbacks.map((item) => item.module)
+    }
+  };
+
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+  console.log(`HTML renderer OK: ${rel(outputPath)}`);
+}
+
+module.exports = { renderResolvedHtml };

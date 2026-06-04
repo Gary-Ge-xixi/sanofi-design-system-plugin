@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-navigationheader--with-sub-header",
+  "component_id": "navigation-header",
+  "component_name": "NavigationHeader",
+  "story_id": "components-navigationheader--with-sub-header",
+  "story_name": "With Sub Header",
+  "export_name": "WithSubHeader",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-navigationheader--with-sub-header&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-navigationheader--with-sub-header&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/NavigationHeader.stories-ktjXC91P.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header/assets/NavigationHeader.stories-ktjXC91P.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/navigation-header/assets/components-navigationheader--with-sub-header.iframe.html",
+    "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{logoWidth:100}",
+    "values": {
+      "logoWidth": 100
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mobileMenuIcon:{control:\"object\"},sticky:{control:\"boolean\"},mobileMenuFitContent:{control:\"boolean\"},contained:{control:\"boolean\"},fullWidth:{control:\"boolean\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoWidth:{control:{type:\"range\",min:50,max:500,step:1}},megaMenuTriggerMode:{options:Object.keys(V),mapping:V,control:{type:\"select\"}},burgerMd:{control:\"boolean\"},isBackgroundBranded:{control:\"boolean\"}}",
+    "fields": [
+      "mobileMenuIcon",
+      "sticky",
+      "mobileMenuFitContent",
+      "contained",
+      "fullWidth",
+      "logoSrc",
+      "logoWidth",
+      "megaMenuTriggerMode",
+      "burgerMd",
+      "isBackgroundBranded"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    logoWidth: 100\n  },\n  render: function Render(rest) {\n    const sanofiLogo = useGetSanofiLogo(rest.isBackgroundBranded);\n    const [isMenuOpen, setIsMenuOpen] = useState(false);\n\n    // Helper function to override sectionSize to 12 for mobile menu\n    const overrideSectionSize = (item: MenuItem): MenuItem => {\n      if (!item.content) return item;\n      return {\n        ...item,\n        content: {\n          ...item.content,\n          sectionSize: 12,\n          sectionContent: item.content.sectionContent.map(subItem => overrideSectionSize(subItem))\n        }\n      };\n    };\n    const mobileMenuData = sanofiMenu.map(overrideSectionSize);\n    const MobileMenuContent = () => <Grid.Root>\n        <CascadingMenu.Root>\n          {mobileMenuData.map(item => renderMenuItem(item))}\n        </CascadingMenu.Root>\n      </Grid.Root>;\n    return <ThemeProvider theme={AppTheme.VACCINESHOP}>\n        <div className={styles.vaccineShopWrapper}>\n          <NavigationHeader.Root burgerMd logo={<div className={styles.logo}>\n                <Image src={sanofiLogo} alt=\"Sanofi logo\" height=\"20px\" />\n                <Divider orientation={DividerOrientation.VERTICAL} />\n                <Image src={\\`\\${SANOFI_ELEMENTS_CDN_URL}/brand-logos/vaccine-shop.svg\\`} alt=\"Vaccineshop logo\" height=\"32px\" />\n              </div>} mobileMenuIcon={<MegaMenu.Trigger menuContent={<MobileMenuContent {...rest} />} hasActiveShadow onOpen={() => setIsMenuOpen(true)} onClose={() => setIsMenuOpen(false)}>\n                <ButtonIcon icon={isMenuOpen ? IconName.CLOSE : IconName.MENU} size={ButtonSize.SMALL} variant={ButtonVariant.TERTIARY} inverse={rest.isBackgroundBranded} />\n              </MegaMenu.Trigger>} subHeader={<>\n                {mobileMenuData.map(section => <NavigationHeader.Item key={section.id}>\n                    <Menu>\n                      <Menu.Trigger>\n                        <NavigationHeader.Action>\n                          {section.label} <Menu.Item.Icon name=\"expand_more\" />\n                        </NavigationHeader.Action>\n                      </Menu.Trigger>\n                      <Menu.Dropdown>\n                        {section.content?.sectionContent?.map(subsection => subsection.content ? <Menu.SubMenu key={subsection.id} label={subsection.label} data-testid=\"sub-menu-item-xxx\">\n                              {subsection.content?.sectionContent?.map(item => <Menu.Item key={item.id}>\n                                    <span>\n                                      <Typography noLineHeight variant={TypographyVariant.BODY_MEDIUM}>\n                                        {item.label}\n                                      </Typography>\n                                    </span>\n                                  </Menu.Item>)}\n                            </Menu.SubMenu> : <Menu.Item key={subsection.id}>\n                              <span>\n                                <Typography noLineHeight variant={TypographyVariant.BODY_MEDIUM}>\n                                  {subsection.label}\n                                </Typography>\n                              </span>\n                            </Menu.Item>)}\n                      </Menu.Dropdown>\n                    </Menu>\n                  </NavigationHeader.Item>)}\n              </>} contained {...rest}>\n            <NavigationHeader.CenterContent>\n              <SearchInput placeholder=\"Search\" size={InputSize.MEDIUM} classNames={{\n              wrapper: styles.searchInput\n            }} variant={SearchInputVariant.SUBMIT} />\n            </NavigationHeader.CenterContent>\n            <NavigationHeader.EndContent>\n              <NavigationHeader.Item>\n                <Button label=\"Register\" variant={ButtonVariant.SECONDARY} className={styles.nowrapButton} />\n              </NavigationHeader.Item>\n              <NavigationHeader.Item>\n                <Button label=\"Log in\" variant={ButtonVariant.PRIMARY} className={styles.nowrapButton} />\n              </NavigationHeader.Item>\n            </NavigationHeader.EndContent>\n          </NavigationHeader.Root>\n        </div>\n      </ThemeProvider>;\n  }\n}",
+    "story_object_source": "{args:{logoWidth:100},render:function(i){const o=j(i.isBackgroundBranded),[a,h]=Y.useState(!1),p=c=>c.content?{...c,content:{...c.content,sectionSize:12,sectionContent:c.content.sectionContent.map(d=>p(d))}}:c,C=B.map(p),g=()=>e.jsx(M.Root,{children:e.jsx(v.Root,{children:C.map(c=>_(c))})});return e.jsx($,{theme:X.VACCINESHOP,children:e.jsx(\"div\",{className:S.vaccineShopWrapper,children:e.jsxs(t.Root,{burgerMd:!0,logo:e.jsxs(\"div\",{className:S.logo,children:[e.jsx(A,{src:o,alt:\"Sanofi logo\",height:\"20px\"}),e.jsx(q,{orientation:J.VERTICAL}),e.jsx(A,{src:`${w}/brand-logos/vaccine-shop.svg`,alt:\"Vaccineshop logo\",height:\"32px\"})]}),mobileMenuIcon:e.jsx(x.Trigger,{menuContent:e.jsx(g,{...i}),hasActiveShadow:!0,onOpen:()=>h(!0),onClose:()=>h(!1),children:e.jsx(u,{icon:a?s.CLOSE:s.MENU,size:I.SMALL,variant:m.TERTIARY,inverse:i.isBackgroundBranded})}),subHeader:e.jsx(e.Fragment,{children:C.map(c=>e.jsx(t.Item,{children:e.jsxs(n,{children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[c.label,\" \",e.jsx(n.Item.Icon,{name:\"expand_more\"})]})}),e.jsx(n.Dropdown,{children:c.content?.sectionContent?.map(d=>d.content?e.jsx(n.SubMenu,{label:d.label,\"data-testid\":\"sub-menu-item-xxx\",children:d.content?.sectionContent?.map(H=>e.jsx(n.Item,{children:e.jsx(\"span\",{children:e.jsx(N,{noLineHeight:!0,variant:f.BODY_MEDIUM,children:H.label})})},H.id))},d.id):e.jsx(n.Item,{children:e.jsx(\"span\",{children:e.jsx(N,{noLineHeight:!0,variant:f.BODY_MEDIUM,children:d.label})})},d.id))})]})},c.id))}),contained:!0,...i,children:[e.jsx(t.CenterContent,{children:e.jsx(oe,{placeholder:\"Search\",size:ae.MEDIUM,classNames:{wrapper:S.searchInput},variant:ie.SUBMIT})}),e.jsxs(t.EndContent,{children:[e.jsx(t.Item,{children:e.jsx(b,{label:\"Register\",variant:m.SECONDARY,className:S.nowrapButton})}),e.jsx(t.Item,{children:e.jsx(b,{label:\"Log in\",variant:m.PRIMARY,className:S.nowrapButton})})]})]})})})}}"
+  },
+  "template": {
+    "id": "navigation-header-with-sub-header-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/navigation-header/templates/html.with-sub-header.template.html",
+    "output_path": "design-system-plugin/outputs/html/navigation-header-with-sub-header.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "navigation-header",
+    "local_path": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader--docs",
+    "story_id": "components-navigationheader--with-sub-header",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/navigation-header/assets/NavigationHeader.stories-ktjXC91P.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/navigation-header/assets/components-navigationheader--with-sub-header.iframe.html"
+  }
+}

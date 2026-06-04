@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-autocomplete--async-search-error",
+  "component_id": "autocomplete",
+  "component_name": "Autocomplete",
+  "story_id": "components-autocomplete--async-search-error",
+  "story_name": "Async Search Error",
+  "export_name": "AsyncSearchError",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-autocomplete--async-search-error&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-autocomplete--async-search-error&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Autocomplete.stories-xY30zCRZ.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/autocomplete/assets/components-autocomplete--async-search-error.iframe.html",
+    "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+    "component_path": "./src/components/Autocomplete/Autocomplete.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...t.args,id:\"autocomplete-async-error\",label:\"Search Countries (Async Error)\",placeholder:\"Type something\",options:[],onAsyncSearch:q,debounceDelay:300,errorMessageI18n:\"Failed to fetch results. Please try again.\"}",
+    "values": {
+      "args": {
+        "extraction_status": "raw_expression",
+        "value": "{id:\"autocomplete\",label:D,placeholder:\"Type something\",state:V.DEFAULT,inverse:!1,disabled:!1,required:!1,size:G.LARGE,options:k,onChange:()=>{},onClear:()=>{}}"
+      },
+      "play": {
+        "extraction_status": "raw_expression",
+        "value": "async({canvasElement:e})=>{const a=r(e);await s.click(a.getByLabelText(D,{exact:!1}))}"
+      },
+      "render": {
+        "extraction_status": "raw_expression",
+        "value": "e=>n.jsxs(n.Fragment,{children:[n.jsx(x,{}),n.jsx(w,{...e,onChange:a=>{l(e,\"onChange\",a.target.value)},onClear:()=>{l(e,\"onClear\",\"\")}})]})"
+      },
+      "id": "autocomplete-async-error",
+      "label": "Search Countries (Async Error)",
+      "placeholder": "Type something",
+      "options": {
+        "extraction_status": "raw_expression",
+        "value": "[]"
+      },
+      "onAsyncSearch": {
+        "extraction_status": "raw_expression",
+        "value": "q"
+      },
+      "debounceDelay": 300,
+      "errorMessageI18n": "Failed to fetch results. Please try again."
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onChange:{action:\"changed\"},onClear:{action:\"changed\"},showTooltips:{control:\"boolean\",description:\"Whether to show tooltips on hover for option labels\",table:{defaultValue:{summary:\"false\"}}},tooltipPosition:{control:\"select\",options:Object.values(E),description:\"Tooltip position for option tooltips\",table:{defaultValue:{summary:\"TOP\"}}}}",
+    "fields": [
+      "onChange",
+      "onClear",
+      "showTooltips",
+      "tooltipPosition"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...Default.args,\n    id: \"autocomplete-async-error\",\n    label: \"Search Countries (Async Error)\",\n    placeholder: \"Type something\",\n    options: [],\n    onAsyncSearch: simulateFailingFetch,\n    debounceDelay: 300,\n    errorMessageI18n: \"Failed to fetch results. Please try again.\"\n  },\n  play: async ({\n    canvasElement,\n    args\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByLabelText(args.label as string, {\n      exact: false\n    }));\n  },\n  render: args => <AsyncSearchStory {...args} />,\n  parameters: {\n    docs: {\n      description: {\n        story: \"Demonstrates the error state when an async fetch fails. \" + \"Every search request is rejected, showing the error message in the dropdown. \" + \"Clearing the input resets the error.\"\n      }\n    }\n  }\n}",
+    "story_object_source": "{args:{...t.args,id:\"autocomplete-async-error\",label:\"Search Countries (Async Error)\",placeholder:\"Type something\",options:[],onAsyncSearch:q,debounceDelay:300,errorMessageI18n:\"Failed to fetch results. Please try again.\"},play:async({canvasElement:e,args:a})=>{const o=r(e);await s.click(o.getByLabelText(a.label,{exact:!1}))},render:e=>n.jsx(M,{...e}),parameters:{docs:{description:{story:\"Demonstrates the error state when an async fetch fails. Every search request is rejected, showing the error message in the dropdown. Clearing the input resets the error.\"}}}}"
+  },
+  "template": {
+    "id": "autocomplete-async-search-error-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/autocomplete/templates/html.async-search-error.template.html",
+    "output_path": "design-system-plugin/outputs/html/autocomplete-async-search-error.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "autocomplete",
+    "local_path": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-autocomplete--docs",
+    "story_id": "components-autocomplete--async-search-error",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/autocomplete/assets/components-autocomplete--async-search-error.iframe.html"
+  }
+}

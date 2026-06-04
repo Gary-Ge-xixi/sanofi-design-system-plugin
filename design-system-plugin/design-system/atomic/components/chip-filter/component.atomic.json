@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-filter",
+  "component_name": "ChipFilter",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-chipfilter--default",
+      "story_name": "Default",
+      "component_id": "chip-filter",
+      "component_name": "ChipFilter",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-filter/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-filter-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js",
+      "docs_id": "components-chipfilter--docs",
+      "registry_item": "sanofi-chip-filter-default-atomic-story"
+    },
+    {
+      "story_id": "components-chipfilter--list-with-removal",
+      "story_name": "List Example",
+      "component_id": "chip-filter",
+      "component_name": "ChipFilter",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--list-with-removal.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-filter/templates/html.list-example.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-filter-list-example.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js",
+      "docs_id": "components-chipfilter--docs",
+      "registry_item": "sanofi-chip-filter-list-example-atomic-story"
+    },
+    {
+      "story_id": "components-chipfilter--long-label",
+      "story_name": "Long Label",
+      "component_id": "chip-filter",
+      "component_name": "ChipFilter",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--long-label.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-filter/templates/html.long-label.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-filter-long-label.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js",
+      "docs_id": "components-chipfilter--docs",
+      "registry_item": "sanofi-chip-filter-long-label-atomic-story"
+    },
+    {
+      "story_id": "components-chipfilter--overview",
+      "story_name": "Overview",
+      "component_id": "chip-filter",
+      "component_name": "ChipFilter",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--overview.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-filter/templates/html.overview.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-filter-overview.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js",
+      "docs_id": "components-chipfilter--docs",
+      "registry_item": "sanofi-chip-filter-overview-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chip-filter--docs"
+  }
+}

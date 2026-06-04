@@ -1,0 +1,134 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function extractAttributeValues(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+function usage() {
+  console.error("Usage: validate-component-package-dom <component-id> [html-path]");
+  process.exit(1);
+}
+
+const componentId = process.argv[2];
+if (!componentId) usage();
+
+const packagePath = `design-system-plugin/design-system/atomic/components/${componentId}/${componentId}.package.json`;
+const expectedTabsPath = `design-system-plugin/design-system/atomic/components/${componentId}/${componentId}.expected-tabs.json`;
+if (!exists(packagePath)) {
+  console.error(`Component package missing: ${packagePath}`);
+  process.exit(1);
+}
+if (!exists(expectedTabsPath)) {
+  console.error(`Expected tabs missing: ${expectedTabsPath}`);
+  process.exit(1);
+}
+
+const pkg = readJson(packagePath);
+const expectedTabs = readJson(expectedTabsPath);
+const htmlPath = process.argv[3] || pkg.render_outputs?.complete_html;
+if (!htmlPath || !exists(htmlPath)) {
+  console.error(`Complete HTML missing for ${componentId}: ${htmlPath || "not_declared"}`);
+  process.exit(1);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.readFileSync(path.join(workspaceRoot, htmlPath), "utf8");
+const expectedStories = (expectedTabs.stories || []).map((story) => story.id);
+const expectedAnchorStories = new Set(
+  (expectedTabs.stories || [])
+    .filter((story) => story.element === "a" || story.semantic_type === "link")
+    .map((story) => story.id)
+);
+const storyRefs = [...new Set(extractAttributeValues(html, "data-story-id"))].sort();
+const expectedStorySet = new Set(expectedStories);
+const missingStories = expectedStories.filter((storyId) => !storyRefs.includes(storyId));
+const extraStories = storyRefs.filter((storyId) => storyId.startsWith(`components-${componentId}--`) && !expectedStorySet.has(storyId));
+const anchorTags = [...html.matchAll(/<a\b[^>]*>/gi)].map((match) => match[0]);
+const bodyBlock = html.match(/body\s*\{[^}]*\}/s)?.[0] || "";
+const docsId = expectedTabs.docs?.[0]?.id || `components-${componentId}--docs`;
+
+const anchorSemantics = {};
+for (const storyId of expectedAnchorStories) {
+  anchorSemantics[storyId] = anchorTags.some((tag) => (
+    /data-primitive=["'][^"']+["']/i.test(tag) &&
+    new RegExp(`data-story-id=["']${storyId}["']`, "i").test(tag) &&
+    /href=["'][^"']+["']/i.test(tag)
+  ));
+}
+
+const hasPackageRoot = /data-pattern=["']atomic-component-package["']/.test(html);
+const hasTokensCss = /href=["'][^"']*tokens\.css["']/.test(html);
+const hasDocsSource = new RegExp(`data-source-doc-id=["']${docsId}["']`).test(html);
+const bodyBackgroundToken = bodyBlock.match(/background:\s*var\((--elements-[^)]+)\)/)?.[1] || null;
+const rawBlackBackground = /background:\s*(?:#000|#000000|black)\b/i.test(bodyBlock);
+const hasTokenSource = /data-token-source=["']foundations-colors--docs["']/.test(html);
+
+const failures = [];
+if (!hasPackageRoot) failures.push("missing atomic-component-package root");
+if (!hasTokensCss) failures.push("missing tokens.css stylesheet");
+if (!hasDocsSource) failures.push(`missing ${docsId} provenance marker`);
+if (!hasTokenSource) failures.push("missing foundations-colors--docs token source marker");
+if (storyRefs.length !== expectedStories.length) {
+  failures.push(`expected ${expectedStories.length} unique stories, found ${storyRefs.length}`);
+}
+if (missingStories.length) failures.push(`missing stories: ${missingStories.join(", ")}`);
+if (extraStories.length) failures.push(`unexpected stories: ${extraStories.join(", ")}`);
+for (const [storyId, ok] of Object.entries(anchorSemantics)) {
+  if (!ok) failures.push(`${storyId} must render at least one anchor with href and primitive semantics`);
+}
+if (!bodyBackgroundToken) failures.push("body background must use an Elements token");
+if (rawBlackBackground) failures.push("body background must not use raw black");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-component-package-dom",
+  component_id: componentId,
+  target: htmlPath,
+  checked: {
+    has_package_root: hasPackageRoot,
+    has_tokens_css: hasTokensCss,
+    has_docs_source: hasDocsSource,
+    has_token_source: hasTokenSource,
+    expected_stories: expectedStories.length,
+    unique_story_refs: storyRefs.length,
+    expected_anchor_stories: [...expectedAnchorStories],
+    anchor_semantics: anchorSemantics,
+    body_background_token: bodyBackgroundToken,
+    raw_black_background: rawBlackBackground
+  },
+  failures,
+  details: {
+    missing_stories: missingStories,
+    extra_stories: extraStories
+  }
+};
+
+const reportPath = `design-system-plugin/outputs/reports/${componentId}-complete-dom-validation.report.json`;
+fs.writeFileSync(path.join(workspaceRoot, reportPath), JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Component package DOM validation failed for ${componentId}: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Component package DOM OK: ${htmlPath}`);

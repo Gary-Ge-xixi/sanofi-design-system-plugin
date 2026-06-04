@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "breadcrumb-item",
+  "canonical_name": "breadcrumb-item",
+  "component_name": "Breadcrumb.Item",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-breadcrumb-item--docs",
+    "title": "Breadcrumb.Item",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb-item--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb-item--docs",
+    "import_path": "./src/components/Breadcrumb/item/BreadcrumbItem.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-breadcrumb-item--default"
+    ],
+    "records": [
+      {
+        "id": "components-breadcrumb-item--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Breadcrumb/item/BreadcrumbItem.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "href",
+        "required": false,
+        "description": "URL for standard anchor links.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "breadcrumb-item"
+    ],
+    "contracts": [
+      {
+        "id": "breadcrumb-item",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/breadcrumb-item/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/breadcrumb-item/demo.registry.json",
+        "known_story_ids": [
+          "components-breadcrumb-item--default",
+          "components-breadcrumb-item--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb-item--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb-item--docs.md",
+    "docs_import_path": "./src/components/Breadcrumb/item/BreadcrumbItem.stories.tsx",
+    "story_ids": [
+      "components-breadcrumb-item--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

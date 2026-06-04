@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ContentBlock",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/ContentBlock",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "content-block",
+      "data_attribute": "data-primitive=\"content-block\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-contentblock--default",
+      "components-contentblock--interactive",
+      "components-contentblock--interactive-disabled",
+      "components-contentblock--interactive-selected",
+      "components-contentblock--interactive-with-decorative-button",
+      "components-contentblock--non-interactive-with-multiple-actions",
+      "components-contentblock--padding-sizes",
+      "components-contentblock--selectable-list",
+      "components-contentblock--selectable-radio-list",
+      "components-contentblock--with-link"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

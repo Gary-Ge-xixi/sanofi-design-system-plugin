@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>客户明细日期查询</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --example-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --example-sidebar-width: 18rem;
+        --example-topbar-height: 5rem;
+        --example-control-height: 2.75rem;
+        --example-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --example-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --example-muted-bg: var(--elements-color-semantic-accent-neutral_default);
+        --example-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --example-border: var(--elements-color-semantic-border-default);
+        --dashboard-surface-bg: var(--example-surface-bg);
+        --dashboard-border: var(--example-border);
+        --dashboard-active-bg: var(--example-active-bg);
+        font-family: var(--example-font-family);
+        letter-spacing: var(--elements-core-font-letterspacing-default);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--example-page-bg);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body { margin: 0; block-size: 100vh; overflow: hidden; font-family: var(--example-font-family); letter-spacing: var(--elements-core-font-letterspacing-default); background: var(--example-page-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, p { margin-block-start: 0; margin-block-end: 0; letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .shell { block-size: 100vh; overflow: hidden; display: grid; grid-template-columns: var(--example-sidebar-width) minmax(0, 1fr); grid-template-rows: var(--example-topbar-height) minmax(0, 1fr); }
+      .topbar { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--example-surface-bg); border-block-end: 0.0625rem solid var(--example-border); box-shadow: var(--elements-core-elevation-02); z-index: 4; }
+      .brand { display: flex; align-items: center; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .brand img { inline-size: 5.875rem; block-size: auto; display: block; }
+      .brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--example-border); }
+      .app-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .topbar-actions { display: inline-flex; align-items: center; justify-content: flex-end; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .user-chip { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.5rem; padding-inline: var(--elements-spacing-md); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-rounded); background: var(--example-muted-bg); font-size: var(--elements-font-size-200); }
+      .user-chip.is-plain { border-color: transparent; background: transparent; border-radius: var(--elements-radius-none); padding-inline: var(--elements-spacing-none); font-size: var(--elements-font-size-300); color: var(--elements-color-semantic-text-default_inverse); }
+      .topbar-switch { display: inline-flex; align-items: center; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-accent-default); font-size: var(--elements-font-size-300); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .sidebar { grid-row: 2; position: sticky; inset-block-start: var(--example-topbar-height); block-size: calc(100vh - var(--example-topbar-height)); background: var(--example-surface-bg); border-inline-end: 0.0625rem solid var(--example-border); overflow: auto; padding: var(--elements-spacing-md); }
+      .nav-list { list-style: none; display: grid; gap: var(--elements-spacing-2xs); margin: 0; padding: 0; }
+      .sidebar-title { display: block; padding: var(--elements-spacing-2xs) var(--elements-spacing-md); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); }
+      .sidebar-footer { margin-block-start: var(--elements-spacing-md); padding: var(--elements-spacing-md); border-block-start: 0.0625rem solid var(--example-border); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      .nav-item { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.75rem; padding-inline: var(--elements-spacing-md); border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); }
+      .nav-item.is-active { background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .nav-item.has-toggle { justify-content: space-between; }
+      .nav-item-main { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .nav-chevron { inline-size: 1.25rem; block-size: 1.25rem; flex: 0 0 auto; color: currentColor; }
+      .nav-sub-list { list-style: none; display: grid; gap: var(--elements-spacing-2xs); margin: 0; padding: var(--elements-spacing-2xs) 0 var(--elements-spacing-sm); }
+      .nav-sub-item { display: flex; align-items: center; min-block-size: 2.75rem; padding-inline: var(--elements-spacing-2xl) var(--elements-spacing-md); border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); }
+      .nav-sub-item.is-active { background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .planning-sidebar-toggle { margin-block-start: var(--elements-spacing-4xl); display: flex; justify-content: flex-end; color: var(--elements-color-semantic-text-subtle_inverse); }
+      .planning-sidebar-toggle button { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border: 0; border-radius: var(--elements-radius-sm); background: transparent; color: inherit; cursor: pointer; }
+      .nav-icon, .select-chevron, .inline-link-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; inline-size: 1.25rem; block-size: 1.25rem; color: currentColor; }
+      svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .main { grid-column: 2; grid-row: 2; min-inline-size: 0; min-block-size: 0; block-size: 100%; padding: var(--elements-spacing-xl); padding-block-end: var(--elements-spacing-6xl); overflow: auto; }
+      .container { inline-size: 100%; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .container-content { min-inline-size: 0; }
+      .page-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); min-inline-size: 0; }
+      .panel, .breadcrumb, .page-header, .save-bar-anchor { grid-column: 1 / -1; min-inline-size: 0; }
+      .panel { background: var(--example-surface-bg); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-lg); }
+      .breadcrumb { display: flex; align-items: center; gap: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); line-height: var(--elements-font-lineheight-2); }
+      .breadcrumb strong { color: var(--elements-color-semantic-text-default_inverse); }
+      .page-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--elements-spacing-xl); row-gap: var(--elements-spacing-sm); align-items: start; margin-block-end: var(--elements-spacing-2xs); }
+      .page-header-main { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; }
+      .page-title-text { font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); overflow-wrap: anywhere; }
+      .page-description { max-inline-size: 56rem; color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); line-height: var(--elements-font-lineheight-3); font-weight: var(--elements-font-weight-regular); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .page-header-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .section-title { font-size: var(--elements-font-size-500); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); margin-block-end: var(--elements-spacing-sm); }
+      .toolbar, .form-grid, .detail-grid, .summary-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--elements-spacing-lg); row-gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .toolbar { align-items: end; background: var(--example-muted-bg); padding: var(--elements-spacing-md); border-radius: var(--elements-radius-sm); }
+      .toolbar .field { grid-column: span 3; }
+      .toolbar-actions { grid-column: span 3; display: flex; justify-content: flex-end; align-items: end; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .customer-query-actions { grid-column: 1 / -1; justify-content: flex-start; }
+      .aggregation-toolbar .field { grid-column: span 2; }
+      .aggregation-toolbar .field:first-child { grid-column: span 3; }
+      .aggregation-toolbar .toolbar-actions { grid-column: span 3; }
+      .customer-date-query-toolbar .field:first-child { grid-column: span 4; }
+      .planning-card { display: grid; gap: var(--elements-spacing-md); }
+      .planning-header-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .planning-header-line .page-title-text { display: inline-flex; align-items: center; gap: var(--elements-spacing-md); }
+      .planning-title-divider { color: var(--elements-color-semantic-text-subtle_inverse); font-weight: var(--elements-font-weight-regular); }
+      .progress-link { display: inline-flex; align-items: center; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .planning-section-strip { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.75rem; border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding-inline: var(--elements-spacing-md); font-size: var(--elements-font-size-400); font-weight: var(--elements-font-weight-bold); }
+      .planning-query-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-spacing-sm); align-items: end; background: var(--example-muted-bg); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); }
+      .planning-query-grid .field { grid-column: span 3; }
+      .planning-query-actions { grid-column: span 3; display: flex; align-items: end; justify-content: flex-end; gap: var(--elements-spacing-sm); }
+      .planning-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-sm); min-block-size: var(--example-control-height); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-surface-bg); padding-inline: var(--elements-spacing-md); }
+      .planning-search-shell input { min-block-size: 2.25rem; border: 0; background: transparent; padding-inline: 0; outline: 0; }
+      .planning-search-shell .nav-icon { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .planning-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); inline-size: min(100%, 58rem); border-radius: var(--elements-radius-sm); background: var(--example-active-bg); overflow: hidden; }
+      .planning-tab { min-block-size: 2.75rem; border: 0; background: transparent; color: var(--elements-color-semantic-text-subtle_inverse); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .planning-tab[aria-selected="true"] { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .planning-table-section { padding: 0; overflow: hidden; }
+      .planning-table-scroll { inline-size: 100%; overflow: auto; }
+      .planning-table { min-inline-size: 96rem; table-layout: fixed; }
+      .planning-table th, .planning-table td { vertical-align: middle; white-space: nowrap; }
+      .planning-table th:first-child, .planning-table td:first-child { inline-size: 20rem; white-space: normal; }
+      .planning-group-row td, .planning-subheader-row th { background: var(--example-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .planning-product-cell { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr); align-items: center; column-gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .planning-hospital-cell { display: flex; align-items: center; min-inline-size: 0; }
+      .tree-toggle { appearance: none; display: inline-grid; place-items: center; inline-size: 1.25rem; block-size: 1.25rem; min-inline-size: 1.25rem; min-block-size: 1.25rem; padding: var(--elements-spacing-none); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-rounded); background: var(--example-surface-bg); color: var(--elements-color-semantic-text-subtle_inverse); line-height: 1; vertical-align: middle; user-select: none; flex: 0 0 auto; }
+      .tree-toggle-icon { display: inline-flex; align-items: center; justify-content: center; inline-size: 0.875rem; block-size: 0.875rem; color: currentColor; }
+      .tree-toggle svg { inline-size: 0.875rem; block-size: 0.875rem; }
+      .tree-toggle:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+      .tree-toggle[aria-expanded="true"] { background: var(--example-muted-bg); }
+      .planning-hospital-cell { padding-inline-start: var(--elements-spacing-2xl); }
+      .target-input { inline-size: 6.75rem; min-block-size: 2.25rem; text-align: center; padding-inline: var(--elements-spacing-sm); }
+      .target-final { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .target-delta { color: var(--elements-color-semantic-text-error_inverse); font-size: var(--elements-font-size-100); }
+      .planning-action-bar { justify-content: center; inset-block-end: 0; inset-inline-start: var(--example-sidebar-width); inset-inline-end: 0; border-radius: var(--elements-radius-none); border-inline: 0; border-block-end: 0; }
+      .planning-action-bar .btn-row { justify-content: center; }
+      .planning-action-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--example-border); }
+      .form-grid .field { grid-column: span 4; }
+      .detail-grid .field, .summary-grid .field { grid-column: span 3; }
+      .field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; }
+      .field label, .field-name { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); font-weight: var(--elements-font-weight-bold); }
+      .required { color: var(--elements-color-semantic-text-error_inverse); }
+      input, select, textarea { inline-size: 100%; min-block-size: var(--example-control-height); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-surface-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; padding-inline: var(--elements-spacing-md); }
+      .select-control, .date-picker-control { position: relative; display: block; min-inline-size: 0; }
+      .select-control select { appearance: none; padding-inline-start: var(--elements-spacing-md); padding-inline-end: var(--elements-spacing-4xl); }
+      .date-picker-control input { padding-inline-start: var(--elements-spacing-md); padding-inline-end: var(--elements-spacing-4xl); }
+      .select-control .select-chevron, .date-picker-control .date-picker-icon { position: absolute; inset-inline-end: var(--elements-spacing-md); inset-block-start: 50%; transform: translateY(-50%); pointer-events: none; color: var(--elements-color-semantic-text-subtle_inverse); }
+      textarea { padding-block: var(--elements-spacing-sm); min-block-size: 6rem; resize: vertical; }
+      input[readonly] { background: var(--example-muted-bg); }
+      .value { min-block-size: var(--example-control-height); display: flex; align-items: center; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding-inline: var(--elements-spacing-md); font-size: var(--elements-font-size-300); }
+      .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--elements-spacing-md); }
+      .btn { min-block-size: var(--example-control-height); border-radius: var(--elements-radius-sm); border: 0.0625rem solid var(--elements-color-semantic-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; white-space: nowrap; }
+      .btn-primary { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .btn-secondary { background: var(--example-surface-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .btn-danger { background: var(--example-surface-bg); color: var(--elements-color-semantic-text-error_inverse); border-color: var(--elements-color-semantic-border-error); }
+      .badge-row { display: flex; flex-wrap: wrap; gap: var(--elements-spacing-sm); align-items: center; }
+      .badge { display: inline-flex; align-items: center; min-block-size: 1.75rem; border-radius: var(--elements-radius-rounded); padding-inline: var(--elements-spacing-sm); background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-size: var(--elements-font-size-100); font-weight: var(--elements-font-weight-bold); }
+      .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--elements-spacing-md); }
+      .customer-summary-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .kpi-card { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); background: var(--example-muted-bg); }
+      .kpi-label { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); line-height: var(--elements-font-lineheight-2); font-weight: var(--elements-font-weight-bold); }
+      .kpi-value { font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .kpi-meta { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); line-height: var(--elements-font-lineheight-2); }
+      .aggregation-layout { display: grid; grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr); gap: var(--elements-grid-gutter-lg); align-items: stretch; }
+      .chart-box { min-inline-size: 0; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); background: var(--example-muted-bg); }
+      .chart-bars { display: grid; gap: var(--elements-spacing-sm); margin-block-start: var(--elements-spacing-md); }
+      .chart-row { display: grid; grid-template-columns: 5rem minmax(0, 1fr) 4rem; gap: var(--elements-spacing-sm); align-items: center; font-size: var(--elements-font-size-200); }
+      .chart-track { block-size: 0.75rem; border-radius: var(--elements-radius-rounded); background: var(--example-surface-bg); overflow: hidden; border: 0.0625rem solid var(--example-border); }
+      .chart-fill { display: block; block-size: 100%; border-radius: inherit; background: var(--elements-color-semantic-background-brand); }
+      .chart-note { margin-block-start: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); line-height: var(--elements-font-lineheight-2); }
+      .record-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-md); margin-block-end: var(--elements-spacing-md); }
+      .pagination { display: flex; justify-content: space-between; align-items: center; gap: var(--elements-spacing-md); margin-block-start: var(--elements-spacing-md); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      .notice { border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding: var(--elements-spacing-md); font-size: var(--elements-font-size-300); }
+      .notice strong { color: var(--elements-color-semantic-text-error_inverse); }
+      table { inline-size: 100%; border-collapse: collapse; min-inline-size: 54rem; font-size: var(--elements-font-size-300); }
+      th, td { border: 0.0625rem solid var(--example-border); padding: var(--elements-spacing-sm) var(--elements-spacing-md); text-align: start; vertical-align: top; }
+      th { background: var(--example-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .table-scroll { overflow-x: auto; }
+      .save-bar { position: fixed; inset-inline-start: calc(var(--example-sidebar-width) + var(--elements-spacing-xl)); inset-inline-end: var(--elements-spacing-xl); inset-block-end: var(--elements-spacing-md); display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); background: var(--example-surface-bg); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); box-shadow: var(--elements-core-elevation-03); z-index: 6; }
+      .save-bar.planning-action-bar { justify-content: center; inset-block-end: 0; inset-inline-start: var(--example-sidebar-width); inset-inline-end: 0; border-radius: var(--elements-radius-none); border-inline: 0; border-block-end: 0; }
+      @media (max-width: 72rem) { .toolbar .field, .toolbar-actions, .form-grid .field, .detail-grid .field, .summary-grid .field, .planning-query-grid .field, .planning-query-actions { grid-column: span 6; } .kpi-grid, .customer-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .aggregation-layout { grid-template-columns: minmax(0, 1fr); } }
+      @media (max-width: 56rem) { .shell { grid-template-columns: minmax(0, 1fr); } .sidebar { display: none; } .main { grid-column: 1; } .topbar { padding-inline: var(--elements-spacing-md); } .save-bar { inset-inline-start: var(--elements-spacing-md); inset-inline-end: var(--elements-spacing-md); } }
+      @media (max-width: 40rem) { .main { padding: var(--elements-spacing-md); } .toolbar .field, .toolbar-actions, .form-grid .field, .detail-grid .field, .summary-grid .field, .planning-query-grid .field, .planning-query-actions { grid-column: 1 / -1; } .toolbar-actions, .planning-query-actions { justify-content: stretch; } .toolbar-actions .btn, .planning-query-actions .btn { flex: 1; } .page-header { grid-template-columns: minmax(0, 1fr); } .page-header-actions { justify-content: flex-start; } .planning-tabs { inline-size: 100%; } .planning-action-bar .btn-row { justify-content: flex-start; overflow-x: auto; } .kpi-grid { grid-template-columns: minmax(0, 1fr); } .record-toolbar, .pagination { align-items: stretch; flex-direction: column; } }
+
+      .snf-button { display: inline-flex; align-items: center; justify-content: center; gap: var(--elements-spacing-2xs); min-block-size: 2.5rem; border: 0.0625rem solid var(--elements-color-semantic-accent-default); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); white-space: nowrap; cursor: pointer; transition: border-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), background-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), color var(--elements-motion-duration-150) var(--elements-motion-ease-out), transform var(--elements-motion-duration-75) var(--elements-motion-ease-out); }
+      .snf-button:hover { background: var(--elements-color-semantic-background-brand-subtle); }
+      .snf-button:active { transform: translateY(0.0625rem); }
+      .snf-button--primary { background: var(--elements-color-semantic-accent-default); color: var(--elements-color-components-tooltip-bg-default); }
+      .snf-button--primary:hover { background: var(--elements-color-semantic-accent-hover); }
+      .snf-button--tertiary { border-color: transparent; background: transparent; }
+      .snf-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
+      .snf-icon, .snf-button-icon, .snf-search-icon, .snf-select-chevron, .snf-date-picker-icon, .snf-nav-chevron { inline-size: 1.5rem; block-size: 1.5rem; display: inline-grid; place-items: center; flex: 0 0 auto; }
+      .snf-icon svg, .snf-button-icon svg, .snf-search-icon svg, .snf-select-chevron svg, .snf-date-picker-icon svg, .snf-nav-chevron svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .snf-sidebar { grid-row: 2; display: grid; grid-template-rows: auto 1fr auto; gap: var(--elements-spacing-md); padding: var(--elements-spacing-md) var(--elements-spacing-sm); background: var(--dashboard-surface-bg); border-inline-end: 0.0625rem solid var(--dashboard-border); overflow: hidden; }
+      .snf-sidebar-heading { padding-inline: var(--elements-spacing-sm); font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-sidebar-content { min-block-size: 0; overflow: auto; }
+      .snf-nav-list, .snf-nav-children { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--elements-spacing-2xs); }
+      .snf-nav-link, .snf-nav-child { display: flex; align-items: center; min-block-size: 2.5rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); padding-inline: var(--elements-spacing-sm); }
+      .snf-nav-link { justify-content: space-between; }
+      .snf-nav-child { padding-inline-start: var(--elements-spacing-3xl); }
+      .snf-nav-link[aria-current="page"], .snf-nav-child[aria-current="page"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .snf-nav-link:hover, .snf-nav-child:hover { background: var(--dashboard-active-bg); }
+      .snf-nav-item-main { display: flex; align-items: center; gap: var(--elements-spacing-md); }
+      .snf-sidebar-footer { border-block-start: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .snf-container-content { inline-size: 100%; min-inline-size: 0; padding-inline: var(--elements-spacing-xl); }
+      .snf-layout-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); align-items: start; min-inline-size: 0; }
+      .snf-field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-field-label { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-control-shell { inline-size: 100%; min-inline-size: 0; min-block-size: 2.5rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-2xs); padding-inline: var(--elements-spacing-sm); }
+      .snf-search-input { inline-size: 100%; min-inline-size: 0; min-block-size: 2.25rem; border: 0; background: transparent; color: inherit; padding: 0; font: inherit; outline: 0; }
+      .snf-select-shell { position: relative; min-inline-size: 0; }
+      .snf-select-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; cursor: pointer; }
+      .snf-select-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-select-listbox { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline: 0; z-index: 20; display: grid; gap: var(--elements-spacing-3xs); max-block-size: 12rem; overflow: auto; margin: 0; padding: var(--elements-spacing-2xs); list-style: none; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-select-listbox[hidden] { display: none; }
+      .snf-select-option { border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-sm); cursor: pointer; color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-select-option:hover, .snf-select-option[aria-selected="true"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .snf-date-picker-shell { position: relative; min-inline-size: 0; }
+      .snf-date-picker-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; white-space: nowrap; cursor: pointer; }
+      .snf-date-picker-value { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .snf-date-picker-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-date-picker-dialog { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline-start: 0; z-index: 25; min-inline-size: 18rem; padding: var(--elements-spacing-sm); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-date-picker-dialog[hidden] { display: none; }
+      .snf-date-picker-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); margin-block-end: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .snf-date-picker-close { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border: 0; border-radius: var(--elements-radius-rounded); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+      .snf-date-picker-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--elements-spacing-3xs); text-align: center; font-size: var(--elements-font-size-100); }
+      .snf-date-picker-calendar span { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-date-picker-calendar button { min-block-size: 2rem; border: 0.0625rem solid transparent; border-radius: var(--elements-radius-sm); background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; cursor: pointer; }
+      .snf-card { display: grid; gap: var(--elements-spacing-md); min-block-size: 11rem; padding: var(--elements-spacing-lg); background: var(--dashboard-surface-bg); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); }
+      .snf-tag { display: inline-flex; align-items: center; inline-size: fit-content; border: 0.0625rem solid var(--elements-color-components-tag-branded-border); border-radius: var(--elements-radius-rounded); background: var(--elements-color-components-tag-branded-bg-subtle); color: var(--elements-color-components-tag-branded-text); padding: var(--elements-spacing-3xs) var(--elements-spacing-sm); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .snf-tag--semantic-success { border-color: var(--elements-color-components-tag-semantic_green-border); background: var(--elements-color-components-tag-semantic_green-bg-solid); color: var(--elements-color-components-tag-semantic_green-text-inverse); }
+      .snf-progress { overflow: hidden; min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-neutral-subtle); }
+      .snf-progress-fill { inline-size: var(--progress-value); min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .snf-tabs { display: flex; gap: var(--elements-spacing-sm); border-block-end: 0.0625rem solid var(--dashboard-border); margin-block-end: var(--elements-spacing-md); }
+      .snf-tab { border: 0; border-block-end: 0.1875rem solid transparent; background: transparent; color: var(--elements-color-semantic-text-default_inverse); padding: var(--elements-spacing-sm) var(--elements-spacing-md); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .snf-tab[aria-selected="true"] { color: var(--elements-color-semantic-text-accent-default); border-block-end-color: var(--elements-color-semantic-accent-default); }
+      .snf-button:focus-visible, .snf-nav-link:focus-visible, .snf-nav-child:focus-visible, .snf-control-shell:focus-within, .snf-control-shell:focus-visible, .snf-tab:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-business-standard="business-page-standards" data-default-rule="business-admin-defaults" data-default-overrides="none" data-page-profile="customer-detail-date-query" data-page-family="customer-detail-date-query" data-business-task="query-customer-detail-by-date" data-reference-fit="business-page-family" data-reference-fit-rule="business-page-family-reference-fit" data-density="business-default" data-token-source="foundations-colors--docs" data-typography-rule="typography-font-stack" data-page-layout-typography="business-layout-typography" data-app-shell-scroll="content-only" data-scroll-rule="business-app-shell-scroll" data-icon-rule="icon-usage" data-elevation-rule="elevation-usage" data-pattern="customer-detail-date-query" data-output-state-official-runtime="absent" data-output-state-local-atomic-runtime="present" data-output-state-explicit-fallback="present" data-source-doc-id="foundations-typography--docs foundations-layout--docs components-pageheader--docs components-container--docs components-grid--docs foundations-elevation--docs components-icon--docs components-buttonicon--docs">
+    <div class="shell" data-app-shell="business-admin" data-app-shell-scroll="content-only">
+      <header class="topbar" data-app-shell-part="topbar" data-scroll-fixed="true" data-primitive="navigation-header" data-source-component="navigation-header" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs foundations-elevation--docs" data-token-source="foundations-colors--docs" data-elevation-role="header" data-elevation-token="--elements-core-elevation-02">
+        <div class="brand">
+          <img src="../../design-system/assets/brand/sanofi-logo-full.svg" alt="Sanofi" data-brand-asset-id="sanofi-logo-full">
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="app-name">OneCommercial 业务管理</span>
+        </div>
+        <div class="topbar-actions"><span class="user-chip ">张敏 · 区域运营</span></div>
+      </header>
+      <aside class="sidebar" data-primitive="sidebar" data-source-component="sidebar" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs" data-sidebar-part="root" data-token-source="foundations-colors--docs" data-nav-default="with-icons">
+        <div class="sidebar-title" data-sidebar-part="header">业务工作台</div>
+        <nav aria-label="主导航" data-sidebar-part="content">
+          <ul class="nav-list" data-sidebar-part="section">
+            <li data-sidebar-part="item"><a class="nav-item " href="business-query-form.resolved.html"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="form" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 4h12v16H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path></svg></span><span>客户档案维护</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item is-active" href="business-entity-detail.resolved.html" aria-current="page" data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="detail" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="5"></circle><path d="m16 16 4 4"></path><path d="M9 11h4"></path></svg></span><span>客户详情审计</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item " href="information-aggregation.resolved.html"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="aggregation" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path><path d="M8 8v8"></path><path d="M12 10v6"></path><path d="M16 7v9"></path></svg></span><span>信息聚合</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item " href="#"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="import" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3v10"></path><path d="m8 9 4 4 4-4"></path><path d="M5 19h14"></path></svg></span><span>导入结果</span></a></li>
+            <li data-sidebar-part="item"><a class="nav-item " href="#"  data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default"><span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="permission" data-icon-role="navigation" data-icon-size="1.25rem" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 5 6v5c0 4 3 7 7 9 4-2 7-5 7-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span>权限配置</span></a></li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer" data-sidebar-part="footer">默认展开 · 图标导航</div>
+      </aside>
+      <main class="main" data-app-shell-part="content" data-scroll-region="content">
+        <section class="container" data-primitive="container" data-source-component="container" data-story-id="components-container--fixed" data-source-doc-id="foundations-layout--docs components-container--docs" data-container-part="root" data-container-mode="fixed" data-container-width-token="--elements-container-width-2xl" data-layout-rule="layout-grid-container">
+          <div class="container-content" data-container-part="contentContainer">
+            <div class="page-grid" data-primitive="grid" data-source-component="grid" data-story-id="components-grid--desktop" data-source-doc-id="foundations-layout--docs components-grid--docs" data-layout-rule="layout-grid-container" data-grid-part="root" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg">
+              
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>数据管理</strong><span>›</span><span>客户明细日期查询</span></nav>
+          <section class="page-header" data-section="query-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+            <div class="page-header-main" data-pageheader-part="content">
+              <h1 class="page-title-text" data-pageheader-part="title">客户明细日期查询</h1>
+              <p class="page-description" data-pageheader-part="description">按日期范围查询客户销售、库存、审批和风险明细，并在同一页面完成复核、导出和下钻。</p>
+            </div>
+            <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-field-type="status">查询成功</span><span class="badge" data-field-type="permission">区域可见</span></div>
+          </section>
+          <section class="panel" data-section="date-query-form" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-business-task="query-customer-detail-by-date" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="loading">
+            <h2 class="section-title">查询条件</h2>
+            <div class="toolbar aggregation-toolbar customer-date-query-toolbar" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3" data-filter-count="7">
+              <div class="field" data-field-id="detail_date_range" data-field-type="date-range" data-required="true" data-editable="true" data-field-source="business-data-model-standard"><div class="snf-field snf-date-picker-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="date-picker.detail_date_range" data-component-id="date-picker" data-primitive="date-picker" data-source-component="date-picker" data-story-id="components-datepicker--range" data-source-doc-id="components-datepicker--docs" data-pattern="business-form-field" data-token-source="foundations-colors--docs" data-date-picker-root="true" data-date-picker-size="medium" data-date-picker-shell="normal" data-date-picker-edge-safe="true" data-date-picker-mode="range" data-date-picker-selector-type="day" data-date-picker-clearable="true" data-field-control="root" data-field-control-kind="date-picker" data-control-size="medium">
+      <span class="snf-field-label" id="detail_date_range-label">查询日期 *</span>
+      <div class="snf-date-picker-shell" data-date-picker-part="root">
+        <button class="snf-control-shell snf-date-picker-trigger" type="button" role="combobox" aria-haspopup="dialog" aria-expanded="false" aria-labelledby="detail_date_range-label detail_date_range-value" aria-controls="detail_date_range-dialog" data-control-shell="field" data-control-kind="date-picker" data-date-picker-trigger="true">
+          <span class="snf-date-picker-value" id="detail_date_range-value" data-date-picker-value>2026-06-01 ~ 2026-06-30</span>
+          <span class="snf-date-picker-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.calendar" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="calendar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="5" width="16" height="17" rx="2"></rect><path d="M8 3v4"></path><path d="M16 3v4"></path><path d="M4 10h16"></path></svg></span>
+        </button>
+        <div class="snf-date-picker-dialog" id="detail_date_range-dialog" role="dialog" aria-modal="false" aria-labelledby="detail_date_range-label" hidden data-date-picker-dialog="true">
+          <div class="snf-date-picker-dialog-head">
+            <span>选择日期范围</span>
+            <button class="snf-date-picker-close" type="button" aria-label="关闭日期选择" data-date-picker-close>×</button>
+          </div>
+          <div class="snf-date-picker-calendar" data-date-picker-calendar="day">
+            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+            <button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6</button><button type="button">7</button>
+          </div>
+        </div>
+      </div>
+    </div></div>
+              <div class="field" data-field-id="detail_customer_keyword" data-field-type="text" data-required="false" data-editable="true" data-field-source="business-data-model-standard"><label for="detail_customer_keyword">客户编码/名称</label><input id="detail_customer_keyword" type="search" value="淮北 CDC"  data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-token-source="foundations-colors--docs"></div>
+              <div class="field" data-field-id="detail_region" data-field-type="enum" data-required="false" data-editable="true" data-field-source="business-data-model-standard"><div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.detail_region" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="detail_region-label">大区</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="detail_region-label detail_region-value" aria-controls="detail_region-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="detail_region-value" data-select-value>华东</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="detail_region-listbox" aria-labelledby="detail_region-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="detail_region-option-0" data-value="全部" aria-selected="false">全部</li><li class="snf-select-option" role="option" id="detail_region-option-1" data-value="华东" aria-selected="true">华东</li><li class="snf-select-option" role="option" id="detail_region-option-2" data-value="华南" aria-selected="false">华南</li><li class="snf-select-option" role="option" id="detail_region-option-3" data-value="华北" aria-selected="false">华北</li><li class="snf-select-option" role="option" id="detail_region-option-4" data-value="西区" aria-selected="false">西区</li>
+        </ul>
+      </div>
+    </div></div>
+              <div class="field" data-field-id="detail_customer_group" data-field-type="enum" data-required="false" data-editable="true" data-field-source="business-data-model-standard"><div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.detail_customer_group" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="detail_customer_group-label">客户分组</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="detail_customer_group-label detail_customer_group-value" aria-controls="detail_customer_group-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="detail_customer_group-value" data-select-value>正式客户</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="detail_customer_group-listbox" aria-labelledby="detail_customer_group-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="detail_customer_group-option-0" data-value="全部" aria-selected="false">全部</li><li class="snf-select-option" role="option" id="detail_customer_group-option-1" data-value="正式客户" aria-selected="true">正式客户</li><li class="snf-select-option" role="option" id="detail_customer_group-option-2" data-value="重点客户" aria-selected="false">重点客户</li><li class="snf-select-option" role="option" id="detail_customer_group-option-3" data-value="观察客户" aria-selected="false">观察客户</li>
+        </ul>
+      </div>
+    </div></div>
+              <div class="field" data-field-id="detail_product_line" data-field-type="enum" data-required="false" data-editable="true" data-field-source="business-data-model-standard"><div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.detail_product_line" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="detail_product_line-label">产品线</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="detail_product_line-label detail_product_line-value" aria-controls="detail_product_line-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="detail_product_line-value" data-select-value>疫苗</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="detail_product_line-listbox" aria-labelledby="detail_product_line-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="detail_product_line-option-0" data-value="全部" aria-selected="false">全部</li><li class="snf-select-option" role="option" id="detail_product_line-option-1" data-value="疫苗" aria-selected="true">疫苗</li><li class="snf-select-option" role="option" id="detail_product_line-option-2" data-value="慢病" aria-selected="false">慢病</li><li class="snf-select-option" role="option" id="detail_product_line-option-3" data-value="特药" aria-selected="false">特药</li>
+        </ul>
+      </div>
+    </div></div>
+              <div class="field" data-field-id="detail_record_status" data-field-type="status" data-required="false" data-editable="true" data-field-source="business-data-model-standard"><div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.detail_record_status" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="detail_record_status-label">明细状态</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="detail_record_status-label detail_record_status-value" aria-controls="detail_record_status-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="detail_record_status-value" data-select-value>全部</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="detail_record_status-listbox" aria-labelledby="detail_record_status-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="detail_record_status-option-0" data-value="全部" aria-selected="true">全部</li><li class="snf-select-option" role="option" id="detail_record_status-option-1" data-value="待审批" aria-selected="false">待审批</li><li class="snf-select-option" role="option" id="detail_record_status-option-2" data-value="有异常" aria-selected="false">有异常</li><li class="snf-select-option" role="option" id="detail_record_status-option-3" data-value="已锁定" aria-selected="false">已锁定</li><li class="snf-select-option" role="option" id="detail_record_status-option-4" data-value="已完成" aria-selected="false">已完成</li>
+        </ul>
+      </div>
+    </div></div>
+              <div class="field" data-field-id="detail_owner_user" data-field-type="relation" data-required="false" data-editable="true" data-field-source="business-data-model-standard"><div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.detail_owner_user" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="detail_owner_user-label">负责人</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="detail_owner_user-label detail_owner_user-value" aria-controls="detail_owner_user-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="detail_owner_user-value" data-select-value>全部</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="detail_owner_user-listbox" aria-labelledby="detail_owner_user-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="detail_owner_user-option-0" data-value="全部" aria-selected="true">全部</li><li class="snf-select-option" role="option" id="detail_owner_user-option-1" data-value="张敏" aria-selected="false">张敏</li><li class="snf-select-option" role="option" id="detail_owner_user-option-2" data-value="王强" aria-selected="false">王强</li><li class="snf-select-option" role="option" id="detail_owner_user-option-3" data-value="李娜" aria-selected="false">李娜</li><li class="snf-select-option" role="option" id="detail_owner_user-option-4" data-value="赵凯" aria-selected="false">赵凯</li>
+        </ul>
+      </div>
+    </div></div>
+              <div class="toolbar-actions customer-query-actions"><button class="btn btn-primary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-business-flow="query">查询</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >重置</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >保存筛选</button></div>
+            </div>
+          </section>
+          <section class="panel" data-section="customer-summary" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-summary-count="5" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="success">
+            <h2 class="section-title">客户摘要</h2>
+            <div class="kpi-grid customer-summary-grid" data-grid-mode="normal-12" data-grid-columns="12">
+              <article class="kpi-card" data-customer-summary-item="summary_customer_count" data-field-id="summary_customer_count" data-field-type="number" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">命中客户</span>
+              <strong class="kpi-value">128</strong>
+              <span class="kpi-meta">查询日期内有明细记录</span>
+            </article>
+              <article class="kpi-card" data-customer-summary-item="summary_record_count" data-field-id="summary_record_count" data-field-type="number" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">明细记录</span>
+              <strong class="kpi-value">2,416</strong>
+              <span class="kpi-meta">含销售、库存和审批记录</span>
+            </article>
+              <article class="kpi-card" data-customer-summary-item="summary_risk_amount" data-field-id="summary_risk_amount" data-field-type="money" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">风险金额</span>
+              <strong class="kpi-value">1.18M CNY</strong>
+              <span class="kpi-meta">12 条记录需复核</span>
+            </article>
+              <article class="kpi-card" data-customer-summary-item="summary_pending_status" data-field-id="summary_pending_status" data-field-type="status" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">待处理</span>
+              <strong class="kpi-value">36</strong>
+              <span class="kpi-meta">平均等待 1.6 天</span>
+            </article>
+              <article class="kpi-card" data-customer-summary-item="summary_export_ready" data-field-id="summary_export_ready" data-field-type="permission" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">可导出记录</span>
+              <strong class="kpi-value">2,380</strong>
+              <span class="kpi-meta">排除 36 条待处理记录</span>
+            </article>
+            </div>
+            <div class="badge-row" data-summary-meta="true">
+              <span class="badge" data-field-id="summary_date_range" data-field-type="date-range">2026-06-01 ~ 2026-06-30</span>
+              <span class="badge" data-field-id="summary_last_sync" data-field-type="date">最后同步 2026-06-04 09:30</span>
+              <span class="badge" data-field-id="summary_permission" data-field-type="permission">华东区域运营可见</span>
+            </div>
+          </section>
+          <section class="panel table-scroll" data-section="customer-detail-table" data-grid-part="item" data-business-module="business-table" data-table-contract="business-table" data-fallback-module="table" data-fallback-reason="No official Table/DataGrid primitive is registered locally." data-module-contract="business-table" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="success">
+            <div class="record-toolbar">
+              <h2 class="section-title">客户明细结果</h2>
+              <div class="btn-row"><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-business-flow="export" data-action="export">导出明细</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-business-flow="bulk-action">批量标记复核</button><button class="btn btn-primary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-action="view-detail">查看客户详情</button></div>
+            </div>
+            <table aria-label="按日期查询的客户明细结果">
+              <thead><tr><th scope="col" data-field-id="detail_date" data-field-type="date">日期</th><th scope="col" data-field-id="customer_code" data-field-type="text">客户编码</th><th scope="col" data-field-id="customer_name" data-field-type="text">客户名称</th><th scope="col" data-field-id="product_name" data-field-type="text">产品</th><th scope="col" data-field-id="detail_quantity" data-field-type="quantity">数量</th><th scope="col" data-field-id="detail_amount" data-field-type="money">金额</th><th scope="col" data-field-id="approval_status" data-field-type="status">状态</th><th scope="col" data-field-id="owner_user" data-field-type="relation">负责人</th><th scope="col" data-field-id="row_action" data-field-type="action">操作</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-04</td><td>CDC-340600</td><td>淮北市疾病预防控制中心</td><td>潘太欣</td><td>1,240 支</td><td>186,000 CNY</td><td>待审批</td><td>张敏</td><td>查看</td></tr>
+                <tr><td>2026-06-03</td><td>CDC-320100</td><td>南京市江北新区疾控中心</td><td>流感疫苗</td><td>980 支</td><td>96,000 CNY</td><td>已完成</td><td>王强</td><td>查看</td></tr>
+                <tr><td>2026-06-02</td><td>CDC-330100</td><td>杭州市西湖区疾控中心</td><td>潘太欣</td><td>760 支</td><td>114,000 CNY</td><td>有异常</td><td>李娜</td><td>处理</td></tr>
+                <tr><td>2026-06-01</td><td>CDC-310115</td><td>上海浦东新区疾控中心</td><td>流感疫苗</td><td>1,560 支</td><td>152,000 CNY</td><td>已锁定</td><td>赵凯</td><td>查看</td></tr>
+                <tr><td>2026-06-01</td><td>CDC-330200</td><td>宁波市鄞州区疾控中心</td><td>潘太欣</td><td>640 支</td><td>96,000 CNY</td><td>待审批</td><td>陈洁</td><td>查看</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="panel" data-section="result-actions" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-interaction-state="readonly permission-denied loading error" data-state-copy-key="success">
+            <h2 class="section-title">结果操作</h2>
+            <p class="notice">当前筛选条件已保存为“华东客户六月明细”。导出任务会保留日期范围、客户分组和明细状态。</p>
+            <div class="btn-row"><button class="btn btn-primary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" data-business-flow="export" data-action="export">生成导出任务</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >发送复核提醒</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >清空筛选</button></div>
+          </section>
+          <section class="panel pagination" data-section="pagination" data-grid-part="item" data-pagination="true" data-business-flow="query">
+            <span>共 2,416 条，当前第 1 / 242 页</span>
+            <div class="btn-row"><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >上一页</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" >下一页</button></div>
+          </section>
+
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package">
+      (() => {
+        const closeSelect = (root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          if (!trigger || !listbox) return;
+          trigger.setAttribute("aria-expanded", "false");
+          listbox.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          const valueNode = root.querySelector("[data-select-value]");
+          if (!trigger || !listbox || !valueNode) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            listbox.hidden = !nextExpanded;
+          });
+
+          listbox.querySelectorAll("[role='option']").forEach((option) => {
+            option.addEventListener("click", () => {
+              listbox.querySelectorAll("[role='option']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              option.setAttribute("aria-selected", "true");
+              valueNode.textContent = option.textContent.trim();
+              closeSelect(root);
+            });
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeSelect(root);
+          });
+        });
+
+        const closeDatePicker = (root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+          trigger.setAttribute("aria-expanded", "false");
+          dialog.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            dialog.hidden = !nextExpanded;
+          });
+
+          root.querySelectorAll("[data-date-picker-close]").forEach((closeButton) => {
+            closeButton.addEventListener("click", () => closeDatePicker(root));
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeDatePicker(root);
+          });
+        });
+
+        document.querySelectorAll("[data-component-id='tabs'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          root.querySelectorAll("[role='tab']").forEach((tab) => {
+            tab.addEventListener("click", () => {
+              root.querySelectorAll("[role='tab']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              tab.setAttribute("aria-selected", "true");
+            });
+          });
+        });
+
+        document.querySelectorAll("[data-sidebar-toggle]").forEach((toggle) => {
+          toggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            const expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!expanded));
+            const children = toggle.parentElement?.querySelector(".snf-nav-children");
+            if (children) children.hidden = expanded;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

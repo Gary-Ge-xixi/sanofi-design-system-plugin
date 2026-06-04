@@ -1,0 +1,114 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-button--button-link",
+  "component_id": "button",
+  "component_name": "Button",
+  "story_id": "components-button--button-link",
+  "story_name": "Button Link",
+  "export_name": "ButtonLink",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "link",
+    "expected_variant": "tertiary",
+    "expected_element": "a",
+    "inverse": false,
+    "source": "button.expected-tabs.json"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-button--button-link&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-button--button-link&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Button.stories-CGg2KCkY.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/button/assets/components-button--button-link.iframe.html",
+    "import_path": "./src/components/Button/Button.stories.tsx",
+    "component_path": "./src/components/Button/Button.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...l,variant:\"tertiary\",as:\"a\",href:\"#\",target:\"_blank\"}",
+    "values": {
+      "label": "Action",
+      "icon": "arrow-forward",
+      "inverse": false,
+      "isLoading": false,
+      "disabled": false,
+      "fullWidth": false,
+      "size": "medium",
+      "iconPosition": "start",
+      "variant": "tertiary",
+      "as": "a",
+      "href": "#",
+      "target": "_blank"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{variant:{options:Object.keys(a),control:{type:\"select\"}},size:{options:Object.keys(c),control:{type:\"select\"}},label:{control:\"text\"},icon:{options:Object.keys(L),mapping:L,control:{type:\"select\"},description:\"The start aligned icon of the button if any\"},iconPosition:{options:Object.keys(D),control:{type:\"select\"}},inverse:{control:\"boolean\"},fullWidth:{control:\"boolean\"},disabled:{control:\"boolean\"},isLoading:{control:\"boolean\"},onClick:{action:\"clicked\"},brandTheme:{options:Object.keys(N),control:{type:\"select\"}}}",
+    "fields": [
+      "variant",
+      "size",
+      "label",
+      "icon",
+      "iconPosition",
+      "inverse",
+      "fullWidth",
+      "disabled",
+      "isLoading",
+      "onClick",
+      "brandTheme"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "tertiary"
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    variant: \"tertiary\",\n    as: \"a\",\n    href: \"#\",\n    target: \"_blank\"\n  },\n  render: args => <StoryLayout {...args} />\n}",
+    "story_object_source": "{args:{...l,variant:\"tertiary\",as:\"a\",href:\"#\",target:\"_blank\"},render:e=>r.jsx(d,{...e})}"
+  },
+  "template": {
+    "id": "button-button-link-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+    "output_path": "design-system-plugin/outputs/html/button-button-link.atomic.v2.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "button",
+    "local_path": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "story_id": "components-button--button-link",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/button/assets/components-button--button-link.iframe.html"
+  }
+}

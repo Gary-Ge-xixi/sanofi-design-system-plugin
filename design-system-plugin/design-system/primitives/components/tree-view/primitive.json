@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TreeView",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/TreeView",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "tree-view",
+      "data_attribute": "data-primitive=\"tree-view\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-treeview--color-accent",
+      "components-treeview--custom-leading-visuals",
+      "components-treeview--decorations",
+      "components-treeview--file-explorer",
+      "components-treeview--inside-sidebar",
+      "components-treeview--playground",
+      "components-treeview--rtl"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

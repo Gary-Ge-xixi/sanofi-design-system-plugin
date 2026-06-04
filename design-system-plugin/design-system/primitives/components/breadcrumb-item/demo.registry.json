@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Breadcrumb.Item",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-breadcrumb-item--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

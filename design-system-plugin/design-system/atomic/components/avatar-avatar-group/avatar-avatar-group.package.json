@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "avatar-avatar-group-complete-standard-package",
+  "component_id": "avatar-avatar-group",
+  "component_name": "Avatar/AvatarGroup",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/docs/avatar-avatar-group.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-two-items",
+      "story_name": "Avatar Group Two Items",
+      "export_name": "AvatarGroupTwoItems",
+      "semantic_type": "variant",
+      "variant": "avatar-group-two-items",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-two-items.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-two-items.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar-avatargroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+      "story_name": "Avatar Group With Counter",
+      "export_name": "AvatarGroupWithCounter",
+      "semantic_type": "variant",
+      "variant": "avatar-group-with-counter",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-with-counter.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-with-counter.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar-avatargroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "story_name": "Avatar Group With Tooltips",
+      "export_name": "AvatarGroupWithTooltips",
+      "semantic_type": "variant",
+      "variant": "avatar-group-with-tooltips",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-with-tooltips.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-with-tooltips.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar-avatargroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-without-counter",
+      "story_name": "Avatar Group Without Counter",
+      "export_name": "AvatarGroupWithoutCounter",
+      "semantic_type": "variant",
+      "variant": "avatar-group-without-counter",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/stories/components-avatar-avatargroup--avatar-group-without-counter.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-without-counter.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar-avatargroup--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/avatar-avatar-group-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-avatar-avatargroup--avatar-group-two-items",
+        "output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-two-items.atomic.html"
+      },
+      {
+        "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+        "output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-with-counter.atomic.html"
+      },
+      {
+        "story_id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+        "output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-with-tooltips.atomic.html"
+      },
+      {
+        "story_id": "components-avatar-avatargroup--avatar-group-without-counter",
+        "output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-without-counter.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-avatar-avatar-group-complete-package.json",
+    "story_item_prefix": "sanofi-avatar-avatar-group-"
+  },
+  "validation": {
+    "required_story_count": 4,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/docs/avatar-avatar-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

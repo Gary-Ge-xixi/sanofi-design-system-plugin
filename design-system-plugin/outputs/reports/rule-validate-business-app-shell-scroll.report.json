@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule validate business-app-shell-scroll",
+  "status": "pass",
+  "generated_at": "2026-06-04T05:32:25.088Z",
+  "rule_id": "business-app-shell-scroll",
+  "target": "design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+  "rule": {
+    "id": "business-app-shell-scroll",
+    "path": "business-app-shell-scroll.json",
+    "script": "../../scripts/validate-app-shell-scroll"
+  },
+  "run": {
+    "script": "validate-app-shell-scroll",
+    "command": "node design-system-plugin/scripts/validate-app-shell-scroll /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "App shell scroll OK: outputs/html/admin-query-panel.resolved.html\n",
+    "stderr": ""
+  },
+  "failures": []
+}

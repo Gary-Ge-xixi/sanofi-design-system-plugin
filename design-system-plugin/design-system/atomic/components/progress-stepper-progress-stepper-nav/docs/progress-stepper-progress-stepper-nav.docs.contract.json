@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "id": "progress-stepper-progress-stepper-nav-docs-contract",
+  "component_id": "progress-stepper-progress-stepper-nav",
+  "component_name": "ProgressStepper/ProgressStepperNav",
+  "docs_id": "components-progressstepper-progresssteppernav--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-progressstepper-progresssteppernav--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-progresssteppernav--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "variation",
+        "required": false,
+        "description": "Controls the layout variation of the stepper\"horizontal\"",
+        "default": "horizontal",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Visual variant for the stepper indicators.\"brand\": Uses accent/brand colors (default)\"neutral\": Uses neutral black/white colors\"neutral\"\"brand\"",
+        "default": "\"brand\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "allowNavigation",
+        "required": false,
+        "description": "Whether navigation between steps is allowed by user interactionboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class names-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-progressstepper-progresssteppernav--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { ProgressStepperNav, defineStepper, ProgressStepperNavVariation } from \"@sanofi-accelerator/elements\";\n\nconst steps = [\n{ id: \"account\", label: \"Account\", description: \"Create your account\" },\n{ id: \"profile\", label: \"Profile\", description: \"Complete your profile\" },\n{ id: \"preferences\", label: \"Preferences\", description: \"Set your preferences\" },\n{ id: \"review\", label: \"Review\", description: \"Review and confirm\" },\n] as const;\n\nconst StepperProvider = defineStepper(steps);\n\nexport default () => (\n<StepperProvider>\n  <ProgressStepperNav variation={ProgressStepperNavVariation.HORIZONTAL} />\n</StepperProvider>\n);",
+      "import { ProgressStepperNav, defineStepper } from \"@sanofi-accelerator/elements\";\n\n// Step 1: Define your steps\nconst steps = [\n{ id: \"step1\", label: \"Getting Started\", description: \"Welcome\" },\n{ id: \"step2\", label: \"Configuration\", description: \"Set up preferences\" },\n{ id: \"step3\", label: \"Complete\", description: \"Finish setup\" },\n] as const;\n\n// Step 2: Create the provider\nconst StepperProvider = defineStepper(steps);\n\n// Step 3 & 4: Use the provider and component\nfunction MyApp() {\nreturn (\n\n<StepperProvider initialStep=\"step1\">\n<ProgressStepperNav />\n{/* Your step content here */}\n</StepperProvider>\n); }",
+      "<StepperProvider initialStep=\"preferences\">\n<ProgressStepperNav />\n</StepperProvider>"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-progressstepper-progresssteppernav--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--interactive",
+      "name": "Interactive Example",
+      "export_name": "Interactive",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--many-steps",
+      "name": "Many Steps",
+      "export_name": "ManySteps",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--with-initial-step",
+      "name": "With Initial Step",
+      "export_name": "WithInitialStep",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    },
+    {
+      "id": "components-progressstepper-progresssteppernav--without-descriptions",
+      "name": "Without Descriptions",
+      "export_name": "WithoutDescriptions",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperNav.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-progressstepper-progresssteppernav--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-progresssteppernav--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json"
+  }
+}

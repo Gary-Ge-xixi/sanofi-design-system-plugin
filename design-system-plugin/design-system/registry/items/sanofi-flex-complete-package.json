@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-flex-complete-package",
+  "title": "Flex complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Flex package covering Docs plus all Storybook story atoms.",
+  "component_id": "flex",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-flex"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/flex.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/flex/flex.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/flex.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/flex/flex.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/docs/flex.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/flex/docs/flex.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/flex/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/flex-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/flex-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/flex.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/flex/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-flex--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-flex--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-flex--align-content",
+      "story_name": "Align Content",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-align-content-atomic-story"
+    },
+    {
+      "story_id": "components-flex--as-child-list",
+      "story_name": "As Child List",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-as-child-list-atomic-story"
+    },
+    {
+      "story_id": "components-flex--column-stack",
+      "story_name": "Column Stack",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-column-stack-atomic-story"
+    },
+    {
+      "story_id": "components-flex--flex-shorthand",
+      "story_name": "Flex Shorthand",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-flex-shorthand-atomic-story"
+    },
+    {
+      "story_id": "components-flex--horizontal-flow",
+      "story_name": "Horizontal Flow",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-horizontal-flow-atomic-story"
+    },
+    {
+      "story_id": "components-flex--justify-distribution",
+      "story_name": "Justify Distribution",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-justify-distribution-atomic-story"
+    },
+    {
+      "story_id": "components-flex--wrapping-grid",
+      "story_name": "Wrapping Grid",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-flex-wrapping-grid-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/flex/flex.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/flex/docs/flex.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "flex",
+      "Flex",
+      "flex complete",
+      "Flex complete package",
+      "flex docs"
+    ],
+    "when_to_use": "Use first for any Flex generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Flex behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

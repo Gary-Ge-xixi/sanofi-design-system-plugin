@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-atomic-library",
+  "checked": {
+    "stories": 425,
+    "components": 93,
+    "local_paths": 1541
+  },
+  "failures": []
+}

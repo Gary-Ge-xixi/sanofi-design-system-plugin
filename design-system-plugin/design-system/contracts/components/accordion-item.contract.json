@@ -1,0 +1,160 @@
+{
+  "schema_version": "0.1.0",
+  "id": "accordion-item",
+  "canonical_name": "accordion-item",
+  "component_name": "Accordion.Item",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-accordion-item--docs",
+    "title": "Accordion.Item",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion-item--docs",
+    "import_path": "./src/components/Accordion/AccordionItem.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-accordion-item--default"
+    ],
+    "records": [
+      {
+        "id": "components-accordion-item--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Accordion/AccordionItem.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size variant of the accordion item.\"small\"\"medium\"",
+        "default": "\"AccordionSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": true,
+        "description": "Header content (text or custom elements).ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isActiveSection",
+        "required": true,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sectionIndex",
+        "required": true,
+        "description": "number",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Callback fired when header is clicked.((e: MouseEvent<Element, MouseEvent>, isExpanded?: boolean) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Panel content revealed when section is expanded.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "accordion-item"
+    ],
+    "contracts": [
+      {
+        "id": "accordion-item",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/accordion-item/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/accordion-item/demo.registry.json",
+        "known_story_ids": [
+          "components-accordion-item--default",
+          "components-accordion-item--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion-item--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md",
+    "docs_import_path": "./src/components/Accordion/AccordionItem.stories.tsx",
+    "story_ids": [
+      "components-accordion-item--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

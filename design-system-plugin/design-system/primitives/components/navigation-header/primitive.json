@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "NavigationHeader",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/NavigationHeader",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "navigation-header",
+      "data_attribute": "data-primitive=\"navigation-header\"",
+      "required_semantics": [
+        "header landmark",
+        "contains navigation or page-level controls"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-navigationheader--default",
+      "components-navigationheader--contained-nav-header",
+      "components-navigationheader--full-width-nav-header",
+      "components-navigationheader--with-dropdown-menu",
+      "components-navigationheader--sanofi-example",
+      "components-navigationheader--double-navigation",
+      "components-navigationheader--mobile-view",
+      "components-navigationheader--with-auto-overflow",
+      "components-navigationheader--with-sub-header"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

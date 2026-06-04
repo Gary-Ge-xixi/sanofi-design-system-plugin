@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tree-view-sub-components-sub-tree",
+  "component_name": "TreeView/SubComponents/SubTree",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-treeview-subcomponents-subtree--default",
+      "story_name": "Default",
+      "component_id": "tree-view-sub-components-sub-tree",
+      "component_name": "TreeView/SubComponents/SubTree",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-sub-tree/stories/components-treeview-subcomponents-subtree--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-sub-tree/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/tree-view-sub-components-sub-tree-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-sub-tree/assets/TreeViewSubTree.stories-DhFYG8Zg.js",
+      "docs_id": "components-treeview-subcomponents-subtree--docs",
+      "registry_item": "sanofi-tree-view-sub-components-sub-tree-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tree-view-sub-components-sub-tree--docs"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Radio/RadioGroup",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-radio-radiogroup--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio-radiogroup--with-error",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

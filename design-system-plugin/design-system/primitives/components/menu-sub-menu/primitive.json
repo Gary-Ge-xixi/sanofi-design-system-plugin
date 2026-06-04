@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Menu/SubMenu",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Menu/SubMenu",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "menu-sub-menu",
+      "data_attribute": "data-primitive=\"menu-sub-menu\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-menu-submenu--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-submenu--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

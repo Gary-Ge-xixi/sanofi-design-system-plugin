@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "id": "primitive-usage",
+  "severity": "error",
+  "known_primitives_source": "../primitives/primitive-index.json",
+  "checks": [
+    {
+      "id": "known-data-primitive",
+      "description": "Every data-primitive value must be registered in primitive-index.json."
+    },
+    {
+      "id": "known-story-id",
+      "description": "Every data-story-id value must come from the component demo registry."
+    },
+    {
+      "id": "checkbox-semantic-markup",
+      "description": "Checkbox output must use native checkbox inputs and associated labels."
+    },
+    {
+      "id": "checkbox-group-semantic-markup",
+      "description": "Checkbox group output must use fieldset and legend."
+    },
+    {
+      "id": "admin-dashboard-select-runtime",
+      "description": "Admin dashboard Select must be rendered through the Sanofi component runtime; a visible native select with data-primitive=\"select\" is forbidden."
+    }
+  ]
+}

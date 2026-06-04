@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Calendar",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-calendar--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-calendar--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-calendar--range-selection",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-calendar--with-date-constraints",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

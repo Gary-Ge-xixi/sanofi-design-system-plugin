@@ -1,0 +1,216 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(htmlDir, "customer-detail-date-query.resolved.html");
+const target = process.argv[2] ? path.resolve(process.cwd(), process.argv[2]) : defaultHtml;
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  const matches = source.match(pattern);
+  return matches ? matches.length : 0;
+}
+
+function extractTagAttrs(source, tagName) {
+  const attrs = [];
+  const re = new RegExp(`<${tagName}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(source))) attrs.push(match[1]);
+  return attrs;
+}
+
+function isVisuallyHiddenSelect(attrs) {
+  return (
+    /\bhidden\b/i.test(attrs) ||
+    /aria-hidden=["']true["']/i.test(attrs) ||
+    /data-select-native=["']true["']/i.test(attrs) ||
+    /style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)
+  );
+}
+
+function includesAttr(source, name, value) {
+  return source.includes(`${name}="${value}"`);
+}
+
+function requireMarker(failures, html, marker) {
+  if (!html.includes(marker)) failures.push(`missing marker: ${marker}`);
+}
+
+function sectionHtml(source, sectionId) {
+  const marker = `data-section="${sectionId}"`;
+  const start = source.indexOf(marker);
+  if (start === -1) return "";
+  const sectionStart = source.lastIndexOf("<section", start);
+  const end = source.indexOf("</section>", start);
+  return sectionStart === -1 || end === -1 ? "" : source.slice(sectionStart, end + "</section>".length);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing target HTML: ${rel(target)}`);
+
+const html = failures.length ? "" : fs.readFileSync(target, "utf8");
+const dateQueryFormHtml = sectionHtml(html, "date-query-form");
+const nativeSelectAttrs = extractTagAttrs(html, "select");
+const visibleNativeSelectPrimitiveCount = nativeSelectAttrs.filter((attrs) => (
+  /data-primitive=["']select["']/i.test(attrs) && !isVisuallyHiddenSelect(attrs)
+)).length;
+
+const checks = {
+  target: rel(target),
+  page_profile: includesAttr(html, "data-page-profile", "customer-detail-date-query"),
+  page_family: includesAttr(html, "data-page-family", "customer-detail-date-query"),
+  business_task: includesAttr(html, "data-business-task", "query-customer-detail-by-date"),
+  sections: {},
+  date_picker_controls: count(html, /data-date-picker-root="true"/g),
+  date_picker_range_controls: count(html, /data-date-picker-mode="range"/g),
+  date_picker_medium_controls: count(html, /data-date-picker-size="medium"/g),
+  date_picker_trigger_controls: count(html, /data-date-picker-trigger="true"/g),
+  date_picker_dialog_controls: count(html, /data-date-picker-dialog="true"/g),
+  select_controls: count(html, /data-component-id="select"/g),
+  select_medium_controls: count(html, /data-select-size="medium"/g),
+  select_combobox_controls: count(html, /role="combobox"[^>]*(?:aria-haspopup="listbox"|data-select-trigger)/g),
+  select_listbox_controls: count(html, /role="listbox"/g),
+  visible_native_select_primitives: visibleNativeSelectPrimitiveCount,
+  filters: count(dateQueryFormHtml, /data-field-id="detail_[^"]+"/g),
+  summary_items: count(html, /data-customer-summary-item="/g),
+  summary_meta: count(html, /data-summary-meta="true"/g),
+  table_columns: count(html, /<th\b[^>]*scope="col"/g),
+  table_rows: count(html, /<tr><td>2026-/g),
+  local_runtime_markers: count(html, /data-component-runtime="sanofi-local-atomic-components"/g),
+  local_render_sources: count(html, /data-render-source="local-atomic-component-package"/g),
+  fallback_tables: count(html, /data-fallback-module="table"/g),
+  fallback_reasons: count(html, /data-fallback-reason="/g),
+  output_state_official_absent: includesAttr(html, "data-output-state-official-runtime", "absent"),
+  output_state_local_present: includesAttr(html, "data-output-state-local-atomic-runtime", "present"),
+  output_state_fallback_present: includesAttr(html, "data-output-state-explicit-fallback", "present"),
+  official_runtime_claims: count(html, /data-output-state-official-runtime="present"/g),
+  date_picker_visual_nowrap_css: html.includes(".snf-date-picker-value { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }"),
+  date_query_toolbar_wide_first_field_css: html.includes(".customer-date-query-toolbar .field:first-child { grid-column: span 4; }"),
+  pagination: count(html, /data-pagination="true"/g)
+};
+
+for (const [name, value] of [
+  ["data-business-standard", "business-page-standards"],
+  ["data-default-rule", "business-admin-defaults"],
+  ["data-page-profile", "customer-detail-date-query"],
+  ["data-page-family", "customer-detail-date-query"],
+  ["data-business-task", "query-customer-detail-by-date"],
+  ["data-reference-fit", "business-page-family"],
+  ["data-page-layout-typography", "business-layout-typography"],
+  ["data-app-shell-scroll", "content-only"],
+  ["data-scroll-rule", "business-app-shell-scroll"],
+  ["data-output-state-official-runtime", "absent"],
+  ["data-output-state-local-atomic-runtime", "present"],
+  ["data-output-state-explicit-fallback", "present"]
+]) {
+  if (!includesAttr(html, name, value)) failures.push(`missing ${name}="${value}"`);
+}
+
+for (const section of [
+  "breadcrumb",
+  "query-header",
+  "date-query-form",
+  "customer-summary",
+  "customer-detail-table",
+  "result-actions",
+  "pagination"
+]) {
+  const present = includesAttr(html, "data-section", section);
+  checks.sections[section] = present;
+  if (!present) failures.push(`missing section ${section}`);
+}
+
+for (const marker of [
+  'data-business-module="business-form"',
+  'data-business-module="business-table"',
+  'data-form-contract="business-form"',
+  'data-table-contract="business-table"',
+  'data-module-contract="business-table"',
+  'data-fallback-module="table"',
+  'data-fallback-reason="No official Table/DataGrid primitive is registered locally."',
+  'data-filter-count="7"',
+  'data-date-picker-mode="range"',
+  'data-date-picker-size="medium"',
+  'data-date-picker-shell="normal"',
+  'data-date-picker-edge-safe="true"',
+  'class="toolbar aggregation-toolbar customer-date-query-toolbar"',
+  'data-nav-default="with-icons"',
+  'data-grid-mode="normal-12"',
+  'data-field-span-desktop="3"',
+  'data-pagination="true"',
+  'data-app-shell="business-admin"',
+  'data-scroll-fixed="true"',
+  'data-scroll-region="content"',
+  'data-pageheader-part="root"',
+  'data-container-part="contentContainer"'
+]) {
+  requireMarker(failures, html, marker);
+}
+
+if (checks.date_picker_controls < 1) failures.push("date query page must include a DatePicker control");
+if (checks.date_picker_range_controls < 1) failures.push("date query page must include a range DatePicker");
+if (checks.date_picker_controls !== checks.date_picker_medium_controls) failures.push(`every DatePicker must default to medium, got ${checks.date_picker_medium_controls}/${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_trigger_controls) failures.push(`every DatePicker must expose trigger, got ${checks.date_picker_trigger_controls}/${checks.date_picker_controls}`);
+if (checks.date_picker_controls !== checks.date_picker_dialog_controls) failures.push(`every DatePicker must expose dialog, got ${checks.date_picker_dialog_controls}/${checks.date_picker_controls}`);
+if (checks.visible_native_select_primitives) failures.push(`visible native select[data-primitive="select"] is forbidden, got ${checks.visible_native_select_primitives}`);
+if (checks.select_controls !== checks.select_medium_controls) failures.push(`every Select must default to medium, got ${checks.select_medium_controls}/${checks.select_controls}`);
+if (checks.select_controls !== checks.select_combobox_controls) failures.push(`every Select must expose combobox trigger, got ${checks.select_combobox_controls}/${checks.select_controls}`);
+if (checks.select_controls !== checks.select_listbox_controls) failures.push(`every Select must expose listbox, got ${checks.select_listbox_controls}/${checks.select_controls}`);
+if (checks.filters < 7) failures.push(`filter metadata count must be at least 7, got ${checks.filters}`);
+if (!checks.date_picker_visual_nowrap_css) failures.push("DatePicker value must use nowrap/hidden/ellipsis CSS so date ranges do not wrap");
+if (!checks.date_query_toolbar_wide_first_field_css) failures.push("customer date query toolbar must reserve a wider first field for the range DatePicker");
+if (checks.summary_items < 4) failures.push(`customer summary needs at least 4 summary cards, got ${checks.summary_items}`);
+if (!checks.summary_meta) failures.push("customer summary needs date, sync, and permission meta row");
+if (checks.table_columns < 8) failures.push(`detail table needs at least 8 columns, got ${checks.table_columns}`);
+if (checks.table_rows < 5) failures.push(`detail table needs at least 5 rows, got ${checks.table_rows}`);
+if (!checks.fallback_tables || !checks.fallback_reasons) failures.push("detail table must be explicit fallback with reason");
+if (!checks.pagination) failures.push("pagination must be visible and marked");
+if (!html.includes("生成导出任务") || !html.includes("查看客户详情")) failures.push("result actions must include export task and view-detail actions");
+if (!html.includes("2026-06-01 ~ 2026-06-30")) failures.push("selected date range must be visible");
+if (checks.local_runtime_markers < 1 || checks.local_render_sources < 1) failures.push("local atomic runtime markers must be present");
+if (checks.official_runtime_claims > 0) failures.push("official runtime must not be claimed for local DatePicker output");
+
+for (const state of ["loading", "empty", "error", "readonly", "permission-denied"]) {
+  if (!html.includes(state)) failures.push(`missing interaction state ${state}`);
+}
+
+for (const forbidden of [
+  'data-primitive="table"',
+  'data-primitive="datagrid"',
+  'data-source-component="table"',
+  'data-source-component="datagrid"',
+  'data-output-state-official-runtime="present"'
+]) {
+  if (html.includes(forbidden)) failures.push(`forbidden marker present: ${forbidden}`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-customer-detail-date-query-page",
+  generated_at: new Date().toISOString(),
+  checks,
+  failures
+};
+
+fs.writeFileSync(path.join(reportDir, "customer-detail-date-query.report.json"), JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  path.join(reportDir, "customer-detail-date-query.report.md"),
+  `# Customer Detail Date Query Validation\n\nStatus: ${report.status}\n\n| Check | Value |\n|---|---:|\n| DatePicker runtime class | local atomic, not official Elements runtime |\n| Official runtime absent | ${checks.output_state_official_absent} |\n| Local atomic runtime present | ${checks.output_state_local_present} |\n| Explicit fallback present | ${checks.output_state_fallback_present} |\n| Local DatePicker range controls | ${checks.date_picker_range_controls} |\n| DatePicker value nowrap CSS | ${checks.date_picker_visual_nowrap_css} |\n| Date range field width rule | ${checks.date_query_toolbar_wide_first_field_css} |\n| Select controls | ${checks.select_controls} |\n| Query filters | ${checks.filters} |\n| Summary items | ${checks.summary_items} |\n| Detail columns | ${checks.table_columns} |\n| Detail rows | ${checks.table_rows} |\n| Fallback tables | ${checks.fallback_tables} |\n| Local runtime markers | ${checks.local_runtime_markers} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Customer detail date query validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Customer detail date query page OK: ${rel(target)}`);

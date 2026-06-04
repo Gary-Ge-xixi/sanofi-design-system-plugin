@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-progressbar--all-densities",
+  "component_id": "progress-bar",
+  "component_name": "ProgressBar",
+  "story_id": "components-progressbar--all-densities",
+  "story_name": "All Densities",
+  "export_name": "AllDensities",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-progressbar--all-densities&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-progressbar--all-densities&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ProgressBar.stories-UKhzCY0f.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/components-progressbar--all-densities.iframe.html",
+    "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+    "component_path": "./src/components/ProgressBar/ProgressBar.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{value:{control:{type:\"range\",min:0,max:100,step:1}},state:{control:{type:\"select\"},options:Object.values(i),defaultValue:i.IN_PROGRESS},size:{control:{type:\"select\"},options:Object.values(c),defaultValue:c.MEDIUM},density:{control:{type:\"select\"},options:Object.values(n),defaultValue:n.DEFAULT}}",
+    "fields": [
+      "value",
+      "state",
+      "size",
+      "density"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: () => <div style={{\n    display: \"flex\",\n    flexDirection: \"column\",\n    gap: \"1rem\",\n    width: \"100%\"\n  }}>\n      <ProgressBar value={50} density={ProgressBarDensity.DEFAULT} label=\"Default density\" helperText=\"25Mb of 50Mb\" />\n      <ProgressBar value={50} density={ProgressBarDensity.COMPACT} label=\"Compact density\" helperText=\"25Mb of 50Mb\" />\n      <ProgressBar value={50} density={ProgressBarDensity.ULTRA_COMPACT} label=\"Ultra compact density\" helperText=\"25Mb of 50Mb\" />\n    </div>\n}",
+    "story_object_source": "{render:()=>e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"1rem\",width:\"100%\"},children:[e.jsx(r,{value:50,density:n.DEFAULT,label:\"Default density\",helperText:\"25Mb of 50Mb\"}),e.jsx(r,{value:50,density:n.COMPACT,label:\"Compact density\",helperText:\"25Mb of 50Mb\"}),e.jsx(r,{value:50,density:n.ULTRA_COMPACT,label:\"Ultra compact density\",helperText:\"25Mb of 50Mb\"})]})}"
+  },
+  "template": {
+    "id": "progress-bar-all-densities-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.all-densities.template.html",
+    "output_path": "design-system-plugin/outputs/html/progress-bar-all-densities.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "progress-bar",
+    "local_path": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-progressbar--docs",
+    "story_id": "components-progressbar--all-densities",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/progress-bar/assets/components-progressbar--all-densities.iframe.html"
+  }
+}

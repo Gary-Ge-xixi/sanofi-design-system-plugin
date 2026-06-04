@@ -1,0 +1,256 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-02T13:03:17.020Z",
+  "summary": {
+    "storybook_entries": 540,
+    "storybook_docs": 111,
+    "storybook_stories": 429,
+    "storybook_component_titles": 95,
+    "zeroheight_component_pages": 37,
+    "zeroheight_only_secondary": 6,
+    "primitive_contract_components": 12,
+    "raw_component_captures": 23,
+    "invalid_raw_component_captures": 23,
+    "storybook_docs_markdown_records": 111,
+    "storybook_docs_markdown_extracted": 111,
+    "component_contracts": 95,
+    "semantic_token_roles": 10,
+    "local_registry_items": 16,
+    "atomic_story_components": 1,
+    "atomic_stories": 1
+  },
+  "by_coverage": {
+    "storybook-indexed": 83,
+    "primitive-static-contract": 10,
+    "primitive-ready": 2
+  },
+  "token_counts": {
+    "css_token_names": 640,
+    "css_declaration_occurrences": 640,
+    "allowlist_declaration_occurrences": 836,
+    "css_var_refs": 146,
+    "unresolved_css_var_refs": 0,
+    "categories": {
+      "color": 467,
+      "other": 118,
+      "font": 31,
+      "grid": 6,
+      "spacing": 12,
+      "radius": 6
+    }
+  },
+  "primitive_index": {
+    "local_path": "design-system-plugin/design-system/primitives/primitive-index.json",
+    "primitives": [
+      {
+        "id": "checkbox",
+        "component": "Checkbox",
+        "status": "ready",
+        "path": "components/checkbox/primitive.json",
+        "demo_registry": "components/checkbox/demo.registry.json"
+      },
+      {
+        "id": "checkbox-group",
+        "component": "CheckboxGroup",
+        "status": "ready",
+        "path": "components/checkbox/primitive.json",
+        "demo_registry": "components/checkbox/demo.registry.json"
+      },
+      {
+        "id": "button",
+        "component": "Button",
+        "status": "storybook-backed-static-contract",
+        "path": "components/button/primitive.json",
+        "demo_registry": "components/button/demo.registry.json"
+      },
+      {
+        "id": "card",
+        "component": "Card",
+        "status": "storybook-backed-static-contract",
+        "path": "components/card/primitive.json",
+        "demo_registry": "components/card/demo.registry.json"
+      },
+      {
+        "id": "tag",
+        "component": "Tag",
+        "status": "storybook-backed-static-contract",
+        "path": "components/tag/primitive.json",
+        "demo_registry": "components/tag/demo.registry.json"
+      },
+      {
+        "id": "progress-bar",
+        "component": "ProgressBar",
+        "status": "storybook-backed-static-contract",
+        "path": "components/progress-bar/primitive.json",
+        "demo_registry": "components/progress-bar/demo.registry.json"
+      },
+      {
+        "id": "search-input",
+        "component": "SearchInput",
+        "status": "storybook-backed-static-contract",
+        "path": "components/search-input/primitive.json",
+        "demo_registry": "components/search-input/demo.registry.json"
+      },
+      {
+        "id": "select",
+        "component": "Select",
+        "status": "storybook-backed-static-contract",
+        "path": "components/select/primitive.json",
+        "demo_registry": "components/select/demo.registry.json"
+      },
+      {
+        "id": "tabs",
+        "component": "Tabs",
+        "status": "storybook-backed-static-contract",
+        "path": "components/tabs/primitive.json",
+        "demo_registry": "components/tabs/demo.registry.json"
+      },
+      {
+        "id": "sidebar",
+        "component": "Sidebar",
+        "status": "storybook-backed-static-contract",
+        "path": "components/sidebar/primitive.json",
+        "demo_registry": "components/sidebar/demo.registry.json"
+      },
+      {
+        "id": "menu",
+        "component": "Menu",
+        "status": "storybook-backed-static-contract",
+        "path": "components/menu/primitive.json",
+        "demo_registry": "components/menu/demo.registry.json"
+      },
+      {
+        "id": "navigation-header",
+        "component": "NavigationHeader",
+        "status": "storybook-backed-static-contract",
+        "path": "components/navigation-header/primitive.json",
+        "demo_registry": "components/navigation-header/demo.registry.json"
+      }
+    ]
+  },
+  "pattern_index": {
+    "local_path": "design-system-plugin/design-system/patterns/pattern-index.json",
+    "patterns": [
+      {
+        "id": "form-checkbox-group",
+        "status": "ready",
+        "path": "forms/checkbox-group.pattern.json",
+        "required_primitives": [
+          "checkbox-group",
+          "checkbox"
+        ]
+      },
+      {
+        "id": "admin-dashboard-candidates",
+        "status": "candidate",
+        "path": "admin-dashboard/admin-dashboard.candidates.json",
+        "required_primitives": [
+          "sidebar",
+          "search-input",
+          "select",
+          "button",
+          "card",
+          "status-indicator",
+          "tabs",
+          "progress-bar",
+          "page-header"
+        ]
+      },
+      {
+        "id": "admin-dashboard",
+        "status": "ready",
+        "path": "admin-dashboard/admin-dashboard.pattern.json",
+        "required_primitives": [
+          "navigation-header",
+          "sidebar",
+          "menu",
+          "search-input",
+          "select",
+          "button",
+          "card",
+          "tag"
+        ],
+        "optional_primitives": [
+          "tabs",
+          "progress-bar"
+        ],
+        "fallback_modules": [
+          "table",
+          "chart",
+          "metric-card"
+        ]
+      }
+    ]
+  },
+  "template_index": {
+    "local_path": "design-system-plugin/design-system/templates/template-index.json",
+    "templates": [
+      {
+        "id": "standalone-html",
+        "status": "ready",
+        "path": "standalone-html.template.html",
+        "output_target": "../../outputs/html/"
+      }
+    ]
+  },
+  "rules_index": {
+    "local_path": "design-system-plugin/design-system/rules/rules-index.json",
+    "rules": [
+      {
+        "id": "token-usage",
+        "path": "token-usage.json",
+        "script": "../../scripts/validate-token-usage"
+      },
+      {
+        "id": "primitive-usage",
+        "path": "primitive-usage.json",
+        "script": "../../scripts/validate-primitive-usage"
+      },
+      {
+        "id": "page-pattern",
+        "path": "page-pattern.json",
+        "script": "../../scripts/validate-page-pattern"
+      },
+      {
+        "id": "source-index",
+        "path": "../knowledge/source-index.json",
+        "script": "../../scripts/validate-source-index"
+      },
+      {
+        "id": "component-contracts",
+        "path": "../contracts/components/component-contract-index.json",
+        "script": "../../scripts/validate-component-contracts"
+      },
+      {
+        "id": "semantic-token-map",
+        "path": "../contracts/semantic-token-map.json",
+        "script": "../../scripts/validate-semantic-token-map"
+      },
+      {
+        "id": "pattern-resolver",
+        "path": "../contracts/resolvers/latest-resolution.json",
+        "script": "../../scripts/validate-pattern-resolver"
+      },
+      {
+        "id": "source-provenance",
+        "path": "../policies/source-provenance.json",
+        "script": "../../scripts/validate-provenance"
+      },
+      {
+        "id": "evaluation-benchmark",
+        "path": "../contracts/benchmarks/evaluation-benchmark.json",
+        "script": "../../scripts/validate-evaluation-benchmark"
+      },
+      {
+        "id": "local-registry",
+        "path": "../registry/registry.json",
+        "script": "../../scripts/validate-local-registry"
+      },
+      {
+        "id": "atomic-library",
+        "path": "../atomic/atomic-component-index.json",
+        "script": "../../scripts/validate-atomic-library"
+      }
+    ]
+  }
+}

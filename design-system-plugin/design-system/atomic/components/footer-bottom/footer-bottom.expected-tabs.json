@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "footer-bottom",
+  "component_name": "Footer.Bottom",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Footer.Bottom"
+  },
+  "docs": [
+    {
+      "id": "components-footer-bottom--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Footer/Bottom.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-footer-bottom--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Bottom.stories.tsx"
+    }
+  ]
+}

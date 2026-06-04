@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tabs--lazy-mount",
+  "component_id": "tabs",
+  "component_name": "Tabs",
+  "story_id": "components-tabs--lazy-mount",
+  "story_name": "Lazy Mount",
+  "export_name": "LazyMount",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tabs--lazy-mount&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tabs--lazy-mount&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tabs.stories-D4pC3Xxb.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--lazy-mount.iframe.html",
+    "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+    "component_path": "./src/components/Tabs/Tabs.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "() => {\n  return <Tabs defaultSelected=\"tab1\" lazyMount>\n      <Tabs.List>\n        <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n        <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n        <Tabs.Tab name=\"tab3\">Tab 3</Tabs.Tab>\n      </Tabs.List>\n      <Tabs.Panel name=\"tab1\">\n        <MountTracker name=\"Tab 1 Content\" />\n      </Tabs.Panel>\n      <Tabs.Panel name=\"tab2\">\n        <MountTracker name=\"Tab 2 Content\" />\n      </Tabs.Panel>\n      <Tabs.Panel name=\"tab3\">\n        <MountTracker name=\"Tab 3 Content\" />\n      </Tabs.Panel>\n    </Tabs>;\n}",
+    "story_object_source": "not_extracted"
+  },
+  "template": {
+    "id": "tabs-lazy-mount-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tabs/templates/html.lazy-mount.template.html",
+    "output_path": "design-system-plugin/outputs/html/tabs-lazy-mount.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tabs",
+    "local_path": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "story_id": "components-tabs--lazy-mount",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--lazy-mount.iframe.html"
+  }
+}

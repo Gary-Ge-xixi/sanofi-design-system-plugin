@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-searchinput--error-state",
+  "component_id": "search-input",
+  "component_name": "SearchInput",
+  "story_id": "components-searchinput--error-state",
+  "story_name": "Error State",
+  "export_name": "ErrorState",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-searchinput--error-state&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-searchinput--error-state&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/SearchInput.stories-Ra1oIw42.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/search-input/assets/SearchInput.stories-Ra1oIw42.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/search-input/assets/components-searchinput--error-state.iframe.html",
+    "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+    "component_path": "./src/components/SearchInput/SearchInput.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{placeholder:\"Type in to search\",state:o.ERROR,size:\"medium\",subText:\"This is an error message\",\"aria-label\":\"Search\"}",
+    "values": {
+      "placeholder": "Type in to search",
+      "state": "error",
+      "size": "medium",
+      "subText": "This is an error message",
+      "aria-label": "Search"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{variant:{description:\"Variant of the search input\",control:\"select\",options:Object.values(c)},size:{description:\"Size of the input\",control:\"select\",options:Object.values(s)}}",
+    "fields": [
+      "variant",
+      "size"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    placeholder: \"Type in to search\",\n    state: FormControlState.ERROR,\n    size: \"medium\",\n    subText: \"This is an error message\",\n    [\"aria-label\"]: \"Search\"\n  }\n}",
+    "story_object_source": "{args:{placeholder:\"Type in to search\",state:o.ERROR,size:\"medium\",subText:\"This is an error message\",\"aria-label\":\"Search\"}}"
+  },
+  "template": {
+    "id": "search-input-error-state-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/search-input/templates/html.error-state.template.html",
+    "output_path": "design-system-plugin/outputs/html/search-input-error-state.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "search-input",
+    "local_path": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "story_id": "components-searchinput--error-state",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/search-input/assets/SearchInput.stories-Ra1oIw42.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/search-input/assets/components-searchinput--error-state.iframe.html"
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-complete-standard-package",
+  "component_id": "card",
+  "component_name": "Card",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 14,
+    "materialized_stories": 14,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-card--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/card/docs/card.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-card--card-custom-number",
+      "story_name": "Card Custom Number",
+      "export_name": "CardCustomNumber",
+      "semantic_type": "variant",
+      "variant": "card-custom-number",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-custom-number.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-card-custom-number.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--card-custom-picto",
+      "story_name": "Card Custom Picto",
+      "export_name": "CardCustomPicto",
+      "semantic_type": "variant",
+      "variant": "card-custom-picto",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-custom-picto.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-card-custom-picto.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--card-image",
+      "story_name": "Card Image",
+      "export_name": "CardImage",
+      "semantic_type": "variant",
+      "variant": "card-image",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-image.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-card-image.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--card-image-clickable",
+      "story_name": "Card Image Clickable",
+      "export_name": "CardImageClickable",
+      "semantic_type": "variant",
+      "variant": "card-image-clickable",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-image-clickable.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-card-image-clickable.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--card-imageshow-full-content",
+      "story_name": "Card Imageshow Full Content",
+      "export_name": "CardImageshowFullContent",
+      "semantic_type": "variant",
+      "variant": "card-imageshow-full-content",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-imageshow-full-content.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-card-imageshow-full-content.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--card-video",
+      "story_name": "Card Video",
+      "export_name": "CardVideo",
+      "semantic_type": "variant",
+      "variant": "card-video",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-video.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-card-video.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--learning-module",
+      "story_name": "Learning Module",
+      "export_name": "LearningModule",
+      "semantic_type": "variant",
+      "variant": "learning-module",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--learning-module.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-learning-module.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--list-center-content-view",
+      "story_name": "List Center Content View",
+      "export_name": "ListCenterContentView",
+      "semantic_type": "variant",
+      "variant": "list-center-content-view",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--list-center-content-view.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-list-center-content-view.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--list-date-view",
+      "story_name": "List Date View",
+      "export_name": "ListDateView",
+      "semantic_type": "variant",
+      "variant": "list-date-view",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--list-date-view.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-list-date-view.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--list-density-view",
+      "story_name": "List Density View",
+      "export_name": "ListDensityView",
+      "semantic_type": "variant",
+      "variant": "list-density-view",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--list-density-view.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-list-density-view.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--list-image-ratio-view",
+      "story_name": "List Image Ratio View",
+      "export_name": "ListImageRatioView",
+      "semantic_type": "variant",
+      "variant": "list-image-ratio-view",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--list-image-ratio-view.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-list-image-ratio-view.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--list-image-view",
+      "story_name": "List Image View",
+      "export_name": "ListImageView",
+      "semantic_type": "variant",
+      "variant": "list-image-view",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--list-image-view.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-list-image-view.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-card--list-picto-view",
+      "story_name": "List Picto View",
+      "export_name": "ListPictoView",
+      "semantic_type": "variant",
+      "variant": "list-picto-view",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--list-picto-view.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/card-list-picto-view.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-card--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/card/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/card/card.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/card-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-card--card-custom-number",
+        "output_path": "design-system-plugin/outputs/html/card-card-custom-number.atomic.html"
+      },
+      {
+        "story_id": "components-card--card-custom-picto",
+        "output_path": "design-system-plugin/outputs/html/card-card-custom-picto.atomic.html"
+      },
+      {
+        "story_id": "components-card--card-image",
+        "output_path": "design-system-plugin/outputs/html/card-card-image.atomic.html"
+      },
+      {
+        "story_id": "components-card--card-image-clickable",
+        "output_path": "design-system-plugin/outputs/html/card-card-image-clickable.atomic.html"
+      },
+      {
+        "story_id": "components-card--card-imageshow-full-content",
+        "output_path": "design-system-plugin/outputs/html/card-card-imageshow-full-content.atomic.html"
+      },
+      {
+        "story_id": "components-card--card-video",
+        "output_path": "design-system-plugin/outputs/html/card-card-video.atomic.html"
+      },
+      {
+        "story_id": "components-card--default",
+        "output_path": "design-system-plugin/outputs/html/card-default.atomic.html"
+      },
+      {
+        "story_id": "components-card--learning-module",
+        "output_path": "design-system-plugin/outputs/html/card-learning-module.atomic.html"
+      },
+      {
+        "story_id": "components-card--list-center-content-view",
+        "output_path": "design-system-plugin/outputs/html/card-list-center-content-view.atomic.html"
+      },
+      {
+        "story_id": "components-card--list-date-view",
+        "output_path": "design-system-plugin/outputs/html/card-list-date-view.atomic.html"
+      },
+      {
+        "story_id": "components-card--list-density-view",
+        "output_path": "design-system-plugin/outputs/html/card-list-density-view.atomic.html"
+      },
+      {
+        "story_id": "components-card--list-image-ratio-view",
+        "output_path": "design-system-plugin/outputs/html/card-list-image-ratio-view.atomic.html"
+      },
+      {
+        "story_id": "components-card--list-image-view",
+        "output_path": "design-system-plugin/outputs/html/card-list-image-view.atomic.html"
+      },
+      {
+        "story_id": "components-card--list-picto-view",
+        "output_path": "design-system-plugin/outputs/html/card-list-picto-view.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-card-complete-package.json",
+    "story_item_prefix": "sanofi-card-"
+  },
+  "validation": {
+    "required_story_count": 14,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/card/card.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/card/docs/card.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ButtonIcon",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/ButtonIcon",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button-icon.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "button-icon",
+      "data_attribute": "data-primitive=\"button-icon\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-buttonicon--primary",
+      "components-buttonicon--primary-destruct",
+      "components-buttonicon--primary-neutral",
+      "components-buttonicon--secondary",
+      "components-buttonicon--secondary-destruct",
+      "components-buttonicon--secondary-neutral",
+      "components-buttonicon--tertiary",
+      "components-buttonicon--tertiary-destruct",
+      "components-buttonicon--tertiary-neutral"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-buttonicon--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button-icon.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

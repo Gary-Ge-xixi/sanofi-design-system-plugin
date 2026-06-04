@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "radio-radio-group-docs-contract",
+  "component_id": "radio-radio-group",
+  "component_name": "Radio/RadioGroup",
+  "docs_id": "components-radio-radiogroup--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-radio-radiogroup--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Radio components to render in the group.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "Group title displayed above the options.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "id",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "orientation",
+        "required": false,
+        "description": "Layout direction of the radio options.\"horizontal\"\"vertical\"",
+        "default": "\"Orientation.VERTICAL\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-radio-radiogroup--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { RadioGroup, Radio, Orientation } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <RadioGroup\n    title=\"Radio Group Title\"\n    caption=\"Optional Caption\"\n    orientation={Orientation.HORIZONTAL}\n    errorMessage=\"Optional Error Message\"\n  >\n    <Radio label=\"Radio 1\" value=\"1\" />\n    <Radio label=\"Radio 2\" value=\"2\" />\n    <Radio label=\"Radio 3\" value=\"3\" />\n  </RadioGroup>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-radio-radiogroup--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    },
+    {
+      "id": "components-radio-radiogroup--horizontal",
+      "name": "Horizontal",
+      "export_name": "Horizontal",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    },
+    {
+      "id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "name": "Horizontal Radios With Error",
+      "export_name": "HorizontalRadiosWithError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    },
+    {
+      "id": "components-radio-radiogroup--with-error",
+      "name": "With Error",
+      "export_name": "WithError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json"
+  }
+}

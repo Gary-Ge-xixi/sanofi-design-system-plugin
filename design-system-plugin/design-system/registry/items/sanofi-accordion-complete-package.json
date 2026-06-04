@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-accordion-complete-package",
+  "title": "Accordion complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Accordion package covering Docs plus all Storybook story atoms.",
+  "component_id": "accordion",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-accordion"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/accordion.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/accordion.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/accordion.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/accordion.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/docs/accordion.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/docs/accordion.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/accordion-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/accordion-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/accordion.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/accordion/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-accordion--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-accordion-default-atomic-story"
+    },
+    {
+      "story_id": "components-accordion--medium-accordion-with-slots",
+      "story_name": "Medium Accordion With Slots",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-accordion-medium-accordion-with-slots-atomic-story"
+    },
+    {
+      "story_id": "components-accordion--small-accordion",
+      "story_name": "Small Accordion",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-accordion-small-accordion-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/accordion/accordion.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/accordion/docs/accordion.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "accordion",
+      "Accordion",
+      "accordion complete",
+      "Accordion complete package",
+      "accordion docs"
+    ],
+    "when_to_use": "Use first for any Accordion generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Accordion behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

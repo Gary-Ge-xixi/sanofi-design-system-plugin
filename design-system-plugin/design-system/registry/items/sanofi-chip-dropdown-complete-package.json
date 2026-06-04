@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-dropdown-complete-package",
+  "title": "ChipDropdown complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ChipDropdown package covering Docs plus all Storybook story atoms.",
+  "component_id": "chip-dropdown",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-dropdown"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/docs/chip-dropdown.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/docs/chip-dropdown.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/chip-dropdown-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/chip-dropdown-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipdropdown--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipdropdown--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chipdropdown--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-default-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--disabled-items-and-icons",
+      "story_name": "Disabled Items And Icons",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-disabled-items-and-icons-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--multi-select",
+      "story_name": "Multi Select",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-multi-select-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-overview-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--real-world-admin-vs-readonly",
+      "story_name": "Real World Admin Vs Readonly",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-real-world-admin-vs-readonly-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-controlled",
+      "story_name": "With Chip Status Controlled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-with-chip-status-controlled-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit",
+      "story_name": "With Chip Status Inherit",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-with-chip-status-inherit-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "story_name": "With Chip Status Inherit Multi Select",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-with-chip-status-inherit-multi-select-atomic-story"
+    },
+    {
+      "story_id": "components-chipdropdown--with-render-item",
+      "story_name": "With Render Item",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-dropdown-with-render-item-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipdropdown--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-dropdown/docs/chip-dropdown.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-dropdown",
+      "ChipDropdown",
+      "chip-dropdown complete",
+      "ChipDropdown complete package",
+      "chip-dropdown docs"
+    ],
+    "when_to_use": "Use first for any ChipDropdown generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ChipDropdown behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

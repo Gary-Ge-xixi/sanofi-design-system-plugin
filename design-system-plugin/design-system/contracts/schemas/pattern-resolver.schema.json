@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "id": "pattern-resolver",
+  "type": "standard",
+  "renderer_target": "html",
+  "required_fields": [
+    "schema_version",
+    "id",
+    "prompt",
+    "intent",
+    "page_type",
+    "page_subtype",
+    "pattern_id",
+    "registry_item",
+    "template_id",
+    "renderer_target",
+    "business_context",
+    "sections",
+    "forbidden_sections",
+    "required_primitives",
+    "optional_primitives",
+    "required_rules",
+    "fallbacks",
+    "unsupported_gaps",
+    "execution_inputs",
+    "source_provenance"
+  ],
+  "required_admin_sections": [
+    "admin-shell",
+    "layout-container",
+    "layout-grid",
+    "navigation",
+    "filter-toolbar",
+    "kpi-summary",
+    "work-queue",
+    "data-table-fallback",
+    "chart-fallback"
+  ],
+  "resolution_policy": [
+    "HTML renderer consumes resolver output, not raw user prompt.",
+    "Admin HTML must resolve Layout, Container, and Grid before component composition.",
+    "Unsupported official components must resolve as fallback or unsupported gap.",
+    "Every resolved primitive must map to a known component contract and story id.",
+    "Query/fill backends must resolve to admin-query-panel and must not inherit generic dashboard KPI, work queue, or chart sections.",
+    "Renderer must consume registry_item, pattern_id, template_id, required_rules, and execution_inputs before writing HTML."
+  ]
+}

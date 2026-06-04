@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ProgressStepper/ProgressStepperNav",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/ProgressStepper/ProgressStepperNav",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "progress-stepper-progress-stepper-nav",
+      "data_attribute": "data-primitive=\"progress-stepper-progress-stepper-nav\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-progressstepper-progresssteppernav--default",
+      "components-progressstepper-progresssteppernav--interactive",
+      "components-progressstepper-progresssteppernav--many-steps",
+      "components-progressstepper-progresssteppernav--with-initial-step",
+      "components-progressstepper-progresssteppernav--without-descriptions"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-progressstepper-progresssteppernav--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

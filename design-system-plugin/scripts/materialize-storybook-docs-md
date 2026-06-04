@@ -1,0 +1,395 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const { spawnSync } = require("child_process");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const knowledgeDir = path.join(pluginRoot, "design-system", "knowledge");
+const docsDir = path.join(knowledgeDir, "docs");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const storybookIndexPath = path.join(workspaceRoot, "research", "storybook", "index.json");
+const docsIndexPath = path.join(knowledgeDir, "docs-index.json");
+const docsIndexMarkdownPath = path.join(knowledgeDir, "docs-index.md");
+const reportPath = path.join(reportDir, "docs-md-materialization.report.json");
+const targetId = process.env.DOC_ID || null;
+const opencliBin = process.env.OPENCLI_BIN || "opencli";
+const waitSeconds = Number(process.env.OPENCLI_WAIT_SECONDS || "1.5");
+
+function ensureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+
+function runOpencli(args, options = {}) {
+  const result = spawnSync(opencliBin, args, {
+    cwd: workspaceRoot,
+    encoding: "utf8",
+    maxBuffer: 50 * 1024 * 1024,
+    timeout: options.timeout || 45000
+  });
+  return {
+    status: result.status,
+    stdout: result.stdout || "",
+    stderr: result.stderr || "",
+    error: result.error
+  };
+}
+
+function extractFirstJsonObject(text) {
+  const start = text.indexOf("{");
+  if (start < 0) return null;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let index = start; index < text.length; index += 1) {
+    const char = text[index];
+    if (inString) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === "\"") {
+        inString = false;
+      }
+      continue;
+    }
+    if (char === "\"") inString = true;
+    else if (char === "{") depth += 1;
+    else if (char === "}") {
+      depth -= 1;
+      if (depth === 0) return text.slice(start, index + 1);
+    }
+  }
+  return null;
+}
+
+function parseOpencliJson(output) {
+  const json = extractFirstJsonObject(output);
+  if (!json) return null;
+  try {
+    return JSON.parse(json);
+  } catch {
+    return null;
+  }
+}
+
+function slugFromTitle(title) {
+  return String(title || "untitled")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function storybookUrl(entry) {
+  return `https://elements.prod.accelerator.sanofi/?path=/docs/${entry.id}`;
+}
+
+function markdownEscape(value) {
+  return String(value || "").replace(/\|/g, "\\|").replace(/\n/g, " ");
+}
+
+function mdPathFor(entry) {
+  return path.join(docsDir, `${entry.id}.md`);
+}
+
+function relativeToWorkspace(absolutePath) {
+  return path.relative(workspaceRoot, absolutePath);
+}
+
+const extractorJs = String.raw`
+(() => {
+  const frame = document.querySelector("#storybook-preview-iframe");
+  const doc = frame?.contentDocument || document;
+  const root = doc.querySelector("#storybook-docs .sbdocs-content") || doc.querySelector("#storybook-docs") || doc.body;
+
+  function cleanText(value) {
+    return String(value || "")
+      .replace(/\u00a0/g, " ")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
+  function inlineText(element) {
+    const clone = element.cloneNode(true);
+    clone.querySelectorAll("a[aria-hidden='true'], svg, button, style, script").forEach((node) => node.remove());
+    return cleanText(clone.innerText || clone.textContent || "");
+  }
+
+  function codeText(element) {
+    const clone = element.cloneNode(true);
+    clone.querySelectorAll("button, style, script").forEach((node) => node.remove());
+    return cleanText(clone.innerText || clone.textContent || "")
+      .split("\n")
+      .filter((line) => line.trim() !== "Copy")
+      .join("\n")
+      .trim();
+  }
+
+  function tableToMarkdown(table) {
+    const rows = [...table.querySelectorAll("tr")].map((row) =>
+      [...row.children].map((cell) => inlineText(cell).replace(/\|/g, "\\|"))
+    ).filter((row) => row.length);
+    if (!rows.length) return "";
+    const width = Math.max(...rows.map((row) => row.length));
+    const normalized = rows.map((row) => [...row, ...Array(width - row.length).fill("")]);
+    const header = normalized[0];
+    const divider = Array(width).fill("---");
+    const body = normalized.slice(1);
+    return [
+      "| " + header.join(" | ") + " |",
+      "| " + divider.join(" | ") + " |",
+      ...body.map((row) => "| " + row.join(" | ") + " |")
+    ].join("\n");
+  }
+
+  function listToMarkdown(list, ordered = false, depth = 0) {
+    return [...list.children]
+      .filter((child) => child.tagName?.toLowerCase() === "li")
+      .map((li, index) => {
+        const nested = [...li.children].filter((child) => ["ul", "ol"].includes(child.tagName?.toLowerCase()));
+        const clone = li.cloneNode(true);
+        clone.querySelectorAll("ul, ol, a[aria-hidden='true'], svg, button, style, script").forEach((node) => node.remove());
+        const bullet = ordered ? String(index + 1) + "." : "-";
+        const line = "  ".repeat(depth) + bullet + " " + cleanText(clone.innerText || clone.textContent || "");
+        const nestedText = nested.map((child) => listToMarkdown(child, child.tagName.toLowerCase() === "ol", depth + 1)).filter(Boolean).join("\n");
+        return nestedText ? line + "\n" + nestedText : line;
+      })
+      .join("\n");
+  }
+
+  function convert(node) {
+    if (!node || node.nodeType !== Node.ELEMENT_NODE) return "";
+    const tag = node.tagName.toLowerCase();
+    if (["script", "style", "svg", "button", "aside", "nav"].includes(tag)) return "";
+    if (/^h[1-6]$/.test(tag)) {
+      const level = Number(tag.slice(1));
+      const text = inlineText(node);
+      return text ? "#".repeat(level) + " " + text : "";
+    }
+    if (tag === "p") {
+      const text = inlineText(node);
+      return text || "";
+    }
+    if (tag === "pre") {
+      const text = codeText(node);
+      const fence = String.fromCharCode(96, 96, 96);
+      const escapedFence = String.fromCharCode(92, 96, 92, 96, 92, 96);
+      return text ? fence + "\n" + text.split(fence).join(escapedFence) + "\n" + fence : "";
+    }
+    if (tag === "blockquote") {
+      const text = [...node.children].map(convert).filter(Boolean).join("\n\n") || inlineText(node);
+      return text.split("\n").map((line) => "> " + line).join("\n");
+    }
+    if (tag === "table") return tableToMarkdown(node);
+    if (tag === "ul" || tag === "ol") return listToMarkdown(node, tag === "ol");
+    const children = [...node.children].map(convert).filter(Boolean);
+    if (children.length) return children.join("\n\n");
+    return "";
+  }
+
+  const markdown = [...root.children].map(convert).filter(Boolean).join("\n\n").trim();
+  const headings = [...root.querySelectorAll("h1,h2,h3,h4")].map((heading) => ({
+    level: Number(heading.tagName.slice(1)),
+    text: inlineText(heading),
+    id: heading.id || ""
+  }));
+  return {
+    ok: !!markdown,
+    title: doc.title || document.title,
+    found_storybook_docs: !!doc.querySelector("#storybook-docs"),
+    headings,
+    markdown,
+    text_length: markdown.length,
+    html_length: root.innerHTML?.length || 0
+  };
+})()
+`;
+
+ensureDir(docsDir);
+ensureDir(reportDir);
+
+const storybookIndex = JSON.parse(fs.readFileSync(storybookIndexPath, "utf8"));
+const allDocs = Object.values(storybookIndex.entries || {})
+  .filter((entry) => entry.type === "docs")
+  .sort((a, b) => {
+    const aTitle = `${a.title || ""}/${a.name || ""}`;
+    const bTitle = `${b.title || ""}/${b.name || ""}`;
+    return aTitle.localeCompare(bTitle) || a.id.localeCompare(b.id);
+  });
+const docs = targetId ? allDocs.filter((entry) => entry.id === targetId) : allDocs;
+
+if (targetId && !docs.length) {
+  console.error(`No docs entry found for DOC_ID=${targetId}`);
+  process.exit(1);
+}
+
+const records = [];
+
+for (let index = 0; index < docs.length; index += 1) {
+  const entry = docs[index];
+  const url = storybookUrl(entry);
+  const outputPath = mdPathFor(entry);
+  const relOutputPath = relativeToWorkspace(outputPath);
+  const open = runOpencli(["browser", "open", url], { timeout: 60000 });
+  let captureStatus = "opencli-open-failed";
+  let extracted = null;
+  let error = null;
+
+  if (open.status === 0) {
+    runOpencli(["browser", "wait", "time", String(waitSeconds)], { timeout: 10000 });
+    const evaluated = runOpencli(["browser", "eval", extractorJs], { timeout: 60000 });
+    extracted = parseOpencliJson(evaluated.stdout);
+    if (evaluated.status !== 0) {
+      captureStatus = "opencli-eval-failed";
+      error = evaluated.stderr || evaluated.stdout || String(evaluated.error || "");
+    } else if (!extracted || !extracted.ok) {
+      captureStatus = "indexed-only";
+      error = "Storybook docs markdown was empty or could not be parsed.";
+    } else {
+      captureStatus = "extracted";
+    }
+  } else {
+    error = open.stderr || open.stdout || String(open.error || "");
+  }
+
+  const markdownBody =
+    captureStatus === "extracted"
+      ? extracted.markdown
+      : [
+          `# ${entry.title}`,
+          "",
+          "This Storybook docs tab is indexed locally, but page body extraction did not complete.",
+          "",
+          `Capture status: \`${captureStatus}\``
+        ].join("\n");
+
+  const fileContent = [
+    "---",
+    `storybook_id: ${entry.id}`,
+    `title: ${JSON.stringify(entry.title)}`,
+    `name: ${JSON.stringify(entry.name || "Docs")}`,
+    `source_url: ${JSON.stringify(url)}`,
+    `import_path: ${JSON.stringify(entry.importPath || "")}`,
+    `capture_tool: opencli browser`,
+    `capture_status: ${captureStatus}`,
+    `captured_at: ${new Date().toISOString()}`,
+    "---",
+    "",
+    `# Source: ${entry.title}`,
+    "",
+    `- Storybook ID: \`${entry.id}\``,
+    `- Source URL: ${url}`,
+    `- Import path: \`${entry.importPath || ""}\``,
+    `- Capture status: \`${captureStatus}\``,
+    "",
+    markdownBody,
+    ""
+  ].join("\n");
+
+  fs.writeFileSync(outputPath, fileContent);
+
+  records.push({
+    id: entry.id,
+    title: entry.title,
+    name: entry.name,
+    category: String(entry.title || "").split("/")[0],
+    source_url: url,
+    import_path: entry.importPath || null,
+    tags: entry.tags || [],
+    local_md_path: relOutputPath,
+    capture_tool: "opencli browser",
+    capture_status: captureStatus,
+    heading_count: extracted?.headings?.length || 0,
+    text_length: extracted?.text_length || 0,
+    html_length: extracted?.html_length || 0,
+    error: error ? String(error).slice(0, 1000) : null
+  });
+
+  console.log(`[${index + 1}/${docs.length}] ${entry.id}: ${captureStatus} -> ${relOutputPath}`);
+}
+
+const fullRecords = targetId
+  ? (() => {
+      const existing = fs.existsSync(docsIndexPath)
+        ? JSON.parse(fs.readFileSync(docsIndexPath, "utf8"))
+        : { docs: [] };
+      const byId = new Map((existing.docs || []).map((record) => [record.id, record]));
+      for (const record of records) byId.set(record.id, record);
+      return allDocs.map((entry) => byId.get(entry.id) || {
+        id: entry.id,
+        title: entry.title,
+        name: entry.name,
+        category: String(entry.title || "").split("/")[0],
+        source_url: storybookUrl(entry),
+        import_path: entry.importPath || null,
+        tags: entry.tags || [],
+        local_md_path: relativeToWorkspace(mdPathFor(entry)),
+        capture_tool: "opencli browser",
+        capture_status: "not-materialized",
+        heading_count: 0,
+        text_length: 0,
+        html_length: 0,
+        error: null
+      });
+    })()
+  : records;
+
+const counts = fullRecords.reduce((acc, record) => {
+  acc[record.capture_status] = (acc[record.capture_status] || 0) + 1;
+  return acc;
+}, {});
+
+const docsIndex = {
+  schema_version: "0.1.0",
+  generated_at: new Date().toISOString(),
+  source: {
+    storybook_index: "research/storybook/index.json",
+    storybook_base_url: "https://elements.prod.accelerator.sanofi",
+    capture_tool: "opencli browser"
+  },
+  scope: {
+    docs_entries_total: allDocs.length,
+    materialized_this_run: records.length,
+    target_id: targetId
+  },
+  counts,
+  docs: fullRecords
+};
+
+const markdownIndex = [
+  "# Storybook Docs Markdown Index",
+  "",
+  `Generated: ${docsIndex.generated_at}`,
+  "",
+  "## Counts",
+  "",
+  ...Object.entries(counts).map(([key, value]) => `- ${key}: ${value}`),
+  "",
+  "## Docs",
+  "",
+  "| Storybook ID | Title | Status | Local MD |",
+  "| --- | --- | --- | --- |",
+  ...fullRecords.map((record) =>
+    `| ${markdownEscape(record.id)} | ${markdownEscape(record.title)} | ${markdownEscape(record.capture_status)} | ${markdownEscape(record.local_md_path)} |`
+  ),
+  ""
+].join("\n");
+
+fs.writeFileSync(docsIndexPath, JSON.stringify(docsIndex, null, 2) + "\n");
+fs.writeFileSync(docsIndexMarkdownPath, markdownIndex);
+fs.writeFileSync(reportPath, JSON.stringify({
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "materialize-storybook-docs-md",
+  generated_at: docsIndex.generated_at,
+  counts,
+  scope: docsIndex.scope,
+  output: {
+    docs_dir: relativeToWorkspace(docsDir),
+    docs_index: relativeToWorkspace(docsIndexPath),
+    docs_index_markdown: relativeToWorkspace(docsIndexMarkdownPath)
+  }
+}, null, 2) + "\n");
+
+console.log(`Docs MD materialization OK: ${records.length} materialized this run, ${allDocs.length} docs indexed`);

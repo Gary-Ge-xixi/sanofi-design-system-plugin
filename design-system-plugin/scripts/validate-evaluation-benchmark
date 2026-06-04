@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const benchmarkPath = path.join(pluginRoot, "design-system", "contracts", "benchmarks", "evaluation-benchmark.json");
+const resultsPath = path.join(pluginRoot, "design-system", "contracts", "benchmarks", "evaluation-benchmark.results.json");
+const schemaPath = path.join(pluginRoot, "design-system", "contracts", "schemas", "evaluation-benchmark.schema.json");
+const reportPath = path.join(reportDir, "evaluation-benchmark-validation.report.json");
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(benchmarkPath)) failures.push("missing evaluation-benchmark.json");
+if (!fs.existsSync(resultsPath)) failures.push("missing evaluation-benchmark.results.json");
+
+const benchmark = fs.existsSync(benchmarkPath) ? JSON.parse(fs.readFileSync(benchmarkPath, "utf8")) : { cases: [] };
+const results = fs.existsSync(resultsPath) ? JSON.parse(fs.readFileSync(resultsPath, "utf8")) : { results: [], summary: {} };
+const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
+
+if ((benchmark.cases || []).length < 10) failures.push("benchmark must include at least 10 cases");
+for (const testCase of benchmark.cases || []) {
+  for (const field of schema.required_case_fields || []) {
+    if (!(field in testCase)) failures.push(`${testCase.id || "case"} missing ${field}`);
+  }
+}
+
+if ((results.summary?.validator_pass_rate || 0) < schema.pass_policy.validator_pass_rate) {
+  failures.push("benchmark validator pass rate below policy");
+}
+if ((results.summary?.blocked_color_violations || 0) !== schema.pass_policy.blocked_color_violations) {
+  failures.push("blocked color violations must be zero");
+}
+for (const result of results.results || []) {
+  if (result.status !== "pass") failures.push(`${result.id} failed benchmark`);
+  if ((result.scores?.unsupported_gap_declaration_rate || 0) < schema.pass_policy.unsupported_gap_declaration_rate) {
+    failures.push(`${result.id} unsupported gap declaration below policy`);
+  }
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-evaluation-benchmark",
+  checked: {
+    cases: benchmark.cases?.length || 0,
+    results: results.results?.length || 0,
+    validator_pass_rate: results.summary?.validator_pass_rate || 0,
+    blocked_color_violations: results.summary?.blocked_color_violations || 0
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Evaluation benchmark validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Evaluation benchmark validation OK: ${benchmark.cases.length} cases`);

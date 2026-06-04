@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "menu-menu-item-radio",
+  "component_name": "Menu/MenuItemRadio",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-menu-menuitemradio--checked",
+      "story_name": "Checked",
+      "component_id": "menu-menu-item-radio",
+      "component_name": "Menu/MenuItemRadio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/stories/components-menu-menuitemradio--checked.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/templates/html.checked.template.html",
+      "output_path": "design-system-plugin/outputs/html/menu-menu-item-radio-checked.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/assets/MenuItemRadio.stories-Bd0newmL.js",
+      "docs_id": "components-menu-menuitemradio--docs",
+      "registry_item": "sanofi-menu-menu-item-radio-checked-atomic-story"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--default",
+      "story_name": "Default",
+      "component_id": "menu-menu-item-radio",
+      "component_name": "Menu/MenuItemRadio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/stories/components-menu-menuitemradio--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/menu-menu-item-radio-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/assets/MenuItemRadio.stories-Bd0newmL.js",
+      "docs_id": "components-menu-menuitemradio--docs",
+      "registry_item": "sanofi-menu-menu-item-radio-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menu-item-radio--docs"
+  }
+}

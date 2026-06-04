@@ -1,0 +1,602 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const storybookBaseUrl = "https://elements.prod.accelerator.sanofi";
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function readJsonOrNull(relativePath) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function writeText(relativePath, content) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, content);
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function normalizeComponentId(title) {
+  return String(title || "")
+    .replace(/^Components\//, "")
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[^A-Za-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .toLowerCase();
+}
+
+function storyUrl(storyId) {
+  return `${storybookBaseUrl}/?path=/story/${storyId}&globals=measureEnabled:!true;outline:!true`;
+}
+
+function iframeUrl(storyId) {
+  return `${storybookBaseUrl}/iframe.html?id=${storyId}&viewMode=story&globals=measureEnabled:!true;outline:!true`;
+}
+
+function toRelativeAsset(assetPath) {
+  return assetPath.replace(/^\.\//, "");
+}
+
+async function fetchText(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`failed to fetch ${url}: ${response.status} ${response.statusText}`);
+  }
+  return response.text();
+}
+
+function readLocalOrNull(relativePath) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return fs.readFileSync(absolutePath, "utf8");
+}
+
+function extractIframeAsset(iframeHtml) {
+  const match = iframeHtml.match(/src=["']\.\/(assets\/iframe-[^"']+\.js)["']/);
+  return match ? match[1] : null;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function findStoryBundleAsset(iframeJs, storyEntry) {
+  const importPathRe = new RegExp(`${escapeRegExp(`"${storyEntry.importPath}"`)}\\s*:\\s*\\(\\)\\s*=>[^;]*?import\\(\\s*"\\.\\/([^"]+\\.js)"\\s*\\)`);
+  const importPathMatch = iframeJs.match(importPathRe);
+  if (importPathMatch) return `assets/${importPathMatch[1]}`;
+  const baseName = path.basename(storyEntry.importPath).replace(/\.(tsx|ts|jsx|js)$/, "");
+  const re = new RegExp(`"\\.\\/${escapeRegExp(baseName)}-[^"]+\\.js"`);
+  const match = iframeJs.match(re);
+  if (match) return match[0].slice(1, -1).replace(/^\.\//, "assets/");
+  return null;
+}
+
+function readChar(source, index) {
+  return index >= 0 && index < source.length ? source[index] : "";
+}
+
+function extractBalanced(source, startIndex) {
+  const open = readChar(source, startIndex);
+  const close = open === "{" ? "}" : open === "[" ? "]" : null;
+  if (!close) return null;
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  for (let index = startIndex; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = null;
+      }
+      continue;
+    }
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+    if (char === open) depth += 1;
+    if (char === close) depth -= 1;
+    if (depth === 0) return source.slice(startIndex, index + 1);
+  }
+  return null;
+}
+
+function findBalancedAfter(source, marker) {
+  const markerIndex = source.indexOf(marker);
+  if (markerIndex === -1) return null;
+  const startIndex = source.indexOf("{", markerIndex + marker.length);
+  if (startIndex === -1) return null;
+  return extractBalanced(source, startIndex);
+}
+
+function findAssignedObject(source, variableName) {
+  const re = new RegExp(`(?:^|[,;])${escapeRegExp(variableName)}=`, "g");
+  let match;
+  while ((match = re.exec(source))) {
+    const startIndex = match.index + match[0].length;
+    if (source[startIndex] === "{") return extractBalanced(source, startIndex);
+  }
+  return null;
+}
+
+function splitTopLevel(source) {
+  const items = [];
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let start = 0;
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === "\\") escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+    if (char === "{" || char === "[" || char === "(") depth += 1;
+    if (char === "}" || char === "]" || char === ")") depth -= 1;
+    if (char === "," && depth === 0) {
+      items.push(source.slice(start, index).trim());
+      start = index + 1;
+    }
+  }
+  const tail = source.slice(start).trim();
+  if (tail) items.push(tail);
+  return items;
+}
+
+function splitPair(item) {
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  for (let index = 0; index < item.length; index += 1) {
+    const char = item[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === "\\") escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+    if (char === "{" || char === "[" || char === "(") depth += 1;
+    if (char === "}" || char === "]" || char === ")") depth -= 1;
+    if (char === ":" && depth === 0) {
+      return [item.slice(0, index).trim(), item.slice(index + 1).trim()];
+    }
+  }
+  return null;
+}
+
+function enumValueToString(value) {
+  return value
+    .split(".")
+    .pop()
+    .replace(/_/g, "-")
+    .toLowerCase();
+}
+
+function parseValue(value) {
+  if (/^["'].*["']$/.test(value)) return value.slice(1, -1);
+  if (value === "!0" || value === "true") return true;
+  if (value === "!1" || value === "false") return false;
+  if (/^[A-Za-z_$][\w$]*\.[A-Za-z_$][\w$]*$/.test(value)) return enumValueToString(value);
+  if (/^-?\d+(\.\d+)?$/.test(value)) return Number(value);
+  return {
+    extraction_status: "raw_expression",
+    value
+  };
+}
+
+function parseObjectLiteral(objectSource) {
+  if (!objectSource?.startsWith("{")) return {};
+  const body = objectSource.slice(1, -1);
+  const output = {};
+  for (const item of splitTopLevel(body)) {
+    if (item.startsWith("...")) continue;
+    const pair = splitPair(item);
+    if (!pair) continue;
+    const [rawKey, rawValue] = pair;
+    const key = rawKey.replace(/^["']|["']$/g, "");
+    output[key] = parseValue(rawValue);
+  }
+  return output;
+}
+
+function topLevelKeys(objectSource) {
+  if (!objectSource?.startsWith("{")) return [];
+  return splitTopLevel(objectSource.slice(1, -1))
+    .map((item) => splitPair(item)?.[0])
+    .filter(Boolean)
+    .map((key) => key.replace(/^["']|["']$/g, ""));
+}
+
+function extractOriginalSource(bundle, storyVar) {
+  const marker = `${storyVar}.parameters=`;
+  const assignmentIndex = bundle.indexOf(marker);
+  if (assignmentIndex === -1) return null;
+  const originalSourceIndex = bundle.indexOf("originalSource:`", assignmentIndex);
+  if (originalSourceIndex === -1) return null;
+  const start = originalSourceIndex + "originalSource:`".length;
+  let escaped = false;
+  for (let index = start; index < bundle.length; index += 1) {
+    const char = bundle[index];
+    if (escaped) {
+      escaped = false;
+    } else if (char === "\\") {
+      escaped = true;
+    } else if (char === "`") {
+      return bundle.slice(start, index);
+    }
+  }
+  return null;
+}
+
+function findStoryVariable(bundle, exportName) {
+  const freezeIndex = bundle.indexOf("Object.freeze(Object.defineProperty");
+  const searchArea = freezeIndex === -1 ? bundle : bundle.slice(freezeIndex);
+  const re = new RegExp(`(?:^|,)${escapeRegExp(exportName)}:([A-Za-z_$][\\w$]*)`);
+  const match = searchArea.match(re);
+  if (match) return match[1];
+  const exportRe = new RegExp(`export\\{([^}]*?)([A-Za-z_$][\\w$]*)\\s+as\\s+${escapeRegExp(exportName)}(?:,|})`);
+  const exportMatch = bundle.match(exportRe);
+  return exportMatch ? exportMatch[2] : null;
+}
+
+function extractDefaultArgs(bundle, storyArgsSource) {
+  const spreadMatch = storyArgsSource?.match(/\.\.\.([A-Za-z_$][\w$]*)/);
+  if (!spreadMatch) return {};
+  const defaultVar = spreadMatch[1];
+  const objectSource = findAssignedObject(bundle, defaultVar);
+  return parseObjectLiteral(objectSource);
+}
+
+function componentContractPath(componentId) {
+  return `design-system-plugin/design-system/contracts/components/${componentId}.contract.json`;
+}
+
+function primitivePath(componentId) {
+  return `design-system-plugin/design-system/primitives/components/${componentId}/primitive.json`;
+}
+
+function slugify(value) {
+  return String(value || "unknown")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function storyVariantSlug(storyEntry, args, semanticMeta) {
+  if (semanticMeta && semanticMeta.semantic_type !== "variant") {
+    return slugify(storyEntry.name || storyEntry.id);
+  }
+  return slugify(args.variant || storyEntry.name || storyEntry.id);
+}
+
+function atomicTemplatePath(componentDir, componentId, variantSlug) {
+  if (componentId === "button") return `${componentDir}/templates/html.button-v2.template.html`;
+  return `${componentDir}/templates/html.${variantSlug}.template.html`;
+}
+
+function atomicOutputPath(componentId, variantSlug) {
+  if (componentId === "button" && variantSlug === "primary") {
+    return "design-system-plugin/outputs/html/button-primary.atomic.html";
+  }
+  const suffix = componentId === "button" ? ".atomic.v2.html" : ".atomic.html";
+  return `design-system-plugin/outputs/html/${componentId}-${variantSlug}${suffix}`;
+}
+
+function mergeStorySummaries(existingAtomic, newSummary) {
+  const stories = Array.isArray(existingAtomic?.stories) ? existingAtomic.stories : [];
+  const byId = new Map(stories.map((story) => [story.story_id, story]));
+  byId.set(newSummary.story_id, newSummary);
+  return [...byId.values()].sort((a, b) => a.story_id.localeCompare(b.story_id));
+}
+
+function expectedStoryMeta(componentId, storyId) {
+  const expected = readJsonOrNull(`design-system-plugin/design-system/atomic/components/${componentId}/${componentId}.expected-tabs.json`);
+  return (expected?.stories || []).find((story) => story.id === storyId) || null;
+}
+
+function docsIdForTitle(storybookIndex, title, componentId) {
+  const docsEntry = Object.entries(storybookIndex.entries || {}).find(([, entry]) => (
+    entry.title === title && entry.type === "docs"
+  ));
+  return docsEntry?.[0] || `components-${componentId}--docs`;
+}
+
+function genericStoryTemplate() {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{component_name}} {{story_name}}</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code {
+        color: var(--elements-color-semantic-text-accent-default);
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-story-reference" data-source-doc-id="{{docs_id}}" data-token-source="{{token_source}}">
+      <section class="demo-panel" data-pattern="atomic-story-card" data-source-doc-id="{{docs_id}}">
+        <h1>{{component_name}} / {{story_name}}</h1>
+        <p>Story atom rendered from local Storybook metadata.</p>
+        {{sample_markup}}
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-source" data-source-doc-id="{{docs_id}}">
+        <h2>Source</h2>
+        <p><code>{{story_id}}</code></p>
+      </section>
+    </main>
+  </body>
+</html>
+`;
+}
+
+async function main() {
+  const storyId = process.argv[2];
+  if (!storyId) {
+    console.error("Usage: materialize-story-atom <story-id>");
+    process.exit(1);
+  }
+
+  fs.mkdirSync(reportDir, { recursive: true });
+  const storybookIndex = readJson("research/storybook/index.json");
+  const storyEntry = (storybookIndex.entries || {})[storyId];
+  if (!storyEntry || storyEntry.type !== "story") {
+    throw new Error(`Story not found in research/storybook/index.json: ${storyId}`);
+  }
+
+  const componentId = normalizeComponentId(storyEntry.title);
+  const componentName = storyEntry.title.replace(/^Components\//, "");
+  const docsId = docsIdForTitle(storybookIndex, storyEntry.title, componentId);
+  const semanticMeta = expectedStoryMeta(componentId, storyId);
+  const componentDir = `design-system-plugin/design-system/atomic/components/${componentId}`;
+  const iframePath = `${componentDir}/assets/${storyId}.iframe.html`;
+  const iframeHtml = readLocalOrNull(iframePath) || (await fetchText(iframeUrl(storyId)));
+  writeText(iframePath, iframeHtml);
+
+  const iframeAsset = extractIframeAsset(iframeHtml);
+  if (!iframeAsset) throw new Error(`Unable to find iframe asset for ${storyId}`);
+  const localIframeJsPath = `research/storybook/assets/${path.basename(iframeAsset)}`;
+  const iframeJs =
+    readLocalOrNull(localIframeJsPath) ||
+    (await fetchText(`${storybookBaseUrl}/${iframeAsset}`));
+
+  const bundleAsset = findStoryBundleAsset(iframeJs, storyEntry);
+  if (!bundleAsset) throw new Error(`Unable to find story bundle asset for ${storyId}`);
+  const bundleUrl = `${storybookBaseUrl}/${toRelativeAsset(bundleAsset)}`;
+  const localBundlePath = `${componentDir}/assets/${path.basename(bundleAsset)}`;
+  const bundle = readLocalOrNull(localBundlePath) || (await fetchText(bundleUrl));
+  writeText(localBundlePath, bundle);
+
+  const storyVar = findStoryVariable(bundle, storyEntry.exportName);
+  if (!storyVar) throw new Error(`Unable to find story variable for ${storyEntry.exportName}`);
+  const storyObjectSource = findAssignedObject(bundle, storyVar);
+  const argsSource = findBalancedAfter(storyObjectSource || "", "args:");
+  const defaultArgs = extractDefaultArgs(bundle, argsSource);
+  const storyArgs = parseObjectLiteral(argsSource);
+  const args = {
+    ...defaultArgs,
+    ...storyArgs
+  };
+  const argTypesSource = findBalancedAfter(bundle, "argTypes:");
+  const argTypeFields = topLevelKeys(argTypesSource);
+  const originalSource = extractOriginalSource(bundle, storyVar);
+
+  const variantSlug = storyVariantSlug(storyEntry, args, semanticMeta);
+  const templatePath = atomicTemplatePath(componentDir, componentId, variantSlug);
+  if (componentId !== "button" && !exists(templatePath)) {
+    writeText(templatePath, genericStoryTemplate());
+  }
+  const storyPath = `${componentDir}/stories/${storyId}.story.json`;
+  const contractPath = componentContractPath(componentId);
+  const primitiveContractPath = primitivePath(componentId);
+  const outputPath = atomicOutputPath(componentId, variantSlug);
+
+  const storyAtom = {
+    schema_version: "0.1.0",
+    id: storyId,
+    component_id: componentId,
+    component_name: componentName,
+    story_id: storyId,
+    story_name: storyEntry.name,
+    export_name: storyEntry.exportName,
+    renderer_target: "html",
+    story_semantics: {
+      semantic_type: semanticMeta?.semantic_type || "variant",
+      expected_variant: semanticMeta?.variant || args.variant || "not_applicable",
+      expected_element: semanticMeta?.element || (args.as === "a" ? "a" : "not_extracted"),
+      inverse: Boolean(semanticMeta?.inverse || args.inverse),
+      source: semanticMeta ? `${componentId}.expected-tabs.json` : "inferred_from_story_args"
+    },
+    source: {
+      story_url: storyUrl(storyId),
+      iframe_url: iframeUrl(storyId),
+      bundle_url: bundleUrl,
+      local_bundle_path: localBundlePath,
+      local_iframe_path: iframePath,
+      import_path: storyEntry.importPath,
+      component_path: storyEntry.componentPath
+    },
+    args: {
+      extraction_status: "extracted_from_story_bundle",
+      source: argsSource || "not_extracted",
+      values: args
+    },
+    argTypes: {
+      extraction_status: argTypesSource ? "extracted_from_story_bundle" : "not_extracted",
+      source: argTypesSource || "not_extracted",
+      fields: argTypeFields
+    },
+    variants: {
+      extraction_status: args.variant ? "from_story_args" : "not_extracted",
+      values: args.variant ? [args.variant] : []
+    },
+    states: {
+      extraction_status: "from_story_args",
+      values: [
+        args.disabled ? "disabled" : "enabled",
+        args.isLoading ? "loading" : "not-loading",
+        args.inverse ? "inverse" : "default"
+      ]
+    },
+    render_strategy: {
+      type: "template-html",
+      source: originalSource || "not_extracted",
+      story_object_source: storyObjectSource || "not_extracted"
+    },
+    template: {
+      id: `${componentId}-${variantSlug}-html`,
+      local_path: templatePath,
+      output_path: outputPath
+    },
+    component_contract: {
+      local_path: contractPath,
+      status: exists(contractPath) ? "linked" : "missing"
+    },
+    primitive: {
+      id: componentId,
+      local_path: primitiveContractPath,
+      status: exists(primitiveContractPath) ? "linked" : "missing"
+    },
+    token_bindings: {
+      token_source: "foundations-colors--docs",
+      roles: ["primary_action", "surface", "text", "border"]
+    },
+    source_provenance: {
+      docs_id: docsId,
+      story_id: storyId,
+      storybook_index: "research/storybook/index.json",
+      storybook_stories: "research/storybook/stories.json",
+      component_contract: contractPath,
+      primitive_contract: primitiveContractPath,
+      token_source: "foundations-colors--docs",
+      raw_bundle: localBundlePath,
+      raw_iframe: iframePath
+    }
+  };
+
+  writeJson(storyPath, storyAtom);
+  const existingComponentAtomic = exists(`${componentDir}/component.atomic.json`)
+    ? readJson(`${componentDir}/component.atomic.json`)
+    : {};
+  const storySummary = {
+    story_id: storyId,
+    story_name: storyEntry.name,
+    path: storyPath,
+    variant: args.variant || "unknown",
+    semantic_type: semanticMeta?.semantic_type || "variant",
+    status: "materialized",
+    template_path: templatePath,
+    output_path: outputPath
+  };
+  writeJson(`${componentDir}/component.atomic.json`, {
+    ...existingComponentAtomic,
+    schema_version: "0.1.0",
+    component_id: componentId,
+    component_name: componentName,
+    renderer_target: "html",
+    stories: mergeStorySummaries(existingComponentAtomic, storySummary),
+    source_provenance: {
+      ...existingComponentAtomic.source_provenance,
+      docs_id: `components-${componentId}--docs`,
+      component_contract: contractPath,
+      primitive_contract: primitiveContractPath
+    }
+  });
+
+  writeJson("design-system-plugin/outputs/reports/story-atom-materialization.report.json", {
+    schema_version: "0.1.0",
+    status: "pass",
+    script: "materialize-story-atom",
+    story_id: storyId,
+    output: storyPath,
+    checked: {
+      bundle_asset: bundleAsset,
+      args_extracted: Object.keys(args).length,
+      arg_types_extracted: argTypeFields.length,
+      original_source_extracted: Boolean(originalSource)
+    }
+  });
+
+  console.log(`Story atom materialized: ${storyId} -> ${storyPath}`);
+}
+
+main().catch((error) => {
+  console.error(error.message);
+  process.exit(1);
+});

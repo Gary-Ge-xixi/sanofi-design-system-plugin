@@ -1,0 +1,159 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tree-view-docs-contract",
+  "component_id": "tree-view",
+  "component_name": "TreeView",
+  "docs_id": "components-treeview--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": true,
+        "description": "TreeView.Item nodes.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "decoration",
+        "required": false,
+        "description": "Visual decoration style (arrows, folders, etc.).\"none\"\"arrow\"\"folder\"\"arrowFolder\"",
+        "default": "\"TreeViewDecoration.NONE\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "colorAccent",
+        "required": false,
+        "description": "Color accent for hover/selected backgrounds.\"branded\"\"neutral\"",
+        "default": "\"TreeViewColorAccent.BRANDED\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showNodeLines",
+        "required": false,
+        "description": "Shows vertical connector lines between nodes.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "expandedKeys",
+        "required": false,
+        "description": "Controlled set of expanded node keys.Set<TreeViewKey>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultExpandedKeys",
+        "required": false,
+        "description": "Default expanded keys (uncontrolled mode).Set<TreeViewKey>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onExpandedChange",
+        "required": false,
+        "description": "Callback fired when expanded keys change.((keys: Set<TreeViewKey>) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "aria-label",
+        "required": false,
+        "description": "Accessible label for the tree.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "aria-labelledby",
+        "required": false,
+        "description": "Reference to element providing accessible label.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import {\nTreeView,\nTreeViewDecoration,\nTreeViewColorAccent,\n} from \"@sanofi-accelerator/elements\";\n\n<TreeView\naria-label=\"Repository files\"\ndecoration={TreeViewDecoration.ARROW_FOLDER}\nshowNodeLines\n>\n<TreeView.Item id=\"src\" defaultExpanded>\n  src\n  <TreeView.SubTree>\n    <TreeView.Item id=\"file.tsx\" onSelect={() => console.log(\"Open file\")}>\n      file.tsx\n      <TreeView.TrailingVisual label=\"Modified\">\n        <span>M</span>\n      </TreeView.TrailingVisual>\n    </TreeView.Item>\n  </TreeView.SubTree>\n</TreeView.Item>\n</TreeView>",
+      "import { TreeView, TreeViewDecoration, Icon, IconName } from \"@sanofi-accelerator/elements\";\n\n<TreeView decoration={TreeViewDecoration.ARROW_FOLDER} aria-label=\"Settings\">\n<TreeView.Item id=\"security\">\n  <TreeView.LeadingVisual>\n    <Icon name={IconName.SHIELD} size={1} filled={false} />\n  </TreeView.LeadingVisual>\n  Security\n  <TreeView.SubTree>\n    <TreeView.Item id=\"passwords\">\n      <TreeView.LeadingVisual>\n        <Icon name={IconName.KEY} size={1} filled={false} />\n      </TreeView.LeadingVisual>\n      Passwords\n    </TreeView.Item>\n  </TreeView.SubTree>\n</TreeView.Item>\n</TreeView>"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-treeview--color-accent",
+      "name": "Color Accent",
+      "export_name": "ColorAccent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--custom-leading-visuals",
+      "name": "Custom Leading Visuals",
+      "export_name": "CustomLeadingVisuals",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--decorations",
+      "name": "Decorations",
+      "export_name": "Decorations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--file-explorer",
+      "name": "File Explorer",
+      "export_name": "FileExplorer",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--inside-sidebar",
+      "name": "Inside Sidebar",
+      "export_name": "InsideSidebar",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--playground",
+      "name": "Playground",
+      "export_name": "Playground",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    },
+    {
+      "id": "components-treeview--rtl",
+      "name": "RTL",
+      "export_name": "RTL",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeView.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json"
+  }
+}

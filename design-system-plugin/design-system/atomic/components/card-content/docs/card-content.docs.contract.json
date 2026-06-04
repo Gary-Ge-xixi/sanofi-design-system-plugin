@@ -1,0 +1,135 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-content-docs-contract",
+  "component_id": "card-content",
+  "component_name": "Card/Content",
+  "docs_id": "components-card-content--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-content--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-content--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "category",
+        "required": false,
+        "description": "Category label displayed above title (e.g., \"Technology\", \"News\")string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "date",
+        "required": false,
+        "description": "The card datestring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "eyebrowComponent",
+        "required": false,
+        "description": "Custom eyebrow component (overrides category/date)ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "Card title - use Title component for proper stylingReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "description": "Tag elements displayed under the titleReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "secondaryEyebrows",
+        "required": false,
+        "description": "Optional second eyebrow row displayed under tagsEyebrow[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "withDivider",
+        "required": false,
+        "description": "Shows a divider line between title and contentboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subText",
+        "required": false,
+        "description": "Description or summary text below the titleReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "buttonSlot",
+        "required": false,
+        "description": "Slot for action button in content areaReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Additional content (links, tags, etc.)ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isCentered",
+        "required": false,
+        "description": "Centers all content horizontallyboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classnames",
+        "required": false,
+        "description": "Custom CSS classes for content elements{ subtext?: string; title?: string; } \\",
+        "default": "undefined",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showFullContent",
+        "required": false,
+        "description": "Shows full content without truncationboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-content--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-card-content--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardContent.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-content--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-content--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-content.contract.json"
+  }
+}

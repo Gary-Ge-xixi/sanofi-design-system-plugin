@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "link-link-standalone",
+  "component_name": "Link/LinkStandalone",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-link-linkstandalone--default",
+      "story_name": "Default",
+      "component_id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "variant": "standalone",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.standalone.template.html",
+      "output_path": "design-system-plugin/outputs/html/link-link-standalone-standalone.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+      "docs_id": "components-link-linkstandalone--docs",
+      "registry_item": "sanofi-link-link-standalone-standalone-atomic-story"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse",
+      "story_name": "Inverse",
+      "component_id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "variant": "standaloneinverse",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--inverse.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.standaloneinverse.template.html",
+      "output_path": "design-system-plugin/outputs/html/link-link-standalone-standaloneinverse.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+      "docs_id": "components-link-linkstandalone--docs",
+      "registry_item": "sanofi-link-link-standalone-standaloneinverse-atomic-story"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse-accent",
+      "story_name": "Inverse Accent",
+      "component_id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "variant": "inverseaccent",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--inverse-accent.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.inverseaccent.template.html",
+      "output_path": "design-system-plugin/outputs/html/link-link-standalone-inverseaccent.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+      "docs_id": "components-link-linkstandalone--docs",
+      "registry_item": "sanofi-link-link-standalone-inverseaccent-atomic-story"
+    },
+    {
+      "story_id": "components-link-linkstandalone--position-icon",
+      "story_name": "Position Icon",
+      "component_id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--position-icon.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.position-icon.template.html",
+      "output_path": "design-system-plugin/outputs/html/link-link-standalone-position-icon.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+      "docs_id": "components-link-linkstandalone--docs",
+      "registry_item": "sanofi-link-link-standalone-position-icon-atomic-story"
+    },
+    {
+      "story_id": "components-link-linkstandalone--sizes",
+      "story_name": "Sizes",
+      "component_id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/link-link-standalone/stories/components-link-linkstandalone--sizes.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/templates/html.sizes.template.html",
+      "output_path": "design-system-plugin/outputs/html/link-link-standalone-sizes.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/assets/LinkStandalone.stories-CLDvP_Zv.js",
+      "docs_id": "components-link-linkstandalone--docs",
+      "registry_item": "sanofi-link-link-standalone-sizes-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-link-link-standalone--docs"
+  }
+}

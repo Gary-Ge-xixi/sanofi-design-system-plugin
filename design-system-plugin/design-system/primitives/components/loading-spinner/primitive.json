@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "component": "LoadingSpinner",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/LoadingSpinner",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "loading-spinner",
+      "data_attribute": "data-primitive=\"loading-spinner\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-loadingspinner--default",
+      "components-loadingspinner--sanofi-dot"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-loadingspinner--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

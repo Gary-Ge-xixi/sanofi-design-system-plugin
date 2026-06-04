@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "hero",
+  "component_name": "Hero",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Hero"
+  },
+  "docs": [
+    {
+      "id": "components-hero--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Hero/Hero.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-hero--content-after-hero",
+      "name": "Content After Hero",
+      "export_name": "ContentAfterHero",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--full-screen",
+      "name": "Full Screen",
+      "export_name": "FullScreen",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--full-screen-with-navigation-header",
+      "name": "Full Screen With Navigation Header",
+      "export_name": "FullScreenWithNavigationHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--full-screen-with-video",
+      "name": "Full Screen With Video",
+      "export_name": "FullScreenWithVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--justify-center",
+      "name": "Justify Center",
+      "export_name": "JustifyCenter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--justify-end",
+      "name": "Justify End",
+      "export_name": "JustifyEnd",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--overlay-black-style",
+      "name": "Overlay Black Style",
+      "export_name": "OverlayBlackStyle",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--overlay-white-style",
+      "name": "Overlay White Style",
+      "export_name": "OverlayWhiteStyle",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--responsive-images-with-picture",
+      "name": "Responsive Images With Picture",
+      "export_name": "ResponsiveImagesWithPicture",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--variant-compact",
+      "name": "Variant Compact",
+      "export_name": "VariantCompact",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--variant-dynamic",
+      "name": "Variant Dynamic",
+      "export_name": "VariantDynamic",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--with-video",
+      "name": "With Video",
+      "export_name": "WithVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    },
+    {
+      "id": "components-hero--with-video-hls",
+      "name": "With Video HLS",
+      "export_name": "WithVideoHLS",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Hero/Hero.stories.tsx"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": "0.1.0",
+  "id": "menu-sub-menu",
+  "canonical_name": "menu-sub-menu",
+  "component_name": "Menu/SubMenu",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-menu-submenu--docs",
+    "title": "Menu/SubMenu",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-submenu--docs",
+    "import_path": "./src/components/Menu/subMenu/SubMenu.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-menu-submenu--default"
+    ],
+    "records": [
+      {
+        "id": "components-menu-submenu--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Menu/subMenu/SubMenu.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "iconBefore",
+        "required": false,
+        "description": "Icon displayed before the labelReactElement<unknown, string \\",
+        "default": "JSXElementConstructor<any>>",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "description",
+        "required": false,
+        "description": "Description text below the labelstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shortcut",
+        "required": false,
+        "description": "Keyboard shortcut hint (e.g., \"Ctrl+C\")string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": true,
+        "description": "ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "((event: MouseEvent<HTMLLIElement, MouseEvent>) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "menu-sub-menu"
+    ],
+    "contracts": [
+      {
+        "id": "menu-sub-menu",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/menu-sub-menu/demo.registry.json",
+        "known_story_ids": [
+          "components-menu-submenu--default",
+          "components-menu-submenu--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-submenu--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-submenu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md",
+    "docs_import_path": "./src/components/Menu/subMenu/SubMenu.stories.tsx",
+    "story_ids": [
+      "components-menu-submenu--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

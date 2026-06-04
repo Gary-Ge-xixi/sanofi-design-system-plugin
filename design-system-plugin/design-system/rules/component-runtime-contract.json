@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "id": "component-runtime-contract",
+  "severity": "error",
+  "contract_source": "../../component-runtime/component-runtime.contract.json",
+  "validator": "../../scripts/validate-component-runtime",
+  "description": "Validates that first-round backend components are rendered through an accepted runtime state and that official runtime, local atomic runtime, and explicit fallback are reported separately.",
+  "checks": [
+    {
+      "id": "runtime-source",
+      "description": "Official runtime HTML must include data-render-source=\"@sanofi-accelerator/elements\" and data-component-runtime=\"sanofi-elements-react\". Local atomic runtime HTML must include data-render-source=\"local-atomic-component-package\" and data-component-runtime=\"sanofi-local-atomic-components\"."
+    },
+    {
+      "id": "component-instance",
+      "description": "Runtime-backed components must carry component instance, component id, and story provenance markers."
+    },
+    {
+      "id": "hydration-script",
+      "description": "Runtime-backed HTML must include a JS bundle marker for hydrated component behavior."
+    },
+    {
+      "id": "select-native-failure",
+      "description": "Select native:false must not render as a visible native select; it must expose component-owned combobox/listbox behavior."
+    },
+    {
+      "id": "fallback-scope",
+      "description": "Fallback modules must be marked as explicit fallback and include data-fallback-reason. First-round backend components must not be fallback modules."
+    },
+    {
+      "id": "output-state-reporting",
+      "description": "HTML body and validator reports must expose official-runtime, local-atomic-runtime, and explicit-fallback states separately. Page-level markers must use data-output-state-official-runtime, data-output-state-local-atomic-runtime, and data-output-state-explicit-fallback with absent/present values."
+    }
+  ]
+}

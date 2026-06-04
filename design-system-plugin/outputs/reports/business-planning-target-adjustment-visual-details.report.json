@@ -1,0 +1,291 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-business-planning-target-adjustment-visual-details",
+  "target": "design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html",
+  "runs": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "design-system-plugin/outputs/reports/business-planning-target-adjustment-detail-fixed-1440x900.png",
+      "details": {
+        "rows": [
+          {
+            "index": 0,
+            "state": "expanded",
+            "expanded": "true",
+            "text": "PROD-009 潘太欣（100mg）",
+            "buttonText": "",
+            "hasSvg": true,
+            "button": {
+              "left": 350,
+              "top": 538,
+              "width": 20,
+              "height": 20,
+              "centerY": 548
+            },
+            "textRect": {
+              "left": 382,
+              "top": 537,
+              "width": 255,
+              "height": 22,
+              "centerY": 548
+            },
+            "row": {
+              "top": 524.5,
+              "height": 47,
+              "centerY": 548
+            },
+            "gap": 12,
+            "verticalOffset": 0,
+            "userSelect": "none"
+          },
+          {
+            "index": 1,
+            "state": "collapsed",
+            "expanded": "false",
+            "text": "PROD-0010 乐维初（100mg）",
+            "buttonText": "",
+            "hasSvg": true,
+            "button": {
+              "left": 350,
+              "top": 876,
+              "width": 20,
+              "height": 20,
+              "centerY": 886
+            },
+            "textRect": {
+              "left": 382,
+              "top": 875,
+              "width": 255,
+              "height": 22,
+              "centerY": 886
+            },
+            "row": {
+              "top": 862.5,
+              "height": 47,
+              "centerY": 886
+            },
+            "gap": 12,
+            "verticalOffset": 0,
+            "userSelect": "none"
+          },
+          {
+            "index": 2,
+            "state": "collapsed",
+            "expanded": "false",
+            "text": "PROD-009 潘太欣（50mg）",
+            "buttonText": "",
+            "hasSvg": true,
+            "button": {
+              "left": 350,
+              "top": 923,
+              "width": 20,
+              "height": 20,
+              "centerY": 933
+            },
+            "textRect": {
+              "left": 382,
+              "top": 922,
+              "width": 255,
+              "height": 22,
+              "centerY": 933
+            },
+            "row": {
+              "top": 909.5,
+              "height": 47,
+              "centerY": 933
+            },
+            "gap": 12,
+            "verticalOffset": 0,
+            "userSelect": "none"
+          }
+        ],
+        "toggleCount": 3,
+        "maxLeftDelta": 0,
+        "minGap": 12,
+        "maxGap": 12,
+        "maxVerticalOffset": 0,
+        "bodyOverflow": "hidden",
+        "documentScrollTop": 0,
+        "mainOverflowY": "auto",
+        "actionBar": {
+          "left": 288,
+          "right": 1440,
+          "bottom": 900,
+          "height": 77
+        },
+        "sidebar": {
+          "right": 288,
+          "width": 288
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "visibleNativeSelects": 0
+      },
+      "checks": {
+        "toggle_count": true,
+        "all_have_svg": true,
+        "no_text_glyphs": true,
+        "compact_size_20px": true,
+        "left_aligned": true,
+        "text_gap_12px": true,
+        "vertical_centered": true,
+        "user_select_none": true,
+        "body_locked": true,
+        "main_scroll_owner": true,
+        "action_bar_pinned_bottom": true,
+        "action_bar_sidebar_aligned": true,
+        "no_visible_native_select": true
+      },
+      "failures": []
+    },
+    {
+      "name": "wide",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screenshot": "design-system-plugin/outputs/reports/business-planning-target-adjustment-detail-fixed-1920x1080.png",
+      "details": {
+        "rows": [
+          {
+            "index": 0,
+            "state": "expanded",
+            "expanded": "true",
+            "text": "PROD-009 潘太欣（100mg）",
+            "buttonText": "",
+            "hasSvg": true,
+            "button": {
+              "left": 350,
+              "top": 538,
+              "width": 20,
+              "height": 20,
+              "centerY": 548
+            },
+            "textRect": {
+              "left": 382,
+              "top": 537,
+              "width": 255,
+              "height": 22,
+              "centerY": 548
+            },
+            "row": {
+              "top": 524.5,
+              "height": 47,
+              "centerY": 548
+            },
+            "gap": 12,
+            "verticalOffset": 0,
+            "userSelect": "none"
+          },
+          {
+            "index": 1,
+            "state": "collapsed",
+            "expanded": "false",
+            "text": "PROD-0010 乐维初（100mg）",
+            "buttonText": "",
+            "hasSvg": true,
+            "button": {
+              "left": 350,
+              "top": 876,
+              "width": 20,
+              "height": 20,
+              "centerY": 886
+            },
+            "textRect": {
+              "left": 382,
+              "top": 875,
+              "width": 255,
+              "height": 22,
+              "centerY": 886
+            },
+            "row": {
+              "top": 862.5,
+              "height": 47,
+              "centerY": 886
+            },
+            "gap": 12,
+            "verticalOffset": 0,
+            "userSelect": "none"
+          },
+          {
+            "index": 2,
+            "state": "collapsed",
+            "expanded": "false",
+            "text": "PROD-009 潘太欣（50mg）",
+            "buttonText": "",
+            "hasSvg": true,
+            "button": {
+              "left": 350,
+              "top": 923,
+              "width": 20,
+              "height": 20,
+              "centerY": 933
+            },
+            "textRect": {
+              "left": 382,
+              "top": 922,
+              "width": 255,
+              "height": 22,
+              "centerY": 933
+            },
+            "row": {
+              "top": 909.5,
+              "height": 47,
+              "centerY": 933
+            },
+            "gap": 12,
+            "verticalOffset": 0,
+            "userSelect": "none"
+          }
+        ],
+        "toggleCount": 3,
+        "maxLeftDelta": 0,
+        "minGap": 12,
+        "maxGap": 12,
+        "maxVerticalOffset": 0,
+        "bodyOverflow": "hidden",
+        "documentScrollTop": 0,
+        "mainOverflowY": "auto",
+        "actionBar": {
+          "left": 288,
+          "right": 1920,
+          "bottom": 1080,
+          "height": 77
+        },
+        "sidebar": {
+          "right": 288,
+          "width": 288
+        },
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "visibleNativeSelects": 0
+      },
+      "checks": {
+        "toggle_count": true,
+        "all_have_svg": true,
+        "no_text_glyphs": true,
+        "compact_size_20px": true,
+        "left_aligned": true,
+        "text_gap_12px": true,
+        "vertical_centered": true,
+        "user_select_none": true,
+        "body_locked": true,
+        "main_scroll_owner": true,
+        "action_bar_pinned_bottom": true,
+        "action_bar_sidebar_aligned": true,
+        "no_visible_native_select": true
+      },
+      "failures": []
+    }
+  ],
+  "failures": []
+}

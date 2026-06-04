@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-app-shell-scroll",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Generated business/admin pages must use a fixed app shell where the topbar and navigation remain stable and the content region owns vertical scrolling.",
+  "source_provenance": {
+    "layout_rule": "layout-grid-container.json",
+    "navigation_rule": "admin-template-navigation.json",
+    "layout_docs_id": "foundations-layout--docs",
+    "navigation_docs_id": "components-navigationheader--docs",
+    "sidebar_docs_id": "components-sidebar--docs"
+  },
+  "scroll_contract": {
+    "body": {
+      "required_css": [
+        "block-size: 100vh",
+        "overflow: hidden"
+      ]
+    },
+    "shell": {
+      "required_css": [
+        "block-size: 100vh",
+        "overflow: hidden"
+      ],
+      "forbidden_css": [
+        "min-block-size: 100vh"
+      ]
+    },
+    "topbar": {
+      "required_markers": [
+        "data-app-shell-part=\"topbar\"",
+        "data-scroll-fixed=\"true\""
+      ]
+    },
+    "content": {
+      "required_css": [
+        "min-block-size: 0",
+        "overflow: auto"
+      ],
+      "required_markers": [
+        "data-app-shell-part=\"content\"",
+        "data-scroll-region=\"content\""
+      ]
+    }
+  },
+  "html_contract": {
+    "required_page_markers": [
+      "data-app-shell-scroll=\"content-only\"",
+      "data-scroll-rule=\"business-app-shell-scroll\""
+    ],
+    "required_shell_markers": [
+      "data-app-shell=\"business-admin\"",
+      "data-app-shell-scroll=\"content-only\""
+    ],
+    "required_fixed_markers": [
+      "data-app-shell-part=\"topbar\"",
+      "data-scroll-fixed=\"true\""
+    ],
+    "required_content_markers": [
+      "data-app-shell-part=\"content\"",
+      "data-scroll-region=\"content\""
+    ]
+  },
+  "generation_policy": [
+    "Do not rely on body/page scrolling for business/admin generated pages.",
+    "The app shell must occupy the viewport height and hide body overflow.",
+    "Topbar and left navigation belong to the fixed shell; the main content area owns vertical scrolling.",
+    "When content is taller than the viewport, scrolling must happen in the main content region so topbar state remains visible."
+  ],
+  "validator": "../../scripts/validate-app-shell-scroll"
+}

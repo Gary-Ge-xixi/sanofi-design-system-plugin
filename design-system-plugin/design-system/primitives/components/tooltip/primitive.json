@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Tooltip",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Tooltip",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "tooltip",
+      "data_attribute": "data-primitive=\"tooltip\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-tooltip--auto-placement",
+      "components-tooltip--default",
+      "components-tooltip--inline",
+      "components-tooltip--max-width",
+      "components-tooltip--overflowing",
+      "components-tooltip--placement",
+      "components-tooltip--with-icon",
+      "components-tooltip--within-list"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

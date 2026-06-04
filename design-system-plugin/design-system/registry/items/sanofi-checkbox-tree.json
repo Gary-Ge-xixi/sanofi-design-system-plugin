@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-checkbox-tree",
+  "title": "CheckboxTree primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for CheckboxTree.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "checkbox-tree",
+  "docs_id": "components-checkboxtree--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/checkbox-tree/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/checkbox-tree/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-checkboxtree--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-checkboxtree--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkboxtree--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 4,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "checkbox-tree",
+      "CheckboxTree",
+      "Checkbox Tree"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official CheckboxTree primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

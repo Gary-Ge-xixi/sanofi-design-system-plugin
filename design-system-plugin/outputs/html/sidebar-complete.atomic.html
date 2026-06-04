@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sidebar complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-sidebar--docs">
+        <h1>Sidebar Complete Package</h1>
+        <p>Docs: components-sidebar--docs. Stories: 7/7.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-sidebar--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--collapsed" data-source-doc-id="components-sidebar--docs">
+          <h2>Collapsed</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--collapsed" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="collapsed" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Collapsed</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--collapsed</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--default" data-source-doc-id="components-sidebar--docs">
+          <h2>Default</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--default" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="default" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Default</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--default</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs">
+          <h2>Expanded</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="expanded" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Expanded</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--expanded</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--fully-collapsible" data-source-doc-id="components-sidebar--docs">
+          <h2>Fully Collapsible</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--fully-collapsible" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="fully-collapsible" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Fully Collapsible</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--fully-collapsible</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--fully-collapsible-controlled" data-source-doc-id="components-sidebar--docs">
+          <h2>Fully Collapsible Controlled</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--fully-collapsible-controlled" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="fully-collapsible-controlled" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Fully Collapsible Controlled</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--fully-collapsible-controlled</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--sticky-behavior" data-source-doc-id="components-sidebar--docs">
+          <h2>Sticky Behavior</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--sticky-behavior" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="sticky-behavior" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Sticky Behavior</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--sticky-behavior</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-sidebar--without-header" data-source-doc-id="components-sidebar--docs">
+          <h2>Without Header</h2>
+          <aside data-primitive="sidebar" data-pattern="atomic-component-sample" data-story-id="components-sidebar--without-header" data-source-doc-id="components-sidebar--docs" data-token-source="foundations-colors--docs" data-variant="without-header" data-state="variant" data-sidebar-part="root"><div data-sidebar-part="header">Sidebar</div><nav data-sidebar-part="content"><section data-sidebar-part="section"><a data-sidebar-part="item" aria-current="page" href="#">Without Header</a></section></nav><div data-sidebar-part="footer">Footer</div></aside>
+          <p><code>components-sidebar--without-header</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-sidebar--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/sidebar.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/sidebar/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-flex-as-child-list-atomic-story",
+  "title": "Flex As Child List atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-flex--as-child-list.",
+  "atomic_story_id": "components-flex--as-child-list",
+  "component_id": "flex",
+  "docs_id": "components-flex--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-flex"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--as-child-list.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--as-child-list.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/flex/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/assets/components-flex--as-child-list.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/flex/assets/components-flex--as-child-list.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/flex/templates/html.as-child-list.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/flex/templates/html.as-child-list.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/flex.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/flex/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-flex--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-flex--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "story_id": "components-flex--as-child-list",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/flex/stories/components-flex--as-child-list.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/flex/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-flex--as-child-list&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-flex--as-child-list&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Flex.stories-D8jEajo2.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/flex/assets/Flex.stories-D8jEajo2.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "flex",
+      "Flex",
+      "As Child List",
+      "components-flex--as-child-list",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Flex As Child List Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

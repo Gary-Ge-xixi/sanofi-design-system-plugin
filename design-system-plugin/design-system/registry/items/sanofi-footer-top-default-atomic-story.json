@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-footer-top-default-atomic-story",
+  "title": "Footer.Top Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-footer-top--default.",
+  "atomic_story_id": "components-footer-top--default",
+  "component_id": "footer-top",
+  "docs_id": "components-footer-top--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-footer-top"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-top/stories/components-footer-top--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/footer-top/stories/components-footer-top--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-top/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/footer-top/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-top/assets/Top.stories-DokjJHpL.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/footer-top/assets/Top.stories-DokjJHpL.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-top/assets/components-footer-top--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/footer-top/assets/components-footer-top--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-top/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/footer-top/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/footer-top.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/footer-top.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/footer-top/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/footer-top/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-footer-top--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-footer-top--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-footer-top--docs",
+    "story_id": "components-footer-top--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/footer-top/stories/components-footer-top--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/footer-top/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-footer-top--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-footer-top--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Top.stories-DokjJHpL.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/footer-top/assets/Top.stories-DokjJHpL.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-top.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/footer-top/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "footer-top",
+      "Footer.Top",
+      "Default",
+      "components-footer-top--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Footer.Top Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "id": "carousel-docs-contract",
+  "component_id": "carousel",
+  "component_name": "Carousel",
+  "docs_id": "components-carousel--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-carousel--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title of the carouselstring",
+        "default": "\"\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "itemsToShow",
+        "required": true,
+        "description": "Number of items to show in the carouselnumber",
+        "default": "3",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "oneItemView",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultSlide",
+        "required": false,
+        "description": "Default slide to shownumber",
+        "default": "0",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onNavigation",
+        "required": false,
+        "description": "Function to be called when navigating the carouselfunction",
+        "default": "\"\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-carousel--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Carousel, Typography, TypographyColor, LinkStandalone, Link, Image, Card, ButtonIcon, IconName, LinkSize } from \"@sanofi-accelerator/elements\";\n\ninterface ICardContentData {\n  id: string;\n  category?: string;\n  date?: string;\n  onClick?: () => void;\n  subText?: string;\n  title?: string;\n  link?: Array<string>;\n  imgSrc?: string;\n}\n\nconst doctor = \"https://cdn.prod.accelerator.sanofi/elements/images/doctor.png\";\nconst baby = \"https://cdn.prod.accelerator.sanofi/elements/images/baby.png\";\nconst babies = \"https://cdn.prod.accelerator.sanofi/elements/images/babies.png\";\nconst cardContentData: Array<ICardContentData> = [\n  {\n    id: \"1\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc:\n      \"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\",\n  },\n  {\n    id: \"2\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: baby,\n  },\n  {\n    id: \"3\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: babies,\n  },\n  {\n    id: \"4\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: doctor,\n  },\n  {\n    id: \"5\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc:\n      \"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\",\n  },\n  {\n    id: \"6\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: doctor,\n  },\n  {\n    id: \"7\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc: baby,\n  },\n  {\n    id: \"8\",\n    subText:\n      \"Description placeholder, with a maximum line count of five. This text will automatically truncate if your content is too long.\",\n    title: \"Title placeholder, with a maximum\",\n    imgSrc:\n      \"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\",\n  },\n];\n\nconst cardInternal = (cardContentData: ICardContentData, hasMedia: boolean) => (\n  <Card>\n    <Card.Section>\n      {hasMedia ? (\n        <Card.Media>\n          <Image alt=\"alt text\" src={cardContentData.imgSrc ?? \"\"} />\n        </Card.Media>\n      ) : (\n        <Card.MediaCustom>\n          <Typography\n            as=\"p\"\n            variant=\"display-2\"\n            color={TypographyColor.CURRENT_COLOR}\n          >\n            {cardContentData.id}\n          </Typography>\n          <ButtonIcon\n            icon={IconName.MORE_VERT}\n            variant=\"tertiary\"\n            onClick={() => alert(\"the onclick props is called\")}\n          />\n        </Card.MediaCustom>\n      )}\n\n      <Card.Content\n        category={cardContentData.category}\n        date={cardContentData.date}\n        subText={cardContentData.subText}\n        title={cardContentData.title}\n        buttonSlot={(\n          <Card.Button\n            icon={IconName.MORE_VERT}\n            onClick={cardContentData.onClick}\n          />\n        )}\n      >\n        {cardContentData.link?.map((link) => (\n          <Link href={link} variant=\"inline\" key={link}>\n            Link\n          </Link>\n        ))}\n      </Card.Content>\n    </Card.Section>\n    <Card.Action>\n      <LinkStandalone iconName=\"arrow_forward\" href={\"#\"} size={LinkSize.SMALL}>\n        See more\n      </LinkStandalone>\n    </Card.Action>\n  </Card>\n);\n\nconst Component = () => (\n  <Carousel\n    title=\"Carousel\"\n    itemsToShow={3}\n    defaultSlide={0}\n    onNavigation={(slide: number, itemCount: number) => {\n      console.log(\"slide: \", slide, \"itemCount: \", itemCount);\n    }}\n  >\n    {cardContentData.map((el) => (\n      <div key={el.id}>{cardInternal(el, false)}</div>\n    ))}\n  </Carousel>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-carousel--carousel-one-item-view",
+      "name": "Carousel One Item View",
+      "export_name": "CarouselOneItemView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--carousel-with-card-group",
+      "name": "Carousel With Card Group",
+      "export_name": "CarouselWithCardGroup",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--carousel-with-image",
+      "name": "Carousel With Image",
+      "export_name": "CarouselWithImage",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--rtl-carousel",
+      "name": "RTL Carousel",
+      "export_name": "RTLCarousel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-carousel--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/carousel.contract.json"
+  }
+}

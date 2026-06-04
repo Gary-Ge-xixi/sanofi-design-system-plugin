@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "carousel",
+  "component_name": "Carousel",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Carousel"
+  },
+  "docs": [
+    {
+      "id": "components-carousel--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Carousel/Carousel.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-carousel--carousel-one-item-view",
+      "name": "Carousel One Item View",
+      "export_name": "CarouselOneItemView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--carousel-with-card-group",
+      "name": "Carousel With Card Group",
+      "export_name": "CarouselWithCardGroup",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--carousel-with-image",
+      "name": "Carousel With Image",
+      "export_name": "CarouselWithImage",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    },
+    {
+      "id": "components-carousel--rtl-carousel",
+      "name": "RTL Carousel",
+      "export_name": "RTLCarousel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Carousel/Carousel.stories.tsx"
+    }
+  ]
+}

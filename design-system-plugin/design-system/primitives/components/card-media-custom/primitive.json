@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card/MediaCustom",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Card/MediaCustom",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "card-media-custom",
+      "data_attribute": "data-primitive=\"card-media-custom\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-card-mediacustom--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-mediacustom--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

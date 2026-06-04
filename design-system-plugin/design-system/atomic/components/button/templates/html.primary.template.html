@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{component_name}} / {{story_name}}</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-semantic-background-brand-subtle);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      main {
+        width: min(48rem, calc(100vw - var(--elements-spacing-2xl)));
+        margin: 0 auto;
+        padding-block: var(--elements-spacing-3xl);
+      }
+
+      .demo-panel {
+        display: grid;
+        gap: var(--elements-spacing-lg);
+        padding: var(--elements-spacing-xl);
+        border: .0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+      }
+
+      .story-meta {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      .story-meta h1 {
+        margin: 0;
+        color: var(--elements-color-semantic-text-strong);
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+
+      .story-meta p {
+        margin: 0;
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+
+      .story-stage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--elements-spacing-md);
+        align-items: center;
+      }
+
+      .elements-button {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--elements-spacing-2xs);
+        min-height: 2.75rem;
+        padding: var(--elements-spacing-sm) var(--elements-spacing-xl);
+        border: .0625rem solid var(--elements-color-semantic-accent-default);
+        border-radius: var(--elements-radius-rounded);
+        background: var(--elements-color-semantic-accent-default);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .elements-button:focus-visible {
+        outline: .1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: .125rem;
+      }
+
+      .source-box {
+        overflow: auto;
+        padding: var(--elements-spacing-md);
+        border: .0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-brand-subtle);
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main
+      data-pattern="atomic-story"
+      data-atomic-story-id="{{story_id}}"
+      data-source-doc-id="{{docs_id}}"
+      data-story-id="{{story_id}}"
+      data-token-source="{{token_source}}"
+    >
+      <article class="demo-panel" data-pattern="atomic-component-demo">
+        <header class="story-meta">
+          <h1>{{component_name}} / {{story_name}}</h1>
+          <p>{{story_id}} · variant {{variant}}</p>
+        </header>
+
+        <section class="story-stage" aria-label="{{component_name}} story preview">
+          <button
+            type="button"
+            class="elements-button"
+            data-primitive="button"
+            data-variant="{{variant}}"
+            data-story-id="{{story_id}}"
+            data-source-doc-id="{{docs_id}}"
+            data-atomic-story-id="{{story_id}}"
+          >
+            <span>{{label}}</span>
+            <span aria-hidden="true">-&gt;</span>
+          </button>
+        </section>
+
+        <pre class="source-box" data-pattern="atomic-story-source">{{original_source}}</pre>
+      </article>
+    </main>
+  </body>
+</html>

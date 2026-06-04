@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-footer-footer-social-link-default-atomic-story",
+  "title": "Footer/FooterSocialLink Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-footer-footersociallink--default.",
+  "atomic_story_id": "components-footer-footersociallink--default",
+  "component_id": "footer-footer-social-link",
+  "docs_id": "components-footer-footersociallink--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-footer-footer-social-link"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/stories/components-footer-footersociallink--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/stories/components-footer-footersociallink--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/assets/FooterSocialLink.stories-Fnw471Ch.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/assets/FooterSocialLink.stories-Fnw471Ch.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/assets/components-footer-footersociallink--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/assets/components-footer-footersociallink--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-footer-footersociallink--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-footer-footersociallink--docs",
+    "story_id": "components-footer-footersociallink--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/stories/components-footer-footersociallink--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-footer-footersociallink--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-footer-footersociallink--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/FooterSocialLink.stories-Fnw471Ch.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/assets/FooterSocialLink.stories-Fnw471Ch.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/footer-footer-social-link/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "footer-footer-social-link",
+      "Footer/FooterSocialLink",
+      "Default",
+      "components-footer-footersociallink--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Footer/FooterSocialLink Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

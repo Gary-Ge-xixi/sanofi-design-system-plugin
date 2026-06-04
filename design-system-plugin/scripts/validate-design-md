@@ -1,0 +1,193 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "design-md-validation.report.json");
+const designPath = path.join(pluginRoot, "design-system", "DESIGN.md");
+const tokenCssPath = path.join(pluginRoot, "design-system", "tokens", "tokens.css");
+const allowlistPath = path.join(pluginRoot, "design-system", "tokens", "token-allowlist.txt");
+const componentContractIndexPath = path.join(pluginRoot, "design-system", "contracts", "components", "component-contract-index.json");
+const coverageMatrixPath = path.join(pluginRoot, "design-system", "atomic", "component-coverage-matrix.json");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function extractTokens(source) {
+  return [...new Set(source.match(/--elements-[A-Za-z0-9_-]+/g) || [])].sort();
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(pluginRoot, relativePath));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+for (const requiredFile of [designPath, tokenCssPath, allowlistPath, componentContractIndexPath, coverageMatrixPath]) {
+  if (!fs.existsSync(requiredFile)) failures.push(`missing file: ${rel(requiredFile)}`);
+}
+
+const design = fs.existsSync(designPath) ? read(designPath) : "";
+const tokenNames = new Set([
+  ...extractTokens(fs.existsSync(tokenCssPath) ? read(tokenCssPath) : ""),
+  ...extractTokens(fs.existsSync(allowlistPath) ? read(allowlistPath) : "")
+]);
+const designTokens = extractTokens(design);
+const missingTokens = designTokens.filter((token) => !tokenNames.has(token));
+if (missingTokens.length) failures.push(`DESIGN.md references unknown tokens: ${missingTokens.join(", ")}`);
+
+const contractIndex = fs.existsSync(componentContractIndexPath)
+  ? readJson(componentContractIndexPath)
+  : { contracts: [] };
+const coverageMatrix = fs.existsSync(coverageMatrixPath)
+  ? readJson(coverageMatrixPath)
+  : { components: [] };
+const knownComponents = new Set([
+  ...(contractIndex.contracts || []).map((item) => item.id),
+  ...(coverageMatrix.components || []).map((item) => item.component_id)
+]);
+const requiredComponents = [
+  "navigation-header",
+  "sidebar",
+  "menu",
+  "icon",
+  "container",
+  "grid",
+  "flex",
+  "text-input",
+  "search-input",
+  "select",
+  "autocomplete",
+  "checkbox",
+  "radio",
+  "switch",
+  "slider",
+  "date-picker",
+  "button",
+  "button-icon",
+  "link",
+  "tag",
+  "chip-status",
+  "chip-filter",
+  "chip-select",
+  "content-block",
+  "card",
+  "toast",
+  "banner",
+  "modal",
+  "drawer",
+  "loading-spinner",
+  "progress-bar",
+  "progress-stepper-progress-stepper-nav",
+  "breadcrumb",
+  "tabs",
+  "pagination",
+  "tree-view",
+  "cascading-menu",
+  "mega-menu",
+  "image",
+  "video-thumbnail",
+  "hero",
+  "carousel",
+  "footer"
+];
+const missingComponents = requiredComponents.filter((component) => !knownComponents.has(component));
+if (missingComponents.length) failures.push(`DESIGN.md required components missing from contracts or coverage: ${missingComponents.join(", ")}`);
+
+const requiredSections = [
+  "## Purpose",
+  "## Source Contract",
+  "## Foundations",
+  "### Color",
+  "### Typography",
+  "### Layout",
+  "### Radius",
+  "### Elevation",
+  "### Motion",
+  "## Components",
+  "## Page Patterns",
+  "## Data Table and List Rule",
+  "## Executable Contract Index",
+  "## Validator Index"
+];
+const missingSections = requiredSections.filter((section) => !design.includes(section));
+if (missingSections.length) failures.push(`DESIGN.md missing sections: ${missingSections.join(", ")}`);
+
+const foundationDocs = [
+  "design-system/knowledge/docs/foundations-colors--docs.md",
+  "design-system/knowledge/docs/foundations-typography--docs.md",
+  "design-system/knowledge/docs/foundations-layout--docs.md",
+  "design-system/knowledge/docs/foundations-radius--docs.md",
+  "design-system/knowledge/docs/foundations-elevation--docs.md",
+  "design-system/knowledge/docs/foundations-motion--docs.md"
+];
+const missingFoundationDocs = foundationDocs.filter((filePath) => !exists(filePath));
+if (missingFoundationDocs.length) failures.push(`missing foundation docs: ${missingFoundationDocs.join(", ")}`);
+
+const requiredDependencyMarkers = [
+  "contracts/page-modules/data-table-fallback.contract.json",
+  "page-profiles/admin-data-entry-table.profile.json",
+  "rules/admin-density.json",
+  "rules/elevation-usage.json",
+  "rules/business-layout-typography.json",
+  "rules/business-app-shell-scroll.json",
+  "rules/icon-usage.json",
+  "reference-fit/admin-data-entry-table.rules.json",
+  "scripts/validate-design-md",
+  "scripts/validate-admin-page-profile <html-file>",
+  "scripts/validate-elevation-usage <html-file>",
+  "scripts/validate-page-layout-typography <html-file>",
+  "scripts/validate-app-shell-scroll <html-file>",
+  "scripts/validate-icon-usage <html-file>",
+  "scripts/validate-reference-fit <html-file>"
+];
+const missingDependencyMarkers = requiredDependencyMarkers.filter((marker) => !design.includes(marker));
+if (missingDependencyMarkers.length) failures.push(`DESIGN.md missing dependency markers: ${missingDependencyMarkers.join(", ")}`);
+
+if (!design.includes("token-only guidance")) {
+  failures.push("DESIGN.md must explicitly state Motion is token-only until authenticated capture is available");
+}
+if (design.includes("Required future contract:")) {
+  failures.push("DESIGN.md still describes data-table-fallback as a future contract");
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-design-md",
+  target: rel(designPath),
+  checked: {
+    design_tokens: designTokens.length,
+    known_tokens: tokenNames.size,
+    required_components: requiredComponents.length,
+    required_sections: requiredSections.length,
+    foundation_docs: foundationDocs.length
+  },
+  failures,
+  details: {
+    missing_tokens: missingTokens,
+    missing_components: missingComponents,
+    missing_sections: missingSections,
+    missing_foundation_docs: missingFoundationDocs,
+    missing_dependency_markers: missingDependencyMarkers
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`DESIGN.md validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`DESIGN.md OK: ${designTokens.length} token refs, ${requiredComponents.length} required components, ${foundationDocs.length} foundation docs`);

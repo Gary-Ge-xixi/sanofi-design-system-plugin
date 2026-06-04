@@ -1,0 +1,277 @@
+{
+  "schema_version": "0.1.0",
+  "id": "pagination",
+  "canonical_name": "pagination",
+  "component_name": "Pagination",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-pagination--docs",
+    "title": "Pagination",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-pagination--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-pagination--docs",
+    "import_path": "./src/components/Pagination/Pagination.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 7,
+    "story_ids": [
+      "components-pagination--compact",
+      "components-pagination--compact-with-first-and-last-buttons",
+      "components-pagination--compact-with-input",
+      "components-pagination--compact-with-input-and-first-last-buttons",
+      "components-pagination--controlled",
+      "components-pagination--default",
+      "components-pagination--mobile"
+    ],
+    "records": [
+      {
+        "id": "components-pagination--compact",
+        "name": "Compact",
+        "normalized_name": "compact",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "Compact"
+      },
+      {
+        "id": "components-pagination--compact-with-first-and-last-buttons",
+        "name": "Compact With First And Last Buttons",
+        "normalized_name": "compact-with-first-and-last-buttons",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "CompactWithFirstAndLastButtons"
+      },
+      {
+        "id": "components-pagination--compact-with-input",
+        "name": "Compact With Input",
+        "normalized_name": "compact-with-input",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "CompactWithInput"
+      },
+      {
+        "id": "components-pagination--compact-with-input-and-first-last-buttons",
+        "name": "Compact With Input And First Last Buttons",
+        "normalized_name": "compact-with-input-and-first-last-buttons",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "CompactWithInputAndFirstLastButtons"
+      },
+      {
+        "id": "components-pagination--controlled",
+        "name": "Controlled",
+        "normalized_name": "controlled",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "Controlled"
+      },
+      {
+        "id": "components-pagination--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-pagination--mobile",
+        "name": "Mobile",
+        "normalized_name": "mobile",
+        "import_path": "./src/components/Pagination/Pagination.stories.tsx",
+        "export_name": "Mobile"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "totalPages",
+        "required": true,
+        "description": "Total number of pagesnumber",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sizeVariant",
+        "required": false,
+        "description": "Size variant\"default\"\"compact\"",
+        "default": "\"SizeVariant.DEFAULT\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Pagination mode\"compact\"\"standard\"\"compactWithInput\"",
+        "default": "\"Variant.STANDARD\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showLabelsOnDesktop",
+        "required": false,
+        "description": "Show labels on desktopboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showFirstAndLastPageButtons",
+        "required": false,
+        "description": "Show first and last page buttonsboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "aria-label",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "currentPage",
+        "required": false,
+        "description": "Current pagenumber",
+        "default": "1",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onPageChange",
+        "required": false,
+        "description": "Callback when page is changed((e: ChangeEvent<HTMLInputElement, Element> \\",
+        "default": "MouseEvent<HTMLButtonElement, MouseEvent>, page: number) => void)",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "previousMessageI18n",
+        "required": false,
+        "description": "Custom label for \"Previous\" button (i18n).string",
+        "default": "\"Previous\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "nextMessageI18n",
+        "required": false,
+        "description": "Custom label for \"Next\" button (i18n).string",
+        "default": "\"Next\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables all pagination controls.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "compact",
+      "compact-with-first-and-last-buttons",
+      "compact-with-input",
+      "compact-with-input-and-first-last-buttons",
+      "controlled",
+      "default",
+      "mobile"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "compact",
+      "compact-with-first-and-last-buttons",
+      "compact-with-input",
+      "compact-with-input-and-first-last-buttons",
+      "controlled",
+      "default",
+      "mobile"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Pagination } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Pagination totalPages={10} />\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Pagination } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Pagination totalPages={10} />\n);",
+      "import { Pagination, SizeVariant } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Pagination totalPages={10} sizeVariant={SizeVariant.DEFAULT} />\n);",
+      "import { Pagination, Variant } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Pagination totalPages={10} variant={Variant.COMPACT} />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "pagination"
+    ],
+    "contracts": [
+      {
+        "id": "pagination",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/pagination/demo.registry.json",
+        "known_story_ids": [
+          "components-pagination--compact",
+          "components-pagination--compact-with-first-and-last-buttons",
+          "components-pagination--compact-with-input",
+          "components-pagination--compact-with-input-and-first-last-buttons",
+          "components-pagination--controlled",
+          "components-pagination--default",
+          "components-pagination--mobile",
+          "components-pagination--compact",
+          "components-pagination--compact-with-first-and-last-buttons",
+          "components-pagination--compact-with-input",
+          "components-pagination--compact-with-input-and-first-last-buttons",
+          "components-pagination--controlled",
+          "components-pagination--default",
+          "components-pagination--mobile"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-pagination--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-pagination--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-pagination--docs.md",
+    "docs_import_path": "./src/components/Pagination/Pagination.mdx",
+    "story_ids": [
+      "components-pagination--compact",
+      "components-pagination--compact-with-first-and-last-buttons",
+      "components-pagination--compact-with-input",
+      "components-pagination--compact-with-input-and-first-last-buttons",
+      "components-pagination--controlled",
+      "components-pagination--default",
+      "components-pagination--mobile"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

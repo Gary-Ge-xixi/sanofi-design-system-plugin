@@ -1,0 +1,883 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const { createRuntime, runtimeStyles, runtimeScript } = require("../component-runtime/src/local-components.cjs");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const runtime = createRuntime({
+  source_provenance: {
+    token_source: "foundations-colors--docs"
+  },
+  primitive_refs: []
+});
+
+function ensureDir(dirPath) {
+  fs.mkdirSync(dirPath, { recursive: true });
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function baseCss() {
+  return `
+      :root {
+        color-scheme: light;
+        --example-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --example-sidebar-width: 18rem;
+        --example-topbar-height: 5rem;
+        --example-control-height: 2.75rem;
+        --example-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --example-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --example-muted-bg: var(--elements-color-semantic-accent-neutral_default);
+        --example-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --example-border: var(--elements-color-semantic-border-default);
+        --dashboard-surface-bg: var(--example-surface-bg);
+        --dashboard-border: var(--example-border);
+        --dashboard-active-bg: var(--example-active-bg);
+        font-family: var(--example-font-family);
+        letter-spacing: var(--elements-core-font-letterspacing-default);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--example-page-bg);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body { margin: 0; block-size: 100vh; overflow: hidden; font-family: var(--example-font-family); letter-spacing: var(--elements-core-font-letterspacing-default); background: var(--example-page-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, p { margin-block-start: 0; margin-block-end: 0; letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .shell { block-size: 100vh; overflow: hidden; display: grid; grid-template-columns: var(--example-sidebar-width) minmax(0, 1fr); grid-template-rows: var(--example-topbar-height) minmax(0, 1fr); }
+      .topbar { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--example-surface-bg); border-block-end: 0.0625rem solid var(--example-border); box-shadow: var(--elements-core-elevation-02); z-index: 4; }
+      .brand { display: flex; align-items: center; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .brand img { inline-size: 5.875rem; block-size: auto; display: block; }
+      .brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--example-border); }
+      .app-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .topbar-actions { display: inline-flex; align-items: center; justify-content: flex-end; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .user-chip { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.5rem; padding-inline: var(--elements-spacing-md); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-rounded); background: var(--example-muted-bg); font-size: var(--elements-font-size-200); }
+      .user-chip.is-plain { border-color: transparent; background: transparent; border-radius: var(--elements-radius-none); padding-inline: var(--elements-spacing-none); font-size: var(--elements-font-size-300); color: var(--elements-color-semantic-text-default_inverse); }
+      .topbar-switch { display: inline-flex; align-items: center; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-accent-default); font-size: var(--elements-font-size-300); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .sidebar { grid-row: 2; position: sticky; inset-block-start: var(--example-topbar-height); block-size: calc(100vh - var(--example-topbar-height)); background: var(--example-surface-bg); border-inline-end: 0.0625rem solid var(--example-border); overflow: auto; padding: var(--elements-spacing-md); }
+      .nav-list { list-style: none; display: grid; gap: var(--elements-spacing-2xs); margin: 0; padding: 0; }
+      .sidebar-title { display: block; padding: var(--elements-spacing-2xs) var(--elements-spacing-md); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); }
+      .sidebar-footer { margin-block-start: var(--elements-spacing-md); padding: var(--elements-spacing-md); border-block-start: 0.0625rem solid var(--example-border); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      .nav-item { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.75rem; padding-inline: var(--elements-spacing-md); border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); }
+      .nav-item.is-active { background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .nav-item.has-toggle { justify-content: space-between; }
+      .nav-item-main { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .nav-chevron { inline-size: 1.25rem; block-size: 1.25rem; flex: 0 0 auto; color: currentColor; }
+      .nav-sub-list { list-style: none; display: grid; gap: var(--elements-spacing-2xs); margin: 0; padding: var(--elements-spacing-2xs) 0 var(--elements-spacing-sm); }
+      .nav-sub-item { display: flex; align-items: center; min-block-size: 2.75rem; padding-inline: var(--elements-spacing-2xl) var(--elements-spacing-md); border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); }
+      .nav-sub-item.is-active { background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .planning-sidebar-toggle { margin-block-start: var(--elements-spacing-4xl); display: flex; justify-content: flex-end; color: var(--elements-color-semantic-text-subtle_inverse); }
+      .planning-sidebar-toggle button { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border: 0; border-radius: var(--elements-radius-sm); background: transparent; color: inherit; cursor: pointer; }
+      .nav-icon, .select-chevron, .inline-link-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; inline-size: 1.25rem; block-size: 1.25rem; color: currentColor; }
+      svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .main { grid-column: 2; grid-row: 2; min-inline-size: 0; min-block-size: 0; block-size: 100%; padding: var(--elements-spacing-xl); padding-block-end: var(--elements-spacing-6xl); overflow: auto; }
+      .container { inline-size: 100%; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .container-content { min-inline-size: 0; }
+      .page-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); min-inline-size: 0; }
+      .panel, .breadcrumb, .page-header, .save-bar-anchor { grid-column: 1 / -1; min-inline-size: 0; }
+      .panel { background: var(--example-surface-bg); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-lg); }
+      .breadcrumb { display: flex; align-items: center; gap: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); line-height: var(--elements-font-lineheight-2); }
+      .breadcrumb strong { color: var(--elements-color-semantic-text-default_inverse); }
+      .page-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--elements-spacing-xl); row-gap: var(--elements-spacing-sm); align-items: start; margin-block-end: var(--elements-spacing-2xs); }
+      .page-header-main { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; }
+      .page-title-text { font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); overflow-wrap: anywhere; }
+      .page-description { max-inline-size: 56rem; color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); line-height: var(--elements-font-lineheight-3); font-weight: var(--elements-font-weight-regular); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .page-header-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .section-title { font-size: var(--elements-font-size-500); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); margin-block-end: var(--elements-spacing-sm); }
+      .toolbar, .form-grid, .detail-grid, .summary-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--elements-spacing-lg); row-gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .toolbar { align-items: end; background: var(--example-muted-bg); padding: var(--elements-spacing-md); border-radius: var(--elements-radius-sm); }
+      .toolbar .field { grid-column: span 3; }
+      .toolbar-actions { grid-column: span 3; display: flex; justify-content: flex-end; align-items: end; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .customer-query-actions { grid-column: 1 / -1; justify-content: flex-start; }
+      .aggregation-toolbar .field { grid-column: span 2; }
+      .aggregation-toolbar .field:first-child { grid-column: span 3; }
+      .aggregation-toolbar .toolbar-actions { grid-column: span 3; }
+      .customer-date-query-toolbar .field:first-child { grid-column: span 4; }
+      .planning-card { display: grid; gap: var(--elements-spacing-md); }
+      .planning-header-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .planning-header-line .page-title-text { display: inline-flex; align-items: center; gap: var(--elements-spacing-md); }
+      .planning-title-divider { color: var(--elements-color-semantic-text-subtle_inverse); font-weight: var(--elements-font-weight-regular); }
+      .progress-link { display: inline-flex; align-items: center; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .planning-section-strip { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 2.75rem; border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding-inline: var(--elements-spacing-md); font-size: var(--elements-font-size-400); font-weight: var(--elements-font-weight-bold); }
+      .planning-query-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-spacing-sm); align-items: end; background: var(--example-muted-bg); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); }
+      .planning-query-grid .field { grid-column: span 3; }
+      .planning-query-actions { grid-column: span 3; display: flex; align-items: end; justify-content: flex-end; gap: var(--elements-spacing-sm); }
+      .planning-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-sm); min-block-size: var(--example-control-height); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-surface-bg); padding-inline: var(--elements-spacing-md); }
+      .planning-search-shell input { min-block-size: 2.25rem; border: 0; background: transparent; padding-inline: 0; outline: 0; }
+      .planning-search-shell .nav-icon { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .planning-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); inline-size: min(100%, 58rem); border-radius: var(--elements-radius-sm); background: var(--example-active-bg); overflow: hidden; }
+      .planning-tab { min-block-size: 2.75rem; border: 0; background: transparent; color: var(--elements-color-semantic-text-subtle_inverse); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .planning-tab[aria-selected="true"] { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .planning-table-section { padding: 0; overflow: hidden; }
+      .planning-table-scroll { inline-size: 100%; overflow: auto; }
+      .planning-table { min-inline-size: 96rem; table-layout: fixed; }
+      .planning-table th, .planning-table td { vertical-align: middle; white-space: nowrap; }
+      .planning-table th:first-child, .planning-table td:first-child { inline-size: 20rem; white-space: normal; }
+      .planning-group-row td, .planning-subheader-row th { background: var(--example-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .planning-product-cell { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr); align-items: center; column-gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .planning-hospital-cell { display: flex; align-items: center; min-inline-size: 0; }
+      .tree-toggle { appearance: none; display: inline-grid; place-items: center; inline-size: 1.25rem; block-size: 1.25rem; min-inline-size: 1.25rem; min-block-size: 1.25rem; padding: var(--elements-spacing-none); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-rounded); background: var(--example-surface-bg); color: var(--elements-color-semantic-text-subtle_inverse); line-height: 1; vertical-align: middle; user-select: none; flex: 0 0 auto; }
+      .tree-toggle-icon { display: inline-flex; align-items: center; justify-content: center; inline-size: 0.875rem; block-size: 0.875rem; color: currentColor; }
+      .tree-toggle svg { inline-size: 0.875rem; block-size: 0.875rem; }
+      .tree-toggle:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+      .tree-toggle[aria-expanded="true"] { background: var(--example-muted-bg); }
+      .planning-hospital-cell { padding-inline-start: var(--elements-spacing-2xl); }
+      .target-input { inline-size: 6.75rem; min-block-size: 2.25rem; text-align: center; padding-inline: var(--elements-spacing-sm); }
+      .target-final { display: inline-flex; align-items: center; gap: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .target-delta { color: var(--elements-color-semantic-text-error_inverse); font-size: var(--elements-font-size-100); }
+      .planning-action-bar { justify-content: center; inset-block-end: 0; inset-inline-start: var(--example-sidebar-width); inset-inline-end: 0; border-radius: var(--elements-radius-none); border-inline: 0; border-block-end: 0; }
+      .planning-action-bar .btn-row { justify-content: center; }
+      .planning-action-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--example-border); }
+      .form-grid .field { grid-column: span 4; }
+      .detail-grid .field, .summary-grid .field { grid-column: span 3; }
+      .field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; }
+      .field label, .field-name { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); font-weight: var(--elements-font-weight-bold); }
+      .required { color: var(--elements-color-semantic-text-error_inverse); }
+      input, select, textarea { inline-size: 100%; min-block-size: var(--example-control-height); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-surface-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; padding-inline: var(--elements-spacing-md); }
+      .select-control, .date-picker-control { position: relative; display: block; min-inline-size: 0; }
+      .select-control select { appearance: none; padding-inline-start: var(--elements-spacing-md); padding-inline-end: var(--elements-spacing-4xl); }
+      .date-picker-control input { padding-inline-start: var(--elements-spacing-md); padding-inline-end: var(--elements-spacing-4xl); }
+      .select-control .select-chevron, .date-picker-control .date-picker-icon { position: absolute; inset-inline-end: var(--elements-spacing-md); inset-block-start: 50%; transform: translateY(-50%); pointer-events: none; color: var(--elements-color-semantic-text-subtle_inverse); }
+      textarea { padding-block: var(--elements-spacing-sm); min-block-size: 6rem; resize: vertical; }
+      input[readonly] { background: var(--example-muted-bg); }
+      .value { min-block-size: var(--example-control-height); display: flex; align-items: center; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding-inline: var(--elements-spacing-md); font-size: var(--elements-font-size-300); }
+      .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--elements-spacing-md); }
+      .btn { min-block-size: var(--example-control-height); border-radius: var(--elements-radius-sm); border: 0.0625rem solid var(--elements-color-semantic-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; white-space: nowrap; }
+      .btn-primary { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .btn-secondary { background: var(--example-surface-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .btn-danger { background: var(--example-surface-bg); color: var(--elements-color-semantic-text-error_inverse); border-color: var(--elements-color-semantic-border-error); }
+      .badge-row { display: flex; flex-wrap: wrap; gap: var(--elements-spacing-sm); align-items: center; }
+      .badge { display: inline-flex; align-items: center; min-block-size: 1.75rem; border-radius: var(--elements-radius-rounded); padding-inline: var(--elements-spacing-sm); background: var(--example-active-bg); color: var(--elements-color-semantic-text-accent-default); font-size: var(--elements-font-size-100); font-weight: var(--elements-font-weight-bold); }
+      .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--elements-spacing-md); }
+      .customer-summary-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .kpi-card { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); background: var(--example-muted-bg); }
+      .kpi-label { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); line-height: var(--elements-font-lineheight-2); font-weight: var(--elements-font-weight-bold); }
+      .kpi-value { font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .kpi-meta { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); line-height: var(--elements-font-lineheight-2); }
+      .aggregation-layout { display: grid; grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr); gap: var(--elements-grid-gutter-lg); align-items: stretch; }
+      .chart-box { min-inline-size: 0; border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); background: var(--example-muted-bg); }
+      .chart-bars { display: grid; gap: var(--elements-spacing-sm); margin-block-start: var(--elements-spacing-md); }
+      .chart-row { display: grid; grid-template-columns: 5rem minmax(0, 1fr) 4rem; gap: var(--elements-spacing-sm); align-items: center; font-size: var(--elements-font-size-200); }
+      .chart-track { block-size: 0.75rem; border-radius: var(--elements-radius-rounded); background: var(--example-surface-bg); overflow: hidden; border: 0.0625rem solid var(--example-border); }
+      .chart-fill { display: block; block-size: 100%; border-radius: inherit; background: var(--elements-color-semantic-background-brand); }
+      .chart-note { margin-block-start: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); line-height: var(--elements-font-lineheight-2); }
+      .record-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-md); margin-block-end: var(--elements-spacing-md); }
+      .pagination { display: flex; justify-content: space-between; align-items: center; gap: var(--elements-spacing-md); margin-block-start: var(--elements-spacing-md); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); }
+      .notice { border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); background: var(--example-muted-bg); padding: var(--elements-spacing-md); font-size: var(--elements-font-size-300); }
+      .notice strong { color: var(--elements-color-semantic-text-error_inverse); }
+      table { inline-size: 100%; border-collapse: collapse; min-inline-size: 54rem; font-size: var(--elements-font-size-300); }
+      th, td { border: 0.0625rem solid var(--example-border); padding: var(--elements-spacing-sm) var(--elements-spacing-md); text-align: start; vertical-align: top; }
+      th { background: var(--example-muted-bg); font-weight: var(--elements-font-weight-bold); }
+      .table-scroll { overflow-x: auto; }
+      .save-bar { position: fixed; inset-inline-start: calc(var(--example-sidebar-width) + var(--elements-spacing-xl)); inset-inline-end: var(--elements-spacing-xl); inset-block-end: var(--elements-spacing-md); display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); background: var(--example-surface-bg); border: 0.0625rem solid var(--example-border); border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-md); box-shadow: var(--elements-core-elevation-03); z-index: 6; }
+      .save-bar.planning-action-bar { justify-content: center; inset-block-end: 0; inset-inline-start: var(--example-sidebar-width); inset-inline-end: 0; border-radius: var(--elements-radius-none); border-inline: 0; border-block-end: 0; }
+      @media (max-width: 72rem) { .toolbar .field, .toolbar-actions, .form-grid .field, .detail-grid .field, .summary-grid .field, .planning-query-grid .field, .planning-query-actions { grid-column: span 6; } .kpi-grid, .customer-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .aggregation-layout { grid-template-columns: minmax(0, 1fr); } }
+      @media (max-width: 56rem) { .shell { grid-template-columns: minmax(0, 1fr); } .sidebar { display: none; } .main { grid-column: 1; } .topbar { padding-inline: var(--elements-spacing-md); } .save-bar { inset-inline-start: var(--elements-spacing-md); inset-inline-end: var(--elements-spacing-md); } }
+      @media (max-width: 40rem) { .main { padding: var(--elements-spacing-md); } .toolbar .field, .toolbar-actions, .form-grid .field, .detail-grid .field, .summary-grid .field, .planning-query-grid .field, .planning-query-actions { grid-column: 1 / -1; } .toolbar-actions, .planning-query-actions { justify-content: stretch; } .toolbar-actions .btn, .planning-query-actions .btn { flex: 1; } .page-header { grid-template-columns: minmax(0, 1fr); } .page-header-actions { justify-content: flex-start; } .planning-tabs { inline-size: 100%; } .planning-action-bar .btn-row { justify-content: flex-start; overflow-x: auto; } .kpi-grid { grid-template-columns: minmax(0, 1fr); } .record-toolbar, .pagination { align-items: stretch; flex-direction: column; } }
+${runtimeStyles()}
+`;
+}
+
+function button(label, variant = "secondary", extraAttrs = "") {
+  return `<button class="btn btn-${variant}" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-button-size="medium" ${extraAttrs}>${label}</button>`;
+}
+
+function iconPrimitive({ name, pathData, className = "nav-icon", role = "navigation", size = "1.25rem" }) {
+  return `<span class="${className}" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-token-source="foundations-colors--docs" data-icon-name="${name}" data-icon-role="${role}" data-icon-size="${size}" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${pathData}</svg></span>`;
+}
+
+function icon(name, options = {}) {
+  const paths = {
+    form: '<path d="M6 4h12v16H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path>',
+    detail: '<circle cx="11" cy="11" r="5"></circle><path d="m16 16 4 4"></path><path d="M9 11h4"></path>',
+    aggregation: '<path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path><path d="M8 8v8"></path><path d="M12 10v6"></path><path d="M16 7v9"></path>',
+    import: '<path d="M12 3v10"></path><path d="m8 9 4 4 4-4"></path><path d="M5 19h14"></path>',
+    permission: '<path d="M12 3 5 6v5c0 4 3 7 7 9 4-2 7-5 7-9V6z"></path><path d="m9 12 2 2 4-4"></path>',
+    home: '<path d="M4 11 12 4l8 7"></path><path d="M6 10v10h12V10"></path><path d="M10 20v-6h4v6"></path>',
+    territory: '<path d="M4 19 9 5l4 9 3-5 4 10"></path><path d="M4 19h16"></path>',
+    target: '<rect x="5" y="5" width="14" height="14" rx="1.5"></rect><path d="M9 15V9"></path><path d="M12 15v-4"></path><path d="M15 15v-7"></path>',
+    search: '<circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path>',
+    chevronDown: '<path d="m7 10 5 5 5-5"></path>',
+    chevronRight: '<path d="m9 6 6 6-6 6"></path>',
+    collapse: '<path d="M5 7h14"></path><path d="M5 12h10"></path><path d="M5 17h14"></path><path d="m9 10-2 2 2 2"></path>',
+    swapHoriz: '<path d="M7 7h11"></path><path d="m15 4 3 3-3 3"></path><path d="M17 17H6"></path><path d="m9 14-3 3 3 3"></path>',
+    add: '<path d="M12 7v10"></path><path d="M7 12h10"></path>',
+    remove: '<path d="M7 12h10"></path>'
+  };
+  return iconPrimitive({
+    name,
+    pathData: paths[name] || paths.form,
+    className: options.className || "nav-icon",
+    role: options.role || "navigation",
+    size: options.size || "1.25rem"
+  });
+}
+
+function navItem({ label, href = "#", iconName, active }) {
+  return `<li data-sidebar-part="item"><a class="nav-item ${active ? "is-active" : ""}" href="${href}" ${active ? 'aria-current="page"' : ""} data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default">${icon(iconName)}<span>${label}</span></a></li>`;
+}
+
+function defaultSidebar(active) {
+  return `<aside class="sidebar" data-primitive="sidebar" data-source-component="sidebar" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs" data-sidebar-part="root" data-token-source="foundations-colors--docs" data-nav-default="with-icons">
+        <div class="sidebar-title" data-sidebar-part="header">业务工作台</div>
+        <nav aria-label="主导航" data-sidebar-part="content">
+          <ul class="nav-list" data-sidebar-part="section">
+            ${navItem({ label: "客户档案维护", href: "business-query-form.resolved.html", iconName: "form", active: active === "form" })}
+            ${navItem({ label: "客户详情审计", href: "business-entity-detail.resolved.html", iconName: "detail", active: active === "detail" })}
+            ${navItem({ label: "信息聚合", href: "information-aggregation.resolved.html", iconName: "aggregation", active: active === "aggregation" })}
+            ${navItem({ label: "导入结果", iconName: "import", active: false })}
+            ${navItem({ label: "权限配置", iconName: "permission", active: false })}
+          </ul>
+        </nav>
+        <div class="sidebar-footer" data-sidebar-part="footer">默认展开 · 图标导航</div>
+      </aside>`;
+}
+
+function planningNavGroup({ label, iconName, expanded = false, active = false, children = [] }) {
+  const childMarkup = children.length
+    ? `<ul class="nav-sub-list" data-sidebar-part="section" ${expanded ? "" : "hidden"}>
+            ${children.map((child) => `<li data-sidebar-part="item"><a class="nav-sub-item ${child.active ? "is-active" : ""}" href="${child.href || "#"}" ${child.active ? 'aria-current="page"' : ""} data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default">${child.label}</a></li>`).join("")}
+          </ul>`
+    : "";
+  return `<li data-sidebar-part="item">
+            <a class="nav-item has-toggle ${active ? "is-active" : ""}" href="#" ${active && !children.some((child) => child.active) ? 'aria-current="page"' : ""} aria-expanded="${expanded ? "true" : "false"}" data-sidebar-toggle data-sidebar-part="item" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default">
+              <span class="nav-item-main">${icon(iconName)}<span>${label}</span></span>
+              ${icon(expanded ? "chevronDown" : "chevronRight", { className: "nav-chevron", role: "sidebar-toggle" })}
+            </a>
+            ${childMarkup}
+          </li>`;
+}
+
+function planningSidebar() {
+  return `<aside class="sidebar planning-sidebar" data-primitive="sidebar" data-source-component="sidebar" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs" data-sidebar-part="root" data-token-source="foundations-colors--docs" data-nav-default="with-icons" data-sidebar-state="expanded">
+        <div class="sidebar-title" data-sidebar-part="header">业务导航</div>
+        <nav aria-label="Business Planning 主导航" data-sidebar-part="content">
+          <ul class="nav-list" data-sidebar-part="section">
+            ${navItem({ label: "首页", href: "#", iconName: "home", active: false })}
+            ${planningNavGroup({
+              label: "辖区管理",
+              iconName: "territory",
+              expanded: true,
+              children: [
+                { label: "辖区管理" },
+                { label: "NB管理" },
+                { label: "代管管理" }
+              ]
+            })}
+            ${planningNavGroup({
+              label: "目标管理",
+              iconName: "target",
+              expanded: true,
+              active: true,
+              children: [
+                { label: "目标管理", href: "business-planning-target-adjustment.resolved.html", active: true },
+                { label: "目标转移" },
+                { label: "目标拆分" }
+              ]
+            })}
+            ${planningNavGroup({
+              label: "信息查询",
+              iconName: "search",
+              expanded: true,
+              children: [
+                { label: "政策查询" },
+                { label: "机构查询" }
+              ]
+            })}
+          </ul>
+        </nav>
+        <div class="planning-sidebar-toggle" data-sidebar-part="footer"><button type="button" aria-label="收起侧边栏" data-sidebar-collapse="true">${icon("collapse", { role: "sidebar-collapse" })}</button></div>
+      </aside>`;
+}
+
+function field({ id, label, type = "text", required = false, primitive = "text-input", value = "", control = "input", readonly = false, options = [], datePickerMode = null, datePickerSelector = null }) {
+  const requiredText = required ? '<span class="required">*</span>' : "";
+  const data = `data-field-id="${id}" data-field-type="${type}" data-required="${required}" data-editable="${readonly ? "false" : "true"}" data-field-source="business-data-model-standard"`;
+  if (control === "date-picker") {
+    const mode = datePickerMode || (type === "date-range" ? "range" : "single");
+    const selectorType = datePickerSelector || "day";
+    const storyId = mode === "range"
+      ? "components-datepicker--range"
+      : selectorType === "month"
+        ? "components-datepicker--month-picker"
+        : "components-datepicker--medium-size";
+    return `<div class="field" ${data}>${runtime.datePicker({
+      id,
+      label: `${label}${required ? " *" : ""}`,
+      value,
+      mode,
+      selectorType,
+      storyId,
+      instance: `date-picker.${id}`,
+      pattern: "business-form-field"
+    })}</div>`;
+  }
+  if (control === "select") {
+    return `<div class="field" ${data}>${runtime.select({
+      id,
+      label: `${label}${required ? " *" : ""}`,
+      value,
+      options: options.map((option) => ({ label: option, value: option })),
+      instance: `select.${id}`,
+      pattern: "business-form-field"
+    })}</div>`;
+  }
+  if (control === "textarea") {
+    return `<div class="field" ${data}><label for="${id}">${label}${requiredText}</label><textarea id="${id}" data-primitive="text-area" data-source-component="text-area" data-story-id="components-textarea--default" data-source-doc-id="components-textarea--docs" data-token-source="foundations-colors--docs">${value}</textarea></div>`;
+  }
+  const inputType = primitive === "search-input" ? "search" : type === "date" ? "date" : "text";
+  const storyId = primitive === "search-input" ? "components-searchinput--default" : `components-${primitive.replace("-", "")}--default`;
+  const docsId = primitive === "search-input" ? "components-searchinput--docs" : `components-${primitive}--docs`;
+  return `<div class="field" ${data}><label for="${id}">${label}${requiredText}</label><input id="${id}" type="${inputType}" value="${value}" ${readonly ? "readonly" : ""} data-primitive="${primitive}" data-source-component="${primitive}" data-story-id="${storyId}" data-source-doc-id="${docsId}" data-token-source="foundations-colors--docs"></div>`;
+}
+
+function detailValue({ id, label, type = "text", value, permission = "read" }) {
+  return `<div class="field" data-field-id="${id}" data-field-type="${type}" data-required="false" data-editable="false" data-permission="${permission}" data-field-source="business-data-model-standard"><span class="field-name">${label}</span><span class="value">${value}</span></div>`;
+}
+
+function shell({
+  title,
+  profile,
+  family,
+  task,
+  active,
+  body,
+  outputStateAttrs = "",
+  appName = "OneCommercial 业务管理",
+  userLabel = "张敏 · 区域运营",
+  userAction = "",
+  userChipClass = "",
+  sidebarMarkup = null,
+  density = "business-default",
+  referenceFit = "business-page-family"
+}) {
+  return `<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${title}</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>${baseCss()}
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-business-standard="business-page-standards" data-default-rule="business-admin-defaults" data-default-overrides="none" data-page-profile="${profile}" data-page-family="${family}" data-business-task="${task}" data-reference-fit="${referenceFit}" data-reference-fit-rule="business-page-family-reference-fit" data-density="${density}" data-token-source="foundations-colors--docs" data-typography-rule="typography-font-stack" data-page-layout-typography="business-layout-typography" data-app-shell-scroll="content-only" data-scroll-rule="business-app-shell-scroll" data-icon-rule="icon-usage" data-elevation-rule="elevation-usage" data-pattern="${profile}" ${outputStateAttrs} data-source-doc-id="foundations-typography--docs foundations-layout--docs components-pageheader--docs components-container--docs components-grid--docs foundations-elevation--docs components-icon--docs components-buttonicon--docs">
+    <div class="shell" data-app-shell="business-admin" data-app-shell-scroll="content-only">
+      <header class="topbar" data-app-shell-part="topbar" data-scroll-fixed="true" data-primitive="navigation-header" data-source-component="navigation-header" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs foundations-elevation--docs" data-token-source="foundations-colors--docs" data-elevation-role="header" data-elevation-token="--elements-core-elevation-02">
+        <div class="brand">
+          <img src="../../design-system/assets/brand/sanofi-logo-full.svg" alt="Sanofi" data-brand-asset-id="sanofi-logo-full">
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="app-name">${appName}</span>
+        </div>
+        <div class="topbar-actions"><span class="user-chip ${userChipClass}">${userLabel}</span>${userAction}</div>
+      </header>
+      ${sidebarMarkup || defaultSidebar(active)}
+      <main class="main" data-app-shell-part="content" data-scroll-region="content">
+        <section class="container" data-primitive="container" data-source-component="container" data-story-id="components-container--fixed" data-source-doc-id="foundations-layout--docs components-container--docs" data-container-part="root" data-container-mode="fixed" data-container-width-token="--elements-container-width-2xl" data-layout-rule="layout-grid-container">
+          <div class="container-content" data-container-part="contentContainer">
+            <div class="page-grid" data-primitive="grid" data-source-component="grid" data-story-id="components-grid--desktop" data-source-doc-id="foundations-layout--docs components-grid--docs" data-layout-rule="layout-grid-container" data-grid-part="root" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg">
+              ${body}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    ${runtimeScript()}
+  </body>
+</html>
+`;
+}
+
+function queryFormPage() {
+  const body = `
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>数据管理</strong><span>›</span><span>客户档案维护</span></nav>
+          <section class="page-header" data-section="form-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+            <div class="page-header-main" data-pageheader-part="content">
+              <h1 class="page-title-text" data-pageheader-part="title">客户档案新建/编辑</h1>
+              <p class="page-description" data-pageheader-part="description">先查询客户主数据，再维护业务联系人、客户分组和审批状态。</p>
+            </div>
+            <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-interaction-state="dirty-form" data-state-copy-key="saving">有未保存修改</span><span class="badge" data-interaction-state="validation-error" data-state-copy-key="validation_error">2项需修正</span></div>
+          </section>
+          <section class="panel" data-section="query-panel" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-business-task="query" data-interaction-state="loading empty error" data-state-copy-key="loading" data-module-contract="business-form">
+            <h2 class="section-title">查询条件</h2>
+            <div class="toolbar" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3">
+              ${field({ id: "query_customer_keyword", label: "客户编码/名称", type: "text", primitive: "search-input", value: "淮北 CDC" })}
+              ${field({ id: "query_region", label: "大区", type: "enum", control: "select", value: "华东", options: ["全部", "华东", "华南", "华北"] })}
+              ${field({ id: "query_status", label: "状态", type: "status", control: "select", value: "待提交", options: ["全部", "草稿", "待提交", "已锁定"] })}
+              <div class="toolbar-actions">${button("查询", "secondary", 'data-business-flow="query"')}${button("重置", "secondary")}</div>
+            </div>
+          </section>
+          <section class="panel" data-section="form-sections" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-interaction-state="dirty-form validation-error saving saved readonly permission-denied" data-state-copy-key="validation_error">
+            <h2 class="section-title">编辑字段</h2>
+            <div class="form-grid" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="4">
+              ${field({ id: "customer_code", label: "客户编码", type: "text", required: true, value: "CDC-340600" })}
+              ${field({ id: "customer_name", label: "客户名称", type: "text", required: true, value: "淮北市疾病预防控制中心" })}
+              ${field({ id: "province", label: "省份", type: "enum", control: "select", required: true, value: "安徽省", options: ["安徽省", "江苏省", "浙江省"] })}
+              ${field({ id: "annual_target", label: "年度目标数量", type: "quantity", required: true, value: "12000" })}
+              ${field({ id: "effective_date", label: "生效日期", type: "date", control: "date-picker", required: true, value: "2026-01-01" })}
+              ${field({ id: "approval_status", label: "审批状态", type: "status", control: "select", value: "草稿", options: ["草稿", "待审批", "已通过", "已驳回"] })}
+              ${field({ id: "permission_scope", label: "权限范围", type: "permission", control: "select", value: "华东大区可编辑", options: ["华东大区可编辑", "仅本人可编辑", "只读"] })}
+              ${field({ id: "business_note", label: "业务备注", type: "text", value: "客户主数据来自 MDM" })}
+            </div>
+          </section>
+          <section class="panel notice" data-section="validation-summary" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-interaction-state="validation-error" data-state-copy-key="validation_error">
+            <strong>请先修正标记字段：</strong>
+            <span>年度目标数量必须大于 0；生效日期不可早于当前填报周期。</span>
+          </section>
+          <div class="save-bar" data-section="sticky-save-bar" data-business-module="business-form" data-form-contract="business-form" data-interaction-state="dirty-form saving saved permission-denied" data-state-copy-key="saving" data-elevation-role="sticky-action" data-elevation-token="--elements-core-elevation-03" data-source-doc-id="foundations-elevation--docs">
+            <span>当前记录未保存。权限状态：区域运营可编辑。</span>
+            <div class="btn-row">${button("保存草稿", "secondary", 'data-business-flow="fill"')}${button("提交审批", "primary", 'data-business-flow="submit"')}</div>
+          </div>
+`;
+  return shell({
+    title: "客户档案新建/编辑",
+    profile: "entity-form",
+    family: "entity-form",
+    task: "create-or-edit",
+    active: "form",
+    body
+  });
+}
+
+function detailPage() {
+  const body = `
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>数据管理</strong><span>›</span><span>客户详情审计</span></nav>
+          <section class="page-header" data-section="detail-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+            <div class="page-header-main" data-pageheader-part="content">
+              <h1 class="page-title-text" data-pageheader-part="title">淮北市疾病预防控制中心</h1>
+              <p class="page-description" data-pageheader-part="description">客户编码 CDC-340600 · 华东大区 · 更新时间 2026-06-04 09:30</p>
+            </div>
+            <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-field-type="status">待审批</span><span class="badge" data-field-type="permission">详情只读</span></div>
+          </section>
+          <section class="panel" data-section="summary-fields" data-grid-part="item">
+            <div class="summary-grid" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3">
+              ${detailValue({ id: "current_stock", label: "当前库存", type: "quantity", value: "8,420 支" })}
+              ${detailValue({ id: "annual_target", label: "年度目标", type: "quantity", value: "12,000 支" })}
+              ${detailValue({ id: "budget_amount", label: "预算金额", type: "money", value: "860,000 CNY" })}
+              ${detailValue({ id: "approval_status", label: "审批状态", type: "status", value: "待审批" })}
+            </div>
+          </section>
+          <section class="panel" data-section="field-groups" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-interaction-state="readonly permission-denied loading error" data-state-copy-key="readonly">
+            <h2 class="section-title">基础信息</h2>
+            <div class="detail-grid" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3">
+              ${detailValue({ id: "customer_code", label: "客户编码", value: "CDC-340600" })}
+              ${detailValue({ id: "customer_name", label: "客户名称", value: "淮北市疾病预防控制中心" })}
+              ${detailValue({ id: "province", label: "省份", type: "enum", value: "安徽省" })}
+              ${detailValue({ id: "customer_group", label: "客户分组", type: "enum", value: "正式客户" })}
+              ${detailValue({ id: "owner_user", label: "负责人", type: "relation", value: "张敏" })}
+              ${detailValue({ id: "permission_scope", label: "权限范围", type: "permission", value: "华东大区只读" })}
+              ${detailValue({ id: "effective_date", label: "生效日期", type: "date", value: "2026-01-01" })}
+              ${detailValue({ id: "lock_status", label: "锁定状态", type: "status", value: "未锁定" })}
+            </div>
+          </section>
+          <section class="panel table-scroll" data-section="status-history" data-grid-part="item" data-business-module="business-table" data-table-contract="business-table" data-fallback-module="business-table" data-fallback-reason="No official Table/DataGrid primitive is registered locally." data-module-contract="business-table" data-interaction-state="readonly loading error" data-state-copy-key="readonly">
+            <h2 class="section-title">状态历史</h2>
+            <table aria-label="客户状态历史">
+              <thead><tr><th scope="col">时间</th><th scope="col">状态</th><th scope="col">操作人</th><th scope="col">说明</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-04 09:30</td><td>待审批</td><td>张敏</td><td>更新年度目标数量并提交审批。</td></tr>
+                <tr><td>2026-06-03 17:10</td><td>草稿</td><td>张敏</td><td>补充预算金额和权限范围。</td></tr>
+                <tr><td>2026-06-01 10:20</td><td>已同步</td><td>系统</td><td>客户主数据从 MDM 同步。</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="panel" data-section="related-actions" data-grid-part="item" data-interaction-state="permission-denied readonly" data-state-copy-key="permission_denied">
+            <h2 class="section-title">相关操作</h2>
+            <p class="notice">当前账号只有详情查看权限，审批和编辑操作需切换至区域运营负责人。</p>
+            <div class="btn-row">${button("查看库存明细", "secondary")}${button("导出详情", "secondary", 'data-business-flow="export"')}${button("申请编辑权限", "primary")}${button("驳回", "danger", 'data-business-flow="reject"')}</div>
+          </section>
+`;
+  return shell({
+    title: "客户详情审计",
+    profile: "entity-detail",
+    family: "entity-detail",
+    task: "read-and-audit",
+    active: "detail",
+    body
+  });
+}
+
+function kpiCard({ id, label, value, meta, type = "quantity" }) {
+  return `<article class="kpi-card" data-kpi-id="${id}" data-field-id="${id}" data-field-type="${type}" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">${label}</span>
+              <strong class="kpi-value">${value}</strong>
+              <span class="kpi-meta">${meta}</span>
+            </article>`;
+}
+
+function chartRow({ label, value, width }) {
+  return `<div class="chart-row" data-chart-prop="chartData">
+              <span>${label}</span>
+              <span class="chart-track" aria-hidden="true"><span class="chart-fill" style="inline-size: ${width};"></span></span>
+              <strong>${value}</strong>
+            </div>`;
+}
+
+function informationAggregationPage() {
+  const body = `
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>运营洞察</strong><span>›</span><span>信息聚合</span></nav>
+          <section class="page-header" data-section="aggregation-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+            <div class="page-header-main" data-pageheader-part="content">
+              <h1 class="page-title-text" data-pageheader-part="title">客户运营信息聚合</h1>
+              <p class="page-description" data-pageheader-part="description">按业务范围查询客户、库存、审批和风险信息，先看聚合指标，再下钻到列表记录。</p>
+            </div>
+            <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-field-type="status">本月更新</span><span class="badge" data-field-type="permission">区域可见</span></div>
+          </section>
+          <section class="panel" data-section="filter-toolbar" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-business-task="query" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="loading">
+            <h2 class="section-title">查询条件</h2>
+            <div class="toolbar aggregation-toolbar" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3">
+              ${field({ id: "agg_keyword", label: "客户/产品/负责人", type: "text", primitive: "search-input", value: "华东 疫苗" })}
+              ${field({ id: "agg_region", label: "大区", type: "enum", control: "select", value: "华东", options: ["全部", "华东", "华南", "华北", "西区"] })}
+              ${field({ id: "agg_cycle", label: "业务周期", type: "date-range", control: "date-picker", value: "2026-06-01 ~ 2026-06-30", datePickerMode: "range" })}
+              ${field({ id: "agg_status", label: "状态", type: "status", control: "select", value: "全部", options: ["全部", "待审批", "已锁定", "有异常"] })}
+              <div class="toolbar-actions">${button("查询", "primary", 'data-business-flow="query"')}${button("导出", "secondary", 'data-business-flow="export"')}</div>
+            </div>
+          </section>
+          <section class="panel" data-section="dashboard-summary" data-grid-part="item" data-business-module="business-chart" data-chart-contract="business-chart" data-chart-kind="summary" data-module-contract="business-chart" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="success">
+            <h2 class="section-title">聚合摘要</h2>
+            <div class="kpi-grid" data-grid-mode="normal-12" data-grid-columns="12" data-kpi-count="4">
+              ${kpiCard({ id: "agg_customer_count", label: "覆盖客户", value: "326", meta: "较上月 +18", type: "number" })}
+              ${kpiCard({ id: "agg_inventory_qty", label: "库存数量", value: "84,200 支", meta: "低于阈值 12 家", type: "quantity" })}
+              ${kpiCard({ id: "agg_pending_approval", label: "待审批", value: "27", meta: "平均等待 1.8 天", type: "status" })}
+              ${kpiCard({ id: "agg_risk_amount", label: "风险金额", value: "1.26M CNY", meta: "需复核 5 条", type: "money" })}
+            </div>
+          </section>
+          <section class="panel" data-section="chart-region" data-grid-part="item" data-business-module="business-chart" data-chart-contract="business-chart" data-chart-kind="bar" data-source-component="BarChart" data-chart-prop="chartData" data-chart-prop-xaxis="xAxis" data-fallback-module="business-chart" data-fallback-reason="Static HTML uses semantic chart fallback while preserving the BarChart contract." data-module-contract="business-chart" aria-label="客户运营趋势图表" aria-description="按业务周期展示客户覆盖、库存和待审批数量">
+            <div class="aggregation-layout">
+              <div class="chart-box">
+                <h2 class="section-title">区域趋势</h2>
+                <div class="chart-bars">
+                  ${chartRow({ label: "华东", value: "84%", width: "84%" })}
+                  ${chartRow({ label: "华南", value: "72%", width: "72%" })}
+                  ${chartRow({ label: "华北", value: "68%", width: "68%" })}
+                  ${chartRow({ label: "西区", value: "54%", width: "54%" })}
+                </div>
+                <p class="chart-note" data-chart-prop="xAxis">X 轴：大区；图表口径：当前查询条件下的客户覆盖完成率，阈值线为 70%。</p>
+              </div>
+              <div class="chart-box">
+                <h2 class="section-title">处理状态</h2>
+                <div class="badge-row">
+                  <span class="badge">已完成 214</span>
+                  <span class="badge">待审批 27</span>
+                  <span class="badge">异常 12</span>
+                  <span class="badge">锁定 8</span>
+                </div>
+                <p class="chart-note">所有状态文案来自业务内容标准，异常记录会在下方列表中优先展示。</p>
+              </div>
+            </div>
+          </section>
+          <section class="panel table-scroll" data-section="record-list" data-grid-part="item" data-business-module="business-table" data-table-contract="business-table" data-fallback-module="business-table" data-fallback-reason="No official Table/DataGrid primitive is registered locally." data-module-contract="business-table" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="success">
+            <div class="record-toolbar">
+              <h2 class="section-title">聚合记录列表</h2>
+              <div class="btn-row">${button("批量导出", "secondary", 'data-business-flow="bulk-action"')}${button("查看异常", "secondary")}</div>
+            </div>
+            <table aria-label="客户运营聚合记录">
+              <thead><tr><th scope="col" data-field-id="customer_name" data-field-type="text">客户名称</th><th scope="col" data-field-id="region" data-field-type="enum">大区</th><th scope="col" data-field-id="inventory_qty" data-field-type="quantity">库存数量</th><th scope="col" data-field-id="target_rate" data-field-type="number">完成率</th><th scope="col" data-field-id="approval_status" data-field-type="status">审批状态</th><th scope="col" data-field-id="risk_amount" data-field-type="money">风险金额</th><th scope="col" data-field-id="action" data-field-type="action">操作</th></tr></thead>
+              <tbody>
+                <tr><td>淮北市疾病预防控制中心</td><td>华东</td><td>8,420 支</td><td>84%</td><td>待审批</td><td>120,000 CNY</td><td>查看</td></tr>
+                <tr><td>南京市江北新区疾控中心</td><td>华东</td><td>6,180 支</td><td>78%</td><td>已完成</td><td>0 CNY</td><td>查看</td></tr>
+                <tr><td>杭州市西湖区疾控中心</td><td>华东</td><td>4,960 支</td><td>63%</td><td>有异常</td><td>86,000 CNY</td><td>处理</td></tr>
+                <tr><td>苏州市工业园区疾控中心</td><td>华东</td><td>7,300 支</td><td>91%</td><td>已锁定</td><td>0 CNY</td><td>查看</td></tr>
+                <tr><td>宁波市鄞州区疾控中心</td><td>华东</td><td>5,110 支</td><td>69%</td><td>待审批</td><td>42,000 CNY</td><td>查看</td></tr>
+              </tbody>
+            </table>
+            <div class="pagination" data-section="pagination" data-grid-part="item" data-pagination="true" data-business-flow="query">
+              <span>共 326 条，当前第 1 / 33 页</span>
+              <div class="btn-row">${button("上一页", "secondary")}${button("下一页", "secondary")}</div>
+            </div>
+          </section>
+`;
+  return shell({
+    title: "客户运营信息聚合",
+    profile: "information-aggregation",
+    family: "information-aggregation",
+    task: "aggregate-and-investigate",
+    active: "aggregation",
+    body
+  });
+}
+
+function customerSummaryItem({ id, label, value, meta, type }) {
+  return `<article class="kpi-card" data-customer-summary-item="${id}" data-field-id="${id}" data-field-type="${type}" data-required="false" data-editable="false" data-field-source="business-data-model-standard">
+              <span class="kpi-label">${label}</span>
+              <strong class="kpi-value">${value}</strong>
+              <span class="kpi-meta">${meta}</span>
+            </article>`;
+}
+
+function customerDetailDateQueryPage() {
+  const body = `
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>数据管理</strong><span>›</span><span>客户明细日期查询</span></nav>
+          <section class="page-header" data-section="query-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+            <div class="page-header-main" data-pageheader-part="content">
+              <h1 class="page-title-text" data-pageheader-part="title">客户明细日期查询</h1>
+              <p class="page-description" data-pageheader-part="description">按日期范围查询客户销售、库存、审批和风险明细，并在同一页面完成复核、导出和下钻。</p>
+            </div>
+            <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-field-type="status">查询成功</span><span class="badge" data-field-type="permission">区域可见</span></div>
+          </section>
+          <section class="panel" data-section="date-query-form" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-business-task="query-customer-detail-by-date" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="loading">
+            <h2 class="section-title">查询条件</h2>
+            <div class="toolbar aggregation-toolbar customer-date-query-toolbar" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3" data-filter-count="7">
+              ${field({ id: "detail_date_range", label: "查询日期", type: "date-range", control: "date-picker", required: true, value: "2026-06-01 ~ 2026-06-30", datePickerMode: "range" })}
+              ${field({ id: "detail_customer_keyword", label: "客户编码/名称", type: "text", primitive: "search-input", value: "淮北 CDC" })}
+              ${field({ id: "detail_region", label: "大区", type: "enum", control: "select", value: "华东", options: ["全部", "华东", "华南", "华北", "西区"] })}
+              ${field({ id: "detail_customer_group", label: "客户分组", type: "enum", control: "select", value: "正式客户", options: ["全部", "正式客户", "重点客户", "观察客户"] })}
+              ${field({ id: "detail_product_line", label: "产品线", type: "enum", control: "select", value: "疫苗", options: ["全部", "疫苗", "慢病", "特药"] })}
+              ${field({ id: "detail_record_status", label: "明细状态", type: "status", control: "select", value: "全部", options: ["全部", "待审批", "有异常", "已锁定", "已完成"] })}
+              ${field({ id: "detail_owner_user", label: "负责人", type: "relation", control: "select", value: "全部", options: ["全部", "张敏", "王强", "李娜", "赵凯"] })}
+              <div class="toolbar-actions customer-query-actions">${button("查询", "primary", 'data-business-flow="query"')}${button("重置", "secondary")}${button("保存筛选", "secondary")}</div>
+            </div>
+          </section>
+          <section class="panel" data-section="customer-summary" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-summary-count="5" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="success">
+            <h2 class="section-title">客户摘要</h2>
+            <div class="kpi-grid customer-summary-grid" data-grid-mode="normal-12" data-grid-columns="12">
+              ${customerSummaryItem({ id: "summary_customer_count", label: "命中客户", value: "128", meta: "查询日期内有明细记录", type: "number" })}
+              ${customerSummaryItem({ id: "summary_record_count", label: "明细记录", value: "2,416", meta: "含销售、库存和审批记录", type: "number" })}
+              ${customerSummaryItem({ id: "summary_risk_amount", label: "风险金额", value: "1.18M CNY", meta: "12 条记录需复核", type: "money" })}
+              ${customerSummaryItem({ id: "summary_pending_status", label: "待处理", value: "36", meta: "平均等待 1.6 天", type: "status" })}
+              ${customerSummaryItem({ id: "summary_export_ready", label: "可导出记录", value: "2,380", meta: "排除 36 条待处理记录", type: "permission" })}
+            </div>
+            <div class="badge-row" data-summary-meta="true">
+              <span class="badge" data-field-id="summary_date_range" data-field-type="date-range">2026-06-01 ~ 2026-06-30</span>
+              <span class="badge" data-field-id="summary_last_sync" data-field-type="date">最后同步 2026-06-04 09:30</span>
+              <span class="badge" data-field-id="summary_permission" data-field-type="permission">华东区域运营可见</span>
+            </div>
+          </section>
+          <section class="panel table-scroll" data-section="customer-detail-table" data-grid-part="item" data-business-module="business-table" data-table-contract="business-table" data-fallback-module="table" data-fallback-reason="No official Table/DataGrid primitive is registered locally." data-module-contract="business-table" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="success">
+            <div class="record-toolbar">
+              <h2 class="section-title">客户明细结果</h2>
+              <div class="btn-row">${button("导出明细", "secondary", 'data-business-flow="export" data-action="export"')}${button("批量标记复核", "secondary", 'data-business-flow="bulk-action"')}${button("查看客户详情", "primary", 'data-action="view-detail"')}</div>
+            </div>
+            <table aria-label="按日期查询的客户明细结果">
+              <thead><tr><th scope="col" data-field-id="detail_date" data-field-type="date">日期</th><th scope="col" data-field-id="customer_code" data-field-type="text">客户编码</th><th scope="col" data-field-id="customer_name" data-field-type="text">客户名称</th><th scope="col" data-field-id="product_name" data-field-type="text">产品</th><th scope="col" data-field-id="detail_quantity" data-field-type="quantity">数量</th><th scope="col" data-field-id="detail_amount" data-field-type="money">金额</th><th scope="col" data-field-id="approval_status" data-field-type="status">状态</th><th scope="col" data-field-id="owner_user" data-field-type="relation">负责人</th><th scope="col" data-field-id="row_action" data-field-type="action">操作</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-04</td><td>CDC-340600</td><td>淮北市疾病预防控制中心</td><td>潘太欣</td><td>1,240 支</td><td>186,000 CNY</td><td>待审批</td><td>张敏</td><td>查看</td></tr>
+                <tr><td>2026-06-03</td><td>CDC-320100</td><td>南京市江北新区疾控中心</td><td>流感疫苗</td><td>980 支</td><td>96,000 CNY</td><td>已完成</td><td>王强</td><td>查看</td></tr>
+                <tr><td>2026-06-02</td><td>CDC-330100</td><td>杭州市西湖区疾控中心</td><td>潘太欣</td><td>760 支</td><td>114,000 CNY</td><td>有异常</td><td>李娜</td><td>处理</td></tr>
+                <tr><td>2026-06-01</td><td>CDC-310115</td><td>上海浦东新区疾控中心</td><td>流感疫苗</td><td>1,560 支</td><td>152,000 CNY</td><td>已锁定</td><td>赵凯</td><td>查看</td></tr>
+                <tr><td>2026-06-01</td><td>CDC-330200</td><td>宁波市鄞州区疾控中心</td><td>潘太欣</td><td>640 支</td><td>96,000 CNY</td><td>待审批</td><td>陈洁</td><td>查看</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="panel" data-section="result-actions" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-interaction-state="readonly permission-denied loading error" data-state-copy-key="success">
+            <h2 class="section-title">结果操作</h2>
+            <p class="notice">当前筛选条件已保存为“华东客户六月明细”。导出任务会保留日期范围、客户分组和明细状态。</p>
+            <div class="btn-row">${button("生成导出任务", "primary", 'data-business-flow="export" data-action="export"')}${button("发送复核提醒", "secondary")}${button("清空筛选", "secondary")}</div>
+          </section>
+          <section class="panel pagination" data-section="pagination" data-grid-part="item" data-pagination="true" data-business-flow="query">
+            <span>共 2,416 条，当前第 1 / 242 页</span>
+            <div class="btn-row">${button("上一页", "secondary")}${button("下一页", "secondary")}</div>
+          </section>
+`;
+  return shell({
+    title: "客户明细日期查询",
+    profile: "customer-detail-date-query",
+    family: "customer-detail-date-query",
+    task: "query-customer-detail-by-date",
+    active: "detail",
+    outputStateAttrs: 'data-output-state-official-runtime="absent" data-output-state-local-atomic-runtime="present" data-output-state-explicit-fallback="present"',
+    body
+  });
+}
+
+function planningSearchField({ id, label, value = "" }) {
+  return `<div class="field planning-search-field" data-field-id="${id}" data-field-type="text" data-required="false" data-editable="true" data-field-source="business-data-model-standard">
+              <label for="${id}">${label}</label>
+              <span class="planning-search-shell" data-control-shell="field" data-control-kind="search-input">
+                ${icon("search", { role: "form-control" })}
+                <input id="${id}" type="search" value="${value}" placeholder="请输入" data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-token-source="foundations-colors--docs">
+              </span>
+            </div>`;
+}
+
+function targetInput({ id, label, value }) {
+  return `<input class="target-input" type="text" value="${value}" aria-label="${label}" data-field-id="${id}" data-field-type="quantity" data-required="false" data-editable="true" data-field-source="business-data-model-standard" data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-token-source="foundations-colors--docs">`;
+}
+
+function treeToggle({ state, label, decorative = false }) {
+  const expanded = state === "expanded";
+  const iconName = expanded ? "remove" : "add";
+  const iconPath = expanded
+    ? '<path d="M7 12h10"></path>'
+    : '<path d="M12 7v10"></path><path d="M7 12h10"></path>';
+  const toggleIcon = iconPrimitive({
+    name: iconName,
+    pathData: iconPath,
+    className: "tree-toggle-icon",
+    role: decorative ? "section-toggle" : "tree-toggle",
+    size: "0.875rem"
+  });
+  if (decorative) {
+    return `<span class="tree-toggle" data-tree-toggle="section" data-tree-state="${state}" aria-hidden="true">${toggleIcon}</span>`;
+  }
+  return `<button class="tree-toggle" type="button" aria-label="${label}" aria-expanded="${expanded ? "true" : "false"}" data-tree-toggle="product" data-tree-state="${state}" data-control-size="compact" data-size-policy-override="true" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs">${toggleIcon}</button>`;
+}
+
+function targetTabs() {
+  const tabs = [
+    { id: "quarter-target", label: "季度目标" },
+    { id: "month-target", label: "月度目标" },
+    { id: "institution-target", label: "机构目标" },
+    { id: "team-target", label: "团队目标" }
+  ];
+  return `<div class="planning-tabs" ${runtime.componentAttrs("tabs", "target-adjustment-tabs", "tabs.business-planning-target", {
+            role: "tablist",
+            "aria-label": "目标调整维度",
+            "data-tabs-mode": "segmented"
+          })}>
+            ${tabs.map((item) => `<button class="planning-tab" type="button" role="tab" id="${item.id}-tab" aria-controls="${item.id}-panel" aria-selected="${item.id === "institution-target" ? "true" : "false"}" data-tab-target="${item.id}">${item.label}</button>`).join("")}
+          </div>`;
+}
+
+function businessPlanningTargetAdjustmentPage() {
+  const body = `
+          <nav class="breadcrumb" data-section="breadcrumb" data-grid-part="item" aria-label="面包屑"><strong>目标管理</strong><span>›</span><span>目标调整</span><span>|</span><span>BP团队2026Q2常规品目标调整</span></nav>
+          <section class="panel planning-card" data-section="target-adjustment" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-business-task="query-fill-submit-target-adjustment" data-business-flow="query fill submit approval reject lock export bulk-action" data-interaction-state="loading empty error dirty-form validation-error saving saved readonly disabled permission-denied locked" data-state-copy-key="dirty_form">
+            <section class="page-header" data-section="target-adjustment-header" data-grid-part="item" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+              <div class="page-header-main" data-pageheader-part="content">
+                <div class="planning-header-line">
+                  <h1 class="page-title-text" data-pageheader-part="title"><span>目标调整</span><span class="planning-title-divider" aria-hidden="true">|</span><span>BP团队2026Q2常规品目标调整</span></h1>
+                  <span class="badge" data-field-id="approval_status" data-field-type="status">待提交</span>
+                  <a class="progress-link" href="#" data-business-flow="query" data-action="view-progress">查看进度 ${icon("chevronRight", { className: "inline-link-icon", role: "link-affordance" })}</a>
+                </div>
+                <p class="page-description" data-pageheader-part="description">按岗位、医院和产品查询目标明细，在机构目标维度调整增加量、减少量并提交申请单。</p>
+              </div>
+              <div class="page-header-actions" data-pageheader-part="actions"><span class="badge" data-field-id="permission_scope" data-field-type="permission">BP团队可编辑</span><span class="badge" data-field-id="lock_status" data-field-type="status">未锁定</span></div>
+            </section>
+            <div class="planning-section-strip" data-section="target-adjustment-form-section" data-grid-part="item">${treeToggle({ state: "expanded", decorative: true })}<span>目标调整</span></div>
+            <section class="planning-query-grid" data-section="query-toolbar" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-business-task="query" data-grid-mode="normal-12" data-grid-columns="12" data-field-span-desktop="3" data-filter-count="3" data-interaction-state="loading empty error readonly permission-denied" data-state-copy-key="loading">
+              ${planningSearchField({ id: "target_position_keyword", label: "岗位编码/名称" })}
+              ${planningSearchField({ id: "target_hospital_keyword", label: "医院编码/名称" })}
+              ${planningSearchField({ id: "target_product_keyword", label: "产品编码/名称" })}
+              <div class="planning-query-actions" data-section="primary-actions">${button("查询", "secondary", 'data-business-flow="query"')}${button("重置", "secondary")}</div>
+            </section>
+            <section data-section="target-tabs" data-grid-part="item" data-business-module="business-form" data-module-contract="business-form" aria-labelledby="institution-target-tab">
+              ${targetTabs()}
+            </section>
+            <section class="planning-table-section table-scroll" data-section="editable-data-table-fallback" data-grid-part="item" data-business-module="business-table" data-table-contract="business-table" data-table-list-role="fallback" data-fallback-module="business-table" data-fallback-reason="No official Table/DataGrid primitive is registered locally." data-module-contract="business-table" data-pagination="none" data-no-pagination="true" data-interaction-state="loading empty error readonly disabled permission-denied dirty validating locked" data-state-copy-key="success">
+              <div class="planning-table-scroll" role="region" aria-label="机构目标调整表格" tabindex="0">
+                <table class="planning-table" aria-label="机构目标调整表格">
+                  <thead>
+                    <tr>
+                      <th scope="col" data-field-id="product_info" data-field-type="identity" data-required="true" data-editable="false" data-field-source="business-data-model-standard">产品信息</th>
+                      <th scope="col" data-field-id="adjust_target_amount" data-field-type="money" data-required="false" data-editable="false" data-unit="CNY" data-field-source="business-data-model-standard">调整目标金额</th>
+                      <th scope="col" data-field-id="target_growth_rate" data-field-type="number" data-required="false" data-editable="false" data-unit="%" data-field-source="business-data-model-standard">目标同比增长率</th>
+                      <th scope="col" data-field-id="target_adjust_rate" data-field-type="number" data-required="false" data-editable="false" data-unit="%" data-field-source="business-data-model-standard">目标调整比例</th>
+                      <th scope="col" data-field-id="target_detail_gap" data-field-type="number" data-required="false" data-editable="false" data-field-source="business-data-model-standard">总目标与明细差异</th>
+                      <th scope="col" data-field-id="hc_adjustment" data-field-type="quantity" data-required="false" data-editable="false" data-field-source="business-data-model-standard">HC调整</th>
+                      <th scope="col" data-field-id="initial_target" data-field-type="quantity" data-required="false" data-editable="false" data-field-source="business-data-model-standard">初始目标</th>
+                      <th scope="col" data-field-id="increase_target" data-field-type="quantity" data-required="false" data-editable="true" data-field-source="business-data-model-standard">增加目标</th>
+                      <th scope="col" data-field-id="decrease_target" data-field-type="quantity" data-required="false" data-editable="true" data-field-source="business-data-model-standard">减少目标</th>
+                      <th scope="col" data-field-id="adjusted_target" data-field-type="quantity" data-required="false" data-editable="false" data-field-source="business-data-model-standard">调整后目标</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="planning-group-row" data-row-kind="product" data-tree-level="0">
+                      <td><span class="planning-product-cell">${treeToggle({ state: "expanded", label: "收起 PROD-009 潘太欣（100mg）" })}<span>PROD-009 潘太欣（100mg）</span></span></td>
+                      <td>200000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td><strong>2000</strong></td><td>+200</td><td>-50</td><td><span class="target-final">2150 <span class="target-delta">+150</span></span></td>
+                    </tr>
+                    <tr class="planning-subheader-row" data-row-kind="hospital-header" data-tree-level="1">
+                      <th scope="row">医院信息</th><th scope="col">调整目标金额</th><th scope="col">目标同比增长率</th><th scope="col">目标调整比例</th><th scope="col">总目标与明细差异</th><th scope="col">HC调整</th><th scope="col">初始目标</th><th scope="col">增加目标</th><th scope="col">减少目标</th><th scope="col">调整后目标</th>
+                    </tr>
+                    <tr data-row-kind="hospital" data-tree-level="1">
+                      <td><span class="planning-hospital-cell">上海华山医院</span></td><td>50000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td>300</td><td>${targetInput({ id: "increase_huashan", label: "上海华山医院增加目标", value: "+ 100" })}</td><td>${targetInput({ id: "decrease_huashan", label: "上海华山医院减少目标", value: "- 请输入" })}</td><td>400</td>
+                    </tr>
+                    <tr data-row-kind="hospital" data-tree-level="1">
+                      <td><span class="planning-hospital-cell">上海长海医院</span></td><td>50000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td>100</td><td>${targetInput({ id: "increase_changhai", label: "上海长海医院增加目标", value: "+ 100" })}</td><td>${targetInput({ id: "decrease_changhai", label: "上海长海医院减少目标", value: "- 请输入" })}</td><td>200</td>
+                    </tr>
+                    <tr data-row-kind="hospital" data-tree-level="1">
+                      <td><span class="planning-hospital-cell">上海瑞金医院</span></td><td>50000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td>100</td><td>${targetInput({ id: "increase_ruijin", label: "上海瑞金医院增加目标", value: "+ 请输入" })}</td><td>${targetInput({ id: "decrease_ruijin", label: "上海瑞金医院减少目标", value: "- 50" })}</td><td>50</td>
+                    </tr>
+                    <tr data-row-kind="hospital" data-tree-level="1">
+                      <td><span class="planning-hospital-cell">上海和睦家医院</span></td><td>50000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td>100</td><td>${targetInput({ id: "increase_united", label: "上海和睦家医院增加目标", value: "+ 请输入" })}</td><td>${targetInput({ id: "decrease_united", label: "上海和睦家医院减少目标", value: "- 50" })}</td><td>50</td>
+                    </tr>
+                    <tr class="planning-group-row" data-row-kind="product" data-tree-level="0">
+                      <td><span class="planning-product-cell">${treeToggle({ state: "collapsed", label: "展开 PROD-0010 乐维初（100mg）" })}<span>PROD-0010 乐维初（100mg）</span></span></td>
+                      <td>200000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td><strong>2000</strong></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr class="planning-group-row" data-row-kind="product" data-tree-level="0">
+                      <td><span class="planning-product-cell">${treeToggle({ state: "collapsed", label: "展开 PROD-009 潘太欣（50mg）" })}<span>PROD-009 潘太欣（50mg）</span></span></td>
+                      <td>200000</td><td>0.00%</td><td>0.00%</td><td>-</td><td>-</td><td><strong>2000</strong></td><td></td><td></td><td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+          <div class="save-bar planning-action-bar" data-section="save-bar" data-grid-part="item" data-business-module="business-form" data-form-contract="business-form" data-module-contract="business-form" data-interaction-state="dirty-form saving saved permission-denied" data-state-copy-key="saving" data-elevation-role="sticky-action" data-elevation-token="--elements-core-elevation-03" data-source-doc-id="foundations-elevation--docs">
+            <div class="btn-row">${button("保存", "secondary", 'data-business-flow="fill" data-action="save"')}${button("刷新合理性评估", "secondary", 'data-business-flow="query" data-action="refresh-assessment"')}${button("确认下发", "secondary", 'data-business-flow="approval" data-action="confirm-issue"')}<span class="planning-action-divider" aria-hidden="true"></span>${button("提交申请单", "primary", 'data-business-flow="submit" data-action="submit-approval"')}</div>
+          </div>
+`;
+  return shell({
+    title: "BP团队2026Q2常规品目标调整",
+    profile: "admin-data-entry-table",
+    family: "admin-data-entry-table",
+    task: "query-fill-submit-target-adjustment",
+    active: "planning-target",
+    appName: "Business Planning",
+    userLabel: "ZD-001 李雷",
+    userAction: `<a class="topbar-switch" href="#" data-business-flow="query">切换 ${icon("swapHoriz", { className: "inline-link-icon", role: "link-affordance" })}</a>`,
+    userChipClass: "is-plain",
+    sidebarMarkup: planningSidebar(),
+    density: "admin-compact",
+    outputStateAttrs: 'data-output-state-official-runtime="absent" data-output-state-local-atomic-runtime="present" data-output-state-explicit-fallback="present"',
+    body
+  });
+}
+
+ensureDir(htmlDir);
+ensureDir(reportDir);
+
+const outputs = [
+  {
+    id: "business-query-form",
+    path: path.join(htmlDir, "business-query-form.resolved.html"),
+    html: queryFormPage()
+  },
+  {
+    id: "business-entity-detail",
+    path: path.join(htmlDir, "business-entity-detail.resolved.html"),
+    html: detailPage()
+  },
+  {
+    id: "information-aggregation",
+    path: path.join(htmlDir, "information-aggregation.resolved.html"),
+    html: informationAggregationPage()
+  },
+  {
+    id: "customer-detail-date-query",
+    path: path.join(htmlDir, "customer-detail-date-query.resolved.html"),
+    html: customerDetailDateQueryPage()
+  },
+  {
+    id: "business-planning-target-adjustment",
+    path: path.join(htmlDir, "business-planning-target-adjustment.resolved.html"),
+    html: businessPlanningTargetAdjustmentPage()
+  }
+];
+
+for (const output of outputs) {
+  fs.writeFileSync(output.path, output.html);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "render-business-page-examples",
+  generated_at: new Date().toISOString(),
+  outputs: outputs.map((output) => ({
+    id: output.id,
+    path: rel(output.path),
+    bytes: Buffer.byteLength(output.html)
+  }))
+};
+
+fs.writeFileSync(path.join(reportDir, "business-page-examples-render.report.json"), JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  path.join(reportDir, "business-page-examples-render.report.md"),
+  `# Business Page Examples Render\n\nStatus: pass\n\n${report.outputs.map((output) => `- ${output.id}: \`${output.path}\``).join("\n")}\n`
+);
+
+console.log(`Business page examples rendered: ${outputs.map((output) => rel(output.path)).join(", ")}`);

@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-toast-complete-package",
+  "title": "Toast complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Toast package covering Docs plus all Storybook story atoms.",
+  "component_id": "toast",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-toast"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/toast.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/toast/toast.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/toast.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/toast/toast.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/docs/toast.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/toast/docs/toast.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/toast/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/toast-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/toast-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/toast.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/toast/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 6,
+    "materialized_stories": 6,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-toast--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-toast-default-atomic-story"
+    },
+    {
+      "story_id": "components-toast--dual-action",
+      "story_name": "Dual Action",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-toast-dual-action-atomic-story"
+    },
+    {
+      "story_id": "components-toast--example",
+      "story_name": "Example",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-toast-example-atomic-story"
+    },
+    {
+      "story_id": "components-toast--single-action",
+      "story_name": "Single Action",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-toast-single-action-atomic-story"
+    },
+    {
+      "story_id": "components-toast--toast-statuses",
+      "story_name": "Toast Statuses",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-toast-toast-statuses-atomic-story"
+    },
+    {
+      "story_id": "components-toast--toast-with-buttons",
+      "story_name": "Toast With Buttons",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-toast-toast-with-buttons-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/toast/toast.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/toast/docs/toast.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "toast",
+      "Toast",
+      "toast complete",
+      "Toast complete package",
+      "toast docs"
+    ],
+    "when_to_use": "Use first for any Toast generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Toast behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

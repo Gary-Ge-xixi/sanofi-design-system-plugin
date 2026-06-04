@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Button Complete Standard Package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      main {
+        width: min(88rem, calc(100vw - var(--elements-spacing-2xl)));
+        margin: 0 auto;
+        padding-block: var(--elements-spacing-2xl);
+      }
+
+      .demo-panel {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-xl);
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+
+      .section,
+      .story-card,
+      .meta-item {
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+      }
+
+      .section {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        padding: var(--elements-spacing-lg);
+      }
+
+      .story-meta,
+      .section-header {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        line-height: 1.2;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      p,
+      td,
+      th,
+      .cell-label,
+      .story-type {
+        color: var(--elements-color-semantic-text-helper_inverse);
+      }
+
+      .meta-grid,
+      .sample-grid,
+      .story-grid {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+      }
+
+      .meta-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .sample-grid,
+      .story-grid {
+        grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      }
+
+      .meta-item,
+      .story-card,
+      .sample-cell {
+        display: grid;
+        gap: var(--elements-spacing-2xs);
+        padding: var(--elements-spacing-sm);
+      }
+
+      .sample-cell {
+        align-content: center;
+        min-height: 6rem;
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+
+      .wide-cell {
+        grid-column: 1 / -1;
+      }
+
+      .elements-button {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        border: .0625rem solid var(--button-border);
+        border-radius: var(--elements-radius-rounded);
+        background: var(--button-bg);
+        color: var(--button-text);
+        font: inherit;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .elements-button.is-full-width {
+        width: 100%;
+      }
+
+      .elements-button.state-hover,
+      .elements-button.is-hover {
+        background: var(--button-hover-bg);
+      }
+
+      .elements-button.state-active,
+      .elements-button.is-active {
+        background: var(--button-active-bg);
+      }
+
+      .elements-button.state-focus,
+      .elements-button.is-focus {
+        outline: .1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: .125rem;
+      }
+
+      .elements-button.state-disabled,
+      .elements-button.state-loading,
+      .elements-button:disabled,
+      .elements-button[aria-disabled="true"] {
+        background: var(--elements-color-semantic-background-neutral);
+        border-color: var(--elements-color-semantic-border-subtle);
+        color: var(--elements-color-semantic-text-disabled_inverse);
+        cursor: not-allowed;
+        opacity: .72;
+      }
+
+      .button-icon,
+      .button-loader {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button-loader {
+        inline-size: 1rem;
+        block-size: 1rem;
+        border: .125rem solid currentColor;
+        border-block-start-color: transparent;
+        border-radius: var(--elements-radius-rounded);
+      }
+
+      
+      .v-primary {
+        --button-bg: var(--elements-color-semantic-accent-default);
+        --button-text: var(--elements-color-semantic-text-default);
+        --button-border: var(--elements-color-semantic-accent-default);
+        --button-hover-bg: var(--elements-color-semantic-accent-hover);
+        --button-active-bg: var(--elements-color-semantic-accent-active);
+      }
+
+      .v-primary-neutral {
+        --button-bg: var(--elements-color-semantic-accent-neutral_default);
+        --button-text: var(--elements-color-semantic-text-default_inverse);
+        --button-border: var(--elements-color-semantic-border-default);
+        --button-hover-bg: var(--elements-color-semantic-accent-neutral_hover);
+        --button-active-bg: var(--elements-color-semantic-accent-neutral_active);
+      }
+
+      .v-primary-destruct {
+        --button-bg: var(--elements-color-semantic-destruct-default);
+        --button-text: var(--elements-color-semantic-text-default);
+        --button-border: var(--elements-color-semantic-destruct-default);
+        --button-hover-bg: var(--elements-color-semantic-destruct-hover);
+        --button-active-bg: var(--elements-color-semantic-destruct-active);
+      }
+
+      .v-secondary {
+        --button-bg: var(--elements-color-components-button-bg-secondary);
+        --button-text: var(--elements-color-semantic-text-accent-default);
+        --button-border: var(--elements-color-semantic-accent-default);
+        --button-hover-bg: var(--elements-color-semantic-background-brand-subtle);
+        --button-active-bg: var(--elements-color-semantic-accent-neutral_active);
+      }
+
+      .v-secondary-neutral {
+        --button-bg: var(--elements-color-components-button-bg-secondary-neutral);
+        --button-text: var(--elements-color-semantic-text-default_inverse);
+        --button-border: var(--elements-color-semantic-border-default);
+        --button-hover-bg: var(--elements-color-semantic-accent-neutral_hover);
+        --button-active-bg: var(--elements-color-semantic-accent-neutral_active);
+      }
+
+      .v-secondary-destruct {
+        --button-bg: var(--elements-color-semantic-background-error-subtle);
+        --button-text: var(--elements-color-semantic-text-error);
+        --button-border: var(--elements-color-semantic-border-error);
+        --button-hover-bg: var(--elements-color-semantic-background-error);
+        --button-active-bg: var(--elements-color-semantic-destruct-active);
+      }
+
+      .v-tertiary {
+        --button-bg: transparent;
+        --button-text: var(--elements-color-semantic-text-accent-default);
+        --button-border: transparent;
+        --button-hover-bg: var(--elements-color-semantic-background-brand-subtle);
+        --button-active-bg: var(--elements-color-semantic-accent-neutral_active);
+      }
+
+      .v-tertiary-neutral {
+        --button-bg: transparent;
+        --button-text: var(--elements-color-semantic-text-default_inverse);
+        --button-border: transparent;
+        --button-hover-bg: var(--elements-color-semantic-accent-neutral_hover);
+        --button-active-bg: var(--elements-color-semantic-accent-neutral_active);
+      }
+
+      .v-tertiary-destruct {
+        --button-bg: transparent;
+        --button-text: var(--elements-color-semantic-text-error);
+        --button-border: transparent;
+        --button-hover-bg: var(--elements-color-semantic-background-error-subtle);
+        --button-active-bg: var(--elements-color-semantic-background-error);
+      }
+
+      .s-xsmall {
+        min-block-size: 1.5rem;
+        padding-inline: var(--elements-spacing-sm);
+        gap: var(--elements-spacing-2xs);
+        font-size: .75rem;
+      }
+
+      .s-small {
+        min-block-size: 2rem;
+        padding-inline: var(--elements-spacing-md);
+        gap: var(--elements-spacing-2xs);
+        font-size: .875rem;
+      }
+
+      .s-medium {
+        min-block-size: 2.5rem;
+        padding-inline: var(--elements-spacing-lg);
+        gap: var(--elements-spacing-2xs);
+        font-size: 1rem;
+      }
+
+      .s-large {
+        min-block-size: 3rem;
+        padding-inline: var(--elements-spacing-xl);
+        gap: var(--elements-spacing-sm);
+        font-size: 1rem;
+      }
+
+      .matrix-table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border: .0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+      }
+
+      .matrix-table th,
+      .matrix-table td {
+        padding: var(--elements-spacing-sm);
+        border-block-end: .0625rem solid var(--elements-color-semantic-border-default);
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .matrix-table th {
+        font-weight: 700;
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+
+      code {
+        color: var(--elements-color-semantic-text-accent-default);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        white-space: normal;
+      }
+
+      @media (max-width: 48rem) {
+        main {
+          width: min(100vw - var(--elements-spacing-md), 88rem);
+          padding-block: var(--elements-spacing-md);
+        }
+
+        .demo-panel,
+        .section {
+          padding: var(--elements-spacing-md);
+        }
+
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .matrix-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main
+      data-pattern="atomic-component-package"
+      data-component-package-id="button-complete-standard-package"
+      data-source-doc-id="components-button--docs"
+      data-token-source="foundations-colors--docs"
+    >
+      <article class="demo-panel" data-pattern="atomic-component-package-reference">
+        <header class="story-meta">
+          <h1>Button Complete Standard Package</h1>
+          <p>Docs + 13 Storybook story atoms, rendered from local package contract.</p>
+        </header>
+
+        <section class="meta-grid" aria-label="Package coverage">
+
+            <div class="meta-item">
+              <span>Docs</span>
+              <strong>1/1</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Stories</span>
+              <strong>13/13</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Coverage</span>
+              <strong>complete</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Renderer</span>
+              <strong>HTML</strong>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="docs-title">
+          <header class="section-header">
+            <h2 id="docs-title">Docs Contract</h2>
+            <p>Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.</p>
+          </header>
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th scope="col">Prop</th>
+                <th scope="col">Required</th>
+                <th scope="col">Default</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <th scope="row">variant</th>
+                <td>no</td>
+                <td><code>ButtonVariant.PRIMARY</code></td>
+                <td>Visual style variant of the button.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">size</th>
+                <td>no</td>
+                <td><code>ButtonSize.MEDIUM</code></td>
+                <td>Size of the button.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">label</th>
+                <td>yes</td>
+                <td><code>none</code></td>
+                <td>Text content displayed inside the button. Required for the accessible name.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">icon</th>
+                <td>no</td>
+                <td><code>none</code></td>
+                <td>Icon to display alongside the label.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">iconPosition</th>
+                <td>no</td>
+                <td><code>IconPosition.START</code></td>
+                <td>Position of the icon relative to the label.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">inverse</th>
+                <td>no</td>
+                <td><code>false</code></td>
+                <td>Applies inverse styling for use on dark backgrounds.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">fullWidth</th>
+                <td>no</td>
+                <td><code>false</code></td>
+                <td>Expands the button to fill its container width.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">disabled</th>
+                <td>no</td>
+                <td><code>none</code></td>
+                <td>Disables the button.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">isLoading</th>
+                <td>no</td>
+                <td><code>false</code></td>
+                <td>Displays a loading spinner and disables interactions while an action is in progress.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">as</th>
+                <td>no</td>
+                <td><code>none</code></td>
+                <td>Overrides the default HTML tag. Use anchor semantics only for navigation/link behavior.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">href</th>
+                <td>no</td>
+                <td><code>none</code></td>
+                <td>URL used when the button is rendered as an anchor.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">target</th>
+                <td>no</td>
+                <td><code>none</code></td>
+                <td>Target window for anchor usage.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">brandTheme</th>
+                <td>no</td>
+                <td><code>BrandTheme.primary</code></td>
+                <td>Overrides the theme at component level.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" aria-labelledby="stories-title">
+          <header class="section-header">
+            <h2 id="stories-title">Storybook Tabs</h2>
+            <p>Each Button tab is now a local callable atom with explicit semantics.</p>
+          </header>
+          <div class="story-grid">
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--primary" data-source-doc-id="components-button--docs">
+              <h3>Primary</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-primary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary" data-size="medium" data-state="default" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--primary-neutral" data-source-doc-id="components-button--docs">
+              <h3>Primary Neutral</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-primary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary-neutral" data-size="medium" data-state="default" data-story-id="components-button--primary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--overview" data-source-doc-id="components-button--docs">
+              <h3>Overview</h3>
+              <span class="story-type">overview_matrix</span>
+              <button type="button" class="elements-button v-primary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary" data-size="medium" data-state="default" data-story-id="components-button--overview" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--overview-inverse" data-source-doc-id="components-button--docs">
+              <h3>Overview Inverse</h3>
+              <span class="story-type">overview_inverse_matrix</span>
+              <button type="button" class="elements-button v-primary s-medium state-focus is-focus" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary" data-size="medium" data-state="focus" data-story-id="components-button--overview-inverse" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--default" data-source-doc-id="components-button--docs">
+              <h3>Default</h3>
+              <span class="story-type">default_controls</span>
+              <button type="button" class="elements-button v-primary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary" data-size="medium" data-state="default" data-story-id="components-button--default" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--secondary" data-source-doc-id="components-button--docs">
+              <h3>Secondary</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-secondary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary" data-size="medium" data-state="default" data-story-id="components-button--secondary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs">
+              <h3>Secondary Neutral</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--tertiary" data-source-doc-id="components-button--docs">
+              <h3>Tertiary</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-tertiary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="default" data-story-id="components-button--tertiary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--tertiary-neutral" data-source-doc-id="components-button--docs">
+              <h3>Tertiary Neutral</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-tertiary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary-neutral" data-size="medium" data-state="default" data-story-id="components-button--tertiary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--primary-destruct" data-source-doc-id="components-button--docs">
+              <h3>Primary Destruct</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-primary-destruct s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary-destruct" data-size="medium" data-state="default" data-story-id="components-button--primary-destruct" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--secondary-destruct" data-source-doc-id="components-button--docs">
+              <h3>Secondary Destruct</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-secondary-destruct s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-destruct" data-size="medium" data-state="default" data-story-id="components-button--secondary-destruct" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--tertiary-destruct" data-source-doc-id="components-button--docs">
+              <h3>Tertiary Destruct</h3>
+              <span class="story-type">variant</span>
+              <button type="button" class="elements-button v-tertiary-destruct s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary-destruct" data-size="medium" data-state="default" data-story-id="components-button--tertiary-destruct" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </section>
+
+            <section class="story-card" data-pattern="atomic-story-card" data-story-id="components-button--button-link" data-source-doc-id="components-button--docs">
+              <h3>Button Link</h3>
+              <span class="story-type">link</span>
+              <a href="#" target="_blank" rel="noreferrer" class="elements-button v-tertiary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="default" data-story-id="components-button--button-link" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Open link</span><span class="button-icon" aria-hidden="true">-&gt;</span></a>
+            </section>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="variants-title">
+          <header class="section-header">
+            <h2 id="variants-title">Variant Matrix</h2>
+            <p>Nine official Button variants from docs and Storybook story ids.</p>
+          </header>
+          <div class="sample-grid">
+
+            <div class="sample-cell">
+              <span class="cell-label">primary</span>
+              <button type="button" class="elements-button v-primary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary" data-size="medium" data-state="default" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">primary-neutral</span>
+              <button type="button" class="elements-button v-primary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary-neutral" data-size="medium" data-state="default" data-story-id="components-button--primary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">primary-destruct</span>
+              <button type="button" class="elements-button v-primary-destruct s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="primary-destruct" data-size="medium" data-state="default" data-story-id="components-button--primary-destruct" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">secondary</span>
+              <button type="button" class="elements-button v-secondary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary" data-size="medium" data-state="default" data-story-id="components-button--secondary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">secondary-neutral</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">secondary-destruct</span>
+              <button type="button" class="elements-button v-secondary-destruct s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-destruct" data-size="medium" data-state="default" data-story-id="components-button--secondary-destruct" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">tertiary</span>
+              <button type="button" class="elements-button v-tertiary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="default" data-story-id="components-button--tertiary" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">tertiary-neutral</span>
+              <button type="button" class="elements-button v-tertiary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary-neutral" data-size="medium" data-state="default" data-story-id="components-button--tertiary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">tertiary-destruct</span>
+              <button type="button" class="elements-button v-tertiary-destruct s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary-destruct" data-size="medium" data-state="default" data-story-id="components-button--tertiary-destruct" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="sizes-title">
+          <header class="section-header">
+            <h2 id="sizes-title">Size And Spacing</h2>
+            <p>Official height source is Button docgen; rendering uses Elements tokenized spacing.</p>
+          </header>
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th scope="col">Size</th>
+                <th scope="col">Official Height</th>
+                <th scope="col">Render Height</th>
+                <th scope="col">Padding Inline</th>
+                <th scope="col">Sample</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <th scope="row">xsmall</th>
+                <td>24 px</td>
+                <td><code>1.5rem</code></td>
+                <td><code>var(--elements-spacing-sm)</code></td>
+                <td><button type="button" class="elements-button v-secondary-neutral s-xsmall state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="xsmall" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button></td>
+              </tr>
+
+              <tr>
+                <th scope="row">small</th>
+                <td>32 px</td>
+                <td><code>2rem</code></td>
+                <td><code>var(--elements-spacing-md)</code></td>
+                <td><button type="button" class="elements-button v-secondary-neutral s-small state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="small" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button></td>
+              </tr>
+
+              <tr>
+                <th scope="row">medium</th>
+                <td>40 px</td>
+                <td><code>2.5rem</code></td>
+                <td><code>var(--elements-spacing-lg)</code></td>
+                <td><button type="button" class="elements-button v-secondary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button></td>
+              </tr>
+
+              <tr>
+                <th scope="row">large</th>
+                <td>48 px</td>
+                <td><code>3rem</code></td>
+                <td><code>var(--elements-spacing-xl)</code></td>
+                <td><button type="button" class="elements-button v-secondary-neutral s-large state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="large" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" aria-labelledby="states-title">
+          <header class="section-header">
+            <h2 id="states-title">State Matrix</h2>
+            <p>Default, hover, active, focus, disabled, and loading states from the Storybook overview table.</p>
+          </header>
+          <div class="sample-grid">
+
+            <div class="sample-cell">
+              <span class="cell-label">default</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="default" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">hover</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-hover is-hover" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="hover" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">active</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-active is-active" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="active" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" data-active="true"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">focus</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-focus is-focus" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="focus" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">disabled</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-disabled" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="disabled" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" disabled><span class="button-label">Action</span></button>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">loading</span>
+              <button type="button" class="elements-button v-secondary-neutral s-medium state-loading is-loading" data-primitive="button" data-pattern="atomic-component-sample" data-variant="secondary-neutral" data-size="medium" data-state="loading" data-story-id="components-button--secondary-neutral" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" aria-busy="true" disabled><span class="button-loader" aria-hidden="true"></span><span class="button-label">Loading</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="link-title">
+          <header class="section-header">
+            <h2 id="link-title">Button Link</h2>
+            <p>Button Link renders with anchor semantics and keeps button visual treatment.</p>
+          </header>
+          <div class="sample-grid">
+
+            <div class="sample-cell">
+              <span class="cell-label">default link</span>
+              <a href="#" target="_blank" rel="noreferrer" class="elements-button v-tertiary s-medium state-default" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="default" data-story-id="components-button--button-link" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Open link</span><span class="button-icon" aria-hidden="true">-&gt;</span></a>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">hover link</span>
+              <a href="#" target="_blank" rel="noreferrer" class="elements-button v-tertiary s-medium state-hover is-hover" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="hover" data-story-id="components-button--button-link" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Open link</span><span class="button-icon" aria-hidden="true">-&gt;</span></a>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">focus link</span>
+              <a href="#" target="_blank" rel="noreferrer" class="elements-button v-tertiary s-medium state-focus is-focus" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="focus" data-story-id="components-button--button-link" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs"><span class="button-label">Open link</span><span class="button-icon" aria-hidden="true">-&gt;</span></a>
+            </div>
+
+            <div class="sample-cell">
+              <span class="cell-label">disabled link</span>
+              <a href="#" target="_blank" rel="noreferrer" class="elements-button v-tertiary s-medium state-disabled" data-primitive="button" data-pattern="atomic-component-sample" data-variant="tertiary" data-size="medium" data-state="disabled" data-story-id="components-button--button-link" data-source-doc-id="components-button--docs" data-token-source="foundations-colors--docs" aria-disabled="true" tabindex="-1"><span class="button-label">Open link</span><span class="button-icon" aria-hidden="true">-&gt;</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="tokens-title">
+          <header class="section-header">
+            <h2 id="tokens-title">Token Bindings</h2>
+            <p>Generated HTML cannot use raw colors, direct core color tokens, or unknown token refs.</p>
+          </header>
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th scope="col">Variant</th>
+                <th scope="col">Background</th>
+                <th scope="col">Text</th>
+                <th scope="col">Border</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <th scope="row">primary</th>
+                <td><code>var(--elements-color-semantic-accent-default)</code></td>
+                <td><code>var(--elements-color-semantic-text-default)</code></td>
+                <td><code>var(--elements-color-semantic-accent-default)</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">primary-neutral</th>
+                <td><code>var(--elements-color-semantic-accent-neutral_default)</code></td>
+                <td><code>var(--elements-color-semantic-text-default_inverse)</code></td>
+                <td><code>var(--elements-color-semantic-border-default)</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">primary-destruct</th>
+                <td><code>var(--elements-color-semantic-destruct-default)</code></td>
+                <td><code>var(--elements-color-semantic-text-default)</code></td>
+                <td><code>var(--elements-color-semantic-destruct-default)</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">secondary</th>
+                <td><code>var(--elements-color-components-button-bg-secondary)</code></td>
+                <td><code>var(--elements-color-semantic-text-accent-default)</code></td>
+                <td><code>var(--elements-color-semantic-accent-default)</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">secondary-neutral</th>
+                <td><code>var(--elements-color-components-button-bg-secondary-neutral)</code></td>
+                <td><code>var(--elements-color-semantic-text-default_inverse)</code></td>
+                <td><code>var(--elements-color-semantic-border-default)</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">secondary-destruct</th>
+                <td><code>var(--elements-color-semantic-background-error-subtle)</code></td>
+                <td><code>var(--elements-color-semantic-text-error)</code></td>
+                <td><code>var(--elements-color-semantic-border-error)</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">tertiary</th>
+                <td><code>transparent</code></td>
+                <td><code>var(--elements-color-semantic-text-accent-default)</code></td>
+                <td><code>transparent</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">tertiary-neutral</th>
+                <td><code>transparent</code></td>
+                <td><code>var(--elements-color-semantic-text-default_inverse)</code></td>
+                <td><code>transparent</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">tertiary-destruct</th>
+                <td><code>transparent</code></td>
+                <td><code>var(--elements-color-semantic-text-error)</code></td>
+                <td><code>transparent</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" aria-labelledby="source-title">
+          <header class="section-header">
+            <h2 id="source-title">Source Provenance</h2>
+            <p>Package traces back to docs, stories, primitive, component contract, tokens, and raw Storybook bundle.</p>
+          </header>
+          <table class="matrix-table">
+            <tbody>
+
+              <tr>
+                <th scope="row">expected tabs</th>
+                <td><code>design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">docs contract</th>
+                <td><code>design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">component contract</th>
+                <td><code>design-system-plugin/design-system/contracts/components/button.contract.json</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">primitive contract</th>
+                <td><code>design-system-plugin/design-system/primitives/components/button/primitive.json</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">story bundle</th>
+                <td><code>design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js</code></td>
+              </tr>
+
+              <tr>
+                <th scope="row">token css</th>
+                <td><code>design-system-plugin/design-system/tokens/tokens.css</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

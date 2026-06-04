@@ -1,0 +1,100 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "business-query-form.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulePath = path.join(pluginRoot, "design-system", "rules", "business-app-shell-scroll.json");
+const reportPath = path.join(reportDir, "app-shell-scroll.report.json");
+const reportMdPath = path.join(reportDir, "app-shell-scroll.report.md");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function selectorBlock(source, selector) {
+  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = source.match(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`, "s"));
+  return match ? match[1].replace(/\s+/g, " ").trim() : "";
+}
+
+function hasDeclaration(block, property, valuePattern) {
+  return new RegExp(`${property}\\s*:\\s*${valuePattern}\\s*;`).test(block);
+}
+
+function includesAll(source, fragments) {
+  return fragments.filter((fragment) => !source.includes(fragment));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.existsSync(target) ? read(target) : "";
+const rule = readJson(rulePath);
+const failures = [];
+
+if (!html) failures.push(`missing HTML target: ${target}`);
+
+for (const marker of includesAll(html, rule.html_contract.required_page_markers || [])) {
+  failures.push(`missing page scroll marker: ${marker}`);
+}
+for (const marker of includesAll(html, rule.html_contract.required_shell_markers || [])) {
+  failures.push(`missing shell scroll marker: ${marker}`);
+}
+for (const marker of includesAll(html, rule.html_contract.required_fixed_markers || [])) {
+  failures.push(`missing fixed shell marker: ${marker}`);
+}
+for (const marker of includesAll(html, rule.html_contract.required_content_markers || [])) {
+  failures.push(`missing content scroll marker: ${marker}`);
+}
+
+const bodyBlock = selectorBlock(html, "body");
+const shellBlock = selectorBlock(html, ".shell") || selectorBlock(html, ".template-shell") || selectorBlock(html, ".dashboard-shell");
+const mainBlock = selectorBlock(html, ".main");
+
+if (!hasDeclaration(bodyBlock, "block-size", "100vh")) failures.push("body must use block-size: 100vh");
+if (!hasDeclaration(bodyBlock, "overflow", "hidden")) failures.push("body must use overflow: hidden");
+if (!hasDeclaration(shellBlock, "block-size", "100vh")) failures.push("app shell must use block-size: 100vh");
+if (!hasDeclaration(shellBlock, "overflow", "hidden")) failures.push("app shell must use overflow: hidden");
+if (/min-block-size\s*:\s*100vh\s*;/.test(shellBlock)) failures.push("app shell must not rely on min-block-size: 100vh because that allows body scrolling");
+if (!hasDeclaration(mainBlock, "min-block-size", "0")) failures.push("main content scroll region must use min-block-size: 0");
+if (!hasDeclaration(mainBlock, "overflow", "auto")) failures.push("main content scroll region must use overflow: auto");
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-app-shell-scroll",
+  target: rel(target),
+  rule: rel(rulePath),
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    has_body_block_size: hasDeclaration(bodyBlock, "block-size", "100vh"),
+    has_body_overflow_hidden: hasDeclaration(bodyBlock, "overflow", "hidden"),
+    has_shell_block_size: hasDeclaration(shellBlock, "block-size", "100vh"),
+    has_shell_overflow_hidden: hasDeclaration(shellBlock, "overflow", "hidden"),
+    has_main_min_block_size_zero: hasDeclaration(mainBlock, "min-block-size", "0"),
+    has_main_overflow_auto: hasDeclaration(mainBlock, "overflow", "auto")
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# App Shell Scroll Validation\n\nStatus: ${report.status}\n\nTarget: \`${report.target}\`\n\n| Check | Pass |\n|---|---:|\n| Body viewport height | ${report.checked.has_body_block_size} |\n| Body overflow hidden | ${report.checked.has_body_overflow_hidden} |\n| Shell viewport height | ${report.checked.has_shell_block_size} |\n| Shell overflow hidden | ${report.checked.has_shell_overflow_hidden} |\n| Main min-block-size 0 | ${report.checked.has_main_min_block_size_zero} |\n| Main overflow auto | ${report.checked.has_main_overflow_auto} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`App shell scroll validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`App shell scroll OK: ${rel(target)}`);

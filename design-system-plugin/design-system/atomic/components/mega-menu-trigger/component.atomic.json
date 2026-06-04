@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "mega-menu-trigger",
+  "component_name": "MegaMenu/Trigger",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-megamenu-trigger--default",
+      "story_name": "Default",
+      "component_id": "mega-menu-trigger",
+      "component_name": "MegaMenu/Trigger",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/stories/components-megamenu-trigger--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/mega-menu-trigger-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/assets/Trigger.stories-Cd7ElboE.js",
+      "docs_id": "components-megamenu-trigger--docs",
+      "registry_item": "sanofi-mega-menu-trigger-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-mega-menu-trigger--docs"
+  }
+}

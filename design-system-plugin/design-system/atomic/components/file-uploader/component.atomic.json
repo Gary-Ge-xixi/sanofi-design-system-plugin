@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "file-uploader",
+  "component_name": "FileUploader",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-fileuploader--controlled",
+      "story_name": "Controlled",
+      "component_id": "file-uploader",
+      "component_name": "FileUploader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/stories/components-fileuploader--controlled.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/file-uploader/templates/html.controlled.template.html",
+      "output_path": "design-system-plugin/outputs/html/file-uploader-controlled.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+      "docs_id": "components-fileuploader--docs",
+      "registry_item": "sanofi-file-uploader-controlled-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--default",
+      "story_name": "Default",
+      "component_id": "file-uploader",
+      "component_name": "FileUploader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/stories/components-fileuploader--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/file-uploader/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/file-uploader-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+      "docs_id": "components-fileuploader--docs",
+      "registry_item": "sanofi-file-uploader-default-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--disabled",
+      "story_name": "Disabled",
+      "component_id": "file-uploader",
+      "component_name": "FileUploader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/stories/components-fileuploader--disabled.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/file-uploader/templates/html.disabled.template.html",
+      "output_path": "design-system-plugin/outputs/html/file-uploader-disabled.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+      "docs_id": "components-fileuploader--docs",
+      "registry_item": "sanofi-file-uploader-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--multiple-files",
+      "story_name": "Multiple Files",
+      "component_id": "file-uploader",
+      "component_name": "FileUploader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/stories/components-fileuploader--multiple-files.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/file-uploader/templates/html.multiple-files.template.html",
+      "output_path": "design-system-plugin/outputs/html/file-uploader-multiple-files.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+      "docs_id": "components-fileuploader--docs",
+      "registry_item": "sanofi-file-uploader-multiple-files-atomic-story"
+    },
+    {
+      "story_id": "components-fileuploader--preloaded-files",
+      "story_name": "Preloaded Files",
+      "component_id": "file-uploader",
+      "component_name": "FileUploader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/file-uploader/stories/components-fileuploader--preloaded-files.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/file-uploader/templates/html.preloaded-files.template.html",
+      "output_path": "design-system-plugin/outputs/html/file-uploader-preloaded-files.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/file-uploader/assets/FileUploader.stories-Bd1qFH3r.js",
+      "docs_id": "components-fileuploader--docs",
+      "registry_item": "sanofi-file-uploader-preloaded-files-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-file-uploader--docs"
+  }
+}

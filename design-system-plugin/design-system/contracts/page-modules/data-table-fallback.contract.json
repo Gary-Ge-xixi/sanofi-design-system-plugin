@@ -1,0 +1,52 @@
+{
+  "schema_version": "0.1.0",
+  "id": "data-table-fallback",
+  "status": "ready",
+  "renderer_target": "html",
+  "fallback_module": "table",
+  "source_provenance": {
+    "policy": "../../policies/fallback-policy.json",
+    "text_input_docs_id": "components-textinput--docs",
+    "text_input_story_id": "components-textinput--default",
+    "token_source": "foundations-colors--docs"
+  },
+  "when_to_use": "Use only when no official Elements Table/DataTable/DataGrid primitive is registered locally.",
+  "when_not_to_use": "Do not claim this native table fallback is an official Sanofi Elements Table primitive.",
+  "dom_contract": {
+    "root_selector": "[data-section=\"editable-data-table-fallback\"]",
+    "required_structure": [
+      "section.table-wrap[data-table-list-role=\"fallback\"]",
+      "table",
+      "thead th[scope=\"col\"]",
+      "tbody tr.summary-row",
+      "tbody input[data-primitive=\"text-input\"]"
+    ],
+    "forbidden_attributes": [
+      "data-primitive=\"table\"",
+      "data-source-component=\"table\"",
+      "data-story-id=\"components-table--default\""
+    ],
+    "required_attributes": [
+      "data-fallback-module=\"table\"",
+      "data-fallback-reason",
+      "data-list-kind=\"editable-table-list\"",
+      "data-table-list-role=\"fallback\"",
+      "data-primitive=\"text-input\"",
+      "data-story-id=\"components-textinput--default\""
+    ]
+  },
+  "density_bindings": {
+    "table_min_width": "--admin-density-table-min-width",
+    "cell_padding_block": "--admin-density-table-cell-padding-block",
+    "cell_padding_inline": "--admin-density-table-cell-padding-inline",
+    "input_height": "--admin-density-control-height"
+  },
+  "reference_requirements": {
+    "column_count": 6,
+    "summary_row_first": true,
+    "editable_quantity_column": true,
+    "pagination_after_table": true,
+    "sticky_save_bar_after_content": true
+  },
+  "fallback_reason": "No official Table/DataTable/DataGrid primitive is registered locally; use native table markup with token-only styling."
+}

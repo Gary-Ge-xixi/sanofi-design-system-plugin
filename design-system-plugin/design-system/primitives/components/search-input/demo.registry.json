@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "component": "SearchInput",
+  "stories": [
+    {
+      "story_id": "components-searchinput--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-searchinput--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-searchinput--error-state",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-searchinput--inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-searchinput--sizes",
+      "story_name": "Sizes"
+    },
+    {
+      "story_id": "components-searchinput--submit-variant",
+      "story_name": "Submit Variant"
+    },
+    {
+      "story_id": "components-searchinput--submit-variant-sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-searchinput--submit-with-button-icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-searchinput--submit-with-custom-buttons",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "id": "accordion-docs-contract",
+  "component_id": "accordion",
+  "component_name": "Accordion",
+  "docs_id": "components-accordion--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": true,
+        "description": "Accordion.Item components to render.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-accordion--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Accordion } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Accordion isExclusive={false}>\n    <Accordion.Item\n      title={\"Accordion Title is Here\"}\n      size={AccordionSize.MEDIUM}\n      isActiveSection={true}\n      sectionIndex={0}\n      onClick={() => {\n        alert(\"The onClick props is called.\");\n      }}\n    >\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    </Accordion.Item>\n</Accordion>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-accordion--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/Accordion.stories.tsx"
+    },
+    {
+      "id": "components-accordion--medium-accordion-with-slots",
+      "name": "Medium Accordion With Slots",
+      "export_name": "MediumAccordionWithSlots",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/Accordion.stories.tsx"
+    },
+    {
+      "id": "components-accordion--small-accordion",
+      "name": "Small Accordion",
+      "export_name": "SmallAccordion",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/Accordion.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json"
+  }
+}

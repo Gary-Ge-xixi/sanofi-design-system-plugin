@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.1.0",
+  "captured_at": "2026-06-02",
+  "purpose": "Map the generated TCM admin dashboard modules to available Sanofi Elements Storybook and Zeroheight sources.",
+  "sources": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "zeroheight_component_catalog": "research/components/component-catalog.json",
+    "storybook_base_url": "https://elements.prod.accelerator.sanofi"
+  },
+  "summary": {
+    "storybook_entries": 540,
+    "storybook_story_entries": 429,
+    "storybook_story_titles": 97,
+    "zeroheight_component_pages": 37,
+    "zeroheight_pages_with_visible_demo_tabs": 23
+  },
+  "admin_dashboard_mapping": [
+    {
+      "dashboard_module": "left_sidebar_navigation",
+      "recommended_elements_sources": [
+        {
+          "title": "Components/Sidebar",
+          "story_ids": [
+            "components-sidebar--default",
+            "components-sidebar--collapsed",
+            "components-sidebar--expanded",
+            "components-sidebar--without-header",
+            "components-sidebar--fully-collapsible",
+            "components-sidebar--fully-collapsible-controlled",
+            "components-sidebar--sticky-behavior"
+          ],
+          "zeroheight_page": null,
+          "fit": "strong"
+        },
+        {
+          "title": "Components/Menu",
+          "story_ids": [
+            "components-menu--default",
+            "components-menu--selected",
+            "components-menu--with-sections",
+            "components-menu--with-sub-menus",
+            "components-menu--sizes"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/793232-menu",
+          "fit": "supporting"
+        }
+      ],
+      "status": "can_be_sedimented_from_storybook"
+    },
+    {
+      "dashboard_module": "topbar_search_filters_actions",
+      "recommended_elements_sources": [
+        {
+          "title": "Components/SearchInput",
+          "story_ids": [
+            "components-searchinput--default",
+            "components-searchinput--sizes",
+            "components-searchinput--submit-variant",
+            "components-searchinput--submit-with-button-icon",
+            "components-searchinput--submit-with-custom-buttons"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/003577-search-input",
+          "fit": "strong"
+        },
+        {
+          "title": "Components/Select",
+          "story_ids": [
+            "components-select--default",
+            "components-select--sizes"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/273182-select",
+          "fit": "strong"
+        },
+        {
+          "title": "Components/Button",
+          "story_ids": [
+            "components-button--primary",
+            "components-button--secondary",
+            "components-button--tertiary",
+            "components-button--default"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/5835b1-button",
+          "fit": "strong"
+        }
+      ],
+      "status": "can_be_sedimented_from_storybook_and_zeroheight"
+    },
+    {
+      "dashboard_module": "page_heading_and_time_tabs",
+      "recommended_elements_sources": [
+        {
+          "title": "Components/PageHeader",
+          "story_ids": [
+            "components-pageheader--default",
+            "components-pageheader--title-custom",
+            "components-pageheader--container-type-fixed"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/17e644-page-header",
+          "fit": "strong"
+        },
+        {
+          "title": "Components/Tabs",
+          "story_ids": [
+            "components-tabs--default",
+            "components-tabs--full-width",
+            "components-tabs--default-selected-tab",
+            "components-tabs--controlled",
+            "components-tabs--with-nav"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/57fbae-tabs",
+          "fit": "strong"
+        }
+      ],
+      "status": "can_be_sedimented_from_storybook_and_zeroheight"
+    },
+    {
+      "dashboard_module": "metric_cards",
+      "recommended_elements_sources": [
+        {
+          "title": "Components/Card",
+          "story_ids": [
+            "components-card--default",
+            "components-card--card-custom-number",
+            "components-card--list-density-view"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card",
+          "fit": "medium"
+        },
+        {
+          "title": "Components/Tag",
+          "story_ids": [
+            "components-tag--default",
+            "components-tag--variants",
+            "components-tag--semantic",
+            "components-tag--sizes"
+          ],
+          "zeroheight_page": null,
+          "fit": "strong"
+        },
+        {
+          "title": "Components/ChipStatus",
+          "story_ids": [
+            "components-chipstatus--default",
+            "components-chipstatus--style-gallery",
+            "components-chipstatus--overview"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/562b78-chip",
+          "fit": "strong"
+        }
+      ],
+      "status": "requires_pattern_layer",
+      "gap": "No dedicated Metric or KPI component was found in Storybook."
+    },
+    {
+      "dashboard_module": "review_queue_and_alert_list",
+      "recommended_elements_sources": [
+        {
+          "title": "Components/Card",
+          "story_ids": [
+            "components-card--list-image-view",
+            "components-card--list-center-content-view",
+            "components-card--list-picto-view",
+            "components-card--list-density-view"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/45ffb4-card",
+          "fit": "medium"
+        },
+        {
+          "title": "Components/Tag",
+          "story_ids": [
+            "components-tag--semantic",
+            "components-tag--categorical"
+          ],
+          "zeroheight_page": null,
+          "fit": "strong"
+        }
+      ],
+      "status": "requires_pattern_layer"
+    },
+    {
+      "dashboard_module": "inventory_table",
+      "recommended_elements_sources": [
+        {
+          "title": "Native HTML table with Elements tokens",
+          "story_ids": [],
+          "zeroheight_page": null,
+          "fit": "fallback"
+        },
+        {
+          "title": "Components/Pagination",
+          "story_ids": [
+            "components-pagination--default",
+            "components-pagination--compact",
+            "components-pagination--compact-with-input"
+          ],
+          "zeroheight_page": "https://elements.sanofidesign.com/557b0250b/p/73b124-pagination",
+          "fit": "supporting"
+        }
+      ],
+      "status": "not_found_as_official_primitive",
+      "gap": "No Table, DataTable, Data Grid, or Data component was found in Storybook story titles."
+    },
+    {
+      "dashboard_module": "quality_chart",
+      "recommended_elements_sources": [
+        {
+          "title": "Token-only custom chart pattern",
+          "story_ids": [],
+          "zeroheight_page": null,
+          "fit": "fallback"
+        }
+      ],
+      "status": "not_found_as_official_primitive",
+      "gap": "No Chart or visualization component was found in Storybook story titles."
+    },
+    {
+      "dashboard_module": "decoction_progress",
+      "recommended_elements_sources": [
+        {
+          "title": "Components/ProgressBar",
+          "story_ids": [
+            "components-progressbar--default",
+            "components-progressbar--all-states",
+            "components-progressbar--all-densities",
+            "components-progressbar--all-sizes",
+            "components-progressbar--custom-value-text"
+          ],
+          "zeroheight_page": null,
+          "fit": "strong"
+        },
+        {
+          "title": "Components/ProgressStepper/ProgressStepperNav",
+          "story_ids": [
+            "components-progressstepper-progresssteppernav--default",
+            "components-progressstepper-progresssteppernav--interactive"
+          ],
+          "zeroheight_page": null,
+          "fit": "supporting"
+        }
+      ],
+      "status": "can_be_sedimented_from_storybook"
+    }
+  ],
+  "priority_for_next_sedimentation": [
+    "Sidebar",
+    "Button",
+    "SearchInput",
+    "Select",
+    "Card",
+    "Tag or ChipStatus",
+    "Tabs",
+    "ProgressBar",
+    "PageHeader",
+    "Pagination"
+  ],
+  "important_boundary": "The admin homepage can become skill-driven after these primitives and patterns are normalized. Until then, modules such as metric cards, tables, and charts should be treated as pattern-level compositions or token-only fallbacks, not official component primitives."
+}

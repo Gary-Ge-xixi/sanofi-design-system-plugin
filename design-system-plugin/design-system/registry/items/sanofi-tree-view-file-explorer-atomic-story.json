@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tree-view-file-explorer-atomic-story",
+  "title": "TreeView File Explorer atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-treeview--file-explorer.",
+  "atomic_story_id": "components-treeview--file-explorer",
+  "component_id": "tree-view",
+  "docs_id": "components-treeview--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tree-view"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--file-explorer.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--file-explorer.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--file-explorer.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--file-explorer.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/templates/html.file-explorer.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/templates/html.file-explorer.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tree-view.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "story_id": "components-treeview--file-explorer",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/tree-view/stories/components-treeview--file-explorer.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/tree-view/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-treeview--file-explorer&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-treeview--file-explorer&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TreeView.stories-BvkdLgBu.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tree-view",
+      "TreeView",
+      "File Explorer",
+      "components-treeview--file-explorer",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact TreeView File Explorer Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-cascading-menu",
+  "title": "CascadingMenu primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for CascadingMenu.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "cascading-menu",
+  "docs_id": "components-cascadingmenu--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/cascading-menu/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/cascading-menu/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "cascading-menu",
+      "CascadingMenu",
+      "Cascading Menu"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official CascadingMenu primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

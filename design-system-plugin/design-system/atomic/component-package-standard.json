@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "id": "complete-component-package-standard",
+  "renderer_target": "html",
+  "source_component": "button",
+  "required_artifacts": [
+    "expected-tabs.json",
+    "docs.contract.json",
+    "*.story.json",
+    "component.atomic.json",
+    "*.package.json",
+    "*-complete.atomic.html",
+    "registry package item",
+    "validation reports"
+  ],
+  "required_flow": [
+    "docs contract",
+    "story atoms",
+    "component atomic contract",
+    "complete package HTML",
+    "registry item",
+    "validators/report"
+  ],
+  "required_validators": [
+    "validate-atomic-library",
+    "validate-token-usage",
+    "validate-primitive-usage",
+    "validate-page-pattern",
+    "validate-component-package-dom",
+    "validate-local-registry",
+    "validate-source-index"
+  ],
+  "completion_policy": {
+    "complete": "All docs and stories are materialized, package HTML exists, registry resolves package/stories, and validators pass.",
+    "partial": "Allowed only as an explicit in-progress status. Do not register as a complete package.",
+    "unsupported": "Must declare unsupported reason and fallback policy. Do not pretend unsupported widgets are official primitives."
+  },
+  "time_model": {
+    "schema_version": "0.1.0",
+    "source": "Button complete package execution model",
+    "tiers": {
+      "S": {
+        "label": "simple",
+        "total_hours": 2.8,
+        "node_hours": {
+          "source_intake": 0.2,
+          "expected_tabs": 0.2,
+          "story_atoms": 0.4,
+          "docs_contract": 0.5,
+          "atomic_contract": 0.7,
+          "html_package": 0.7,
+          "registry_search": 0.3,
+          "validators": 0.5,
+          "report_qa": 0.2
+        }
+      },
+      "M": {
+        "label": "standard",
+        "total_hours": 5.3,
+        "node_hours": {
+          "source_intake": 0.3,
+          "expected_tabs": 0.3,
+          "story_atoms": 0.8,
+          "docs_contract": 0.8,
+          "atomic_contract": 1.3,
+          "html_package": 1.2,
+          "registry_search": 0.4,
+          "validators": 0.9,
+          "report_qa": 0.3
+        }
+      },
+      "L": {
+        "label": "complex",
+        "total_hours": 7.9,
+        "node_hours": {
+          "source_intake": 0.4,
+          "expected_tabs": 0.5,
+          "story_atoms": 1.2,
+          "docs_contract": 1.1,
+          "atomic_contract": 2,
+          "html_package": 2,
+          "registry_search": 0.6,
+          "validators": 1.3,
+          "report_qa": 0.4
+        }
+      },
+      "XL": {
+        "label": "high-complexity",
+        "total_hours": 11.3,
+        "node_hours": {
+          "source_intake": 0.5,
+          "expected_tabs": 0.7,
+          "story_atoms": 1.8,
+          "docs_contract": 1.5,
+          "atomic_contract": 3,
+          "html_package": 3,
+          "registry_search": 0.8,
+          "validators": 1.8,
+          "report_qa": 0.5
+        }
+      }
+    }
+  }
+}

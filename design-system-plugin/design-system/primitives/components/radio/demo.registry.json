@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Radio",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-radio--color-variations",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio--sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio--with-link",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-radio--with-subtext",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

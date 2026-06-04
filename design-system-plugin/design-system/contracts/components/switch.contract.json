@@ -1,0 +1,202 @@
+{
+  "schema_version": "0.1.0",
+  "id": "switch",
+  "canonical_name": "switch",
+  "component_name": "Switch",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-switch--docs",
+    "title": "Switch",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-switch--docs",
+    "import_path": "./src/components/Switch/Switch.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-switch--default",
+      "components-switch--default-checked",
+      "components-switch--inline"
+    ],
+    "records": [
+      {
+        "id": "components-switch--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Switch/Switch.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-switch--default-checked",
+        "name": "Default Checked",
+        "normalized_name": "default-checked",
+        "import_path": "./src/components/Switch/Switch.stories.tsx",
+        "export_name": "DefaultChecked"
+      },
+      {
+        "id": "components-switch--inline",
+        "name": "Inline",
+        "normalized_name": "inline",
+        "import_path": "./src/components/Switch/Switch.stories.tsx",
+        "export_name": "Inline"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the switch interaction.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the switch.\"small\"\"medium\"\"large\"",
+        "default": "\"SwitchSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "labelPosition",
+        "required": false,
+        "description": "Position of the label relative to the switch.\"start\"\"end\"",
+        "default": "\"SwitchLabelPosition.END\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "Expands to fill container width with label and switch at opposite ends.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultChecked",
+        "required": false,
+        "description": "Initial state (uncontrolled mode).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "id",
+        "required": false,
+        "description": "Unique identifier for the switch.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checked",
+        "required": false,
+        "description": "Current state (controlled mode).boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "description": "Callback fired when the switch state changes.((value: boolean) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "default-checked",
+      "inline"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "default-checked",
+      "inline"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Switch } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Switch label=\"Switch\" />\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Switch } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Switch label=\"Switch\" />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "switch"
+    ],
+    "contracts": [
+      {
+        "id": "switch",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/switch/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/switch/demo.registry.json",
+        "known_story_ids": [
+          "components-switch--default",
+          "components-switch--default-checked",
+          "components-switch--inline",
+          "components-switch--default",
+          "components-switch--default-checked",
+          "components-switch--inline"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-switch--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-switch--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md",
+    "docs_import_path": "./src/components/Switch/Switch.mdx",
+    "story_ids": [
+      "components-switch--default",
+      "components-switch--default-checked",
+      "components-switch--inline"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

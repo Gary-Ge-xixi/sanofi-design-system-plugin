@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-elements-component-runtime",
+  "title": "Sanofi Elements component runtime boundary",
+  "type": "registry:lib",
+  "renderer_target": "html",
+  "description": "Internal runtime boundary for rendering component specs through @sanofi-accelerator/elements instead of hand-authored component DOM.",
+  "registryDependencies": [
+    "sanofi-elements-tokens"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/component-runtime/README.md",
+      "role": "runtime-doc",
+      "target": "design-system-plugin/component-runtime/README.md"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/package.json",
+      "role": "runtime-package",
+      "target": "design-system-plugin/component-runtime/package.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/src/index.mjs",
+      "role": "runtime-entry",
+      "target": "design-system-plugin/component-runtime/src/index.mjs"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/src/local-components.cjs",
+      "role": "runtime-local-renderer",
+      "target": "design-system-plugin/component-runtime/src/local-components.cjs"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/component-runtime.contract.json",
+      "role": "runtime-contract",
+      "target": "design-system-plugin/component-runtime/component-runtime.contract.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/specs/admin-dashboard.component-spec.json",
+      "role": "component-spec",
+      "target": "design-system-plugin/component-runtime/specs/admin-dashboard.component-spec.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/scripts/preflight-elements-package.mjs",
+      "role": "preflight",
+      "target": "design-system-plugin/component-runtime/scripts/preflight-elements-package.mjs"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/component-runtime-contract.json",
+      "role": "runtime-rule",
+      "target": "design-system-plugin/design-system/rules/component-runtime-contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/component-size-policy.json",
+      "role": "component-size-policy",
+      "target": "design-system-plugin/design-system/rules/component-size-policy.json"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-component-runtime",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-component-runtime"
+    }
+  ],
+  "source_provenance": {
+    "package": "@sanofi-accelerator/elements",
+    "registry": "https://npm.pkg.github.com",
+    "design_md": "design-system-plugin/design-system/DESIGN.md",
+    "runtime_contract": "design-system-plugin/component-runtime/component-runtime.contract.json",
+    "default_component_size": "medium"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "component runtime",
+      "hydrated html",
+      "真实组件",
+      "组件引用",
+      "Sanofi Elements React",
+      "@sanofi-accelerator/elements"
+    ],
+    "when_to_use": "Use when a page must render real Sanofi Elements components with JS/CSS interaction rather than static primitive-like markup.",
+    "unsupported_behavior": "Do not use this item to clone or recreate @sanofi-accelerator/elements. If the package cannot be resolved, stop and report the package-access blocker."
+  }
+}

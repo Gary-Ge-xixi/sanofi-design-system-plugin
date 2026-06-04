@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "grid",
+  "component_name": "Grid",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Grid"
+  },
+  "docs": [
+    {
+      "id": "components-grid--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Grid/Grid.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-grid--desktop",
+      "name": "Desktop",
+      "export_name": "Desktop",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    },
+    {
+      "id": "components-grid--large-mobile",
+      "name": "Large Mobile",
+      "export_name": "LargeMobile",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    },
+    {
+      "id": "components-grid--mobile",
+      "name": "Mobile",
+      "export_name": "Mobile",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    },
+    {
+      "id": "components-grid--tablet",
+      "name": "Tablet",
+      "export_name": "Tablet",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Grid/Grid.stories.tsx"
+    }
+  ]
+}

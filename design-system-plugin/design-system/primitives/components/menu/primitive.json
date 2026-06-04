@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Menu",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/Menu",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "menu",
+      "data_attribute": "data-primitive=\"menu\"",
+      "required_semantics": [
+        "nav landmark or menu container",
+        "current or selected item state when applicable"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-menu--default",
+      "components-menu--selected",
+      "components-menu--with-sections",
+      "components-menu--with-sub-menus",
+      "components-menu--sizes",
+      "components-menu--checkbox",
+      "components-menu--context-menu",
+      "components-menu--image",
+      "components-menu--with-scroll"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

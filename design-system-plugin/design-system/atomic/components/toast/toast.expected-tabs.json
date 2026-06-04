@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "toast",
+  "component_name": "Toast",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Toast"
+  },
+  "docs": [
+    {
+      "id": "components-toast--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Toast/Toast.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-toast--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--dual-action",
+      "name": "Dual Action",
+      "export_name": "DualAction",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--example",
+      "name": "Example",
+      "export_name": "Example",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--single-action",
+      "name": "Single Action",
+      "export_name": "SingleAction",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--toast-statuses",
+      "name": "Toast Statuses",
+      "export_name": "ToastStatuses",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    },
+    {
+      "id": "components-toast--toast-with-buttons",
+      "name": "Toast With Buttons",
+      "export_name": "ToastWithButtons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Toast/Toast.stories.tsx"
+    }
+  ]
+}

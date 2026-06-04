@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "sanofi-elements-html-v1-benchmark",
+  "renderer_target": "html",
+  "cases": [
+    {
+      "id": "admin-home",
+      "prompt": "生成一个中医药后台管理首页",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "filter-toolbar", "kpi-summary", "work-queue", "data-table-fallback", "chart-fallback"],
+      "expected_primitives": ["navigation-header", "sidebar", "menu", "search-input", "select", "button", "card", "tag"],
+      "expected_fallbacks": ["table", "chart"]
+    },
+    {
+      "id": "list-page",
+      "prompt": "生成药材库存列表页，包含搜索、筛选、状态和分页入口",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "filter-toolbar", "data-table-fallback"],
+      "expected_primitives": ["sidebar", "search-input", "select", "button", "tag"],
+      "expected_fallbacks": ["table"]
+    },
+    {
+      "id": "approval-queue",
+      "prompt": "生成处方审批队列页面，突出待处理、超时和风险状态",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "filter-toolbar", "work-queue"],
+      "expected_primitives": ["sidebar", "tabs", "card", "tag", "button"],
+      "expected_fallbacks": ["table"]
+    },
+    {
+      "id": "detail-page",
+      "prompt": "生成药材批次详情页，包含基础信息、质检结果和操作按钮",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "kpi-summary", "data-table-fallback"],
+      "expected_primitives": ["navigation-header", "sidebar", "card", "tag", "button"],
+      "expected_fallbacks": ["table"]
+    },
+    {
+      "id": "form-page",
+      "prompt": "生成供应商资质录入表单页，包含搜索、下拉选择、提交按钮",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "filter-toolbar"],
+      "expected_primitives": ["sidebar", "search-input", "select", "button"],
+      "expected_fallbacks": []
+    },
+    {
+      "id": "settings-page",
+      "prompt": "生成后台设置页，包含菜单导航、配置分组和保存按钮",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "work-queue"],
+      "expected_primitives": ["sidebar", "menu", "card", "button"],
+      "expected_fallbacks": []
+    },
+    {
+      "id": "data-dashboard",
+      "prompt": "生成数据看板页面，展示质检趋势和库存预警",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "kpi-summary", "chart-fallback"],
+      "expected_primitives": ["card", "tag", "progress-bar"],
+      "expected_fallbacks": ["chart"]
+    },
+    {
+      "id": "empty-state",
+      "prompt": "生成后台空状态页面，保留导航、筛选和提示卡片",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "filter-toolbar", "work-queue"],
+      "expected_primitives": ["sidebar", "search-input", "select", "card", "button"],
+      "expected_fallbacks": []
+    },
+    {
+      "id": "error-state",
+      "prompt": "生成后台错误状态页面，包含错误状态标签和重试按钮",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "work-queue"],
+      "expected_primitives": ["sidebar", "card", "tag", "button"],
+      "expected_fallbacks": []
+    },
+    {
+      "id": "modal-workflow",
+      "prompt": "生成审核弹窗流程入口，缺少官方弹窗 primitive 时说明 fallback",
+      "expected_page_type": "admin-dashboard",
+      "expected_sections": ["admin-shell", "navigation", "work-queue"],
+      "expected_primitives": ["sidebar", "card", "tag", "button"],
+      "expected_fallbacks": ["modal"]
+    }
+  ]
+}

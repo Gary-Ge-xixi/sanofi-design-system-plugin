@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "id": "content-standards",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Generated pages must use consistent Chinese business terminology, action copy, state copy, and approval copy.",
+  "source_provenance": {
+    "content_standard": "../business/content-standard.json",
+    "task_flows": "../business/task-flow-standard.json"
+  },
+  "required_copy_groups": [
+    "business_terms",
+    "button_copy",
+    "empty_state_copy",
+    "error_state_copy",
+    "success_state_copy",
+    "approval_status_copy"
+  ],
+  "copy_policy": [
+    "Use action verbs that match task-flow-standard.json.",
+    "Use business nouns from the page domain instead of generic placeholder nouns.",
+    "Empty states must say what is empty and how to recover.",
+    "Error states must include recovery action or support context.",
+    "Approval states must distinguish approved, rejected, returned, withdrawn, and pending."
+  ],
+  "forbidden_copy": [
+    "Lorem ipsum",
+    "Click here",
+    "Submit form",
+    "Unknown error"
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

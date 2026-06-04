@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "divider",
+  "component_name": "Divider",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Divider"
+  },
+  "docs": [
+    {
+      "id": "components-divider--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Divider/Divider.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-divider--custom-width",
+      "name": "Custom Width",
+      "export_name": "CustomWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--orientation",
+      "name": "Orientation",
+      "export_name": "Orientation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "components-divider--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Divider/Divider.stories.tsx"
+    }
+  ]
+}

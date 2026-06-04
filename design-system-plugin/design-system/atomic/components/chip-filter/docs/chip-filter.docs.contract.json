@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-filter-docs-contract",
+  "component_id": "chip-filter",
+  "component_name": "ChipFilter",
+  "docs_id": "components-chipfilter--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-chipfilter--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onDelete",
+        "required": false,
+        "description": "Callback function when the remove button is clickedMouseEventHandler<HTMLSpanElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Controls the size of the chip\"small\"\"medium\"",
+        "default": "small",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Whether the chip is disabledboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Controls the color scheme of the chip\"neutral\"\"branded\"",
+        "default": "branded",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "emphasis",
+        "required": false,
+        "description": "Controls the visual emphasis of the chip\"strong\"\"outline\"\"subtle\"",
+        "default": "subtle",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxWidth",
+        "required": false,
+        "description": "Maximum width in pixels before text truncation (minimum: 50px)number",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onWidthCalculated",
+        "required": false,
+        "description": "((width: number) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "ChipFilterClassNames",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-chipfilter--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-chipfilter--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    },
+    {
+      "id": "components-chipfilter--list-with-removal",
+      "name": "List Example",
+      "export_name": "ListWithRemoval",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    },
+    {
+      "id": "components-chipfilter--long-label",
+      "name": "Long Label",
+      "export_name": "LongLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    },
+    {
+      "id": "components-chipfilter--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipFilter/ChipFilter.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chipfilter--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json"
+  }
+}

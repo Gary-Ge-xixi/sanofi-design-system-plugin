@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2025年12月CDC库存填报</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --template-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --admin-density-control-height: 3.5rem;
+        --admin-density-control-padding-inline: 1rem;
+        --admin-density-toolbar-gap: 1rem;
+        --admin-density-toolbar-padding: 1rem;
+        --admin-density-table-cell-padding-block: 1rem;
+        --admin-density-table-cell-padding-inline: 1rem;
+        --admin-density-table-min-width: 64rem;
+        --admin-density-sidebar-width: 20.625rem;
+        --admin-density-topbar-height: 6.25rem;
+        --template-sidebar-width: var(--admin-density-sidebar-width);
+        --template-header-height: var(--admin-density-topbar-height);
+        --template-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --template-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --template-muted-surface-bg: var(--elements-color-semantic-accent-neutral_default);
+        --template-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --template-table-border: var(--elements-color-semantic-accent-neutral_active);
+        --template-disabled-bg: var(--elements-color-semantic-text-disabled_inverse);
+        font-family: var(--template-font-family);
+        letter-spacing: var(--elements-core-font-letterspacing-default);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--template-page-bg);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body { margin: 0; block-size: 100vh; overflow: hidden; font-family: var(--template-font-family); letter-spacing: var(--elements-core-font-letterspacing-default); background: var(--template-page-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, p { margin-block-start: 0; margin-block-end: 0; letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .sr-only { position: absolute; inline-size: 0.0625rem; block-size: 0.0625rem; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+      .template-shell { block-size: 100vh; overflow: hidden; display: grid; grid-template-columns: var(--admin-density-sidebar-width) minmax(0, 1fr); grid-template-rows: var(--admin-density-topbar-height) minmax(0, 1fr); }
+      .template-topbar { grid-column: 1 / -1; min-inline-size: 0; display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--template-surface-bg); border-block-end: 0.0625rem solid var(--elements-color-semantic-border-default); box-shadow: var(--elements-core-elevation-02); z-index: 4; }
+      .brand-lockup, .topbar-actions, .breadcrumb, .button-row, .pagination-row, .save-bar { display: flex; align-items: center; gap: var(--elements-spacing-md); }
+      .brand-lockup { min-inline-size: 0; }
+      .brand-word { font-size: var(--elements-font-size-800); font-weight: var(--elements-font-weight-bold); line-height: 1; }
+      .brand-dot { color: var(--elements-color-semantic-text-accent-default); }
+      .brand-divider { inline-size: 0.0625rem; block-size: 2.25rem; background: var(--elements-color-semantic-border-default); }
+      .app-name { font-size: var(--elements-font-size-700); font-weight: var(--elements-font-weight-bold); }
+      .avatar { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--elements-radius-rounded); background: var(--template-muted-surface-bg); color: var(--elements-color-semantic-text-default_inverse); font-weight: var(--elements-font-weight-bold); }
+      .template-sidebar { grid-row: 2; position: sticky; inset-block-start: var(--template-header-height); block-size: calc(100vh - var(--template-header-height)); background: var(--template-surface-bg); border-inline-end: 0.0625rem solid var(--template-table-border); display: flex; flex-direction: column; overflow: hidden; z-index: 3; }
+      .sidebar-header { padding: var(--elements-spacing-sm) var(--elements-spacing-md); }
+      .template-sidebar nav { flex: 1; overflow: auto; }
+      .nav-list, .nav-children { list-style: none; margin: 0; padding: 0; }
+      .nav-list { display: grid; gap: 0.125rem; padding: var(--elements-spacing-sm); }
+      .nav-children { display: grid; gap: 0.125rem; }
+      .nav-item, .nav-child { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 3rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); line-height: var(--elements-core-font-lineheight-regular); }
+      .nav-item { padding-inline: var(--elements-spacing-sm); }
+      .nav-child { padding-inline: 3.5rem var(--elements-spacing-sm); }
+      .nav-item.is-active, .nav-child.is-active { background: var(--template-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .nav-icon, .nav-chevron { display: inline-flex; align-items: center; justify-content: center; inline-size: 1.5rem; block-size: 1.5rem; color: currentColor; }
+      .nav-chevron { margin-inline-start: auto; }
+      svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .sidebar-footer { min-block-size: 4.25rem; border-block-start: 0.0625rem solid var(--template-table-border); display: flex; align-items: center; justify-content: flex-end; padding-inline: var(--elements-spacing-lg); color: var(--elements-color-semantic-text-subtle_inverse); background: var(--template-surface-bg); }
+      .sidebar-collapse { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border: 0; border-radius: var(--elements-radius-sm); background: transparent; color: currentColor; font: inherit; font-size: var(--elements-font-size-500); cursor: pointer; }
+      .main { grid-column: 2; grid-row: 2; min-inline-size: 0; min-block-size: 0; block-size: 100%; padding: var(--elements-spacing-xl); overflow: auto; }
+      .container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); min-inline-size: 0; }
+      .content-panel { grid-column: 1 / -1; min-inline-size: 0; background: var(--template-surface-bg); padding: var(--elements-spacing-2xl); min-block-size: calc(100vh - var(--template-header-height) - var(--elements-spacing-4xl)); overflow: hidden; }
+      .breadcrumb { color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-200); margin-block-end: var(--elements-spacing-lg); }
+      .breadcrumb strong { color: var(--elements-color-semantic-text-default_inverse); }
+      .page-heading { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--elements-spacing-2xs); min-inline-size: 0; margin-block-end: var(--elements-spacing-xl); }
+      .page-title-text { max-inline-size: 100%; font-size: var(--elements-font-size-700); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); overflow-wrap: anywhere; }
+      .page-description { max-inline-size: 56rem; color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-300); line-height: var(--elements-font-lineheight-3); font-weight: var(--elements-font-weight-regular); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .page-header-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .section-title { font-size: var(--elements-font-size-500); line-height: var(--elements-font-lineheight-4); font-weight: var(--elements-font-weight-bold); letter-spacing: var(--elements-core-font-letterspacing-default); }
+      .query-toolbar { display: grid; grid-template-columns: repeat(4, minmax(10rem, 1fr)) auto auto auto; gap: var(--admin-density-toolbar-gap); align-items: center; min-inline-size: 0; background: var(--template-muted-surface-bg); padding: var(--admin-density-toolbar-padding); border-radius: var(--elements-radius-sm); margin-block-end: var(--elements-spacing-md); }
+      .filter-field { display: block; min-inline-size: 0; }
+      .select-shell { position: relative; display: block; inline-size: 100%; }
+      .select-native { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0; pointer-events: none; }
+      .select-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-md); inline-size: 100%; min-block-size: var(--admin-density-control-height); border: 0.0625rem solid var(--template-table-border); border-radius: var(--elements-radius-sm); background: var(--template-surface-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; font-weight: var(--elements-font-weight-regular); padding-inline: var(--admin-density-control-padding-inline); cursor: pointer; text-align: start; }
+      .select-trigger:hover { border-color: var(--elements-color-semantic-border-default); }
+      .select-trigger:focus-visible { outline: 0.125rem solid var(--elements-color-semantic-accent-default); outline-offset: 0.125rem; }
+      .select-value { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .select-chevron { flex: 0 0 auto; inline-size: 1.5rem; block-size: 1.5rem; color: var(--elements-color-semantic-text-default_inverse); }
+      input[type="text"] { inline-size: 100%; min-block-size: var(--admin-density-control-height); border: 0.0625rem solid var(--template-table-border); border-radius: var(--elements-radius-sm); background: var(--template-surface-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; padding-inline: var(--admin-density-control-padding-inline); }
+      .btn { min-block-size: var(--admin-density-control-height); border-radius: var(--elements-radius-sm); border: 0.0625rem solid var(--elements-color-semantic-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; white-space: nowrap; }
+      .btn-primary { background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .btn-disabled { background: var(--template-disabled-bg); border-color: var(--template-disabled-bg); color: var(--elements-color-components-tooltip-bg-default); cursor: not-allowed; }
+      .btn-secondary, .btn-link { background: var(--template-surface-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .btn-link { border-color: transparent; }
+      .button-row { margin-block-end: var(--elements-spacing-md); }
+      .table-wrap { overflow-x: auto; border: 0.0625rem solid var(--template-table-border); background: var(--template-surface-bg); }
+      table { inline-size: 100%; border-collapse: collapse; min-inline-size: var(--admin-density-table-min-width); font-size: var(--elements-font-size-300); }
+      th, td { border: 0.0625rem solid var(--template-table-border); padding: var(--admin-density-table-cell-padding-block) var(--admin-density-table-cell-padding-inline); text-align: center; vertical-align: middle; }
+      th { background: var(--template-muted-surface-bg); font-weight: var(--elements-font-weight-bold); }
+      tbody tr.summary-row td { background: var(--template-active-bg); font-weight: var(--elements-font-weight-bold); }
+      .summary-value { color: var(--elements-color-semantic-text-accent-default); }
+      .pagination-row { justify-content: flex-end; margin-block-start: var(--elements-spacing-md); }
+      .page-size { display: inline-grid; place-items: center; min-inline-size: 3rem; min-block-size: 3rem; border: 0.0625rem solid var(--template-table-border); border-radius: var(--elements-radius-sm); }
+      .page-current { display: inline-grid; place-items: center; inline-size: 3rem; block-size: 3rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-brand); color: var(--elements-color-components-tooltip-bg-default); }
+      .save-bar { position: sticky; inset-block-end: 0; justify-content: center; gap: var(--elements-spacing-lg); padding: var(--elements-spacing-md); background: var(--template-surface-bg); border-block-start: 0.0625rem solid var(--elements-color-semantic-border-default); box-shadow: var(--elements-core-elevation-03); z-index: 2; }
+      .save-bar .btn { min-inline-size: 7rem; }
+      @media (max-width: 72rem) { .query-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); } .query-toolbar .btn { inline-size: 100%; } }
+      @media (max-width: 64rem) { .template-shell { grid-template-columns: minmax(0, 1fr); } .template-sidebar { display: none; } .main { grid-column: 1; } }
+      @media (max-width: 40rem) { .template-topbar { padding-inline: var(--elements-spacing-md); gap: var(--elements-spacing-md); } .brand-lockup { gap: var(--elements-spacing-sm); } .brand-word { font-size: var(--elements-font-size-700); } .brand-divider { block-size: 1.75rem; } .app-name { min-inline-size: 0; font-size: var(--elements-font-size-500); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .avatar { inline-size: 2.25rem; block-size: 2.25rem; } .main { padding: var(--elements-spacing-md); } .content-panel { padding: var(--elements-spacing-lg); } .query-toolbar { grid-template-columns: 1fr; } }
+  </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-registry-item="sanofi-admin-query-panel" data-template="onecommercial-admin" data-template-id="onecommercial-admin-query-panel" data-page-subtype="data-entry-table-page" data-page-profile="admin-data-entry-table" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-output-state-official-runtime="absent" data-output-state-local-atomic-runtime="present" data-output-state-explicit-fallback="present" data-typography-rule="typography-font-stack" data-page-layout-typography="business-layout-typography" data-app-shell-scroll="content-only" data-scroll-rule="business-app-shell-scroll" data-density="admin-compact" data-density-rule="admin-density" data-reference-fit="admin-data-entry-table" data-reference-fit-rule="admin-data-entry-table-reference-fit" data-elevation-rule="elevation-usage" data-source-doc-id="foundations-typography--docs foundations-layout--docs components-pageheader--docs components-container--docs components-grid--docs foundations-elevation--docs">
+    <div class="template-shell" data-app-shell="business-admin" data-app-shell-scroll="content-only">
+      <header class="template-topbar" data-template-part="topbar" data-app-shell-part="topbar" data-scroll-fixed="true" data-elevation-role="header" data-elevation-token="--elements-core-elevation-02" data-primitive="navigation-header" data-source-component="navigation-header" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs" data-pattern="admin-query-panel-header" data-token-source="foundations-colors--docs">
+        <div class="brand-lockup"><span class="brand-word"><span class="brand-dot">.</span>sanofi</span><span class="brand-divider" aria-hidden="true"></span><span class="app-name">OneCommercial</span></div>
+        <div class="topbar-actions"><span class="avatar">R</span></div>
+      </header>
+      <aside class="template-sidebar" data-template-part="sidebar" data-sidebar-part="root" data-primitive="sidebar" data-source-component="sidebar" data-story-id="components-sidebar--expanded" data-source-doc-id="components-sidebar--docs" data-pattern="admin-query-panel-sidebar" data-token-source="foundations-colors--docs" data-sidebar-state="expanded">
+        <div class="sidebar-header" data-sidebar-part="header"></div>
+        <nav data-sidebar-part="content" aria-label="主导航"><ul class="nav-list" data-list-kind="sidebar-navigation" data-list-level="0"><li data-sidebar-part="section" data-list-item-kind="parent">
+    <a class="nav-item" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="0" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">
+      <span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="home" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg></span><span>首页</span>
+    </a>
+    
+  </li><li data-sidebar-part="section" data-list-item-kind="parent-with-children">
+    <a class="nav-item" href="#" data-sidebar-part="item" data-menu-role="submenu-trigger" data-menu-level="0" data-primitive="menu" data-source-component="menu" data-story-id="components-menu--with-sub-menus" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" aria-expanded="true">
+      <span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="table" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="16" rx="1.5"></rect><path d="M3 10h18"></path><path d="M8 5v16"></path></svg></span><span>数据管理</span><span class="nav-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+    </a>
+    <ul class="nav-children" data-sidebar-part="section" data-list-kind="sidebar-sub-list" data-list-level="1"><li data-list-item-kind="child"><a class="nav-child is-active" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" aria-current="page">CDC库存</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">常规品流向</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">流感品流向</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">POV库存核查</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">CDC下辖POV</a></li></ul>
+  </li><li data-sidebar-part="section" data-list-item-kind="parent-with-children">
+    <a class="nav-item" href="#" data-sidebar-part="item" data-menu-role="submenu-trigger" data-menu-level="0" data-primitive="menu" data-source-component="menu" data-story-id="components-menu--with-sub-menus" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" aria-expanded="true">
+      <span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="approval" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="4" width="14" height="18" rx="1.5"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path><path d="M8 17h5"></path></svg></span><span>申诉审批</span><span class="nav-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+    </a>
+    <ul class="nav-children" data-sidebar-part="section" data-list-kind="sidebar-sub-list" data-list-level="1"><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">流向审批</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">历史审批记录</a></li></ul>
+  </li><li data-sidebar-part="section" data-list-item-kind="parent">
+    <a class="nav-item" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="0" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">
+      <span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="balance" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"></path><path d="M4 19h17"></path><rect x="7" y="10" width="3" height="6" rx=".5"></rect><rect x="12" y="7" width="3" height="9" rx=".5"></rect><rect x="17" y="12" width="3" height="4" rx=".5"></rect></svg></span><span>进销存平衡</span>
+    </a>
+    
+  </li><li data-sidebar-part="section" data-list-item-kind="parent-with-children">
+    <a class="nav-item" href="#" data-sidebar-part="item" data-menu-role="submenu-trigger" data-menu-level="0" data-primitive="menu" data-source-component="menu" data-story-id="components-menu--with-sub-menus" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" aria-expanded="true">
+      <span class="nav-icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="system" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="5" width="16" height="14" rx="1.5"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path></svg></span><span>系统管理</span><span class="nav-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+    </a>
+    <ul class="nav-children" data-sidebar-part="section" data-list-kind="sidebar-sub-list" data-list-level="1"><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">用户管理</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">任务配置</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">明细查询</a></li><li data-list-item-kind="child"><a class="nav-child" href="#" data-sidebar-part="item" data-menu-role="item" data-menu-level="1" data-primitive="menu" data-source-component="menu-menu-item" data-story-id="components-menu-menuitem--default" data-source-doc-id="components-menu--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs">权限配置</a></li></ul>
+  </li></ul></nav>
+        <div class="sidebar-footer" data-sidebar-part="footer"><button class="sidebar-collapse" type="button" aria-label="收起侧边栏" data-primitive="button" data-source-component="button" data-story-id="components-buttonicon--tertiary-neutral" data-source-doc-id="components-button--docs" data-pattern="sidebar-collapse" data-token-source="foundations-colors--docs" data-variant="tertiary-neutral">☰</button></div>
+      </aside>
+      <main class="main" data-template-part="main" data-app-shell-part="content" data-scroll-region="content">
+        <section class="container" data-primitive="container" data-source-component="container" data-story-id="components-container--fixed" data-source-doc-id="foundations-layout--docs components-container--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-layout-rule="layout-grid-container" data-container-part="root" data-container-mode="fixed" data-container-width-token="--elements-container-width-2xl">
+          <div class="grid" data-primitive="grid" data-source-component="grid" data-story-id="components-grid--desktop" data-source-doc-id="foundations-layout--docs components-grid--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-layout-rule="layout-grid-container" data-grid-part="root" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg">
+            <article class="content-panel" data-pattern="admin-query-panel" data-template-part="content" data-container-part="contentContainer" data-grid-part="item">
+              <nav class="breadcrumb" data-section="breadcrumb" aria-label="面包屑"><strong>数据填报</strong><span>›</span><span>CDC库存填报</span></nav>
+              <section class="page-heading" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs foundations-typography--docs foundations-layout--docs" data-pageheader-part="root" data-container-type="fixed">
+                <div data-pageheader-part="content">
+                  <h1 class="page-title-text" data-pageheader-part="title">2025年12月CDC库存填报</h1>
+                  <p class="page-description" data-pageheader-part="description">窗口期：01/01-01/13</p>
+                </div>
+                <div class="page-header-actions" data-pageheader-part="actions" aria-hidden="true"></div>
+              </section>
+              <section class="query-toolbar" data-template-part="query-toolbar" data-section="query-toolbar" data-module-contract="select-filter"><label class="filter-field" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.query-filter-1" data-component-id="select" data-module-contract="select-filter" data-select-part="field" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-native="false" data-native="false">
+    <span class="select-label sr-only" id="query-filter-1-label">品规</span>
+    <span class="select-shell" data-module-contract="select-filter" data-select-part="root">
+      <select class="select-native" id="query-filter-1-native" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="native" data-select-native="true" data-select-size="medium" data-select-label-position="top" aria-labelledby="query-filter-1-label" tabindex="-1">
+        <option>品规</option>
+      </select>
+      <button class="select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="query-filter-1-label query-filter-1-value" aria-controls="query-filter-1-listbox" data-select-trigger data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="trigger" data-select-native="false" data-select-size="medium" data-select-label-position="top">
+        <span class="select-value" id="query-filter-1-value" data-select-value>品规</span>
+        <span class="select-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+      </button>
+      <span class="select-options" id="query-filter-1-listbox" role="listbox" hidden data-select-listbox>
+        <span role="option" data-value="品规" aria-selected="true">品规</span>
+      </span>
+    </span>
+  </label><label class="filter-field" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.query-filter-2" data-component-id="select" data-module-contract="select-filter" data-select-part="field" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-native="false" data-native="false">
+    <span class="select-label sr-only" id="query-filter-2-label">CDC编码/名称</span>
+    <span class="select-shell" data-module-contract="select-filter" data-select-part="root">
+      <select class="select-native" id="query-filter-2-native" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="native" data-select-native="true" data-select-size="medium" data-select-label-position="top" aria-labelledby="query-filter-2-label" tabindex="-1">
+        <option>CDC编码/名称</option>
+      </select>
+      <button class="select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="query-filter-2-label query-filter-2-value" aria-controls="query-filter-2-listbox" data-select-trigger data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="trigger" data-select-native="false" data-select-size="medium" data-select-label-position="top">
+        <span class="select-value" id="query-filter-2-value" data-select-value>CDC编码/名称</span>
+        <span class="select-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+      </button>
+      <span class="select-options" id="query-filter-2-listbox" role="listbox" hidden data-select-listbox>
+        <span role="option" data-value="CDC编码/名称" aria-selected="true">CDC编码/名称</span>
+      </span>
+    </span>
+  </label><label class="filter-field" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.query-filter-3" data-component-id="select" data-module-contract="select-filter" data-select-part="field" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-native="false" data-native="false">
+    <span class="select-label sr-only" id="query-filter-3-label">必填CDC</span>
+    <span class="select-shell" data-module-contract="select-filter" data-select-part="root">
+      <select class="select-native" id="query-filter-3-native" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="native" data-select-native="true" data-select-size="medium" data-select-label-position="top" aria-labelledby="query-filter-3-label" tabindex="-1">
+        <option>必填CDC</option>
+      </select>
+      <button class="select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="query-filter-3-label query-filter-3-value" aria-controls="query-filter-3-listbox" data-select-trigger data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="trigger" data-select-native="false" data-select-size="medium" data-select-label-position="top">
+        <span class="select-value" id="query-filter-3-value" data-select-value>必填CDC</span>
+        <span class="select-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+      </button>
+      <span class="select-options" id="query-filter-3-listbox" role="listbox" hidden data-select-listbox>
+        <span role="option" data-value="必填CDC" aria-selected="true">必填CDC</span>
+      </span>
+    </span>
+  </label><label class="filter-field" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="select.query-filter-4" data-component-id="select" data-module-contract="select-filter" data-select-part="field" data-select-size="medium" data-select-shell="normal" data-select-edge-safe="true" data-select-native="false" data-native="false">
+    <span class="select-label sr-only" id="query-filter-4-label">客户分组</span>
+    <span class="select-shell" data-module-contract="select-filter" data-select-part="root">
+      <select class="select-native" id="query-filter-4-native" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="native" data-select-native="true" data-select-size="medium" data-select-label-position="top" aria-labelledby="query-filter-4-label" tabindex="-1">
+        <option>客户分组</option>
+      </select>
+      <button class="select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="query-filter-4-label query-filter-4-value" aria-controls="query-filter-4-listbox" data-select-trigger data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="query-toolbar" data-token-source="foundations-colors--docs" data-select-part="trigger" data-select-native="false" data-select-size="medium" data-select-label-position="top">
+        <span class="select-value" id="query-filter-4-value" data-select-value>客户分组</span>
+        <span class="select-chevron" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="admin-query-panel" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+      </button>
+      <span class="select-options" id="query-filter-4-listbox" role="listbox" hidden data-select-listbox>
+        <span role="option" data-value="客户分组" aria-selected="true">客户分组</span>
+      </span>
+    </span>
+  </label><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="secondary">筛选</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="secondary">重置</button><button class="btn btn-link" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="link">更多⌄</button></section>
+              <div class="button-row" data-section="primary-actions"><button class="btn btn-primary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="primary">新增CDC库存 →</button><button class="btn btn-secondary" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="secondary">批量导入</button><button class="btn btn-link" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="link">导出</button></div>
+              <section class="table-wrap" data-template-part="editable-table" data-section="editable-data-table-fallback" data-module-contract="data-table-fallback" data-list-kind="editable-table-list" data-table-list-role="fallback" data-fallback-module="table" data-fallback-reason="No official Table/DataTable/DataGrid primitive is registered locally."><table aria-label="2025年12月CDC库存填报"><thead><tr><th scope="col">年月</th><th scope="col">CDC编码</th><th scope="col">CDC名称</th><th scope="col">品规</th><th scope="col">客户分组</th><th scope="col">数量</th></tr></thead><tbody><tr class="summary-row"><td>TOTAL</td><td colspan="4"></td><td class="summary-value">600</td></tr><tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-pattern="editable-table-cell" data-token-source="foundations-colors--docs" type="text" value="100" aria-label="数量"></td></tr><tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-pattern="editable-table-cell" data-token-source="foundations-colors--docs" type="text" value="100" aria-label="数量"></td></tr><tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-pattern="editable-table-cell" data-token-source="foundations-colors--docs" type="text" value="100" aria-label="数量"></td></tr><tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-pattern="editable-table-cell" data-token-source="foundations-colors--docs" type="text" value="100" aria-label="数量"></td></tr><tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-pattern="editable-table-cell" data-token-source="foundations-colors--docs" type="text" value="100" aria-label="数量"></td></tr><tr><td>2025-01</td><td>ABCD</td><td>淮北市疾病预防控制中心</td><td>70_潘太欣</td><td>正式客户</td><td><input data-primitive="text-input" data-source-component="text-input" data-story-id="components-textinput--default" data-source-doc-id="components-textinput--docs" data-pattern="editable-table-cell" data-token-source="foundations-colors--docs" type="text" value="100" aria-label="数量"></td></tr></tbody></table></section>
+              <nav class="pagination-row" data-section="pagination" data-primitive="pagination" data-source-component="pagination" data-story-id="components-pagination--default" data-source-doc-id="components-pagination--docs" data-pattern="table-pagination" data-token-source="foundations-colors--docs" aria-label="分页"><span>共6条，每页</span><span class="page-size">10</span><span>条</span><button class="btn btn-link" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="link" aria-label="上一页">‹</button><span class="page-current" aria-current="page">1</span><button class="btn btn-link" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="link" aria-label="下一页">›</button></nav>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="save-bar" data-template-part="save-bar" data-section="save-bar" data-elevation-role="sticky-action" data-elevation-token="--elements-core-elevation-03" data-source-doc-id="foundations-elevation--docs"><button class="btn btn-disabled" type="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="admin-query-panel-action" data-token-source="foundations-colors--docs" data-variant="primary" data-state="disabled" disabled>保存</button><span>上次保存时间：2026-01-01 09:00:00</span></div>
+    <script data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package">
+      (() => {
+        const closeSelect = (root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          if (!trigger || !listbox) return;
+          trigger.setAttribute("aria-expanded", "false");
+          listbox.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          const valueNode = root.querySelector("[data-select-value]");
+          if (!trigger || !listbox || !valueNode) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            listbox.hidden = !nextExpanded;
+          });
+
+          listbox.querySelectorAll("[role='option']").forEach((option) => {
+            option.addEventListener("click", () => {
+              listbox.querySelectorAll("[role='option']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              option.setAttribute("aria-selected", "true");
+              valueNode.textContent = option.textContent.trim();
+              closeSelect(root);
+            });
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeSelect(root);
+          });
+        });
+
+        const closeDatePicker = (root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+          trigger.setAttribute("aria-expanded", "false");
+          dialog.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-date-picker-trigger='true']");
+          const dialog = root.querySelector("[data-date-picker-dialog='true']");
+          if (!trigger || !dialog) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            dialog.hidden = !nextExpanded;
+          });
+
+          root.querySelectorAll("[data-date-picker-close]").forEach((closeButton) => {
+            closeButton.addEventListener("click", () => closeDatePicker(root));
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='date-picker'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeDatePicker(root);
+          });
+        });
+
+        document.querySelectorAll("[data-component-id='tabs'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          root.querySelectorAll("[role='tab']").forEach((tab) => {
+            tab.addEventListener("click", () => {
+              root.querySelectorAll("[role='tab']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              tab.setAttribute("aria-selected", "true");
+            });
+          });
+        });
+
+        document.querySelectorAll("[data-sidebar-toggle]").forEach((toggle) => {
+          toggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            const expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!expanded));
+            const children = toggle.parentElement?.querySelector(".snf-nav-children");
+            if (children) children.hidden = expanded;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

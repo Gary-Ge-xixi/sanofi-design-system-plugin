@@ -1,0 +1,226 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tabs",
+  "canonical_name": "tabs",
+  "component_name": "Tabs",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-tabs--docs",
+    "title": "Tabs",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-tabs--docs",
+    "import_path": "./src/components/Tabs/Tabs.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 9,
+    "story_ids": [
+      "components-tabs--controlled",
+      "components-tabs--default",
+      "components-tabs--default-selected-tab",
+      "components-tabs--full-width",
+      "components-tabs--lazy-mount",
+      "components-tabs--lazy-mount-with-unmount",
+      "components-tabs--uncontrolled",
+      "components-tabs--with-nav",
+      "components-tabs--with-nav-in-resizable-panel"
+    ],
+    "records": [
+      {
+        "id": "components-tabs--controlled",
+        "name": "Controlled",
+        "normalized_name": "controlled",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "Controlled"
+      },
+      {
+        "id": "components-tabs--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-tabs--default-selected-tab",
+        "name": "Default Selected Tab",
+        "normalized_name": "default-selected-tab",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "DefaultSelectedTab"
+      },
+      {
+        "id": "components-tabs--full-width",
+        "name": "Full Width",
+        "normalized_name": "full-width",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "FullWidth"
+      },
+      {
+        "id": "components-tabs--lazy-mount",
+        "name": "Lazy Mount",
+        "normalized_name": "lazy-mount",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "LazyMount"
+      },
+      {
+        "id": "components-tabs--lazy-mount-with-unmount",
+        "name": "Lazy Mount With Unmount",
+        "normalized_name": "lazy-mount-with-unmount",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "LazyMountWithUnmount"
+      },
+      {
+        "id": "components-tabs--uncontrolled",
+        "name": "Uncontrolled",
+        "normalized_name": "uncontrolled",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "Uncontrolled"
+      },
+      {
+        "id": "components-tabs--with-nav",
+        "name": "With Nav",
+        "normalized_name": "with-nav",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "WithNav"
+      },
+      {
+        "id": "components-tabs--with-nav-in-resizable-panel",
+        "name": "With Nav In Resizable Panel",
+        "normalized_name": "with-nav-in-resizable-panel",
+        "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+        "export_name": "WithNavInResizablePanel"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Tab content including Tabs.List and Tabs.Panel components.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "controlled",
+      "default",
+      "default-selected-tab",
+      "full-width",
+      "lazy-mount",
+      "lazy-mount-with-unmount",
+      "uncontrolled",
+      "with-nav",
+      "with-nav-in-resizable-panel"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "controlled",
+      "default",
+      "default-selected-tab",
+      "full-width",
+      "lazy-mount",
+      "lazy-mount-with-unmount",
+      "uncontrolled",
+      "with-nav",
+      "with-nav-in-resizable-panel"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Tabs } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n<Tabs defaultSelected=\"tab1\">\n  <Tabs.List>\n    <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n    <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n    <Tabs.Tab name=\"tab3\">Tab 3</Tabs.Tab>\n  </Tabs.List>\n  <Tabs.Panel name=\"tab1\">Content for Tab 1</Tabs.Panel>\n  <Tabs.Panel name=\"tab2\">Content for Tab 2</Tabs.Panel>\n  <Tabs.Panel name=\"tab3\">Content for Tab 3</Tabs.Panel>\n</Tabs>\n),"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Tabs } from \"@sanofi-accelerator/elements\";\n\nexport const default = () => (\n<Tabs defaultSelected=\"tab1\">\n  <Tabs.List>\n    <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n    <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n    <Tabs.Tab name=\"tab3\">Tab 3</Tabs.Tab>\n  </Tabs.List>\n  <Tabs.Panel name=\"tab1\">Content for Tab 1</Tabs.Panel>\n  <Tabs.Panel name=\"tab2\">Content for Tab 2</Tabs.Panel>\n  <Tabs.Panel name=\"tab3\">Content for Tab 3</Tabs.Panel>\n</Tabs>\n),",
+      "<Tabs defaultSelected=\"tab1\" lazyMount>\n<Tabs.List>\n  <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n  <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n</Tabs.List>\n<Tabs.Panel name=\"tab1\">Content for Tab 1</Tabs.Panel>\n<Tabs.Panel name=\"tab2\">Heavy content - only mounts when selected</Tabs.Panel>\n</Tabs>",
+      "<Tabs defaultSelected=\"tab1\" lazyMount unmountOnHide>\n<Tabs.List>\n  <Tabs.Tab name=\"tab1\">Tab 1</Tabs.Tab>\n  <Tabs.Tab name=\"tab2\">Tab 2</Tabs.Tab>\n</Tabs.List>\n<Tabs.Panel name=\"tab1\">Content unmounts when deselected</Tabs.Panel>\n<Tabs.Panel name=\"tab2\">Content unmounts when deselected</Tabs.Panel>\n</Tabs>"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "tabs"
+    ],
+    "contracts": [
+      {
+        "id": "tabs",
+        "status": "storybook-backed-static-contract",
+        "contract_path": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/tabs/demo.registry.json",
+        "known_story_ids": [
+          "components-tabs--default",
+          "components-tabs--default-selected-tab",
+          "components-tabs--controlled",
+          "components-tabs--with-nav",
+          "components-tabs--full-width",
+          "components-tabs--lazy-mount",
+          "components-tabs--lazy-mount-with-unmount",
+          "components-tabs--uncontrolled",
+          "components-tabs--with-nav-in-resizable-panel",
+          "components-tabs--controlled",
+          "components-tabs--default",
+          "components-tabs--default-selected-tab",
+          "components-tabs--full-width",
+          "components-tabs--lazy-mount",
+          "components-tabs--lazy-mount-with-unmount",
+          "components-tabs--uncontrolled",
+          "components-tabs--with-nav",
+          "components-tabs--with-nav-in-resizable-panel"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-tabs--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-tabs--docs.md",
+    "docs_import_path": "./src/components/Tabs/Tabs.mdx",
+    "story_ids": [
+      "components-tabs--controlled",
+      "components-tabs--default",
+      "components-tabs--default-selected-tab",
+      "components-tabs--full-width",
+      "components-tabs--lazy-mount",
+      "components-tabs--lazy-mount-with-unmount",
+      "components-tabs--uncontrolled",
+      "components-tabs--with-nav",
+      "components-tabs--with-nav-in-resizable-panel"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

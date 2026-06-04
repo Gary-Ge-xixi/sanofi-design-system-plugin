@@ -1,0 +1,216 @@
+{
+  "schema_version": "0.1.0",
+  "id": "onecommercial-admin-query-panel",
+  "status": "ready",
+  "renderer_target": "html",
+  "pattern_id": "admin-query-panel",
+  "page_subtype": "data-entry-table-page",
+  "template": "onecommercial-admin",
+  "title": "2025年12月CDC库存填报",
+  "app": {
+    "brand": "sanofi",
+    "name": "OneCommercial",
+    "avatar": "R"
+  },
+  "breadcrumb": [
+    "数据填报",
+    "CDC库存填报"
+  ],
+  "heading": {
+    "title": "2025年12月CDC库存填报",
+    "meta": "窗口期：01/01-01/13"
+  },
+  "sidebar": [
+    {
+      "id": "home",
+      "label": "首页",
+      "icon": "home",
+      "active": false
+    },
+    {
+      "id": "data-management",
+      "label": "数据管理",
+      "icon": "table",
+      "expanded": true,
+      "items": [
+        {
+          "id": "cdc-stock",
+          "label": "CDC库存",
+          "active": true
+        },
+        {
+          "id": "regular-flow",
+          "label": "常规品流向"
+        },
+        {
+          "id": "flu-flow",
+          "label": "流感品流向"
+        },
+        {
+          "id": "pov-check",
+          "label": "POV库存核查"
+        },
+        {
+          "id": "cdc-pov",
+          "label": "CDC下辖POV"
+        }
+      ]
+    },
+    {
+      "id": "appeal",
+      "label": "申诉审批",
+      "icon": "approval",
+      "expanded": true,
+      "items": [
+        {
+          "id": "flow-approval",
+          "label": "流向审批"
+        },
+        {
+          "id": "approval-history",
+          "label": "历史审批记录"
+        }
+      ]
+    },
+    {
+      "id": "balance",
+      "label": "进销存平衡",
+      "icon": "balance"
+    },
+    {
+      "id": "system",
+      "label": "系统管理",
+      "icon": "system",
+      "items": [
+        {
+          "id": "user-management",
+          "label": "用户管理"
+        },
+        {
+          "id": "task-config",
+          "label": "任务配置"
+        },
+        {
+          "id": "detail-query",
+          "label": "明细查询"
+        },
+        {
+          "id": "permission-config",
+          "label": "权限配置"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    "品规",
+    "CDC编码/名称",
+    "必填CDC",
+    "客户分组"
+  ],
+  "actions": [
+    {
+      "label": "新增CDC库存",
+      "variant": "primary"
+    },
+    {
+      "label": "批量导入",
+      "variant": "secondary"
+    },
+    {
+      "label": "导出",
+      "variant": "link"
+    }
+  ],
+  "table": {
+    "summary_label": "TOTAL",
+    "summary_value": "600",
+    "columns": [
+      "年月",
+      "CDC编码",
+      "CDC名称",
+      "品规",
+      "客户分组",
+      "数量"
+    ],
+    "rows": [
+      {
+        "month": "2025-01",
+        "code": "ABCD",
+        "name": "淮北市疾病预防控制中心",
+        "spec": "70_潘太欣",
+        "group": "正式客户",
+        "quantity": "100"
+      },
+      {
+        "month": "2025-01",
+        "code": "ABCD",
+        "name": "淮北市疾病预防控制中心",
+        "spec": "70_潘太欣",
+        "group": "正式客户",
+        "quantity": "100"
+      },
+      {
+        "month": "2025-01",
+        "code": "ABCD",
+        "name": "淮北市疾病预防控制中心",
+        "spec": "70_潘太欣",
+        "group": "正式客户",
+        "quantity": "100"
+      },
+      {
+        "month": "2025-01",
+        "code": "ABCD",
+        "name": "淮北市疾病预防控制中心",
+        "spec": "70_潘太欣",
+        "group": "正式客户",
+        "quantity": "100"
+      },
+      {
+        "month": "2025-01",
+        "code": "ABCD",
+        "name": "淮北市疾病预防控制中心",
+        "spec": "70_潘太欣",
+        "group": "正式客户",
+        "quantity": "100"
+      },
+      {
+        "month": "2025-01",
+        "code": "ABCD",
+        "name": "淮北市疾病预防控制中心",
+        "spec": "70_潘太欣",
+        "group": "正式客户",
+        "quantity": "100"
+      }
+    ]
+  },
+  "pagination": {
+    "total": "共6条",
+    "page_size": "10",
+    "current_page": "1"
+  },
+  "save_bar": {
+    "button": "保存",
+    "status": "上次保存时间：2026-01-01 09:00:00",
+    "disabled": true
+  },
+  "source_provenance": {
+    "layout_docs": [
+      "foundations-layout--docs",
+      "components-container--docs",
+      "components-grid--docs"
+    ],
+    "navigation_docs": [
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs"
+    ],
+    "form_docs": [
+      "components-select--docs",
+      "components-button--docs",
+      "components-textinput--docs",
+      "components-pagination--docs"
+    ],
+    "token_source": "foundations-colors--docs"
+  }
+}

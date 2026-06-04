@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-text-input-complete-package",
+  "title": "TextInput complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local TextInput package covering Docs plus all Storybook story atoms.",
+  "component_id": "text-input",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-text-input"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/text-input.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/text-input.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/text-input.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/text-input.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/docs/text-input.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/docs/text-input.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/text-input/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/text-input/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/text-input-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/text-input-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/text-input.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/text-input/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 15,
+    "materialized_stories": 15,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-textinput--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-default-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--default-inverse",
+      "story_name": "Default Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-default-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--disabled-inverse",
+      "story_name": "Disabled Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-disabled-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--error-inverse",
+      "story_name": "Error Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-error-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--error-state",
+      "story_name": "Error State",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-error-state-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--filled",
+      "story_name": "Filled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-filled-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--filled-inverse",
+      "story_name": "Filled Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-filled-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--sizes",
+      "story_name": "Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--success-inverse",
+      "story_name": "Success Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-success-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--success-state",
+      "story_name": "Success State",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-success-state-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--type-email",
+      "story_name": "Type Email",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-type-email-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--type-password",
+      "story_name": "Type Password",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-type-password-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--type-tel",
+      "story_name": "Type Tel",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-type-tel-atomic-story"
+    },
+    {
+      "story_id": "components-textinput--with-tooltip",
+      "story_name": "With Tooltip",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-text-input-with-tooltip-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-textinput--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/text-input/text-input.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/text-input/docs/text-input.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "text-input",
+      "TextInput",
+      "text-input complete",
+      "TextInput complete package",
+      "text-input docs"
+    ],
+    "when_to_use": "Use first for any TextInput generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer TextInput behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

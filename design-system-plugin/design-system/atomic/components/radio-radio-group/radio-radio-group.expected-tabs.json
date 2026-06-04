@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "radio-radio-group",
+  "component_name": "Radio/RadioGroup",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Radio/RadioGroup"
+  },
+  "docs": [
+    {
+      "id": "components-radio-radiogroup--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/RadioGroup/RadioGroup.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-radio-radiogroup--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    },
+    {
+      "id": "components-radio-radiogroup--horizontal",
+      "name": "Horizontal",
+      "export_name": "Horizontal",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    },
+    {
+      "id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "name": "Horizontal Radios With Error",
+      "export_name": "HorizontalRadiosWithError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    },
+    {
+      "id": "components-radio-radiogroup--with-error",
+      "name": "With Error",
+      "export_name": "WithError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx"
+    }
+  ]
+}

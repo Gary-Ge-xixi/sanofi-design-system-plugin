@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1.0",
+  "id": "source-provenance",
+  "required_for_contract": [
+    "docs_id",
+    "docs_path",
+    "docs_import_path",
+    "story_ids",
+    "token_source"
+  ],
+  "required_for_resolution": [
+    "pattern_id",
+    "docs_ids",
+    "story_ids",
+    "token_source",
+    "fallback_reasons"
+  ],
+  "required_for_html": [
+    "data-source-doc-id",
+    "data-story-id",
+    "data-pattern",
+    "data-token-source"
+  ],
+  "policy": "Generated work must be traceable to local docs, Storybook stories, token source, pattern id, and fallback reason."
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "divider",
+  "component_name": "Divider",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-divider--custom-width",
+      "story_name": "Custom Width",
+      "component_id": "divider",
+      "component_name": "Divider",
+      "variant": "default",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--custom-width.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/divider/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/divider-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+      "docs_id": "components-divider--docs",
+      "registry_item": "sanofi-divider-default-atomic-story"
+    },
+    {
+      "story_id": "components-divider--default",
+      "story_name": "Default",
+      "component_id": "divider",
+      "component_name": "Divider",
+      "variant": "default",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/divider/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/divider-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+      "docs_id": "components-divider--docs",
+      "registry_item": "sanofi-divider-default-atomic-story"
+    },
+    {
+      "story_id": "components-divider--inverse",
+      "story_name": "Inverse",
+      "component_id": "divider",
+      "component_name": "Divider",
+      "variant": "inverse",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--inverse.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/divider/templates/html.inverse.template.html",
+      "output_path": "design-system-plugin/outputs/html/divider-inverse.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+      "docs_id": "components-divider--docs",
+      "registry_item": "sanofi-divider-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-divider--orientation",
+      "story_name": "Orientation",
+      "component_id": "divider",
+      "component_name": "Divider",
+      "variant": "default",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--orientation.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/divider/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/divider-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+      "docs_id": "components-divider--docs",
+      "registry_item": "sanofi-divider-default-atomic-story"
+    },
+    {
+      "story_id": "components-divider--overview",
+      "story_name": "Overview",
+      "component_id": "divider",
+      "component_name": "Divider",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/divider/stories/components-divider--overview.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/divider/templates/html.overview.template.html",
+      "output_path": "design-system-plugin/outputs/html/divider-overview.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/divider/assets/Divider.stories-CeRa4GhF.js",
+      "docs_id": "components-divider--docs",
+      "registry_item": "sanofi-divider-overview-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-divider--docs"
+  }
+}

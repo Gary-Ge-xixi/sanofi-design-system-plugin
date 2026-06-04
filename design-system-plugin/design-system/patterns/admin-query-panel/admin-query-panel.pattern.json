@@ -1,0 +1,127 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-query-panel",
+  "status": "ready",
+  "renderer_target": "html",
+  "template_id": "onecommercial-admin-query-panel",
+  "page_subtype": "data-entry-table-page",
+  "business_context": {
+    "product": "OneCommercial",
+    "domain": "CDC inventory",
+    "primary_task": "query-and-fill",
+    "language": "zh-CN"
+  },
+  "resolver": {
+    "schema": "../../contracts/schemas/pattern-resolver.schema.json",
+    "script": "../../../scripts/resolve-pattern",
+    "latest_resolution": "../../contracts/resolvers/latest-resolution.json"
+  },
+  "required_sections": [
+    "admin-shell",
+    "layout-container",
+    "layout-grid",
+    "navigation",
+    "breadcrumb",
+    "query-toolbar",
+    "primary-actions",
+    "editable-data-table-fallback",
+    "pagination",
+    "save-bar"
+  ],
+  "forbidden_sections": [
+    "kpi-summary",
+    "work-queue",
+    "chart-fallback"
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "select",
+    "button",
+    "text-input",
+    "pagination"
+  ],
+  "optional_primitives": [
+    "search-input"
+  ],
+  "required_rules": [
+    {
+      "id": "layout-grid-container",
+      "path": "../../rules/layout-grid-container.json",
+      "source_docs": [
+        "foundations-layout--docs",
+        "components-container--docs",
+        "components-grid--docs"
+      ]
+    },
+    {
+      "id": "typography-font-stack",
+      "path": "../../rules/typography-font-stack.json",
+      "source_docs": [
+        "foundations-typography--docs",
+        "components-typography--docs"
+      ]
+    },
+    {
+      "id": "admin-template-navigation",
+      "path": "../../rules/admin-template-navigation.json",
+      "source_docs": [
+        "components-navigationheader--docs",
+        "components-sidebar--docs",
+        "components-menu--docs",
+        "components-icon--docs"
+      ]
+    },
+    {
+      "id": "admin-query-panel-template",
+      "path": "../../rules/admin-query-panel-template.json",
+      "source_docs": [
+        "components-select--docs",
+        "components-button--docs",
+        "components-textinput--docs",
+        "components-pagination--docs"
+      ]
+    },
+    {
+      "id": "admin-density",
+      "path": "../../rules/admin-density.json",
+      "source_docs": [
+        "foundations-layout--docs",
+        "components-grid--docs",
+        "components-container--docs"
+      ]
+    },
+    {
+      "id": "admin-data-entry-table-reference-fit",
+      "path": "../../reference-fit/admin-data-entry-table.rules.json",
+      "source_docs": [
+        "foundations-layout--docs",
+        "components-select--docs",
+        "components-textinput--docs"
+      ]
+    }
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally; use native table markup with token-only styling."
+    }
+  ],
+  "source_provenance": {
+    "primary_docs_corpus": "../../knowledge/docs-index.json",
+    "component_contract_index": "../../contracts/components/component-contract-index.json",
+    "semantic_token_map": "../../contracts/semantic-token-map.json",
+    "token_source": "foundations-colors--docs",
+    "layout_source": "foundations-layout--docs",
+    "layout_rule": "../../rules/layout-grid-container.json",
+    "typography_rule": "../../rules/typography-font-stack.json",
+    "template_navigation_rule": "../../rules/admin-template-navigation.json",
+    "template_contract": "../../templates/onecommercial-admin-query-panel.template.json"
+  }
+}

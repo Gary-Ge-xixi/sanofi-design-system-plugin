@@ -1,0 +1,166 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mega-menu",
+  "canonical_name": "mega-menu",
+  "component_name": "MegaMenu",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-megamenu--docs",
+    "title": "MegaMenu",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu--docs",
+    "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-megamenu--example",
+      "components-megamenu--fitted-content-mega-menu",
+      "components-megamenu--nav-header-custom-placement"
+    ],
+    "records": [
+      {
+        "id": "components-megamenu--example",
+        "name": "Example",
+        "normalized_name": "example",
+        "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx",
+        "export_name": "Example"
+      },
+      {
+        "id": "components-megamenu--fitted-content-mega-menu",
+        "name": "Fitted Content Mega Menu",
+        "normalized_name": "fitted-content-mega-menu",
+        "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx",
+        "export_name": "FittedContentMegaMenu"
+      },
+      {
+        "id": "components-megamenu--nav-header-custom-placement",
+        "name": "Nav Header Custom Placement",
+        "normalized_name": "nav-header-custom-placement",
+        "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx",
+        "export_name": "NavHeaderCustomPlacement"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "text",
+        "required": false,
+        "description": "Main textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtext",
+        "required": false,
+        "description": "Secondary textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Render as another componentElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "example",
+      "fitted-content-mega-menu",
+      "nav-header-custom-placement"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "example",
+      "fitted-content-mega-menu",
+      "nav-header-custom-placement"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { NavigationHeader, MegaMenu } from \"@sanofi-accelerator/elements\";\n\n<NavigationHeader.Item>\n<MegaMenu.Trigger menuContent={<MyCustomMegaMenu />}>\n  <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n</MegaMenu.Trigger>\n</NavigationHeader.Item>",
+      "import { Grid, MegaMenu } from \"@sanofi-accelerator/elements\";\n\nexport function MyCustomMegaMenu() {\nreturn (\n  <Grid.Root>\n    <Grid.Item sm={9}>\n      <MegaMenu.Title as=\"a\" href=\"#\" isLink>\n        Nav Item\n      </MegaMenu.Title>\n      <Grid.Root>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 1\"\n            subtext=\"This is a menu item subtext to give more informations\"\n          />\n        </Grid.Item>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 2\"\n            subtext=\"This is a menu item subtext to give more informations\"\n          />\n        </Grid.Item>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 3\"\n            subtext=\"This is a menu item subtext to give more informations\"\n          />\n        </Grid.Item>\n        <Grid.Item sm={3}>\n          <MegaMenu.Item\n            text=\"Menu Item 4\"\n            subtext=\"This is a menu item subtext to give more informations\"\n            disabled\n          />\n        </Grid.Item>\n      </Grid.Root>\n    </Grid.Item>\n    <Grid.Item sm={3}>\n      <MegaMenu.Title>Featured Content</MegaMenu.Title>\n    </Grid.Item>\n  </Grid.Root>\n);\n}"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "mega-menu"
+    ],
+    "contracts": [
+      {
+        "id": "mega-menu",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/mega-menu/demo.registry.json",
+        "known_story_ids": [
+          "components-megamenu--example",
+          "components-megamenu--fitted-content-mega-menu",
+          "components-megamenu--nav-header-custom-placement",
+          "components-megamenu--example",
+          "components-megamenu--fitted-content-mega-menu",
+          "components-megamenu--nav-header-custom-placement"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.mdx",
+    "story_ids": [
+      "components-megamenu--example",
+      "components-megamenu--fitted-content-mega-menu",
+      "components-megamenu--nav-header-custom-placement"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

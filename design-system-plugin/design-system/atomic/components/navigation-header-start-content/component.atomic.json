@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "navigation-header-start-content",
+  "component_name": "NavigationHeader.StartContent",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-navigationheader-startcontent--custom-overflow-label",
+      "story_name": "Custom Overflow Label",
+      "component_id": "navigation-header-start-content",
+      "component_name": "NavigationHeader.StartContent",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/stories/components-navigationheader-startcontent--custom-overflow-label.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/templates/html.custom-overflow-label.template.html",
+      "output_path": "design-system-plugin/outputs/html/navigation-header-start-content-custom-overflow-label.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+      "docs_id": "components-navigationheader-startcontent--docs",
+      "registry_item": "sanofi-navigation-header-start-content-custom-overflow-label-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--default",
+      "story_name": "Default",
+      "component_id": "navigation-header-start-content",
+      "component_name": "NavigationHeader.StartContent",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/stories/components-navigationheader-startcontent--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/navigation-header-start-content-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+      "docs_id": "components-navigationheader-startcontent--docs",
+      "registry_item": "sanofi-navigation-header-start-content-default-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--with-auto-overflow",
+      "story_name": "With Auto Overflow",
+      "component_id": "navigation-header-start-content",
+      "component_name": "NavigationHeader.StartContent",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/stories/components-navigationheader-startcontent--with-auto-overflow.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/templates/html.with-auto-overflow.template.html",
+      "output_path": "design-system-plugin/outputs/html/navigation-header-start-content-with-auto-overflow.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+      "docs_id": "components-navigationheader-startcontent--docs",
+      "registry_item": "sanofi-navigation-header-start-content-with-auto-overflow-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-navigation-header-start-content--docs"
+  }
+}

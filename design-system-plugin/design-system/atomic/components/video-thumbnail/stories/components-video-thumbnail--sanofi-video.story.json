@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-video-thumbnail--sanofi-video",
+  "component_id": "video-thumbnail",
+  "component_name": "Video Thumbnail",
+  "story_id": "components-video-thumbnail--sanofi-video",
+  "story_name": "Sanofi Video",
+  "export_name": "SanofiVideo",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-video-thumbnail--sanofi-video&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-video-thumbnail--sanofi-video&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/components-video-thumbnail--sanofi-video.iframe.html",
+    "import_path": "./src/components/VideoThumbnail/VideoThumbnail.stories.tsx",
+    "component_path": "./src/components/VideoThumbnail/VideoThumbnail.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...a,videoUrl:\"https://sanofi.sharepoint.com/sites/communicationsteam/_layouts/15/embed.aspx?uniqueId=6ba43435-9fed-440e-8c02-90b7286b31e3\",imageUrl:`${M}/images/cards-mediasanofi.webp`,size:{width:560},title:\"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"}",
+    "values": {
+      "onClick": {
+        "extraction_status": "raw_expression",
+        "value": "()=>console.log(\"clicked\")"
+      },
+      "disabled": false,
+      "withEmbeddedPlayer": true,
+      "videoUrl": "https://sanofi.sharepoint.com/sites/communicationsteam/_layouts/15/embed.aspx?uniqueId=6ba43435-9fed-440e-8c02-90b7286b31e3",
+      "imageUrl": {
+        "extraction_status": "raw_expression",
+        "value": "`${M}/images/cards-mediasanofi.webp`"
+      },
+      "size": {
+        "extraction_status": "raw_expression",
+        "value": "{width:560}"
+      },
+      "title": "Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry."
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onClick:{action:\"clicked\"},videoUrl:{control:\"text\",description:\"The video url\"},title:{control:\"text\",description:\"The video title\"},withEmbeddedPlayer:{control:\"boolean\",description:\"The video player is embedded or not\"},titleSize:{description:\"The title size\",control:\"select\",options:Object.values(S)}}",
+    "fields": [
+      "onClick",
+      "videoUrl",
+      "title",
+      "withEmbeddedPlayer",
+      "titleSize"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    videoUrl: \"https://sanofi.sharepoint.com/sites/communicationsteam/_layouts/15/embed.aspx?uniqueId=6ba43435-9fed-440e-8c02-90b7286b31e3\",\n    imageUrl: \\`\\${SANOFI_ELEMENTS_CDN_URL}/images/cards-mediasanofi.webp\\`,\n    size: {\n      width: 560\n    },\n    title: \"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"\n  }\n}",
+    "story_object_source": "{args:{...a,videoUrl:\"https://sanofi.sharepoint.com/sites/communicationsteam/_layouts/15/embed.aspx?uniqueId=6ba43435-9fed-440e-8c02-90b7286b31e3\",imageUrl:`${M}/images/cards-mediasanofi.webp`,size:{width:560},title:\"Medical lead Paul Rowe trained to be a surgeon, but realized he could help more people in the world if he pursued a career in industry.\"}}"
+  },
+  "template": {
+    "id": "video-thumbnail-sanofi-video-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/templates/html.sanofi-video.template.html",
+    "output_path": "design-system-plugin/outputs/html/video-thumbnail-sanofi-video.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "video-thumbnail",
+    "local_path": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "story_id": "components-video-thumbnail--sanofi-video",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/components-video-thumbnail--sanofi-video.iframe.html"
+  }
+}

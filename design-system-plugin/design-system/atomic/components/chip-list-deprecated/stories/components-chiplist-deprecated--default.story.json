@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-chiplist-deprecated--default",
+  "component_id": "chip-list-deprecated",
+  "component_name": "ChipList (Deprecated)",
+  "story_id": "components-chiplist-deprecated--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chiplist-deprecated--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chiplist-deprecated--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipList.stories-BdfXsrfi.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/ChipList.stories-BdfXsrfi.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/components-chiplist-deprecated--default.iframe.html",
+    "import_path": "./src/components/Chip/list/ChipList.stories.tsx",
+    "component_path": "./src/components/Chip/list/ChipList.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...c}",
+    "values": {
+      "multiple": true,
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "[s.jsx(i,{size:e.SMALL,iconName:o.ACCESSIBILITY,children:\"First label\"},\"first\"),s.jsx(i,{size:e.SMALL,iconName:o.GAMEPAD,onDelete:()=>{console.log(\"Chip clicked\")},children:\"Second label\"},\"second\"),s.jsx(i,{size:e.SMALL,iconName:o.PAID,children:\"Third label\"},\"third\"),s.jsx(i,{size:e.SMALL,iconName:o.ACCESSIBILITY,children:\"Fourth label\"},\"Fourth\"),s.jsx(i,{size:e.SMALL,iconName:o.GAMEPAD,onDelete:()=>{console.log(\"Chip clicked\")},children:\"Sixth label\"},\"Sixth\"),s.jsx(i,{size:e.SMALL,iconName:o.PAID,children:\"Seventh label\"},\"Seventh\")]"
+      },
+      "chipsSize": "small"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{chipsSize:{control:\"select\",options:Object.values(e),description:\"The chips size\"}}",
+    "fields": [
+      "chipsSize"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs\n  }\n}",
+    "story_object_source": "{args:{...c}}"
+  },
+  "template": {
+    "id": "chip-list-deprecated-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/chip-list-deprecated-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "chip-list-deprecated",
+    "local_path": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chiplist-deprecated--docs",
+    "story_id": "components-chiplist-deprecated--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/ChipList.stories-BdfXsrfi.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/components-chiplist-deprecated--default.iframe.html"
+  }
+}

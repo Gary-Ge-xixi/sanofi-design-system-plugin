@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-dashboard-chart-reference-fit",
+  "status": "ready",
+  "severity": "error",
+  "profile_id": "report-dashboard",
+  "purpose": "Reference-fit rules for report/dashboard pages that use business-chart modules.",
+  "source_provenance": {
+    "page_profile": "../page-profiles/report-dashboard.profile.json",
+    "chart_contract": "../contracts/page-modules/business-chart.contract.json",
+    "chart_rule": "../rules/chart-usage.json"
+  },
+  "static_fit_contract": {
+    "required_body_attributes": [
+      "data-page-family=\"report-dashboard\"",
+      "data-page-profile=\"report-dashboard\"",
+      "data-reference-fit=\"admin-dashboard-chart\""
+    ],
+    "required_chart_attributes": [
+      "data-business-module=\"business-chart\"",
+      "data-chart-contract=\"business-chart\"",
+      "data-chart-kind"
+    ],
+    "forbidden_attributes": [
+      "data-primitive=\"chart\"",
+      "data-primitive=\"dataviz\""
+    ]
+  },
+  "dom_fit_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "filter-toolbar",
+      "kpi-summary",
+      "chart-region",
+      "data-table-fallback"
+    ],
+    "chart_accessibility": [
+      "visible heading",
+      "aria description or chart summary",
+      "accessible data table or adjacent detail table",
+      "empty/error state"
+    ]
+  },
+  "screenshot_gate": {
+    "viewports": [
+      {
+        "name": "desktop-reference",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "name": "wide-reference",
+        "width": 2048,
+        "height": 1152
+      }
+    ],
+    "threshold_policy": [
+      "At least one chart and one exact-value table are visible on desktop.",
+      "Axis labels and legends do not overlap.",
+      "KPI summary does not push primary chart below the first viewport.",
+      "Filter context and last updated time are visible near the chart region."
+    ]
+  }
+}

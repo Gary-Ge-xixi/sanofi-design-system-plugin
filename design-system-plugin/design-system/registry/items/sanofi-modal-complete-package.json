@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-modal-complete-package",
+  "title": "Modal complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Modal package covering Docs plus all Storybook story atoms.",
+  "component_id": "modal",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-modal"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/modal.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/modal/modal.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/modal.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/modal/modal.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/docs/modal.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/modal/docs/modal.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/modal-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/modal-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/modal.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/modal/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-modal--customisation",
+      "story_name": "Customisation",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-modal-customisation-atomic-story"
+    },
+    {
+      "story_id": "components-modal--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-modal-default-atomic-story"
+    },
+    {
+      "story_id": "components-modal--non-dismissible-modal",
+      "story_name": "Non Dismissible Modal",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-modal-non-dismissible-modal-atomic-story"
+    },
+    {
+      "story_id": "components-modal--with-icon",
+      "story_name": "With Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-modal-with-icon-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/modal/modal.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/modal/docs/modal.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "modal",
+      "Modal",
+      "modal complete",
+      "Modal complete package",
+      "modal docs"
+    ],
+    "when_to_use": "Use first for any Modal generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Modal behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

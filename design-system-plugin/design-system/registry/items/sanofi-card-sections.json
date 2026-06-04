@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-sections",
+  "title": "Card/Sections primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Card/Sections.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "card-sections",
+  "docs_id": "components-card-sections--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-sections/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/card-sections/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-sections.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-sections--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-sections--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-sections--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-sections",
+      "Card/Sections",
+      "Card/Sections"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Card/Sections primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

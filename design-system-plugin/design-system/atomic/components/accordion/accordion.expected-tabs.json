@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "accordion",
+  "component_name": "Accordion",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Accordion"
+  },
+  "docs": [
+    {
+      "id": "components-accordion--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Accordion/Accordion.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-accordion--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/Accordion.stories.tsx"
+    },
+    {
+      "id": "components-accordion--medium-accordion-with-slots",
+      "name": "Medium Accordion With Slots",
+      "export_name": "MediumAccordionWithSlots",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/Accordion.stories.tsx"
+    },
+    {
+      "id": "components-accordion--small-accordion",
+      "name": "Small Accordion",
+      "export_name": "SmallAccordion",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Accordion/Accordion.stories.tsx"
+    }
+  ]
+}

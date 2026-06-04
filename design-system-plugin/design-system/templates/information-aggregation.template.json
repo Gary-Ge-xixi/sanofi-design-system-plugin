@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1.0",
+  "id": "information-aggregation",
+  "status": "ready",
+  "renderer_target": "html",
+  "pattern_id": "information-aggregation",
+  "page_profile": "information-aggregation",
+  "page_family": "information-aggregation",
+  "page_subtype": "information-aggregation-page",
+  "title": "信息聚合查询页",
+  "business_task": "aggregate-and-investigate",
+  "reference_fit": "business-page-family",
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "information-aggregation-page",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "chart-usage",
+    "table-usage",
+    "form-usage",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-form",
+    "business-chart",
+    "business-table"
+  ],
+  "sections": [
+    {
+      "id": "breadcrumb",
+      "role": "navigation",
+      "required": true
+    },
+    {
+      "id": "aggregation-header",
+      "role": "page-header",
+      "required": true
+    },
+    {
+      "id": "filter-toolbar",
+      "role": "business-form",
+      "module_contract": "business-form",
+      "minimum_filter_count": 4,
+      "required": true
+    },
+    {
+      "id": "dashboard-summary",
+      "role": "summary",
+      "minimum_kpi_count": 4,
+      "required": true
+    },
+    {
+      "id": "chart-region",
+      "role": "business-chart",
+      "module_contract": "business-chart",
+      "required_chart_kind": "bar",
+      "required": true
+    },
+    {
+      "id": "record-list",
+      "role": "business-table",
+      "module_contract": "business-table",
+      "fallback_policy": "table",
+      "required": true
+    },
+    {
+      "id": "pagination",
+      "role": "pagination",
+      "required": true
+    }
+  ],
+  "output_contract": {
+    "body_attributes": [
+      "data-page-profile=\"information-aggregation\"",
+      "data-page-family=\"information-aggregation\"",
+      "data-reference-fit=\"business-page-family\""
+    ],
+    "module_order": [
+      "query filters",
+      "dashboard summary",
+      "chart context",
+      "record list",
+      "pagination"
+    ],
+    "fallback_policy": "Table remains explicit fallback until an official Table/DataGrid primitive is registered. BarChart uses business-chart when the data contract is present."
+  },
+  "source_provenance": {
+    "page_profile": "../page-profiles/information-aggregation.profile.json",
+    "page_rule": "../rules/information-aggregation-page.json",
+    "form_contract": "../contracts/page-modules/business-form.contract.json",
+    "chart_contract": "../contracts/page-modules/business-chart.contract.json",
+    "table_contract": "../contracts/page-modules/business-table.contract.json",
+    "reference_fit": "../reference-fit/business-page-family.rules.json"
+  }
+}

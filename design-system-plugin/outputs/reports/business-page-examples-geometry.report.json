@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "measure-business-page-examples",
+  "generated_at": "2026-06-04T05:50:39.794Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "measurements": [
+    {
+      "id": "business-query-form",
+      "path": "design-system-plugin/outputs/html/business-query-form.resolved.html",
+      "innerWidth": 1440,
+      "innerHeight": 813,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "hasHorizontalOverflow": false,
+      "pageProfile": "entity-form",
+      "pageFamily": "entity-form",
+      "sections": [
+        "breadcrumb",
+        "form-header",
+        "query-panel",
+        "form-sections",
+        "validation-summary",
+        "sticky-save-bar"
+      ],
+      "fieldCount": 11,
+      "businessFormModules": 4,
+      "businessChartModules": 0,
+      "businessTableModules": 0
+    },
+    {
+      "id": "business-entity-detail",
+      "path": "design-system-plugin/outputs/html/business-entity-detail.resolved.html",
+      "innerWidth": 1440,
+      "innerHeight": 813,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "hasHorizontalOverflow": false,
+      "pageProfile": "entity-detail",
+      "pageFamily": "entity-detail",
+      "sections": [
+        "breadcrumb",
+        "detail-header",
+        "summary-fields",
+        "field-groups",
+        "status-history",
+        "related-actions"
+      ],
+      "fieldCount": 12,
+      "businessFormModules": 1,
+      "businessChartModules": 0,
+      "businessTableModules": 1
+    },
+    {
+      "id": "information-aggregation",
+      "path": "design-system-plugin/outputs/html/information-aggregation.resolved.html",
+      "innerWidth": 1440,
+      "innerHeight": 813,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "hasHorizontalOverflow": false,
+      "pageProfile": "information-aggregation",
+      "pageFamily": "information-aggregation",
+      "sections": [
+        "breadcrumb",
+        "aggregation-header",
+        "filter-toolbar",
+        "dashboard-summary",
+        "chart-region",
+        "record-list",
+        "pagination"
+      ],
+      "fieldCount": 15,
+      "businessFormModules": 1,
+      "businessChartModules": 2,
+      "businessTableModules": 1
+    }
+  ],
+  "failures": []
+}

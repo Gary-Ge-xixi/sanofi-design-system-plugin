@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-elevation-usage",
+  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
+  "rule": "design-system/rules/elevation-usage.json",
+  "status": "pass",
+  "checked": {
+    "shadow_declarations": 4,
+    "raw_shadow_declarations": 0,
+    "elevation_markers": 2,
+    "used_tokens": [
+      "--elements-core-elevation-02",
+      "--elements-core-elevation-03"
+    ]
+  },
+  "markers": [
+    {
+      "role": "header",
+      "token": "--elements-core-elevation-02"
+    },
+    {
+      "role": "sticky-action",
+      "token": "--elements-core-elevation-03"
+    }
+  ],
+  "failures": []
+}

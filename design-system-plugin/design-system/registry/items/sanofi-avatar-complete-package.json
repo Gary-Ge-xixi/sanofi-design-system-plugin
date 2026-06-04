@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-avatar-complete-package",
+  "title": "Avatar complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Avatar package covering Docs plus all Storybook story atoms.",
+  "component_id": "avatar",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-avatar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/avatar.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/avatar.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/avatar.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/avatar.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/docs/avatar.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/docs/avatar.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/avatar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/avatar-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/avatar-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/avatar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/avatar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 6,
+    "materialized_stories": 6,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-avatar--all-sizes",
+      "story_name": "All Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-all-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-default-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--text-overflow",
+      "story_name": "Text Overflow",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-text-overflow-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--with-default-icon",
+      "story_name": "With Default Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-with-default-icon-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--with-initials",
+      "story_name": "With Initials",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-with-initials-atomic-story"
+    },
+    {
+      "story_id": "components-avatar--with-label",
+      "story_name": "With Label",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-with-label-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-avatar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/avatar/avatar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/avatar/docs/avatar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "avatar",
+      "Avatar",
+      "avatar complete",
+      "Avatar complete package",
+      "avatar docs"
+    ],
+    "when_to_use": "Use first for any Avatar generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Avatar behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Flex",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-flex--align-content",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-flex--as-child-list",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-flex--column-stack",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-flex--flex-shorthand",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-flex--horizontal-flow",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-flex--justify-distribution",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-flex--wrapping-grid",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

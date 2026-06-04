@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-banner-with-close-icon-atomic-story",
+  "title": "Banner With Close Icon atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-banner--with-close-icon.",
+  "atomic_story_id": "components-banner--with-close-icon",
+  "component_id": "banner",
+  "docs_id": "components-banner--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-banner"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-close-icon.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-close-icon.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/banner/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/assets/components-banner--with-close-icon.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/banner/assets/components-banner--with-close-icon.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/templates/html.info.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/banner/templates/html.info.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/banner.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/banner/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "story_id": "components-banner--with-close-icon",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/banner/stories/components-banner--with-close-icon.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/banner/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-banner--with-close-icon&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-banner--with-close-icon&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Banner.stories-BNvPreMz.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/banner/assets/Banner.stories-BNvPreMz.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "banner",
+      "Banner",
+      "With Close Icon",
+      "components-banner--with-close-icon",
+      "info",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Banner With Close Icon Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

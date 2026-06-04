@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-customer-detail-date-query",
+  "title": "Sanofi customer detail date query page template",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "A complex customer detail query page template combining date-range filters, customer summary, detail table fallback, result actions, and pagination.",
+  "pattern_id": "customer-detail-date-query",
+  "template_id": "customer-detail-date-query",
+  "page_subtype": "customer-detail-date-query-page",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    "sanofi-container",
+    "sanofi-grid",
+    "sanofi-navigation-header",
+    "sanofi-sidebar",
+    "sanofi-menu",
+    "sanofi-icon",
+    "sanofi-search-input",
+    "sanofi-select",
+    "sanofi-date-picker",
+    "sanofi-button",
+    "sanofi-card",
+    "sanofi-tag",
+    "sanofi-pagination"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/patterns/customer-detail-date-query/customer-detail-date-query.pattern.json",
+      "role": "pattern",
+      "target": "design-system-plugin/design-system/patterns/customer-detail-date-query/customer-detail-date-query.pattern.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/templates/customer-detail-date-query.template.json",
+      "role": "template",
+      "target": "design-system-plugin/design-system/templates/customer-detail-date-query.template.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json",
+      "role": "page-profile",
+      "target": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/form-usage.json",
+      "role": "form-rule",
+      "target": "design-system-plugin/design-system/rules/form-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/table-usage.json",
+      "role": "table-rule",
+      "target": "design-system-plugin/design-system/rules/table-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+      "role": "reference-fit-rule",
+      "target": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-customer-detail-date-query-page",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-customer-detail-date-query-page"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "role": "fallback-policy",
+      "target": "design-system-plugin/design-system/policies/fallback-policy.json"
+    }
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "date-picker",
+    "button",
+    "card",
+    "tag",
+    "pagination"
+  ],
+  "optional_primitives": [],
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "form-usage",
+    "table-usage",
+    "business-page-family-reference-fit"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern"
+    }
+  ],
+  "source_provenance": {
+    "pattern_id": "customer-detail-date-query",
+    "template_id": "customer-detail-date-query",
+    "page_profile": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json",
+    "form_contract": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+    "table_contract": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "客户明细",
+      "客户详情",
+      "日期查询",
+      "按日期查询客户",
+      "客户明细日期查询",
+      "customer detail",
+      "date query",
+      "complex query form"
+    ],
+    "when_to_use": "Use when a prompt asks for a customer detail page driven by date-range query filters, summary metrics, table results, export, and detail actions.",
+    "unsupported_behavior": "Table must stay an explicit fallback until an official Table/DataGrid primitive is registered. Do not present the table fallback as Sanofi Elements official runtime."
+  }
+}

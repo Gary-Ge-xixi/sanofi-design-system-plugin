@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-atomic-library",
+  "output": "design-system-plugin/design-system/atomic/atomic-component-index.json",
+  "counts": {
+    "components": 93,
+    "stories": 425
+  }
+}

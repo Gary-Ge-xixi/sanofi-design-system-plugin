@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-image",
+  "title": "Image primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Image.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "image",
+  "docs_id": "components-image--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/image/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/image/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/image/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/image/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/image.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/image.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-image--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/image.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 2,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "image",
+      "Image",
+      "Image"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Image primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

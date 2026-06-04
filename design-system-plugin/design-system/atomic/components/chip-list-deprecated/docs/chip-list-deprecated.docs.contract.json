@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-list-deprecated-docs-contract",
+  "component_id": "chip-list-deprecated",
+  "component_name": "ChipList (Deprecated)",
+  "docs_id": "components-chiplist-deprecated--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-chiplist-deprecated--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "multiple",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "array",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "chipsSize",
+        "required": false,
+        "description": "The chips size\"small\"\"medium\"",
+        "default": "\"ChipSize.SMALL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "style",
+        "required": false,
+        "description": "CSSProperties",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-chiplist-deprecated--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "// Old - Deprecated\n<ChipList multiple={true} chipsSize={ChipSize.SMALL}>\n<Chip onClick={handleClick1} active={isActive1}>Option 1</Chip>\n<Chip onClick={handleClick2} active={isActive2}>Option 2</Chip>\n<Chip onClick={handleClick3} active={isActive3}>Option 3</Chip>\n</ChipList>\n\n// New - Recommended\n\n<div className=\"chip-container\">\n<ChipSelect onClick={handleClick1} selected={isActive1} size={ChipSize.SMALL}>\n  Option 1\n</ChipSelect>\n<ChipSelect onClick={handleClick2} selected={isActive2} size={ChipSize.SMALL}>\n  Option 2\n</ChipSelect>\n<ChipSelect onClick={handleClick3} selected={isActive3} size={ChipSize.SMALL}>\n  Option 3\n</ChipSelect>\n</div>",
+      "// Old - Deprecated\n<ChipList chipsSize={ChipSize.SMALL}>\n<Chip onDelete={handleDelete1}>Filter 1</Chip>\n<Chip onDelete={handleDelete2}>Filter 2</Chip>\n<Chip onDelete={handleDelete3}>Filter 3</Chip>\n</ChipList>\n\n// New - Recommended\n\n<div className=\"filter-chips\">\n<ChipFilter onDelete={handleDelete1} size={ChipSize.SMALL}>\n  Filter 1\n</ChipFilter>\n<ChipFilter onDelete={handleDelete2} size={ChipSize.SMALL}>\n  Filter 2\n</ChipFilter>\n<ChipFilter onDelete={handleDelete3} size={ChipSize.SMALL}>\n  Filter 3\n</ChipFilter>\n</div>",
+      "/* Recommended CSS for chip containers */\n.chip-container {\ndisplay: flex;\nflex-wrap: wrap;\ngap: 8px;\n}\n\n.filter-chips {\ndisplay: flex;\nflex-wrap: wrap;\ngap: 12px;\nmargin-bottom: 16px;\n}"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-chiplist-deprecated--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Chip/list/ChipList.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chiplist-deprecated--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json"
+  }
+}

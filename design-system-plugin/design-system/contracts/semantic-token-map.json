@@ -1,0 +1,174 @@
+{
+  "schema_version": "0.1.0",
+  "id": "semantic-token-map",
+  "generated_at": "2026-06-02T10:57:52.230Z",
+  "source": {
+    "token_manifest": "design-system-plugin/design-system/tokens/token-manifest.json",
+    "tokens_css": "design-system-plugin/design-system/tokens/tokens.css",
+    "colors_doc": "design-system-plugin/design-system/knowledge/docs/foundations-colors--docs.md",
+    "primary_docs_entry": "foundations-colors--docs",
+    "storybook_version_observed": "v3.48.3"
+  },
+  "policy": {
+    "renderer_target": "html",
+    "html_must_reference_tokens": true,
+    "blocked_raw_values": [
+      "hex-color",
+      "rgb-color",
+      "px-length"
+    ],
+    "direct_core_color_refs_in_generated_html": "blocked",
+    "green_usage": "success/status only, or explicitly labeled data series; never primary brand/accent",
+    "colors_doc_mentions_brand": true
+  },
+  "roles": {
+    "brand": {
+      "usage": "Sanofi brand/accent identity source. Do not use green as brand.",
+      "allowed_tokens": [
+        "--elements-color-semantic-background-brand",
+        "--elements-color-semantic-background-brand-subtle",
+        "--elements-color-components-tag-branded-bg-solid",
+        "--elements-color-components-tag-branded-bg-subtle",
+        "--elements-color-components-tag-branded-border",
+        "--elements-color-components-tag-branded-text",
+        "--elements-color-components-tag-branded-text-inverse",
+        "--elements-color-core-brand-base"
+      ]
+    },
+    "surface": {
+      "usage": "Light HTML renderer page and component backgrounds. Use neutral/brand-subtle first; extracted default/subtle tokens resolve dark in the current bundle.",
+      "allowed_tokens": [
+        "--elements-color-semantic-background-neutral",
+        "--elements-color-semantic-background-brand-subtle",
+        "--elements-color-semantic-background-default",
+        "--elements-color-semantic-background-subtle",
+        "--elements-color-semantic-background-overlay-black-light",
+        "--elements-color-semantic-background-overlay-black-strong",
+        "--elements-color-semantic-background-overlay-black-ultra_strong",
+        "--elements-color-semantic-background-overlay-white-light",
+        "--elements-color-semantic-background-overlay-white-strong",
+        "--elements-color-semantic-background-overlay-white-ultra_strong"
+      ]
+    },
+    "text": {
+      "usage": "Readable content and labels on the light HTML renderer surface.",
+      "allowed_tokens": [
+        "--elements-color-semantic-text-default_inverse",
+        "--elements-color-semantic-text-subtle_inverse",
+        "--elements-color-semantic-text-default",
+        "--elements-color-semantic-text-subtle",
+        "--elements-color-semantic-text-strong",
+        "--elements-color-semantic-text-accent-active",
+        "--elements-color-semantic-text-accent-default",
+        "--elements-color-semantic-text-accent-hover"
+      ]
+    },
+    "border": {
+      "usage": "Component boundaries, separators, and focus outlines.",
+      "allowed_tokens": [
+        "--elements-color-semantic-border-default",
+        "--elements-color-semantic-border-subtle",
+        "--elements-color-components-divider-bg-default",
+        "--elements-color-components-divider-bg-highlight",
+        "--elements-color-components-divider-bg-inverse",
+        "--elements-color-components-divider-bg-subtle"
+      ]
+    },
+    "primary_action": {
+      "usage": "Primary calls to action and active affordances.",
+      "allowed_tokens": [
+        "--elements-color-semantic-accent-default",
+        "--elements-color-semantic-accent-hover",
+        "--elements-color-semantic-accent-active",
+        "--elements-color-semantic-text-accent-default",
+        "--elements-color-components-button-bg-secondary",
+        "--elements-color-components-button-bg-secondary-inverse",
+        "--elements-color-components-button-bg-secondary-neutral"
+      ]
+    },
+    "selected": {
+      "usage": "Selected states, active tabs, focused navigation.",
+      "allowed_tokens": [
+        "--elements-color-semantic-accent-active",
+        "--elements-color-semantic-accent-focus",
+        "--elements-color-semantic-background-brand-subtle"
+      ]
+    },
+    "status_success": {
+      "usage": "Successful, completed, healthy status only.",
+      "allowed_tokens": [
+        "--elements-color-semantic-accent-success_default",
+        "--elements-color-semantic-accent-success_hover",
+        "--elements-color-semantic-background-success",
+        "--elements-color-semantic-background-success-subtle",
+        "--elements-color-semantic-border-success",
+        "--elements-color-semantic-text-success",
+        "--elements-color-semantic-text-success-strong",
+        "--elements-color-semantic-text-success-subtle",
+        "--elements-color-semantic-text-success_inverse",
+        "--elements-color-components-tag-semantic_green-bg-solid",
+        "--elements-color-components-tag-semantic_green-bg-subtle",
+        "--elements-color-components-tag-semantic_green-border"
+      ]
+    },
+    "status_warning": {
+      "usage": "Warning or attention status only.",
+      "allowed_tokens": [
+        "--elements-color-semantic-accent-alert_default",
+        "--elements-color-semantic-accent-alert_hover",
+        "--elements-color-semantic-background-alert",
+        "--elements-color-semantic-background-alert-subtle",
+        "--elements-color-semantic-text-alert",
+        "--elements-color-semantic-text-alert-strong",
+        "--elements-color-semantic-text-alert-subtle",
+        "--elements-color-semantic-text-alert_inverse",
+        "--elements-color-semantic-border-warning",
+        "--elements-color-components-tag-semantic_orange-bg-solid",
+        "--elements-color-components-tag-semantic_orange-bg-subtle",
+        "--elements-color-components-tag-semantic_orange-border"
+      ]
+    },
+    "status_error": {
+      "usage": "Error, destructive, overdue, or invalid status only.",
+      "allowed_tokens": [
+        "--elements-color-semantic-accent-error_default",
+        "--elements-color-semantic-accent-error_hover",
+        "--elements-color-semantic-background-error",
+        "--elements-color-semantic-background-error-subtle",
+        "--elements-color-semantic-border-error",
+        "--elements-color-semantic-text-error",
+        "--elements-color-semantic-text-error-strong",
+        "--elements-color-semantic-text-error-subtle",
+        "--elements-color-semantic-text-error_inverse",
+        "--elements-color-components-tag-semantic_red-bg-solid",
+        "--elements-color-components-tag-semantic_red-bg-subtle",
+        "--elements-color-components-tag-semantic_red-border"
+      ]
+    },
+    "data_visualization": {
+      "usage": "Charts and explicit data series. Prefer purple/blue for primary data; green only when explicitly labeled.",
+      "allowed_tokens": [
+        "--elements-color-data-sequential-purple-1",
+        "--elements-color-data-sequential-purple-2",
+        "--elements-color-data-sequential-purple-3",
+        "--elements-color-data-sequential-purple-4",
+        "--elements-color-data-sequential-purple-5",
+        "--elements-color-data-sequential-blue-1",
+        "--elements-color-data-sequential-blue-2",
+        "--elements-color-data-sequential-blue-3",
+        "--elements-color-data-sequential-blue-4",
+        "--elements-color-data-sequential-blue-5",
+        "--elements-color-data-categorical-1",
+        "--elements-color-data-categorical-10",
+        "--elements-color-data-categorical-11",
+        "--elements-color-data-categorical-12",
+        "--elements-color-data-categorical-2",
+        "--elements-color-data-categorical-3",
+        "--elements-color-data-categorical-4",
+        "--elements-color-data-categorical-5",
+        "--elements-color-data-categorical-6",
+        "--elements-color-data-categorical-7"
+      ]
+    }
+  }
+}

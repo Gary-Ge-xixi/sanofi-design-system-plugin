@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-megamenu-item--default",
+  "component_id": "mega-menu-item",
+  "component_name": "MegaMenu/Item",
+  "story_id": "components-megamenu-item--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-megamenu-item--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-megamenu-item--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Item.stories-BAPFNE8E.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/Item.stories-BAPFNE8E.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/components-megamenu-item--default.iframe.html",
+    "import_path": "./src/components/NavigationHeader/MegaMenu/Item/Item.stories.tsx",
+    "component_path": "./src/components/NavigationHeader/MegaMenu/Item/Item.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{}",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{xs:{description:\"Column span on `xs` viewport size\",control:\"number\"},sm:{description:\"Column span on `sm` viewport size\",control:\"number\"},md:{description:\"Column span on `md` viewport size\",control:\"number\"},lg:{description:\"Column span on `lg` viewport size\",control:\"number\"},xl:{description:\"Column span on `xl` viewport size\",control:\"number\"},xxl:{description:\"Column span on `2xl` viewport size\",control:\"number\"},xxxl:{description:\"Column span on `3xl` viewport size\",control:\"number\"}}",
+    "fields": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "xxl",
+      "xxxl"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {}\n}",
+    "story_object_source": "{args:{}}"
+  },
+  "template": {
+    "id": "mega-menu-item-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/mega-menu-item/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/mega-menu-item-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "mega-menu-item",
+    "local_path": "design-system-plugin/design-system/primitives/components/mega-menu-item/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu-item--docs",
+    "story_id": "components-megamenu-item--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/mega-menu-item/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/Item.stories-BAPFNE8E.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/components-megamenu-item--default.iframe.html"
+  }
+}

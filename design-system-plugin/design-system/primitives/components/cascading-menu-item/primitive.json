@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "CascadingMenu/Item",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/CascadingMenu/Item",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu-item.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "cascading-menu-item",
+      "data_attribute": "data-primitive=\"cascading-menu-item\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-cascadingmenu-item--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu-item--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu-item.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

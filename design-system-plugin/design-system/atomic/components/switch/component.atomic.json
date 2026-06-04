@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "switch",
+  "component_name": "Switch",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-switch--default",
+      "story_name": "Default",
+      "component_id": "switch",
+      "component_name": "Switch",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/switch/stories/components-switch--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/switch/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/switch-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+      "docs_id": "components-switch--docs",
+      "registry_item": "sanofi-switch-default-atomic-story"
+    },
+    {
+      "story_id": "components-switch--default-checked",
+      "story_name": "Default Checked",
+      "component_id": "switch",
+      "component_name": "Switch",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/switch/stories/components-switch--default-checked.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/switch/templates/html.default-checked.template.html",
+      "output_path": "design-system-plugin/outputs/html/switch-default-checked.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+      "docs_id": "components-switch--docs",
+      "registry_item": "sanofi-switch-default-checked-atomic-story"
+    },
+    {
+      "story_id": "components-switch--inline",
+      "story_name": "Inline",
+      "component_id": "switch",
+      "component_name": "Switch",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/switch/stories/components-switch--inline.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/switch/templates/html.inline.template.html",
+      "output_path": "design-system-plugin/outputs/html/switch-inline.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+      "docs_id": "components-switch--docs",
+      "registry_item": "sanofi-switch-inline-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch--docs"
+  }
+}

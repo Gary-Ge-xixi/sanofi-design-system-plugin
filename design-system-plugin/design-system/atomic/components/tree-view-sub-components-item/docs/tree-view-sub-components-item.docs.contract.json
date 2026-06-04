@@ -1,0 +1,81 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tree-view-sub-components-item-docs-contract",
+  "component_id": "tree-view-sub-components-item",
+  "component_name": "TreeView/SubComponents/Item",
+  "docs_id": "components-treeview-subcomponents-item--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview-subcomponents-item--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-item--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "id",
+        "required": true,
+        "description": "Unique node identifier (used for expand state tracking).string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Label text and optional LeadingVisual/TrailingVisual/SubTree.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the item.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "current",
+        "required": false,
+        "description": "Marks this as the currently active/selected item.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultExpanded",
+        "required": false,
+        "description": "Initial expanded state (uncontrolled).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview-subcomponents-item--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "Error: u?.setProps is not a function  at Wu (/assets/react-18-DHSRfmXe.js:8:93160))  at jv (/assets/react-18-DHSRfmXe.js:8:97493))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))  at jv (/assets/react-18-DHSRfmXe.js:8:96888))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))  at jv (/assets/react-18-DHSRfmXe.js:8:96888))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))  at jv (/assets/react-18-DHSRfmXe.js:8:96888))  at Oa (/assets/react-18-DHSRfmXe.js:8:105729))"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-treeview-subcomponents-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeViewItem.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-item--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-item.contract.json"
+  }
+}

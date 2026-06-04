@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Banner",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-banner--custom-icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-banner--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-banner--global",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-banner--overview",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-banner--with-close-icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-banner--with-contents",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

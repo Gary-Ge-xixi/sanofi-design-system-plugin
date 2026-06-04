@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "id": "import-result",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "import-result",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "import-and-reconcile",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "table-usage",
+    "content-standards",
+    "interaction-state-standards",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-table"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "import-summary",
+      "error-table",
+      "download-actions",
+      "next-step-actions"
+    ],
+    "forbidden_sections": [
+      "marketing-hero"
+    ],
+    "required_attrs": [
+      "data-page-family=\"import-result\"",
+      "data-business-task=\"import-and-reconcile\""
+    ]
+  },
+  "state_requirements": [
+    "uploading",
+    "parsing",
+    "partial-failed",
+    "completed",
+    "error"
+  ]
+}

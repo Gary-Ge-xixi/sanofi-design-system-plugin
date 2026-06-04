@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "page-header",
+  "component_name": "PageHeader",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-pageheader--container-type-fixed",
+      "story_name": "Container Type Fixed",
+      "component_id": "page-header",
+      "component_name": "PageHeader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--container-type-fixed.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/page-header/templates/html.container-type-fixed.template.html",
+      "output_path": "design-system-plugin/outputs/html/page-header-container-type-fixed.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+      "docs_id": "components-pageheader--docs",
+      "registry_item": "sanofi-page-header-container-type-fixed-atomic-story"
+    },
+    {
+      "story_id": "components-pageheader--default",
+      "story_name": "Default",
+      "component_id": "page-header",
+      "component_name": "PageHeader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/page-header/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/page-header-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+      "docs_id": "components-pageheader--docs",
+      "registry_item": "sanofi-page-header-default-atomic-story"
+    },
+    {
+      "story_id": "components-pageheader--title-custom",
+      "story_name": "Title Custom",
+      "component_id": "page-header",
+      "component_name": "PageHeader",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--title-custom.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/page-header/templates/html.title-custom.template.html",
+      "output_path": "design-system-plugin/outputs/html/page-header-title-custom.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+      "docs_id": "components-pageheader--docs",
+      "registry_item": "sanofi-page-header-title-custom-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-page-header--docs"
+  }
+}

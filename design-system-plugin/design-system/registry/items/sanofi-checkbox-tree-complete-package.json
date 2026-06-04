@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-checkbox-tree-complete-package",
+  "title": "CheckboxTree complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local CheckboxTree package covering Docs plus all Storybook story atoms.",
+  "component_id": "checkbox-tree",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-checkbox-tree"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/checkbox-tree.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox-tree/checkbox-tree.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/checkbox-tree.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox-tree/checkbox-tree.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/docs/checkbox-tree.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox-tree/docs/checkbox-tree.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox-tree/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox-tree/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/checkbox-tree-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/checkbox-tree-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-checkboxtree--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-checkboxtree--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-checkboxtree--collapsible",
+      "story_name": "Collapsible",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-checkbox-tree-collapsible-atomic-story"
+    },
+    {
+      "story_id": "components-checkboxtree--color-variations",
+      "story_name": "Color Variations",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-checkbox-tree-color-variations-atomic-story"
+    },
+    {
+      "story_id": "components-checkboxtree--deeply-nested",
+      "story_name": "Deeply Nested",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-checkbox-tree-deeply-nested-atomic-story"
+    },
+    {
+      "story_id": "components-checkboxtree--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-checkbox-tree-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkboxtree--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/checkbox-tree/checkbox-tree.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/checkbox-tree/docs/checkbox-tree.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "checkbox-tree",
+      "CheckboxTree",
+      "checkbox-tree complete",
+      "CheckboxTree complete package",
+      "checkbox-tree docs"
+    ],
+    "when_to_use": "Use first for any CheckboxTree generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer CheckboxTree behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

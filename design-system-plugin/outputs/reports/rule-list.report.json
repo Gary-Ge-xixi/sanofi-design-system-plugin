@@ -1,0 +1,254 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule list",
+  "status": "pass",
+  "generated_at": "2026-06-04T05:46:48.422Z",
+  "count": 35,
+  "rules": [
+    {
+      "id": "token-usage",
+      "path": "token-usage.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-token-usage",
+      "script_exists": true
+    },
+    {
+      "id": "primitive-usage",
+      "path": "primitive-usage.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-primitive-usage",
+      "script_exists": true
+    },
+    {
+      "id": "page-pattern",
+      "path": "page-pattern.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-page-pattern",
+      "script_exists": true
+    },
+    {
+      "id": "layout-grid-container",
+      "path": "layout-grid-container.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-layout-rule-usage",
+      "script_exists": true
+    },
+    {
+      "id": "typography-font-stack",
+      "path": "typography-font-stack.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-typography-rule-usage",
+      "script_exists": true
+    },
+    {
+      "id": "business-layout-typography",
+      "path": "business-layout-typography.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-page-layout-typography",
+      "script_exists": true
+    },
+    {
+      "id": "business-app-shell-scroll",
+      "path": "business-app-shell-scroll.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-app-shell-scroll",
+      "script_exists": true
+    },
+    {
+      "id": "information-aggregation-page",
+      "path": "information-aggregation-page.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-information-aggregation-page",
+      "script_exists": true
+    },
+    {
+      "id": "admin-template-navigation",
+      "path": "admin-template-navigation.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-admin-template-navigation",
+      "script_exists": true
+    },
+    {
+      "id": "admin-delivery-contract",
+      "path": "admin-delivery-contract.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-admin-delivery-contract",
+      "script_exists": true
+    },
+    {
+      "id": "component-runtime-contract",
+      "path": "component-runtime-contract.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-component-runtime",
+      "script_exists": true
+    },
+    {
+      "id": "component-size-policy",
+      "path": "component-size-policy.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-component-runtime",
+      "script_exists": true
+    },
+    {
+      "id": "admin-query-panel-template",
+      "path": "admin-query-panel-template.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-admin-query-panel-template",
+      "script_exists": true
+    },
+    {
+      "id": "admin-density",
+      "path": "admin-density.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-admin-page-profile",
+      "script_exists": true
+    },
+    {
+      "id": "admin-data-entry-table-reference-fit",
+      "path": "../reference-fit/admin-data-entry-table.rules.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-reference-fit",
+      "script_exists": true
+    },
+    {
+      "id": "business-page-standards",
+      "path": "business-page-standards.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "table-usage",
+      "path": "table-usage.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "chart-usage",
+      "path": "chart-usage.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "form-usage",
+      "path": "form-usage.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "density-standards",
+      "path": "density-standards.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "content-standards",
+      "path": "content-standards.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "interaction-state-standards",
+      "path": "interaction-state-standards.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "business-admin-defaults",
+      "path": "business-admin-defaults.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-page-examples",
+      "script_exists": true
+    },
+    {
+      "id": "elevation-usage",
+      "path": "elevation-usage.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-elevation-usage",
+      "script_exists": true
+    },
+    {
+      "id": "business-page-family-reference-fit",
+      "path": "../reference-fit/business-page-family.rules.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "admin-dashboard-chart-reference-fit",
+      "path": "../reference-fit/admin-dashboard-chart.rules.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-business-standards",
+      "script_exists": true
+    },
+    {
+      "id": "design-md",
+      "path": "../DESIGN.md",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-design-md",
+      "script_exists": true
+    },
+    {
+      "id": "source-index",
+      "path": "../knowledge/source-index.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-source-index",
+      "script_exists": true
+    },
+    {
+      "id": "component-contracts",
+      "path": "../contracts/components/component-contract-index.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-component-contracts",
+      "script_exists": true
+    },
+    {
+      "id": "semantic-token-map",
+      "path": "../contracts/semantic-token-map.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-semantic-token-map",
+      "script_exists": true
+    },
+    {
+      "id": "pattern-resolver",
+      "path": "../contracts/resolvers/latest-resolution.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-pattern-resolver",
+      "script_exists": true
+    },
+    {
+      "id": "source-provenance",
+      "path": "../policies/source-provenance.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-provenance",
+      "script_exists": true
+    },
+    {
+      "id": "evaluation-benchmark",
+      "path": "../contracts/benchmarks/evaluation-benchmark.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-evaluation-benchmark",
+      "script_exists": true
+    },
+    {
+      "id": "local-registry",
+      "path": "../registry/registry.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-local-registry",
+      "script_exists": true
+    },
+    {
+      "id": "atomic-library",
+      "path": "../atomic/atomic-component-index.json",
+      "rule_file_exists": true,
+      "script": "../../scripts/validate-atomic-library",
+      "script_exists": true
+    }
+  ]
+}

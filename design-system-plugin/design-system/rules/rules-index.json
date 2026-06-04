@@ -1,0 +1,190 @@
+{
+  "schema_version": "0.1.0",
+  "rules": [
+    {
+      "id": "token-usage",
+      "path": "token-usage.json",
+      "script": "../../scripts/validate-token-usage"
+    },
+    {
+      "id": "primitive-usage",
+      "path": "primitive-usage.json",
+      "script": "../../scripts/validate-primitive-usage"
+    },
+    {
+      "id": "page-pattern",
+      "path": "page-pattern.json",
+      "script": "../../scripts/validate-page-pattern"
+    },
+    {
+      "id": "layout-grid-container",
+      "path": "layout-grid-container.json",
+      "script": "../../scripts/validate-layout-rule-usage"
+    },
+    {
+      "id": "typography-font-stack",
+      "path": "typography-font-stack.json",
+      "script": "../../scripts/validate-typography-rule-usage"
+    },
+    {
+      "id": "business-layout-typography",
+      "path": "business-layout-typography.json",
+      "script": "../../scripts/validate-page-layout-typography"
+    },
+    {
+      "id": "business-app-shell-scroll",
+      "path": "business-app-shell-scroll.json",
+      "script": "../../scripts/validate-app-shell-scroll"
+    },
+    {
+      "id": "icon-usage",
+      "path": "icon-usage.json",
+      "script": "../../scripts/validate-icon-usage"
+    },
+    {
+      "id": "information-aggregation-page",
+      "path": "information-aggregation-page.json",
+      "script": "../../scripts/validate-information-aggregation-page"
+    },
+    {
+      "id": "admin-template-navigation",
+      "path": "admin-template-navigation.json",
+      "script": "../../scripts/validate-admin-template-navigation"
+    },
+    {
+      "id": "admin-delivery-contract",
+      "path": "admin-delivery-contract.json",
+      "script": "../../scripts/validate-admin-delivery-contract"
+    },
+    {
+      "id": "component-runtime-contract",
+      "path": "component-runtime-contract.json",
+      "script": "../../scripts/validate-component-runtime"
+    },
+    {
+      "id": "component-size-policy",
+      "path": "component-size-policy.json",
+      "script": "../../scripts/validate-component-runtime"
+    },
+    {
+      "id": "default-value-arbitration",
+      "path": "component-size-policy.json",
+      "script": "../../scripts/validate-default-value-arbitration"
+    },
+    {
+      "id": "admin-query-panel-template",
+      "path": "admin-query-panel-template.json",
+      "script": "../../scripts/validate-admin-query-panel-template"
+    },
+    {
+      "id": "admin-density",
+      "path": "admin-density.json",
+      "script": "../../scripts/validate-admin-page-profile"
+    },
+    {
+      "id": "admin-data-entry-table-reference-fit",
+      "path": "../reference-fit/admin-data-entry-table.rules.json",
+      "script": "../../scripts/validate-reference-fit"
+    },
+    {
+      "id": "business-page-standards",
+      "path": "business-page-standards.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "table-usage",
+      "path": "table-usage.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "chart-usage",
+      "path": "chart-usage.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "form-usage",
+      "path": "form-usage.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "density-standards",
+      "path": "density-standards.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "content-standards",
+      "path": "content-standards.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "interaction-state-standards",
+      "path": "interaction-state-standards.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "business-admin-defaults",
+      "path": "business-admin-defaults.json",
+      "script": "../../scripts/validate-business-page-examples"
+    },
+    {
+      "id": "elevation-usage",
+      "path": "elevation-usage.json",
+      "script": "../../scripts/validate-elevation-usage"
+    },
+    {
+      "id": "business-page-family-reference-fit",
+      "path": "../reference-fit/business-page-family.rules.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "admin-dashboard-chart-reference-fit",
+      "path": "../reference-fit/admin-dashboard-chart.rules.json",
+      "script": "../../scripts/validate-business-standards"
+    },
+    {
+      "id": "design-md",
+      "path": "../DESIGN.md",
+      "script": "../../scripts/validate-design-md"
+    },
+    {
+      "id": "source-index",
+      "path": "../knowledge/source-index.json",
+      "script": "../../scripts/validate-source-index"
+    },
+    {
+      "id": "component-contracts",
+      "path": "../contracts/components/component-contract-index.json",
+      "script": "../../scripts/validate-component-contracts"
+    },
+    {
+      "id": "semantic-token-map",
+      "path": "../contracts/semantic-token-map.json",
+      "script": "../../scripts/validate-semantic-token-map"
+    },
+    {
+      "id": "pattern-resolver",
+      "path": "../contracts/resolvers/latest-resolution.json",
+      "script": "../../scripts/validate-pattern-resolver"
+    },
+    {
+      "id": "source-provenance",
+      "path": "../policies/source-provenance.json",
+      "script": "../../scripts/validate-provenance"
+    },
+    {
+      "id": "evaluation-benchmark",
+      "path": "../contracts/benchmarks/evaluation-benchmark.json",
+      "script": "../../scripts/validate-evaluation-benchmark"
+    },
+    {
+      "id": "local-registry",
+      "path": "../registry/registry.json",
+      "script": "../../scripts/validate-local-registry"
+    },
+    {
+      "id": "atomic-library",
+      "path": "../atomic/atomic-component-index.json",
+      "script": "../../scripts/validate-atomic-library"
+    }
+  ]
+}

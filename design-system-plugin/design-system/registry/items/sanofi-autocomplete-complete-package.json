@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-autocomplete-complete-package",
+  "title": "Autocomplete complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Autocomplete package covering Docs plus all Storybook story atoms.",
+  "component_id": "autocomplete",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-autocomplete"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/autocomplete.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/autocomplete.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/autocomplete.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/autocomplete.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/docs/autocomplete.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/docs/autocomplete.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/autocomplete/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/autocomplete/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/autocomplete-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/autocomplete-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-autocomplete--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-autocomplete--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 14,
+    "materialized_stories": 14,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-autocomplete--async-search",
+      "story_name": "Async Search",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-async-search-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--async-search-error",
+      "story_name": "Async Search Error",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-async-search-error-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--async-search-multiple",
+      "story_name": "Async Search Multiple",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-async-search-multiple-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--chips-outside",
+      "story_name": "Chips Outside",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-chips-outside-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-default-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--free-solo",
+      "story_name": "Free Solo",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-free-solo-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--multiple",
+      "story_name": "Multiple",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-multiple-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-description",
+      "story_name": "With Description",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-description-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-description-multiple",
+      "story_name": "With Description Multiple",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-description-multiple-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option",
+      "story_name": "With Render Option",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-render-option-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option-custom-layout",
+      "story_name": "With Render Option Custom Layout",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-render-option-custom-layout-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option-multiple",
+      "story_name": "With Render Option Multiple",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-render-option-multiple-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-tooltips",
+      "story_name": "With Tooltips",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-tooltips-atomic-story"
+    },
+    {
+      "story_id": "components-autocomplete--with-tooltips-multiple",
+      "story_name": "With Tooltips Multiple",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-autocomplete-with-tooltips-multiple-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-autocomplete--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/autocomplete/autocomplete.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/autocomplete/docs/autocomplete.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "autocomplete",
+      "Autocomplete",
+      "autocomplete complete",
+      "Autocomplete complete package",
+      "autocomplete docs"
+    ],
+    "when_to_use": "Use first for any Autocomplete generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Autocomplete behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

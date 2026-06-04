@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-radio-radio-group-horizontal-radios-with-error-atomic-story",
+  "title": "Radio/RadioGroup Horizontal Radios With Error atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-radio-radiogroup--horizontal-radios-with-error.",
+  "atomic_story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+  "component_id": "radio-radio-group",
+  "docs_id": "components-radio-radiogroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-radio-radio-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal-radios-with-error.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal-radios-with-error.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/components-radio-radiogroup--horizontal-radios-with-error.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/components-radio-radiogroup--horizontal-radios-with-error.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.horizontal-radios-with-error.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.horizontal-radios-with-error.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-radio-radiogroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal-radios-with-error.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/radio-radio-group/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-radio-radiogroup--horizontal-radios-with-error&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-radio-radiogroup--horizontal-radios-with-error&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/RadioGroup.stories-DOGry5sq.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "radio-radio-group",
+      "Radio/RadioGroup",
+      "Horizontal Radios With Error",
+      "components-radio-radiogroup--horizontal-radios-with-error",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Radio/RadioGroup Horizontal Radios With Error Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

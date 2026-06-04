@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Tag",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/Tag",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "tag",
+      "data_attribute": "data-primitive=\"tag\"",
+      "required_semantics": [
+        "short status or categorization text",
+        "do not use for primary actions"
+      ],
+      "supported_variants": [
+        "semantic-green",
+        "semantic-orange",
+        "semantic-red",
+        "semantic-blue",
+        "branded",
+        "neutral"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-tag--default",
+      "components-tag--variants",
+      "components-tag--semantic",
+      "components-tag--sizes",
+      "components-tag--categorical",
+      "components-tag--overview",
+      "components-tag--with-icon"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tag--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tree-view-sub-components-leading-visual",
+  "component_name": "TreeView/SubComponents/LeadingVisual",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/TreeView/SubComponents/LeadingVisual"
+  },
+  "docs": [
+    {
+      "id": "components-treeview-subcomponents-leadingvisual--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/TreeView/TreeViewLeadingVisual.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-treeview-subcomponents-leadingvisual--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeViewLeadingVisual.stories.tsx"
+    }
+  ]
+}

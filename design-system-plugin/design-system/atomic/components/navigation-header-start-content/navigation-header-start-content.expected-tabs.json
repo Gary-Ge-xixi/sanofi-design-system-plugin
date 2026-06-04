@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "navigation-header-start-content",
+  "component_name": "NavigationHeader.StartContent",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/NavigationHeader.StartContent"
+  },
+  "docs": [
+    {
+      "id": "components-navigationheader-startcontent--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-navigationheader-startcontent--custom-overflow-label",
+      "name": "Custom Overflow Label",
+      "export_name": "CustomOverflowLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader-startcontent--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader-startcontent--with-auto-overflow",
+      "name": "With Auto Overflow",
+      "export_name": "WithAutoOverflow",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-button",
+  "title": "Button primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Button.",
+  "status": "storybook-backed-static-contract",
+  "component_id": "button",
+  "docs_id": "components-button--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/button/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/button/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/button/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/button.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/button.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 13,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "button",
+      "Button",
+      "Button"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Button primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

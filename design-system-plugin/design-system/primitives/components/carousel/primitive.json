@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Carousel",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Carousel",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/carousel.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "carousel",
+      "data_attribute": "data-primitive=\"carousel\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-carousel--carousel-one-item-view",
+      "components-carousel--carousel-with-card-group",
+      "components-carousel--carousel-with-image",
+      "components-carousel--default",
+      "components-carousel--rtl-carousel"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-carousel--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

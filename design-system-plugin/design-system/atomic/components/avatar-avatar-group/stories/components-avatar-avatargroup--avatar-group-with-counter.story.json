@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-avatar-avatargroup--avatar-group-with-counter",
+  "component_id": "avatar-avatar-group",
+  "component_name": "Avatar/AvatarGroup",
+  "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+  "story_name": "Avatar Group With Counter",
+  "export_name": "AvatarGroupWithCounter",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-avatar-avatargroup--avatar-group-with-counter&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-avatar-avatargroup--avatar-group-with-counter&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/AvatarGroup.stories-C5P1GavF.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/AvatarGroup.stories-C5P1GavF.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/components-avatar-avatargroup--avatar-group-with-counter.iframe.html",
+    "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx",
+    "component_path": "./src/components/AvatarGroup/AvatarGroup.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...k,avatarSize:n.XLARGE,onCounterClick:()=>{console.log(\"click on avatar counter\")}}",
+    "values": {
+      "avatarSize": "xlarge",
+      "onCounterClick": {
+        "extraction_status": "raw_expression",
+        "value": "()=>{console.log(\"click on avatar counter\")}"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{avatarSize:{description:\"Avatar size\",control:\"select\",options:Object.values(n)}}",
+    "fields": [
+      "avatarSize"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    avatarSize: AvatarSize.XLARGE,\n    onCounterClick: () => {\n      console.log(\"click on avatar counter\");\n    }\n  },\n  render: args => <AvatarGroup {...args}>\n      <Avatar name=\"Marie Curie\" image={avatarImage} onClick={() => console.log(\"click\")} />\n      <Avatar name=\"Alan Turing\" image={avatarImage3} onClick={() => console.log(\"click\")} />\n      <Avatar name=\"Rosalind Franklin\" image={avatarImage2} onClick={() => console.log(\"click\")} />\n      <Avatar name=\"Nikola Tesla\" image={avatarImage4} onClick={() => console.log(\"click\")} />\n      <Avatar name=\"Ada Lovelace\" image={avatarImage3} onClick={() => console.log(\"click\")} />\n      <Avatar name=\"Albert Einstein\" image={avatarImage4} onClick={() => console.log(\"click\")} />\n      <Avatar name=\"Grace Hopper\" image={avatarImage} onClick={() => console.log(\"click\")} />\n    </AvatarGroup>\n}",
+    "story_object_source": "{args:{...k,avatarSize:n.XLARGE,onCounterClick:()=>{console.log(\"click on avatar counter\")}},render:r=>a.jsxs(t,{...r,children:[a.jsx(e,{name:\"Marie Curie\",image:u,onClick:()=>console.log(\"click\")}),a.jsx(e,{name:\"Alan Turing\",image:d,onClick:()=>console.log(\"click\")}),a.jsx(e,{name:\"Rosalind Franklin\",image:h,onClick:()=>console.log(\"click\")}),a.jsx(e,{name:\"Nikola Tesla\",image:G,onClick:()=>console.log(\"click\")}),a.jsx(e,{name:\"Ada Lovelace\",image:d,onClick:()=>console.log(\"click\")}),a.jsx(e,{name:\"Albert Einstein\",image:G,onClick:()=>console.log(\"click\")}),a.jsx(e,{name:\"Grace Hopper\",image:u,onClick:()=>console.log(\"click\")})]})}"
+  },
+  "template": {
+    "id": "avatar-avatar-group-avatar-group-with-counter-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/templates/html.avatar-group-with-counter.template.html",
+    "output_path": "design-system-plugin/outputs/html/avatar-avatar-group-avatar-group-with-counter.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "avatar-avatar-group",
+    "local_path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/AvatarGroup.stories-C5P1GavF.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/assets/components-avatar-avatargroup--avatar-group-with-counter.iframe.html"
+  }
+}

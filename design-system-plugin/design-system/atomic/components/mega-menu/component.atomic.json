@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "mega-menu",
+  "component_name": "MegaMenu",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-megamenu--example",
+      "story_name": "Example",
+      "component_id": "mega-menu",
+      "component_name": "MegaMenu",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/stories/components-megamenu--example.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/mega-menu/templates/html.example.template.html",
+      "output_path": "design-system-plugin/outputs/html/mega-menu-example.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+      "docs_id": "components-megamenu--docs",
+      "registry_item": "sanofi-mega-menu-example-atomic-story"
+    },
+    {
+      "story_id": "components-megamenu--fitted-content-mega-menu",
+      "story_name": "Fitted Content Mega Menu",
+      "component_id": "mega-menu",
+      "component_name": "MegaMenu",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/stories/components-megamenu--fitted-content-mega-menu.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/mega-menu/templates/html.fitted-content-mega-menu.template.html",
+      "output_path": "design-system-plugin/outputs/html/mega-menu-fitted-content-mega-menu.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+      "docs_id": "components-megamenu--docs",
+      "registry_item": "sanofi-mega-menu-fitted-content-mega-menu-atomic-story"
+    },
+    {
+      "story_id": "components-megamenu--nav-header-custom-placement",
+      "story_name": "Nav Header Custom Placement",
+      "component_id": "mega-menu",
+      "component_name": "MegaMenu",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/stories/components-megamenu--nav-header-custom-placement.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/mega-menu/templates/html.nav-header-custom-placement.template.html",
+      "output_path": "design-system-plugin/outputs/html/mega-menu-nav-header-custom-placement.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+      "docs_id": "components-megamenu--docs",
+      "registry_item": "sanofi-mega-menu-nav-header-custom-placement-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-mega-menu--docs"
+  }
+}

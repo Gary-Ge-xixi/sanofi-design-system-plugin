@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule validate information-aggregation-page",
+  "status": "pass",
+  "generated_at": "2026-06-04T05:53:02.269Z",
+  "rule_id": "information-aggregation-page",
+  "target": "design-system-plugin/outputs/html/information-aggregation.resolved.html",
+  "rule": {
+    "id": "information-aggregation-page",
+    "path": "information-aggregation-page.json",
+    "script": "../../scripts/validate-information-aggregation-page"
+  },
+  "run": {
+    "script": "validate-information-aggregation-page",
+    "command": "node design-system-plugin/scripts/validate-information-aggregation-page /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/information-aggregation.resolved.html",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "Information aggregation page OK: design-system-plugin/outputs/html/information-aggregation.resolved.html\n",
+    "stderr": ""
+  },
+  "failures": []
+}

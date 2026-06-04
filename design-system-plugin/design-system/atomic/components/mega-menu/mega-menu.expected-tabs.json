@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "mega-menu",
+  "component_name": "MegaMenu",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/MegaMenu"
+  },
+  "docs": [
+    {
+      "id": "components-megamenu--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-megamenu--example",
+      "name": "Example",
+      "export_name": "Example",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+    },
+    {
+      "id": "components-megamenu--fitted-content-mega-menu",
+      "name": "Fitted Content Mega Menu",
+      "export_name": "FittedContentMegaMenu",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+    },
+    {
+      "id": "components-megamenu--nav-header-custom-placement",
+      "name": "Nav Header Custom Placement",
+      "export_name": "NavHeaderCustomPlacement",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/MegaMenu.stories.tsx"
+    }
+  ]
+}

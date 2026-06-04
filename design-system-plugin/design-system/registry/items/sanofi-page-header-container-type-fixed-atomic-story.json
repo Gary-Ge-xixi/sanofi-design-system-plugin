@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-page-header-container-type-fixed-atomic-story",
+  "title": "PageHeader Container Type Fixed atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-pageheader--container-type-fixed.",
+  "atomic_story_id": "components-pageheader--container-type-fixed",
+  "component_id": "page-header",
+  "docs_id": "components-pageheader--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-page-header"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--container-type-fixed.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--container-type-fixed.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/assets/components-pageheader--container-type-fixed.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/assets/components-pageheader--container-type-fixed.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/templates/html.container-type-fixed.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/templates/html.container-type-fixed.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/page-header.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/page-header.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/page-header/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/page-header/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-pageheader--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-pageheader--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-pageheader--docs",
+    "story_id": "components-pageheader--container-type-fixed",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--container-type-fixed.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/page-header/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-pageheader--container-type-fixed&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-pageheader--container-type-fixed&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/PageHeader.stories-C4vZGhRB.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/page-header.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/page-header/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "page-header",
+      "PageHeader",
+      "Container Type Fixed",
+      "components-pageheader--container-type-fixed",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact PageHeader Container Type Fixed Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

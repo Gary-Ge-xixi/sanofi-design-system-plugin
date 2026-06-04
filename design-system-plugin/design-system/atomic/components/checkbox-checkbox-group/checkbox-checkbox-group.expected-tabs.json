@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "checkbox-checkbox-group",
+  "component_name": "Checkbox/CheckboxGroup",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Checkbox/CheckboxGroup"
+  },
+  "docs": [
+    {
+      "id": "components-checkbox-checkboxgroup--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-checkbox-checkboxgroup--horizontal",
+      "name": "Horizontal",
+      "export_name": "Horizontal",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    },
+    {
+      "id": "components-checkbox-checkboxgroup--neutral-color",
+      "name": "Neutral Color",
+      "export_name": "NeutralColor",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    },
+    {
+      "id": "components-checkbox-checkboxgroup--small-size",
+      "name": "Small Size",
+      "export_name": "SmallSize",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    },
+    {
+      "id": "components-checkbox-checkboxgroup--vertical",
+      "name": "Vertical",
+      "export_name": "Vertical",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx"
+    }
+  ]
+}

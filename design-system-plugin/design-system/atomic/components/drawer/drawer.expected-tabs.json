@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "drawer",
+  "component_name": "Drawer",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Drawer"
+  },
+  "docs": [
+    {
+      "id": "components-drawer--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Drawer/Drawer.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-drawer--bottom-side",
+      "name": "Bottom Side",
+      "export_name": "BottomSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--custom-content-height",
+      "name": "Custom Content Height",
+      "export_name": "CustomContentHeight",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--custom-drawer-width",
+      "name": "Custom Drawer Width",
+      "export_name": "CustomDrawerWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--end-side",
+      "name": "End Side",
+      "export_name": "EndSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--non-dismissible",
+      "name": "Non Dismissible",
+      "export_name": "NonDismissible",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--start-side",
+      "name": "Start Side",
+      "export_name": "StartSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    },
+    {
+      "id": "components-drawer--top-side",
+      "name": "Top Side",
+      "export_name": "TopSide",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Drawer/Drawer.stories.tsx"
+    }
+  ]
+}

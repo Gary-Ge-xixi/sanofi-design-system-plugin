@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tabs--default",
+  "component_id": "tabs",
+  "component_name": "Tabs",
+  "story_id": "components-tabs--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tabs--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tabs--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tabs.stories-D4pC3Xxb.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--default.iframe.html",
+    "import_path": "./src/components/Tabs/Tabs.stories.tsx",
+    "component_path": "./src/components/Tabs/Tabs.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{defaultSelected:\"tab1\",children:e.jsxs(e.Fragment,{children:[e.jsxs(n.List,{children:[e.jsx(n.Tab,{name:\"tab1\",children:\"Item One\"}),e.jsx(n.Tab,{name:\"tab2\",children:\"Item Two\"}),e.jsx(n.Tab,{name:\"tab3\",disabled:!0,children:\"Item Three\"}),e.jsx(n.Tab,{name:\"tab4\",children:\"Item Four\"})]}),e.jsx(n.Panel,{name:\"tab1\",children:e.jsx(t,{children:\"Tab 1\"})}),e.jsx(n.Panel,{name:\"tab2\",children:e.jsx(t,{children:\"Tab 2\"})}),e.jsx(n.Panel,{name:\"tab3\",children:e.jsx(t,{children:\"Tab 3\"})}),e.jsx(n.Panel,{name:\"tab4\",children:e.jsx(t,{children:\"Tab 4\"})})]})}",
+    "values": {
+      "defaultSelected": "tab1",
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsxs(e.Fragment,{children:[e.jsxs(n.List,{children:[e.jsx(n.Tab,{name:\"tab1\",children:\"Item One\"}),e.jsx(n.Tab,{name:\"tab2\",children:\"Item Two\"}),e.jsx(n.Tab,{name:\"tab3\",disabled:!0,children:\"Item Three\"}),e.jsx(n.Tab,{name:\"tab4\",children:\"Item Four\"})]}),e.jsx(n.Panel,{name:\"tab1\",children:e.jsx(t,{children:\"Tab 1\"})}),e.jsx(n.Panel,{name:\"tab2\",children:e.jsx(t,{children:\"Tab 2\"})}),e.jsx(n.Panel,{name:\"tab3\",children:e.jsx(t,{children:\"Tab 3\"})}),e.jsx(n.Panel,{name:\"tab4\",children:e.jsx(t,{children:\"Tab 4\"})})]})"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    defaultSelected: \"tab1\",\n    children: <>\n        <Tabs.List>\n          <Tabs.Tab name=\"tab1\">Item One</Tabs.Tab>\n          <Tabs.Tab name=\"tab2\">Item Two</Tabs.Tab>\n          <Tabs.Tab name=\"tab3\" disabled>\n            Item Three\n          </Tabs.Tab>\n          <Tabs.Tab name=\"tab4\">Item Four</Tabs.Tab>\n        </Tabs.List>\n        <Tabs.Panel name=\"tab1\">\n          <Content>Tab 1</Content>\n        </Tabs.Panel>\n        <Tabs.Panel name=\"tab2\">\n          <Content>Tab 2</Content>\n        </Tabs.Panel>\n        <Tabs.Panel name=\"tab3\">\n          <Content>Tab 3</Content>\n        </Tabs.Panel>\n        <Tabs.Panel name=\"tab4\">\n          <Content>Tab 4</Content>\n        </Tabs.Panel>\n      </>\n  }\n}",
+    "story_object_source": "{args:{defaultSelected:\"tab1\",children:e.jsxs(e.Fragment,{children:[e.jsxs(n.List,{children:[e.jsx(n.Tab,{name:\"tab1\",children:\"Item One\"}),e.jsx(n.Tab,{name:\"tab2\",children:\"Item Two\"}),e.jsx(n.Tab,{name:\"tab3\",disabled:!0,children:\"Item Three\"}),e.jsx(n.Tab,{name:\"tab4\",children:\"Item Four\"})]}),e.jsx(n.Panel,{name:\"tab1\",children:e.jsx(t,{children:\"Tab 1\"})}),e.jsx(n.Panel,{name:\"tab2\",children:e.jsx(t,{children:\"Tab 2\"})}),e.jsx(n.Panel,{name:\"tab3\",children:e.jsx(t,{children:\"Tab 3\"})}),e.jsx(n.Panel,{name:\"tab4\",children:e.jsx(t,{children:\"Tab 4\"})})]})}}"
+  },
+  "template": {
+    "id": "tabs-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tabs/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/tabs-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tabs",
+    "local_path": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tabs--docs",
+    "story_id": "components-tabs--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tabs/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tabs/assets/Tabs.stories-D4pC3Xxb.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tabs/assets/components-tabs--default.iframe.html"
+  }
+}

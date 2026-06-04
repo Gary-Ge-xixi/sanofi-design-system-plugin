@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>设计规范到 HTML 交付研发 - 三方对比</title>
+    <style>
+      :root { --bg: #f6f7fb; --surface: #fff; --text: #172033; --muted: #647085; --border: #dfe4ee; --accent: #6d35ff; --ok: #137a46; --warn: #ad5f00; --risk: #a61d24; font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--text); }
+      header { padding: 32px 40px 20px; background: var(--surface); border-bottom: 1px solid var(--border); }
+      h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+      .lead { margin: 0; color: var(--muted); line-height: 1.7; max-width: 1100px; }
+      main { padding: 24px 40px 40px; display: grid; gap: 24px; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .panel, .section { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+      .panel-head { padding: 16px; border-bottom: 1px solid var(--border); display: grid; gap: 8px; }
+      .panel h2, .section h2 { margin: 0; font-size: 18px; letter-spacing: 0; }
+      .tag { display: inline-flex; width: max-content; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; border: 1px solid var(--border); color: var(--muted); }
+      iframe { width: 100%; height: 560px; border: 0; background: white; }
+      .section { padding: 20px; }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th, td { border: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; line-height: 1.55; }
+      th { background: #f8fafc; width: 18%; }
+      .score { font-weight: 700; }
+      .ok { color: var(--ok); }
+      .warn { color: var(--warn); }
+      .risk { color: var(--risk); }
+      ul { margin: 0; padding-left: 18px; }
+      li + li { margin-top: 6px; }
+      .evidence { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+      .metric { border: 1px solid var(--border); border-radius: 8px; padding: 14px; background: #fbfcff; }
+      .metric b { display: block; font-size: 22px; margin-bottom: 4px; }
+      .metric span { color: var(--muted); font-size: 13px; line-height: 1.4; }
+      @media (max-width: 1180px) { .grid { grid-template-columns: 1fr; } iframe { height: 620px; } .evidence { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ant Design / shadcn / 本地 Sanofi Elements：设计规范到 HTML 交付研发对比</h1>
+      <p class="lead">样本统一为“OneCommercial CDC库存查询填报后台”。Ant Design 与 shadcn 页面用于静态交付形态对比，本地页面引用现有已验证的 resolver 输出。比较重点不是谁更好看，而是谁更适合把设计规范转成可追溯、可验证、可交给研发继续落地的 HTML。</p>
+    </header>
+    <main>
+      <section class="grid" aria-label="三方视觉结果">
+        <article class="panel">
+          <div class="panel-head"><h2>Ant Design</h2><span class="tag">静态 HTML 模拟</span></div>
+          <iframe title="Ant Design static delivery sample" src="admin-query-panel.antdesign.static.html"></iframe>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><h2>shadcn</h2><span class="tag">静态 HTML 模拟</span></div>
+          <iframe title="shadcn static delivery sample" src="admin-query-panel.shadcn.static.html"></iframe>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><h2>本地 Sanofi Elements</h2><span class="tag">真实 resolver 输出，已验证</span></div>
+          <iframe title="Sanofi local resolver output" src="admin-query-panel.resolved.html"></iframe>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>结论快照</h2>
+        <table>
+          <tbody>
+            <tr><th>最适合的角色</th><td>Ant Design 适合快速做企业后台 React 页面；shadcn 适合把组件源码纳入产品工程并长期自定义；本地 Sanofi Elements 适合把品牌设计规范、组件证据、页面规则和 HTML 验证串成交付闭环。</td></tr>
+            <tr><th>交付给研发</th><td>Ant Design 和 shadcn 的理想交付物是 React/Tailwind 源码，不是纯 HTML。本地链路的目标就是静态 HTML，并带有 `data-primitive`、`data-pattern`、`data-source-doc-id`、`data-token-source` 等追踪信息。</td></tr>
+            <tr><th>规范一致性</th><td>Ant Design 默认会输出 Ant 体系观感，shadcn 默认会输出中性 Tailwind/Radix 观感；两者都需要二次品牌化。本地输出直接绑定 Sanofi Elements token、规则和 Storybook/文档来源。</td></tr>
+            <tr><th>当前短板</th><td>本地链路最重，前期要维护 registry、contract、template、validator；同时 Table 在该样本中仍是明确标注的 fallback，不应冒充官方 Table primitive。本次 1280 宽截图还显示本地表格需要横向滚动才能看到右侧数量列，说明还应补视觉截图门禁。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>评分对比</h2>
+        <table>
+          <thead><tr><th>维度</th><th>Ant Design</th><th>shadcn</th><th>本地 Sanofi Elements</th></tr></thead>
+          <tbody>
+            <tr><th>快速出后台页面</th><td><span class="score ok">高</span><br>组件覆盖强，表格、表单、菜单、分页都成熟。</td><td><span class="score warn">中高</span><br>组合灵活，但复杂后台表格和业务布局要自己补。</td><td><span class="score warn">中</span><br>要先命中 registry 和 template，速度取决于本地资产完整度。</td></tr>
+            <tr><th>品牌设计规范还原</th><td><span class="score warn">中</span><br>可配主题 token，但默认是 Ant 体系，需要品牌化工程。</td><td><span class="score warn">中</span><br>CSS variables/Tailwind 方便改，但需要自己维护规范映射。</td><td><span class="score ok">高</span><br>直接消费 Sanofi token、规则、组件合同和模板。</td></tr>
+            <tr><th>HTML 交付适配度</th><td><span class="score risk">低到中</span><br>官方模型是 React 组件库，静态 HTML 会丢失组件语义和交互合同。</td><td><span class="score warn">中</span><br>源码可复制，但仍偏工程源码，不是验证型 HTML 产物。</td><td><span class="score ok">高</span><br>当前输出就是 standalone HTML，并通过多项验证；但仍需要独立视觉门禁检查响应式和首屏表格可见性。</td></tr>
+            <tr><th>可追溯性</th><td><span class="score warn">中</span><br>可追溯到组件 API 和 token 配置，但通常不追到业务模板规则。</td><td><span class="score warn">中</span><br>可追溯到 registry item 和源码文件，但页面级规范证据要自建。</td><td><span class="score ok">高</span><br>HTML 内含 registry、pattern、source docs、token source、fallback reason。</td></tr>
+            <tr><th>验证闭环</th><td><span class="score warn">中</span><br>主要靠工程测试、视觉回归和代码规范。</td><td><span class="score warn">中</span><br>主要靠工程测试和组件维护规范。</td><td><span class="score ok">高</span><br>已有 token、primitive、pattern、layout、typography、navigation、provenance 门禁。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>本地证据</h2>
+        <div class="evidence">
+          <div class="metric"><b>95</b><span>组件纳入 coverage matrix，其中 93 个完成，2 个 unsupported 已计入。</span></div>
+          <div class="metric"><b>425</b><span>Storybook story 被纳入组件覆盖统计。</span></div>
+          <div class="metric"><b>9/9</b><span>本次样本重跑的关键验证脚本全部通过。</span></div>
+          <div class="metric"><b>1</b><span>Table 模块被明确标为 fallback，避免误认成已注册 primitive。</span></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

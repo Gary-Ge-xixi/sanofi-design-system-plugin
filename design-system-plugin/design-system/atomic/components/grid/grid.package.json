@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "grid-complete-standard-package",
+  "component_id": "grid",
+  "component_name": "Grid",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-grid--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/grid/docs/grid.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-grid--desktop",
+      "story_name": "Desktop",
+      "export_name": "Desktop",
+      "semantic_type": "variant",
+      "variant": "desktop",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--desktop.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/grid-desktop.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-grid--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-grid--large-mobile",
+      "story_name": "Large Mobile",
+      "export_name": "LargeMobile",
+      "semantic_type": "variant",
+      "variant": "large-mobile",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--large-mobile.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/grid-large-mobile.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-grid--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-grid--mobile",
+      "story_name": "Mobile",
+      "export_name": "Mobile",
+      "semantic_type": "variant",
+      "variant": "mobile",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--mobile.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/grid-mobile.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-grid--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-grid--tablet",
+      "story_name": "Tablet",
+      "export_name": "Tablet",
+      "semantic_type": "variant",
+      "variant": "tablet",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/grid/stories/components-grid--tablet.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/grid-tablet.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-grid--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/grid/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/grid/grid.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/grid-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-grid--desktop",
+        "output_path": "design-system-plugin/outputs/html/grid-desktop.atomic.html"
+      },
+      {
+        "story_id": "components-grid--large-mobile",
+        "output_path": "design-system-plugin/outputs/html/grid-large-mobile.atomic.html"
+      },
+      {
+        "story_id": "components-grid--mobile",
+        "output_path": "design-system-plugin/outputs/html/grid-mobile.atomic.html"
+      },
+      {
+        "story_id": "components-grid--tablet",
+        "output_path": "design-system-plugin/outputs/html/grid-tablet.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-grid-complete-package.json",
+    "story_item_prefix": "sanofi-grid-"
+  },
+  "validation": {
+    "required_story_count": 4,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-grid--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/grid/grid.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/grid/docs/grid.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/grid/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "status": "ready_to_write_complete",
+  "script": "build-component-package-factory",
+  "component_id": "drawer",
+  "component_name": "Drawer",
+  "tier": "L",
+  "estimated_hours": 7.9,
+  "write_mode": {
+    "write_partial": false,
+    "force": false,
+    "write_allowed": true
+  },
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 8,
+    "materialized_stories": 8,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "readiness": {
+    "can_write_complete": true,
+    "has_component_contract": true,
+    "has_primitive_contract": true,
+    "has_existing_package": false,
+    "missing_story_ids": []
+  },
+  "artifacts": {
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json",
+    "component_atomic": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json",
+    "package": "design-system-plugin/design-system/atomic/components/drawer/drawer.package.json"
+  },
+  "writes": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/drawer.expected-tabs.json",
+      "reason": "expected-tabs"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/docs/drawer.docs.contract.json",
+      "reason": "docs-contract"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/drawer.package.json",
+      "reason": "component-package"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/drawer/component.atomic.json",
+      "reason": "exists_preserved"
+    }
+  ]
+}

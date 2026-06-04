@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-checkbox--color-variations",
+  "component_id": "checkbox",
+  "component_name": "Checkbox",
+  "story_id": "components-checkbox--color-variations",
+  "story_name": "Color Variations",
+  "export_name": "ColorVariations",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-checkbox--color-variations&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-checkbox--color-variations&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Checkbox.stories-sP0G76Lf.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/components-checkbox--color-variations.iframe.html",
+    "import_path": "./src/components/Checkbox/Checkbox.stories.tsx",
+    "component_path": "./src/components/Checkbox/Checkbox.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{checkboxSize:{control:\"select\",options:Object.values(a),description:\"The checkbox size\"},color:{control:\"select\",options:Object.values(o),description:\"The checkbox color variant\"},subtext:{control:\"text\",description:\"Optional subtext below the label\"},checked:{control:\"radio\",options:[!0,!1],description:\"The checkbox checked state\"},onClick:{action:\"clicked\"},onChange:{action:\"changed\"}}",
+    "fields": [
+      "checkboxSize",
+      "color",
+      "subtext",
+      "checked",
+      "onClick",
+      "onChange"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: () => <div style={{\n    display: \"flex\",\n    flexDirection: \"column\",\n    gap: \"16px\"\n  }}>\n      <div style={{\n      display: \"flex\",\n      flexDirection: \"column\",\n      gap: \"8px\"\n    }}>\n        <Title variant={TitleVariant.TITLE_4}>Branded Color</Title>\n        <div style={{\n        display: \"flex\",\n        gap: \"16px\",\n        flexWrap: \"wrap\"\n      }}>\n          <Checkbox color={CheckboxColor.BRANDED} label=\"Unchecked\" />\n          <Checkbox color={CheckboxColor.BRANDED} label=\"Checked\" defaultChecked />\n          <Checkbox color={CheckboxColor.BRANDED} label=\"Indeterminate\" indeterminate />\n          <Checkbox color={CheckboxColor.BRANDED} label=\"Disabled\" disabled />\n          <Checkbox color={CheckboxColor.BRANDED} label=\"Disabled Checked\" disabled defaultChecked />\n        </div>\n      </div>\n      <div style={{\n      display: \"flex\",\n      flexDirection: \"column\",\n      gap: \"8px\"\n    }}>\n        <Title variant={TitleVariant.TITLE_4}>Neutral Color</Title>\n        <div style={{\n        display: \"flex\",\n        gap: \"16px\",\n        flexWrap: \"wrap\"\n      }}>\n          <Checkbox color={CheckboxColor.NEUTRAL} label=\"Unchecked\" />\n          <Checkbox color={CheckboxColor.NEUTRAL} label=\"Checked\" defaultChecked />\n          <Checkbox color={CheckboxColor.NEUTRAL} label=\"Indeterminate\" indeterminate />\n          <Checkbox color={CheckboxColor.NEUTRAL} label=\"Disabled\" disabled />\n          <Checkbox color={CheckboxColor.NEUTRAL} label=\"Disabled Checked\" disabled defaultChecked />\n        </div>\n      </div>\n    </div>,\n  parameters: {\n    docs: {\n      description: {\n        story: \"Showcase of both color variations with different states.\"\n      }\n    }\n  }\n}",
+    "story_object_source": "{render:()=>e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"16px\"},children:[e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"8px\"},children:[e.jsx(d,{variant:x.TITLE_4,children:\"Branded Color\"}),e.jsxs(\"div\",{style:{display:\"flex\",gap:\"16px\",flexWrap:\"wrap\"},children:[e.jsx(l,{color:o.BRANDED,label:\"Unchecked\"}),e.jsx(l,{color:o.BRANDED,label:\"Checked\",defaultChecked:!0}),e.jsx(l,{color:o.BRANDED,label:\"Indeterminate\",indeterminate:!0}),e.jsx(l,{color:o.BRANDED,label:\"Disabled\",disabled:!0}),e.jsx(l,{color:o.BRANDED,label:\"Disabled Checked\",disabled:!0,defaultChecked:!0})]})]}),e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"8px\"},children:[e.jsx(d,{variant:x.TITLE_4,children:\"Neutral Color\"}),e.jsxs(\"div\",{style:{display:\"flex\",gap:\"16px\",flexWrap:\"wrap\"},children:[e.jsx(l,{color:o.NEUTRAL,label:\"Unchecked\"}),e.jsx(l,{color:o.NEUTRAL,label:\"Checked\",defaultChecked:!0}),e.jsx(l,{color:o.NEUTRAL,label:\"Indeterminate\",indeterminate:!0}),e.jsx(l,{color:o.NEUTRAL,label:\"Disabled\",disabled:!0}),e.jsx(l,{color:o.NEUTRAL,label:\"Disabled Checked\",disabled:!0,defaultChecked:!0})]})]})]}),parameters:{docs:{description:{story:\"Showcase of both color variations with different states.\"}}}}"
+  },
+  "template": {
+    "id": "checkbox-color-variations-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.color-variations.template.html",
+    "output_path": "design-system-plugin/outputs/html/checkbox-color-variations.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/checkbox.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "checkbox",
+    "local_path": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox--docs",
+    "story_id": "components-checkbox--color-variations",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/checkbox/assets/components-checkbox--color-variations.iframe.html"
+  }
+}

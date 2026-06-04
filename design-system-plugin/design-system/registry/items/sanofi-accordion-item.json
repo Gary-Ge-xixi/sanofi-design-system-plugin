@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-accordion-item",
+  "title": "Accordion.Item primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Accordion.Item.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "accordion-item",
+  "docs_id": "components-accordion-item--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/accordion-item/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/accordion-item/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/accordion-item/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/accordion-item/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-accordion-item--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-accordion-item--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "accordion-item",
+      "Accordion.Item",
+      "Accordion.Item"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Accordion.Item primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

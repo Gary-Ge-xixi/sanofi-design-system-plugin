@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "radio-radio-group",
+  "component_name": "Radio/RadioGroup",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-radio-radiogroup--default",
+      "story_name": "Default",
+      "component_id": "radio-radio-group",
+      "component_name": "Radio/RadioGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-radio-group-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+      "docs_id": "components-radio-radiogroup--docs",
+      "registry_item": "sanofi-radio-radio-group-default-atomic-story"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal",
+      "story_name": "Horizontal",
+      "component_id": "radio-radio-group",
+      "component_name": "Radio/RadioGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.horizontal.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+      "docs_id": "components-radio-radiogroup--docs",
+      "registry_item": "sanofi-radio-radio-group-horizontal-atomic-story"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "story_name": "Horizontal Radios With Error",
+      "component_id": "radio-radio-group",
+      "component_name": "Radio/RadioGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--horizontal-radios-with-error.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.horizontal-radios-with-error.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal-radios-with-error.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+      "docs_id": "components-radio-radiogroup--docs",
+      "registry_item": "sanofi-radio-radio-group-horizontal-radios-with-error-atomic-story"
+    },
+    {
+      "story_id": "components-radio-radiogroup--with-error",
+      "story_name": "With Error",
+      "component_id": "radio-radio-group",
+      "component_name": "Radio/RadioGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio-radio-group/stories/components-radio-radiogroup--with-error.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.with-error.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-radio-group-with-error.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+      "docs_id": "components-radio-radiogroup--docs",
+      "registry_item": "sanofi-radio-radio-group-with-error-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio-radio-group--docs"
+  }
+}

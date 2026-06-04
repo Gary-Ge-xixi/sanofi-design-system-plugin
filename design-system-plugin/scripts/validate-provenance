@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const resolutionPath = path.join(pluginRoot, "design-system", "contracts", "resolvers", "latest-resolution.json");
+const provenancePolicyPath = path.join(pluginRoot, "design-system", "policies", "source-provenance.json");
+const reportPath = path.join(reportDir, "provenance-validation.report.json");
+
+function extract(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing HTML target: ${target}`);
+if (!fs.existsSync(resolutionPath)) failures.push("missing latest-resolution.json");
+
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const resolution = fs.existsSync(resolutionPath) ? JSON.parse(fs.readFileSync(resolutionPath, "utf8")) : {};
+const policy = JSON.parse(fs.readFileSync(provenancePolicyPath, "utf8"));
+
+for (const marker of policy.required_for_html || []) {
+  if (!html.includes(marker)) failures.push(`HTML missing provenance marker: ${marker}`);
+}
+
+const docRefs = extract(html, "data-source-doc-id");
+const storyRefs = extract(html, "data-story-id");
+const patternRefs = extract(html, "data-pattern");
+const tokenRefs = extract(html, "data-token-source");
+
+if (!docRefs.length) failures.push("no data-source-doc-id refs");
+if (!storyRefs.length) failures.push("no data-story-id refs");
+if (!patternRefs.length) failures.push("no data-pattern refs");
+if (!tokenRefs.includes("foundations-colors--docs")) failures.push("missing token source marker");
+if (!resolution.source_provenance?.fallback_reasons?.length) failures.push("resolution missing fallback reasons");
+if (!/data-fallback-reason=/.test(html)) failures.push("HTML missing fallback reason markers");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-provenance",
+  target: path.relative(pluginRoot, target),
+  checked: {
+    doc_refs: docRefs.length,
+    story_refs: storyRefs.length,
+    pattern_refs: patternRefs.length,
+    token_source_refs: tokenRefs.length,
+    fallback_reasons: resolution.source_provenance?.fallback_reasons?.length || 0
+  },
+  failures
+};
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Provenance validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Provenance OK: ${path.relative(pluginRoot, target)}`);

@@ -1,0 +1,52 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "render-dashboard-template-html",
+  "generated_at": "2026-06-04T10:45:32.436Z",
+  "input": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json",
+  "output": "design-system-plugin/outputs/html/admin-dashboard.resolved.html",
+  "consumed": {
+    "registry_item": "sanofi-report-dashboard",
+    "pattern_id": "report-dashboard",
+    "design_md_path": "design-system-plugin/design-system/DESIGN.md",
+    "delivery_contract": "admin-dashboard-desktop-delivery",
+    "viewport_policy": "desktop-only",
+    "layout_rule": "layout-grid-container",
+    "typography_rule": "typography-font-stack",
+    "required_rules": [
+      "business-page-standards",
+      "business-admin-defaults",
+      "chart-usage",
+      "table-usage",
+      "density-standards",
+      "admin-delivery-contract",
+      "admin-dashboard-chart-reference-fit"
+    ]
+  },
+  "checked": {
+    "renderer_target": "html",
+    "sections": 5,
+    "required_primitives": 11,
+    "responsive_branch_count": 0,
+    "mobile_story_refs": 0,
+    "icon_refs": 10,
+    "icon_story_refs": 10,
+    "glyph_fallbacks": 0,
+    "brand_asset_refs": 1,
+    "text_logo_refs": 0,
+    "large_component_size_refs": 0,
+    "business_chart_regions": 1,
+    "chart_fallback_refs": 0,
+    "chart_fallback_module_refs": 0,
+    "accessible_chart_tables": 1,
+    "container_content_refs": 1,
+    "grid_root_refs": 1,
+    "grid_item_refs": 6,
+    "unconstrained_container_refs": 0,
+    "fallback_modules": [
+      "table",
+      "chart"
+    ]
+  },
+  "failures": []
+}

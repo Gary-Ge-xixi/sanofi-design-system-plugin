@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-media",
+  "title": "Card/Media primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Card/Media.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "card-media",
+  "docs_id": "components-card-media--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-media/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-media/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-media/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/card-media/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-media.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-media.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-media--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-media--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-media--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-media",
+      "Card/Media",
+      "Card/Media"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Card/Media primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

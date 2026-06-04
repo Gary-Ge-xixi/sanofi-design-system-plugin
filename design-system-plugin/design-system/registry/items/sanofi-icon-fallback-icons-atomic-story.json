@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-icon-fallback-icons-atomic-story",
+  "title": "Icon Fallback Icons atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-icon--fallback-icons.",
+  "atomic_story_id": "components-icon--fallback-icons",
+  "component_id": "icon",
+  "docs_id": "components-icon--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-icon"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--fallback-icons.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--fallback-icons.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/icon/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/assets/components-icon--fallback-icons.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/icon/assets/components-icon--fallback-icons.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/icon/templates/html.fallback-icons.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/icon/templates/html.fallback-icons.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/icon.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/icon/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-icon--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-icon--docs",
+    "story_id": "components-icon--fallback-icons",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/icon/stories/components-icon--fallback-icons.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/icon/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-icon--fallback-icons&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-icon--fallback-icons&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Icon.stories-Bd2tiqR6.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/icon/assets/Icon.stories-Bd2tiqR6.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/icon/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "icon",
+      "Icon",
+      "Fallback Icons",
+      "components-icon--fallback-icons",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Icon Fallback Icons Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

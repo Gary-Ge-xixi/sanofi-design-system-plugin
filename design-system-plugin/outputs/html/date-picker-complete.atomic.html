@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DatePicker complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-datepicker--docs">
+        <h1>DatePicker Complete Package</h1>
+        <p>Docs: components-datepicker--docs. Stories: 23/23.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-datepicker--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--default" data-source-doc-id="components-datepicker--docs">
+          <h2>Default</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--default" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="default" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Default</span><code>components-datepicker--default</code></article>
+          <p><code>components-datepicker--default</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--disabled" data-source-doc-id="components-datepicker--docs">
+          <h2>Disabled</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--disabled" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="disabled" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Disabled</span><code>components-datepicker--disabled</code></article>
+          <p><code>components-datepicker--disabled</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--disabled-range" data-source-doc-id="components-datepicker--docs">
+          <h2>Disabled Range</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--disabled-range" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="disabled-range" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Disabled Range</span><code>components-datepicker--disabled-range</code></article>
+          <p><code>components-datepicker--disabled-range</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--dual-calendar" data-source-doc-id="components-datepicker--docs">
+          <h2>Dual Calendar</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--dual-calendar" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="dual-calendar" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Dual Calendar</span><code>components-datepicker--dual-calendar</code></article>
+          <p><code>components-datepicker--dual-calendar</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--dual-calendar-clearable" data-source-doc-id="components-datepicker--docs">
+          <h2>Dual Calendar Clearable</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--dual-calendar-clearable" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="dual-calendar-clearable" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Dual Calendar Clearable</span><code>components-datepicker--dual-calendar-clearable</code></article>
+          <p><code>components-datepicker--dual-calendar-clearable</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--dual-calendar-partial-range" data-source-doc-id="components-datepicker--docs">
+          <h2>Dual Calendar Partial Range</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--dual-calendar-partial-range" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="dual-calendar-partial-range" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Dual Calendar Partial Range</span><code>components-datepicker--dual-calendar-partial-range</code></article>
+          <p><code>components-datepicker--dual-calendar-partial-range</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--dual-calendar-with-footer" data-source-doc-id="components-datepicker--docs">
+          <h2>Dual Calendar With Footer</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--dual-calendar-with-footer" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="dual-calendar-with-footer" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Dual Calendar With Footer</span><code>components-datepicker--dual-calendar-with-footer</code></article>
+          <p><code>components-datepicker--dual-calendar-with-footer</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--dual-calendar-with-prefilled-range" data-source-doc-id="components-datepicker--docs">
+          <h2>Dual Calendar With Prefilled Range</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--dual-calendar-with-prefilled-range" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="dual-calendar-with-prefilled-range" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Dual Calendar With Prefilled Range</span><code>components-datepicker--dual-calendar-with-prefilled-range</code></article>
+          <p><code>components-datepicker--dual-calendar-with-prefilled-range</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--medium-size" data-source-doc-id="components-datepicker--docs">
+          <h2>Medium Size</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--medium-size" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="medium-size" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Medium Size</span><code>components-datepicker--medium-size</code></article>
+          <p><code>components-datepicker--medium-size</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--month-picker" data-source-doc-id="components-datepicker--docs">
+          <h2>Month Picker</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--month-picker" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="month-picker" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Month Picker</span><code>components-datepicker--month-picker</code></article>
+          <p><code>components-datepicker--month-picker</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--quarter-picker" data-source-doc-id="components-datepicker--docs">
+          <h2>Quarter Picker</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--quarter-picker" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="quarter-picker" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Quarter Picker</span><code>components-datepicker--quarter-picker</code></article>
+          <p><code>components-datepicker--quarter-picker</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--range" data-source-doc-id="components-datepicker--docs">
+          <h2>Range</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--range" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="range" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Range</span><code>components-datepicker--range</code></article>
+          <p><code>components-datepicker--range</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--range-empty" data-source-doc-id="components-datepicker--docs">
+          <h2>Range Empty</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--range-empty" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="range-empty" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Range Empty</span><code>components-datepicker--range-empty</code></article>
+          <p><code>components-datepicker--range-empty</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--range-partial" data-source-doc-id="components-datepicker--docs">
+          <h2>Range Partial</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--range-partial" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="range-partial" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Range Partial</span><code>components-datepicker--range-partial</code></article>
+          <p><code>components-datepicker--range-partial</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--range-with-error" data-source-doc-id="components-datepicker--docs">
+          <h2>Range With Error</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--range-with-error" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="range-with-error" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Range With Error</span><code>components-datepicker--range-with-error</code></article>
+          <p><code>components-datepicker--range-with-error</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--range-with-footer" data-source-doc-id="components-datepicker--docs">
+          <h2>Range With Footer</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--range-with-footer" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="range-with-footer" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Range With Footer</span><code>components-datepicker--range-with-footer</code></article>
+          <p><code>components-datepicker--range-with-footer</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--with-clearable" data-source-doc-id="components-datepicker--docs">
+          <h2>With Clearable</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--with-clearable" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="with-clearable" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>With Clearable</span><code>components-datepicker--with-clearable</code></article>
+          <p><code>components-datepicker--with-clearable</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--with-error" data-source-doc-id="components-datepicker--docs">
+          <h2>With Error</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--with-error" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="with-error" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>With Error</span><code>components-datepicker--with-error</code></article>
+          <p><code>components-datepicker--with-error</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--with-footer" data-source-doc-id="components-datepicker--docs">
+          <h2>With Footer</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--with-footer" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="with-footer" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>With Footer</span><code>components-datepicker--with-footer</code></article>
+          <p><code>components-datepicker--with-footer</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--with-icon" data-source-doc-id="components-datepicker--docs">
+          <h2>With Icon</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--with-icon" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="with-icon" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>With Icon</span><code>components-datepicker--with-icon</code></article>
+          <p><code>components-datepicker--with-icon</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--with-min-and-max-dates" data-source-doc-id="components-datepicker--docs">
+          <h2>With Min And Max Dates</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--with-min-and-max-dates" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="with-min-and-max-dates" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>With Min And Max Dates</span><code>components-datepicker--with-min-and-max-dates</code></article>
+          <p><code>components-datepicker--with-min-and-max-dates</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--year-picker" data-source-doc-id="components-datepicker--docs">
+          <h2>Year Picker</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--year-picker" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="year-picker" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Year Picker</span><code>components-datepicker--year-picker</code></article>
+          <p><code>components-datepicker--year-picker</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-datepicker--year-picker-with-footer" data-source-doc-id="components-datepicker--docs">
+          <h2>Year Picker With Footer</h2>
+          <article data-primitive="date-picker" data-pattern="atomic-component-sample" data-story-id="components-datepicker--year-picker-with-footer" data-source-doc-id="components-datepicker--docs" data-token-source="foundations-colors--docs" data-variant="year-picker-with-footer" data-state="variant" class="sample-shell"><strong>DatePicker</strong><span>Year Picker With Footer</span><code>components-datepicker--year-picker-with-footer</code></article>
+          <p><code>components-datepicker--year-picker-with-footer</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-datepicker--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/date-picker.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/date-picker/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

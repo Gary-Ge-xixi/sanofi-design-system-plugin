@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TreeView/SubComponents/LeadingVisual",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-treeview-subcomponents-leadingvisual--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-media-custom-default-atomic-story",
+  "title": "Card/MediaCustom Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-card-mediacustom--default.",
+  "atomic_story_id": "components-card-mediacustom--default",
+  "component_id": "card-media-custom",
+  "docs_id": "components-card-mediacustom--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card-media-custom"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-media-custom/stories/components-card-mediacustom--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/card-media-custom/stories/components-card-mediacustom--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-media-custom/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-media-custom/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-media-custom/assets/CardMediaCustom.stories-B1PczKZD.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/card-media-custom/assets/CardMediaCustom.stories-B1PczKZD.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-media-custom/assets/components-card-mediacustom--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/card-media-custom/assets/components-card-mediacustom--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-media-custom/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/card-media-custom/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-media-custom/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-media-custom/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-mediacustom--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-mediacustom--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-mediacustom--docs",
+    "story_id": "components-card-mediacustom--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/card-media-custom/stories/components-card-mediacustom--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/card-media-custom/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card-mediacustom--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card-mediacustom--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CardMediaCustom.stories-B1PczKZD.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card-media-custom/assets/CardMediaCustom.stories-B1PczKZD.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-media-custom/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-media-custom",
+      "Card/MediaCustom",
+      "Default",
+      "components-card-mediacustom--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Card/MediaCustom Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

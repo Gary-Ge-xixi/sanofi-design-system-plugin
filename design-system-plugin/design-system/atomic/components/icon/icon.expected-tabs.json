@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "icon",
+  "component_name": "Icon",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Icon"
+  },
+  "docs": [
+    {
+      "id": "components-icon--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Icon/Icon.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-icon--custom-icon",
+      "name": "Custom Icon",
+      "export_name": "CustomIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Icon/Icon.stories.tsx"
+    },
+    {
+      "id": "components-icon--fallback-icons",
+      "name": "Fallback Icons",
+      "export_name": "FallbackIcons",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Icon/Icon.stories.tsx"
+    },
+    {
+      "id": "components-icon--gallery",
+      "name": "Gallery",
+      "export_name": "Gallery",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Icon/Icon.stories.tsx"
+    }
+  ]
+}

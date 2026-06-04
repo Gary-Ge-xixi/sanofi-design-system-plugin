@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "progress-bar",
+  "component_name": "ProgressBar",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ProgressBar"
+  },
+  "docs": [
+    {
+      "id": "components-progressbar--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ProgressBar/ProgressBar.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-progressbar--all-densities",
+      "name": "All Densities",
+      "export_name": "AllDensities",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx"
+    },
+    {
+      "id": "components-progressbar--all-sizes",
+      "name": "All Sizes",
+      "export_name": "AllSizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx"
+    },
+    {
+      "id": "components-progressbar--all-states",
+      "name": "All States",
+      "export_name": "AllStates",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx"
+    },
+    {
+      "id": "components-progressbar--custom-value-text",
+      "name": "Custom Value Text",
+      "export_name": "CustomValueText",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx"
+    },
+    {
+      "id": "components-progressbar--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx"
+    }
+  ]
+}

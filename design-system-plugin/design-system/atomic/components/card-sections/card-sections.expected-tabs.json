@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card-sections",
+  "component_name": "Card/Sections",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Card/Sections"
+  },
+  "docs": [
+    {
+      "id": "components-card-sections--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Card/CardSection.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-card-sections--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardSection.stories.tsx"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "id": "component-size-policy",
+  "severity": "error",
+  "description": "Admin HTML components, including Select and DatePicker, should default to ordinary medium size, not large, unless a component-specific contract explicitly overrides it.",
+  "default_size": "medium",
+  "default_value_arbitration": {
+    "authority_order": [
+      "explicit_user_or_component_spec_override",
+      "api_reference_default",
+      "local_business_admin_default",
+      "storybook_story_args",
+      "usage_snippet"
+    ],
+    "conflict_policy": "When Storybook default stories or usage snippets set InputSize.LARGE but the API reference table declares medium, generated business/admin pages must use medium unless an explicit override is present.",
+    "known_conflicts": [
+      {
+        "component": "select",
+        "api_default": "medium",
+        "conflicting_story_arg": "InputSize.LARGE",
+        "resolution": "use-api-default-medium"
+      },
+      {
+        "component": "date-picker",
+        "api_default": "medium",
+        "conflicting_story_arg": "InputSize.LARGE",
+        "resolution": "use-api-default-medium"
+      }
+    ]
+  },
+  "forbidden_default_sizes": [
+    "large"
+  ],
+  "checks": [
+    {
+      "id": "runtime-component-default-size",
+      "description": "Runtime-backed components that emit size metadata should use medium by default."
+    },
+    {
+      "id": "no-large-default",
+      "description": "Large size may be used only when a component spec explicitly requests it for a specific need."
+    },
+    {
+      "id": "api-default-over-story-args",
+      "description": "API reference defaults win over Storybook example args when the user has not requested a size override."
+    }
+  ]
+}

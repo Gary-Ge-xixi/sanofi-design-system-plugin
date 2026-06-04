@@ -1,0 +1,74 @@
+{
+  "schema_version": "0.1.0",
+  "id": "elevation-usage",
+  "status": "ready",
+  "source_doc_id": "foundations-elevation--docs",
+  "source_path": "../knowledge/docs/foundations-elevation--docs.md",
+  "purpose": "Use Sanofi Elements elevation tokens for layered UI surfaces instead of raw box-shadow values.",
+  "tokens": [
+    "--elements-core-elevation-01",
+    "--elements-core-elevation-02",
+    "--elements-core-elevation-03",
+    "--elements-core-elevation-04",
+    "--elements-core-elevation-05"
+  ],
+  "role_contract": [
+    {
+      "role": "subtle-surface",
+      "token": "--elements-core-elevation-01",
+      "use_cases": [
+        "cards at rest",
+        "subtle lifted dividers"
+      ]
+    },
+    {
+      "role": "header",
+      "token": "--elements-core-elevation-02",
+      "use_cases": [
+        "navigation headers",
+        "menus",
+        "dropdowns",
+        "calendar popovers"
+      ]
+    },
+    {
+      "role": "sticky-action",
+      "token": "--elements-core-elevation-03",
+      "use_cases": [
+        "sticky save bars",
+        "floating action surfaces"
+      ]
+    },
+    {
+      "role": "overlay",
+      "token": "--elements-core-elevation-04",
+      "use_cases": [
+        "modals",
+        "dialogs",
+        "drawers"
+      ]
+    },
+    {
+      "role": "top-layer",
+      "token": "--elements-core-elevation-05",
+      "use_cases": [
+        "toasts",
+        "top-layer notifications"
+      ]
+    }
+  ],
+  "default_business_admin_mapping": {
+    "navigation_header": "--elements-core-elevation-02",
+    "menu_or_dropdown": "--elements-core-elevation-02",
+    "sticky_save_bar": "--elements-core-elevation-03",
+    "modal_or_dialog": "--elements-core-elevation-04",
+    "toast_or_notification": "--elements-core-elevation-05"
+  },
+  "requirements": [
+    "Generated HTML must not use raw box-shadow values.",
+    "Any generated box-shadow must use one of the allowed Elements elevation tokens.",
+    "Layered generated surfaces must expose data-elevation-role and data-elevation-token.",
+    "Do not replace elevation tokens with overlay color tokens, rgba values, or local shadow aliases."
+  ],
+  "validator": "../../scripts/validate-elevation-usage"
+}

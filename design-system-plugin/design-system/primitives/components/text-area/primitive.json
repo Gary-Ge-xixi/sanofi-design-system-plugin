@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TextArea",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/TextArea",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-area.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "text-area",
+      "data_attribute": "data-primitive=\"text-area\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-textarea--default",
+      "components-textarea--error-state",
+      "components-textarea--inverse",
+      "components-textarea--no-counter",
+      "components-textarea--overview",
+      "components-textarea--overview-inverse",
+      "components-textarea--sizes",
+      "components-textarea--success",
+      "components-textarea--with-tooltip"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-textarea--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

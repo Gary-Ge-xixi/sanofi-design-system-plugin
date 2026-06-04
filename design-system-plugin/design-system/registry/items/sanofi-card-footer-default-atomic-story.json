@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-footer-default-atomic-story",
+  "title": "Card/Footer Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-card-footer--default.",
+  "atomic_story_id": "components-card-footer--default",
+  "component_id": "card-footer",
+  "docs_id": "components-card-footer--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card-footer"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-footer/stories/components-card-footer--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/card-footer/stories/components-card-footer--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-footer/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-footer/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-footer/assets/CardFooter.stories-BmqaGIZC.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/card-footer/assets/CardFooter.stories-BmqaGIZC.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-footer/assets/components-card-footer--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/card-footer/assets/components-card-footer--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-footer/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/card-footer/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-footer.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-footer.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-footer/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-footer/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-footer--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-footer--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-footer--docs",
+    "story_id": "components-card-footer--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/card-footer/stories/components-card-footer--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/card-footer/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card-footer--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card-footer--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CardFooter.stories-BmqaGIZC.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card-footer/assets/CardFooter.stories-BmqaGIZC.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-footer.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-footer/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-footer",
+      "Card/Footer",
+      "Default",
+      "components-card-footer--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Card/Footer Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

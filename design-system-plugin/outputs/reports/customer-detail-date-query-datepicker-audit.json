@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "checked_at": "2026-06-04T11:22:51.191Z",
+  "audit": {
+    "fieldRect": {
+      "height": 64,
+      "width": 330
+    },
+    "formClass": "toolbar aggregation-toolbar customer-date-query-toolbar",
+    "localAtomicState": "present",
+    "officialRuntimeState": "absent",
+    "renderSource": "local-atomic-component-package",
+    "runtime": "sanofi-local-atomic-components",
+    "sourceComponent": "date-picker",
+    "storyId": "components-datepicker--range",
+    "triggerRect": {
+      "height": 40,
+      "width": 330
+    },
+    "valueCss": {
+      "lineHeight": "normal",
+      "overflow": "hidden",
+      "textOverflow": "ellipsis",
+      "whiteSpace": "nowrap"
+    },
+    "valueRect": {
+      "height": 20,
+      "width": 182
+    },
+    "valueText": "2026-06-01 ~ 2026-06-30",
+    "wraps": false
+  },
+  "failures": []
+}

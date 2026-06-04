@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-progress-stepper-progress-stepper-nav-with-initial-step-atomic-story",
+  "title": "ProgressStepper/ProgressStepperNav With Initial Step atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-progressstepper-progresssteppernav--with-initial-step.",
+  "atomic_story_id": "components-progressstepper-progresssteppernav--with-initial-step",
+  "component_id": "progress-stepper-progress-stepper-nav",
+  "docs_id": "components-progressstepper-progresssteppernav--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-progress-stepper-progress-stepper-nav"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--with-initial-step.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--with-initial-step.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/components-progressstepper-progresssteppernav--with-initial-step.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/components-progressstepper-progresssteppernav--with-initial-step.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.with-initial-step.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/templates/html.with-initial-step.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/progress-stepper-progress-stepper-nav/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/progress-stepper-progress-stepper-nav/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-progresssteppernav--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-progresssteppernav--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-progressstepper-progresssteppernav--docs",
+    "story_id": "components-progressstepper-progresssteppernav--with-initial-step",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/stories/components-progressstepper-progresssteppernav--with-initial-step.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-progressstepper-progresssteppernav--with-initial-step&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-progressstepper-progresssteppernav--with-initial-step&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/assets/ProgressStepperNav.stories-DwBUbsUP.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-stepper-progress-stepper-nav/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "progress-stepper-progress-stepper-nav",
+      "ProgressStepper/ProgressStepperNav",
+      "With Initial Step",
+      "components-progressstepper-progresssteppernav--with-initial-step",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ProgressStepper/ProgressStepperNav With Initial Step Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

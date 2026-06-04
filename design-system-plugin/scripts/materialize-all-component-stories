@@ -1,0 +1,73 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const { execFileSync } = require("child_process");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+const storybookIndex = readJson("research/storybook/index.json");
+const timeoutMs = Number(process.env.MATERIALIZE_STORY_TIMEOUT_MS || 20000);
+const storyIds = Object.entries(storybookIndex.entries || {})
+  .filter(([, entry]) => entry.type === "story" && entry.title?.startsWith("Components/"))
+  .map(([id]) => id)
+  .sort();
+
+const results = [];
+function writeReport(final = false) {
+  const failures = results.filter((result) => result.status === "fail");
+  const report = {
+    schema_version: "0.1.0",
+    status: final ? (failures.length ? "fail" : "pass") : "in_progress",
+    script: "materialize-all-component-stories",
+    checked: {
+      total_stories: storyIds.length,
+      processed: results.length,
+      passed: results.filter((result) => result.status === "pass").length,
+      failed: failures.length,
+      timeout_ms: timeoutMs
+    },
+    failures,
+    results
+  };
+  writeJson("design-system-plugin/outputs/reports/materialize-all-component-stories.report.json", report);
+}
+
+for (const storyId of storyIds) {
+  try {
+    execFileSync("node", ["design-system-plugin/scripts/materialize-story-atom", storyId], {
+      cwd: workspaceRoot,
+      stdio: "pipe",
+      encoding: "utf8",
+      timeout: timeoutMs
+    });
+    results.push({ story_id: storyId, status: "pass" });
+  } catch (error) {
+    results.push({
+      story_id: storyId,
+      status: "fail",
+      error: String(error.stderr || error.message || error)
+    });
+  }
+  writeReport(false);
+}
+
+const failures = results.filter((result) => result.status === "fail");
+writeReport(true);
+
+if (failures.length) {
+  console.error(`Materialize all component stories failed: ${failures.length}/${storyIds.length}`);
+  process.exit(1);
+}
+
+console.log(`Materialized all component stories: ${storyIds.length}/${storyIds.length}`);

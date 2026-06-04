@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "status": "ready_to_write_complete",
+  "script": "build-component-package-factory",
+  "component_id": "content-block",
+  "component_name": "ContentBlock",
+  "tier": "L",
+  "estimated_hours": 7.9,
+  "write_mode": {
+    "write_partial": false,
+    "force": false,
+    "write_allowed": true
+  },
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 10,
+    "materialized_stories": 10,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "readiness": {
+    "can_write_complete": true,
+    "has_component_contract": true,
+    "has_primitive_contract": true,
+    "has_existing_package": false,
+    "missing_story_ids": []
+  },
+  "artifacts": {
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json",
+    "component_atomic": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+    "package": "design-system-plugin/design-system/atomic/components/content-block/content-block.package.json"
+  },
+  "writes": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json",
+      "reason": "expected-tabs"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json",
+      "reason": "docs-contract"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/content-block.package.json",
+      "reason": "component-package"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+      "reason": "exists_preserved"
+    }
+  ]
+}

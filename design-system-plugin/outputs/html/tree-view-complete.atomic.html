@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TreeView complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-treeview--docs">
+        <h1>TreeView Complete Package</h1>
+        <p>Docs: components-treeview--docs. Stories: 7/7.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-treeview--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--color-accent" data-source-doc-id="components-treeview--docs">
+          <h2>Color Accent</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--color-accent" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="color-accent" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>Color Accent</span><code>components-treeview--color-accent</code></article>
+          <p><code>components-treeview--color-accent</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--custom-leading-visuals" data-source-doc-id="components-treeview--docs">
+          <h2>Custom Leading Visuals</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--custom-leading-visuals" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="custom-leading-visuals" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>Custom Leading Visuals</span><code>components-treeview--custom-leading-visuals</code></article>
+          <p><code>components-treeview--custom-leading-visuals</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--decorations" data-source-doc-id="components-treeview--docs">
+          <h2>Decorations</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--decorations" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="decorations" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>Decorations</span><code>components-treeview--decorations</code></article>
+          <p><code>components-treeview--decorations</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--file-explorer" data-source-doc-id="components-treeview--docs">
+          <h2>File Explorer</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--file-explorer" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="file-explorer" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>File Explorer</span><code>components-treeview--file-explorer</code></article>
+          <p><code>components-treeview--file-explorer</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--inside-sidebar" data-source-doc-id="components-treeview--docs">
+          <h2>Inside Sidebar</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--inside-sidebar" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="inside-sidebar" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>Inside Sidebar</span><code>components-treeview--inside-sidebar</code></article>
+          <p><code>components-treeview--inside-sidebar</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--playground" data-source-doc-id="components-treeview--docs">
+          <h2>Playground</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--playground" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="playground" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>Playground</span><code>components-treeview--playground</code></article>
+          <p><code>components-treeview--playground</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-treeview--rtl" data-source-doc-id="components-treeview--docs">
+          <h2>RTL</h2>
+          <article data-primitive="tree-view" data-pattern="atomic-component-sample" data-story-id="components-treeview--rtl" data-source-doc-id="components-treeview--docs" data-token-source="foundations-colors--docs" data-variant="rtl" data-state="variant" class="sample-shell"><strong>TreeView</strong><span>RTL</span><code>components-treeview--rtl</code></article>
+          <p><code>components-treeview--rtl</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-treeview--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/tree-view.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/tree-view/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tooltip-docs-contract",
+  "component_id": "tooltip",
+  "component_name": "Tooltip",
+  "docs_id": "components-tooltip--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-tooltip--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "label",
+        "required": true,
+        "description": "Content of the TooltipReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "position",
+        "required": false,
+        "description": "Position of the Tooltip\"top-start\"\"top\"\"top-end\"\"right-start\"\"right\"\"right-end\"\"bottom-start\"\"bottom\"\"bottom-end\"\"left-start\"\"left\"\"left-end\"Show 4 more...",
+        "default": "\"TooltipPosition.TOP\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxWidth",
+        "required": false,
+        "description": "Set the max-width of the Tooltip contentnumber",
+        "default": "378",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tooltipOffset",
+        "required": false,
+        "description": "Distance in pixels from trigger element.number",
+        "default": "8",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "arrowPadding",
+        "required": false,
+        "description": "Padding for the tooltip arrow from edges.number",
+        "default": "10",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isOpen",
+        "required": false,
+        "description": "Programmatically opens the Tooltipboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "description": "Set the background-color to darkboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "delay",
+        "required": false,
+        "description": "Set a delay before Tooltip opens (in ms)number \\",
+        "default": "{ open?: number; close?: number; } \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shiftOffset",
+        "required": false,
+        "description": "Fine-tune position shifting for edge cases.{ mainAxis?: number; crossAxis?: number; } \\",
+        "default": "undefined",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "CSS class names for component parts.{ triggerWrapper?: string; tooltipWrapper?: string; titleWrapper?: string \\",
+        "default": "undefined; labelWrapper?: string \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "preventFocusableChildren",
+        "required": false,
+        "description": "If true, the Tooltip will make its children focusable.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "capturePointer",
+        "required": false,
+        "description": "If false, pointer events pass through the tooltip (e.g. scrolling)boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title of the Tooltip-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-tooltip--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Tooltip, Button, Title, Typography } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Tooltip\n  position=\"right-start\"\n  title=\"Tooltip Title\"\n  label=\"This is the tooltip content.\"\n>\n  <Button label=\"Hover me\" />\n</Tooltip>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-tooltip--auto-placement",
+      "name": "Auto Placement",
+      "export_name": "AutoPlacement",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--inline",
+      "name": "Inline",
+      "export_name": "Inline",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--max-width",
+      "name": "Max Width",
+      "export_name": "MaxWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--overflowing",
+      "name": "Overflowing",
+      "export_name": "Overflowing",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--placement",
+      "name": "Placement",
+      "export_name": "Placement",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--with-icon",
+      "name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    },
+    {
+      "id": "components-tooltip--within-list",
+      "name": "Within List",
+      "export_name": "WithinList",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tooltip/Tooltip.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-tooltip--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json"
+  }
+}

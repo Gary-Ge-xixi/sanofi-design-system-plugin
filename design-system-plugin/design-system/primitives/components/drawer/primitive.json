@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Drawer",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Drawer",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "drawer",
+      "data_attribute": "data-primitive=\"drawer\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-drawer--bottom-side",
+      "components-drawer--custom-content-height",
+      "components-drawer--custom-drawer-width",
+      "components-drawer--default",
+      "components-drawer--end-side",
+      "components-drawer--non-dismissible",
+      "components-drawer--start-side",
+      "components-drawer--top-side"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-drawer--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

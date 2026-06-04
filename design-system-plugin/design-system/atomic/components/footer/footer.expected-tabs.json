@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "footer",
+  "component_name": "Footer",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Footer"
+  },
+  "docs": [
+    {
+      "id": "components-footer--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Footer/Footer.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-footer--custom-product-logo",
+      "name": "Custom Product Logo",
+      "export_name": "CustomProductLogo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Footer.stories.tsx"
+    },
+    {
+      "id": "components-footer--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Footer.stories.tsx"
+    },
+    {
+      "id": "components-footer--simple",
+      "name": "Simple",
+      "export_name": "Simple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Footer.stories.tsx"
+    }
+  ]
+}

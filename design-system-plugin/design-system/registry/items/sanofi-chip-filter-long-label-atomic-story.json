@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-filter-long-label-atomic-story",
+  "title": "ChipFilter Long Label atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-chipfilter--long-label.",
+  "atomic_story_id": "components-chipfilter--long-label",
+  "component_id": "chip-filter",
+  "docs_id": "components-chipfilter--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-filter"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--long-label.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--long-label.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/assets/components-chipfilter--long-label.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/assets/components-chipfilter--long-label.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-filter/templates/html.long-label.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/chip-filter/templates/html.long-label.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipfilter--docs",
+    "story_id": "components-chipfilter--long-label",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/chip-filter/stories/components-chipfilter--long-label.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/chip-filter/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chipfilter--long-label&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chipfilter--long-label&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipFilter.stories-B8qaGK_f.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-filter/assets/ChipFilter.stories-B8qaGK_f.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-filter",
+      "ChipFilter",
+      "Long Label",
+      "components-chipfilter--long-label",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ChipFilter Long Label Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

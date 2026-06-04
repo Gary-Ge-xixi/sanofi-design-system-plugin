@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-component-contracts",
+  "checked": {
+    "contracts": 95,
+    "primitive_coverage": 96,
+    "props_extracted_contracts": 92
+  },
+  "failures": []
+}

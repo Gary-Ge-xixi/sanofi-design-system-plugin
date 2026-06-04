@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Container",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Container",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/container.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "container",
+      "data_attribute": "data-primitive=\"container\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-container--default",
+      "components-container--fixed",
+      "components-container--fluid"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-container--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/container.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "id": "sidebar-complete-standard-package",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-sidebar--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/sidebar/docs/sidebar.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-sidebar--collapsed",
+      "story_name": "Collapsed",
+      "export_name": "Collapsed",
+      "semantic_type": "variant",
+      "variant": "collapsed",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--collapsed.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-collapsed.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-sidebar--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-sidebar--expanded",
+      "story_name": "Expanded",
+      "export_name": "Expanded",
+      "semantic_type": "variant",
+      "variant": "expanded",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--expanded.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-expanded.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible",
+      "story_name": "Fully Collapsible",
+      "export_name": "FullyCollapsible",
+      "semantic_type": "variant",
+      "variant": "fully-collapsible",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--fully-collapsible.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-fully-collapsible.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible-controlled",
+      "story_name": "Fully Collapsible Controlled",
+      "export_name": "FullyCollapsibleControlled",
+      "semantic_type": "variant",
+      "variant": "fully-collapsible-controlled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--fully-collapsible-controlled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-fully-collapsible-controlled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-sidebar--sticky-behavior",
+      "story_name": "Sticky Behavior",
+      "export_name": "StickyBehavior",
+      "semantic_type": "variant",
+      "variant": "sticky-behavior",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--sticky-behavior.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-sticky-behavior.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-sidebar--without-header",
+      "story_name": "Without Header",
+      "export_name": "WithoutHeader",
+      "semantic_type": "variant",
+      "variant": "without-header",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--without-header.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/sidebar-without-header.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-sidebar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/sidebar/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/sidebar-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-sidebar--collapsed",
+        "output_path": "design-system-plugin/outputs/html/sidebar-collapsed.atomic.html"
+      },
+      {
+        "story_id": "components-sidebar--default",
+        "output_path": "design-system-plugin/outputs/html/sidebar-default.atomic.html"
+      },
+      {
+        "story_id": "components-sidebar--expanded",
+        "output_path": "design-system-plugin/outputs/html/sidebar-expanded.atomic.html"
+      },
+      {
+        "story_id": "components-sidebar--fully-collapsible",
+        "output_path": "design-system-plugin/outputs/html/sidebar-fully-collapsible.atomic.html"
+      },
+      {
+        "story_id": "components-sidebar--fully-collapsible-controlled",
+        "output_path": "design-system-plugin/outputs/html/sidebar-fully-collapsible-controlled.atomic.html"
+      },
+      {
+        "story_id": "components-sidebar--sticky-behavior",
+        "output_path": "design-system-plugin/outputs/html/sidebar-sticky-behavior.atomic.html"
+      },
+      {
+        "story_id": "components-sidebar--without-header",
+        "output_path": "design-system-plugin/outputs/html/sidebar-without-header.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-sidebar-complete-package.json",
+    "story_item_prefix": "sanofi-sidebar-"
+  },
+  "validation": {
+    "required_story_count": 7,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/sidebar/docs/sidebar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

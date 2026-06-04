@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Switch/SwitchGroup",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-switch-switchgroup--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

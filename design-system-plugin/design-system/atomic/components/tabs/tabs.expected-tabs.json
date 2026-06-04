@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "tabs",
+  "component_name": "Tabs",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Tabs"
+  },
+  "docs": [
+    {
+      "id": "components-tabs--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Tabs/Tabs.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-tabs--controlled",
+      "name": "Controlled",
+      "export_name": "Controlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--default-selected-tab",
+      "name": "Default Selected Tab",
+      "export_name": "DefaultSelectedTab",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--full-width",
+      "name": "Full Width",
+      "export_name": "FullWidth",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--lazy-mount",
+      "name": "Lazy Mount",
+      "export_name": "LazyMount",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--lazy-mount-with-unmount",
+      "name": "Lazy Mount With Unmount",
+      "export_name": "LazyMountWithUnmount",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--uncontrolled",
+      "name": "Uncontrolled",
+      "export_name": "Uncontrolled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--with-nav",
+      "name": "With Nav",
+      "export_name": "WithNav",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    },
+    {
+      "id": "components-tabs--with-nav-in-resizable-panel",
+      "name": "With Nav In Resizable Panel",
+      "export_name": "WithNavInResizablePanel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Tabs/Tabs.stories.tsx"
+    }
+  ]
+}

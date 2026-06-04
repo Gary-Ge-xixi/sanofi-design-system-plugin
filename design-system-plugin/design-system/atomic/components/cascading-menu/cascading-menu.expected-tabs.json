@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "cascading-menu",
+  "component_name": "CascadingMenu",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/CascadingMenu"
+  },
+  "docs": [
+    {
+      "id": "components-cascadingmenu--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/CascadingMenu/CascadingMenu.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-cascadingmenu--example",
+      "name": "Example",
+      "export_name": "Example",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/CascadingMenu/CascadingMenu.stories.tsx"
+    }
+  ]
+}

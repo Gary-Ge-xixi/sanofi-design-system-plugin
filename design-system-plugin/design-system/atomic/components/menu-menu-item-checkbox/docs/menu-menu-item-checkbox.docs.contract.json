@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "id": "menu-menu-item-checkbox-docs-contract",
+  "component_id": "menu-menu-item-checkbox",
+  "component_name": "Menu/MenuItemCheckbox",
+  "docs_id": "components-menu-menuitemcheckbox--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-menuitemcheckbox--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "description",
+        "required": false,
+        "description": "Description text below the labelstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shortcut",
+        "required": false,
+        "description": "Keyboard shortcut hint (e.g., \"Ctrl+C\")string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Label contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "value",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Item size.\"small\"\"medium\"",
+        "default": "\"MenuItemSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the item.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Callback fired when item is clicked((event: MouseEvent<HTMLLIElement, MouseEvent>, menuItemEvent?: Event) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "tooltip",
+        "required": false,
+        "description": "Tooltip content when hoveringReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-menuitemcheckbox--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-menu-menuitemcheckbox--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/dropdown/items/MenuItemCheckbox.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json"
+  }
+}

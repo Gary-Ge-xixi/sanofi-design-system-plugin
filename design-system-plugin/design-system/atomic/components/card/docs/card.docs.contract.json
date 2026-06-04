@@ -1,0 +1,250 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-docs-contract",
+  "component_id": "card",
+  "component_name": "Card",
+  "docs_id": "components-card--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "hasBorder",
+        "required": false,
+        "description": "If the card has a borderboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "hasShadow",
+        "required": false,
+        "description": "If the card has a shadow at hoverboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "type",
+        "required": false,
+        "description": "The type of card\"list\"\"grid\"",
+        "default": "\"CardType.GRID\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isCentered",
+        "required": false,
+        "description": "If the card elements are centeredboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "withButtonIcon",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "positionPicto",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "The brand theme\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "density",
+        "required": false,
+        "description": "The density of the card\"default\"\"tight\"",
+        "default": "\"CardDensity.DEFAULT\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "The color of the numberstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "invertDayAndMonth",
+        "required": false,
+        "description": "If the day and month are invertedboolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "category",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "date",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subText",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "The card childrenReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class for the card containerstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Card, CardType, Image, Link, LinkStandalone, IconName, Tag, TagCategoricalColor, TagSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Card type={CardType.GRID}>\n    <Card.Section>\n      <Card.Media>\n        <Image src={\"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\"} alt={\"Sanofi_image\"} />\n      </Card.Media>\n      <Card.Content\n        category=\"Eyebrow One (i.e Category)\"\n        date=\"Eyebrow Two (i.e Date)\"\n        title=\"Title placeholder, with a maximum line count of three, with\n          automatic truncation\"\n        tags={(\n          <>\n            <Tag color={TagCategoricalColor.NEUTRAL} size={TagSize.SM}>Tag one</Tag>\n            <Tag color={TagCategoricalColor.NEUTRAL} size={TagSize.SM}>Tag two</Tag>\n            <Tag color={TagCategoricalColor.NEUTRAL} size={TagSize.SM}>Tag three</Tag>\n          </>\n        )}\n        secondaryEyebrows={[\n          { text: \"20 min\", iconName: IconName.SCHEDULE },\n          { text: \"3 lessons\", iconName: IconName.SCHOOL },\n        ]}\n        subText=\"Description placeholder, with a maximum line count of five. This\n          text will automatically truncate if your content is too long.\"\n        buttonSlot={(\n          <Card.Button\n            icon={IconName.MORE_VERT}\n            onClick={() => console.log(\"clicked\")}\n          />\n        )}\n      >\n        <Link href={\"#\"} variant=\"inline\">\n          Link\n        </Link>\n        <Link href={\"#\"} variant=\"inline\">\n          Link\n        </Link>\n      </Card.Content>\n    </Card.Section>\n    <Card.Action>\n      <LinkStandalone href={\"#\"} size={LinkSize.SMALL}>\n        See more\n      </LinkStandalone>\n    </Card.Action>\n    <Card.Footer\n      firstContent=\"Legal mentions on first line\"\n      secondContent=\"Legal mentions on second line\"\n    />\n  </Card>\n);",
+      "import { Card, CardType, Image, LinkStandalone, IconName, Tag, TagCategoricalColor, TagSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Card type={CardType.LIST}>\n    <Card.Media key=\"media\">\n      <Image src={\"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\"} alt=\"Sanofi_image\" />\n    </Card.Media>\n    <Card.Section key=\"section\">\n      <Card.Content\n        category=\"Eyebrow One (i.e Category)\"\n        date=\"Eyebrow Two (i.e Date)\"\n        title=\"This is a title placeholder for a card which has a maximum line length on two lines.\"\n        tags={(\n          <>\n            <Tag color={TagCategoricalColor.NEUTRAL} size={TagSize.SM}>Tag one</Tag>\n            <Tag color={TagCategoricalColor.NEUTRAL} size={TagSize.SM}>Tag two</Tag>\n            <Tag color={TagCategoricalColor.NEUTRAL} size={TagSize.SM}>Tag three</Tag>\n          </>\n        )}\n        secondaryEyebrows={[\n          { text: \"20 min\", iconName: IconName.SCHEDULE },\n          { text: \"3 lessons\", iconName: IconName.SCHOOL },\n        ]}\n        subText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\"\n        buttonSlot={(\n          <Card.Button\n            icon={IconName.MORE_VERT}\n            onClick={() => console.log(\"clicked\")}\n          />\n        )}\n      />\n      <Card.Action key=\"action\">\n        <LinkStandalone href={\"#\"} size={LinkSize.SMALL}>\n          Standalone link\n        </LinkStandalone>\n      </Card.Action>\n    </Card.Section>\n  </Card>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-card--card-custom-number",
+      "name": "Card Custom Number",
+      "export_name": "CardCustomNumber",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-custom-picto",
+      "name": "Card Custom Picto",
+      "export_name": "CardCustomPicto",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-image",
+      "name": "Card Image",
+      "export_name": "CardImage",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-image-clickable",
+      "name": "Card Image Clickable",
+      "export_name": "CardImageClickable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-imageshow-full-content",
+      "name": "Card Imageshow Full Content",
+      "export_name": "CardImageshowFullContent",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--card-video",
+      "name": "Card Video",
+      "export_name": "CardVideo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--learning-module",
+      "name": "Learning Module",
+      "export_name": "LearningModule",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-center-content-view",
+      "name": "List Center Content View",
+      "export_name": "ListCenterContentView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-date-view",
+      "name": "List Date View",
+      "export_name": "ListDateView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-density-view",
+      "name": "List Density View",
+      "export_name": "ListDensityView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-image-ratio-view",
+      "name": "List Image Ratio View",
+      "export_name": "ListImageRatioView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-image-view",
+      "name": "List Image View",
+      "export_name": "ListImageView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    },
+    {
+      "id": "components-card--list-picto-view",
+      "name": "List Picto View",
+      "export_name": "ListPictoView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/Card.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json"
+  }
+}

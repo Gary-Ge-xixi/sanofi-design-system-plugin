@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-menu-menuitemradio--checked",
+  "component_id": "menu-menu-item-radio",
+  "component_name": "Menu/MenuItemRadio",
+  "story_id": "components-menu-menuitemradio--checked",
+  "story_name": "Checked",
+  "export_name": "Checked",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu-menuitemradio--checked&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu-menuitemradio--checked&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/MenuItemRadio.stories-Bd0newmL.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/assets/MenuItemRadio.stories-Bd0newmL.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/assets/components-menu-menuitemradio--checked.iframe.html",
+    "import_path": "./src/components/Menu/dropdown/items/MenuItemRadio.stories.tsx",
+    "component_path": "./src/components/Menu/dropdown/items/MenuItemRadio.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{description:\"Description goes here\",shortcut:\"⌘S\",children:\"Menu item 1\",value:\"value\",checked:!0}",
+    "values": {
+      "description": "Description goes here",
+      "shortcut": "⌘S",
+      "children": "Menu item 1",
+      "value": "value",
+      "checked": true
+    }
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  tags: [\"isHidden\"],\n  parameters: {\n    chromatic: {\n      disableSnapshot: true\n    }\n  },\n  render: ({\n    description,\n    shortcut,\n    children,\n    value,\n    checked\n  }) => <OpenedMenuContextProvider>\n      <Menu.Dropdown>\n        <Menu.RadioItem description={description} shortcut={shortcut} value={value} checked={checked}>\n          {children}\n        </Menu.RadioItem>\n      </Menu.Dropdown>\n    </OpenedMenuContextProvider>,\n  args: {\n    description: \"Description goes here\",\n    shortcut: \"⌘S\",\n    children: \"Menu item 1\",\n    value: \"value\",\n    checked: true\n  }\n}",
+    "story_object_source": "{tags:[\"isHidden\"],parameters:{chromatic:{disableSnapshot:!0}},render:({description:t,shortcut:i,children:s,value:c,checked:a})=>e.jsx(d,{children:e.jsx(n.Dropdown,{children:e.jsx(n.RadioItem,{description:t,shortcut:i,value:c,checked:a,children:s})})}),args:{description:\"Description goes here\",shortcut:\"⌘S\",children:\"Menu item 1\",value:\"value\",checked:!0}}"
+  },
+  "template": {
+    "id": "menu-menu-item-radio-checked-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/templates/html.checked.template.html",
+    "output_path": "design-system-plugin/outputs/html/menu-menu-item-radio-checked.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "menu-menu-item-radio",
+    "local_path": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemradio--docs",
+    "story_id": "components-menu-menuitemradio--checked",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/assets/MenuItemRadio.stories-Bd0newmL.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/assets/components-menu-menuitemradio--checked.iframe.html"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-content-block-complete-package",
+  "title": "ContentBlock complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ContentBlock package covering Docs plus all Storybook story atoms.",
+  "component_id": "content-block",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-content-block"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/content-block.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/content-block.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/content-block-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/content-block-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/content-block/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 10,
+    "materialized_stories": 10,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-contentblock--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-default-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--interactive",
+      "story_name": "Interactive",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-interactive-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--interactive-disabled",
+      "story_name": "Interactive Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-interactive-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--interactive-selected",
+      "story_name": "Interactive Selected",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-interactive-selected-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--interactive-with-decorative-button",
+      "story_name": "Interactive With Decorative Button",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-interactive-with-decorative-button-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+      "story_name": "Non Interactive With Multiple Actions",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-non-interactive-with-multiple-actions-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--padding-sizes",
+      "story_name": "Padding Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-padding-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--selectable-list",
+      "story_name": "Selectable List",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-selectable-list-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--selectable-radio-list",
+      "story_name": "Selectable Radio List",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-selectable-radio-list-atomic-story"
+    },
+    {
+      "story_id": "components-contentblock--with-link",
+      "story_name": "With Link",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-content-block-with-link-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/content-block/content-block.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/content-block/docs/content-block.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "content-block",
+      "ContentBlock",
+      "content-block complete",
+      "ContentBlock complete package",
+      "content-block docs"
+    ],
+    "when_to_use": "Use first for any ContentBlock generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ContentBlock behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

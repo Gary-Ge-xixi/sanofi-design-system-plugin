@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "navigation-header",
+  "component_name": "NavigationHeader",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/NavigationHeader"
+  },
+  "docs": [
+    {
+      "id": "components-navigationheader--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/NavigationHeader.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-navigationheader--contained-nav-header",
+      "name": "Contained Nav Header",
+      "export_name": "ContainedNavHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--double-navigation",
+      "name": "Double Navigation",
+      "export_name": "DoubleNavigation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--full-width-nav-header",
+      "name": "Full Width Nav Header",
+      "export_name": "FullWidthNavHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--mobile-view",
+      "name": "Mobile View",
+      "export_name": "MobileView",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--sanofi-example",
+      "name": "Sanofi Example",
+      "export_name": "SanofiExample",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--with-auto-overflow",
+      "name": "With Auto Overflow",
+      "export_name": "WithAutoOverflow",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--with-dropdown-menu",
+      "name": "With Dropdown Menu",
+      "export_name": "WithDropdownMenu",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    },
+    {
+      "id": "components-navigationheader--with-sub-header",
+      "name": "With Sub Header",
+      "export_name": "WithSubHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+    }
+  ]
+}

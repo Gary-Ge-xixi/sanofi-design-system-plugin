@@ -1,0 +1,965 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const {
+  createRuntime,
+  runtimeStyles,
+  runtimeScript,
+  runtimeName,
+  renderSource,
+  storyIds,
+  docsIds
+} = require("../component-runtime/src/local-components.cjs");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const sourceMapJsonPath = path.join(reportDir, "oneorbit-component-source-map.json");
+const sourceMapMdPath = path.join(reportDir, "oneorbit-component-source-map.md");
+const renderReportPath = path.join(reportDir, "oneorbit-render.report.json");
+const sourceResolutionJsonPath = path.join(reportDir, "oneorbit-component-source-resolution.json");
+const sourceEntryKeys = new Set();
+
+const outputFiles = {
+  query: path.join(htmlDir, "oneorbit-has-query-list.resolved.html"),
+  home: path.join(htmlDir, "oneorbit-message-todo.resolved.html")
+};
+
+const tokenSource = "foundations-colors--docs";
+const localRuntimeSource = "design-system-plugin/component-runtime/src/local-components.cjs";
+const designMdSource = "design-system-plugin/design-system/DESIGN.md";
+const tokenCssSource = "design-system-plugin/design-system/tokens/tokens.css";
+
+const sourceEntries = [];
+
+const extraPrimitiveRefs = {
+  "navigation-header": {
+    story_id: "components-navigationheader--default",
+    docs_id: "components-navigationheader--docs"
+  },
+  breadcrumb: {
+    story_id: "components-breadcrumb--not-collapsed",
+    docs_id: "components-breadcrumb--docs"
+  },
+  avatar: {
+    story_id: "components-avatar--with-initials",
+    docs_id: "components-avatar--docs"
+  },
+  "text-input": {
+    story_id: "components-textinput--default",
+    docs_id: "components-textinput--docs"
+  },
+  "date-picker": {
+    story_id: "components-datepicker--range",
+    docs_id: "components-datepicker--docs"
+  },
+  "chip-status": {
+    story_id: "components-chipstatus--default",
+    docs_id: "components-chipstatus--docs"
+  },
+  link: {
+    story_id: "components-link--default",
+    docs_id: "components-link--docs"
+  },
+  "page-header": {
+    story_id: "components-pageheader--default",
+    docs_id: "components-pageheader--docs"
+  }
+};
+
+const runtimeResolution = {
+  schema_version: "0.1.0",
+  pattern_id: "oneorbit-reference-pages",
+  source_provenance: {
+    token_source: tokenSource,
+    layout_rule: "layout-grid-container",
+    docs_ids: [
+      "components-navigationheader--docs",
+      "components-container--docs",
+      "components-grid--docs",
+      "components-button--docs",
+      "components-searchinput--docs",
+      "components-select--docs",
+      "components-tabs--docs",
+      "components-card--docs",
+      "components-datepicker--docs",
+      "components-chipstatus--docs",
+      "components-avatar--docs",
+      "foundations-layout--docs",
+      "foundations-typography--docs",
+      "foundations-motion--docs"
+    ],
+    fallback_reasons: [
+      "No official Table/DataTable/DataGrid runtime component is registered locally.",
+      "No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives.",
+      "No MessageList runtime primitive is registered locally, so messages use Card/Button/Icon runtime parts inside a compound list."
+    ]
+  },
+  primitive_refs: [
+    ...Object.keys(storyIds).map((primitive_id) => ({
+      primitive_id,
+      story_id: storyIds[primitive_id],
+      docs_id: docsIds[primitive_id]
+    })),
+    ...Object.entries(extraPrimitiveRefs).map(([primitive_id, ref]) => ({
+      primitive_id,
+      ...ref
+    }))
+  ],
+  fallbacks: [
+    {
+      module: "table",
+      reason: "No official Table/DataTable/DataGrid runtime component is registered locally."
+    },
+    {
+      module: "date-range",
+      reason: "No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives."
+    },
+    {
+      module: "message-list",
+      reason: "No MessageList runtime primitive is registered locally, so messages use Card/Button/Icon runtime parts inside a compound list."
+    }
+  ]
+};
+
+const runtime = createRuntime(runtimeResolution);
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function attrsFor(values) {
+  return Object.entries(values)
+    .filter(([, value]) => value !== undefined && value !== null && value !== false)
+    .map(([key, value]) => {
+      if (value === true) return key;
+      return `${key}="${escapeHtml(value)}"`;
+    })
+    .join(" ");
+}
+
+function primitiveAttrs(primitiveId, pattern, instance, extra = {}) {
+  const ref = extraPrimitiveRefs[primitiveId] || {
+    story_id: storyIds[primitiveId],
+    docs_id: docsIds[primitiveId]
+  };
+  return attrsFor({
+    "data-primitive": primitiveId,
+    "data-source-component": primitiveId,
+    "data-story-id": ref.story_id,
+    "data-source-doc-id": ref.docs_id,
+    "data-pattern": pattern,
+    "data-component-instance": instance,
+    "data-token-source": tokenSource,
+    ...extra
+  });
+}
+
+function sourceEntry(entry) {
+  const key = [
+    entry.page,
+    entry.region,
+    entry.component_name,
+    entry.component_id,
+    entry.classification,
+    entry.usage
+  ].join("::");
+  if (sourceEntryKeys.has(key)) return;
+  sourceEntryKeys.add(key);
+  sourceEntries.push({
+    page: entry.page,
+    region: entry.region,
+    component_name: entry.component_name,
+    component_id: entry.component_id,
+    classification: entry.classification,
+    story_id: entry.story_id,
+    docs_id: entry.docs_id,
+    usage: entry.usage,
+    layout_basis: entry.layout_basis,
+    source_file: entry.source_file,
+    source_url: entry.source_url || "",
+    notes: entry.notes || ""
+  });
+}
+
+function addCoreSourceEntries() {
+  [
+    ["Both", "Global", "DESIGN.md", "design-md", "design-interface", "", "design-system/DESIGN.md", "设计系统入口、品牌资产规则、普通 medium 尺寸规则、runtime 优先规则", "基于 DESIGN.md 的生成边界和合规链路", designMdSource],
+    ["Both", "Global", "tokens.css", "tokens", "design-token", "", "design-system/tokens/tokens.css", "所有颜色、间距、半径、字体、电梯阴影都从 token 变量取值", "基于 Sanofi foundation token，不在 HTML 中写 raw hex 或 px", tokenCssSource]
+  ].forEach(([page, region, component_name, component_id, classification, story_id, docs_id, usage, layout_basis, source_file]) => {
+    sourceEntry({
+      page,
+      region,
+      component_name,
+      component_id,
+      classification,
+      story_id,
+      docs_id,
+      usage,
+      layout_basis,
+      source_file
+    });
+  });
+}
+
+function oneOrbitHeader(page, options = {}) {
+  sourceEntry({
+    page,
+    region: "Topbar",
+    component_name: "NavigationHeader",
+    component_id: "navigation-header",
+    classification: "docs-backed primitive",
+    story_id: "components-navigationheader--default",
+    docs_id: "components-navigationheader--docs",
+    usage: "页面顶栏、Sanofi logo、OneOrbit 产品名、右侧头像和通知入口",
+    layout_basis: "NavigationHeader docs: sticky top application navigation with logo and actions",
+    source_file: "design-system-plugin/design-system/knowledge/docs/components-navigationheader--docs.md",
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Topbar",
+    component_name: "Brand Asset",
+    component_id: "brand-logo",
+    classification: "fixed asset package",
+    story_id: "",
+    docs_id: "brand-assets",
+    usage: "左上角固定 Sanofi 官方 94x24 SVG logo 资产",
+    layout_basis: "固定品牌资产包，不使用文字重绘 logo",
+    source_file: "design-system-plugin/design-system/assets/brand/brand-assets.contract.json",
+    source_url: "https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets"
+  });
+
+  const notification = options.notification
+    ? `<span class="oo-notification-badge" aria-label="未读消息">${escapeHtml(options.notification)}</span>`
+    : "";
+
+  return `<header class="oo-topbar" ${primitiveAttrs("navigation-header", "oneorbit-topbar", `${page}.topbar`)}>
+    <div class="oo-brand-lockup">
+      ${runtime.brandLogo({ className: "oo-brand-logo" })}
+      <span class="oo-brand-divider" aria-hidden="true"></span>
+      <span class="oo-product-name">OneOrbit</span>
+    </div>
+    <div class="oo-topbar-actions">
+      ${notification}
+      <span class="oo-avatar" aria-label="当前用户 L" ${primitiveAttrs("avatar", "oneorbit-user", `${page}.avatar`)}>L</span>
+    </div>
+  </header>`;
+}
+
+function breadcrumb(page) {
+  sourceEntry({
+    page,
+    region: "Breadcrumb",
+    component_name: "Breadcrumb",
+    component_id: "breadcrumb",
+    classification: "docs-backed primitive",
+    story_id: "components-breadcrumb--not-collapsed",
+    docs_id: "components-breadcrumb--docs",
+    usage: "HAS 列表页的 OneOrbit 到 HAS申请系统 路径提示",
+    layout_basis: "Breadcrumb docs: page hierarchy navigation",
+    source_file: "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-breadcrumb--docs"
+  });
+
+  return `<nav class="oo-breadcrumb" aria-label="面包屑" ${primitiveAttrs("breadcrumb", "oneorbit-breadcrumb", `${page}.breadcrumb`)}>
+    <a href="#">OneOrbit</a>
+    ${runtime.icon("chevronRight", { className: "oo-breadcrumb-chevron" })}
+    <span aria-current="page">HAS申请系统</span>
+  </nav>`;
+}
+
+function policyLink(page) {
+  sourceEntry({
+    page,
+    region: "Page Header",
+    component_name: "Link",
+    component_id: "link",
+    classification: "docs-backed primitive",
+    story_id: "components-link--docs",
+    docs_id: "components-link--docs",
+    usage: "查看相关政策入口",
+    layout_basis: "Link docs: inline navigation action in page header",
+    source_file: "design-system-plugin/design-system/knowledge/docs/components-link--docs.md",
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-link--docs"
+  });
+  return `<a class="oo-policy-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="page-header-action">
+    ${runtime.icon("policy", { className: "oo-inline-icon" })}<span>查看相关政策</span>
+  </a>`;
+}
+
+function searchField(page, label, placeholder, id, instance) {
+  sourceEntry({
+    page,
+    region: "Filter Panel",
+    component_name: "SearchInput",
+    component_id: "search-input",
+    classification: "runtime component",
+    story_id: "components-searchinput--default",
+    docs_id: "components-searchinput--docs",
+    usage: `${label}筛选输入框，带搜索图标和 focus 状态`,
+    layout_basis: "SearchInput docs: efficient text search input with integrated icon, medium size",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-searchinput--docs"
+  });
+  return runtime.searchInput({
+    id,
+    label,
+    placeholder,
+    icon: "search",
+    ariaLabel: label,
+    instance
+  });
+}
+
+function dateRangeField(page, label, instance) {
+  const reason = runtimeResolution.fallbacks.find((item) => item.module === "date-range").reason;
+  sourceEntry({
+    page,
+    region: "Filter Panel",
+    component_name: "DatePicker",
+    component_id: "date-picker",
+    classification: "docs-registry-backed primitive",
+    story_id: "components-datepicker--range",
+    docs_id: "components-datepicker--docs",
+    usage: `${label}起止日期筛选，当前为静态 range control`,
+    layout_basis: "Storybook index and local registry resolve components-datepicker--range; local DateRange runtime adapter is not registered",
+    source_file: "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-datepicker--docs",
+    notes: reason
+  });
+  return `<label class="snf-field oo-date-range-field" ${primitiveAttrs("date-picker", "filter-date-range", instance, {
+    "data-fallback-module": "date-range",
+    "data-fallback-reason": reason,
+    "data-date-picker-mode": "range",
+    "data-date-picker-size": "medium",
+    "data-field-control": "root",
+    "data-field-control-kind": "date-range",
+    "data-control-size": "medium"
+  })}>
+    <span class="snf-field-label">${escapeHtml(label)}</span>
+    <span class="snf-control-shell oo-date-range-shell" data-control-shell="field" data-control-kind="date-range">
+      <span>开始时间</span>
+      <span class="oo-date-arrow" aria-hidden="true">→</span>
+      <span>结束时间</span>
+    </span>
+  </label>`;
+}
+
+function runtimeButton(page, region, label, variant, instance, extra = {}) {
+  sourceEntry({
+    page,
+    region,
+    component_name: "Button",
+    component_id: "button",
+    classification: "runtime component",
+    story_id: "components-button--primary",
+    docs_id: "components-button--docs",
+    usage: `${label}操作按钮，medium size，包含 hover/focus/active 状态`,
+    layout_basis: "Button docs: trigger action or event; default size is ButtonSize.MEDIUM",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-button--docs"
+  });
+  return runtime.button({
+    label,
+    variant,
+    instance,
+    ...extra
+  });
+}
+
+function statusChip(page, label) {
+  sourceEntry({
+    page,
+    region: "Table",
+    component_name: "ChipStatus",
+    component_id: "chip-status",
+    classification: "docs-backed primitive",
+    story_id: "components-chipstatus--default",
+    docs_id: "components-chipstatus--docs",
+    usage: "表格状态列的审批中状态",
+    layout_basis: "ChipStatus docs: compact status indicator",
+    source_file: "design-system-plugin/design-system/knowledge/docs/components-chipstatus--docs.md",
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-chipstatus--docs"
+  });
+  return `<span class="oo-status-chip" ${primitiveAttrs("chip-status", "table-status", "oneorbit.query.table.status")}>
+    <span class="oo-status-dot" aria-hidden="true"></span>${escapeHtml(label)}
+  </span>`;
+}
+
+function actionLink(label) {
+  return `<a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">${escapeHtml(label)}</a>`;
+}
+
+function queryRows() {
+  const groups = [
+    {
+      code: "ABC1234",
+      hospital: "上海第一人民医院",
+      rows: [
+        ["达必妥 300g_AD", "3%", "医院账期过长", "Hannah2 Han;POS9877665", true],
+        ["达必妥 200g_AD", "3%", "医院账期过长", "Hannah2 Han;POS9877665", false],
+        ["达必妥 100g_AD", "3%", "医院账期过长", "Luha3;POS0987665", false]
+      ]
+    },
+    {
+      code: "ABC1234",
+      hospital: "上海第四人民医院",
+      rows: [
+        ["达必妥 300g_AD", "1%", "非公立医院", "Lee3;POS4577665", false],
+        ["达必妥 200g_AD", "1%", "非公立医院", "Hannah2 Han;POS9877665", false],
+        ["达必妥 100g_AD", "1%", "非公立医院", "Liu2;POS9877665", false]
+      ]
+    },
+    {
+      code: "ABC1234",
+      hospital: "上海第九人民医院",
+      rows: [
+        ["达必妥 300g_AD", "1%", "医院不足额回款", "Nan3;POS9877665", false],
+        ["达必妥 100g_AD", "1%", "医院不足额回款", "Hannah2 Han;POS9877665", true]
+      ]
+    }
+  ];
+
+  return groups.map((group) => {
+    const dataRows = group.rows.map((row) => `<tr>
+      <td>${escapeHtml(row[0])}</td>
+      <td>${escapeHtml(row[1])}</td>
+      <td>${escapeHtml(row[2])}</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>${escapeHtml(row[3])}</td>
+      <td>${statusChip("HAS Query List", "审批中")}</td>
+      <td class="oo-actions">${actionLink("查看")}${row[4] ? actionLink("撤销") : ""}</td>
+    </tr>`).join("");
+    return `<tbody class="oo-table-group" data-table-group="${escapeHtml(group.hospital)}">
+      <tr class="oo-group-row">
+        <th colspan="10"><span class="oo-group-code">${escapeHtml(group.code)}</span><span>${escapeHtml(group.hospital)}</span></th>
+      </tr>
+      ${dataRows}
+    </tbody>`;
+  }).join("");
+}
+
+function renderQueryPage() {
+  const page = "HAS Query List";
+  sourceEntry({
+    page,
+    region: "Page Shell",
+    component_name: "Container",
+    component_id: "container",
+    classification: "runtime component",
+    story_id: "components-container--fixed",
+    docs_id: "components-container--docs",
+    usage: "约束主内容宽度，避免页面贴边",
+    layout_basis: "Container docs: constrain content width to current breakpoint; 2xl fixed mode",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-container--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Filter Panel",
+    component_name: "Select",
+    component_id: "select",
+    classification: "runtime component",
+    story_id: "components-select--default",
+    docs_id: "components-select--docs",
+    usage: "申请类型下拉筛选，native false，组件自有 combobox/listbox 交互",
+    layout_basis: "Select docs: compact dropdown for choosing a single option; size defaults to medium",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-select--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Filter Panel",
+    component_name: "Grid",
+    component_id: "grid",
+    classification: "runtime component",
+    story_id: "components-grid--desktop",
+    docs_id: "components-grid--docs",
+    usage: "4 列筛选区与页面模块布局",
+    layout_basis: "Grid docs: 12-column Root and Item layout; desktop screenshot uses four equal filter columns",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-grid--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Status Tabs",
+    component_name: "Tabs",
+    component_id: "tabs",
+    classification: "runtime component",
+    story_id: "components-tabs--default",
+    docs_id: "components-tabs--docs",
+    usage: "审批中、已生效、已拒绝、已过期、全部状态切换",
+    layout_basis: "Tabs docs: organize sections and switch selected state without page navigation",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-tabs--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Grouped Table",
+    component_name: "Table",
+    component_id: "table",
+    classification: "explicit fallback module",
+    story_id: "",
+    docs_id: "no-local-table-primitive",
+    usage: "按医院分组的查询结果表格",
+    layout_basis: "业务截图要求分组表格；本地首轮组件没有 Table/DataGrid runtime",
+    source_file: "design-system-plugin/component-runtime/component-runtime.contract.json",
+    notes: runtimeResolution.fallbacks.find((item) => item.module === "table").reason
+  });
+
+  const filterGrid = `${runtime.gridStart({ instance: "oneorbit.query.filter.grid", layoutRule: "layout-grid-container" }).replace("snf-layout-grid", "snf-layout-grid oo-filter-grid")}
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "hospital-filter")}>${searchField(page, "医院名称或编码", "请输入医院名称或编码", "filter-hospital", "oneorbit.query.filter.hospital")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "product-filter")}>${searchField(page, "产品名称或编码", "请输入产品名称或编码", "filter-product", "oneorbit.query.filter.product")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "role-filter")}>${searchField(page, "审批角色", "请输入审批角色", "filter-role", "oneorbit.query.filter.role")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "approver-filter")}>${searchField(page, "审批人", "请输入审批人", "filter-approver", "oneorbit.query.filter.approver")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "effective-date-filter")}>${dateRangeField(page, "生效时间", "oneorbit.query.filter.effectiveDate")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "expiry-date-filter")}>${dateRangeField(page, "失效时间", "oneorbit.query.filter.expiryDate")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "apply-date-filter")}>${dateRangeField(page, "申请时间", "oneorbit.query.filter.applyDate")}</div>
+    <div class="oo-span-3" ${runtime.gridItemAttrs(3, "type-filter")}>${runtime.select({
+      id: "application-type",
+      label: "申请类型",
+      value: "请选择申请类型",
+      instance: "oneorbit.query.filter.applicationType",
+      options: [
+        { label: "请选择申请类型", value: "请选择申请类型" },
+        { label: "医院账期过长", value: "医院账期过长" },
+        { label: "非公立医院", value: "非公立医院" },
+        { label: "医院不足额回款", value: "医院不足额回款" }
+      ]
+    })}</div>
+  ${runtime.gridEnd()}`;
+
+  return pageDocument(page, "oneorbit-query", `${oneOrbitHeader(page)}
+    <main class="oo-main oo-query-main" data-oneorbit-page="query-list" data-source-report="outputs/reports/oneorbit-component-source-map.md">
+      ${runtime.containerStart({ instance: "oneorbit.query.container", layoutRule: "layout-grid-container" })}
+        ${breadcrumb(page)}
+        <section class="oo-query-panel" ${primitiveAttrs("page-header", "oneorbit-query-page-header", "oneorbit.query.pageHeader")}>
+          <div class="oo-page-heading">
+            <div class="oo-title-row">
+              <h1>HAS申请系统</h1>
+              ${policyLink(page)}
+            </div>
+            <div class="oo-heading-actions">
+              <span class="oo-window-date">窗口期：2024年3月26日-2024年5月31日</span>
+              ${runtimeButton(page, "Page Header", "新建供货困难申请", "primary", "oneorbit.query.actions.create")}
+            </div>
+          </div>
+          <section class="oo-filter-panel" data-pattern="admin-query-filter-panel" data-source-doc-id="components-grid--docs components-searchinput--docs components-datepicker--docs components-select--docs">
+            ${filterGrid}
+            <div class="oo-filter-actions">
+              ${runtimeButton(page, "Filter Panel", "筛选", "secondary", "oneorbit.query.actions.filter")}
+              ${runtimeButton(page, "Filter Panel", "重置", "tertiary", "oneorbit.query.actions.reset")}
+            </div>
+          </section>
+          <section class="oo-result-section" aria-label="查询结果">
+            ${runtime.tabs({
+              instance: "oneorbit.query.status.tabs",
+              pattern: "approval-status-tabs",
+              selected: "pending",
+              tabs: [
+                { id: "pending", label: "审批中(8)" },
+                { id: "active", label: "已生效(9)" },
+                { id: "rejected", label: "已拒绝(3)" },
+                { id: "expired", label: "已过期(10)" },
+                { id: "all", label: "全部(66)" }
+              ]
+            })}
+            <p class="oo-result-count">共8条</p>
+            <div class="oo-table-shell" data-fallback-module="table" data-fallback-reason="${escapeHtml(runtimeResolution.fallbacks.find((item) => item.module === "table").reason)}">
+              <table class="oo-data-table">
+                <thead>
+                  <tr>
+                    <th>申请单位及产品</th>
+                    <th>申请比例</th>
+                    <th>申请类型</th>
+                    <th>生效时间</th>
+                    <th>失效时间</th>
+                    <th>申请时间</th>
+                    <th>审批角色</th>
+                    <th>审批人</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                ${queryRows()}
+              </table>
+            </div>
+          </section>
+        </section>
+      ${runtime.containerEnd()}
+    </main>`);
+}
+
+function metricCard(page, title, value, label, iconName, instance) {
+  sourceEntry({
+    page,
+    region: "Metrics",
+    component_name: "Card",
+    component_id: "card",
+    classification: "runtime component",
+    story_id: "components-card--default",
+    docs_id: "components-card--docs",
+    usage: `${title}统计卡片`,
+    layout_basis: "Card docs: summary surface for content and activities",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-card--docs"
+  });
+  return runtime.card({
+    className: "oo-metric-card",
+    pattern: "oneorbit-metric-card",
+    instance,
+    children: `<div class="oo-card-title">${runtime.icon(iconName, { className: "oo-card-icon" })}<h2>${escapeHtml(title)}</h2></div>
+      <div class="oo-metric-value">${escapeHtml(value)}</div>
+      <p>${escapeHtml(label)}</p>`
+  });
+}
+
+function applicationCard(page, title, initials, instance) {
+  sourceEntry({
+    page,
+    region: "Applications",
+    component_name: "Card",
+    component_id: "card",
+    classification: "runtime component",
+    story_id: "components-card--default",
+    docs_id: "components-card--docs",
+    usage: `${title}应用入口卡片`,
+    layout_basis: "Card docs: cards can be used as buttons for category selection",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-card--docs"
+  });
+  return runtime.card({
+    className: "oo-app-card",
+    pattern: "application-entry-card",
+    instance,
+    children: `<a href="#" class="oo-app-link">
+      <span class="oo-app-icon">${escapeHtml(initials)}</span>
+      <span>${escapeHtml(title)}</span>
+      ${runtime.icon("arrowRight", { className: "oo-app-arrow" })}
+    </a>`
+  });
+}
+
+function messageItem(page, index) {
+  sourceEntry({
+    page,
+    region: "Message List",
+    component_name: "Card + Button + Icon",
+    component_id: "message-list",
+    classification: "compound fallback pattern",
+    story_id: "components-card--default components-button--primary components-icon--gallery",
+    docs_id: "components-card--docs components-button--docs components-icon--docs",
+    usage: "消息待办列表项，包含未读点、业务字段、时间和查看详情按钮",
+    layout_basis: "No MessageList primitive is registered; compose from Card/Button/Icon runtime components",
+    source_file: localRuntimeSource,
+    notes: runtimeResolution.fallbacks.find((item) => item.module === "message-list").reason
+  });
+  return runtime.card({
+    className: "oo-message-card",
+    pattern: "message-list-item",
+    instance: `oneorbit.home.message.${index}`,
+    children: `<div class="oo-message-main">
+      <div class="oo-message-title"><span class="oo-status-dot" aria-hidden="true"></span><strong>HAS系统有1条新的待审批</strong></div>
+      <dl class="oo-message-meta">
+        <div><dt>申请单位</dt><dd>医院名称</dd></div>
+        <div><dt>申请类型</dt><dd>医院账期过长</dd></div>
+      </dl>
+    </div>
+    <div class="oo-message-side">
+      <time datetime="2024-03-25T09:13">2024-03-25 09:13</time>
+      ${runtimeButton(page, "Message List", "查看详情", "primary", `oneorbit.home.message.${index}.detail`)}
+    </div>`
+  });
+}
+
+function renderHomePage() {
+  const page = "Message Todo Home";
+  sourceEntry({
+    page,
+    region: "Page Shell",
+    component_name: "Container",
+    component_id: "container",
+    classification: "runtime component",
+    story_id: "components-container--fixed",
+    docs_id: "components-container--docs",
+    usage: "约束首页左右两栏主内容宽度",
+    layout_basis: "Container docs: constrained content width",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-container--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Two Column Layout",
+    component_name: "Grid",
+    component_id: "grid",
+    classification: "runtime component",
+    story_id: "components-grid--desktop",
+    docs_id: "components-grid--docs",
+    usage: "左侧欢迎/应用，右侧消息列表的 12 栅格布局",
+    layout_basis: "Grid docs: Root and Item with desktop column spans",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-grid--docs"
+  });
+  sourceEntry({
+    page,
+    region: "Hero",
+    component_name: "Icon",
+    component_id: "icon",
+    classification: "runtime component",
+    story_id: "components-icon--gallery",
+    docs_id: "components-icon--docs",
+    usage: "待审批、我的申请、我的应用和消息标题图标",
+    layout_basis: "Icon docs: use named icons instead of hand drawn glyph fallbacks",
+    source_file: localRuntimeSource,
+    source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-icon--docs"
+  });
+
+  const metricTwo = runtime.card({
+    className: "oo-metric-card oo-application-metric",
+    pattern: "oneorbit-metric-card",
+    instance: "oneorbit.home.metric.applications",
+    children: `<div class="oo-card-title">${runtime.icon("inbox", { className: "oo-card-icon" })}<h2>我的申请(2)</h2></div>
+      <div class="oo-mini-metrics">
+        <div><strong>0</strong><span>C-System</span></div>
+        <div><strong>2</strong><span>D-System</span></div>
+      </div>`
+  });
+
+  return pageDocument(page, "oneorbit-home", `${oneOrbitHeader(page, { notification: "1" })}
+    <main class="oo-main oo-home-main" data-oneorbit-page="message-todo" data-source-report="outputs/reports/oneorbit-component-source-map.md">
+      ${runtime.containerStart({ instance: "oneorbit.home.container", layoutRule: "layout-grid-container" })}
+        ${runtime.gridStart({ instance: "oneorbit.home.layout.grid", layoutRule: "layout-grid-container" }).replace("snf-layout-grid", "snf-layout-grid oo-home-grid")}
+          <section class="oo-home-left oo-span-6" ${runtime.gridItemAttrs(6, "home-left")}>
+            <div class="oo-hero-text">
+              <h1>你好LIO</h1>
+              <p>欢迎来到OneOrbit系统。</p>
+            </div>
+            <div class="oo-metric-row">
+              ${metricCard(page, "待审批(21)", "21", "HAS", "pending", "oneorbit.home.metric.pending")}
+              ${metricTwo}
+            </div>
+            <section class="oo-apps-panel">
+              <div class="oo-section-heading">${runtime.icon("apps", { className: "oo-section-icon" })}<h2>我的应用</h2></div>
+              <div class="oo-app-grid">
+                ${applicationCard(page, "HAS", "H", "oneorbit.home.app.has")}
+                ${applicationCard(page, "B-System", "B", "oneorbit.home.app.bsystem")}
+              </div>
+            </section>
+          </section>
+          <section class="oo-message-panel oo-span-6" ${runtime.gridItemAttrs(6, "message-list")}>
+            <div class="oo-section-heading">${runtime.icon("bell", { className: "oo-section-icon" })}<h2>新的消息(44)</h2></div>
+            <div class="oo-message-list" data-pattern="message-list" data-fallback-module="message-list" data-fallback-reason="${escapeHtml(runtimeResolution.fallbacks.find((item) => item.module === "message-list").reason)}">
+              ${[1, 2, 3, 4, 5].map((index) => messageItem(page, index)).join("")}
+            </div>
+          </section>
+        ${runtime.gridEnd()}
+      ${runtime.containerEnd()}
+    </main>`);
+}
+
+function pageDocument(page, bodyClass, content) {
+  return `<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${escapeHtml(page)} | OneOrbit</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --dashboard-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --dashboard-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --dashboard-muted-bg: var(--elements-color-semantic-background-neutral);
+        --dashboard-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --dashboard-border: var(--elements-color-semantic-border-default);
+        --oo-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --oo-panel-bg: var(--elements-color-components-tooltip-bg-default);
+        --oo-muted-panel-bg: var(--elements-color-semantic-background-neutral);
+        --oo-topbar-height: 5rem;
+        --oo-content-gap: var(--elements-spacing-xl);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--oo-page-bg);
+        font-family: var(--dashboard-font-family);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { min-inline-size: 0; background: var(--oo-page-bg); }
+      body { margin: 0; min-block-size: 100vh; min-inline-size: 0; overflow-x: hidden; background: var(--oo-page-bg); color: var(--elements-color-semantic-text-default_inverse); font-family: var(--dashboard-font-family); letter-spacing: 0; }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, p, dl, dd { margin: 0; }
+      button, input { font: inherit; }
+      .oo-topbar { min-block-size: var(--oo-topbar-height); display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--oo-panel-bg); border-block-end: 0.0625rem solid var(--dashboard-border); position: sticky; inset-block-start: 0; z-index: 30; }
+      .oo-brand-lockup, .oo-topbar-actions, .oo-title-row, .oo-heading-actions, .oo-filter-actions, .oo-card-title, .oo-section-heading, .oo-status-chip, .oo-actions, .oo-app-link, .oo-message-title { display: flex; align-items: center; gap: var(--elements-spacing-sm); }
+      .oo-brand-lockup { min-inline-size: 0; }
+      .oo-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
+      .oo-brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--dashboard-border); }
+      .oo-product-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-topbar-actions { justify-content: flex-end; }
+      .oo-avatar, .oo-notification-badge { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--elements-radius-rounded); font-weight: var(--elements-font-weight-bold); }
+      .oo-avatar { background: var(--elements-color-semantic-background-brand-subtle); }
+      .oo-notification-badge { background: var(--elements-color-semantic-background-info); color: var(--elements-color-components-tooltip-bg-default); }
+      .oo-main { min-inline-size: 0; }
+      .oo-query-main { padding-block: var(--elements-spacing-lg) var(--elements-spacing-2xl); }
+      .snf-container-content { padding-inline: var(--elements-spacing-xl); }
+      .oo-breadcrumb { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 3rem; color: var(--elements-color-semantic-text-default_inverse); }
+      .oo-breadcrumb a { text-decoration: underline; text-underline-offset: var(--elements-spacing-3xs); }
+      .oo-breadcrumb-chevron, .oo-inline-icon, .oo-section-icon, .oo-card-icon, .oo-app-arrow { inline-size: 1.25rem; block-size: 1.25rem; color: var(--elements-color-semantic-accent-default); }
+      .oo-breadcrumb-chevron svg, .oo-inline-icon svg, .oo-section-icon svg, .oo-card-icon svg, .oo-app-arrow svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .oo-query-panel { background: var(--oo-panel-bg); padding: var(--elements-spacing-2xl); display: grid; gap: var(--elements-spacing-xl); min-inline-size: 0; }
+      .oo-page-heading { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); min-inline-size: 0; }
+      .oo-page-heading h1 { font-size: var(--elements-font-size-500); line-height: 1.35; font-weight: var(--elements-font-weight-bold); }
+      .oo-policy-link { display: inline-flex; align-items: center; gap: var(--elements-spacing-3xs); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-window-date { font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-filter-panel { display: grid; gap: var(--elements-spacing-md); padding: var(--elements-spacing-xl); background: var(--oo-muted-panel-bg); border-radius: var(--elements-radius-sm); min-inline-size: 0; }
+      .oo-filter-grid { gap: var(--elements-spacing-md); }
+      .oo-span-3 { grid-column: span 3; min-inline-size: 0; }
+      .oo-span-6 { grid-column: span 6; min-inline-size: 0; }
+      .oo-date-range-shell { color: var(--elements-color-semantic-text-subtle_inverse); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); }
+      .oo-date-range-shell span:last-child { text-align: end; }
+      .oo-date-arrow { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .oo-filter-actions { justify-content: flex-start; padding-block-start: var(--elements-spacing-sm); }
+      .oo-result-section { display: grid; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .oo-result-count { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .oo-table-shell { min-inline-size: 0; overflow-x: auto; }
+      .oo-data-table { inline-size: 100%; min-inline-size: 86rem; border-collapse: collapse; table-layout: fixed; background: var(--oo-panel-bg); }
+      .oo-data-table th, .oo-data-table td { border: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); text-align: start; vertical-align: middle; font-size: var(--elements-font-size-200); line-height: 1.5; }
+      .oo-data-table thead th { min-block-size: 3.5rem; background: var(--oo-muted-panel-bg); font-weight: var(--elements-font-weight-bold); }
+      .oo-group-row th { background: var(--oo-muted-panel-bg); font-size: var(--elements-font-size-300); font-weight: var(--elements-font-weight-bold); }
+      .oo-group-row th span { margin-inline-end: var(--elements-spacing-sm); }
+      .oo-group-code { display: inline-flex; align-items: center; min-block-size: 1.625rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); padding-inline: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); background: var(--oo-panel-bg); font-size: var(--elements-font-size-100); }
+      .oo-status-dot { display: inline-block; inline-size: .5rem; block-size: .5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .oo-action-link { color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .oo-home-main { position: relative; overflow: hidden; padding-block: var(--elements-spacing-2xl); min-block-size: calc(100vh - var(--oo-topbar-height)); }
+      .oo-home-main::before { content: ""; position: absolute; inset-block-start: -7rem; inset-inline-start: 8rem; inline-size: 34rem; block-size: 34rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-brand-subtle); opacity: .55; pointer-events: none; }
+      .oo-home-grid { position: relative; z-index: 1; align-items: stretch; gap: var(--elements-spacing-2xl); }
+      .oo-home-left { display: grid; gap: var(--elements-spacing-xl); align-content: start; min-block-size: 45rem; }
+      .oo-hero-text { padding-block: var(--elements-spacing-5xl) var(--elements-spacing-lg); display: grid; gap: var(--elements-spacing-md); }
+      .oo-hero-text h1 { font-size: var(--elements-font-size-1300); line-height: 1.1; font-weight: var(--elements-font-weight-bold); }
+      .oo-hero-text p { font-size: var(--elements-font-size-900); line-height: 1.25; font-weight: var(--elements-font-weight-bold); }
+      .oo-metric-row, .oo-app-grid, .oo-mini-metrics { display: grid; gap: var(--elements-spacing-md); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .oo-metric-card.snf-card { min-block-size: 9rem; border: 0; border-radius: var(--elements-radius-md); box-shadow: none; }
+      .oo-application-metric { grid-template-rows: auto 1fr; }
+      .oo-card-title h2, .oo-section-heading h2 { font-size: var(--elements-font-size-500); line-height: 1.35; font-weight: var(--elements-font-weight-bold); }
+      .oo-metric-value { align-self: center; justify-self: center; font-size: var(--elements-font-size-800); font-weight: var(--elements-font-weight-bold); color: var(--elements-color-semantic-text-accent-default); }
+      .oo-metric-card p { align-self: start; justify-self: center; font-size: var(--elements-font-size-300); }
+      .oo-mini-metrics div { display: grid; place-items: center; gap: var(--elements-spacing-2xs); min-block-size: 5.25rem; border-radius: var(--elements-radius-md); background: var(--oo-muted-panel-bg); }
+      .oo-mini-metrics strong { font-size: var(--elements-font-size-800); }
+      .oo-mini-metrics div:last-child strong { color: var(--elements-color-semantic-text-accent-default); }
+      .oo-apps-panel { display: grid; gap: var(--elements-spacing-xl); padding: var(--elements-spacing-2xl); border-radius: var(--elements-radius-md); background: var(--oo-panel-bg); }
+      .oo-app-card.snf-card { min-block-size: 5.5rem; padding: 0; border-radius: var(--elements-radius-rounded); border-color: var(--elements-color-semantic-accent-focus); }
+      .oo-app-link { inline-size: 100%; min-block-size: 5.5rem; padding-inline: var(--elements-spacing-xl); font-size: var(--elements-font-size-500); font-weight: var(--elements-font-weight-bold); }
+      .oo-app-icon { display: inline-grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-components-tooltip-bg-default); background: var(--elements-color-semantic-accent-default); }
+      .oo-app-arrow { margin-inline-start: auto; inline-size: 1.75rem; block-size: 1.75rem; }
+      .oo-message-panel { display: grid; align-content: start; gap: var(--elements-spacing-md); background: var(--oo-panel-bg); border-radius: var(--elements-radius-md); padding: var(--elements-spacing-xl); min-block-size: 44rem; }
+      .oo-message-list { display: grid; gap: var(--elements-spacing-sm); }
+      .oo-message-card.snf-card { min-block-size: 6.75rem; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--elements-spacing-md); border: 0; border-radius: var(--elements-radius-md); background: var(--oo-muted-panel-bg); padding: var(--elements-spacing-md) var(--elements-spacing-lg); }
+      .oo-message-main { display: grid; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .oo-message-title strong { font-size: var(--elements-font-size-400); }
+      .oo-message-meta { display: grid; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .oo-message-meta div { display: flex; gap: var(--elements-spacing-sm); }
+      .oo-message-meta dd { color: var(--elements-color-semantic-text-default_inverse); }
+      .oo-message-side { display: grid; justify-items: end; gap: var(--elements-spacing-lg); color: var(--elements-color-semantic-text-subtle_inverse); }
+      ${runtimeStyles()}
+    </style>
+  </head>
+  <body class="${escapeHtml(bodyClass)}" data-component-runtime="${runtimeName}" data-render-source="${renderSource}" data-token-source="${tokenSource}">
+    ${content}
+    ${runtimeScript()}
+  </body>
+</html>`;
+}
+
+function writeSourceReports() {
+  const report = {
+    schema_version: "0.1.0",
+    generated_at: new Date().toISOString(),
+    pages: [
+      {
+        id: "oneorbit-has-query-list",
+        output: rel(outputFiles.query),
+        reference: "102086488ca7345c47b61ab0a3fd8122.png"
+      },
+      {
+        id: "oneorbit-message-todo",
+        output: rel(outputFiles.home),
+        reference: "5f92f749afefbd1e28994e377bd60477.png"
+      }
+    ],
+    component_sources: sourceEntries
+  };
+  fs.writeFileSync(sourceMapJsonPath, JSON.stringify(report, null, 2) + "\n");
+
+  const rows = sourceEntries.map((entry) => [
+    entry.page,
+    entry.region,
+    entry.component_name,
+    entry.classification,
+    entry.story_id || "-",
+    entry.docs_id || "-",
+    entry.usage,
+    entry.layout_basis,
+    entry.source_file
+  ]);
+  const md = [
+    "# OneOrbit Component Source Map",
+    "",
+    "该报告对应两份 HTML 输出：复杂查询列表和消息待办首页。分类含义：`runtime component` 表示走本地 Sanofi runtime；`docs-backed primitive` 表示本地有组件文档和 primitive contract，但未纳入首轮 runtime；`explicit fallback module` 或 `compound fallback pattern` 表示本地缺少对应 runtime primitive，已显式声明原因。",
+    "",
+    fs.existsSync(sourceResolutionJsonPath)
+      ? `源检索决策报告：${path.relative(pluginRoot, sourceResolutionJsonPath).replaceAll(path.sep, "/")}`
+      : "源检索决策报告：尚未生成，请运行 `scripts/resolve-oneorbit-component-sources`。",
+    "",
+    "| Page | Region | Component | Classification | Story ID | Docs ID | Usage | Layout Basis | Source File |",
+    "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+    ...rows.map((row) => `| ${row.map((value) => escapeHtml(value).replace(/\|/g, "/")).join(" | ")} |`),
+    ""
+  ].join("\n");
+  fs.writeFileSync(sourceMapMdPath, md);
+}
+
+function main() {
+  fs.mkdirSync(htmlDir, { recursive: true });
+  fs.mkdirSync(reportDir, { recursive: true });
+  addCoreSourceEntries();
+
+  const queryHtml = renderQueryPage();
+  const homeHtml = renderHomePage();
+
+  fs.writeFileSync(outputFiles.query, queryHtml);
+  fs.writeFileSync(outputFiles.home, homeHtml);
+  writeSourceReports();
+
+  const renderReport = {
+    schema_version: "0.1.0",
+    status: "pass",
+    outputs: {
+      query: rel(outputFiles.query),
+      home: rel(outputFiles.home),
+      source_map_json: rel(sourceMapJsonPath),
+      source_map_markdown: rel(sourceMapMdPath)
+    },
+    runtime: {
+      component_runtime: runtimeName,
+      render_source: renderSource,
+      default_size: "medium"
+    },
+    source_entry_count: sourceEntries.length
+  };
+  fs.writeFileSync(renderReportPath, JSON.stringify(renderReport, null, 2) + "\n");
+  console.log(`Rendered OneOrbit reference HTML: ${rel(outputFiles.query)}, ${rel(outputFiles.home)}`);
+}
+
+main();

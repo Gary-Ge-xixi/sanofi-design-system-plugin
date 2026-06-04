@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-action-default-atomic-story",
+  "title": "Card/Action Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-card-action--default.",
+  "atomic_story_id": "components-card-action--default",
+  "component_id": "card-action",
+  "docs_id": "components-card-action--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card-action"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-action/stories/components-card-action--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/card-action/stories/components-card-action--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-action/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-action/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-action/assets/CardAction.stories-BzOrjPmz.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/card-action/assets/CardAction.stories-BzOrjPmz.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-action/assets/components-card-action--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/card-action/assets/components-card-action--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-action/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/card-action/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-action.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-action.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-action/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-action/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-action--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-action--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-action--docs",
+    "story_id": "components-card-action--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/card-action/stories/components-card-action--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/card-action/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card-action--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card-action--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CardAction.stories-BzOrjPmz.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card-action/assets/CardAction.stories-BzOrjPmz.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-action.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-action/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-action",
+      "Card/Action",
+      "Default",
+      "components-card-action--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Card/Action Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

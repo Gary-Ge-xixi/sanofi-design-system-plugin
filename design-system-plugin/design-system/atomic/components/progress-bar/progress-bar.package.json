@@ -1,0 +1,163 @@
+{
+  "schema_version": "0.1.0",
+  "id": "progress-bar-complete-standard-package",
+  "component_id": "progress-bar",
+  "component_name": "ProgressBar",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-progressbar--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/progress-bar/docs/progress-bar.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-progressbar--all-densities",
+      "story_name": "All Densities",
+      "export_name": "AllDensities",
+      "semantic_type": "variant",
+      "variant": "all-densities",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-densities.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/progress-bar-all-densities.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-progressbar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-progressbar--all-sizes",
+      "story_name": "All Sizes",
+      "export_name": "AllSizes",
+      "semantic_type": "variant",
+      "variant": "all-sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/progress-bar-all-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-progressbar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-progressbar--all-states",
+      "story_name": "All States",
+      "export_name": "AllStates",
+      "semantic_type": "variant",
+      "variant": "all-states",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-states.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/progress-bar-all-states.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-progressbar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-progressbar--custom-value-text",
+      "story_name": "Custom Value Text",
+      "export_name": "CustomValueText",
+      "semantic_type": "variant",
+      "variant": "custom-value-text",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--custom-value-text.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/progress-bar-custom-value-text.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-progressbar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-progressbar--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/progress-bar-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-progressbar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/progress-bar/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/progress-bar-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-progressbar--all-densities",
+        "output_path": "design-system-plugin/outputs/html/progress-bar-all-densities.atomic.html"
+      },
+      {
+        "story_id": "components-progressbar--all-sizes",
+        "output_path": "design-system-plugin/outputs/html/progress-bar-all-sizes.atomic.html"
+      },
+      {
+        "story_id": "components-progressbar--all-states",
+        "output_path": "design-system-plugin/outputs/html/progress-bar-all-states.atomic.html"
+      },
+      {
+        "story_id": "components-progressbar--custom-value-text",
+        "output_path": "design-system-plugin/outputs/html/progress-bar-custom-value-text.atomic.html"
+      },
+      {
+        "story_id": "components-progressbar--default",
+        "output_path": "design-system-plugin/outputs/html/progress-bar-default.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-progress-bar-complete-package.json",
+    "story_item_prefix": "sanofi-progress-bar-"
+  },
+  "validation": {
+    "required_story_count": 5,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-progressbar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/progress-bar/docs/progress-bar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

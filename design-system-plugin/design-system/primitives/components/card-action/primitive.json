@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card/Action",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Card/Action",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-action.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "card-action",
+      "data_attribute": "data-primitive=\"card-action\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-card-action--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-action--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-action.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

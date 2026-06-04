@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-admin-page-profile",
+  "target": "outputs/html/admin-query-panel.resolved.html",
+  "profile": "admin-data-entry-table",
+  "checked": {
+    "filter_fields": 4,
+    "select_shells": 4,
+    "visible_select_triggers": 4,
+    "query_toolbar_action_buttons": 3,
+    "primary_action_buttons": 3,
+    "table_columns": 6,
+    "table_body_rows": 8,
+    "editable_inputs": 6,
+    "top_level_navigation_items": 5
+  },
+  "consumed": {
+    "resolution": "design-system/contracts/resolvers/admin-query-panel.resolution.json",
+    "page_profile": "design-system/page-profiles/admin-data-entry-table.profile.json",
+    "select_contract": "design-system/contracts/page-modules/select-filter.contract.json",
+    "table_contract": "design-system/contracts/page-modules/data-table-fallback.contract.json",
+    "density_rule": "design-system/rules/admin-density.json"
+  },
+  "failures": []
+}

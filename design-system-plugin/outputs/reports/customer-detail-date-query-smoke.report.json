@@ -1,0 +1,87 @@
+{
+  "status": "pass",
+  "checked_at": "2026-06-04T11:11:44.989Z",
+  "smoke": {
+    "actions": {
+      "export": 2,
+      "viewDetail": 1
+    },
+    "bodyFamily": "customer-detail-date-query",
+    "bodyProfile": "customer-detail-date-query",
+    "dateRangeControls": 1,
+    "fallbackTables": 1,
+    "firstViewport": {
+      "customerSummary": true,
+      "dateQueryForm": true,
+      "queryActions": true,
+      "tableHeader": true
+    },
+    "formFilterFields": 7,
+    "outputStates": {
+      "explicitFallback": "present",
+      "localAtomicRuntime": "present",
+      "officialRuntime": "absent"
+    },
+    "rects": {
+      "actions": {
+        "bottom": 449,
+        "height": 44,
+        "left": 699,
+        "top": 405,
+        "width": 243
+      },
+      "form": {
+        "bottom": 486,
+        "height": 266,
+        "left": 312,
+        "top": 220,
+        "width": 1104
+      },
+      "summary": {
+        "bottom": 730,
+        "height": 228,
+        "left": 312,
+        "top": 502,
+        "width": 1104
+      },
+      "tableHeader": {
+        "bottom": 875,
+        "height": 48,
+        "left": 334,
+        "top": 828,
+        "width": 1061
+      }
+    },
+    "scroll": {
+      "clientHeight": 820,
+      "ownsOverflow": "auto",
+      "scrollHeight": 1503
+    },
+    "sections": {
+      "customer-detail-table": true,
+      "customer-summary": true,
+      "date-query-form": true,
+      "pagination": true,
+      "query-header": true,
+      "result-actions": true
+    },
+    "selectControls": 5,
+    "summaryItems": 5,
+    "tableColumns": 9,
+    "tableRows": 5,
+    "title": "客户明细日期查询",
+    "url": "http://127.0.0.1:4177/outputs/html/customer-detail-date-query.resolved.html",
+    "viewport": {
+      "height": 900,
+      "width": 1440
+    },
+    "visibleText": {
+      "dateRange": true,
+      "exportTask": true,
+      "pageTitle": true,
+      "query": true,
+      "viewDetail": true
+    }
+  },
+  "failures": []
+}

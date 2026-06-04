@@ -1,0 +1,2927 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-03T03:05:14.128Z",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "primitive_index": "design-system-plugin/design-system/primitives/primitive-index.json",
+    "atomic_index": "design-system-plugin/design-system/atomic/atomic-component-index.json"
+  },
+  "standard": "design-system-plugin/design-system/atomic/component-package-standard.json",
+  "summary": {
+    "total_components": 95,
+    "total_docs": 95,
+    "total_stories": 425,
+    "completed_components": 93,
+    "unsupported_components": 2,
+    "accounted_components": 95,
+    "remaining_components": 0,
+    "remaining_renderable_components": 0,
+    "unsupported_estimated_hours": 5.6,
+    "estimated_remaining_hours": 0,
+    "estimated_remaining_workdays_single_agent": {
+      "low": 0,
+      "high": 0
+    },
+    "tiers": {
+      "S": {
+        "count": 48,
+        "story_count": 74,
+        "estimated_hours": 134.4,
+        "complete": 46,
+        "unsupported": 2,
+        "remaining": 0
+      },
+      "M": {
+        "count": 29,
+        "story_count": 151,
+        "estimated_hours": 153.7,
+        "complete": 29,
+        "unsupported": 0,
+        "remaining": 0
+      },
+      "L": {
+        "count": 13,
+        "story_count": 120,
+        "estimated_hours": 102.7,
+        "complete": 13,
+        "unsupported": 0,
+        "remaining": 0
+      },
+      "XL": {
+        "count": 5,
+        "story_count": 80,
+        "estimated_hours": 56.5,
+        "complete": 5,
+        "unsupported": 0,
+        "remaining": 0
+      }
+    }
+  },
+  "time_model": {
+    "schema_version": "0.1.0",
+    "source": "Button complete package execution model",
+    "tiers": {
+      "S": {
+        "label": "simple",
+        "total_hours": 2.8,
+        "node_hours": {
+          "source_intake": 0.2,
+          "expected_tabs": 0.2,
+          "story_atoms": 0.4,
+          "docs_contract": 0.5,
+          "atomic_contract": 0.7,
+          "html_package": 0.7,
+          "registry_search": 0.3,
+          "validators": 0.5,
+          "report_qa": 0.2
+        }
+      },
+      "M": {
+        "label": "standard",
+        "total_hours": 5.3,
+        "node_hours": {
+          "source_intake": 0.3,
+          "expected_tabs": 0.3,
+          "story_atoms": 0.8,
+          "docs_contract": 0.8,
+          "atomic_contract": 1.3,
+          "html_package": 1.2,
+          "registry_search": 0.4,
+          "validators": 0.9,
+          "report_qa": 0.3
+        }
+      },
+      "L": {
+        "label": "complex",
+        "total_hours": 7.9,
+        "node_hours": {
+          "source_intake": 0.4,
+          "expected_tabs": 0.5,
+          "story_atoms": 1.2,
+          "docs_contract": 1.1,
+          "atomic_contract": 2,
+          "html_package": 2,
+          "registry_search": 0.6,
+          "validators": 1.3,
+          "report_qa": 0.4
+        }
+      },
+      "XL": {
+        "label": "high-complexity",
+        "total_hours": 11.3,
+        "node_hours": {
+          "source_intake": 0.5,
+          "expected_tabs": 0.7,
+          "story_atoms": 1.8,
+          "docs_contract": 1.5,
+          "atomic_contract": 3,
+          "html_package": 3,
+          "registry_search": 0.8,
+          "validators": 1.8,
+          "report_qa": 0.5
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "component_id": "accordion",
+      "component_name": "Accordion",
+      "storybook_title": "Components/Accordion",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/accordion/accordion.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-accordion--docs"
+      ],
+      "story_ids": [
+        "components-accordion--default",
+        "components-accordion--small-accordion",
+        "components-accordion--medium-accordion-with-slots"
+      ]
+    },
+    {
+      "component_id": "accordion-item",
+      "component_name": "Accordion.Item",
+      "storybook_title": "Components/Accordion.Item",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/accordion-item/accordion-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-accordion-item--docs"
+      ],
+      "story_ids": [
+        "components-accordion-item--default"
+      ]
+    },
+    {
+      "component_id": "autocomplete",
+      "component_name": "Autocomplete",
+      "storybook_title": "Components/Autocomplete",
+      "docs_count": 1,
+      "story_count": 14,
+      "tier": "XL",
+      "estimated_hours": 11.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 14,
+      "package_path": "design-system-plugin/design-system/atomic/components/autocomplete/autocomplete.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-autocomplete--docs"
+      ],
+      "story_ids": [
+        "components-autocomplete--default",
+        "components-autocomplete--multiple",
+        "components-autocomplete--chips-outside",
+        "components-autocomplete--free-solo",
+        "components-autocomplete--with-tooltips",
+        "components-autocomplete--with-tooltips-multiple",
+        "components-autocomplete--async-search",
+        "components-autocomplete--async-search-multiple",
+        "components-autocomplete--async-search-error",
+        "components-autocomplete--with-description",
+        "components-autocomplete--with-description-multiple",
+        "components-autocomplete--with-render-option",
+        "components-autocomplete--with-render-option-custom-layout",
+        "components-autocomplete--with-render-option-multiple"
+      ]
+    },
+    {
+      "component_id": "avatar",
+      "component_name": "Avatar",
+      "storybook_title": "Components/Avatar",
+      "docs_count": 1,
+      "story_count": 6,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 6,
+      "package_path": "design-system-plugin/design-system/atomic/components/avatar/avatar.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-avatar--docs"
+      ],
+      "story_ids": [
+        "components-avatar--default",
+        "components-avatar--all-sizes",
+        "components-avatar--with-initials",
+        "components-avatar--with-default-icon",
+        "components-avatar--with-label",
+        "components-avatar--text-overflow"
+      ]
+    },
+    {
+      "component_id": "avatar-avatar-group",
+      "component_name": "Avatar/AvatarGroup",
+      "storybook_title": "Components/Avatar/AvatarGroup",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-avatar-avatargroup--docs"
+      ],
+      "story_ids": [
+        "components-avatar-avatargroup--avatar-group-two-items",
+        "components-avatar-avatargroup--avatar-group-without-counter",
+        "components-avatar-avatargroup--avatar-group-with-counter",
+        "components-avatar-avatargroup--avatar-group-with-tooltips"
+      ]
+    },
+    {
+      "component_id": "banner",
+      "component_name": "Banner",
+      "storybook_title": "Components/Banner",
+      "docs_count": 1,
+      "story_count": 6,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 6,
+      "package_path": "design-system-plugin/design-system/atomic/components/banner/banner.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-banner--docs"
+      ],
+      "story_ids": [
+        "components-banner--default",
+        "components-banner--global",
+        "components-banner--overview",
+        "components-banner--custom-icon",
+        "components-banner--with-contents",
+        "components-banner--with-close-icon"
+      ]
+    },
+    {
+      "component_id": "breadcrumb",
+      "component_name": "Breadcrumb",
+      "storybook_title": "Components/Breadcrumb",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/breadcrumb/breadcrumb.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-breadcrumb--docs"
+      ],
+      "story_ids": [
+        "components-breadcrumb--collapsed",
+        "components-breadcrumb--not-collapsed",
+        "components-breadcrumb--one-item-on-each-side",
+        "components-breadcrumb--two-items-on-each-side",
+        "components-breadcrumb--ellipsis-truncation",
+        "components-breadcrumb--custom-max-width",
+        "components-breadcrumb--wrap-vs-no-wrap"
+      ]
+    },
+    {
+      "component_id": "breadcrumb-item",
+      "component_name": "Breadcrumb.Item",
+      "storybook_title": "Components/Breadcrumb.Item",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/breadcrumb-item/breadcrumb-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-breadcrumb-item--docs"
+      ],
+      "story_ids": [
+        "components-breadcrumb-item--default"
+      ]
+    },
+    {
+      "component_id": "button",
+      "component_name": "Button",
+      "storybook_title": "Components/Button",
+      "docs_count": 1,
+      "story_count": 13,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 13,
+      "package_path": "design-system-plugin/design-system/atomic/components/button/button.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-button--docs"
+      ],
+      "story_ids": [
+        "components-button--primary",
+        "components-button--primary-neutral",
+        "components-button--overview",
+        "components-button--overview-inverse",
+        "components-button--default",
+        "components-button--secondary",
+        "components-button--secondary-neutral",
+        "components-button--tertiary",
+        "components-button--tertiary-neutral",
+        "components-button--primary-destruct",
+        "components-button--secondary-destruct",
+        "components-button--tertiary-destruct",
+        "components-button--button-link"
+      ]
+    },
+    {
+      "component_id": "button-icon",
+      "component_name": "ButtonIcon",
+      "storybook_title": "Components/ButtonIcon",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/button-icon/button-icon.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-buttonicon--docs"
+      ],
+      "story_ids": [
+        "components-buttonicon--primary",
+        "components-buttonicon--primary-neutral",
+        "components-buttonicon--primary-destruct",
+        "components-buttonicon--secondary",
+        "components-buttonicon--secondary-neutral",
+        "components-buttonicon--secondary-destruct",
+        "components-buttonicon--tertiary",
+        "components-buttonicon--tertiary-neutral",
+        "components-buttonicon--tertiary-destruct"
+      ]
+    },
+    {
+      "component_id": "calendar",
+      "component_name": "Calendar",
+      "storybook_title": "Components/Calendar",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/calendar/calendar.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-calendar--docs"
+      ],
+      "story_ids": [
+        "components-calendar--default",
+        "components-calendar--disabled",
+        "components-calendar--with-date-constraints",
+        "components-calendar--range-selection"
+      ]
+    },
+    {
+      "component_id": "card",
+      "component_name": "Card",
+      "storybook_title": "Components/Card",
+      "docs_count": 1,
+      "story_count": 14,
+      "tier": "XL",
+      "estimated_hours": 11.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 14,
+      "package_path": "design-system-plugin/design-system/atomic/components/card/card.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card--docs"
+      ],
+      "story_ids": [
+        "components-card--default",
+        "components-card--card-image",
+        "components-card--learning-module",
+        "components-card--card-imageshow-full-content",
+        "components-card--card-image-clickable",
+        "components-card--card-video",
+        "components-card--card-custom-picto",
+        "components-card--card-custom-number",
+        "components-card--list-image-view",
+        "components-card--list-image-ratio-view",
+        "components-card--list-center-content-view",
+        "components-card--list-picto-view",
+        "components-card--list-date-view",
+        "components-card--list-density-view"
+      ]
+    },
+    {
+      "component_id": "card-action",
+      "component_name": "Card/Action",
+      "storybook_title": "Components/Card/Action",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-action/card-action.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-action--docs"
+      ],
+      "story_ids": [
+        "components-card-action--default"
+      ]
+    },
+    {
+      "component_id": "card-card-group",
+      "component_name": "Card/CardGroup",
+      "storybook_title": "Components/Card/CardGroup",
+      "docs_count": 1,
+      "story_count": 2,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 2,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-card-group/card-card-group.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-cardgroup--docs"
+      ],
+      "story_ids": [
+        "components-card-cardgroup--card-grids-group",
+        "components-card-cardgroup--card-grids-group-picto"
+      ]
+    },
+    {
+      "component_id": "card-content",
+      "component_name": "Card/Content",
+      "storybook_title": "Components/Card/Content",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-content/card-content.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-content--docs"
+      ],
+      "story_ids": [
+        "components-card-content--default"
+      ]
+    },
+    {
+      "component_id": "card-date",
+      "component_name": "Card/Date",
+      "storybook_title": "Components/Card/Date",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-date/card-date.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-date--docs"
+      ],
+      "story_ids": [
+        "components-card-date--default"
+      ]
+    },
+    {
+      "component_id": "card-footer",
+      "component_name": "Card/Footer",
+      "storybook_title": "Components/Card/Footer",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-footer/card-footer.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-footer--docs"
+      ],
+      "story_ids": [
+        "components-card-footer--default"
+      ]
+    },
+    {
+      "component_id": "card-media",
+      "component_name": "Card/Media",
+      "storybook_title": "Components/Card/Media",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-media/card-media.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-media--docs"
+      ],
+      "story_ids": [
+        "components-card-media--default"
+      ]
+    },
+    {
+      "component_id": "card-media-custom",
+      "component_name": "Card/MediaCustom",
+      "storybook_title": "Components/Card/MediaCustom",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-media-custom/card-media-custom.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-mediacustom--docs"
+      ],
+      "story_ids": [
+        "components-card-mediacustom--default"
+      ]
+    },
+    {
+      "component_id": "card-sections",
+      "component_name": "Card/Sections",
+      "storybook_title": "Components/Card/Sections",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/card-sections/card-sections.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-card-sections--docs"
+      ],
+      "story_ids": [
+        "components-card-sections--default"
+      ]
+    },
+    {
+      "component_id": "carousel",
+      "component_name": "Carousel",
+      "storybook_title": "Components/Carousel",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/carousel/carousel.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-carousel--docs"
+      ],
+      "story_ids": [
+        "components-carousel--default",
+        "components-carousel--carousel-with-image",
+        "components-carousel--carousel-one-item-view",
+        "components-carousel--rtl-carousel",
+        "components-carousel--carousel-with-card-group"
+      ]
+    },
+    {
+      "component_id": "cascading-menu",
+      "component_name": "CascadingMenu",
+      "storybook_title": "Components/CascadingMenu",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/cascading-menu/cascading-menu.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-cascadingmenu--docs"
+      ],
+      "story_ids": [
+        "components-cascadingmenu--example"
+      ]
+    },
+    {
+      "component_id": "cascading-menu-item",
+      "component_name": "CascadingMenu/Item",
+      "storybook_title": "Components/CascadingMenu/Item",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/cascading-menu-item/cascading-menu-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-cascadingmenu-item--docs"
+      ],
+      "story_ids": [
+        "components-cascadingmenu-item--default"
+      ]
+    },
+    {
+      "component_id": "checkbox",
+      "component_name": "Checkbox",
+      "storybook_title": "Components/Checkbox",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/checkbox/checkbox.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-checkbox--docs"
+      ],
+      "story_ids": [
+        "components-checkbox--default",
+        "components-checkbox--sizes",
+        "components-checkbox--with-subtext",
+        "components-checkbox--color-variations",
+        "components-checkbox--with-link"
+      ]
+    },
+    {
+      "component_id": "checkbox-checkbox-group",
+      "component_name": "Checkbox/CheckboxGroup",
+      "storybook_title": "Components/Checkbox/CheckboxGroup",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/checkbox-checkbox-group.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-checkbox-checkboxgroup--docs"
+      ],
+      "story_ids": [
+        "components-checkbox-checkboxgroup--vertical",
+        "components-checkbox-checkboxgroup--horizontal",
+        "components-checkbox-checkboxgroup--small-size",
+        "components-checkbox-checkboxgroup--neutral-color"
+      ]
+    },
+    {
+      "component_id": "checkbox-tree",
+      "component_name": "CheckboxTree",
+      "storybook_title": "Components/CheckboxTree",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/checkbox-tree.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-checkboxtree--docs"
+      ],
+      "story_ids": [
+        "components-checkboxtree--default",
+        "components-checkboxtree--deeply-nested",
+        "components-checkboxtree--collapsible",
+        "components-checkboxtree--color-variations"
+      ]
+    },
+    {
+      "component_id": "chip-deprecated",
+      "component_name": "Chip (Deprecated)",
+      "storybook_title": "Components/Chip (Deprecated)",
+      "docs_count": 1,
+      "story_count": 8,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": false,
+      "deprecated": true,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 8,
+      "package_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-chip-deprecated--docs"
+      ],
+      "story_ids": [
+        "components-chip-deprecated--default",
+        "components-chip-deprecated--active",
+        "components-chip-deprecated--disabled",
+        "components-chip-deprecated--clickable",
+        "components-chip-deprecated--deletable",
+        "components-chip-deprecated--icon",
+        "components-chip-deprecated--icon-and-deletable",
+        "components-chip-deprecated--sizes"
+      ]
+    },
+    {
+      "component_id": "chip-dropdown",
+      "component_name": "ChipDropdown",
+      "storybook_title": "Components/ChipDropdown",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/chip-dropdown/chip-dropdown.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-chipdropdown--docs"
+      ],
+      "story_ids": [
+        "components-chipdropdown--default",
+        "components-chipdropdown--overview",
+        "components-chipdropdown--multi-select",
+        "components-chipdropdown--disabled-items-and-icons",
+        "components-chipdropdown--with-chip-status-inherit",
+        "components-chipdropdown--with-chip-status-inherit-multi-select",
+        "components-chipdropdown--with-chip-status-controlled",
+        "components-chipdropdown--with-render-item",
+        "components-chipdropdown--real-world-admin-vs-readonly"
+      ]
+    },
+    {
+      "component_id": "chip-filter",
+      "component_name": "ChipFilter",
+      "storybook_title": "Components/ChipFilter",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/chip-filter/chip-filter.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-chipfilter--docs"
+      ],
+      "story_ids": [
+        "components-chipfilter--default",
+        "components-chipfilter--overview",
+        "components-chipfilter--long-label",
+        "components-chipfilter--list-with-removal"
+      ]
+    },
+    {
+      "component_id": "chip-list-deprecated",
+      "component_name": "ChipList (Deprecated)",
+      "storybook_title": "Components/ChipList (Deprecated)",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": false,
+      "deprecated": true,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/chip-list-deprecated.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-chiplist-deprecated--docs"
+      ],
+      "story_ids": [
+        "components-chiplist-deprecated--default"
+      ]
+    },
+    {
+      "component_id": "chip-select",
+      "component_name": "ChipSelect",
+      "storybook_title": "Components/ChipSelect",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/chip-select/chip-select.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-chipselect--docs"
+      ],
+      "story_ids": [
+        "components-chipselect--default",
+        "components-chipselect--long-label",
+        "components-chipselect--style-variations"
+      ]
+    },
+    {
+      "component_id": "chip-status",
+      "component_name": "ChipStatus",
+      "storybook_title": "Components/ChipStatus",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/chip-status/chip-status.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-chipstatus--docs"
+      ],
+      "story_ids": [
+        "components-chipstatus--default",
+        "components-chipstatus--style-gallery",
+        "components-chipstatus--disabled",
+        "components-chipstatus--overview"
+      ]
+    },
+    {
+      "component_id": "container",
+      "component_name": "Container",
+      "storybook_title": "Components/Container",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/container/container.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-container--docs"
+      ],
+      "story_ids": [
+        "components-container--default",
+        "components-container--fluid",
+        "components-container--fixed"
+      ]
+    },
+    {
+      "component_id": "content-block",
+      "component_name": "ContentBlock",
+      "storybook_title": "Components/ContentBlock",
+      "docs_count": 1,
+      "story_count": 10,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 10,
+      "package_path": "design-system-plugin/design-system/atomic/components/content-block/content-block.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-contentblock--docs"
+      ],
+      "story_ids": [
+        "components-contentblock--default",
+        "components-contentblock--padding-sizes",
+        "components-contentblock--interactive",
+        "components-contentblock--interactive-selected",
+        "components-contentblock--interactive-disabled",
+        "components-contentblock--non-interactive-with-multiple-actions",
+        "components-contentblock--interactive-with-decorative-button",
+        "components-contentblock--selectable-list",
+        "components-contentblock--selectable-radio-list",
+        "components-contentblock--with-link"
+      ]
+    },
+    {
+      "component_id": "date-picker",
+      "component_name": "DatePicker",
+      "storybook_title": "Components/DatePicker",
+      "docs_count": 1,
+      "story_count": 23,
+      "tier": "XL",
+      "estimated_hours": 11.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 23,
+      "package_path": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-datepicker--docs"
+      ],
+      "story_ids": [
+        "components-datepicker--default",
+        "components-datepicker--month-picker",
+        "components-datepicker--quarter-picker",
+        "components-datepicker--year-picker",
+        "components-datepicker--range",
+        "components-datepicker--with-error",
+        "components-datepicker--range-with-error",
+        "components-datepicker--with-clearable",
+        "components-datepicker--with-min-and-max-dates",
+        "components-datepicker--range-empty",
+        "components-datepicker--range-partial",
+        "components-datepicker--medium-size",
+        "components-datepicker--with-icon",
+        "components-datepicker--disabled",
+        "components-datepicker--disabled-range",
+        "components-datepicker--dual-calendar",
+        "components-datepicker--dual-calendar-with-prefilled-range",
+        "components-datepicker--dual-calendar-partial-range",
+        "components-datepicker--dual-calendar-clearable",
+        "components-datepicker--with-footer",
+        "components-datepicker--range-with-footer",
+        "components-datepicker--dual-calendar-with-footer",
+        "components-datepicker--year-picker-with-footer"
+      ]
+    },
+    {
+      "component_id": "divider",
+      "component_name": "Divider",
+      "storybook_title": "Components/Divider",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/divider/divider.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-divider--docs"
+      ],
+      "story_ids": [
+        "components-divider--default",
+        "components-divider--overview",
+        "components-divider--inverse",
+        "components-divider--custom-width",
+        "components-divider--orientation"
+      ]
+    },
+    {
+      "component_id": "drawer",
+      "component_name": "Drawer",
+      "storybook_title": "Components/Drawer",
+      "docs_count": 1,
+      "story_count": 8,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 8,
+      "package_path": "design-system-plugin/design-system/atomic/components/drawer/drawer.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-drawer--docs"
+      ],
+      "story_ids": [
+        "components-drawer--top-side",
+        "components-drawer--default",
+        "components-drawer--end-side",
+        "components-drawer--bottom-side",
+        "components-drawer--start-side",
+        "components-drawer--non-dismissible",
+        "components-drawer--custom-drawer-width",
+        "components-drawer--custom-content-height"
+      ]
+    },
+    {
+      "component_id": "file-uploader",
+      "component_name": "FileUploader",
+      "storybook_title": "Components/FileUploader",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/file-uploader/file-uploader.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-fileuploader--docs"
+      ],
+      "story_ids": [
+        "components-fileuploader--default",
+        "components-fileuploader--multiple-files",
+        "components-fileuploader--disabled",
+        "components-fileuploader--controlled",
+        "components-fileuploader--preloaded-files"
+      ]
+    },
+    {
+      "component_id": "flex",
+      "component_name": "Flex",
+      "storybook_title": "Components/Flex",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/flex/flex.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-flex--docs"
+      ],
+      "story_ids": [
+        "components-flex--horizontal-flow",
+        "components-flex--column-stack",
+        "components-flex--wrapping-grid",
+        "components-flex--as-child-list",
+        "components-flex--justify-distribution",
+        "components-flex--align-content",
+        "components-flex--flex-shorthand"
+      ]
+    },
+    {
+      "component_id": "footer",
+      "component_name": "Footer",
+      "storybook_title": "Components/Footer",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/footer/footer.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-footer--docs"
+      ],
+      "story_ids": [
+        "components-footer--default",
+        "components-footer--simple",
+        "components-footer--custom-product-logo"
+      ]
+    },
+    {
+      "component_id": "footer-bottom",
+      "component_name": "Footer.Bottom",
+      "storybook_title": "Components/Footer.Bottom",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/footer-bottom/footer-bottom.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-footer-bottom--docs"
+      ],
+      "story_ids": [
+        "components-footer-bottom--default"
+      ]
+    },
+    {
+      "component_id": "footer-footer-social-link",
+      "component_name": "Footer/FooterSocialLink",
+      "storybook_title": "Components/Footer/FooterSocialLink",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/footer-footer-social-link/footer-footer-social-link.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-footer-footersociallink--docs"
+      ],
+      "story_ids": [
+        "components-footer-footersociallink--default"
+      ]
+    },
+    {
+      "component_id": "footer-top",
+      "component_name": "Footer.Top",
+      "storybook_title": "Components/Footer.Top",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/footer-top/footer-top.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-footer-top--docs"
+      ],
+      "story_ids": [
+        "components-footer-top--default"
+      ]
+    },
+    {
+      "component_id": "grid",
+      "component_name": "Grid",
+      "storybook_title": "Components/Grid",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/grid/grid.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-grid--docs"
+      ],
+      "story_ids": [
+        "components-grid--desktop",
+        "components-grid--tablet",
+        "components-grid--large-mobile",
+        "components-grid--mobile"
+      ]
+    },
+    {
+      "component_id": "hero",
+      "component_name": "Hero",
+      "storybook_title": "Components/Hero",
+      "docs_count": 1,
+      "story_count": 14,
+      "tier": "XL",
+      "estimated_hours": 11.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 14,
+      "package_path": "design-system-plugin/design-system/atomic/components/hero/hero.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-hero--docs"
+      ],
+      "story_ids": [
+        "components-hero--default",
+        "components-hero--overlay-white-style",
+        "components-hero--overlay-black-style",
+        "components-hero--content-after-hero",
+        "components-hero--variant-compact",
+        "components-hero--variant-dynamic",
+        "components-hero--justify-center",
+        "components-hero--justify-end",
+        "components-hero--responsive-images-with-picture",
+        "components-hero--with-video",
+        "components-hero--with-video-hls",
+        "components-hero--full-screen",
+        "components-hero--full-screen-with-video",
+        "components-hero--full-screen-with-navigation-header"
+      ]
+    },
+    {
+      "component_id": "icon",
+      "component_name": "Icon",
+      "storybook_title": "Components/Icon",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/icon/icon.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-icon--docs"
+      ],
+      "story_ids": [
+        "components-icon--gallery",
+        "components-icon--fallback-icons",
+        "components-icon--custom-icon"
+      ]
+    },
+    {
+      "component_id": "image",
+      "component_name": "Image",
+      "storybook_title": "Components/Image",
+      "docs_count": 1,
+      "story_count": 2,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 2,
+      "package_path": "design-system-plugin/design-system/atomic/components/image/image.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-image--docs"
+      ],
+      "story_ids": [
+        "components-image--default",
+        "components-image--overview"
+      ]
+    },
+    {
+      "component_id": "isi-tray",
+      "component_name": "ISI Tray",
+      "storybook_title": "Components/ISI Tray",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/isi-tray/isi-tray.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-isi-tray--docs"
+      ],
+      "story_ids": [
+        "components-isi-tray--isi",
+        "components-isi-tray--isi-with-indication",
+        "components-isi-tray--isi-with-content-and-indication"
+      ]
+    },
+    {
+      "component_id": "link",
+      "component_name": "Link",
+      "storybook_title": "Components/Link",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/link/link.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-link--docs"
+      ],
+      "story_ids": [
+        "components-link--default",
+        "components-link--inverse",
+        "components-link--position-icon",
+        "components-link--sizes"
+      ]
+    },
+    {
+      "component_id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "storybook_title": "Components/Link/LinkStandalone",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/link-link-standalone/link-link-standalone.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-link-linkstandalone--docs"
+      ],
+      "story_ids": [
+        "components-link-linkstandalone--default",
+        "components-link-linkstandalone--inverse",
+        "components-link-linkstandalone--inverse-accent",
+        "components-link-linkstandalone--position-icon",
+        "components-link-linkstandalone--sizes"
+      ]
+    },
+    {
+      "component_id": "loading-spinner",
+      "component_name": "LoadingSpinner",
+      "storybook_title": "Components/LoadingSpinner",
+      "docs_count": 1,
+      "story_count": 2,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 2,
+      "package_path": "design-system-plugin/design-system/atomic/components/loading-spinner/loading-spinner.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-loadingspinner--docs"
+      ],
+      "story_ids": [
+        "components-loadingspinner--default",
+        "components-loadingspinner--sanofi-dot"
+      ]
+    },
+    {
+      "component_id": "mega-menu",
+      "component_name": "MegaMenu",
+      "storybook_title": "Components/MegaMenu",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/mega-menu/mega-menu.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-megamenu--docs"
+      ],
+      "story_ids": [
+        "components-megamenu--example",
+        "components-megamenu--nav-header-custom-placement",
+        "components-megamenu--fitted-content-mega-menu"
+      ]
+    },
+    {
+      "component_id": "mega-menu-item",
+      "component_name": "MegaMenu/Item",
+      "storybook_title": "Components/MegaMenu/Item",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/mega-menu-item/mega-menu-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-megamenu-item--docs"
+      ],
+      "story_ids": [
+        "components-megamenu-item--default"
+      ]
+    },
+    {
+      "component_id": "mega-menu-title",
+      "component_name": "MegaMenu/Title",
+      "storybook_title": "Components/MegaMenu/Title",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/mega-menu-title/mega-menu-title.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-megamenu-title--docs"
+      ],
+      "story_ids": [
+        "components-megamenu-title--default"
+      ]
+    },
+    {
+      "component_id": "mega-menu-trigger",
+      "component_name": "MegaMenu/Trigger",
+      "storybook_title": "Components/MegaMenu/Trigger",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/mega-menu-trigger/mega-menu-trigger.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-megamenu-trigger--docs"
+      ],
+      "story_ids": [
+        "components-megamenu-trigger--default"
+      ]
+    },
+    {
+      "component_id": "menu",
+      "component_name": "Menu",
+      "storybook_title": "Components/Menu",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/menu/menu.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-menu--docs"
+      ],
+      "story_ids": [
+        "components-menu--default",
+        "components-menu--selected",
+        "components-menu--checkbox",
+        "components-menu--with-scroll",
+        "components-menu--with-sections",
+        "components-menu--with-sub-menus",
+        "components-menu--image",
+        "components-menu--context-menu",
+        "components-menu--sizes"
+      ]
+    },
+    {
+      "component_id": "menu-menu-item",
+      "component_name": "Menu/MenuItem",
+      "storybook_title": "Components/Menu/MenuItem",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/menu-menu-item/menu-menu-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-menu-menuitem--docs"
+      ],
+      "story_ids": [
+        "components-menu-menuitem--default"
+      ]
+    },
+    {
+      "component_id": "menu-menu-item-checkbox",
+      "component_name": "Menu/MenuItemCheckbox",
+      "storybook_title": "Components/Menu/MenuItemCheckbox",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/menu-menu-item-checkbox.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-menu-menuitemcheckbox--docs"
+      ],
+      "story_ids": [
+        "components-menu-menuitemcheckbox--default"
+      ]
+    },
+    {
+      "component_id": "menu-menu-item-image",
+      "component_name": "Menu/MenuItemImage",
+      "storybook_title": "Components/Menu/MenuItemImage",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-image/menu-menu-item-image.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-menu-menuitemimage--docs"
+      ],
+      "story_ids": [
+        "components-menu-menuitemimage--default"
+      ]
+    },
+    {
+      "component_id": "menu-menu-item-radio",
+      "component_name": "Menu/MenuItemRadio",
+      "storybook_title": "Components/Menu/MenuItemRadio",
+      "docs_count": 1,
+      "story_count": 2,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 2,
+      "package_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/menu-menu-item-radio.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-menu-menuitemradio--docs"
+      ],
+      "story_ids": [
+        "components-menu-menuitemradio--default",
+        "components-menu-menuitemradio--checked"
+      ]
+    },
+    {
+      "component_id": "menu-sub-menu",
+      "component_name": "Menu/SubMenu",
+      "storybook_title": "Components/Menu/SubMenu",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/menu-sub-menu.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-menu-submenu--docs"
+      ],
+      "story_ids": [
+        "components-menu-submenu--default"
+      ]
+    },
+    {
+      "component_id": "modal",
+      "component_name": "Modal",
+      "storybook_title": "Components/Modal",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/modal/modal.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-modal--docs"
+      ],
+      "story_ids": [
+        "components-modal--default",
+        "components-modal--non-dismissible-modal",
+        "components-modal--customisation",
+        "components-modal--with-icon"
+      ]
+    },
+    {
+      "component_id": "navigation-header",
+      "component_name": "NavigationHeader",
+      "storybook_title": "Components/NavigationHeader",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/navigation-header/navigation-header.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-navigationheader--docs"
+      ],
+      "story_ids": [
+        "components-navigationheader--default",
+        "components-navigationheader--mobile-view",
+        "components-navigationheader--contained-nav-header",
+        "components-navigationheader--full-width-nav-header",
+        "components-navigationheader--with-dropdown-menu",
+        "components-navigationheader--sanofi-example",
+        "components-navigationheader--with-sub-header",
+        "components-navigationheader--double-navigation",
+        "components-navigationheader--with-auto-overflow"
+      ]
+    },
+    {
+      "component_id": "navigation-header-item",
+      "component_name": "NavigationHeader.Item",
+      "storybook_title": "Components/NavigationHeader.Item",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/navigation-header-item/navigation-header-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-navigationheader-item--docs"
+      ],
+      "story_ids": [
+        "components-navigationheader-item--default"
+      ]
+    },
+    {
+      "component_id": "navigation-header-root",
+      "component_name": "NavigationHeader.Root",
+      "storybook_title": "Components/NavigationHeader.Root",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/navigation-header-root/navigation-header-root.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-navigationheader-root--docs"
+      ],
+      "story_ids": [
+        "components-navigationheader-root--default"
+      ]
+    },
+    {
+      "component_id": "navigation-header-start-content",
+      "component_name": "NavigationHeader.StartContent",
+      "storybook_title": "Components/NavigationHeader.StartContent",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/navigation-header-start-content.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-navigationheader-startcontent--docs"
+      ],
+      "story_ids": [
+        "components-navigationheader-startcontent--default",
+        "components-navigationheader-startcontent--with-auto-overflow",
+        "components-navigationheader-startcontent--custom-overflow-label"
+      ]
+    },
+    {
+      "component_id": "page-header",
+      "component_name": "PageHeader",
+      "storybook_title": "Components/PageHeader",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/page-header/page-header.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-pageheader--docs"
+      ],
+      "story_ids": [
+        "components-pageheader--default",
+        "components-pageheader--title-custom",
+        "components-pageheader--container-type-fixed"
+      ]
+    },
+    {
+      "component_id": "pagination",
+      "component_name": "Pagination",
+      "storybook_title": "Components/Pagination",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/pagination/pagination.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-pagination--docs"
+      ],
+      "story_ids": [
+        "components-pagination--default",
+        "components-pagination--mobile",
+        "components-pagination--controlled",
+        "components-pagination--compact",
+        "components-pagination--compact-with-first-and-last-buttons",
+        "components-pagination--compact-with-input",
+        "components-pagination--compact-with-input-and-first-last-buttons"
+      ]
+    },
+    {
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "storybook_title": "Components/ProgressBar",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/progress-bar/progress-bar.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-progressbar--docs"
+      ],
+      "story_ids": [
+        "components-progressbar--default",
+        "components-progressbar--all-states",
+        "components-progressbar--all-densities",
+        "components-progressbar--all-sizes",
+        "components-progressbar--custom-value-text"
+      ]
+    },
+    {
+      "component_id": "progress-stepper-define-stepper-provider",
+      "component_name": "ProgressStepper/defineStepper Provider",
+      "storybook_title": "Components/ProgressStepper/defineStepper Provider",
+      "docs_count": 1,
+      "story_count": 0,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": false,
+      "deprecated": false,
+      "hook_or_provider": true,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 0,
+      "package_path": "not_created",
+      "unsupported_path": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/progress-stepper-define-stepper-provider.unsupported.json",
+      "unsupported_reason": "no_story_tabs",
+      "package_status": "unsupported",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-progressstepper-definestepper-provider--docs"
+      ],
+      "story_ids": []
+    },
+    {
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "storybook_title": "Components/ProgressStepper/ProgressStepperNav",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/progress-stepper-progress-stepper-nav.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-progressstepper-progresssteppernav--docs"
+      ],
+      "story_ids": [
+        "components-progressstepper-progresssteppernav--default",
+        "components-progressstepper-progresssteppernav--with-initial-step",
+        "components-progressstepper-progresssteppernav--without-descriptions",
+        "components-progressstepper-progresssteppernav--many-steps",
+        "components-progressstepper-progresssteppernav--interactive"
+      ]
+    },
+    {
+      "component_id": "progress-stepper-use-stepper-hook",
+      "component_name": "ProgressStepper/useStepper Hook",
+      "storybook_title": "Components/ProgressStepper/useStepper Hook",
+      "docs_count": 1,
+      "story_count": 0,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": false,
+      "deprecated": false,
+      "hook_or_provider": true,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 0,
+      "package_path": "not_created",
+      "unsupported_path": "design-system-plugin/design-system/atomic/components/progress-stepper-use-stepper-hook/progress-stepper-use-stepper-hook.unsupported.json",
+      "unsupported_reason": "no_story_tabs",
+      "package_status": "unsupported",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-progressstepper-usestepper-hook--docs"
+      ],
+      "story_ids": []
+    },
+    {
+      "component_id": "radio",
+      "component_name": "Radio",
+      "storybook_title": "Components/Radio",
+      "docs_count": 1,
+      "story_count": 5,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 5,
+      "package_path": "design-system-plugin/design-system/atomic/components/radio/radio.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-radio--docs"
+      ],
+      "story_ids": [
+        "components-radio--default",
+        "components-radio--sizes",
+        "components-radio--with-subtext",
+        "components-radio--color-variations",
+        "components-radio--with-link"
+      ]
+    },
+    {
+      "component_id": "radio-radio-group",
+      "component_name": "Radio/RadioGroup",
+      "storybook_title": "Components/Radio/RadioGroup",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/radio-radio-group.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-radio-radiogroup--docs"
+      ],
+      "story_ids": [
+        "components-radio-radiogroup--default",
+        "components-radio-radiogroup--horizontal",
+        "components-radio-radiogroup--with-error",
+        "components-radio-radiogroup--horizontal-radios-with-error"
+      ]
+    },
+    {
+      "component_id": "search-input",
+      "component_name": "SearchInput",
+      "storybook_title": "Components/SearchInput",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/search-input/search-input.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-searchinput--docs"
+      ],
+      "story_ids": [
+        "components-searchinput--default",
+        "components-searchinput--inverse",
+        "components-searchinput--error-state",
+        "components-searchinput--sizes",
+        "components-searchinput--disabled",
+        "components-searchinput--submit-variant",
+        "components-searchinput--submit-variant-sizes",
+        "components-searchinput--submit-with-button-icon",
+        "components-searchinput--submit-with-custom-buttons"
+      ]
+    },
+    {
+      "component_id": "select",
+      "component_name": "Select",
+      "storybook_title": "Components/Select",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/select/select.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-select--docs"
+      ],
+      "story_ids": [
+        "components-select--default",
+        "components-select--sizes",
+        "components-select--right-to-left"
+      ]
+    },
+    {
+      "component_id": "sidebar",
+      "component_name": "Sidebar",
+      "storybook_title": "Components/Sidebar",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-sidebar--docs"
+      ],
+      "story_ids": [
+        "components-sidebar--default",
+        "components-sidebar--collapsed",
+        "components-sidebar--expanded",
+        "components-sidebar--without-header",
+        "components-sidebar--fully-collapsible",
+        "components-sidebar--fully-collapsible-controlled",
+        "components-sidebar--sticky-behavior"
+      ]
+    },
+    {
+      "component_id": "slider",
+      "component_name": "Slider",
+      "storybook_title": "Components/Slider",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/slider/slider.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-slider--docs"
+      ],
+      "story_ids": [
+        "components-slider--default",
+        "components-slider--with-label",
+        "components-slider--with-legend",
+        "components-slider--with-bottom-legend",
+        "components-slider--with-custom-scale",
+        "components-slider--range",
+        "components-slider--disabled"
+      ]
+    },
+    {
+      "component_id": "switch",
+      "component_name": "Switch",
+      "storybook_title": "Components/Switch",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/switch/switch.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-switch--docs"
+      ],
+      "story_ids": [
+        "components-switch--default",
+        "components-switch--default-checked",
+        "components-switch--inline"
+      ]
+    },
+    {
+      "component_id": "switch-switch-group",
+      "component_name": "Switch/SwitchGroup",
+      "storybook_title": "Components/Switch/SwitchGroup",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/switch-switch-group/switch-switch-group.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-switch-switchgroup--docs"
+      ],
+      "story_ids": [
+        "components-switch-switchgroup--default"
+      ]
+    },
+    {
+      "component_id": "tabs",
+      "component_name": "Tabs",
+      "storybook_title": "Components/Tabs",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/tabs/tabs.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-tabs--docs"
+      ],
+      "story_ids": [
+        "components-tabs--default",
+        "components-tabs--full-width",
+        "components-tabs--default-selected-tab",
+        "components-tabs--uncontrolled",
+        "components-tabs--controlled",
+        "components-tabs--with-nav",
+        "components-tabs--lazy-mount",
+        "components-tabs--lazy-mount-with-unmount",
+        "components-tabs--with-nav-in-resizable-panel"
+      ]
+    },
+    {
+      "component_id": "tag",
+      "component_name": "Tag",
+      "storybook_title": "Components/Tag",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/tag/tag.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-tag--docs"
+      ],
+      "story_ids": [
+        "components-tag--default",
+        "components-tag--with-icon",
+        "components-tag--variants",
+        "components-tag--sizes",
+        "components-tag--categorical",
+        "components-tag--semantic",
+        "components-tag--overview"
+      ]
+    },
+    {
+      "component_id": "text-area",
+      "component_name": "TextArea",
+      "storybook_title": "Components/TextArea",
+      "docs_count": 1,
+      "story_count": 9,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 9,
+      "package_path": "design-system-plugin/design-system/atomic/components/text-area/text-area.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-textarea--docs"
+      ],
+      "story_ids": [
+        "components-textarea--default",
+        "components-textarea--overview",
+        "components-textarea--overview-inverse",
+        "components-textarea--no-counter",
+        "components-textarea--success",
+        "components-textarea--error-state",
+        "components-textarea--inverse",
+        "components-textarea--with-tooltip",
+        "components-textarea--sizes"
+      ]
+    },
+    {
+      "component_id": "text-input",
+      "component_name": "TextInput",
+      "storybook_title": "Components/TextInput",
+      "docs_count": 1,
+      "story_count": 15,
+      "tier": "XL",
+      "estimated_hours": 11.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 15,
+      "package_path": "design-system-plugin/design-system/atomic/components/text-input/text-input.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-textinput--docs"
+      ],
+      "story_ids": [
+        "components-textinput--default",
+        "components-textinput--filled",
+        "components-textinput--error-state",
+        "components-textinput--success-state",
+        "components-textinput--disabled",
+        "components-textinput--default-inverse",
+        "components-textinput--filled-inverse",
+        "components-textinput--error-inverse",
+        "components-textinput--success-inverse",
+        "components-textinput--disabled-inverse",
+        "components-textinput--with-tooltip",
+        "components-textinput--type-password",
+        "components-textinput--type-email",
+        "components-textinput--type-tel",
+        "components-textinput--sizes"
+      ]
+    },
+    {
+      "component_id": "theme-provider",
+      "component_name": "ThemeProvider",
+      "storybook_title": "Components/ThemeProvider",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/theme-provider/theme-provider.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-themeprovider--docs"
+      ],
+      "story_ids": [
+        "components-themeprovider--default"
+      ]
+    },
+    {
+      "component_id": "title",
+      "component_name": "Title",
+      "storybook_title": "Components/Title",
+      "docs_count": 1,
+      "story_count": 3,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 3,
+      "package_path": "design-system-plugin/design-system/atomic/components/title/title.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-title--docs"
+      ],
+      "story_ids": [
+        "components-title--default",
+        "components-title--variants",
+        "components-title--font-weights"
+      ]
+    },
+    {
+      "component_id": "toast",
+      "component_name": "Toast",
+      "storybook_title": "Components/Toast",
+      "docs_count": 1,
+      "story_count": 6,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 6,
+      "package_path": "design-system-plugin/design-system/atomic/components/toast/toast.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-toast--docs"
+      ],
+      "story_ids": [
+        "components-toast--default",
+        "components-toast--example",
+        "components-toast--single-action",
+        "components-toast--dual-action",
+        "components-toast--toast-statuses",
+        "components-toast--toast-with-buttons"
+      ]
+    },
+    {
+      "component_id": "tooltip",
+      "component_name": "Tooltip",
+      "storybook_title": "Components/Tooltip",
+      "docs_count": 1,
+      "story_count": 8,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 8,
+      "package_path": "design-system-plugin/design-system/atomic/components/tooltip/tooltip.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-tooltip--docs"
+      ],
+      "story_ids": [
+        "components-tooltip--default",
+        "components-tooltip--placement",
+        "components-tooltip--auto-placement",
+        "components-tooltip--max-width",
+        "components-tooltip--with-icon",
+        "components-tooltip--overflowing",
+        "components-tooltip--inline",
+        "components-tooltip--within-list"
+      ]
+    },
+    {
+      "component_id": "tree-view",
+      "component_name": "TreeView",
+      "storybook_title": "Components/TreeView",
+      "docs_count": 1,
+      "story_count": 7,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 7,
+      "package_path": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-treeview--docs"
+      ],
+      "story_ids": [
+        "components-treeview--file-explorer",
+        "components-treeview--decorations",
+        "components-treeview--custom-leading-visuals",
+        "components-treeview--inside-sidebar",
+        "components-treeview--color-accent",
+        "components-treeview--rtl",
+        "components-treeview--playground"
+      ]
+    },
+    {
+      "component_id": "tree-view-sub-components-item",
+      "component_name": "TreeView/SubComponents/Item",
+      "storybook_title": "Components/TreeView/SubComponents/Item",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-item/tree-view-sub-components-item.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-treeview-subcomponents-item--docs"
+      ],
+      "story_ids": [
+        "components-treeview-subcomponents-item--default"
+      ]
+    },
+    {
+      "component_id": "tree-view-sub-components-leading-visual",
+      "component_name": "TreeView/SubComponents/LeadingVisual",
+      "storybook_title": "Components/TreeView/SubComponents/LeadingVisual",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-leading-visual/tree-view-sub-components-leading-visual.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-treeview-subcomponents-leadingvisual--docs"
+      ],
+      "story_ids": [
+        "components-treeview-subcomponents-leadingvisual--default"
+      ]
+    },
+    {
+      "component_id": "tree-view-sub-components-sub-tree",
+      "component_name": "TreeView/SubComponents/SubTree",
+      "storybook_title": "Components/TreeView/SubComponents/SubTree",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-sub-tree/tree-view-sub-components-sub-tree.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-treeview-subcomponents-subtree--docs"
+      ],
+      "story_ids": [
+        "components-treeview-subcomponents-subtree--default"
+      ]
+    },
+    {
+      "component_id": "tree-view-sub-components-trailing-visual",
+      "component_name": "TreeView/SubComponents/TrailingVisual",
+      "storybook_title": "Components/TreeView/SubComponents/TrailingVisual",
+      "docs_count": 1,
+      "story_count": 1,
+      "tier": "S",
+      "estimated_hours": 2.8,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 1,
+      "package_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-trailing-visual/tree-view-sub-components-trailing-visual.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-treeview-subcomponents-trailingvisual--docs"
+      ],
+      "story_ids": [
+        "components-treeview-subcomponents-trailingvisual--default"
+      ]
+    },
+    {
+      "component_id": "typography",
+      "component_name": "Typography",
+      "storybook_title": "Components/Typography",
+      "docs_count": 1,
+      "story_count": 4,
+      "tier": "M",
+      "estimated_hours": 5.3,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 4,
+      "package_path": "design-system-plugin/design-system/atomic/components/typography/typography.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-typography--docs"
+      ],
+      "story_ids": [
+        "components-typography--default",
+        "components-typography--variants",
+        "components-typography--text-direction",
+        "components-typography--font-weights"
+      ]
+    },
+    {
+      "component_id": "video-thumbnail",
+      "component_name": "Video Thumbnail",
+      "storybook_title": "Components/Video Thumbnail",
+      "docs_count": 1,
+      "story_count": 10,
+      "tier": "L",
+      "estimated_hours": 7.9,
+      "default_generation_candidate": true,
+      "deprecated": false,
+      "hook_or_provider": false,
+      "has_component_contract": false,
+      "has_primitive_contract": true,
+      "materialized_stories": 10,
+      "package_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.package.json",
+      "unsupported_path": "not_created",
+      "unsupported_reason": null,
+      "package_status": "complete",
+      "missing_story_count": 0,
+      "docs_ids": [
+        "components-video-thumbnail--docs"
+      ],
+      "story_ids": [
+        "components-video-thumbnail--default",
+        "components-video-thumbnail--vimeo-video",
+        "components-video-thumbnail--sanofi-video",
+        "components-video-thumbnail--streaming-video",
+        "components-video-thumbnail--no-embedded-player",
+        "components-video-thumbnail--no-title",
+        "components-video-thumbnail--disabled-status",
+        "components-video-thumbnail--vimeo-video-tracking",
+        "components-video-thumbnail--youtube-video-tracking",
+        "components-video-thumbnail--mp-4-video-tracking"
+      ]
+    }
+  ]
+}

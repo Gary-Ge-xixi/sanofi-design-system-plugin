@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-cascadingmenu--example",
+  "component_id": "cascading-menu",
+  "component_name": "CascadingMenu",
+  "story_id": "components-cascadingmenu--example",
+  "story_name": "Example",
+  "export_name": "Example",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-cascadingmenu--example&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-cascadingmenu--example&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CascadingMenu.stories-DAZR53Et.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/CascadingMenu.stories-DAZR53Et.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/components-cascadingmenu--example.iframe.html",
+    "import_path": "./src/components/NavigationHeader/CascadingMenu/CascadingMenu.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: () => {\n    const sanofiLogo = useGetSanofiLogo();\n    return <NavigationHeader.Root sticky={true} logo={<Image src={sanofiLogo} alt=\"Sanofi logo\" />} mobileMenuIcon={<MegaMenu.Trigger menuContent={<MyCustomMegaMenuWithCascading />} hasActiveShadow={false}>\n            <ButtonIcon icon=\"menu\" size={ButtonSize.SMALL} variant={ButtonVariant.TERTIARY} data-testid=\"button\" />\n          </MegaMenu.Trigger>}>\n        <NavigationHeader.StartContent>\n          <NavigationHeader.Item>\n            <MegaMenu.Trigger menuContent={<MyCustomMegaMenuWithCascading />}>\n              <NavigationHeader.Action data-testid=\"item1\">\n                Nav Item\n              </NavigationHeader.Action>\n            </MegaMenu.Trigger>\n          </NavigationHeader.Item>\n          <NavigationHeader.Item>\n            <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n          </NavigationHeader.Item>\n        </NavigationHeader.StartContent>\n        <NavigationHeader.QuickAction>\n          <ButtonIcon icon={IconName.SEARCH} size={ButtonSize.SMALL} inverse />\n        </NavigationHeader.QuickAction>\n      </NavigationHeader.Root>;\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await findElements(canvas, \"item1\");\n    await findElements(canvas, \"item-level-1-1\");\n    await findElements(canvas, \"item-level-2-1\");\n    await findElements(canvas, \"content\");\n  }\n}",
+    "story_object_source": "{render:()=>{const i=T();return e.jsxs(o.Root,{sticky:!0,logo:e.jsx(_,{src:i,alt:\"Sanofi logo\"}),mobileMenuIcon:e.jsx(s.Trigger,{menuContent:e.jsx(v,{}),hasActiveShadow:!1,children:e.jsx(g,{icon:\"menu\",size:d.SMALL,variant:p.TERTIARY,\"data-testid\":\"button\"})}),children:[e.jsxs(o.StartContent,{children:[e.jsx(o.Item,{children:e.jsx(s.Trigger,{menuContent:e.jsx(v,{}),children:e.jsx(o.Action,{\"data-testid\":\"item1\",children:\"Nav Item\"})})}),e.jsx(o.Item,{children:e.jsx(o.Action,{children:\"Nav Item\"})})]}),e.jsx(o.QuickAction,{children:e.jsx(g,{icon:f.SEARCH,size:d.SMALL,inverse:!0})})]})},play:async({canvasElement:i})=>{const n=k(i);await c(n,\"item1\"),await c(n,\"item-level-1-1\"),await c(n,\"item-level-2-1\"),await c(n,\"content\")}}"
+  },
+  "template": {
+    "id": "cascading-menu-example-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/cascading-menu/templates/html.example.template.html",
+    "output_path": "design-system-plugin/outputs/html/cascading-menu-example.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "cascading-menu",
+    "local_path": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu--docs",
+    "story_id": "components-cascadingmenu--example",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/CascadingMenu.stories-DAZR53Et.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/components-cascadingmenu--example.iframe.html"
+  }
+}

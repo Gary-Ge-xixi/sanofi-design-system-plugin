@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1.0",
+  "id": "cascading-menu",
+  "canonical_name": "cascading-menu",
+  "component_name": "CascadingMenu",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-cascadingmenu--docs",
+    "title": "CascadingMenu",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-cascadingmenu--docs",
+    "import_path": "./src/components/NavigationHeader/CascadingMenu/CascadingMenu.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-cascadingmenu--example"
+    ],
+    "records": [
+      {
+        "id": "components-cascadingmenu--example",
+        "name": "Example",
+        "normalized_name": "example",
+        "import_path": "./src/components/NavigationHeader/CascadingMenu/CascadingMenu.stories.tsx",
+        "export_name": "Example"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label for a CascadingMenu itemReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Render as another componentElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Content of the menu-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "example"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "example"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Grid, CascadingMenu, MegaMenu, Typography } from \"@sanofi-accelerator/elements\";\n\nexport function MyCustomMegaMenuWithCascadingMenu() {\nreturn (\n  <Grid.Root>\n    <Grid.Item md={8}>\n      <Grid.Root>\n        <CascadingMenu.Root>\n          <Grid.Item sm={6} md={4}>\n            <MegaMenu.Title as=\"a\" href=\"#\" isLink>\n              Menu - Level 1\n            </MegaMenu.Title>\n            <CascadingMenu.Item label=\"Item - Level 1-1\">\n              <Grid.Item sm={6} md={4}>\n                <MegaMenu.Title>Menu - Level 2</MegaMenu.Title>\n                <CascadingMenu.Item label=\"Item - Level 2-1\" as=\"a\">\n                  <Grid.Item sm={12} md={4}>\n                    <MegaMenu.Title>Menu - Level 3</MegaMenu.Title>\n                    <CascadingMenu.Item\n                      as=\"a\"\n                      label=\"Item - Level 3-1\"\n                      href=\"#link-3-1\"\n                    />\n                    <CascadingMenu.Item\n                      as=\"a\"\n                      label=\"Item - Level 3-2\"\n                      href=\"#link-3-2\"\n                    />\n                    <CascadingMenu.Item\n                      as=\"a\"\n                      label=\"Item - Level 3-3\"\n                      href=\"#link-3-3\"\n                    />\n                  </Grid.Item>\n                </CascadingMenu.Item>\n              </Grid.Item>\n            </CascadingMenu.Item>\n            <CascadingMenu.Item label=\"Item - Level 1-2\">\n              <Grid.Item sm={6}>\n                <MegaMenu.Title disabled>Menu - Level 2</MegaMenu.Title>\n                <Typography variant=\"body-medium\">\n                  Hello this is my Featured content 2\n                </Typography>\n              </Grid.Item>\n            </CascadingMenu.Item>\n            <CascadingMenu.Item label=\"Item - Level 1-3\" disabled />\n          </Grid.Item>\n        </CascadingMenu.Root>\n      </Grid.Root>\n    </Grid.Item>\n    <Grid.Item md={4}>\n      <CascadingMenu.FeatureContent>\n        <MegaMenu.Title>Featured content</MegaMenu.Title>\n        <Typography variant=\"body-medium\">\n          Hello this is my Featured content 1\n        </Typography>\n      </CascadingMenu.FeatureContent>\n    </Grid.Item>\n  </Grid.Root>\n);\n}",
+      "import { Grid, CascadingMenu, MegaMenu } from \"@sanofi-accelerator/elements\";\n\nexport function MyCustomMegaMenuWithCascadingMenu() {\nreturn (\n  <CascadingMenu.Root>\n    ...\n    <CascadingMenu.Item label=\"Item - Level 1-1\">\n      ### CONTENT OF THE ITEM [1]... ###\n      ...\n        <CascadingMenu.Item label=\"Item - Level 2-1\">\n          ### CONTENT OF THE ITEM [2]... ###\n        </CascadingMenu.Item>\n      ...\n    </CascadingMenu.Item>\n    ...\n    ### [1] ...WILL BE RENDERED HERE ON CLICK ###\n    ### [2] ...WILL BE RENDERED HERE ON CLICK ###\n  </CascadingMenu.Root>\n);\n}"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Grid, CascadingMenu, MegaMenu, Typography } from \"@sanofi-accelerator/elements\";\n\nexport function MyCustomMegaMenuWithCascadingMenu() {\nreturn (\n  <Grid.Root>\n    <Grid.Item md={8}>\n      <Grid.Root>\n        <CascadingMenu.Root>\n          <Grid.Item sm={6} md={4}>\n            <MegaMenu.Title as=\"a\" href=\"#\" isLink>\n              Menu - Level 1\n            </MegaMenu.Title>\n            <CascadingMenu.Item label=\"Item - Level 1-1\">\n              <Grid.Item sm={6} md={4}>\n                <MegaMenu.Title>Menu - Level 2</MegaMenu.Title>\n                <CascadingMenu.Item label=\"Item - Level 2-1\" as=\"a\">\n                  <Grid.Item sm={12} md={4}>\n                    <MegaMenu.Title>Menu - Level 3</MegaMenu.Title>\n                    <CascadingMenu.Item\n                      as=\"a\"\n                      label=\"Item - Level 3-1\"\n                      href=\"#link-3-1\"\n                    />\n                    <CascadingMenu.Item\n                      as=\"a\"\n                      label=\"Item - Level 3-2\"\n                      href=\"#link-3-2\"\n                    />\n                    <CascadingMenu.Item\n                      as=\"a\"\n                      label=\"Item - Level 3-3\"\n                      href=\"#link-3-3\"\n                    />\n                  </Grid.Item>\n                </CascadingMenu.Item>\n              </Grid.Item>\n            </CascadingMenu.Item>\n            <CascadingMenu.Item label=\"Item - Level 1-2\">\n              <Grid.Item sm={6}>\n                <MegaMenu.Title disabled>Menu - Level 2</MegaMenu.Title>\n                <Typography variant=\"body-medium\">\n                  Hello this is my Featured content 2\n                </Typography>\n              </Grid.Item>\n            </CascadingMenu.Item>\n            <CascadingMenu.Item label=\"Item - Level 1-3\" disabled />\n          </Grid.Item>\n        </CascadingMenu.Root>\n      </Grid.Root>\n    </Grid.Item>\n    <Grid.Item md={4}>\n      <CascadingMenu.FeatureContent>\n        <MegaMenu.Title>Featured content</MegaMenu.Title>\n        <Typography variant=\"body-medium\">\n          Hello this is my Featured content 1\n        </Typography>\n      </CascadingMenu.FeatureContent>\n    </Grid.Item>\n  </Grid.Root>\n);\n}",
+      "import { Grid, CascadingMenu, MegaMenu } from \"@sanofi-accelerator/elements\";\n\nexport function MyCustomMegaMenuWithCascadingMenu() {\nreturn (\n  <CascadingMenu.Root>\n    ...\n    <CascadingMenu.Item label=\"Item - Level 1-1\">\n      ### CONTENT OF THE ITEM [1]... ###\n      ...\n        <CascadingMenu.Item label=\"Item - Level 2-1\">\n          ### CONTENT OF THE ITEM [2]... ###\n        </CascadingMenu.Item>\n      ...\n    </CascadingMenu.Item>\n    ...\n    ### [1] ...WILL BE RENDERED HERE ON CLICK ###\n    ### [2] ...WILL BE RENDERED HERE ON CLICK ###\n  </CascadingMenu.Root>\n);\n}"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "cascading-menu"
+    ],
+    "contracts": [
+      {
+        "id": "cascading-menu",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/cascading-menu/demo.registry.json",
+        "known_story_ids": [
+          "components-cascadingmenu--example",
+          "components-cascadingmenu--example"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-cascadingmenu--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/CascadingMenu/CascadingMenu.mdx",
+    "story_ids": [
+      "components-cascadingmenu--example"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

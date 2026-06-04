@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-navigationheader-startcontent--custom-overflow-label",
+  "component_id": "navigation-header-start-content",
+  "component_name": "NavigationHeader.StartContent",
+  "story_id": "components-navigationheader-startcontent--custom-overflow-label",
+  "story_name": "Custom Overflow Label",
+  "export_name": "CustomOverflowLabel",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-navigationheader-startcontent--custom-overflow-label&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-navigationheader-startcontent--custom-overflow-label&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/StartContent.stories-DeVT2OXU.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/components-navigationheader-startcontent--custom-overflow-label.iframe.html",
+    "import_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.stories.tsx",
+    "component_path": "./src/components/NavigationHeader/Content/StartContent/StartContent.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{enableAutoOverflow:!0,overflowLabel:\"Plus\",overflowAriaLabel:\"Afficher plus d'éléments\"}",
+    "values": {
+      "enableAutoOverflow": true,
+      "overflowLabel": "Plus",
+      "overflowAriaLabel": "Afficher plus d'éléments"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{enableAutoOverflow:{description:\"Enable automatic overflow handling with a 'More' button. When enabled, items that don't fit will be moved to a dropdown menu.\",control:\"boolean\",table:{defaultValue:{summary:\"false\"}}},overflowLabel:{description:\"Label for the 'More' overflow button (only used when enableAutoOverflow is true)\",control:\"text\",table:{defaultValue:{summary:'\"More\"'}}},overflowAriaLabel:{description:\"Accessible label for the 'More' overflow button (only used when enableAutoOverflow is true)\",control:\"text\",table:{defaultValue:{summary:'\"Show more items\"'}}}}",
+    "fields": [
+      "enableAutoOverflow",
+      "overflowLabel",
+      "overflowAriaLabel"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    enableAutoOverflow: true,\n    overflowLabel: \"Plus\",\n    overflowAriaLabel: \"Afficher plus d'éléments\"\n  },\n  render: props => <StartContent {...props}>\n      <NavigationHeader.Item>\n        <NavigationHeader.Action>Nav Item 1</NavigationHeader.Action>\n      </NavigationHeader.Item>\n      <NavigationHeader.Item>\n        <NavigationHeader.Action>Nav Item 2</NavigationHeader.Action>\n      </NavigationHeader.Item>\n      <NavigationHeader.Item>\n        <NavigationHeader.Action>Nav Item 3</NavigationHeader.Action>\n      </NavigationHeader.Item>\n      <NavigationHeader.Item>\n        <NavigationHeader.Action>Nav Item 4</NavigationHeader.Action>\n      </NavigationHeader.Item>\n    </StartContent>\n}",
+    "story_object_source": "{args:{enableAutoOverflow:!0,overflowLabel:\"Plus\",overflowAriaLabel:\"Afficher plus d'éléments\"},render:a=>e.jsxs(i,{...a,children:[e.jsx(t.Item,{children:e.jsx(t.Action,{children:\"Nav Item 1\"})}),e.jsx(t.Item,{children:e.jsx(t.Action,{children:\"Nav Item 2\"})}),e.jsx(t.Item,{children:e.jsx(t.Action,{children:\"Nav Item 3\"})}),e.jsx(t.Item,{children:e.jsx(t.Action,{children:\"Nav Item 4\"})})]})}"
+  },
+  "template": {
+    "id": "navigation-header-start-content-custom-overflow-label-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/templates/html.custom-overflow-label.template.html",
+    "output_path": "design-system-plugin/outputs/html/navigation-header-start-content-custom-overflow-label.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "navigation-header-start-content",
+    "local_path": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-startcontent--docs",
+    "story_id": "components-navigationheader-startcontent--custom-overflow-label",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header-start-content/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/StartContent.stories-DeVT2OXU.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/navigation-header-start-content/assets/components-navigationheader-startcontent--custom-overflow-label.iframe.html"
+  }
+}

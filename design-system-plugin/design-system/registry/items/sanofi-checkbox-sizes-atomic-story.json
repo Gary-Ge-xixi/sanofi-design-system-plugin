@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-checkbox-sizes-atomic-story",
+  "title": "Checkbox Sizes atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-checkbox--sizes.",
+  "atomic_story_id": "components-checkbox--sizes",
+  "component_id": "checkbox",
+  "docs_id": "components-checkbox--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-checkbox"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--sizes.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--sizes.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/assets/components-checkbox--sizes.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox/assets/components-checkbox--sizes.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.sizes.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.sizes.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/checkbox.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/checkbox.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-checkbox--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-checkbox--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkbox--docs",
+    "story_id": "components-checkbox--sizes",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--sizes.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/checkbox/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-checkbox--sizes&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-checkbox--sizes&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Checkbox.stories-sP0G76Lf.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "checkbox",
+      "Checkbox",
+      "Sizes",
+      "components-checkbox--sizes",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Checkbox Sizes Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

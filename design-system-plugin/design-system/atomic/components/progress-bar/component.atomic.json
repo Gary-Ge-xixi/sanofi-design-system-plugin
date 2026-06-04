@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "progress-bar",
+  "component_name": "ProgressBar",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-progressbar--all-densities",
+      "story_name": "All Densities",
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-densities.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.all-densities.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-bar-all-densities.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+      "docs_id": "components-progressbar--docs",
+      "registry_item": "sanofi-progress-bar-all-densities-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--all-sizes",
+      "story_name": "All Sizes",
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-sizes.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.all-sizes.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-bar-all-sizes.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+      "docs_id": "components-progressbar--docs",
+      "registry_item": "sanofi-progress-bar-all-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--all-states",
+      "story_name": "All States",
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--all-states.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.all-states.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-bar-all-states.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+      "docs_id": "components-progressbar--docs",
+      "registry_item": "sanofi-progress-bar-all-states-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--custom-value-text",
+      "story_name": "Custom Value Text",
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--custom-value-text.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.custom-value-text.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-bar-custom-value-text.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+      "docs_id": "components-progressbar--docs",
+      "registry_item": "sanofi-progress-bar-custom-value-text-atomic-story"
+    },
+    {
+      "story_id": "components-progressbar--default",
+      "story_name": "Default",
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/progress-bar/stories/components-progressbar--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/progress-bar/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/progress-bar-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/progress-bar/assets/ProgressBar.stories-UKhzCY0f.js",
+      "docs_id": "components-progressbar--docs",
+      "registry_item": "sanofi-progress-bar-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-progress-bar--docs"
+  }
+}

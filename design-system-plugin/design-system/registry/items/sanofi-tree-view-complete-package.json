@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tree-view-complete-package",
+  "title": "TreeView complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local TreeView package covering Docs plus all Storybook story atoms.",
+  "component_id": "tree-view",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tree-view"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/docs/tree-view.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/docs/tree-view.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tree-view/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tree-view/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/tree-view-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/tree-view-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tree-view.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-treeview--color-accent",
+      "story_name": "Color Accent",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-color-accent-atomic-story"
+    },
+    {
+      "story_id": "components-treeview--custom-leading-visuals",
+      "story_name": "Custom Leading Visuals",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-custom-leading-visuals-atomic-story"
+    },
+    {
+      "story_id": "components-treeview--decorations",
+      "story_name": "Decorations",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-decorations-atomic-story"
+    },
+    {
+      "story_id": "components-treeview--file-explorer",
+      "story_name": "File Explorer",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-file-explorer-atomic-story"
+    },
+    {
+      "story_id": "components-treeview--inside-sidebar",
+      "story_name": "Inside Sidebar",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-inside-sidebar-atomic-story"
+    },
+    {
+      "story_id": "components-treeview--playground",
+      "story_name": "Playground",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-playground-atomic-story"
+    },
+    {
+      "story_id": "components-treeview--rtl",
+      "story_name": "RTL",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tree-view-rtl-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tree-view/tree-view.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tree-view/docs/tree-view.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tree-view",
+      "TreeView",
+      "tree-view complete",
+      "TreeView complete package",
+      "tree-view docs"
+    ],
+    "when_to_use": "Use first for any TreeView generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer TreeView behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

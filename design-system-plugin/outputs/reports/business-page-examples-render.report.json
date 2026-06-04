@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "render-business-page-examples",
+  "generated_at": "2026-06-04T12:33:14.040Z",
+  "outputs": [
+    {
+      "id": "business-query-form",
+      "path": "outputs/html/business-query-form.resolved.html",
+      "bytes": 70602
+    },
+    {
+      "id": "business-entity-detail",
+      "path": "outputs/html/business-entity-detail.resolved.html",
+      "bytes": 55107
+    },
+    {
+      "id": "information-aggregation",
+      "path": "outputs/html/information-aggregation.resolved.html",
+      "bytes": 66994
+    },
+    {
+      "id": "customer-detail-date-query",
+      "path": "outputs/html/customer-detail-date-query.resolved.html",
+      "bytes": 77063
+    },
+    {
+      "id": "business-planning-target-adjustment",
+      "path": "outputs/html/business-planning-target-adjustment.resolved.html",
+      "bytes": 74885
+    }
+  ]
+}

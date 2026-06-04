@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-carousel--carousel-with-image",
+  "component_id": "carousel",
+  "component_name": "Carousel",
+  "story_id": "components-carousel--carousel-with-image",
+  "story_name": "Carousel With Image",
+  "export_name": "CarouselWithImage",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-carousel--carousel-with-image&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-carousel--carousel-with-image&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Carousel.stories-CQj2BVpA.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/carousel/assets/components-carousel--carousel-with-image.iframe.html",
+    "import_path": "./src/components/Carousel/Carousel.stories.tsx",
+    "component_path": "./src/components/Carousel/Carousel.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...B}",
+    "values": {
+      "title": "Carousel",
+      "itemsToShow": 3,
+      "oneItemView": false,
+      "defaultSlide": 0,
+      "onNavigation": {
+        "extraction_status": "raw_expression",
+        "value": "(e,s)=>{console.log(\"slide: \",e,\"itemCount: \",s)}"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{title:{control:{type:\"text\"},description:\"Title of the carousel\",table:{type:{summary:\"string\"},defaultValue:{summary:\"\"}}},itemsToShow:{control:{type:\"number\"},description:\"Number of items to show in the carousel\",table:{type:{summary:\"number\"},defaultValue:{summary:\"3\"}}},defaultSlide:{control:{type:\"number\"},description:\"Default slide to show\",table:{type:{summary:\"number\"},defaultValue:{summary:\"0\"}}},onNavigation:{action:\"onNavigation\",description:\"Function to be called when navigating the carousel\",table:{type:{summary:\"function\"},defaultValue:{summary:\"\"}}}}",
+    "fields": [
+      "title",
+      "itemsToShow",
+      "defaultSlide",
+      "onNavigation"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs\n  },\n  render: args => <Container>\n      <Carousel {...args}>\n        {cardContentData.map((el, index) => <div key={el.id}>{cardInternal(el, true, index)}</div>)}\n      </Carousel>\n    </Container>\n}",
+    "story_object_source": "{args:{...B},render:e=>r.jsx(q,{children:r.jsx(_,{...e,children:J.map((s,t)=>r.jsx(\"div\",{children:G(s,!0,t)},s.id))})})}"
+  },
+  "template": {
+    "id": "carousel-carousel-with-image-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.carousel-with-image.template.html",
+    "output_path": "design-system-plugin/outputs/html/carousel-carousel-with-image.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "carousel",
+    "local_path": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-carousel--docs",
+    "story_id": "components-carousel--carousel-with-image",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/carousel/assets/components-carousel--carousel-with-image.iframe.html"
+  }
+}

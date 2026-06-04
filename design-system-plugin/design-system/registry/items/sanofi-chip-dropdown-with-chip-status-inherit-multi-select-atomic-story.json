@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-dropdown-with-chip-status-inherit-multi-select-atomic-story",
+  "title": "ChipDropdown With Chip Status Inherit Multi Select atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-chipdropdown--with-chip-status-inherit-multi-select.",
+  "atomic_story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+  "component_id": "chip-dropdown",
+  "docs_id": "components-chipdropdown--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-dropdown"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-chip-status-inherit-multi-select.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-chip-status-inherit-multi-select.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/ChipDropdown.stories-Byl21KXR.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/ChipDropdown.stories-Byl21KXR.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/components-chipdropdown--with-chip-status-inherit-multi-select.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/components-chipdropdown--with-chip-status-inherit-multi-select.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-dropdown/templates/html.with-chip-status-inherit-multi-select.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/chip-dropdown/templates/html.with-chip-status-inherit-multi-select.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipdropdown--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipdropdown--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipdropdown--docs",
+    "story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/chip-dropdown/stories/components-chipdropdown--with-chip-status-inherit-multi-select.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/chip-dropdown/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chipdropdown--with-chip-status-inherit-multi-select&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chipdropdown--with-chip-status-inherit-multi-select&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipDropdown.stories-Byl21KXR.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-dropdown/assets/ChipDropdown.stories-Byl21KXR.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-dropdown/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-dropdown",
+      "ChipDropdown",
+      "With Chip Status Inherit Multi Select",
+      "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ChipDropdown With Chip Status Inherit Multi Select Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

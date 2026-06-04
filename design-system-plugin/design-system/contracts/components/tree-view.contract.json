@@ -1,0 +1,262 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tree-view",
+  "canonical_name": "tree-view",
+  "component_name": "TreeView",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-treeview--docs",
+    "title": "TreeView",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview--docs",
+    "import_path": "./src/components/TreeView/TreeView.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 7,
+    "story_ids": [
+      "components-treeview--color-accent",
+      "components-treeview--custom-leading-visuals",
+      "components-treeview--decorations",
+      "components-treeview--file-explorer",
+      "components-treeview--inside-sidebar",
+      "components-treeview--playground",
+      "components-treeview--rtl"
+    ],
+    "records": [
+      {
+        "id": "components-treeview--color-accent",
+        "name": "Color Accent",
+        "normalized_name": "color-accent",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "ColorAccent"
+      },
+      {
+        "id": "components-treeview--custom-leading-visuals",
+        "name": "Custom Leading Visuals",
+        "normalized_name": "custom-leading-visuals",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "CustomLeadingVisuals"
+      },
+      {
+        "id": "components-treeview--decorations",
+        "name": "Decorations",
+        "normalized_name": "decorations",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "Decorations"
+      },
+      {
+        "id": "components-treeview--file-explorer",
+        "name": "File Explorer",
+        "normalized_name": "file-explorer",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "FileExplorer"
+      },
+      {
+        "id": "components-treeview--inside-sidebar",
+        "name": "Inside Sidebar",
+        "normalized_name": "inside-sidebar",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "InsideSidebar"
+      },
+      {
+        "id": "components-treeview--playground",
+        "name": "Playground",
+        "normalized_name": "playground",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "Playground"
+      },
+      {
+        "id": "components-treeview--rtl",
+        "name": "RTL",
+        "normalized_name": "rtl",
+        "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+        "export_name": "RTL"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": true,
+        "description": "TreeView.Item nodes.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "decoration",
+        "required": false,
+        "description": "Visual decoration style (arrows, folders, etc.).\"none\"\"arrow\"\"folder\"\"arrowFolder\"",
+        "default": "\"TreeViewDecoration.NONE\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "colorAccent",
+        "required": false,
+        "description": "Color accent for hover/selected backgrounds.\"branded\"\"neutral\"",
+        "default": "\"TreeViewColorAccent.BRANDED\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showNodeLines",
+        "required": false,
+        "description": "Shows vertical connector lines between nodes.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "expandedKeys",
+        "required": false,
+        "description": "Controlled set of expanded node keys.Set<TreeViewKey>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultExpandedKeys",
+        "required": false,
+        "description": "Default expanded keys (uncontrolled mode).Set<TreeViewKey>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onExpandedChange",
+        "required": false,
+        "description": "Callback fired when expanded keys change.((keys: Set<TreeViewKey>) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "aria-label",
+        "required": false,
+        "description": "Accessible label for the tree.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "aria-labelledby",
+        "required": false,
+        "description": "Reference to element providing accessible label.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "color-accent",
+      "custom-leading-visuals",
+      "decorations",
+      "file-explorer",
+      "inside-sidebar",
+      "playground",
+      "rtl"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "color-accent",
+      "custom-leading-visuals",
+      "decorations",
+      "file-explorer",
+      "inside-sidebar",
+      "playground",
+      "rtl"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import {\nTreeView,\nTreeViewDecoration,\nTreeViewColorAccent,\n} from \"@sanofi-accelerator/elements\";\n\n<TreeView\naria-label=\"Repository files\"\ndecoration={TreeViewDecoration.ARROW_FOLDER}\nshowNodeLines\n>\n<TreeView.Item id=\"src\" defaultExpanded>\n  src\n  <TreeView.SubTree>\n    <TreeView.Item id=\"file.tsx\" onSelect={() => console.log(\"Open file\")}>\n      file.tsx\n      <TreeView.TrailingVisual label=\"Modified\">\n        <span>M</span>\n      </TreeView.TrailingVisual>\n    </TreeView.Item>\n  </TreeView.SubTree>\n</TreeView.Item>\n</TreeView>"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import {\nTreeView,\nTreeViewDecoration,\nTreeViewColorAccent,\n} from \"@sanofi-accelerator/elements\";\n\n<TreeView\naria-label=\"Repository files\"\ndecoration={TreeViewDecoration.ARROW_FOLDER}\nshowNodeLines\n>\n<TreeView.Item id=\"src\" defaultExpanded>\n  src\n  <TreeView.SubTree>\n    <TreeView.Item id=\"file.tsx\" onSelect={() => console.log(\"Open file\")}>\n      file.tsx\n      <TreeView.TrailingVisual label=\"Modified\">\n        <span>M</span>\n      </TreeView.TrailingVisual>\n    </TreeView.Item>\n  </TreeView.SubTree>\n</TreeView.Item>\n</TreeView>",
+      "import { TreeView, TreeViewDecoration, Icon, IconName } from \"@sanofi-accelerator/elements\";\n\n<TreeView decoration={TreeViewDecoration.ARROW_FOLDER} aria-label=\"Settings\">\n<TreeView.Item id=\"security\">\n  <TreeView.LeadingVisual>\n    <Icon name={IconName.SHIELD} size={1} filled={false} />\n  </TreeView.LeadingVisual>\n  Security\n  <TreeView.SubTree>\n    <TreeView.Item id=\"passwords\">\n      <TreeView.LeadingVisual>\n        <Icon name={IconName.KEY} size={1} filled={false} />\n      </TreeView.LeadingVisual>\n      Passwords\n    </TreeView.Item>\n  </TreeView.SubTree>\n</TreeView.Item>\n</TreeView>"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "tree-view"
+    ],
+    "contracts": [
+      {
+        "id": "tree-view",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/tree-view/demo.registry.json",
+        "known_story_ids": [
+          "components-treeview--color-accent",
+          "components-treeview--custom-leading-visuals",
+          "components-treeview--decorations",
+          "components-treeview--file-explorer",
+          "components-treeview--inside-sidebar",
+          "components-treeview--playground",
+          "components-treeview--rtl",
+          "components-treeview--color-accent",
+          "components-treeview--custom-leading-visuals",
+          "components-treeview--decorations",
+          "components-treeview--file-explorer",
+          "components-treeview--inside-sidebar",
+          "components-treeview--playground",
+          "components-treeview--rtl"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-treeview--docs.md",
+    "docs_import_path": "./src/components/TreeView/TreeView.mdx",
+    "story_ids": [
+      "components-treeview--color-accent",
+      "components-treeview--custom-leading-visuals",
+      "components-treeview--decorations",
+      "components-treeview--file-explorer",
+      "components-treeview--inside-sidebar",
+      "components-treeview--playground",
+      "components-treeview--rtl"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

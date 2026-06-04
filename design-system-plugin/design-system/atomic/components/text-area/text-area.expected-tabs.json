@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "text-area",
+  "component_name": "TextArea",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/TextArea"
+  },
+  "docs": [
+    {
+      "id": "components-textarea--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/TextArea/TextArea.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-textarea--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--error-state",
+      "name": "Error State",
+      "export_name": "ErrorState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--inverse",
+      "name": "Inverse",
+      "export_name": "Inverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--no-counter",
+      "name": "No Counter",
+      "export_name": "NoCounter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--overview-inverse",
+      "name": "Overview Inverse",
+      "export_name": "OverviewInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--success",
+      "name": "Success",
+      "export_name": "Success",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    },
+    {
+      "id": "components-textarea--with-tooltip",
+      "name": "With Tooltip",
+      "export_name": "WithTooltip",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextArea/TextArea.stories.tsx"
+    }
+  ]
+}

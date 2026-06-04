@@ -1,0 +1,115 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulesPath = path.join(pluginRoot, "design-system", "rules", "layout-grid-container.json");
+const reportPath = path.join(reportDir, "layout-rule-usage.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function extractAttributeValues(source, attribute) {
+  const values = [];
+  const re = new RegExp(`${attribute}=["']([^"']+)["']`, "g");
+  let match;
+  while ((match = re.exec(source))) values.push(match[1]);
+  return values;
+}
+
+function countMatches(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const rules = readJson(rulesPath);
+const failures = [];
+
+if (!html) failures.push(`missing HTML target: ${target}`);
+
+const requiredAttributes = rules.html_contract.required_attributes || [];
+for (const marker of requiredAttributes) {
+  if (!html.includes(marker)) failures.push(`missing layout contract marker: ${marker}`);
+}
+
+const docRefs = extractAttributeValues(html, "data-source-doc-id")
+  .flatMap((value) => value.split(/\s+/))
+  .filter(Boolean);
+const storyRefs = extractAttributeValues(html, "data-story-id");
+const layoutRefs = extractAttributeValues(html, "data-layout-rule");
+const primitiveRefs = extractAttributeValues(html, "data-primitive");
+
+const missingDocs = (rules.html_contract.required_source_doc_ids || []).filter(
+  (docsId) => !docRefs.includes(docsId)
+);
+const missingStories = (rules.html_contract.required_story_ids || []).filter(
+  (storyId) => !storyRefs.includes(storyId)
+);
+
+if (missingDocs.length) failures.push(`missing layout source docs: ${missingDocs.join(", ")}`);
+if (missingStories.length) failures.push(`missing layout story ids: ${missingStories.join(", ")}`);
+if (layoutRefs.some((ruleId) => ruleId !== rules.id)) {
+  failures.push(`unknown layout rule refs: ${[...new Set(layoutRefs.filter((ruleId) => ruleId !== rules.id))].join(", ")}`);
+}
+
+const hasContainerPrimitive = primitiveRefs.includes(rules.container.primitive_id);
+const hasGridPrimitive = primitiveRefs.includes(rules.grid.primitive_id);
+if (!hasContainerPrimitive) failures.push("admin layout must use Container primitive");
+if (!hasGridPrimitive) failures.push("admin layout must use Grid primitive");
+
+const containerRootRefs = countMatches(html, /data-container-part=["']root["']/g);
+const containerContentRefs = countMatches(html, /data-container-part=["']contentContainer["']/g);
+const gridRootRefs = countMatches(html, /data-grid-part=["']root["']/g);
+const gridItemRefs = countMatches(html, /data-grid-part=["']item["']/g);
+const unconstrainedContainerRefs = countMatches(html, /\.container\s*\{[^}]*max-inline-size:\s*none/gi);
+if (hasContainerPrimitive && (!containerRootRefs || !containerContentRefs)) {
+  failures.push("Container primitive must include root/contentContainer structure");
+}
+if (hasGridPrimitive && (!gridRootRefs || gridItemRefs < 1)) {
+  failures.push("Grid primitive must include root/item structure");
+}
+if (unconstrainedContainerRefs) failures.push("Container must not use max-inline-size: none");
+
+const gridColumnValues = extractAttributeValues(html, "data-grid-columns");
+if (gridColumnValues.some((value) => value !== String(rules.grid.columns))) {
+  failures.push(`grid columns must be ${rules.grid.columns}`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-layout-rule-usage",
+  target: path.relative(pluginRoot, target),
+  rule: rules.id,
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    layout_refs: layoutRefs.length,
+    primitive_refs: primitiveRefs.length,
+    doc_refs: docRefs.length,
+    story_refs: storyRefs.length,
+    has_container_primitive: hasContainerPrimitive,
+    has_grid_primitive: hasGridPrimitive,
+    container_root_refs: containerRootRefs,
+    container_content_refs: containerContentRefs,
+    grid_root_refs: gridRootRefs,
+    grid_item_refs: gridItemRefs,
+    unconstrained_container_refs: unconstrainedContainerRefs,
+    missing_docs: missingDocs,
+    missing_stories: missingStories
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Layout rule validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Layout rule OK: ${path.relative(pluginRoot, target)}`);

@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-accordion--small-accordion",
+  "component_id": "accordion",
+  "component_name": "Accordion",
+  "story_id": "components-accordion--small-accordion",
+  "story_name": "Small Accordion",
+  "export_name": "SmallAccordion",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-accordion--small-accordion&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-accordion--small-accordion&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Accordion.stories-kPOrYbvl.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/accordion/assets/Accordion.stories-kPOrYbvl.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/accordion/assets/components-accordion--small-accordion.iframe.html",
+    "import_path": "./src/components/Accordion/Accordion.stories.tsx",
+    "component_path": "./src/components/Accordion/Accordion.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...u,children:e.jsx(e.Fragment,{children:g.map((o,n)=>e.jsx(p,{section:o,index:n,size:h.SMALL},o.title))})}",
+    "values": {
+      "isExclusive": false,
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsx(e.Fragment,{children:g.map((o,n)=>e.jsx(p,{section:o,index:n,size:h.SMALL},o.title))})"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{isExclusive:{control:\"boolean\"},headersTag:{control:\"text\"}}",
+    "fields": [
+      "isExclusive",
+      "headersTag"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    children: <>\n        {accordionData.map((section, index) => <TestAccordion section={section} index={index} key={section.title} size={AccordionSize.SMALL} />)}\n      </>\n  }\n}",
+    "story_object_source": "{args:{...u,children:e.jsx(e.Fragment,{children:g.map((o,n)=>e.jsx(p,{section:o,index:n,size:h.SMALL},o.title))})}}"
+  },
+  "template": {
+    "id": "accordion-small-accordion-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/accordion/templates/html.small-accordion.template.html",
+    "output_path": "design-system-plugin/outputs/html/accordion-small-accordion.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "accordion",
+    "local_path": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "story_id": "components-accordion--small-accordion",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/accordion/assets/Accordion.stories-kPOrYbvl.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/accordion/assets/components-accordion--small-accordion.iframe.html"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Menu/MenuItemRadio",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-menu-menuitemradio--checked",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--default",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const { execFileSync } = require("child_process");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function run(script, args) {
+  execFileSync("node", [`design-system-plugin/scripts/${script}`, ...args], {
+    cwd: workspaceRoot,
+    stdio: "pipe"
+  });
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const matrix = readJson("design-system-plugin/design-system/atomic/component-coverage-matrix.json");
+const completeComponents = (matrix.components || [])
+  .filter((component) => component.package_status === "complete")
+  .sort((a, b) => a.component_id.localeCompare(b.component_id));
+
+const results = [];
+const failures = [];
+
+for (const component of completeComponents) {
+  const pkg = readJson(component.package_path);
+  const htmlPath = pkg.render_outputs?.complete_html;
+  const result = {
+    component_id: component.component_id,
+    html_path: htmlPath,
+    status: "pass",
+    validators: {
+      token_usage: "not_run",
+      primitive_usage: "not_run",
+      page_pattern: "not_run",
+      component_package_dom: "not_run"
+    },
+    failures: []
+  };
+
+  for (const [key, script, args] of [
+    ["token_usage", "validate-token-usage", [htmlPath]],
+    ["primitive_usage", "validate-primitive-usage", [htmlPath]],
+    ["page_pattern", "validate-page-pattern", [htmlPath]],
+    ["component_package_dom", "validate-component-package-dom", [component.component_id, htmlPath]]
+  ]) {
+    try {
+      run(script, args);
+      result.validators[key] = "pass";
+    } catch (error) {
+      result.status = "fail";
+      result.validators[key] = "fail";
+      const message = error.stderr?.toString().trim() || error.message;
+      result.failures.push(`${key}: ${message}`);
+    }
+  }
+
+  if (result.failures.length) failures.push(...result.failures.map((failure) => `${component.component_id}: ${failure}`));
+  results.push(result);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-component-package-html-batch",
+  checked: {
+    complete_components: completeComponents.length,
+    passed_components: results.filter((result) => result.status === "pass").length,
+    failed_components: results.filter((result) => result.status === "fail").length
+  },
+  failures,
+  results
+};
+
+fs.writeFileSync(
+  path.join(reportDir, "component-package-html-validation.report.json"),
+  JSON.stringify(report, null, 2) + "\n"
+);
+
+if (failures.length) {
+  console.error(`Component package HTML validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Component package HTML OK: ${completeComponents.length} complete package(s)`);

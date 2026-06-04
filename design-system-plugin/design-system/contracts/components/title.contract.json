@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "id": "title",
+  "canonical_name": "title",
+  "component_name": "Title",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-title--docs",
+    "title": "Title",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-title--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-title--docs",
+    "import_path": "./src/components/Title/Title.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-title--default",
+      "components-title--font-weights",
+      "components-title--variants"
+    ],
+    "records": [
+      {
+        "id": "components-title--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Title/Title.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-title--font-weights",
+        "name": "Font Weights",
+        "normalized_name": "font-weights",
+        "import_path": "./src/components/Title/Title.stories.tsx",
+        "export_name": "FontWeights"
+      },
+      {
+        "id": "components-title--variants",
+        "name": "Variants",
+        "normalized_name": "variants",
+        "import_path": "./src/components/Title/Title.stories.tsx",
+        "export_name": "Variants"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Title size variant determining font size and weight.\"title-1\"\"title-2\"\"title-3\"\"title-4\"\"title-5\"",
+        "default": "\"TitleVariant.TITLE_3\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "Color is one of --elements-color-semantic-text-... css variable or currentColor to inherit color from parent\"disabled\"\"success\"\"error\"\"strong\"\"subtle\"\"highlight\"\"info\"\"alert\"\"inverse\"\"default\"\"accent-active\"\"accent-default\"\"accent-hover\"\"helpertext\"\"currentColor\"Show 7 more...",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "font-weights",
+      "variants"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "font-weights",
+      "variants"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "title"
+    ],
+    "contracts": [
+      {
+        "id": "title",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/title/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/title/demo.registry.json",
+        "known_story_ids": [
+          "components-title--default",
+          "components-title--font-weights",
+          "components-title--variants",
+          "components-title--default",
+          "components-title--font-weights",
+          "components-title--variants"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-title--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-title--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-title--docs.md",
+    "docs_import_path": "./src/components/Title/Title.stories.tsx",
+    "story_ids": [
+      "components-title--default",
+      "components-title--font-weights",
+      "components-title--variants"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

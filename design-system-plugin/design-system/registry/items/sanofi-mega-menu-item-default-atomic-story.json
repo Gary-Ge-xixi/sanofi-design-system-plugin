@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-mega-menu-item-default-atomic-story",
+  "title": "MegaMenu/Item Default atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-megamenu-item--default.",
+  "atomic_story_id": "components-megamenu-item--default",
+  "component_id": "mega-menu-item",
+  "docs_id": "components-megamenu-item--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-mega-menu-item"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-item/stories/components-megamenu-item--default.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-item/stories/components-megamenu-item--default.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-item/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-item/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/Item.stories-BAPFNE8E.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/Item.stories-BAPFNE8E.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/components-megamenu-item--default.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/components-megamenu-item--default.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu-item/templates/html.default.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu-item/templates/html.default.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/mega-menu-item/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/mega-menu-item/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-item--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-megamenu-item--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-megamenu-item--docs",
+    "story_id": "components-megamenu-item--default",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/mega-menu-item/stories/components-megamenu-item--default.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/mega-menu-item/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-megamenu-item--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-megamenu-item--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Item.stories-BAPFNE8E.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/mega-menu-item/assets/Item.stories-BAPFNE8E.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/mega-menu-item/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "mega-menu-item",
+      "MegaMenu/Item",
+      "Default",
+      "components-megamenu-item--default",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact MegaMenu/Item Default Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "switch-switch-group",
+  "component_name": "Switch/SwitchGroup",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-switch-switchgroup--default",
+      "story_name": "Default",
+      "component_id": "switch-switch-group",
+      "component_name": "Switch/SwitchGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/switch-switch-group/stories/components-switch-switchgroup--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/switch-switch-group/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/switch-switch-group-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/switch-switch-group/assets/SwitchGroup.stories-D54VHrfL.js",
+      "docs_id": "components-switch-switchgroup--docs",
+      "registry_item": "sanofi-switch-switch-group-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch-switch-group--docs"
+  }
+}

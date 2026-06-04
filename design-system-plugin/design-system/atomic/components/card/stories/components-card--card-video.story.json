@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-card--card-video",
+  "component_id": "card",
+  "component_name": "Card",
+  "story_id": "components-card--card-video",
+  "story_name": "Card Video",
+  "export_name": "CardVideo",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card--card-video&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card--card-video&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Card.stories-CFArP5N1.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/card/assets/components-card--card-video.iframe.html",
+    "import_path": "./src/components/Card/Card.stories.tsx",
+    "component_path": "./src/components/Card/Card.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...l,title:\"Title placeholder, with a maximum line count of three, with automatic truncation\"}",
+    "values": {
+      "hasBorder": true,
+      "hasShadow": false,
+      "type": "grid",
+      "isCentered": false,
+      "withButtonIcon": true,
+      "positionPicto": "left",
+      "brandTheme": "primary",
+      "density": "default",
+      "color": "current-color",
+      "invertDayAndMonth": false,
+      "title": "Title placeholder, with a maximum line count of three, with automatic truncation"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:{description:\"The card children\",control:{disable:!0}},hasBorder:{description:\"If the card has a border\",control:{control:\"boolean\"}},hasShadow:{description:\"If the card has a shadow at hover\",control:{control:\"boolean\"}},type:{description:\"The type of card\",control:\"select\",options:Object.values(u)},isCentered:{description:\"If the card elements are centered\",control:\"boolean\"},density:{description:\"The density of the card\",control:\"select\",options:Object.values(m)},invertDayAndMonth:{description:\"If the day and month are inverted\",control:\"boolean\"},color:{description:\"The color of the number\",control:\"select\",options:[D.CURRENT_COLOR,D.ACCENT_DEFAULT]},brandTheme:{description:\"The brand theme\",control:\"select\",options:Object.values(Y)},titleSize:{description:\"The title size\",control:\"select\",options:Object.values(H)},showFullContent:{description:\"If the subtext should not be truncated\",control:\"boolean\"}}",
+    "fields": [
+      "children",
+      "hasBorder",
+      "hasShadow",
+      "type",
+      "isCentered",
+      "density",
+      "invertDayAndMonth",
+      "color",
+      "brandTheme",
+      "titleSize",
+      "showFullContent"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  decorators: [Story => <div style={{\n    width: \"384px\"\n  }}>\n        <Story />\n      </div>],\n  args: {\n    ...defaultArgs,\n    title: \"Title placeholder, with a maximum line count of three, with automatic truncation\"\n  },\n  render: args => {\n    return <Card {...args}>\n        <Card.Media>\n          <VideoThumbnail videoUrl={\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\"} imageUrl={thumbnailImage} />\n        </Card.Media>\n        <Card.Section>\n          <Card.Content isCentered={args.isCentered} category=\"Eyebrow One (i.e Category)\" date=\"Eyebrow Two (i.e Date)\" title={<Title variant={args.titleSize}>{args.title}</Title>} subText=\"Description placeholder, with a maximum line count of five. This\n            text will automatically truncate if your content is too long.\" buttonSlot={<Card.Button icon={IconName.MORE_VERT} onClick={() => notify(args)} aria-label=\"More actions Card Video Story\" />} />\n          <Card.Action isCentered={args.isCentered}>\n            <LinkStandalone href={sanofiUrl} size={LinkSize.SMALL}>\n              Standalone link\n            </LinkStandalone>\n          </Card.Action>\n        </Card.Section>\n      </Card>;\n  }\n}",
+    "story_object_source": "{decorators:[t=>e.jsx(\"div\",{style:{width:\"384px\"},children:e.jsx(t,{})})],args:{...l,title:\"Title placeholder, with a maximum line count of three, with automatic truncation\"},render:t=>e.jsxs(i,{...t,children:[e.jsx(i.Media,{children:e.jsx($,{videoUrl:\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\",imageUrl:ee})}),e.jsxs(i.Section,{children:[e.jsx(i.Content,{isCentered:t.isCentered,category:\"Eyebrow One (i.e Category)\",date:\"Eyebrow Two (i.e Date)\",title:e.jsx(d,{variant:t.titleSize,children:t.title}),subText:`Description placeholder, with a maximum line count of five. This\n            text will automatically truncate if your content is too long.`,buttonSlot:e.jsx(i.Button,{icon:n.MORE_VERT,onClick:()=>r(t),\"aria-label\":\"More actions Card Video Story\"})}),e.jsx(i.Action,{isCentered:t.isCentered,children:e.jsx(a,{href:o,size:s.SMALL,children:\"Standalone link\"})})]})]})}"
+  },
+  "template": {
+    "id": "card-card-video-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/card/templates/html.card-video.template.html",
+    "output_path": "design-system-plugin/outputs/html/card-card-video.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "card",
+    "local_path": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "story_id": "components-card--card-video",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/card/assets/components-card--card-video.iframe.html"
+  }
+}

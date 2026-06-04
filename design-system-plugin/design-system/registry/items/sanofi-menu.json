@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu",
+  "title": "Menu primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Menu.",
+  "status": "storybook-backed-static-contract",
+  "component_id": "menu",
+  "docs_id": "components-menu--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/menu/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 9,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu",
+      "Menu",
+      "Menu"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Menu primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

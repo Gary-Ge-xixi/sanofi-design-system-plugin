@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1.0",
+  "id": "layout-grid-container",
+  "severity": "error",
+  "status": "ready",
+  "source_provenance": {
+    "foundation_docs_id": "foundations-layout--docs",
+    "grid_docs_id": "components-grid--docs",
+    "container_docs_id": "components-container--docs",
+    "foundation_docs_path": "design-system-plugin/design-system/knowledge/docs/foundations-layout--docs.md",
+    "grid_docs_path": "design-system-plugin/design-system/knowledge/docs/components-grid--docs.md",
+    "container_docs_path": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "breakpoints": {
+    "xs_max": "--elements-breakpoint-xs-max",
+    "sm_min": "--elements-breakpoint-sm-min",
+    "sm_max": "--elements-breakpoint-sm-max",
+    "md_min": "--elements-breakpoint-md-min",
+    "md_max": "--elements-breakpoint-md-max",
+    "lg_min": "--elements-breakpoint-lg-min",
+    "xl_min": "--elements-breakpoint-xl-min",
+    "2xl_min": "--elements-breakpoint-2xl-min",
+    "3xl_min": "--elements-breakpoint-3xl-min"
+  },
+  "container": {
+    "primitive_id": "container",
+    "docs_id": "components-container--docs",
+    "story_ids": [
+      "components-container--default",
+      "components-container--fixed",
+      "components-container--fluid"
+    ],
+    "width_tokens": {
+      "sm": "--elements-container-width-sm",
+      "md": "--elements-container-width-md",
+      "lg": "--elements-container-width-lg",
+      "xl": "--elements-container-width-xl",
+      "2xl": "--elements-container-width-2xl",
+      "3xl": "--elements-container-width-3xl"
+    },
+    "default_modes_by_breakpoint": {
+      "sm": "fluid",
+      "md": "fluid",
+      "lg": "fluid",
+      "xl": "fluid",
+      "2xl": "fixed",
+      "3xl": "fixed"
+    }
+  },
+  "grid": {
+    "primitive_id": "grid",
+    "docs_id": "components-grid--docs",
+    "story_ids": [
+      "components-grid--desktop",
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-grid--tablet"
+    ],
+    "columns": 12,
+    "gutter_tokens": {
+      "xs": "--elements-grid-gutter-xs",
+      "sm": "--elements-grid-gutter-sm",
+      "md": "--elements-grid-gutter-md",
+      "lg": "--elements-grid-gutter-lg",
+      "xl": "--elements-grid-gutter-xl",
+      "2xl": "--elements-grid-gutter-2xl"
+    },
+    "span_policy": "Grid.Item values inherit from the previous breakpoint value; unspecified xs defaults to 12."
+  },
+  "html_contract": {
+    "required_attributes": [
+      "data-layout-rule=\"layout-grid-container\"",
+      "data-primitive=\"container\"",
+      "data-primitive=\"grid\"",
+      "data-container-mode=",
+      "data-container-part=\"contentContainer\"",
+      "data-grid-part=\"root\"",
+      "data-grid-part=\"item\"",
+      "data-grid-columns=\"12\"",
+      "data-grid-gap-token="
+    ],
+    "required_source_doc_ids": [
+      "foundations-layout--docs",
+      "components-container--docs",
+      "components-grid--docs"
+    ],
+    "required_story_ids": [
+      "components-container--fixed",
+      "components-grid--desktop"
+    ]
+  },
+  "generation_policy": [
+    "Admin pages must resolve layout before visual components.",
+    "Use Container to constrain main content width and Grid.Root/Grid.Item semantics for responsive sections.",
+    "Do not place dashboard modules directly under body or main without a container and grid wrapper.",
+    "Use Elements spacing, grid gutter, breakpoint, and container tokens instead of raw pixel values in generated HTML.",
+    "A Container marker is not sufficient: generated HTML must preserve the root/contentContainer structure from the Container component.",
+    "A Grid marker is not sufficient: generated HTML must preserve Grid.Root and Grid.Item equivalent structure for direct layout children."
+  ]
+}

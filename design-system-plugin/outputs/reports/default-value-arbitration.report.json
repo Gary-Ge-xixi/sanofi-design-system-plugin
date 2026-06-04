@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-default-value-arbitration",
+  "status": "pass",
+  "checked_files": {
+    "sizePolicy": "design-system/rules/component-size-policy.json",
+    "defaults": "design-system/rules/business-admin-defaults.json",
+    "selectDocs": "design-system/knowledge/docs/components-select--docs.md",
+    "datePickerDocs": "design-system/knowledge/docs/components-datepicker--docs.md",
+    "selectStory": "design-system/atomic/components/select/stories/components-select--default.story.json",
+    "datePickerStory": "design-system/atomic/components/date-picker/stories/components-datepicker--default.story.json",
+    "businessRenderer": "scripts/render-business-page-examples",
+    "templateRenderer": "scripts/render-template-html"
+  },
+  "checks": {
+    "policy_default_size": "medium",
+    "business_default_size": "medium",
+    "select_default_size": "medium",
+    "date_picker_default_size": "medium",
+    "authority_order_api_before_story": true,
+    "defaults_api_before_story": true,
+    "select_docs_api_medium": true,
+    "date_picker_docs_api_medium": true,
+    "select_default_story_large": true,
+    "date_picker_default_story_large": true,
+    "select_conflict_resolution": true,
+    "date_picker_conflict_resolution": true,
+    "renderer_large_defaults": 0,
+    "renderer_inputsize_large": 0
+  },
+  "failures": []
+}

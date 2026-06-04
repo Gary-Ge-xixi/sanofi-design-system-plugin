@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer-bottom-docs-contract",
+  "component_id": "footer-bottom",
+  "component_name": "Footer.Bottom",
+  "docs_id": "components-footer-bottom--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-bottom--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer-bottom--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Footer contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "legalMention",
+        "required": false,
+        "description": "The legal mentionReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandLogo",
+        "required": false,
+        "description": "The brand logoReactNodeImageProps",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "The class names{ bottom?: string; links?: string; legalMention?: string \\",
+        "default": "undefined; logo?: string \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS classstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-bottom--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-footer-bottom--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Bottom.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-bottom--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer-bottom--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer-bottom.contract.json"
+  }
+}

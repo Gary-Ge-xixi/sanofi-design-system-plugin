@@ -1,0 +1,344 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function readJsonOrNull(relativePath) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function writeText(relativePath, content) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, content);
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function normalizeComponentId(title) {
+  return String(title || "")
+    .replace(/^Components\//, "")
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[^A-Za-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .toLowerCase();
+}
+
+function tierForStoryCount(storyCount) {
+  if (storyCount >= 14) return "XL";
+  if (storyCount >= 8) return "L";
+  if (storyCount >= 4) return "M";
+  return "S";
+}
+
+function sum(values) {
+  return values.reduce((total, value) => total + value, 0);
+}
+
+const timeModel = {
+  schema_version: "0.1.0",
+  source: "Button complete package execution model",
+  tiers: {
+    S: {
+      label: "simple",
+      total_hours: 2.8,
+      node_hours: {
+        source_intake: 0.2,
+        expected_tabs: 0.2,
+        story_atoms: 0.4,
+        docs_contract: 0.5,
+        atomic_contract: 0.7,
+        html_package: 0.7,
+        registry_search: 0.3,
+        validators: 0.5,
+        report_qa: 0.2
+      }
+    },
+    M: {
+      label: "standard",
+      total_hours: 5.3,
+      node_hours: {
+        source_intake: 0.3,
+        expected_tabs: 0.3,
+        story_atoms: 0.8,
+        docs_contract: 0.8,
+        atomic_contract: 1.3,
+        html_package: 1.2,
+        registry_search: 0.4,
+        validators: 0.9,
+        report_qa: 0.3
+      }
+    },
+    L: {
+      label: "complex",
+      total_hours: 7.9,
+      node_hours: {
+        source_intake: 0.4,
+        expected_tabs: 0.5,
+        story_atoms: 1.2,
+        docs_contract: 1.1,
+        atomic_contract: 2.0,
+        html_package: 2.0,
+        registry_search: 0.6,
+        validators: 1.3,
+        report_qa: 0.4
+      }
+    },
+    XL: {
+      label: "high-complexity",
+      total_hours: 11.3,
+      node_hours: {
+        source_intake: 0.5,
+        expected_tabs: 0.7,
+        story_atoms: 1.8,
+        docs_contract: 1.5,
+        atomic_contract: 3.0,
+        html_package: 3.0,
+        registry_search: 0.8,
+        validators: 1.8,
+        report_qa: 0.5
+      }
+    }
+  }
+};
+
+const componentStandard = {
+  schema_version: "0.1.0",
+  id: "complete-component-package-standard",
+  renderer_target: "html",
+  source_component: "button",
+  required_artifacts: [
+    "expected-tabs.json",
+    "docs.contract.json",
+    "*.story.json",
+    "component.atomic.json",
+    "*.package.json",
+    "*-complete.atomic.html",
+    "registry package item",
+    "validation reports"
+  ],
+  required_flow: [
+    "docs contract",
+    "story atoms",
+    "component atomic contract",
+    "complete package HTML",
+    "registry item",
+    "validators/report"
+  ],
+  required_validators: [
+    "validate-atomic-library",
+    "validate-token-usage",
+    "validate-primitive-usage",
+    "validate-page-pattern",
+    "validate-component-package-dom",
+    "validate-local-registry",
+    "validate-source-index"
+  ],
+  completion_policy: {
+    complete: "All docs and stories are materialized, package HTML exists, registry resolves package/stories, and validators pass.",
+    partial: "Allowed only as an explicit in-progress status. Do not register as a complete package.",
+    unsupported: "Must declare unsupported reason and fallback policy. Do not pretend unsupported widgets are official primitives."
+  },
+  time_model: timeModel
+};
+
+const storybookIndex = readJson("research/storybook/index.json");
+const contractIndex = readJson("design-system-plugin/design-system/contracts/components/component-contract-index.json");
+const primitiveIndex = readJson("design-system-plugin/design-system/primitives/primitive-index.json");
+const atomicIndex = readJsonOrNull("design-system-plugin/design-system/atomic/atomic-component-index.json") || {
+  stories: []
+};
+
+const contractsById = new Map((contractIndex.contracts || []).map((contract) => [contract.component_id, contract]));
+const primitiveIds = new Set((primitiveIndex.primitives || []).map((primitive) => primitive.id));
+const materializedStoryCounts = (atomicIndex.stories || []).reduce((acc, story) => {
+  acc[story.component_id] = (acc[story.component_id] || 0) + 1;
+  return acc;
+}, {});
+
+const componentsByTitle = new Map();
+for (const [entryId, entry] of Object.entries(storybookIndex.entries || {})) {
+  if (!entry.title?.startsWith("Components/")) continue;
+  if (!componentsByTitle.has(entry.title)) {
+    const componentId = normalizeComponentId(entry.title);
+    componentsByTitle.set(entry.title, {
+      component_id: componentId,
+      component_title: entry.title,
+      component_name: entry.title.replace(/^Components\//, ""),
+      docs: [],
+      stories: []
+    });
+  }
+  const item = componentsByTitle.get(entry.title);
+  if (entry.type === "docs") item.docs.push(entryId);
+  if (entry.type === "story") item.stories.push(entryId);
+}
+
+const components = [...componentsByTitle.values()]
+  .sort((a, b) => a.component_id.localeCompare(b.component_id))
+  .map((component) => {
+    const tier = tierForStoryCount(component.stories.length);
+    const packagePath = `design-system-plugin/design-system/atomic/components/${component.component_id}/${component.component_id}.package.json`;
+    const unsupportedPath = `design-system-plugin/design-system/atomic/components/${component.component_id}/${component.component_id}.unsupported.json`;
+    const packageJson = readJsonOrNull(packagePath);
+    const unsupportedJson = readJsonOrNull(unsupportedPath);
+    const complete =
+      Boolean(packageJson) &&
+      packageJson.coverage?.story_coverage_status === "complete" &&
+      packageJson.coverage?.expected_stories === component.stories.length &&
+      packageJson.coverage?.materialized_stories === component.stories.length;
+    const deprecated = /\bdeprecated\b/i.test(component.component_name);
+    const hookOrProvider = /\b(?:hook|provider)\b/i.test(component.component_name);
+    const materializedStories = materializedStoryCounts[component.component_id] || 0;
+    let status = "not_started";
+    if (complete) status = "complete";
+    else if (unsupportedJson?.status === "unsupported") status = "unsupported";
+    else if (packageJson) status = "package_partial";
+    else if (materializedStories > 0) status = "story_atoms_partial";
+    else if (contractsById.has(component.component_id)) status = "contract_only";
+
+    return {
+      component_id: component.component_id,
+      component_name: component.component_name,
+      storybook_title: component.component_title,
+      docs_count: component.docs.length,
+      story_count: component.stories.length,
+      tier,
+      estimated_hours: timeModel.tiers[tier].total_hours,
+      default_generation_candidate: !deprecated && !hookOrProvider && component.stories.length > 0,
+      deprecated,
+      hook_or_provider: hookOrProvider,
+      has_component_contract: contractsById.has(component.component_id),
+      has_primitive_contract: primitiveIds.has(component.component_id),
+      materialized_stories: materializedStories,
+      package_path: exists(packagePath) ? packagePath : "not_created",
+      unsupported_path: exists(unsupportedPath) ? unsupportedPath : "not_created",
+      unsupported_reason: unsupportedJson?.reason || null,
+      package_status: status,
+      missing_story_count: Math.max(0, component.stories.length - materializedStories),
+      docs_ids: component.docs,
+      story_ids: component.stories
+    };
+  });
+
+const byTier = {};
+for (const tier of Object.keys(timeModel.tiers)) {
+  const items = components.filter((component) => component.tier === tier);
+  byTier[tier] = {
+    count: items.length,
+    story_count: sum(items.map((component) => component.story_count)),
+    estimated_hours: Number(sum(items.map((component) => component.estimated_hours)).toFixed(1)),
+    complete: items.filter((component) => component.package_status === "complete").length,
+    unsupported: items.filter((component) => component.package_status === "unsupported").length,
+    remaining: items.filter((component) => (
+      component.package_status !== "complete" &&
+      component.package_status !== "unsupported"
+    )).length
+  };
+}
+
+const remainingComponents = components.filter((component) => (
+  component.package_status !== "complete" &&
+  component.package_status !== "unsupported"
+));
+const completedComponents = components.filter((component) => component.package_status === "complete");
+const unsupportedComponents = components.filter((component) => component.package_status === "unsupported");
+const estimatedRemainingHours = sum(remainingComponents.map((component) => component.estimated_hours));
+const summary = {
+  total_components: components.length,
+  total_docs: sum(components.map((component) => component.docs_count)),
+  total_stories: sum(components.map((component) => component.story_count)),
+  completed_components: completedComponents.length,
+  unsupported_components: unsupportedComponents.length,
+  accounted_components: completedComponents.length + unsupportedComponents.length,
+  remaining_components: remainingComponents.length,
+  remaining_renderable_components: remainingComponents.length,
+  unsupported_estimated_hours: Number(sum(unsupportedComponents.map((component) => component.estimated_hours)).toFixed(1)),
+  estimated_remaining_hours: Number(estimatedRemainingHours.toFixed(1)),
+  estimated_remaining_workdays_single_agent: {
+    low: Math.ceil(estimatedRemainingHours / 8),
+    high: Math.ceil(estimatedRemainingHours / 8)
+  },
+  tiers: byTier
+};
+
+const matrix = {
+  schema_version: "0.1.0",
+  generated_at: new Date().toISOString(),
+  source: {
+    storybook_index: "research/storybook/index.json",
+    component_contract_index: "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    primitive_index: "design-system-plugin/design-system/primitives/primitive-index.json",
+    atomic_index: "design-system-plugin/design-system/atomic/atomic-component-index.json"
+  },
+  standard: "design-system-plugin/design-system/atomic/component-package-standard.json",
+  summary,
+  time_model: timeModel,
+  components
+};
+
+const markdownLines = [
+  "# Component Package Coverage Matrix",
+  "",
+  `Generated at: ${matrix.generated_at}`,
+  "",
+  "## Summary",
+  "",
+  `- Components: ${summary.total_components}`,
+  `- Stories: ${summary.total_stories}`,
+  `- Complete packages: ${summary.completed_components}`,
+  `- Unsupported docs-only components: ${summary.unsupported_components}`,
+  `- Accounted components: ${summary.accounted_components}`,
+  `- Remaining packages: ${summary.remaining_components}`,
+  `- Remaining renderable packages: ${summary.remaining_renderable_components}`,
+  `- Estimated remaining hours: ${summary.estimated_remaining_hours}`,
+  `- Estimated remaining workdays, single agent: ${summary.estimated_remaining_workdays_single_agent.low}-${summary.estimated_remaining_workdays_single_agent.high}`,
+  "",
+  "## Tier Summary",
+  "",
+  "| Tier | Count | Stories | Complete | Unsupported | Remaining | Estimated Hours |",
+  "|---|---:|---:|---:|---:|---:|---:|",
+  ...Object.entries(summary.tiers).map(([tier, item]) =>
+    `| ${tier} | ${item.count} | ${item.story_count} | ${item.complete} | ${item.unsupported} | ${item.remaining} | ${item.estimated_hours} |`
+  ),
+  "",
+  "## Components",
+  "",
+  "| Component | Tier | Stories | Materialized | Status | Estimated Hours | Default Candidate |",
+  "|---|---:|---:|---:|---|---:|---|",
+  ...components.map((component) =>
+    `| ${component.component_name} | ${component.tier} | ${component.story_count} | ${component.materialized_stories} | ${component.package_status} | ${component.estimated_hours} | ${component.default_generation_candidate ? "yes" : "no"} |`
+  ),
+  ""
+];
+
+writeJson("design-system-plugin/design-system/atomic/component-package-standard.json", componentStandard);
+writeJson("design-system-plugin/design-system/atomic/component-coverage-matrix.json", matrix);
+writeJson("design-system-plugin/outputs/reports/component-coverage-matrix.report.json", {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "build-component-coverage-matrix",
+  output: "design-system-plugin/design-system/atomic/component-coverage-matrix.json",
+  summary
+});
+writeText("design-system-plugin/outputs/reports/component-coverage-matrix.md", markdownLines.join("\n"));
+
+console.log(
+  `Component coverage matrix built: ${summary.completed_components}/${summary.total_components} complete, ${summary.estimated_remaining_hours}h remaining`
+);

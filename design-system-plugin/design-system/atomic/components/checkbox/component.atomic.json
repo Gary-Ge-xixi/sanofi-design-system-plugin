@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "checkbox",
+  "component_name": "Checkbox",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-checkbox--color-variations",
+      "story_name": "Color Variations",
+      "component_id": "checkbox",
+      "component_name": "Checkbox",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--color-variations.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.color-variations.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-color-variations.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+      "docs_id": "components-checkbox--docs",
+      "registry_item": "sanofi-checkbox-color-variations-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox--default",
+      "story_name": "Default",
+      "component_id": "checkbox",
+      "component_name": "Checkbox",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+      "docs_id": "components-checkbox--docs",
+      "registry_item": "sanofi-checkbox-default-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox--sizes",
+      "story_name": "Sizes",
+      "component_id": "checkbox",
+      "component_name": "Checkbox",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--sizes.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.sizes.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-sizes.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+      "docs_id": "components-checkbox--docs",
+      "registry_item": "sanofi-checkbox-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox--with-link",
+      "story_name": "With Link",
+      "component_id": "checkbox",
+      "component_name": "Checkbox",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--with-link.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.with-link.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-with-link.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+      "docs_id": "components-checkbox--docs",
+      "registry_item": "sanofi-checkbox-with-link-atomic-story"
+    },
+    {
+      "story_id": "components-checkbox--with-subtext",
+      "story_name": "With Subtext",
+      "component_id": "checkbox",
+      "component_name": "Checkbox",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/checkbox/stories/components-checkbox--with-subtext.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/checkbox/templates/html.with-subtext.template.html",
+      "output_path": "design-system-plugin/outputs/html/checkbox-with-subtext.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/checkbox/assets/Checkbox.stories-sP0G76Lf.js",
+      "docs_id": "components-checkbox--docs",
+      "registry_item": "sanofi-checkbox-with-subtext-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-checkbox--docs"
+  }
+}

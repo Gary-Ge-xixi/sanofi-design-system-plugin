@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "carousel",
+  "component_name": "Carousel",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-carousel--carousel-one-item-view",
+      "story_name": "Carousel One Item View",
+      "component_id": "carousel",
+      "component_name": "Carousel",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--carousel-one-item-view.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.carousel-one-item-view.template.html",
+      "output_path": "design-system-plugin/outputs/html/carousel-carousel-one-item-view.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+      "docs_id": "components-carousel--docs",
+      "registry_item": "sanofi-carousel-carousel-one-item-view-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--carousel-with-card-group",
+      "story_name": "Carousel With Card Group",
+      "component_id": "carousel",
+      "component_name": "Carousel",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--carousel-with-card-group.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.carousel-with-card-group.template.html",
+      "output_path": "design-system-plugin/outputs/html/carousel-carousel-with-card-group.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+      "docs_id": "components-carousel--docs",
+      "registry_item": "sanofi-carousel-carousel-with-card-group-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--carousel-with-image",
+      "story_name": "Carousel With Image",
+      "component_id": "carousel",
+      "component_name": "Carousel",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--carousel-with-image.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.carousel-with-image.template.html",
+      "output_path": "design-system-plugin/outputs/html/carousel-carousel-with-image.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+      "docs_id": "components-carousel--docs",
+      "registry_item": "sanofi-carousel-carousel-with-image-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--default",
+      "story_name": "Default",
+      "component_id": "carousel",
+      "component_name": "Carousel",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/carousel-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+      "docs_id": "components-carousel--docs",
+      "registry_item": "sanofi-carousel-default-atomic-story"
+    },
+    {
+      "story_id": "components-carousel--rtl-carousel",
+      "story_name": "RTL Carousel",
+      "component_id": "carousel",
+      "component_name": "Carousel",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--rtl-carousel.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.rtl-carousel.template.html",
+      "output_path": "design-system-plugin/outputs/html/carousel-rtl-carousel.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+      "docs_id": "components-carousel--docs",
+      "registry_item": "sanofi-carousel-rtl-carousel-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-carousel--docs"
+  }
+}

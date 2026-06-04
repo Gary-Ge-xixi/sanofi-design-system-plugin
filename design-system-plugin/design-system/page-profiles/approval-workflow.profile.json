@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1.0",
+  "id": "approval-workflow",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "approval-workflow",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "review-and-decide",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "content-standards",
+    "interaction-state-standards",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-table",
+    "business-form"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "case-summary",
+      "approval-timeline",
+      "decision-panel",
+      "related-records"
+    ],
+    "forbidden_sections": [
+      "marketing-hero",
+      "decorative-chart"
+    ],
+    "required_attrs": [
+      "data-page-family=\"approval-workflow\"",
+      "data-business-task=\"review-and-decide\""
+    ]
+  },
+  "state_requirements": [
+    "pending",
+    "reviewing",
+    "approved",
+    "rejected",
+    "returned"
+  ]
+}

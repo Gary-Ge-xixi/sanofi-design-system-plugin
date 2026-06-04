@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "id": "token-usage",
+  "severity": "error",
+  "checks": [
+    {
+      "id": "known-elements-token-vars",
+      "description": "Every var(--elements-...) reference must exist in the token allowlist."
+    },
+    {
+      "id": "no-raw-color-values",
+      "description": "Prototype CSS must not hard-code hex, rgb, rgba, hsl, or hsla color values."
+    },
+    {
+      "id": "no-raw-pixel-values",
+      "description": "Prototype CSS must not hard-code px values."
+    },
+    {
+      "id": "tokens-css-linked",
+      "description": "The prototype must link the local Elements tokens.css file."
+    },
+    {
+      "id": "no-direct-core-color-token-values",
+      "description": "Generated prototype CSS must not directly reference --elements-color-core-* tokens; use semantic, component-specific, or data visualization color tokens instead."
+    },
+    {
+      "id": "no-green-primary-accent",
+      "description": "Green tokens are reserved for explicit success/status meanings or deliberately labeled data series; primary dashboard charts, progress fills, navigation, and main actions must use brand/accent or purple data visualization tokens."
+    }
+  ]
+}

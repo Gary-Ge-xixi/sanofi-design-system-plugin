@@ -1,0 +1,485 @@
+#!/usr/bin/env node
+const { renderTemplateHtml } = require("./render-template-html");
+
+renderTemplateHtml(process.argv.slice(2));
+process.exit(0);
+
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const resolutionPath = process.argv[2]
+  ? path.resolve(process.cwd(), process.argv[2])
+  : path.join(pluginRoot, "design-system", "contracts", "resolvers", "latest-resolution.json");
+const outputPath = process.argv[3]
+  ? path.resolve(process.cwd(), process.argv[3])
+  : path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "html-renderer.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath);
+}
+
+function primitive(resolution, id) {
+  return resolution.primitive_refs.find((item) => item.primitive_id === id) || {
+    docs_id: "unknown",
+    story_id: "unknown"
+  };
+}
+
+function attrs(resolution, primitiveId, patternId) {
+  const ref = primitive(resolution, primitiveId);
+  return [
+    `data-primitive="${primitiveId}"`,
+    `data-story-id="${ref.story_id}"`,
+    `data-source-doc-id="${ref.docs_id}"`,
+    `data-pattern="${patternId}"`,
+    `data-token-source="${resolution.source_provenance.token_source}"`
+  ].join(" ");
+}
+
+fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+fs.mkdirSync(reportDir, { recursive: true });
+
+const resolution = readJson(resolutionPath);
+const nav = attrs(resolution, "navigation-header", "admin-dashboard");
+const sidebar = attrs(resolution, "sidebar", "admin-dashboard");
+const menu = attrs(resolution, "menu", "admin-dashboard");
+const search = attrs(resolution, "search-input", "filter-toolbar");
+const select = attrs(resolution, "select", "filter-toolbar");
+const button = attrs(resolution, "button", "filter-toolbar");
+const card = attrs(resolution, "card", "kpi-summary");
+const tag = attrs(resolution, "tag", "status");
+const tabs = attrs(resolution, "tabs", "work-queue");
+const progress = attrs(resolution, "progress-bar", "kpi-summary");
+const tableFallback = resolution.fallbacks.find((item) => item.module === "table");
+const chartFallback = resolution.fallbacks.find((item) => item.module === "chart");
+
+const html = `<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>中医药后台管理首页</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-neutral);
+        font-family: Arial, sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--elements-color-semantic-background-brand-subtle);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      .app {
+        display: grid;
+        grid-template-columns: minmax(12rem, 16rem) 1fr;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .topbar {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: var(--elements-color-semantic-background-neutral);
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+      .sidebar {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--elements-color-semantic-background-neutral);
+        border-right: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+      .sidebar-header,
+      .sidebar-content,
+      .sidebar-footer {
+        min-width: 0;
+      }
+      .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .sidebar-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      .sidebar-logo-mark {
+        display: inline-grid;
+        place-items: center;
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        border-radius: 0.5rem;
+        color: var(--elements-color-semantic-text-accent-default);
+        background: var(--elements-color-semantic-background-brand-subtle);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+      .sidebar-content {
+        overflow: auto;
+      }
+      .sidebar-section {
+        display: grid;
+        gap: 0.5rem;
+      }
+      .sidebar-section-title {
+        margin: 0;
+        color: var(--elements-color-semantic-text-subtle_inverse);
+        font-size: 0.875rem;
+      }
+      .menu-list,
+      .metric-grid,
+      .queue-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .menu-list {
+        display: grid;
+        gap: 0.375rem;
+      }
+      .menu-list a,
+      .sidebar-item,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--elements-color-semantic-background-neutral);
+        text-decoration: none;
+        padding: 0.625rem 0.875rem;
+      }
+      .sidebar-item {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 0.625rem;
+      }
+      .sidebar-item[aria-current="page"] {
+        color: var(--elements-color-semantic-text-accent-default);
+        border-color: var(--elements-color-semantic-accent-default);
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+      .sidebar-item-icon {
+        display: inline-grid;
+        place-items: center;
+        min-width: 1.25rem;
+        color: var(--elements-color-semantic-text-accent-default);
+      }
+      .sidebar-nested {
+        display: grid;
+        gap: 0.25rem;
+        margin: 0.25rem 0 0.25rem 1.875rem;
+        padding: 0;
+        list-style: none;
+      }
+      .sidebar-nested a {
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+      }
+      .sidebar-user {
+        display: grid;
+        gap: 0.125rem;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        background: var(--elements-color-semantic-background-brand-subtle);
+      }
+      .sidebar-user span {
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+      .button.primary {
+        color: var(--elements-color-semantic-text-accent-default);
+        border-color: var(--elements-color-semantic-accent-default);
+      }
+      main {
+        padding: 1.5rem;
+        display: grid;
+        gap: 1.25rem;
+        min-width: 0;
+      }
+      .page-header,
+      .toolbar,
+      .panel,
+      .metric-card,
+      .queue-item {
+        background: var(--elements-color-semantic-background-neutral);
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: 0.5rem;
+      }
+      .page-header,
+      .toolbar,
+      .panel {
+        padding: 1rem;
+      }
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(14rem, 1fr) minmax(12rem, 18rem) auto;
+        gap: 1rem;
+        align-items: end;
+      }
+      label {
+        display: grid;
+        gap: 0.375rem;
+        min-width: 0;
+        color: var(--elements-color-semantic-text-subtle_inverse);
+      }
+      input,
+      select {
+        min-height: 2.5rem;
+        width: 100%;
+        min-width: 0;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: 0.5rem;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding: 0.625rem 0.875rem;
+      }
+      input:focus,
+      select:focus,
+      .button:focus-visible,
+      .tabs button:focus-visible {
+        outline: 0.1875rem solid var(--elements-color-semantic-accent-focus);
+        outline-offset: 0.125rem;
+      }
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        gap: 1rem;
+      }
+      .metric-card {
+        padding: 1rem;
+      }
+      .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .tag {
+        display: inline-flex;
+        border-radius: 999rem;
+        border: 0.0625rem solid var(--elements-color-components-tag-branded-border);
+        background: var(--elements-color-components-tag-branded-bg-subtle);
+        color: var(--elements-color-components-tag-branded-text);
+        padding: 0.25rem 0.625rem;
+        font-size: 0.875rem;
+      }
+      .tag.success {
+        border-color: var(--elements-color-components-tag-semantic_green-border);
+        background: var(--elements-color-components-tag-semantic_green-bg-solid);
+        color: var(--elements-color-components-tag-semantic_green-text-inverse);
+      }
+      .layout-grid {
+        display: grid;
+        grid-template-columns: minmax(18rem, 1fr) minmax(18rem, 0.8fr);
+        gap: 1rem;
+      }
+      .bars {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.75rem;
+        align-items: end;
+        min-height: 12rem;
+      }
+      .bar {
+        min-height: 3rem;
+        background: var(--elements-color-data-sequential-purple-3);
+        border-radius: 0.375rem 0.375rem 0 0;
+      }
+      .bar.alt {
+        background: var(--elements-color-data-sequential-blue-3);
+      }
+      .queue-list {
+        display: grid;
+        gap: 0.75rem;
+      }
+      .queue-item {
+        padding: 1rem;
+      }
+      .tabs {
+        display: flex;
+        gap: 0.5rem;
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+        margin-bottom: 1rem;
+      }
+      .tabs button {
+        border: 0;
+        background: transparent;
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding: 0.75rem 1rem;
+      }
+      .tabs button[aria-selected="true"] {
+        color: var(--elements-color-semantic-text-accent-default);
+        border-bottom: 0.1875rem solid var(--elements-color-semantic-accent-default);
+      }
+      .progress-track {
+        min-height: 0.5rem;
+        border-radius: 999rem;
+        background: var(--elements-color-semantic-background-neutral-subtle);
+      }
+      .progress-fill {
+        min-height: 0.5rem;
+        border-radius: 999rem;
+        background: var(--elements-color-semantic-accent-default);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 0.75rem;
+        border-bottom: 0.0625rem solid var(--elements-color-semantic-border-default);
+      }
+      @media (max-width: 52rem) {
+        .app,
+        .layout-grid,
+        .metric-grid,
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements" data-renderer-target="html">
+    <div class="app" data-pattern="admin-dashboard" data-source-doc-id="${resolution.source_provenance.docs_ids.join(" ")}" data-token-source="${resolution.source_provenance.token_source}">
+      <header class="topbar" ${nav}>
+        <strong>Sanofi Elements Admin</strong>
+        <a class="button" ${button} href="#">导出</a>
+      </header>
+      <aside class="sidebar" ${sidebar} data-sidebar-part="root" aria-label="应用侧边栏">
+        <div class="sidebar-header" data-sidebar-part="header" data-source-doc-id="components-sidebar--docs">
+          <span class="sidebar-logo" aria-label="Sanofi Elements">
+            <span class="sidebar-logo-mark">S</span>
+            <span>Elements Admin</span>
+          </span>
+          <button class="button" ${button} type="button" aria-label="折叠侧边栏">收起</button>
+        </div>
+        <div class="sidebar-content" data-sidebar-part="content" data-source-doc-id="components-sidebar--docs">
+          <nav ${menu} aria-label="主导航" data-sidebar-part="section">
+            <section class="sidebar-section" data-sidebar-part="section">
+              <h2 class="sidebar-section-title">Navigation</h2>
+              <ul class="menu-list" role="list">
+                <li data-sidebar-part="item"><a class="sidebar-item" href="#" aria-current="page"><span class="sidebar-item-icon">⌂</span><span>总览</span></a></li>
+                <li data-sidebar-part="item"><a class="sidebar-item" href="#"><span class="sidebar-item-icon">✓</span><span>处方队列</span></a></li>
+                <li data-sidebar-part="item">
+                  <a class="sidebar-item" href="#" aria-expanded="true"><span class="sidebar-item-icon">▦</span><span>药材库存</span></a>
+                  <ul class="sidebar-nested" role="list" data-sidebar-part="nestedItems">
+                    <li><a href="#">批次管理</a></li>
+                    <li><a href="#">近效期预警</a></li>
+                  </ul>
+                </li>
+                <li data-sidebar-part="item"><a class="sidebar-item" href="#"><span class="sidebar-item-icon">◈</span><span>质量追踪</span></a></li>
+              </ul>
+            </section>
+          </nav>
+        </div>
+        <footer class="sidebar-footer" data-sidebar-part="footer" data-source-doc-id="components-sidebar--docs">
+          <div class="sidebar-user" data-sidebar-part="userProfile">
+            <strong>Marie Curie</strong>
+            <span>marie.curie@sanofi.com</span>
+          </div>
+        </footer>
+      </aside>
+      <main data-page-pattern="admin-dashboard" data-pattern="admin-dashboard" data-source-doc-id="${resolution.source_provenance.docs_ids.join(" ")}" data-token-source="${resolution.source_provenance.token_source}">
+        <section class="page-header" data-pattern="page-header-fallback" data-source-doc-id="components-pageheader--docs" data-fallback-reason="PageHeader docs exist but no primitive contract is registered yet.">
+          <h1>中医药后台管理首页</h1>
+          <p>按 resolver 输出组合 Elements primitives，Table 和 Chart 明确作为 fallback。</p>
+        </section>
+        <section class="toolbar" data-pattern="filter-toolbar" data-source-doc-id="components-searchinput--docs components-select--docs components-button--docs">
+          <label>搜索<input ${search} type="search" placeholder="处方、药材或供应商"></label>
+          <label>状态<select ${select}><option>全部状态</option><option>待审核</option><option>运行中</option></select></label>
+          <button class="button primary" ${button} type="button">查询</button>
+        </section>
+        <ul class="metric-grid" data-pattern="kpi-summary" data-source-doc-id="components-card--docs components-tag--docs components-progressbar--docs">
+          <li><article class="metric-card" ${card}><span class="tag" ${tag} data-variant="branded">需处理</span><div class="metric-value">128</div><p>高风险用药提醒 6 条</p></article></li>
+          <li><article class="metric-card" ${card}><span class="tag success" ${tag} data-variant="semantic-success">运行中</span><div class="metric-value">342</div><p>平均完成时长 38 分钟</p></article></li>
+          <li><article class="metric-card" ${card}><span class="tag" ${tag} data-variant="branded">库存预警</span><div class="metric-value">19</div><p>近效期药材 7 个批次</p></article></li>
+          <li><article class="metric-card" ${card}><span class="tag success" ${tag} data-variant="semantic-success">稳定</span><div class="metric-value">96.8%</div><div class="progress-track" ${progress} role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width: 96%;"></div></div></article></li>
+        </ul>
+        <section class="layout-grid">
+          <article class="panel" data-pattern="chart-fallback" data-source-doc-id="foundations-colors--docs" data-fallback-module="chart" data-fallback-reason="${chartFallback.reason}">
+            <h2>药材质检趋势</h2>
+            <p>Chart 未注册为官方 primitive，使用 token-only fallback，不声明官方组件。</p>
+            <div class="bars" aria-label="质检通过率趋势">
+              <span class="bar" style="height: 64%;"></span>
+              <span class="bar alt" style="height: 48%;"></span>
+              <span class="bar" style="height: 72%;"></span>
+              <span class="bar" style="height: 58%;"></span>
+              <span class="bar" style="height: 78%;"></span>
+              <span class="bar alt" style="height: 52%;"></span>
+              <span class="bar" style="height: 86%;"></span>
+            </div>
+          </article>
+          <article class="panel" data-pattern="work-queue" data-source-doc-id="components-card--docs components-tag--docs components-tabs--docs">
+            <div class="tabs" ${tabs} role="tablist">
+              <button role="tab" aria-selected="true">待处理</button>
+              <button role="tab" aria-selected="false">已完成</button>
+            </div>
+            <ul class="queue-list">
+              <li class="queue-item"><span class="tag" ${tag} data-variant="branded">8 单</span><h3>处方审核超时</h3><p>含孕妇禁忌、儿童剂量和十八反提示。</p></li>
+              <li class="queue-item"><span class="tag" ${tag} data-variant="branded">5 家</span><h3>供应商资质待复核</h3><p>两家供应商许可证将在本月到期。</p></li>
+            </ul>
+          </article>
+        </section>
+        <section class="panel" data-pattern="data-table-fallback" data-source-doc-id="components-tag--docs components-button--docs" data-fallback-module="table" data-fallback-reason="${tableFallback.reason}">
+          <h2>库存与批次</h2>
+          <p>Table 未注册为官方 primitive，使用 token-only fallback，不声明官方组件。</p>
+          <table>
+            <thead><tr><th>药材</th><th>批次</th><th>余量</th><th>状态</th></tr></thead>
+            <tbody>
+              <tr><td>黄芪</td><td>HQ-2605</td><td>42 kg</td><td><span class="tag" ${tag} data-variant="branded">低库存</span></td></tr>
+              <tr><td>当归</td><td>DG-2604</td><td>18 kg</td><td><span class="tag" ${tag} data-variant="branded">近效期</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+`;
+
+fs.writeFileSync(outputPath, html);
+
+const report = {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "render-resolved-html",
+  generated_at: new Date().toISOString(),
+  input: rel(resolutionPath),
+  output: rel(outputPath),
+  checked: {
+    renderer_target: resolution.renderer_target,
+    sections: resolution.sections.length,
+    required_primitives: resolution.required_primitives.length,
+    fallback_modules: resolution.fallbacks.map((item) => item.module)
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+console.log(`HTML renderer OK: ${rel(outputPath)}`);

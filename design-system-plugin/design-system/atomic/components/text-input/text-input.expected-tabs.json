@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "text-input",
+  "component_name": "TextInput",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/TextInput"
+  },
+  "docs": [
+    {
+      "id": "components-textinput--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/TextInput/TextInput.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-textinput--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--default-inverse",
+      "name": "Default Inverse",
+      "export_name": "DefaultInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--disabled-inverse",
+      "name": "Disabled Inverse",
+      "export_name": "DisabledInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--error-inverse",
+      "name": "Error Inverse",
+      "export_name": "ErrorInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--error-state",
+      "name": "Error State",
+      "export_name": "ErrorState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--filled",
+      "name": "Filled",
+      "export_name": "Filled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--filled-inverse",
+      "name": "Filled Inverse",
+      "export_name": "FilledInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--success-inverse",
+      "name": "Success Inverse",
+      "export_name": "SuccessInverse",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--success-state",
+      "name": "Success State",
+      "export_name": "SuccessState",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--type-email",
+      "name": "Type Email",
+      "export_name": "TypeEmail",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--type-password",
+      "name": "Type Password",
+      "export_name": "TypePassword",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--type-tel",
+      "name": "Type Tel",
+      "export_name": "TypeTel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    },
+    {
+      "id": "components-textinput--with-tooltip",
+      "name": "With Tooltip",
+      "export_name": "WithTooltip",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TextInput/TextInput.stories.tsx"
+    }
+  ]
+}

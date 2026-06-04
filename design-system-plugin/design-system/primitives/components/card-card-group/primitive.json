@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card/CardGroup",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Card/CardGroup",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "card-card-group",
+      "data_attribute": "data-primitive=\"card-card-group\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-card-cardgroup--card-grids-group",
+      "components-card-cardgroup--card-grids-group-picto"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-cardgroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

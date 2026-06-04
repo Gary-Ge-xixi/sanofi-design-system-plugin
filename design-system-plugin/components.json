@@ -1,0 +1,83 @@
+{
+  "$schema": "./design-system/registry/schemas/local-components.schema.json",
+  "schema_version": "0.1.0",
+  "name": "sanofi-elements-local-html",
+  "renderer_target": "html",
+  "registry": {
+    "primary": "./design-system/registry/registry.json",
+    "items": "./design-system/registry/items",
+    "source_mode": "local-first",
+    "remote_refresh_policy": "replace remote source URLs, rebuild local docs/contracts, then rebuild registry"
+  },
+  "source_priority": [
+    "local DESIGN.md AI-readable design interface",
+    "local registry items",
+    "local component contracts",
+    "local Storybook Markdown docs",
+    "local token CSS and semantic map",
+    "remote Storybook or GitHub source URLs"
+  ],
+  "aliases": {
+    "design_md": "./design-system/DESIGN.md",
+    "html": "./outputs/html",
+    "reports": "./outputs/reports",
+    "tokens": "./design-system/tokens",
+    "registry": "./design-system/registry",
+    "atomic": "./design-system/atomic",
+    "brand_assets": "./design-system/assets/brand",
+    "contracts": "./design-system/contracts",
+    "component_runtime": "./component-runtime",
+    "page_modules": "./design-system/contracts/page-modules",
+    "knowledge": "./design-system/knowledge",
+    "patterns": "./design-system/patterns",
+    "policies": "./design-system/policies",
+    "reference_fit": "./design-system/reference-fit",
+    "rules": "./design-system/rules",
+    "templates": "./design-system/templates",
+    "business_standards": "./design-system/business",
+    "cursor_rules": "../.cursor/rules"
+  },
+  "commands": {
+    "build_registry": "./scripts/build-local-registry",
+    "materialize_story_atom": "./scripts/materialize-story-atom",
+    "build_atomic_library": "./scripts/build-atomic-library",
+    "validate_atomic_library": "./scripts/validate-atomic-library",
+    "render_atomic_html": "./scripts/render-atomic-html",
+    "search_registry": "./scripts/search-local-registry",
+    "validate_registry": "./scripts/validate-local-registry",
+    "validate_design_md": "./scripts/validate-design-md",
+    "validate_component_runtime": "./scripts/validate-component-runtime",
+    "validate_admin_delivery_contract": "./scripts/validate-admin-delivery-contract",
+    "preflight_component_runtime": "./component-runtime/scripts/preflight-elements-package.mjs",
+    "validate_admin_page_profile": "./scripts/validate-admin-page-profile",
+    "validate_reference_fit": "./scripts/validate-reference-fit",
+    "validate_elevation_usage": "./scripts/validate-elevation-usage",
+    "validate_page_layout_typography": "./scripts/validate-page-layout-typography",
+    "validate_app_shell_scroll": "./scripts/validate-app-shell-scroll",
+    "validate_icon_usage": "./scripts/validate-icon-usage",
+    "validate_information_aggregation_page": "./scripts/validate-information-aggregation-page",
+    "validate_business_planning_target_adjustment": "./scripts/validate-business-planning-target-adjustment-page",
+    "validate_business_planning_target_adjustment_visual_details": "./scripts/validate-business-planning-target-adjustment-visual-details",
+    "validate_business_standards": "./scripts/validate-business-standards",
+    "business_standards": "./scripts/business-standards",
+    "render_business_page_examples": "./scripts/render-business-page-examples",
+    "validate_business_page_examples": "./scripts/validate-business-page-examples",
+    "measure_business_page_examples": "./scripts/measure-business-page-examples",
+    "resolve_pattern": "./scripts/resolve-pattern",
+    "render_dashboard_html": "./scripts/render-dashboard-template-html",
+    "render_html": "./scripts/render-resolved-html",
+    "render_oneorbit_html": "./scripts/render-oneorbit-reference-html",
+    "resolve_oneorbit_component_sources": "./scripts/resolve-oneorbit-component-sources",
+    "validate_oneorbit_delivery": "./scripts/validate-oneorbit-delivery"
+  },
+  "remote_sources": {
+    "storybook_base_url": "https://elements.prod.accelerator.sanofi/",
+    "primary_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/getting-started--docs",
+    "colors_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/foundations-colors--docs",
+    "brand_assets_url": "https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets",
+    "notes": [
+      "Normal generation should not call remote pages.",
+      "When upstream changes, refresh local Markdown/contracts/tokens first, then rebuild the registry."
+    ]
+  }
+}

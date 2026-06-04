@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-select-complete-package",
+  "title": "ChipSelect complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ChipSelect package covering Docs plus all Storybook story atoms.",
+  "component_id": "chip-select",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-select"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/chip-select.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/chip-select.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/chip-select.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/chip-select.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/docs/chip-select.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/docs/chip-select.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-select/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-select/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/chip-select-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/chip-select-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-select.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipselect--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipselect--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chipselect--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-select-default-atomic-story"
+    },
+    {
+      "story_id": "components-chipselect--long-label",
+      "story_name": "Long Label",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-select-long-label-atomic-story"
+    },
+    {
+      "story_id": "components-chipselect--style-variations",
+      "story_name": "Style Variations",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-select-style-variations-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipselect--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-select/chip-select.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-select/docs/chip-select.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-select",
+      "ChipSelect",
+      "chip-select complete",
+      "ChipSelect complete package",
+      "chip-select docs"
+    ],
+    "when_to_use": "Use first for any ChipSelect generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ChipSelect behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

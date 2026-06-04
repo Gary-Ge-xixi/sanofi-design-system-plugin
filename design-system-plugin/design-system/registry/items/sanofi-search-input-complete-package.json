@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-search-input-complete-package",
+  "title": "SearchInput complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local SearchInput package covering Docs plus all Storybook story atoms.",
+  "component_id": "search-input",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-search-input"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/search-input.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/search-input.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/search-input.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/search-input.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/docs/search-input.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/docs/search-input.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/search-input-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/search-input-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/search-input.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/search-input/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-searchinput--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-default-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--error-state",
+      "story_name": "Error State",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-error-state-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--inverse",
+      "story_name": "Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--sizes",
+      "story_name": "Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--submit-variant",
+      "story_name": "Submit Variant",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-submit-variant-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--submit-variant-sizes",
+      "story_name": "Submit Variant Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-submit-variant-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--submit-with-button-icon",
+      "story_name": "Submit With Button Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-submit-with-button-icon-atomic-story"
+    },
+    {
+      "story_id": "components-searchinput--submit-with-custom-buttons",
+      "story_name": "Submit With Custom Buttons",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-search-input-submit-with-custom-buttons-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/search-input/search-input.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/search-input/docs/search-input.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "search-input",
+      "SearchInput",
+      "search-input complete",
+      "SearchInput complete package",
+      "search-input docs"
+    ],
+    "when_to_use": "Use first for any SearchInput generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer SearchInput behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

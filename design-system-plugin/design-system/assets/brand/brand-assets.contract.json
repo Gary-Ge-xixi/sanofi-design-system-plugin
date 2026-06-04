@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "id": "brand-assets",
+  "status": "ready",
+  "source": {
+    "docs_url": "https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets",
+    "cdn_url": "https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg",
+    "capture_status": "official-cdn-asset-copied"
+  },
+  "assets": [
+    {
+      "id": "sanofi-logo-full",
+      "type": "logo",
+      "format": "svg",
+      "intrinsic_size": {
+        "width": 94,
+        "height": 24
+      },
+      "sha256": "32690bd399362d3fbf0cc156496c0c274a29db609e794f5309b64d53a5d07e90",
+      "path": "design-system-plugin/design-system/assets/brand/sanofi-logo-full.svg",
+      "usage": "Use for top-left Sanofi brand lockup in admin HTML. Do not recreate the logo with text, CSS dots, or inline glyphs."
+    }
+  ],
+  "rules": [
+    "Logo must be referenced from the fixed brand asset package.",
+    "Renderer must mark visible logo usage with data-brand-asset-id=\"sanofi-logo-full\".",
+    "Do not render the Sanofi logo as .brand-word, text-only markup, or handwritten vector unless it is the fixed asset file."
+  ]
+}

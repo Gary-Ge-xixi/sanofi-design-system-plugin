@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-textarea--default",
+  "component_id": "text-area",
+  "component_name": "TextArea",
+  "story_id": "components-textarea--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-textarea--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-textarea--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TextArea.stories-Dzrot5qL.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/text-area/assets/TextArea.stories-Dzrot5qL.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/text-area/assets/components-textarea--default.iframe.html",
+    "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+    "component_path": "./src/components/TextArea/TextArea.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{id:\"text-area-id\",label:\"Text Area\",subText:\"This is a helper text\",state:l.DEFAULT,inverse:!1,disabled:!1,required:!1,placeholder:\"Placeholder\",maxLength:240,showCharacterCount:!0,size:s.LARGE,filledStateIcon:!1,onBlur:()=>console.log(\"blur\")}",
+    "values": {
+      "id": "text-area-id",
+      "label": "Text Area",
+      "subText": "This is a helper text",
+      "state": "default",
+      "inverse": false,
+      "disabled": false,
+      "required": false,
+      "placeholder": "Placeholder",
+      "maxLength": 240,
+      "showCharacterCount": true,
+      "size": "large",
+      "filledStateIcon": false,
+      "onBlur": {
+        "extraction_status": "raw_expression",
+        "value": "()=>console.log(\"blur\")"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{size:{control:{type:\"select\"},options:Object.values(s)}}",
+    "fields": [
+      "size"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    id: \"text-area-id\",\n    label: \"Text Area\",\n    subText: \"This is a helper text\",\n    state: FormControlState.DEFAULT,\n    inverse: false,\n    disabled: false,\n    required: false,\n    placeholder: \"Placeholder\",\n    maxLength: 240,\n    showCharacterCount: true,\n    size: TextAreaSize.LARGE,\n    filledStateIcon: false,\n    onBlur: () => console.log(\"blur\")\n  }\n}",
+    "story_object_source": "{args:{id:\"text-area-id\",label:\"Text Area\",subText:\"This is a helper text\",state:l.DEFAULT,inverse:!1,disabled:!1,required:!1,placeholder:\"Placeholder\",maxLength:240,showCharacterCount:!0,size:s.LARGE,filledStateIcon:!1,onBlur:()=>console.log(\"blur\")}}"
+  },
+  "template": {
+    "id": "text-area-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/text-area/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/text-area-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "text-area",
+    "local_path": "design-system-plugin/design-system/primitives/components/text-area/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-textarea--docs",
+    "story_id": "components-textarea--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/text-area/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/text-area/assets/TextArea.stories-Dzrot5qL.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/text-area/assets/components-textarea--default.iframe.html"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-information-aggregation",
+  "title": "Sanofi information aggregation page template",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "A multi-module information aggregation page template combining query filters, dashboard summary, chart context, record list, and pagination.",
+  "pattern_id": "information-aggregation",
+  "template_id": "information-aggregation",
+  "page_subtype": "information-aggregation-page",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    "sanofi-container",
+    "sanofi-grid",
+    "sanofi-navigation-header",
+    "sanofi-sidebar",
+    "sanofi-menu",
+    "sanofi-icon",
+    "sanofi-search-input",
+    "sanofi-select",
+    "sanofi-date-picker",
+    "sanofi-button",
+    "sanofi-card",
+    "sanofi-tag",
+    "sanofi-pagination"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/patterns/information-aggregation/information-aggregation.pattern.json",
+      "role": "pattern",
+      "target": "design-system-plugin/design-system/patterns/information-aggregation/information-aggregation.pattern.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/templates/information-aggregation.template.json",
+      "role": "template",
+      "target": "design-system-plugin/design-system/templates/information-aggregation.template.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/page-profiles/information-aggregation.profile.json",
+      "role": "page-profile",
+      "target": "design-system-plugin/design-system/page-profiles/information-aggregation.profile.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/information-aggregation-page.json",
+      "role": "page-rule",
+      "target": "design-system-plugin/design-system/rules/information-aggregation-page.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/form-usage.json",
+      "role": "form-rule",
+      "target": "design-system-plugin/design-system/rules/form-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/chart-usage.json",
+      "role": "chart-rule",
+      "target": "design-system-plugin/design-system/rules/chart-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/table-usage.json",
+      "role": "table-rule",
+      "target": "design-system-plugin/design-system/rules/table-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+      "role": "reference-fit-rule",
+      "target": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "role": "fallback-policy",
+      "target": "design-system-plugin/design-system/policies/fallback-policy.json"
+    }
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "date-picker",
+    "button",
+    "card",
+    "tag",
+    "pagination"
+  ],
+  "optional_primitives": [],
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "information-aggregation-page",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "chart-usage",
+    "table-usage",
+    "form-usage",
+    "business-page-family-reference-fit"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern"
+    },
+    {
+      "module": "chart",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "unsupported-chart-types-fallback"
+    }
+  ],
+  "source_provenance": {
+    "pattern_id": "information-aggregation",
+    "template_id": "information-aggregation",
+    "page_profile": "design-system-plugin/design-system/page-profiles/information-aggregation.profile.json",
+    "page_rule": "design-system-plugin/design-system/rules/information-aggregation-page.json",
+    "form_contract": "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+    "chart_contract": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+    "table_contract": "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "信息聚合",
+      "聚合查询",
+      "query dashboard list",
+      "aggregation",
+      "查询列表看板"
+    ],
+    "when_to_use": "Use when a prompt asks for a page that combines query filters, dashboard summary, chart context, records, and pagination.",
+    "unsupported_behavior": "Do not deliver a dashboard-only or list-only page for information aggregation requests."
+  }
+}

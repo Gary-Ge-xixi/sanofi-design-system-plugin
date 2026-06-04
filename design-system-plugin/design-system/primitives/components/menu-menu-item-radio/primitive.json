@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Menu/MenuItemRadio",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Menu/MenuItemRadio",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "menu-menu-item-radio",
+      "data_attribute": "data-primitive=\"menu-menu-item-radio\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-menu-menuitemradio--checked",
+      "components-menu-menuitemradio--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemradio--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

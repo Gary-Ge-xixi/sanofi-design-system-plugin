@@ -1,0 +1,20 @@
+{
+  "name": "@local/sanofi-design-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Internal runtime boundary for rendering Sanofi Elements component specs into hydrated HTML.",
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./contract": "./component-runtime.contract.json",
+    "./admin-dashboard-spec": "./specs/admin-dashboard.component-spec.json"
+  },
+  "peerDependencies": {
+    "@sanofi-accelerator/elements": ">=3.0.0"
+  },
+  "scripts": {
+    "preflight": "node ./scripts/preflight-elements-package.mjs",
+    "validate:component-runtime": "node ../scripts/validate-component-runtime ../outputs/html/admin-dashboard.resolved.html"
+  }
+}

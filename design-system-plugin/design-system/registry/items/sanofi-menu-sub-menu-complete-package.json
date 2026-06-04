@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-sub-menu-complete-package",
+  "title": "Menu/SubMenu complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Menu/SubMenu package covering Docs plus all Storybook story atoms.",
+  "component_id": "menu-sub-menu",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu-sub-menu"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/menu-sub-menu.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/menu-sub-menu.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/menu-sub-menu.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/menu-sub-menu.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/docs/menu-sub-menu.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/docs/menu-sub-menu.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-sub-menu/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-sub-menu/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/menu-sub-menu-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/menu-sub-menu-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 1,
+    "materialized_stories": 1,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-menu-submenu--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-menu-sub-menu-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-submenu--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/menu-sub-menu/menu-sub-menu.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/menu-sub-menu/docs/menu-sub-menu.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-sub-menu/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-sub-menu",
+      "Menu/SubMenu",
+      "menu-sub-menu complete",
+      "Menu/SubMenu complete package",
+      "menu-sub-menu docs"
+    ],
+    "when_to_use": "Use first for any Menu/SubMenu generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Menu/SubMenu behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

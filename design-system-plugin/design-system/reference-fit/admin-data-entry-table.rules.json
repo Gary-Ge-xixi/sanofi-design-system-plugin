@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-data-entry-table-reference-fit",
+  "status": "ready",
+  "severity": "error",
+  "profile_id": "admin-data-entry-table",
+  "source_provenance": {
+    "reference_type": "OneCommercial backend screenshots",
+    "page_profile": "../page-profiles/admin-data-entry-table.profile.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "static_fit_contract": {
+    "required_body_attributes": [
+      "data-page-profile=\"admin-data-entry-table\"",
+      "data-reference-fit=\"admin-data-entry-table\"",
+      "data-density=\"admin-compact\""
+    ],
+    "required_css_fragments": [
+      "grid-template-columns: var(--admin-density-sidebar-width) minmax(0, 1fr)",
+      "grid-template-rows: var(--admin-density-topbar-height) minmax(0, 1fr)",
+      "grid-template-columns: repeat(4, minmax(10rem, 1fr)) auto auto auto",
+      "min-block-size: var(--admin-density-control-height)",
+      "padding: var(--admin-density-toolbar-padding)",
+      "min-inline-size: var(--admin-density-table-min-width)",
+      "position: sticky; inset-block-end: 0"
+    ],
+    "forbidden_css_fragments": [
+      "background: #",
+      "color: #",
+      "border-color: #",
+      "@media (max-width: 90rem) { .query-toolbar"
+    ]
+  },
+  "dom_fit_contract": {
+    "required_counts": {
+      "filter_fields": 4,
+      "query_toolbar_buttons": 3,
+      "primary_action_buttons": 3,
+      "table_columns": 6,
+      "minimum_table_body_rows": 7,
+      "top_level_navigation_items": 5
+    },
+    "required_order": [
+      "breadcrumb",
+      "query-toolbar",
+      "primary-actions",
+      "editable-data-table-fallback",
+      "pagination",
+      "save-bar"
+    ],
+    "desktop_behavior": [
+      "Sidebar remains visible above tablet breakpoint.",
+      "Filter toolbar uses four filter controls followed by three actions.",
+      "Save bar is sticky and separated from table content."
+    ]
+  },
+  "screenshot_gate": {
+    "status": "manual-first-pass",
+    "viewports": [
+      {
+        "name": "desktop-reference",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "name": "wide-reference",
+        "width": 2048,
+        "height": 1152
+      },
+      {
+        "name": "tablet-review",
+        "width": 919,
+        "height": 862
+      }
+    ],
+    "first_pass_policy": "This version validates static DOM/CSS fit and then requires a browser screenshot review before acceptance."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tag--overview",
+  "component_id": "tag",
+  "component_name": "Tag",
+  "story_id": "components-tag--overview",
+  "story_name": "Overview",
+  "export_name": "Overview",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tag--overview&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tag--overview&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tag.stories-Ck5BqzWM.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tag/assets/components-tag--overview.iframe.html",
+    "import_path": "./src/components/Tag/Tag.stories.tsx",
+    "component_path": "./src/components/Tag/Tag.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{color:{control:\"select\",options:[...Object.values(i),...Object.values(n)]},variant:{control:\"select\",options:Object.values(l)},size:{control:\"select\",options:Object.values(t)},icon:{control:\"select\",options:[void 0,...Object.values(o)]}}",
+    "fields": [
+      "color",
+      "variant",
+      "size",
+      "icon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  tags: [\"isHidden\", \"!autodocs\"],\n  render: () => <div style={{\n    display: \"flex\",\n    flexDirection: \"column\",\n    gap: \"var(--elements-spacing-3xl)\"\n  }}>\n      <div style={grid}>\n        <div />\n        {allVariants.map(v => <div key={v} style={header}>\n            {v}\n          </div>)}\n\n        {Object.values(TagCategoricalColor).map(color => <Fragment key={color}>\n            <div style={rowLabel}>{color}</div>\n            {allVariants.map(variant => <div key={\\`\\${color}-\\${variant}\\`} style={cell}>\n                {allSizes.map(size => <Tag key={size} color={color} variant={variant} size={size}>\n                    Label\n                  </Tag>)}\n              </div>)}\n          </Fragment>)}\n      </div>\n\n      <div style={grid}>\n        <div />\n        {allVariants.map(v => <div key={v} style={header}>\n            {v}\n          </div>)}\n\n        {Object.values(TagSemanticColor).map(color => <Fragment key={color}>\n            <div style={rowLabel}>{semanticLabels[color]}</div>\n            {allVariants.map(variant => <div key={\\`\\${color}-\\${variant}\\`} style={cell}>\n                {allSizes.map(size => <Tag key={size} color={color} variant={variant} size={size} icon={semanticIcons[color]}>\n                    {semanticLabels[color]}\n                  </Tag>)}\n              </div>)}\n          </Fragment>)}\n      </div>\n    </div>\n}",
+    "story_object_source": "{tags:[\"isHidden\",\"!autodocs\"],render:()=>e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"var(--elements-spacing-3xl)\"},children:[e.jsxs(\"div\",{style:S,children:[e.jsx(\"div\",{}),u.map(a=>e.jsx(\"div\",{style:L,children:a},a)),Object.values(i).map(a=>e.jsxs(j.Fragment,{children:[e.jsx(\"div\",{style:h,children:a}),u.map(r=>e.jsx(\"div\",{style:C,children:E.map(c=>e.jsx(s,{color:a,variant:r,size:c,children:\"Label\"},c))},`${a}-${r}`))]},a))]}),e.jsxs(\"div\",{style:S,children:[e.jsx(\"div\",{}),u.map(a=>e.jsx(\"div\",{style:L,children:a},a)),Object.values(n).map(a=>e.jsxs(j.Fragment,{children:[e.jsx(\"div\",{style:h,children:y[a]}),u.map(r=>e.jsx(\"div\",{style:C,children:E.map(c=>e.jsx(s,{color:a,variant:r,size:c,icon:b[a],children:y[a]},c))},`${a}-${r}`))]},a))]})]})}"
+  },
+  "template": {
+    "id": "tag-overview-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tag/templates/html.overview.template.html",
+    "output_path": "design-system-plugin/outputs/html/tag-overview.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tag",
+    "local_path": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tag--docs",
+    "story_id": "components-tag--overview",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tag/assets/components-tag--overview.iframe.html"
+  }
+}

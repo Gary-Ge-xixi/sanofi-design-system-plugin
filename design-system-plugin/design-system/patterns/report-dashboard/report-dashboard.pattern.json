@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "id": "report-dashboard",
+  "status": "ready",
+  "renderer_target": "html",
+  "template_id": "report-dashboard",
+  "page_profile": "report-dashboard",
+  "page_family": "report-dashboard",
+  "page_subtype": "report-dashboard-page",
+  "required_sections": [
+    "breadcrumb",
+    "filter-toolbar",
+    "kpi-summary",
+    "chart-region",
+    "data-table-fallback"
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "button",
+    "card",
+    "tag"
+  ],
+  "optional_primitives": [
+    "tabs",
+    "progress-bar"
+  ],
+  "required_module_contracts": [
+    "business-chart",
+    "business-table"
+  ],
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "chart-usage",
+    "table-usage",
+    "density-standards",
+    "admin-delivery-contract",
+    "admin-dashboard-chart-reference-fit"
+  ],
+  "delivery_contract": {
+    "id": "admin-dashboard-desktop-delivery",
+    "viewport_policy": "desktop-only",
+    "default_screenshot_viewports": [
+      {
+        "name": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "mobile_delivery": "explicit-request-only",
+    "required_asset_primitives": [
+      "icon"
+    ],
+    "required_icon_story_id": "components-icon--gallery",
+    "forbidden_responsive_fragments": [
+      "@media",
+      "max-width",
+      "min-width"
+    ],
+    "forbidden_story_ids": [
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-navigationheader--mobile-view"
+    ],
+    "forbidden_behavior": [
+      "breakpoint-based sidebar hiding",
+      "breakpoint-based one-column dashboard layout",
+      "text glyph fallback for navigation icons"
+    ],
+    "allowed_page_markers": [
+      "meta name=\"viewport\""
+    ]
+  },
+  "fallbacks": [
+    {
+      "module": "table",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "token-only-pattern"
+    },
+    {
+      "module": "chart",
+      "policy": "../../policies/fallback-policy.json",
+      "status": "unsupported-chart-types-fallback"
+    }
+  ],
+  "source_provenance": {
+    "page_profile": "../../page-profiles/report-dashboard.profile.json",
+    "template": "../../templates/report-dashboard.template.json",
+    "business_chart_contract": "../../contracts/page-modules/business-chart.contract.json",
+    "reference_fit": "../../reference-fit/admin-dashboard-chart.rules.json"
+  }
+}

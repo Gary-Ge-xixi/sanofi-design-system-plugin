@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-sidebar--fully-collapsible-controlled",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "story_id": "components-sidebar--fully-collapsible-controlled",
+  "story_name": "Fully Collapsible Controlled",
+  "export_name": "FullyCollapsibleControlled",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-sidebar--fully-collapsible-controlled&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-sidebar--fully-collapsible-controlled&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Sidebar.stories-B82TPxCS.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--fully-collapsible-controlled.iframe.html",
+    "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{collapsible:{control:\"boolean\",description:\"Enable collapse/expand functionality\"},defaultCollapsed:{control:\"boolean\",description:\"Initial collapsed state\"},sticky:{control:\"boolean\",description:\"Sticky positioning at top of viewport\"},fullyCollapsible:{control:\"boolean\",description:\"Completely hide sidebar when collapsed (zero width). Use with controlled mode.\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoSmallSrc:{control:{type:\"file\",accept:\".png,.svg\"}}}",
+    "fields": [
+      "collapsible",
+      "defaultCollapsed",
+      "sticky",
+      "fullyCollapsible",
+      "logoSrc",
+      "logoSmallSrc"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: function Render() {\n    const sanofiLogo = useGetSanofiLogo();\n    const [collapsed, setCollapsed] = useState<boolean>(false);\n    return <Flex style={{\n      height: \"100vh\"\n    }}>\n        <Sidebar.Root collapsible fullyCollapsible collapsed={collapsed}>\n          <Sidebar.Content>\n            <Sidebar.Section title=\"Navigation\">\n              <Sidebar.Item icon={IconName.HOME}>Home</Sidebar.Item>\n              <Sidebar.Item icon={IconName.SETTINGS}>Settings</Sidebar.Item>\n            </Sidebar.Section>\n\n            <Sidebar.Section title=\"Projects\">\n              <Sidebar.Item icon={IconName.FOLDER} expandable nestedItems={[<Sidebar.Item key=\"1\">Overview</Sidebar.Item>, <Sidebar.Item key=\"2\">Tasks</Sidebar.Item>, <Sidebar.Item key=\"3\">Documents</Sidebar.Item>]}>\n                Project Alpha\n              </Sidebar.Item>\n              <Sidebar.Item icon={IconName.FOLDER} expandable nestedItems={[<Sidebar.Item key=\"1\">Overview</Sidebar.Item>, <Sidebar.Item key=\"2\">Tasks</Sidebar.Item>]}>\n                Project Beta\n              </Sidebar.Item>\n              <Sidebar.Item icon={IconName.FOLDER} expandable nestedItems={[<Sidebar.Item key=\"1\">Overview</Sidebar.Item>, <Sidebar.Item key=\"2\">Tasks</Sidebar.Item>, <Sidebar.Item key=\"3\">Reports</Sidebar.Item>, <Sidebar.Item key=\"4\">Settings</Sidebar.Item>]}>\n                Project Gamma\n              </Sidebar.Item>\n            </Sidebar.Section>\n          </Sidebar.Content>\n\n          <Sidebar.Footer>\n            <Sidebar.Item icon={IconName.SETTINGS}>Settings</Sidebar.Item>\n            <Sidebar.Item icon={IconName.HELP}>Help Center</Sidebar.Item>\n            <Sidebar.UserProfile name=\"Marie Curie\" email=\"marie.curie@sanofi.com\" avatarSrc={\\`\\${SANOFI_ELEMENTS_CDN_URL}/images/Marie-Curie-avatar.jpeg\\`} icon={<Icon name={IconName.LOGOUT} />} tooltip=\"Log out\" />\n          </Sidebar.Footer>\n        </Sidebar.Root>\n\n        <Flex direction=\"column\" flex={1}>\n          <NavigationHeader.Root sticky={false} logo={<Flex align=\"center\" gap=\"xs\">\n                <Sidebar.CollapseToggle collapsed={collapsed} onClick={() => setCollapsed(prev => !prev)} collapsedIcon={IconName.DOCK_TO_LEFT} expandedIcon={IconName.DOCK_TO_RIGHT} />\n                <Image src={sanofiLogo} alt=\"Sanofi Logo\" style={{\n            width: \"80px\"\n          }} />\n              </Flex>}>\n            <NavigationHeader.EndContent>\n              <NavigationHeader.Item>\n                <Typography color={TypographyColor.DEFAULT}>\n                  App Header\n                </Typography>\n              </NavigationHeader.Item>\n            </NavigationHeader.EndContent>\n          </NavigationHeader.Root>\n\n          <Flex flex={1} direction=\"column\" style={{\n          padding: \"var(--elements-spacing-3xl)\"\n        }}>\n            <Typography color={TypographyColor.DEFAULT}>\n              <strong>Fully Collapsible - Controlled Mode:</strong>\n            </Typography>\n            <br />\n            <Typography color={TypographyColor.DEFAULT}>\n              This example demonstrates <strong>controlled mode</strong> where\n              the sidebar is on the left and pushes the NavigationHeader when\n              expanded.\n            </Typography>\n            <br />\n            <Typography color={TypographyColor.DEFAULT}>\n              <strong>Try this:</strong>\n            </Typography>\n            <ul style={{\n            marginInlineStart: \"var(--elements-spacing-xl)\"\n          }}>\n              <li>\n                <Typography color={TypographyColor.DEFAULT}>\n                  <strong>Click the toggle</strong> in the header to\n                  collapse/expand the sidebar\n                </Typography>\n              </li>\n              <li>\n                <Typography color={TypographyColor.DEFAULT}>\n                  The NavigationHeader is pushed by the sidebar\n                </Typography>\n              </li>\n            </ul>\n          </Flex>\n        </Flex>\n      </Flex>;\n  },\n  parameters: {\n    docs: {\n      description: {\n        story: \"Controlled fully collapsible mode: the parent manages the collapsed state via the \\`collapsed\\` prop. The parent is responsible for providing its own toggle mechanism (e.g., in an app header). This example also demonstrates custom icons (\\`collapsedIcon\\` and \\`expandedIcon\\` props) using MENU/MENU_OPEN instead of the default DOCK icons.\"\n      }\n    }\n  }\n}",
+    "story_object_source": "{render:function(){const s=u(),[a,p]=v.useState(!1);return e.jsxs(S,{style:{height:\"100vh\"},children:[e.jsxs(o.Root,{collapsible:!0,fullyCollapsible:!0,collapsed:a,children:[e.jsxs(o.Content,{children:[e.jsxs(o.Section,{title:\"Navigation\",children:[e.jsx(o.Item,{icon:n.HOME,children:\"Home\"}),e.jsx(o.Item,{icon:n.SETTINGS,children:\"Settings\"})]}),e.jsxs(o.Section,{title:\"Projects\",children:[e.jsx(o.Item,{icon:n.FOLDER,expandable:!0,nestedItems:[e.jsx(o.Item,{children:\"Overview\"},\"1\"),e.jsx(o.Item,{children:\"Tasks\"},\"2\"),e.jsx(o.Item,{children:\"Documents\"},\"3\")],children:\"Project Alpha\"}),e.jsx(o.Item,{icon:n.FOLDER,expandable:!0,nestedItems:[e.jsx(o.Item,{children:\"Overview\"},\"1\"),e.jsx(o.Item,{children:\"Tasks\"},\"2\")],children:\"Project Beta\"}),e.jsx(o.Item,{icon:n.FOLDER,expandable:!0,nestedItems:[e.jsx(o.Item,{children:\"Overview\"},\"1\"),e.jsx(o.Item,{children:\"Tasks\"},\"2\"),e.jsx(o.Item,{children:\"Reports\"},\"3\"),e.jsx(o.Item,{children:\"Settings\"},\"4\")],children:\"Project Gamma\"})]})]}),e.jsxs(o.Footer,{children:[e.jsx(o.Item,{icon:n.SETTINGS,children:\"Settings\"}),e.jsx(o.Item,{icon:n.HELP,children:\"Help Center\"}),e.jsx(o.UserProfile,{name:\"Marie Curie\",email:\"marie.curie@sanofi.com\",avatarSrc:`${g}/images/Marie-Curie-avatar.jpeg`,icon:e.jsx(h,{name:n.LOGOUT}),tooltip:\"Log out\"})]})]}),e.jsxs(S,{direction:\"column\",flex:1,children:[e.jsx(H.Root,{sticky:!1,logo:e.jsxs(S,{align:\"center\",gap:\"xs\",children:[e.jsx(o.CollapseToggle,{collapsed:a,onClick:()=>p(m=>!m),collapsedIcon:n.DOCK_TO_LEFT,expandedIcon:n.DOCK_TO_RIGHT}),e.jsx(d,{src:s,alt:\"Sanofi Logo\",style:{width:\"80px\"}})]}),children:e.jsx(H.EndContent,{children:e.jsx(H.Item,{children:e.jsx(i,{color:r.DEFAULT,children:\"App Header\"})})})}),e.jsxs(S,{flex:1,direction:\"column\",style:{padding:\"var(--elements-spacing-3xl)\"},children:[e.jsx(i,{color:r.DEFAULT,children:e.jsx(\"strong\",{children:\"Fully Collapsible - Controlled Mode:\"})}),e.jsx(\"br\",{}),e.jsxs(i,{color:r.DEFAULT,children:[\"This example demonstrates \",e.jsx(\"strong\",{children:\"controlled mode\"}),\" where the sidebar is on the left and pushes the NavigationHeader when expanded.\"]}),e.jsx(\"br\",{}),e.jsx(i,{color:r.DEFAULT,children:e.jsx(\"strong\",{children:\"Try this:\"})}),e.jsxs(\"ul\",{style:{marginInlineStart:\"var(--elements-spacing-xl)\"},children:[e.jsx(\"li\",{children:e.jsxs(i,{color:r.DEFAULT,children:[e.jsx(\"strong\",{children:\"Click the toggle\"}),\" in the header to collapse/expand the sidebar\"]})}),e.jsx(\"li\",{children:e.jsx(i,{color:r.DEFAULT,children:\"The NavigationHeader is pushed by the sidebar\"})})]})]})]})]})},parameters:{docs:{description:{story:\"Controlled fully collapsible mode: the parent manages the collapsed state via the `collapsed` prop. The parent is responsible for providing its own toggle mechanism (e.g., in an app header). This example also demonstrates custom icons (`collapsedIcon` and `expandedIcon` props) using MENU/MENU_OPEN instead of the default DOCK icons.\"}}}}"
+  },
+  "template": {
+    "id": "sidebar-fully-collapsible-controlled-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/sidebar/templates/html.fully-collapsible-controlled.template.html",
+    "output_path": "design-system-plugin/outputs/html/sidebar-fully-collapsible-controlled.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "sidebar",
+    "local_path": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "story_id": "components-sidebar--fully-collapsible-controlled",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--fully-collapsible-controlled.iframe.html"
+  }
+}

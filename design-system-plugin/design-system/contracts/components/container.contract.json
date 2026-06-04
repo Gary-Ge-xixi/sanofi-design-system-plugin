@@ -1,0 +1,188 @@
+{
+  "schema_version": "0.1.0",
+  "id": "container",
+  "canonical_name": "container",
+  "component_name": "Container",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-container--docs",
+    "title": "Container",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-container--docs",
+    "import_path": "./src/components/Container/Container.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 3,
+    "story_ids": [
+      "components-container--default",
+      "components-container--fixed",
+      "components-container--fluid"
+    ],
+    "records": [
+      {
+        "id": "components-container--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Container/Container.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-container--fixed",
+        "name": "Fixed",
+        "normalized_name": "fixed",
+        "import_path": "./src/components/Container/Container.stories.tsx",
+        "export_name": "Fixed"
+      },
+      {
+        "id": "components-container--fluid",
+        "name": "Fluid",
+        "normalized_name": "fluid",
+        "import_path": "./src/components/Container/Container.stories.tsx",
+        "export_name": "Fluid"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "sm",
+        "required": false,
+        "description": "Set the container type on sm viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "md",
+        "required": false,
+        "description": "Set the container type on md viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "lg",
+        "required": false,
+        "description": "Set the container type on lg viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xl",
+        "required": false,
+        "description": "Set the container type on xl viewport size\"fixed\"\"fluid\"",
+        "default": "\"fluid\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxl",
+        "required": false,
+        "description": "Set the container type on 2xl viewport size\"fixed\"\"fluid\"",
+        "default": "\"fixed\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "xxxl",
+        "required": false,
+        "description": "Set the container type on 3xl viewport size\"fixed\"\"fluid\"",
+        "default": "\"fixed\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for container elements.{ contentContainer?: string; }",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "fixed",
+      "fluid"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "fixed",
+      "fluid"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Container } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Container>\n  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\n</Container>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Container } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Container>\n  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\n</Container>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "container"
+    ],
+    "contracts": [
+      {
+        "id": "container",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/container/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/container/demo.registry.json",
+        "known_story_ids": [
+          "components-container--default",
+          "components-container--fixed",
+          "components-container--fluid",
+          "components-container--default",
+          "components-container--fixed",
+          "components-container--fluid"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-container--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-container--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md",
+    "docs_import_path": "./src/components/Container/Container.mdx",
+    "story_ids": [
+      "components-container--default",
+      "components-container--fixed",
+      "components-container--fluid"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

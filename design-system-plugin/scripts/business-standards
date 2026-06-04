@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+const cp = require("child_process");
+const path = require("path");
+
+const sanofiDs = path.join(__dirname, "sanofi-ds");
+const result = cp.spawnSync(process.execPath, [sanofiDs, "business", "standards"], {
+  cwd: path.resolve(__dirname, ".."),
+  stdio: "inherit"
+});
+
+process.exit(result.status || 0);

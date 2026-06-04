@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "breadcrumb-item",
+  "component_name": "Breadcrumb.Item",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Breadcrumb.Item"
+  },
+  "docs": [
+    {
+      "id": "components-breadcrumb-item--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Breadcrumb/item/BreadcrumbItem.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-breadcrumb-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Breadcrumb/item/BreadcrumbItem.stories.tsx"
+    }
+  ]
+}

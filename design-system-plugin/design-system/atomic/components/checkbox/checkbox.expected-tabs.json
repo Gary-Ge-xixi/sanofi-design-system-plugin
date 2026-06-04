@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "checkbox",
+  "component_name": "Checkbox",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Checkbox"
+  },
+  "docs": [
+    {
+      "id": "components-checkbox--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Checkbox/Checkbox.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-checkbox--color-variations",
+      "name": "Color Variations",
+      "export_name": "ColorVariations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--with-link",
+      "name": "With Link",
+      "export_name": "WithLink",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--with-subtext",
+      "name": "With Subtext",
+      "export_name": "WithSubtext",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    }
+  ]
+}

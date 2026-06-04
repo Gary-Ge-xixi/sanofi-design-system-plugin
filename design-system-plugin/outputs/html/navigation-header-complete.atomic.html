@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NavigationHeader complete package</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body {
+        margin: 0;
+        min-block-size: 100vh;
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+      }
+      main {
+        display: grid;
+        gap: var(--elements-spacing-xl);
+        padding: var(--elements-spacing-2xl);
+      }
+      .demo-panel, .story-card {
+        display: grid;
+        gap: var(--elements-spacing-md);
+        border: 0.0625rem solid var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-md);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-xl);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: var(--elements-spacing-lg);
+      }
+      .sample-shell {
+        display: grid;
+        gap: var(--elements-spacing-sm);
+        border: 0.0625rem dashed var(--elements-color-semantic-border-subtle);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        padding: var(--elements-spacing-lg);
+      }
+      .sample-control {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.5rem;
+        max-inline-size: 28rem;
+        border: 0.0625rem solid var(--elements-color-semantic-border-default);
+        border-radius: var(--elements-radius-sm);
+        background: var(--elements-color-semantic-background-neutral);
+        color: var(--elements-color-semantic-text-default_inverse);
+        padding-inline: var(--elements-spacing-lg);
+      }
+      code { color: var(--elements-color-semantic-text-accent-default); }
+    </style>
+  </head>
+  <body data-design-system="sanofi-elements">
+    <main data-pattern="atomic-component-package" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs">
+
+      <section class="demo-panel" data-pattern="atomic-component-summary" data-source-doc-id="components-navigationheader--docs">
+        <h1>NavigationHeader Complete Package</h1>
+        <p>Docs: components-navigationheader--docs. Stories: 9/9.</p>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-story-grid" data-source-doc-id="components-navigationheader--docs">
+        <h2>Story Atoms</h2>
+        <div class="story-grid">
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--contained-nav-header" data-source-doc-id="components-navigationheader--docs">
+          <h2>Contained Nav Header</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--contained-nav-header" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="contained-nav-header" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>Contained Nav Header</span><code>components-navigationheader--contained-nav-header</code></article>
+          <p><code>components-navigationheader--contained-nav-header</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs">
+          <h2>Default</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="default" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>Default</span><code>components-navigationheader--default</code></article>
+          <p><code>components-navigationheader--default</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--double-navigation" data-source-doc-id="components-navigationheader--docs">
+          <h2>Double Navigation</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--double-navigation" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="double-navigation" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>Double Navigation</span><code>components-navigationheader--double-navigation</code></article>
+          <p><code>components-navigationheader--double-navigation</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--full-width-nav-header" data-source-doc-id="components-navigationheader--docs">
+          <h2>Full Width Nav Header</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--full-width-nav-header" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="full-width-nav-header" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>Full Width Nav Header</span><code>components-navigationheader--full-width-nav-header</code></article>
+          <p><code>components-navigationheader--full-width-nav-header</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--mobile-view" data-source-doc-id="components-navigationheader--docs">
+          <h2>Mobile View</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--mobile-view" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="mobile-view" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>Mobile View</span><code>components-navigationheader--mobile-view</code></article>
+          <p><code>components-navigationheader--mobile-view</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--sanofi-example" data-source-doc-id="components-navigationheader--docs">
+          <h2>Sanofi Example</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--sanofi-example" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="sanofi-example" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>Sanofi Example</span><code>components-navigationheader--sanofi-example</code></article>
+          <p><code>components-navigationheader--sanofi-example</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--with-auto-overflow" data-source-doc-id="components-navigationheader--docs">
+          <h2>With Auto Overflow</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--with-auto-overflow" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="with-auto-overflow" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>With Auto Overflow</span><code>components-navigationheader--with-auto-overflow</code></article>
+          <p><code>components-navigationheader--with-auto-overflow</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--with-dropdown-menu" data-source-doc-id="components-navigationheader--docs">
+          <h2>With Dropdown Menu</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--with-dropdown-menu" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="with-dropdown-menu" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>With Dropdown Menu</span><code>components-navigationheader--with-dropdown-menu</code></article>
+          <p><code>components-navigationheader--with-dropdown-menu</code></p>
+        </article>
+
+        <article class="story-card" data-pattern="atomic-story-card" data-story-id="components-navigationheader--with-sub-header" data-source-doc-id="components-navigationheader--docs">
+          <h2>With Sub Header</h2>
+          <article data-primitive="navigation-header" data-pattern="atomic-component-sample" data-story-id="components-navigationheader--with-sub-header" data-source-doc-id="components-navigationheader--docs" data-token-source="foundations-colors--docs" data-variant="with-sub-header" data-state="variant" class="sample-shell"><strong>NavigationHeader</strong><span>With Sub Header</span><code>components-navigationheader--with-sub-header</code></article>
+          <p><code>components-navigationheader--with-sub-header</code></p>
+        </article>
+        </div>
+      </section>
+      <section class="demo-panel" data-pattern="atomic-source-provenance" data-source-doc-id="components-navigationheader--docs">
+        <h2>Source Provenance</h2>
+        <p><code>design-system-plugin/design-system/contracts/components/navigation-header.contract.json</code></p>
+        <p><code>design-system-plugin/design-system/primitives/components/navigation-header/primitive.json</code></p>
+      </section>
+    </main>
+  </body>
+</html>

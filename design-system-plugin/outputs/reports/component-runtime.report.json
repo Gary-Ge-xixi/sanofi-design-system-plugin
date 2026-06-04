@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-component-runtime",
+  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
+  "status": "pass",
+  "contract": "component-runtime/component-runtime.contract.json",
+  "checked": {
+    "runtime_required_page": false,
+    "admin_dashboard_spec_applies": false,
+    "page_pattern_refs": [
+      "admin-data-entry-table",
+      "target-adjustment-tabs"
+    ],
+    "first_round_components": [
+      "select",
+      "button",
+      "search-input",
+      "tabs",
+      "menu",
+      "sidebar",
+      "container",
+      "grid",
+      "date-picker",
+      "card",
+      "tag",
+      "progress-bar",
+      "icon"
+    ],
+    "primitive_refs": 55,
+    "story_refs": 55,
+    "runtime_required_primitives": [
+      "icon",
+      "sidebar",
+      "menu",
+      "container",
+      "grid",
+      "search-input",
+      "button",
+      "tabs"
+    ],
+    "runtime_component_ids": [
+      "tabs",
+      "select",
+      "date-picker"
+    ],
+    "component_instance_count": 1,
+    "runtime_marker_count": 7,
+    "render_source_count": 2,
+    "accepted_component_runtimes": [
+      "sanofi-elements-react",
+      "sanofi-local-atomic-components"
+    ],
+    "accepted_render_sources": [
+      "@sanofi-accelerator/elements",
+      "local-atomic-component-package"
+    ],
+    "has_runtime_marker": true,
+    "has_render_source": true,
+    "has_runtime_script": true,
+    "visible_native_select_primitive_count": 0,
+    "select_runtime_root_count": 0,
+    "select_combobox_count": 0,
+    "select_listbox_count": 0,
+    "date_picker_runtime_root_count": 0,
+    "date_picker_trigger_count": 2,
+    "date_picker_dialog_count": 2,
+    "date_picker_medium_count": 0,
+    "component_size_policy": {
+      "default_size": "medium",
+      "forbidden_default_sizes": [
+        "large"
+      ],
+      "large_runtime_size_attr_count": 0,
+      "forbidden_spec_sizes": []
+    },
+    "fallback_modules": [
+      "business-table"
+    ],
+    "fallback_reason_count": 1,
+    "fallback_modules_missing_reason": [],
+    "allowed_fallback_modules": [
+      "table",
+      "chart",
+      "page-header",
+      "metric-card"
+    ],
+    "missing_spec_components": [],
+    "output_states": {
+      "official_runtime": {
+        "state": "official-runtime",
+        "page_marker": "absent",
+        "runtime_marker": "sanofi-elements-react",
+        "render_source": "@sanofi-accelerator/elements",
+        "runtime_marker_count": 0,
+        "render_source_count": 0,
+        "valid": true
+      },
+      "local_atomic_runtime": {
+        "state": "local-atomic-runtime",
+        "page_marker": "present",
+        "runtime_marker": "sanofi-local-atomic-components",
+        "render_source": "local-atomic-component-package",
+        "runtime_marker_count": 2,
+        "render_source_count": 2,
+        "valid": true
+      },
+      "explicit_fallback": {
+        "state": "explicit-fallback",
+        "page_marker": "present",
+        "fallback_module_count": 1,
+        "fallback_reason_count": 1,
+        "modules": [
+          "business-table"
+        ],
+        "missing_reason_modules": [],
+        "valid": true
+      }
+    }
+  },
+  "failures": []
+}

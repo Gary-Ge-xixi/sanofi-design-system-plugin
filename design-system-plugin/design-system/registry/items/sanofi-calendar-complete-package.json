@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-calendar-complete-package",
+  "title": "Calendar complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Calendar package covering Docs plus all Storybook story atoms.",
+  "component_id": "calendar",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-calendar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/calendar.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/calendar.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/calendar.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/calendar.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/docs/calendar.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/docs/calendar.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/calendar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/calendar-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/calendar-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/calendar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/calendar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-calendar--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-calendar--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-calendar-default-atomic-story"
+    },
+    {
+      "story_id": "components-calendar--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-calendar-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-calendar--range-selection",
+      "story_name": "Range Selection",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-calendar-range-selection-atomic-story"
+    },
+    {
+      "story_id": "components-calendar--with-date-constraints",
+      "story_name": "With Date Constraints",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-calendar-with-date-constraints-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/calendar/calendar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/calendar/docs/calendar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "calendar",
+      "Calendar",
+      "calendar complete",
+      "Calendar complete package",
+      "calendar docs"
+    ],
+    "when_to_use": "Use first for any Calendar generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Calendar behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Pagination",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Pagination",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/pagination.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "pagination",
+      "data_attribute": "data-primitive=\"pagination\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-pagination--compact",
+      "components-pagination--compact-with-first-and-last-buttons",
+      "components-pagination--compact-with-input",
+      "components-pagination--compact-with-input-and-first-last-buttons",
+      "components-pagination--controlled",
+      "components-pagination--default",
+      "components-pagination--mobile"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-pagination--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

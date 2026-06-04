@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-toast",
+  "title": "Toast primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Toast.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "toast",
+  "docs_id": "components-toast--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/toast/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/toast/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/toast/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/toast.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-toast--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 6,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "toast",
+      "Toast",
+      "Toast"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Toast primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

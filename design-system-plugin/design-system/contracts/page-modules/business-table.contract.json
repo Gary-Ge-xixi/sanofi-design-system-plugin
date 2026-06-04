@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-table",
+  "status": "ready",
+  "renderer_target": "html",
+  "purpose": "Canonical table module contract for business/admin pages while the official Table/DataGrid primitive is not registered locally.",
+  "source_provenance": {
+    "fallback_contract": "data-table-fallback.contract.json",
+    "data_model_standard": "../../business/data-model-standard.json",
+    "table_rule": "../../rules/table-usage.json",
+    "fallback_policy": "../../policies/fallback-policy.json"
+  },
+  "primitive_status": {
+    "official_table_or_datagrid_registered": false,
+    "allowed_delivery": "semantic-html-fallback",
+    "required_fallback_marker": "data-fallback-module=\"business-table\""
+  },
+  "required_column_contract": [
+    "field_id",
+    "label_zh",
+    "type",
+    "required",
+    "editable",
+    "unit",
+    "format",
+    "permission",
+    "priority",
+    "source"
+  ],
+  "column_types": [
+    "identity",
+    "text",
+    "number",
+    "quantity",
+    "money",
+    "date",
+    "status",
+    "permission",
+    "action"
+  ],
+  "dom_contract": {
+    "root_selector": "[data-business-module=\"business-table\"]",
+    "required_attributes": [
+      "data-business-module=\"business-table\"",
+      "data-fallback-module=\"business-table\"",
+      "data-fallback-reason",
+      "data-table-contract=\"business-table\""
+    ],
+    "required_structure": [
+      "table",
+      "thead th[scope=\"col\"]",
+      "tbody tr",
+      "pagination or explicit no-pagination marker"
+    ],
+    "forbidden_attributes": [
+      "data-primitive=\"table\"",
+      "data-primitive=\"datagrid\"",
+      "data-source-component=\"table\"",
+      "data-source-component=\"datagrid\""
+    ]
+  },
+  "behavior_contract": {
+    "query_state": ["loading", "results", "empty", "error"],
+    "selection_state": ["none-selected", "selection", "bulk-action-confirming", "bulk-action-processing"],
+    "edit_state": ["readonly", "editable", "dirty", "validating", "locked"],
+    "required_feedback": [
+      "loading rows must not collapse column widths",
+      "empty state must preserve table context",
+      "permission denied must show readonly reason",
+      "partial bulk failures must expose affected row count"
+    ]
+  },
+  "density_contract": {
+    "compact": {
+      "target_rows_first_viewport": "at least 7 rows on 1440x900 for query/list pages",
+      "priority_columns_visible": ["identity", "quantity", "status", "action"]
+    },
+    "default": {
+      "target_rows_first_viewport": "at least 5 rows on 1440x900 for detail/approval related tables"
+    }
+  },
+  "generation_policy": [
+    "Do not present fallback table markup as an official Sanofi Elements Table primitive.",
+    "Each visible column must map to data-model-standard.json metadata.",
+    "Operation columns must be right aligned or visually isolated from business values.",
+    "Status columns must use content-standard.json approval/status copy.",
+    "If horizontal scroll is unavoidable, identity, status, numeric value, and action columns must remain discoverable without hiding context."
+  ]
+}

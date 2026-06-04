@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Breadcrumb",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-breadcrumb--collapsed",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-breadcrumb--custom-max-width",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-breadcrumb--ellipsis-truncation",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-breadcrumb--not-collapsed",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-breadcrumb--one-item-on-each-side",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-breadcrumb--two-items-on-each-side",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-breadcrumb--wrap-vs-no-wrap",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

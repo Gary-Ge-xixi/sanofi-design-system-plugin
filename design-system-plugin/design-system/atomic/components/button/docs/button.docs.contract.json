@@ -1,0 +1,320 @@
+{
+  "schema_version": "0.1.0",
+  "id": "button-docs-contract",
+  "component_id": "button",
+  "component_name": "Button",
+  "docs_id": "components-button--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-button--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+  "purpose": {
+    "extraction_status": "from_docs_md",
+    "text": "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation."
+  },
+  "api_props": {
+    "extraction_status": "from_component_contract_and_button_docgen",
+    "props": [
+      {
+        "name": "variant",
+        "required": false,
+        "default": "ButtonVariant.PRIMARY",
+        "description": "Visual style variant of the button.",
+        "values": [
+          {
+            "value": "primary",
+            "description": "High-emphasis, brand-colored button for primary actions"
+          },
+          {
+            "value": "primary-neutral",
+            "description": "High-emphasis, neutral-colored button for primary actions without brand color"
+          },
+          {
+            "value": "primary-destruct",
+            "description": "High-emphasis, red/danger button for destructive primary actions"
+          },
+          {
+            "value": "secondary",
+            "description": "Medium-emphasis, outlined brand-colored button for secondary actions"
+          },
+          {
+            "value": "secondary-neutral",
+            "description": "Medium-emphasis, outlined neutral button for secondary actions"
+          },
+          {
+            "value": "secondary-destruct",
+            "description": "Medium-emphasis, outlined red/danger button for destructive secondary actions"
+          },
+          {
+            "value": "tertiary",
+            "description": "Low-emphasis, text-only brand-colored button for tertiary actions"
+          },
+          {
+            "value": "tertiary-neutral",
+            "description": "Low-emphasis, text-only neutral button for tertiary actions"
+          },
+          {
+            "value": "tertiary-destruct",
+            "description": "Low-emphasis, text-only red/danger button for destructive tertiary actions"
+          }
+        ],
+        "extraction_status": "from_component_contract_and_button_docgen"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "default": "ButtonSize.MEDIUM",
+        "description": "Size of the button.",
+        "values": [
+          {
+            "value": "xsmall",
+            "official_height": "24px",
+            "usage": "Inline actions and dense UIs"
+          },
+          {
+            "value": "small",
+            "official_height": "32px",
+            "usage": "Compact spaces like tables and cards"
+          },
+          {
+            "value": "medium",
+            "official_height": "40px",
+            "usage": "Default size for most use cases"
+          },
+          {
+            "value": "large",
+            "official_height": "48px",
+            "usage": "Hero sections and prominent CTAs"
+          }
+        ],
+        "extraction_status": "from_component_contract_and_button_docgen"
+      },
+      {
+        "name": "label",
+        "required": true,
+        "description": "Text content displayed inside the button. Required for the accessible name.",
+        "type": "string",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "description": "Icon to display alongside the label.",
+        "type": "IconName",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "iconPosition",
+        "required": false,
+        "default": "IconPosition.START",
+        "description": "Position of the icon relative to the label.",
+        "values": [
+          "start",
+          "end"
+        ],
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "default": false,
+        "description": "Applies inverse styling for use on dark backgrounds.",
+        "type": "boolean",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "default": false,
+        "description": "Expands the button to fill its container width.",
+        "type": "boolean",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the button.",
+        "type": "boolean",
+        "extraction_status": "from_button_docgen_tags"
+      },
+      {
+        "name": "isLoading",
+        "required": false,
+        "default": false,
+        "description": "Displays a loading spinner and disables interactions while an action is in progress.",
+        "type": "boolean",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Overrides the default HTML tag. Use anchor semantics only for navigation/link behavior.",
+        "type": "ElementType",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "href",
+        "required": false,
+        "description": "URL used when the button is rendered as an anchor.",
+        "type": "string",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "target",
+        "required": false,
+        "description": "Target window for anchor usage.",
+        "type": "string",
+        "extraction_status": "from_button_docgen"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "default": "BrandTheme.primary",
+        "description": "Overrides the theme at component level.",
+        "values": [
+          "primary",
+          "secondary",
+          "tertiary"
+        ],
+        "extraction_status": "from_button_docgen"
+      }
+    ],
+    "component_contract_props": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Visual style variant of the button.\"primary\"\"secondary\"\"tertiary\"\"primary-neutral\"\"primary-destruct\"\"secondary-neutral\"\"secondary-destruct\"\"tertiary-neutral\"\"tertiary-destruct\"Show 1 more...",
+        "default": "\"ButtonVariant.PRIMARY\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the button.\"small\"\"medium\"\"xsmall\"\"large\"",
+        "default": "\"ButtonSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": [
+      "Use for actions that submit, confirm, cancel, open UI, or trigger a workflow.",
+      "Use Button Link only when the element navigates like a link."
+    ],
+    "when_not_to_use": [
+      "Do not use Button Link for non-navigation actions.",
+      "Do not invent variants outside the expected Button tabs."
+    ],
+    "snippets": [
+      "import { Button } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Button label=\"Action\" />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-button--primary",
+      "name": "Primary",
+      "export_name": "Primary",
+      "semantic_type": "variant",
+      "variant": "primary"
+    },
+    {
+      "id": "components-button--primary-neutral",
+      "name": "Primary Neutral",
+      "export_name": "PrimaryNeutral",
+      "semantic_type": "variant",
+      "variant": "primary-neutral"
+    },
+    {
+      "id": "components-button--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "overview_matrix"
+    },
+    {
+      "id": "components-button--overview-inverse",
+      "name": "Overview Inverse",
+      "export_name": "OverviewInverse",
+      "semantic_type": "overview_inverse_matrix",
+      "inverse": true
+    },
+    {
+      "id": "components-button--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "default_controls",
+      "variant": "primary"
+    },
+    {
+      "id": "components-button--secondary",
+      "name": "Secondary",
+      "export_name": "Secondary",
+      "semantic_type": "variant",
+      "variant": "secondary"
+    },
+    {
+      "id": "components-button--secondary-neutral",
+      "name": "Secondary Neutral",
+      "export_name": "SecondaryNeutral",
+      "semantic_type": "variant",
+      "variant": "secondary-neutral"
+    },
+    {
+      "id": "components-button--tertiary",
+      "name": "Tertiary",
+      "export_name": "Tertiary",
+      "semantic_type": "variant",
+      "variant": "tertiary"
+    },
+    {
+      "id": "components-button--tertiary-neutral",
+      "name": "Tertiary Neutral",
+      "export_name": "TertiaryNeutral",
+      "semantic_type": "variant",
+      "variant": "tertiary-neutral"
+    },
+    {
+      "id": "components-button--primary-destruct",
+      "name": "Primary Destruct",
+      "export_name": "PrimaryDestruct",
+      "semantic_type": "variant",
+      "variant": "primary-destruct"
+    },
+    {
+      "id": "components-button--secondary-destruct",
+      "name": "Secondary Destruct",
+      "export_name": "SecondaryDestruct",
+      "semantic_type": "variant",
+      "variant": "secondary-destruct"
+    },
+    {
+      "id": "components-button--tertiary-destruct",
+      "name": "Tertiary Destruct",
+      "export_name": "TertiaryDestruct",
+      "semantic_type": "variant",
+      "variant": "tertiary-destruct"
+    },
+    {
+      "id": "components-button--button-link",
+      "name": "Button Link",
+      "export_name": "ButtonLink",
+      "semantic_type": "link",
+      "variant": "tertiary",
+      "element": "a"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "from_button_docgen_and_html_semantics",
+    "rules": [
+      "Label is required because it provides the accessible name.",
+      "Use button markup for actions.",
+      "Use anchor markup only for `as='a'` with `href`.",
+      "Represent disabled and loading as non-interactive states.",
+      "Keep visible focus indication for keyboard users."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_bundle": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json"
+  }
+}

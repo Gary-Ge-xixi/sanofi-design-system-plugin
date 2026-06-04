@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-breadcrumb-item",
+  "title": "Breadcrumb.Item primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Breadcrumb.Item.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "breadcrumb-item",
+  "docs_id": "components-breadcrumb-item--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb-item/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb-item/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb-item/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb-item/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb-item--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb-item--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb-item--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "breadcrumb-item",
+      "Breadcrumb.Item",
+      "Breadcrumb.Item"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Breadcrumb.Item primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

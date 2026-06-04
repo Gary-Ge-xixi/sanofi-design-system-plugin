@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "id": "modal-docs-contract",
+  "component_id": "modal",
+  "component_name": "Modal",
+  "docs_id": "components-modal--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-modal--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "title",
+        "required": false,
+        "description": "Title text displayed in the modal header.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtitle",
+        "required": false,
+        "description": "Subtitle text displayed below the title.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-modal--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Modal, VideoThumbnail, Button, ButtonVariant } from \"@sanofi-accelerator/elements\";\nimport { useState, useCallback } from \"react\";\n\nexport const MyComponent = () => {\n  const [isVisible, setIsVisible] = useState(false);\n  const closeModal = useCallback(() => {\n    setIsVisible(false);\n  }, []);\n\n  const footerContent = (\n    <>\n      <Button\n        label=\"Cancel\"\n        variant={ButtonVariant.TERTIARY}\n        onClick={() => closeModal()}\n      />\n      <Button\n        label=\"Confirm\"\n        onClick={() => alert(\"The onClick props is called.\")}\n      />\n    </>\n  );\n\n  <Modal\n    title='Modal title'\n    subtitle='Modal subtitle'\n    textContent='This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height. This maximum height can be set by the designers, depending on the need. But the modal must always have a minimum margin on top and bottom of 96px. This is a dedicated placeholder for optional text, serving as modal content. This placeholder has no limit on content, but it should adapt to the modal maximum height. This maximum height can be set by the designers, depending on the need. But the modal must always have a minimum margin on top and bottom of 96px.'\n    slotContent=(\n      <VideoThumbnail\n      videoUrl=\"https://www.youtube.com/embed/8u1qiZMJKfc?si=XmKwMUbjPJpPtSsW\"\n      imageUrl=\"https://cdn.prod.accelerator.sanofi/elements/images/cards-mediasanofi.webp\"\n      />\n      )\n    footerContent={footerContent}\n    isClosable={true}\n    isVisible={isVisible}\n    onClose={() => closeModal()}\n  />\n\n};",
+      "import { Modal, VideoThumbnail, Button, ButtonVariant } from \"@sanofi-accelerator/elements\";\nimport { useState } from \"react\";\n\nexport const MyComponent = () => {\n  const [isVisible, setIsVisible] = useState(false);\n\n  const footerContent = (\n    <>\n      <Button\n        label=\"Cancel\"\n        variant={ButtonVariant.TERTIARY}\n        onClick={() => {\n          setIsVisible(false);\n        }}\n      />\n      <Button\n        label=\"Confirm\"\n        onClick={() => alert(\"The onClick props is called.\")}\n      />\n    </>\n  );\n\n  <Modal\n    title='Non dismissible modal'\n    subtitle='Modal Subtitle'\n    textContent='This modal cannot be dismissed by clicking outside of it. It can only be closed by clicking the buttons.'\n    footerContent={footerContent}\n    isClosable={false}\n    isVisible={isVisible}\n  />\n\n};",
+      "import { mockHTMLDialogElement } from \"@sanofi-accelerator/elements/test/mockHTMLDialogElement\";\n\nbeforeAll(() => {\n  mockHTMLDialogElement();\n});"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-modal--customisation",
+      "name": "Customisation",
+      "export_name": "Customisation",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    },
+    {
+      "id": "components-modal--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    },
+    {
+      "id": "components-modal--non-dismissible-modal",
+      "name": "Non Dismissible Modal",
+      "export_name": "NonDismissibleModal",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    },
+    {
+      "id": "components-modal--with-icon",
+      "name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Modal/Modal.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-breadcrumb",
+  "title": "Breadcrumb primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Breadcrumb.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "breadcrumb",
+  "docs_id": "components-breadcrumb--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 7,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "breadcrumb",
+      "Breadcrumb",
+      "Breadcrumb"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Breadcrumb primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

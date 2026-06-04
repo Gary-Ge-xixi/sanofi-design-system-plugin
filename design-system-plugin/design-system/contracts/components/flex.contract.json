@@ -1,0 +1,268 @@
+{
+  "schema_version": "0.1.0",
+  "id": "flex",
+  "canonical_name": "flex",
+  "component_name": "Flex",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-flex--docs",
+    "title": "Flex",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-flex--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-flex--docs",
+    "import_path": "./src/components/Flex/Flex.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 7,
+    "story_ids": [
+      "components-flex--align-content",
+      "components-flex--as-child-list",
+      "components-flex--column-stack",
+      "components-flex--flex-shorthand",
+      "components-flex--horizontal-flow",
+      "components-flex--justify-distribution",
+      "components-flex--wrapping-grid"
+    ],
+    "records": [
+      {
+        "id": "components-flex--align-content",
+        "name": "Align Content",
+        "normalized_name": "align-content",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "AlignContent"
+      },
+      {
+        "id": "components-flex--as-child-list",
+        "name": "As Child List",
+        "normalized_name": "as-child-list",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "AsChildList"
+      },
+      {
+        "id": "components-flex--column-stack",
+        "name": "Column Stack",
+        "normalized_name": "column-stack",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "ColumnStack"
+      },
+      {
+        "id": "components-flex--flex-shorthand",
+        "name": "Flex Shorthand",
+        "normalized_name": "flex-shorthand",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "FlexShorthand"
+      },
+      {
+        "id": "components-flex--horizontal-flow",
+        "name": "Horizontal Flow",
+        "normalized_name": "horizontal-flow",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "HorizontalFlow"
+      },
+      {
+        "id": "components-flex--justify-distribution",
+        "name": "Justify Distribution",
+        "normalized_name": "justify-distribution",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "JustifyDistribution"
+      },
+      {
+        "id": "components-flex--wrapping-grid",
+        "name": "Wrapping Grid",
+        "normalized_name": "wrapping-grid",
+        "import_path": "./src/components/Flex/Flex.stories.tsx",
+        "export_name": "WrappingGrid"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "direction",
+        "required": false,
+        "description": "Sets flex-direction. Values: row \\",
+        "default": "row-reverse \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "wrap",
+        "required": false,
+        "description": "Sets flex-wrap. Values: nowrap \\",
+        "default": "wrap \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "align",
+        "required": false,
+        "description": "Controls align-items. Values: start \\",
+        "default": "center \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "justify",
+        "required": false,
+        "description": "Controls justify-content. Values: start \\",
+        "default": "center \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "gap",
+        "required": false,
+        "description": "Token-based gap applied on both axes. Values: none \\",
+        "default": "3xs \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "display",
+        "required": false,
+        "description": "Sets the CSS display property. Values: flex \\",
+        "default": "inline-flex \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "asChild",
+        "required": false,
+        "description": "Render styles onto the single child instead of a wrapper element (Radix asChild pattern).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "alignContent",
+        "required": false,
+        "description": "Controls align-content. Only applies when wrap is set. Values: start \\",
+        "default": "center \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "gapX",
+        "required": false,
+        "description": "Token-based column gap. Same values as gap. Overrides gap for the horizontal axis.FlexGapValue",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "gapY",
+        "required": false,
+        "description": "Token-based row gap. Same values as gap. Overrides gap for the vertical axis.FlexGapValue",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "flex",
+        "required": false,
+        "description": "Sets the CSS flex shorthand (grow, shrink, basis). Values: 1 \\",
+        "default": "auto \\",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "align-content",
+      "as-child-list",
+      "column-stack",
+      "flex-shorthand",
+      "horizontal-flow",
+      "justify-distribution",
+      "wrapping-grid"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "align-content",
+      "as-child-list",
+      "column-stack",
+      "flex-shorthand",
+      "horizontal-flow",
+      "justify-distribution",
+      "wrapping-grid"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Flex } from \"@sanofi-accelerator/elements\";\n\nexport const Example = () => (\n<Flex gap=\"md\" align=\"center\" justify=\"between\">\n  <div>Alpha</div>\n  <div>Beta</div>\n  <div>Gamma</div>\n</Flex>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Flex } from \"@sanofi-accelerator/elements\";\n\nexport const Example = () => (\n<Flex gap=\"md\" align=\"center\" justify=\"between\">\n  <div>Alpha</div>\n  <div>Beta</div>\n  <div>Gamma</div>\n</Flex>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "flex"
+    ],
+    "contracts": [
+      {
+        "id": "flex",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/flex/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/flex/demo.registry.json",
+        "known_story_ids": [
+          "components-flex--align-content",
+          "components-flex--as-child-list",
+          "components-flex--column-stack",
+          "components-flex--flex-shorthand",
+          "components-flex--horizontal-flow",
+          "components-flex--justify-distribution",
+          "components-flex--wrapping-grid",
+          "components-flex--align-content",
+          "components-flex--as-child-list",
+          "components-flex--column-stack",
+          "components-flex--flex-shorthand",
+          "components-flex--horizontal-flow",
+          "components-flex--justify-distribution",
+          "components-flex--wrapping-grid"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-flex--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-flex--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-flex--docs.md",
+    "docs_import_path": "./src/components/Flex/Flex.mdx",
+    "story_ids": [
+      "components-flex--align-content",
+      "components-flex--as-child-list",
+      "components-flex--column-stack",
+      "components-flex--flex-shorthand",
+      "components-flex--horizontal-flow",
+      "components-flex--justify-distribution",
+      "components-flex--wrapping-grid"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

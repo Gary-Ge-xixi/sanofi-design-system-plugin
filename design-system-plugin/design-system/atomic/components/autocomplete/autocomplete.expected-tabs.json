@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "autocomplete",
+  "component_name": "Autocomplete",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Autocomplete"
+  },
+  "docs": [
+    {
+      "id": "components-autocomplete--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Autocomplete/Autocomplete.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-autocomplete--async-search",
+      "name": "Async Search",
+      "export_name": "AsyncSearch",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--async-search-error",
+      "name": "Async Search Error",
+      "export_name": "AsyncSearchError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--async-search-multiple",
+      "name": "Async Search Multiple",
+      "export_name": "AsyncSearchMultiple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--chips-outside",
+      "name": "Chips Outside",
+      "export_name": "ChipsOutside",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--free-solo",
+      "name": "Free Solo",
+      "export_name": "FreeSolo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--multiple",
+      "name": "Multiple",
+      "export_name": "Multiple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-description",
+      "name": "With Description",
+      "export_name": "WithDescription",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-description-multiple",
+      "name": "With Description Multiple",
+      "export_name": "WithDescriptionMultiple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-render-option",
+      "name": "With Render Option",
+      "export_name": "WithRenderOption",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-render-option-custom-layout",
+      "name": "With Render Option Custom Layout",
+      "export_name": "WithRenderOptionCustomLayout",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-render-option-multiple",
+      "name": "With Render Option Multiple",
+      "export_name": "WithRenderOptionMultiple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-tooltips",
+      "name": "With Tooltips",
+      "export_name": "WithTooltips",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    },
+    {
+      "id": "components-autocomplete--with-tooltips-multiple",
+      "name": "With Tooltips Multiple",
+      "export_name": "WithTooltipsMultiple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mega-menu-item-docs-contract",
+  "component_id": "mega-menu-item",
+  "component_name": "MegaMenu/Item",
+  "docs_id": "components-megamenu-item--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-item--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-item--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "text",
+        "required": false,
+        "description": "Main textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtext",
+        "required": false,
+        "description": "Secondary textReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "as",
+        "required": false,
+        "description": "Render as another componentElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-megamenu-item--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-megamenu-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/Item/Item.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-megamenu-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-megamenu-item--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json"
+  }
+}

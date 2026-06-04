@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-breadcrumb-two-items-on-each-side-atomic-story",
+  "title": "Breadcrumb Two Items On Each Side atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-breadcrumb--two-items-on-each-side.",
+  "atomic_story_id": "components-breadcrumb--two-items-on-each-side",
+  "component_id": "breadcrumb",
+  "docs_id": "components-breadcrumb--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--two-items-on-each-side.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--two-items-on-each-side.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--two-items-on-each-side.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--two-items-on-each-side.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.two-items-on-each-side.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.two-items-on-each-side.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "story_id": "components-breadcrumb--two-items-on-each-side",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--two-items-on-each-side.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-breadcrumb--two-items-on-each-side&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-breadcrumb--two-items-on-each-side&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Breadcrumb.stories-onpltWiw.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "breadcrumb",
+      "Breadcrumb",
+      "Two Items On Each Side",
+      "components-breadcrumb--two-items-on-each-side",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Breadcrumb Two Items On Each Side Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

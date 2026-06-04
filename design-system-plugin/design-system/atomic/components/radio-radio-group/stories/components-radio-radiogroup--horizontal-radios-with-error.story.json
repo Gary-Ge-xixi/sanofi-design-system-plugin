@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-radio-radiogroup--horizontal-radios-with-error",
+  "component_id": "radio-radio-group",
+  "component_name": "Radio/RadioGroup",
+  "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+  "story_name": "Horizontal Radios With Error",
+  "export_name": "HorizontalRadiosWithError",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-radio-radiogroup--horizontal-radios-with-error&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-radio-radiogroup--horizontal-radios-with-error&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/RadioGroup.stories-DOGry5sq.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/components-radio-radiogroup--horizontal-radios-with-error.iframe.html",
+    "import_path": "./src/components/RadioGroup/RadioGroup.stories.tsx",
+    "component_path": "./src/components/RadioGroup/RadioGroup.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...i,title:\"Errored Radio Group\",id:\"a-unique-errored\",errorMessage:\"Error message\",name:\"unique-errored-row-name\",orientation:s.HORIZONTAL}",
+    "values": {
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "[n.jsx(t,{value:\"first\",label:\"First\"},\"first\"),n.jsx(t,{value:\"second\",label:\"Second\"},\"second\"),n.jsx(t,{value:\"third\",label:\"Third\"},\"third\"),n.jsx(t,{value:\"four\",label:\"Four\",disabled:!0},\"four\")]"
+      },
+      "title": "Errored Radio Group",
+      "id": "a-unique-errored",
+      "errorMessage": "Error message",
+      "name": "unique-errored-row-name",
+      "orientation": "horizontal"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{title:{controls:\"string\"},caption:{controls:\"string\"},errorMessage:{controls:\"string\"},value:{options:[\"first\",\"second\",\"third\",\"four\"],control:{type:\"radio\"}},onClick:{action:\"clicked\"},onChange:{action:\"changed\"}}",
+    "fields": [
+      "title",
+      "caption",
+      "errorMessage",
+      "value",
+      "onClick",
+      "onChange"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    title: \"Errored Radio Group\",\n    id: \"a-unique-errored\",\n    errorMessage: \"Error message\",\n    name: \"unique-errored-row-name\",\n    orientation: Orientation.HORIZONTAL\n  }\n}",
+    "story_object_source": "{args:{...i,title:\"Errored Radio Group\",id:\"a-unique-errored\",errorMessage:\"Error message\",name:\"unique-errored-row-name\",orientation:s.HORIZONTAL}}"
+  },
+  "template": {
+    "id": "radio-radio-group-horizontal-radios-with-error-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/radio-radio-group/templates/html.horizontal-radios-with-error.template.html",
+    "output_path": "design-system-plugin/outputs/html/radio-radio-group-horizontal-radios-with-error.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "radio-radio-group",
+    "local_path": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-radio-radiogroup--docs",
+    "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/radio-radio-group/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/RadioGroup.stories-DOGry5sq.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/radio-radio-group/assets/components-radio-radiogroup--horizontal-radios-with-error.iframe.html"
+  }
+}

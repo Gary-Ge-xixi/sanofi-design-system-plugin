@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "id": "component-contract",
+  "type": "standard",
+  "required_fields": [
+    "schema_version",
+    "id",
+    "canonical_name",
+    "component_name",
+    "docs",
+    "stories",
+    "props",
+    "states",
+    "variants",
+    "slots",
+    "anatomy",
+    "usage_snippets",
+    "accessibility",
+    "token_bindings",
+    "primitive",
+    "fallback_policy",
+    "source_provenance",
+    "unknowns"
+  ],
+  "unknown_policy": {
+    "rule": "Missing facts must be explicit.",
+    "allowed_markers": ["unknown", "unsupported", "not_extracted", "not_applicable"],
+    "blocked_markers": ["", null]
+  },
+  "provenance_requirements": [
+    "docs.storybook_id",
+    "docs.local_md_path",
+    "docs.import_path",
+    "source_provenance.docs_id",
+    "source_provenance.token_source"
+  ],
+  "notes": [
+    "Contracts are AI-executable component records derived from Storybook docs, stories, local MD, and primitive registries.",
+    "Do not invent props, variants, states, or slots. If a field cannot be confirmed, mark it not_extracted or unknown."
+  ]
+}

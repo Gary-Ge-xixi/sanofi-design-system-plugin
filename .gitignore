@@ -1,0 +1,15 @@
+.DS_Store
+**/.DS_Store
+
+# Local captured browser pages can contain third-party telemetry tokens,
+# minified bundles, cookies-adjacent page state, or authenticated shells.
+research/raw/html/
+research/raw/*.html
+outputs/reports/web-research/
+**/outputs/reports/web-research/
+
+# Local dependency/build caches if added later.
+node_modules/
+.cache/
+dist/
+build/

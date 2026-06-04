@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-avatar-avatar-group-complete-package",
+  "title": "Avatar/AvatarGroup complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Avatar/AvatarGroup package covering Docs plus all Storybook story atoms.",
+  "component_id": "avatar-avatar-group",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-avatar-avatar-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/docs/avatar-avatar-group.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/docs/avatar-avatar-group.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/avatar-avatar-group-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/avatar-avatar-group-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-two-items",
+      "story_name": "Avatar Group Two Items",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-avatar-group-avatar-group-two-items-atomic-story"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+      "story_name": "Avatar Group With Counter",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-avatar-group-avatar-group-with-counter-atomic-story"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "story_name": "Avatar Group With Tooltips",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-avatar-group-avatar-group-with-tooltips-atomic-story"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-without-counter",
+      "story_name": "Avatar Group Without Counter",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-avatar-avatar-group-avatar-group-without-counter-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/avatar-avatar-group.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/avatar-avatar-group/docs/avatar-avatar-group.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar-avatar-group/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "avatar-avatar-group",
+      "Avatar/AvatarGroup",
+      "avatar-avatar-group complete",
+      "Avatar/AvatarGroup complete package",
+      "avatar-avatar-group docs"
+    ],
+    "when_to_use": "Use first for any Avatar/AvatarGroup generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Avatar/AvatarGroup behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

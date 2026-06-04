@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-list-deprecated",
+  "canonical_name": "chip-list-deprecated",
+  "component_name": "ChipList (Deprecated)",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-chiplist-deprecated--docs",
+    "title": "ChipList (Deprecated)",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-chiplist-deprecated--docs",
+    "import_path": "./src/components/Chip/list/ChipList.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-chiplist-deprecated--default"
+    ],
+    "records": [
+      {
+        "id": "components-chiplist-deprecated--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Chip/list/ChipList.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "multiple",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "array",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "chipsSize",
+        "required": false,
+        "description": "The chips size\"small\"\"medium\"",
+        "default": "\"ChipSize.SMALL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "style",
+        "required": false,
+        "description": "CSSProperties",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "// Old - Deprecated\n<ChipList multiple={true} chipsSize={ChipSize.SMALL}>\n<Chip onClick={handleClick1} active={isActive1}>Option 1</Chip>\n<Chip onClick={handleClick2} active={isActive2}>Option 2</Chip>\n<Chip onClick={handleClick3} active={isActive3}>Option 3</Chip>\n</ChipList>\n\n// New - Recommended\n\n<div className=\"chip-container\">\n<ChipSelect onClick={handleClick1} selected={isActive1} size={ChipSize.SMALL}>\n  Option 1\n</ChipSelect>\n<ChipSelect onClick={handleClick2} selected={isActive2} size={ChipSize.SMALL}>\n  Option 2\n</ChipSelect>\n<ChipSelect onClick={handleClick3} selected={isActive3} size={ChipSize.SMALL}>\n  Option 3\n</ChipSelect>\n</div>",
+      "// Old - Deprecated\n<ChipList chipsSize={ChipSize.SMALL}>\n<Chip onDelete={handleDelete1}>Filter 1</Chip>\n<Chip onDelete={handleDelete2}>Filter 2</Chip>\n<Chip onDelete={handleDelete3}>Filter 3</Chip>\n</ChipList>\n\n// New - Recommended\n\n<div className=\"filter-chips\">\n<ChipFilter onDelete={handleDelete1} size={ChipSize.SMALL}>\n  Filter 1\n</ChipFilter>\n<ChipFilter onDelete={handleDelete2} size={ChipSize.SMALL}>\n  Filter 2\n</ChipFilter>\n<ChipFilter onDelete={handleDelete3} size={ChipSize.SMALL}>\n  Filter 3\n</ChipFilter>\n</div>",
+      "/* Recommended CSS for chip containers */\n.chip-container {\ndisplay: flex;\nflex-wrap: wrap;\ngap: 8px;\n}\n\n.filter-chips {\ndisplay: flex;\nflex-wrap: wrap;\ngap: 12px;\nmargin-bottom: 16px;\n}"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "chip-list-deprecated"
+    ],
+    "contracts": [
+      {
+        "id": "chip-list-deprecated",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/chip-list-deprecated/demo.registry.json",
+        "known_story_ids": [
+          "components-chiplist-deprecated--default",
+          "components-chiplist-deprecated--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-chiplist-deprecated--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-chiplist-deprecated--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-chiplist-deprecated--docs.md",
+    "docs_import_path": "./src/components/Chip/list/ChipList.mdx",
+    "story_ids": [
+      "components-chiplist-deprecated--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

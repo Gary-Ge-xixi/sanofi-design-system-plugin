@@ -1,0 +1,196 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-query-panel.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const defaultResolution = path.join(pluginRoot, "design-system", "contracts", "resolvers", "admin-query-panel.resolution.json");
+const resolutionPath = process.argv[3]
+  ? path.resolve(process.cwd(), process.argv[3])
+  : defaultResolution;
+const profilePath = path.join(pluginRoot, "design-system", "page-profiles", "admin-data-entry-table.profile.json");
+const selectContractPath = path.join(pluginRoot, "design-system", "contracts", "page-modules", "select-filter.contract.json");
+const tableContractPath = path.join(pluginRoot, "design-system", "contracts", "page-modules", "data-table-fallback.contract.json");
+const densityPath = path.join(pluginRoot, "design-system", "rules", "admin-density.json");
+const reportPath = path.join(reportDir, "admin-page-profile.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function count(source, pattern) {
+  const matches = source.match(pattern);
+  return matches ? matches.length : 0;
+}
+
+function sectionHtml(source, sectionId) {
+  const marker = `data-section="${sectionId}"`;
+  const start = source.indexOf(marker);
+  if (start === -1) return "";
+  const sectionStart = source.lastIndexOf("<", start);
+  const tagNameMatch = source.slice(sectionStart, sectionStart + 40).match(/^<([a-z0-9-]+)/i);
+  const tagName = tagNameMatch?.[1] || "section";
+  const end = source.indexOf(`</${tagName}>`, start);
+  return end === -1 ? source.slice(sectionStart) : source.slice(sectionStart, end + tagName.length + 3);
+}
+
+function firstIndex(source, marker) {
+  const index = source.indexOf(`data-section="${marker}"`);
+  return index === -1 ? Number.POSITIVE_INFINITY : index;
+}
+
+function ensureFile(filePath, failures) {
+  if (!fs.existsSync(filePath)) failures.push(`missing file: ${filePath}`);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+for (const filePath of [target, resolutionPath, profilePath, selectContractPath, tableContractPath, densityPath]) {
+  ensureFile(filePath, failures);
+}
+
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const resolution = fs.existsSync(resolutionPath) ? readJson(resolutionPath) : {};
+const profile = fs.existsSync(profilePath) ? readJson(profilePath) : {};
+const selectContract = fs.existsSync(selectContractPath) ? readJson(selectContractPath) : {};
+const tableContract = fs.existsSync(tableContractPath) ? readJson(tableContractPath) : {};
+const density = fs.existsSync(densityPath) ? readJson(densityPath) : {};
+
+if (resolution.page_profile?.id !== profile.id) {
+  failures.push(`resolution page_profile must be ${profile.id}`);
+}
+
+if (!resolution.source_provenance?.page_profile_path?.endsWith("admin-data-entry-table.profile.json")) {
+  failures.push("resolution must record admin-data-entry-table page profile path");
+}
+
+for (const ruleId of profile.required_rules || []) {
+  if (!(resolution.required_rules || []).includes(ruleId)) {
+    failures.push(`resolution missing required profile rule: ${ruleId}`);
+  }
+}
+
+for (const contractId of profile.required_module_contracts || []) {
+  if (!(resolution.page_profile?.required_module_contracts || []).includes(contractId)) {
+    failures.push(`resolution missing required module contract: ${contractId}`);
+  }
+}
+
+for (const marker of profile.section_contract?.required_attrs || []) {
+  if (!html.includes(marker)) failures.push(`missing page profile marker: ${marker}`);
+}
+
+for (const section of profile.section_contract?.required_sections || []) {
+  if (!html.includes(`data-section="${section}"`)) failures.push(`missing required page section: ${section}`);
+}
+
+for (const section of profile.section_contract?.forbidden_sections || []) {
+  if (html.includes(`data-section="${section}"`)) failures.push(`forbidden page section present: ${section}`);
+}
+
+for (const marker of density.html_contract?.required_attributes || []) {
+  if (!html.includes(marker)) failures.push(`missing density marker: ${marker}`);
+}
+
+for (const fragment of density.html_contract?.required_css_fragments || []) {
+  if (!html.includes(fragment)) failures.push(`missing density CSS fragment: ${fragment}`);
+}
+
+for (const fragment of density.html_contract?.forbidden_css_fragments || []) {
+  if (html.includes(fragment)) failures.push(`forbidden density CSS fragment: ${fragment}`);
+}
+
+for (const marker of selectContract.dom_contract?.required_attributes || []) {
+  if (!html.includes(marker)) failures.push(`missing select contract marker: ${marker}`);
+}
+
+if (/label\s+class="filter-field"[^>]*>\s*<select\b/.test(html)) {
+  failures.push("select native element must not be a direct visible child of filter-field");
+}
+
+for (const marker of tableContract.dom_contract?.required_attributes || []) {
+  if (!html.includes(marker)) failures.push(`missing table fallback marker: ${marker}`);
+}
+
+for (const marker of tableContract.dom_contract?.forbidden_attributes || []) {
+  if (html.includes(marker)) failures.push(`forbidden table fallback marker present: ${marker}`);
+}
+
+const queryToolbar = sectionHtml(html, "query-toolbar");
+const primaryActions = sectionHtml(html, "primary-actions");
+const tableSection = sectionHtml(html, "editable-data-table-fallback");
+
+const checked = {
+  filter_fields: count(queryToolbar, /class="filter-field"/g),
+  select_shells: count(queryToolbar, /class="select-shell"/g),
+  visible_select_triggers: count(queryToolbar, /class="select-trigger"/g),
+  query_toolbar_action_buttons: count(queryToolbar, /class="btn /g),
+  primary_action_buttons: count(primaryActions, /class="btn /g),
+  table_columns: count(tableSection, /<th\b/g),
+  table_body_rows: count(tableSection, /<tr\b/g),
+  editable_inputs: count(tableSection, /data-primitive="text-input"/g),
+  top_level_navigation_items: count(html, /data-menu-level="0"/g)
+};
+
+const requirements = profile.module_requirements || {};
+if (checked.filter_fields !== requirements.query_toolbar?.filter_count) {
+  failures.push(`filter count must be ${requirements.query_toolbar?.filter_count}, got ${checked.filter_fields}`);
+}
+if (checked.select_shells !== checked.filter_fields || checked.visible_select_triggers !== checked.filter_fields) {
+  failures.push("each filter field must render one select shell and one visible select trigger");
+}
+if (checked.query_toolbar_action_buttons !== requirements.query_toolbar?.action_count) {
+  failures.push(`query toolbar action count must be ${requirements.query_toolbar?.action_count}, got ${checked.query_toolbar_action_buttons}`);
+}
+if (checked.primary_action_buttons !== 3) {
+  failures.push(`primary action button count must be 3, got ${checked.primary_action_buttons}`);
+}
+if (checked.table_columns !== requirements.table?.column_count) {
+  failures.push(`table column count must be ${requirements.table?.column_count}, got ${checked.table_columns}`);
+}
+if (checked.table_body_rows < (requirements.table?.minimum_body_rows || 0) + 1) {
+  failures.push(`table must include summary row plus at least ${requirements.table?.minimum_body_rows} body rows`);
+}
+if (checked.editable_inputs < (requirements.table?.minimum_body_rows || 0)) {
+  failures.push(`editable quantity inputs must be at least ${requirements.table?.minimum_body_rows}`);
+}
+if (checked.top_level_navigation_items < (requirements.navigation?.min_top_level_items || 0)) {
+  failures.push(`top level navigation items must be at least ${requirements.navigation?.min_top_level_items}`);
+}
+
+const order = profile.section_contract?.required_sections || [];
+let previousIndex = -1;
+for (const section of order) {
+  const index = firstIndex(html, section);
+  if (index === Number.POSITIVE_INFINITY) continue;
+  if (index < previousIndex) failures.push(`section order is invalid around ${section}`);
+  previousIndex = index;
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-admin-page-profile",
+  target: path.relative(pluginRoot, target),
+  profile: profile.id || "unknown",
+  checked,
+  consumed: {
+    resolution: path.relative(pluginRoot, resolutionPath),
+    page_profile: path.relative(pluginRoot, profilePath),
+    select_contract: path.relative(pluginRoot, selectContractPath),
+    table_contract: path.relative(pluginRoot, tableContractPath),
+    density_rule: path.relative(pluginRoot, densityPath)
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Admin page profile validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Admin page profile OK: ${path.relative(pluginRoot, target)}`);

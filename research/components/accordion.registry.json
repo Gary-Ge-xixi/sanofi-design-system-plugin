@@ -1,0 +1,157 @@
+{
+  "schema_version": "0.1.0",
+  "component": {
+    "name": "Accordion",
+    "uid": "17e0ff",
+    "page_id": 5207622,
+    "category": "All Components",
+    "page_url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion",
+    "updated_at": "2025-12-05T14:37:31Z"
+  },
+  "coverage": {
+    "status": "partial",
+    "summary": "Navigation and anatomy labels are captured. Click-through detail copy for the red numbered anatomy markers is not captured yet because the current incognito page renders as private and direct API/markdown export requests did not return page blocks.",
+    "confirmed": [
+      "Accordion page metadata and tabs from sanitized Zeroheight styleguide navigation data.",
+      "Overview anatomy marker labels 1-4 from the user-provided screenshot.",
+      "Storybook entry bundle references Accordion and AccordionItem chunks."
+    ],
+    "not_confirmed": [
+      "Detailed popover/body text shown after clicking each red anatomy marker.",
+      "Exact official design guidance text for each anatomy part.",
+      "Full Storybook props and examples for Accordion because lazy-loaded chunks were not downloaded in the current local capture."
+    ]
+  },
+  "sources": {
+    "navigation_catalog": "research/components/component-catalog.json",
+    "styleguide_summary": "research/components/styleguide-summary.json",
+    "token_summary": "research/tokens/README.md",
+    "token_css": "research/tokens/elements-token-vars.css",
+    "current_browser_state_screenshot": "research/screenshots/current-screen.png",
+    "storybook_entry_html": "research/raw/storybook-accordion-iframe.html",
+    "storybook_entry_js": "research/storybook/assets/iframe-DU6-gHk6.js",
+    "storybook_token_css": "research/storybook/assets/iframe-RDcAcrX5.css",
+    "conversation_screenshot": "User-provided Accordion Overview screenshot showing Anatomy markers 1-4"
+  },
+  "capture_attempts": [
+    {
+      "method": "Chrome incognito navigation",
+      "target": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/2838c3",
+      "result": "blocked",
+      "evidence": "Current browser screenshot shows 'This page is private'."
+    },
+    {
+      "method": "Zeroheight load_page API",
+      "target": "/api/load_page?is_export=false",
+      "result": "blocked",
+      "evidence": "POST attempts returned HTTP 400 with empty JSON body."
+    },
+    {
+      "method": "Zeroheight llms.txt / markdown export API",
+      "target": "/api/styleguide/88458/llms_txt",
+      "result": "blocked",
+      "evidence": "POST attempts returned HTTP 401."
+    }
+  ],
+  "tabs": [
+    {
+      "label": "Overview",
+      "label_visible": "概述",
+      "block_id": "2838c3",
+      "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/2838c3",
+      "status": "navigation-confirmed"
+    },
+    {
+      "label": "Behavior",
+      "label_visible": "行为",
+      "block_id": "609d02",
+      "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/609d02",
+      "status": "navigation-confirmed"
+    },
+    {
+      "label": "Accessibility",
+      "label_visible": "无障碍",
+      "block_id": "653a99",
+      "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/653a99",
+      "status": "navigation-confirmed"
+    },
+    {
+      "label": "Demo",
+      "label_visible": "演示",
+      "block_id": "45c26d",
+      "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/45c26d",
+      "status": "navigation-confirmed"
+    },
+    {
+      "label": "Writing",
+      "label_visible": "写作",
+      "block_id": "70ddb2",
+      "url": "https://elements.sanofidesign.com/557b0250b/p/17e0ff-accordion/b/70ddb2",
+      "status": "navigation-confirmed"
+    }
+  ],
+  "overview": {
+    "section": "Anatomy",
+    "status": "screenshot-confirmed-labels",
+    "visible_example_text": {
+      "title": "Accordion Title is Here",
+      "slot": "I\u2019m a customisable slot.",
+      "slot_helper": "Swap me for anything"
+    },
+    "anatomy": [
+      {
+        "marker": 1,
+        "id": "accordion_label",
+        "label": "Accordion Label",
+        "visible_anchor": "Accordion Title is Here",
+        "confidence": "high for label; low for official detail copy",
+        "source": "conversation_screenshot",
+        "prototype_role": "Header label shown in the accordion trigger area.",
+        "detail_status": "click-through detail not captured"
+      },
+      {
+        "marker": 2,
+        "id": "collapse_expand_button",
+        "label": "Collapse/Expand Button",
+        "visible_anchor": "Chevron icon at the right side of the accordion header.",
+        "confidence": "high for label; low for official detail copy",
+        "source": "conversation_screenshot",
+        "prototype_role": "Icon button that toggles expanded and collapsed states.",
+        "detail_status": "click-through detail not captured"
+      },
+      {
+        "marker": 3,
+        "id": "content",
+        "label": "Content",
+        "visible_anchor": "Customisable content slot inside the expanded accordion panel.",
+        "confidence": "high for label; low for official detail copy",
+        "source": "conversation_screenshot",
+        "prototype_role": "Expandable panel body containing custom content.",
+        "detail_status": "click-through detail not captured"
+      },
+      {
+        "marker": 4,
+        "id": "divider",
+        "label": "Divider",
+        "visible_anchor": "Horizontal separator below the expanded content.",
+        "confidence": "high for label; low for official detail copy",
+        "source": "conversation_screenshot",
+        "prototype_role": "Visual separator between accordion items or sections.",
+        "detail_status": "click-through detail not captured"
+      }
+    ]
+  },
+  "prototype_contract": {
+    "html_generation": [
+      "Use this registry only as a partial Accordion source until click-through details are captured.",
+      "Prefer official Elements component implementation when the package is available.",
+      "When generating static HTML prototypes, load research/tokens/elements-token-vars.css and avoid raw color or spacing values unless they map back to the token allowlist.",
+      "Expose the four anatomy parts as named slots or selectors so future detail copy can be attached without changing generated HTML structure."
+    ],
+    "validation": [
+      "Fail or warn when generated Accordion content claims official anatomy detail copy that is not present in this registry.",
+      "Warn when an Accordion prototype omits label, toggle control, content area, or divider.",
+      "Warn when raw CSS values are used instead of Elements token variables."
+    ]
+  }
+}

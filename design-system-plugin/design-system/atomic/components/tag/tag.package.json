@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tag-complete-standard-package",
+  "component_id": "tag",
+  "component_name": "Tag",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-tag--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/tag/docs/tag.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-tag--categorical",
+      "story_name": "Categorical",
+      "export_name": "Categorical",
+      "semantic_type": "variant",
+      "variant": "categorical",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--categorical.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-categorical.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tag--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-subtle.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tag--overview",
+      "story_name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "variant": "overview",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--overview.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-overview.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tag--semantic",
+      "story_name": "Semantic",
+      "export_name": "Semantic",
+      "semantic_type": "variant",
+      "variant": "semantic",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--semantic.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-semantic.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tag--sizes",
+      "story_name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "variant": "sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tag--variants",
+      "story_name": "Variants",
+      "export_name": "Variants",
+      "semantic_type": "variant",
+      "variant": "variants",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--variants.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-variants.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-tag--with-icon",
+      "story_name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "variant": "with-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--with-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/tag-subtle.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-tag--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/tag/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/tag/tag.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/tag-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-tag--categorical",
+        "output_path": "design-system-plugin/outputs/html/tag-categorical.atomic.html"
+      },
+      {
+        "story_id": "components-tag--default",
+        "output_path": "design-system-plugin/outputs/html/tag-subtle.atomic.html"
+      },
+      {
+        "story_id": "components-tag--overview",
+        "output_path": "design-system-plugin/outputs/html/tag-overview.atomic.html"
+      },
+      {
+        "story_id": "components-tag--semantic",
+        "output_path": "design-system-plugin/outputs/html/tag-semantic.atomic.html"
+      },
+      {
+        "story_id": "components-tag--sizes",
+        "output_path": "design-system-plugin/outputs/html/tag-sizes.atomic.html"
+      },
+      {
+        "story_id": "components-tag--variants",
+        "output_path": "design-system-plugin/outputs/html/tag-variants.atomic.html"
+      },
+      {
+        "story_id": "components-tag--with-icon",
+        "output_path": "design-system-plugin/outputs/html/tag-subtle.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-tag-complete-package.json",
+    "story_item_prefix": "sanofi-tag-"
+  },
+  "validation": {
+    "required_story_count": 7,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-tag--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tag/tag.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tag/docs/tag.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

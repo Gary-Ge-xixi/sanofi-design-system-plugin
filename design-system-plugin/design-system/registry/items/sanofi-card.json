@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card",
+  "title": "Card primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Card.",
+  "status": "storybook-backed-static-contract",
+  "component_id": "card",
+  "docs_id": "components-card--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/card/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 14,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card",
+      "Card",
+      "Card"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Card primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

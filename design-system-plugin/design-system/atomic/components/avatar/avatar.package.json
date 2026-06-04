@@ -1,0 +1,183 @@
+{
+  "schema_version": "0.1.0",
+  "id": "avatar-complete-standard-package",
+  "component_id": "avatar",
+  "component_name": "Avatar",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 6,
+    "materialized_stories": 6,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-avatar--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/avatar/docs/avatar.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-avatar--all-sizes",
+      "story_name": "All Sizes",
+      "export_name": "AllSizes",
+      "semantic_type": "variant",
+      "variant": "all-sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--all-sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-all-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar--text-overflow",
+      "story_name": "Text Overflow",
+      "export_name": "TextOverflow",
+      "semantic_type": "variant",
+      "variant": "text-overflow",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--text-overflow.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-text-overflow.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar--with-default-icon",
+      "story_name": "With Default Icon",
+      "export_name": "WithDefaultIcon",
+      "semantic_type": "variant",
+      "variant": "with-default-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--with-default-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-with-default-icon.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar--with-initials",
+      "story_name": "With Initials",
+      "export_name": "WithInitials",
+      "semantic_type": "variant",
+      "variant": "with-initials",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--with-initials.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-with-initials.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-avatar--with-label",
+      "story_name": "With Label",
+      "export_name": "WithLabel",
+      "semantic_type": "variant",
+      "variant": "with-label",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/avatar/stories/components-avatar--with-label.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/avatar-with-label.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-avatar--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/avatar/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/avatar/avatar.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/avatar-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-avatar--all-sizes",
+        "output_path": "design-system-plugin/outputs/html/avatar-all-sizes.atomic.html"
+      },
+      {
+        "story_id": "components-avatar--default",
+        "output_path": "design-system-plugin/outputs/html/avatar-default.atomic.html"
+      },
+      {
+        "story_id": "components-avatar--text-overflow",
+        "output_path": "design-system-plugin/outputs/html/avatar-text-overflow.atomic.html"
+      },
+      {
+        "story_id": "components-avatar--with-default-icon",
+        "output_path": "design-system-plugin/outputs/html/avatar-with-default-icon.atomic.html"
+      },
+      {
+        "story_id": "components-avatar--with-initials",
+        "output_path": "design-system-plugin/outputs/html/avatar-with-initials.atomic.html"
+      },
+      {
+        "story_id": "components-avatar--with-label",
+        "output_path": "design-system-plugin/outputs/html/avatar-with-label.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-avatar-complete-package.json",
+    "story_item_prefix": "sanofi-avatar-"
+  },
+  "validation": {
+    "required_story_count": 6,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/avatar/avatar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/avatar/docs/avatar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/avatar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

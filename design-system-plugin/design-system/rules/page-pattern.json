@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "id": "page-pattern",
+  "severity": "error",
+  "checks": [
+    {
+      "id": "doctype",
+      "pattern": "<!doctype html>"
+    },
+    {
+      "id": "language",
+      "pattern": "<html lang="
+    },
+    {
+      "id": "viewport",
+      "pattern": "name=\"viewport\""
+    },
+    {
+      "id": "title",
+      "pattern": "<title>"
+    },
+    {
+      "id": "main-landmark",
+      "pattern": "<main"
+    },
+    {
+      "id": "design-system-marker",
+      "pattern": "data-design-system=\"sanofi-elements\""
+    },
+    {
+      "id": "pattern-marker",
+      "pattern": "data-pattern="
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "avatar-avatar-group",
+  "component_name": "Avatar/AvatarGroup",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Avatar/AvatarGroup"
+  },
+  "docs": [
+    {
+      "id": "components-avatar-avatargroup--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-avatar-avatargroup--avatar-group-two-items",
+      "name": "Avatar Group Two Items",
+      "export_name": "AvatarGroupTwoItems",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    },
+    {
+      "id": "components-avatar-avatargroup--avatar-group-with-counter",
+      "name": "Avatar Group With Counter",
+      "export_name": "AvatarGroupWithCounter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    },
+    {
+      "id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "name": "Avatar Group With Tooltips",
+      "export_name": "AvatarGroupWithTooltips",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    },
+    {
+      "id": "components-avatar-avatargroup--avatar-group-without-counter",
+      "name": "Avatar Group Without Counter",
+      "export_name": "AvatarGroupWithoutCounter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    }
+  ]
+}

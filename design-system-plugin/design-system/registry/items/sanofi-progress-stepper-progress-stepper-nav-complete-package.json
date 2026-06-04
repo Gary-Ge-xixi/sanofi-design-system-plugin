@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-progress-stepper-progress-stepper-nav-complete-package",
+  "title": "ProgressStepper/ProgressStepperNav complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ProgressStepper/ProgressStepperNav package covering Docs plus all Storybook story atoms.",
+  "component_id": "progress-stepper-progress-stepper-nav",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-progress-stepper-progress-stepper-nav"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/progress-stepper-progress-stepper-nav.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/progress-stepper-progress-stepper-nav.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/progress-stepper-progress-stepper-nav.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/progress-stepper-progress-stepper-nav.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/docs/progress-stepper-progress-stepper-nav.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/docs/progress-stepper-progress-stepper-nav.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/progress-stepper-progress-stepper-nav/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/progress-stepper-progress-stepper-nav/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-progresssteppernav--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-progresssteppernav--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-progressstepper-progresssteppernav--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-default-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--interactive",
+      "story_name": "Interactive Example",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-interactive-example-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--many-steps",
+      "story_name": "Many Steps",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-many-steps-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--with-initial-step",
+      "story_name": "With Initial Step",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-with-initial-step-atomic-story"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--without-descriptions",
+      "story_name": "Without Descriptions",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-progress-stepper-progress-stepper-nav-without-descriptions-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-progressstepper-progresssteppernav--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/progress-stepper-progress-stepper-nav.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/progress-stepper-progress-stepper-nav/docs/progress-stepper-progress-stepper-nav.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/progress-stepper-progress-stepper-nav/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "progress-stepper-progress-stepper-nav",
+      "ProgressStepper/ProgressStepperNav",
+      "progress-stepper-progress-stepper-nav complete",
+      "ProgressStepper/ProgressStepperNav complete package",
+      "progress-stepper-progress-stepper-nav docs"
+    ],
+    "when_to_use": "Use first for any ProgressStepper/ProgressStepperNav generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ProgressStepper/ProgressStepperNav behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

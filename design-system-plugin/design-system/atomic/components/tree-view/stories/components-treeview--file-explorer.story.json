@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-treeview--file-explorer",
+  "component_id": "tree-view",
+  "component_name": "TreeView",
+  "story_id": "components-treeview--file-explorer",
+  "story_name": "File Explorer",
+  "export_name": "FileExplorer",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-treeview--file-explorer&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-treeview--file-explorer&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TreeView.stories-BvkdLgBu.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--file-explorer.iframe.html",
+    "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+    "component_path": "./src/components/TreeView/TreeView.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{\"aria-label\":\"Repository files\",decoration:i.ARROW_FOLDER,showNodeLines:!0}",
+    "values": {
+      "aria-label": "Repository files",
+      "decoration": "arrow-folder",
+      "showNodeLines": true
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{decoration:{options:Object.values(i),control:{type:\"select\"}},colorAccent:{options:Object.values(m),control:{type:\"select\"}},showNodeLines:{control:\"boolean\"}}",
+    "fields": [
+      "decoration",
+      "colorAccent",
+      "showNodeLines"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    \"aria-label\": \"Repository files\",\n    decoration: TreeViewDecoration.ARROW_FOLDER,\n    showNodeLines: true\n  },\n  render: args => <TreeView {...args}>\n      <TreeView.Item id=\".github\">\n        .github\n        <TreeView.SubTree>\n          <TreeView.Item id=\".github/workflows\">\n            workflows\n            <TreeView.SubTree>\n              <TreeView.Item id=\".github/workflows/ci.yml\">\n                ci.yml\n              </TreeView.Item>\n            </TreeView.SubTree>\n          </TreeView.Item>\n        </TreeView.SubTree>\n      </TreeView.Item>\n      <TreeView.Item id=\"src\" defaultExpanded>\n        src\n        <TreeView.SubTree>\n          <TreeView.Item id=\"src/components\" defaultExpanded>\n            components\n            <TreeView.SubTree>\n              <TreeView.Item id=\"src/components/Button.tsx\">\n                Button.tsx\n                <TreeView.TrailingVisual label=\"Modified\">\n                  <Tag color={TagCategoricalColor.YELLOW} variant={TagVariant.SUBTLE} size={TagSize.SM}>\n                    Modified\n                  </Tag>\n                </TreeView.TrailingVisual>\n              </TreeView.Item>\n              <TreeView.Item id=\"src/components/Card.tsx\">\n                Card.tsx\n              </TreeView.Item>\n              <TreeView.Item id=\"src/components/TreeView.tsx\">\n                TreeView.tsx\n                <TreeView.TrailingVisual label=\"Added\">\n                  <Tag color={TagCategoricalColor.GREEN} variant={TagVariant.SUBTLE} size={TagSize.SM}>\n                    Added\n                  </Tag>\n                </TreeView.TrailingVisual>\n              </TreeView.Item>\n            </TreeView.SubTree>\n          </TreeView.Item>\n          <TreeView.Item id=\"src/index.ts\">index.ts</TreeView.Item>\n        </TreeView.SubTree>\n      </TreeView.Item>\n      <TreeView.Item id=\"package.json\">package.json</TreeView.Item>\n      <TreeView.Item id=\"README.md\">README.md</TreeView.Item>\n    </TreeView>\n}",
+    "story_object_source": "{args:{\"aria-label\":\"Repository files\",decoration:i.ARROW_FOLDER,showNodeLines:!0},render:n=>e.jsxs(r,{...n,children:[e.jsxs(r.Item,{id:\".github\",children:[\".github\",e.jsx(r.SubTree,{children:e.jsxs(r.Item,{id:\".github/workflows\",children:[\"workflows\",e.jsx(r.SubTree,{children:e.jsx(r.Item,{id:\".github/workflows/ci.yml\",children:\"ci.yml\"})})]})})]}),e.jsxs(r.Item,{id:\"src\",defaultExpanded:!0,children:[\"src\",e.jsxs(r.SubTree,{children:[e.jsxs(r.Item,{id:\"src/components\",defaultExpanded:!0,children:[\"components\",e.jsxs(r.SubTree,{children:[e.jsxs(r.Item,{id:\"src/components/Button.tsx\",children:[\"Button.tsx\",e.jsx(r.TrailingVisual,{label:\"Modified\",children:e.jsx(k,{color:M.YELLOW,variant:W.SUBTLE,size:B.SM,children:\"Modified\"})})]}),e.jsx(r.Item,{id:\"src/components/Card.tsx\",children:\"Card.tsx\"}),e.jsxs(r.Item,{id:\"src/components/TreeView.tsx\",children:[\"TreeView.tsx\",e.jsx(r.TrailingVisual,{label:\"Added\",children:e.jsx(k,{color:M.GREEN,variant:W.SUBTLE,size:B.SM,children:\"Added\"})})]})]})]}),e.jsx(r.Item,{id:\"src/index.ts\",children:\"index.ts\"})]})]}),e.jsx(r.Item,{id:\"package.json\",children:\"package.json\"}),e.jsx(r.Item,{id:\"README.md\",children:\"README.md\"})]})}"
+  },
+  "template": {
+    "id": "tree-view-file-explorer-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tree-view/templates/html.file-explorer.template.html",
+    "output_path": "design-system-plugin/outputs/html/tree-view-file-explorer.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tree-view",
+    "local_path": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "story_id": "components-treeview--file-explorer",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--file-explorer.iframe.html"
+  }
+}

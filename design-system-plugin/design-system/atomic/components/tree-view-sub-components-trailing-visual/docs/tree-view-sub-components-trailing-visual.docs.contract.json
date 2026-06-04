@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1.0",
+  "id": "tree-view-sub-components-trailing-visual-docs-contract",
+  "component_id": "tree-view-sub-components-trailing-visual",
+  "component_name": "TreeView/SubComponents/TrailingVisual",
+  "docs_id": "components-treeview-subcomponents-trailingvisual--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview-subcomponents-trailingvisual--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-trailingvisual--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "children",
+        "required": true,
+        "description": "Badge, icon, status, or render function receiving expanded state.ReactNode \\",
+        "default": "((props: { isExpanded: boolean; }) => ReactNode)",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "description": "Accessible label describing the visual (e.g., \"Modified\", \"3 errors\").string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-treeview-subcomponents-trailingvisual--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-treeview-subcomponents-trailingvisual--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/TreeView/TreeViewTrailingVisual.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-trailingvisual--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-treeview-subcomponents-trailingvisual--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-trailing-visual.contract.json"
+  }
+}

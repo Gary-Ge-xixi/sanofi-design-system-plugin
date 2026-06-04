@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "component": "SearchInput",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/SearchInput",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "search-input",
+      "data_attribute": "data-primitive=\"search-input\"",
+      "required_semantics": [
+        "input type=\"search\"",
+        "accessible label"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-searchinput--default",
+      "components-searchinput--sizes",
+      "components-searchinput--submit-variant",
+      "components-searchinput--error-state",
+      "components-searchinput--disabled",
+      "components-searchinput--inverse",
+      "components-searchinput--submit-variant-sizes",
+      "components-searchinput--submit-with-button-icon",
+      "components-searchinput--submit-with-custom-buttons"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

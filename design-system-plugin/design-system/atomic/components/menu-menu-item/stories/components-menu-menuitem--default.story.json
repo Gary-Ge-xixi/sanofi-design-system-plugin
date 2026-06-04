@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-menu-menuitem--default",
+  "component_id": "menu-menu-item",
+  "component_name": "Menu/MenuItem",
+  "story_id": "components-menu-menuitem--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu-menuitem--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu-menuitem--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/MenuItem.stories-BXRVaVV4.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/menu-menu-item/assets/MenuItem.stories-BXRVaVV4.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/menu-menu-item/assets/components-menu-menuitem--default.iframe.html",
+    "import_path": "./src/components/Menu/dropdown/items/MenuItem.stories.tsx",
+    "component_path": "./src/components/Menu/dropdown/items/MenuItem.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{iconBefore:e.jsx(n.Item.Icon,{name:r.EDIT}),iconAfter:e.jsx(n.Item.Icon,{name:r.CHEVRON_RIGHT}),description:\"Description goes here\",shortcut:\"⌘S\",children:\"Menu item 1\"}",
+    "values": {
+      "iconBefore": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsx(n.Item.Icon,{name:r.EDIT})"
+      },
+      "iconAfter": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsx(n.Item.Icon,{name:r.CHEVRON_RIGHT})"
+      },
+      "description": "Description goes here",
+      "shortcut": "⌘S",
+      "children": "Menu item 1"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  tags: [\"isHidden\"],\n  parameters: {\n    chromatic: {\n      disableSnapshot: true\n    }\n  },\n  render: ({\n    iconBefore,\n    description,\n    shortcut,\n    children\n  }) => <OpenedMenuContextProvider>\n      <Menu.Dropdown>\n        <Menu.Item iconBefore={iconBefore} description={description} shortcut={shortcut}>\n          {children}\n        </Menu.Item>\n      </Menu.Dropdown>\n    </OpenedMenuContextProvider>,\n  args: {\n    iconBefore: <Menu.Item.Icon name={IconName.EDIT} />,\n    iconAfter: <Menu.Item.Icon name={IconName.CHEVRON_RIGHT} />,\n    description: \"Description goes here\",\n    shortcut: \"⌘S\",\n    children: \"Menu item 1\"\n  }\n}",
+    "story_object_source": "{tags:[\"isHidden\"],parameters:{chromatic:{disableSnapshot:!0}},render:({iconBefore:t,description:i,shortcut:s,children:m})=>e.jsx(a,{children:e.jsx(n.Dropdown,{children:e.jsx(n.Item,{iconBefore:t,description:i,shortcut:s,children:m})})}),args:{iconBefore:e.jsx(n.Item.Icon,{name:r.EDIT}),iconAfter:e.jsx(n.Item.Icon,{name:r.CHEVRON_RIGHT}),description:\"Description goes here\",shortcut:\"⌘S\",children:\"Menu item 1\"}}"
+  },
+  "template": {
+    "id": "menu-menu-item-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/menu-menu-item/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/menu-menu-item-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/menu-menu-item.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "menu-menu-item",
+    "local_path": "design-system-plugin/design-system/primitives/components/menu-menu-item/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitem--docs",
+    "story_id": "components-menu-menuitem--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu-menu-item/assets/MenuItem.stories-BXRVaVV4.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/menu-menu-item/assets/components-menu-menuitem--default.iframe.html"
+  }
+}

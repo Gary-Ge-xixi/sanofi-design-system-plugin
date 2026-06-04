@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "progress-stepper-use-stepper-hook",
+  "component_name": "ProgressStepper/useStepper Hook",
+  "status": "unsupported",
+  "reason": "no_story_tabs",
+  "docs": [
+    {
+      "id": "components-progressstepper-usestepper-hook--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperHook.mdx"
+    }
+  ],
+  "source_provenance": {
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-use-stepper-hook.contract.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "policy": "Docs-only hook/provider entries are included in contracts and registry source coverage, but are not renderable HTML component packages until Storybook stories exist."
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-deprecated",
+  "title": "Chip (Deprecated) primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Chip (Deprecated).",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "chip-deprecated",
+  "docs_id": "components-chip-deprecated--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-deprecated/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/chip-deprecated/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chip-deprecated--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chip-deprecated--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chip-deprecated--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 8,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-deprecated",
+      "Chip (Deprecated)",
+      "Chip (Deprecated)"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Chip (Deprecated) primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

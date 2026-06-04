@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "materialize-story-atom",
+  "story_id": "components-typography--variants",
+  "output": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--variants.story.json",
+  "checked": {
+    "bundle_asset": "assets/Typography.stories-DZyzV-Hy.js",
+    "args_extracted": 0,
+    "arg_types_extracted": 3,
+    "original_source_extracted": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-component-package-dom",
+  "component_id": "typography",
+  "target": "design-system-plugin/outputs/html/typography-complete.atomic.html",
+  "checked": {
+    "has_package_root": true,
+    "has_tokens_css": true,
+    "has_docs_source": true,
+    "has_token_source": true,
+    "expected_stories": 4,
+    "unique_story_refs": 4,
+    "expected_anchor_stories": [],
+    "anchor_semantics": {},
+    "body_background_token": "--elements-color-semantic-background-neutral",
+    "raw_black_background": false
+  },
+  "failures": [],
+  "details": {
+    "missing_stories": [],
+    "extra_stories": []
+  }
+}

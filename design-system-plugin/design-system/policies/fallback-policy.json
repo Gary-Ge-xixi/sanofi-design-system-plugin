@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1.0",
+  "id": "fallback-policy",
+  "fallbacks": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "allowed_markup": ["table"],
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "chart",
+      "status": "unsupported-chart-types-fallback",
+      "reason": "Use fallback only for chart types without local official docs or contracts. Researched BarChart must use the business-chart contract.",
+      "allowed_markup": ["div", "ol", "ul"],
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "business-chart",
+      "status": "contract-backed-module",
+      "reason": "BarChart is locally researched and may be used through contracts/page-modules/business-chart.contract.json when required data, axis, size, and accessibility metadata are present.",
+      "allowed_component": "BarChart",
+      "must_use_contract": "business-chart"
+    },
+    {
+      "module": "metric-card",
+      "status": "compose-from-primitives",
+      "reason": "No dedicated Metric/KPI primitive is registered locally.",
+      "allowed_primitives": ["card", "tag", "progress-bar"]
+    },
+    {
+      "module": "page-header",
+      "status": "docs-only-gap",
+      "reason": "PageHeader docs exist but no primitive contract is registered yet.",
+      "allowed_markup": ["header"],
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "date-picker",
+      "status": "docs-only-gap",
+      "reason": "DatePicker docs exist but no primitive contract is registered yet.",
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "modal",
+      "status": "docs-only-gap",
+      "reason": "Modal docs exist but no primitive contract is registered yet.",
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "drawer",
+      "status": "docs-only-gap",
+      "reason": "Drawer docs exist but no primitive contract is registered yet.",
+      "must_not_claim_primitive": true
+    }
+  ]
+}

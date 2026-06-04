@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-banner-complete-package",
+  "title": "Banner complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Banner package covering Docs plus all Storybook story atoms.",
+  "component_id": "banner",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-banner"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/banner.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/banner/banner.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/banner.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/banner/banner.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/docs/banner.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/banner/docs/banner.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/banner/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/banner/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/banner-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/banner-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/banner.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/banner/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 6,
+    "materialized_stories": 6,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-banner--custom-icon",
+      "story_name": "Custom Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-banner-custom-icon-atomic-story"
+    },
+    {
+      "story_id": "components-banner--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-banner-default-atomic-story"
+    },
+    {
+      "story_id": "components-banner--global",
+      "story_name": "Global",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-banner-global-atomic-story"
+    },
+    {
+      "story_id": "components-banner--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-banner-overview-atomic-story"
+    },
+    {
+      "story_id": "components-banner--with-close-icon",
+      "story_name": "With Close Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-banner-with-close-icon-atomic-story"
+    },
+    {
+      "story_id": "components-banner--with-contents",
+      "story_name": "With Contents",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-banner-with-contents-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/banner/banner.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/banner/docs/banner.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "banner",
+      "Banner",
+      "banner complete",
+      "Banner complete package",
+      "banner docs"
+    ],
+    "when_to_use": "Use first for any Banner generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Banner behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

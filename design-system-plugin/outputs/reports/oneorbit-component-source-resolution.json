@@ -1,0 +1,1556 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-04T09:28:27.622Z",
+  "script": "resolve-oneorbit-component-sources",
+  "remote_sources": {
+    "storybook_index": "https://elements.prod.accelerator.sanofi/index.json",
+    "storybook_stories": "https://elements.prod.accelerator.sanofi/stories.json"
+  },
+  "local_downloads": {
+    "storybook_index": "outputs/reports/web-research/oneorbit-sources/storybook-index.json",
+    "storybook_stories": "outputs/reports/web-research/oneorbit-sources/storybook-stories.json"
+  },
+  "decisions": [
+    {
+      "target": "table",
+      "decision": "semantic-html-fallback",
+      "reason": "No official Table/DataGrid component entry is exposed in the Storybook index and no local Table/DataGrid primitive is registered.",
+      "remote_queries": [
+        {
+          "query": "table",
+          "hits": [
+            {
+              "id": "components-chip-deprecated--deletable",
+              "title": "Components/Chip (Deprecated)",
+              "name": "Deletable",
+              "type": "story",
+              "importPath": "./src/components/Chip/Chip.stories.tsx"
+            },
+            {
+              "id": "components-chip-deprecated--icon-and-deletable",
+              "title": "Components/Chip (Deprecated)",
+              "name": "Icon And Deletable",
+              "type": "story",
+              "importPath": "./src/components/Chip/Chip.stories.tsx"
+            },
+            {
+              "id": "components-contentblock--selectable-list",
+              "title": "Components/ContentBlock",
+              "name": "Selectable List",
+              "type": "story",
+              "importPath": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+            },
+            {
+              "id": "components-contentblock--selectable-radio-list",
+              "title": "Components/ContentBlock",
+              "name": "Selectable Radio List",
+              "type": "story",
+              "importPath": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+            },
+            {
+              "id": "components-grid--tablet",
+              "title": "Components/Grid",
+              "name": "Tablet",
+              "type": "story",
+              "importPath": "./src/components/Grid/Grid.stories.tsx"
+            },
+            {
+              "id": "components-chip--deletable",
+              "title": "Components/Chip",
+              "name": "Deletable",
+              "importPath": "./src/components/Chip/Chip.stories.tsx"
+            },
+            {
+              "id": "components-chip--icon-and-deletable",
+              "title": "Components/Chip",
+              "name": "Icon And Deletable",
+              "importPath": "./src/components/Chip/Chip.stories.tsx"
+            },
+            {
+              "id": "foundations-grid--tablet",
+              "title": "Foundations/Grid",
+              "name": "Tablet",
+              "importPath": "./src/components/Grid/Grid.stories.tsx"
+            }
+          ]
+        },
+        {
+          "query": "data grid",
+          "hits": []
+        },
+        {
+          "query": "datagrid",
+          "hits": []
+        }
+      ],
+      "required_story_hits": [],
+      "local_registry_queries": [
+        {
+          "query": "table",
+          "hits": [
+            {
+              "score": 1,
+              "name": "sanofi-admin-dashboard",
+              "title": "Sanofi admin dashboard block",
+              "type": "registry:block",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-admin-dashboard.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-elements-component-runtime",
+                "sanofi-brand-assets",
+                "sanofi-container",
+                "sanofi-grid",
+                "sanofi-navigation-header",
+                "sanofi-sidebar",
+                "sanofi-menu",
+                "sanofi-icon",
+                "sanofi-search-input",
+                "sanofi-select",
+                "sanofi-button",
+                "sanofi-card",
+                "sanofi-tag",
+                "sanofi-tabs",
+                "sanofi-progress-bar"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-admin-query-panel",
+              "title": "OneCommercial admin query and fill panel",
+              "type": "registry:block",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-admin-query-panel.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-container",
+                "sanofi-grid",
+                "sanofi-navigation-header",
+                "sanofi-sidebar",
+                "sanofi-menu",
+                "sanofi-icon",
+                "sanofi-select",
+                "sanofi-button",
+                "sanofi-text-input",
+                "sanofi-pagination",
+                "sanofi-search-input"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-deprecated-deletable-atomic-story",
+              "title": "Chip (Deprecated) Deletable atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-deprecated-deletable-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-deprecated"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-deprecated-icon-and-deletable-atomic-story",
+              "title": "Chip (Deprecated) Icon And Deletable atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-deprecated-icon-and-deletable-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-deprecated"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-content-block-selectable-list-atomic-story",
+              "title": "ContentBlock Selectable List atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-list-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-content-block-selectable-radio-list-atomic-story",
+              "title": "ContentBlock Selectable Radio List atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-radio-list-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-tablet-atomic-story",
+              "title": "Grid Tablet atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-tablet-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            }
+          ]
+        },
+        {
+          "query": "data table",
+          "hits": [
+            {
+              "score": 2,
+              "name": "sanofi-admin-query-panel",
+              "title": "OneCommercial admin query and fill panel",
+              "type": "registry:block",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-admin-query-panel.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-container",
+                "sanofi-grid",
+                "sanofi-navigation-header",
+                "sanofi-sidebar",
+                "sanofi-menu",
+                "sanofi-icon",
+                "sanofi-select",
+                "sanofi-button",
+                "sanofi-text-input",
+                "sanofi-pagination",
+                "sanofi-search-input"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-admin-dashboard",
+              "title": "Sanofi admin dashboard block",
+              "type": "registry:block",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-admin-dashboard.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-elements-component-runtime",
+                "sanofi-brand-assets",
+                "sanofi-container",
+                "sanofi-grid",
+                "sanofi-navigation-header",
+                "sanofi-sidebar",
+                "sanofi-menu",
+                "sanofi-icon",
+                "sanofi-search-input",
+                "sanofi-select",
+                "sanofi-button",
+                "sanofi-card",
+                "sanofi-tag",
+                "sanofi-tabs",
+                "sanofi-progress-bar"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-deprecated-deletable-atomic-story",
+              "title": "Chip (Deprecated) Deletable atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-deprecated-deletable-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-deprecated"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-deprecated-icon-and-deletable-atomic-story",
+              "title": "Chip (Deprecated) Icon And Deletable atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-deprecated-icon-and-deletable-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-deprecated"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-content-block-selectable-list-atomic-story",
+              "title": "ContentBlock Selectable List atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-list-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-content-block-selectable-radio-list-atomic-story",
+              "title": "ContentBlock Selectable Radio List atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-radio-list-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-tablet-atomic-story",
+              "title": "Grid Tablet atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-tablet-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            }
+          ]
+        },
+        {
+          "query": "data grid",
+          "hits": [
+            {
+              "score": 1,
+              "name": "sanofi-admin-query-panel",
+              "title": "OneCommercial admin query and fill panel",
+              "type": "registry:block",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-admin-query-panel.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-container",
+                "sanofi-grid",
+                "sanofi-navigation-header",
+                "sanofi-sidebar",
+                "sanofi-menu",
+                "sanofi-icon",
+                "sanofi-select",
+                "sanofi-button",
+                "sanofi-text-input",
+                "sanofi-pagination",
+                "sanofi-search-input"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-card-group-card-grids-group-atomic-story",
+              "title": "Card/CardGroup Card Grids Group atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-card-group-card-grids-group-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card-card-group"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-card-group-card-grids-group-picto-atomic-story",
+              "title": "Card/CardGroup Card Grids Group Picto atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-card-group-card-grids-group-picto-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card-card-group"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-flex-wrapping-grid-atomic-story",
+              "title": "Flex Wrapping Grid atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-flex-wrapping-grid-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-flex"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid",
+              "title": "Grid primitive",
+              "type": "registry:component",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-complete-package",
+              "title": "Grid complete standard package",
+              "type": "registry:package",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-complete-package.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-desktop-atomic-story",
+              "title": "Grid Desktop atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-desktop-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-large-mobile-atomic-story",
+              "title": "Grid Large Mobile atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-large-mobile-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-mobile-atomic-story",
+              "title": "Grid Mobile atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-mobile-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-grid-tablet-atomic-story",
+              "title": "Grid Tablet atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-grid-tablet-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-grid"
+              ]
+            }
+          ]
+        }
+      ],
+      "local_contracts": [
+        "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+        "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+      ],
+      "remote_hit_count": 8,
+      "local_hit_count": 15,
+      "evidence": [
+        "sanofi-admin-dashboard (design-system-plugin/design-system/registry/items/sanofi-admin-dashboard.json)",
+        "sanofi-admin-query-panel (design-system-plugin/design-system/registry/items/sanofi-admin-query-panel.json)",
+        "sanofi-card-card-group-card-grids-group-atomic-story (design-system-plugin/design-system/registry/items/sanofi-card-card-group-card-grids-group-atomic-story.json)",
+        "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+        "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+      ]
+    },
+    {
+      "target": "date-range",
+      "decision": "docs-registry-backed-primitive",
+      "reason": "DatePicker range stories are present in Storybook and local registry, but the local runtime adapter is not registered in the first-round component runtime.",
+      "remote_queries": [
+        {
+          "query": "date picker",
+          "hits": [
+            {
+              "id": "components-calendar--docs",
+              "title": "Components/Calendar",
+              "name": "Docs",
+              "type": "docs",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.mdx"
+            },
+            {
+              "id": "components-calendar--default",
+              "title": "Components/Calendar",
+              "name": "Default",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-calendar--disabled",
+              "title": "Components/Calendar",
+              "name": "Disabled",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-calendar--with-date-constraints",
+              "title": "Components/Calendar",
+              "name": "With Date Constraints",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-calendar--range-selection",
+              "title": "Components/Calendar",
+              "name": "Range Selection",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--docs",
+              "title": "Components/DatePicker",
+              "name": "Docs",
+              "type": "docs",
+              "importPath": "./src/components/DatePicker/DatePicker.mdx"
+            },
+            {
+              "id": "components-datepicker--default",
+              "title": "Components/DatePicker",
+              "name": "Default",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--month-picker",
+              "title": "Components/DatePicker",
+              "name": "Month Picker",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--quarter-picker",
+              "title": "Components/DatePicker",
+              "name": "Quarter Picker",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--year-picker",
+              "title": "Components/DatePicker",
+              "name": "Year Picker",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range",
+              "title": "Components/DatePicker",
+              "name": "Range",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-error",
+              "title": "Components/DatePicker",
+              "name": "With Error",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range-with-error",
+              "title": "Components/DatePicker",
+              "name": "Range With Error",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-clearable",
+              "title": "Components/DatePicker",
+              "name": "With Clearable",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-min-and-max-dates",
+              "title": "Components/DatePicker",
+              "name": "With Min And Max Dates",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range-empty",
+              "title": "Components/DatePicker",
+              "name": "Range Empty",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range-partial",
+              "title": "Components/DatePicker",
+              "name": "Range Partial",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--medium-size",
+              "title": "Components/DatePicker",
+              "name": "Medium Size",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-icon",
+              "title": "Components/DatePicker",
+              "name": "With Icon",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--disabled",
+              "title": "Components/DatePicker",
+              "name": "Disabled",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            }
+          ]
+        },
+        {
+          "query": "datepicker",
+          "hits": [
+            {
+              "id": "components-calendar--docs",
+              "title": "Components/Calendar",
+              "name": "Docs",
+              "type": "docs",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.mdx"
+            },
+            {
+              "id": "components-calendar--default",
+              "title": "Components/Calendar",
+              "name": "Default",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-calendar--disabled",
+              "title": "Components/Calendar",
+              "name": "Disabled",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-calendar--with-date-constraints",
+              "title": "Components/Calendar",
+              "name": "With Date Constraints",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-calendar--range-selection",
+              "title": "Components/Calendar",
+              "name": "Range Selection",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--docs",
+              "title": "Components/DatePicker",
+              "name": "Docs",
+              "type": "docs",
+              "importPath": "./src/components/DatePicker/DatePicker.mdx"
+            },
+            {
+              "id": "components-datepicker--default",
+              "title": "Components/DatePicker",
+              "name": "Default",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--month-picker",
+              "title": "Components/DatePicker",
+              "name": "Month Picker",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--quarter-picker",
+              "title": "Components/DatePicker",
+              "name": "Quarter Picker",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--year-picker",
+              "title": "Components/DatePicker",
+              "name": "Year Picker",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range",
+              "title": "Components/DatePicker",
+              "name": "Range",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-error",
+              "title": "Components/DatePicker",
+              "name": "With Error",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range-with-error",
+              "title": "Components/DatePicker",
+              "name": "Range With Error",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-clearable",
+              "title": "Components/DatePicker",
+              "name": "With Clearable",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-min-and-max-dates",
+              "title": "Components/DatePicker",
+              "name": "With Min And Max Dates",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range-empty",
+              "title": "Components/DatePicker",
+              "name": "Range Empty",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--range-partial",
+              "title": "Components/DatePicker",
+              "name": "Range Partial",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--medium-size",
+              "title": "Components/DatePicker",
+              "name": "Medium Size",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--with-icon",
+              "title": "Components/DatePicker",
+              "name": "With Icon",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            },
+            {
+              "id": "components-datepicker--disabled",
+              "title": "Components/DatePicker",
+              "name": "Disabled",
+              "type": "story",
+              "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+            }
+          ]
+        }
+      ],
+      "required_story_hits": [
+        {
+          "id": "components-datepicker--range",
+          "title": "Components/DatePicker",
+          "name": "Range",
+          "type": "story",
+          "importPath": "./src/components/DatePicker/DatePicker.stories.tsx"
+        },
+        {
+          "id": "components-calendar--range-selection",
+          "title": "Components/Calendar",
+          "name": "Range Selection",
+          "type": "story",
+          "importPath": "./src/components/DatePicker/Calendar/Calendar.stories.tsx"
+        }
+      ],
+      "local_registry_queries": [
+        {
+          "query": "date range",
+          "hits": [
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-disabled-range-atomic-story",
+              "title": "DatePicker Disabled Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-disabled-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-dual-calendar-partial-range-atomic-story",
+              "title": "DatePicker Dual Calendar Partial Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-dual-calendar-partial-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-dual-calendar-with-prefilled-range-atomic-story",
+              "title": "DatePicker Dual Calendar With Prefilled Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-dual-calendar-with-prefilled-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-range-atomic-story",
+              "title": "DatePicker Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-range-empty-atomic-story",
+              "title": "DatePicker Range Empty atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-empty-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-range-partial-atomic-story",
+              "title": "DatePicker Range Partial atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-partial-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-range-with-error-atomic-story",
+              "title": "DatePicker Range With Error atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-with-error-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-range-with-footer-atomic-story",
+              "title": "DatePicker Range With Footer atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-with-footer-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-calendar-range-selection-atomic-story",
+              "title": "Calendar Range Selection atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-calendar-range-selection-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-calendar"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-calendar-with-date-constraints-atomic-story",
+              "title": "Calendar With Date Constraints atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-calendar-with-date-constraints-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-calendar"
+              ]
+            }
+          ]
+        },
+        {
+          "query": "date picker range",
+          "hits": [
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-disabled-range-atomic-story",
+              "title": "DatePicker Disabled Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-disabled-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-dual-calendar-partial-range-atomic-story",
+              "title": "DatePicker Dual Calendar Partial Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-dual-calendar-partial-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-dual-calendar-with-prefilled-range-atomic-story",
+              "title": "DatePicker Dual Calendar With Prefilled Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-dual-calendar-with-prefilled-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-range-atomic-story",
+              "title": "DatePicker Range atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-range-empty-atomic-story",
+              "title": "DatePicker Range Empty atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-empty-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-range-partial-atomic-story",
+              "title": "DatePicker Range Partial atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-partial-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-range-with-error-atomic-story",
+              "title": "DatePicker Range With Error atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-with-error-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-date-picker-range-with-footer-atomic-story",
+              "title": "DatePicker Range With Footer atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-range-with-footer-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker",
+              "title": "DatePicker primitive",
+              "type": "registry:component",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-date-picker-complete-package",
+              "title": "DatePicker complete standard package",
+              "type": "registry:package",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-date-picker-complete-package.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-date-picker"
+              ]
+            }
+          ]
+        }
+      ],
+      "local_contracts": [
+        "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+        "design-system-plugin/design-system/primitives/components/date-picker/primitive.json"
+      ],
+      "remote_hit_count": 20,
+      "local_hit_count": 12,
+      "evidence": [
+        "components-datepicker--range (./src/components/DatePicker/DatePicker.stories.tsx)",
+        "components-calendar--range-selection (./src/components/DatePicker/Calendar/Calendar.stories.tsx)",
+        "sanofi-date-picker-disabled-range-atomic-story (design-system-plugin/design-system/registry/items/sanofi-date-picker-disabled-range-atomic-story.json)",
+        "sanofi-date-picker-dual-calendar-partial-range-atomic-story (design-system-plugin/design-system/registry/items/sanofi-date-picker-dual-calendar-partial-range-atomic-story.json)",
+        "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+        "design-system-plugin/design-system/primitives/components/date-picker/primitive.json"
+      ]
+    },
+    {
+      "target": "message-list",
+      "decision": "compound-card-list-pattern",
+      "reason": "No MessageList component entry is exposed; Card list and ContentBlock list stories are available, so message items should compose Card, Button, and Icon rather than claim MessageList runtime.",
+      "remote_queries": [
+        {
+          "query": "message list",
+          "hits": []
+        },
+        {
+          "query": "notification",
+          "hits": []
+        },
+        {
+          "query": "card list",
+          "hits": [
+            {
+              "id": "components-card--list-image-view",
+              "title": "Components/Card",
+              "name": "List Image View",
+              "type": "story",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-image-ratio-view",
+              "title": "Components/Card",
+              "name": "List Image Ratio View",
+              "type": "story",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-center-content-view",
+              "title": "Components/Card",
+              "name": "List Center Content View",
+              "type": "story",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-picto-view",
+              "title": "Components/Card",
+              "name": "List Picto View",
+              "type": "story",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-date-view",
+              "title": "Components/Card",
+              "name": "List Date View",
+              "type": "story",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-density-view",
+              "title": "Components/Card",
+              "name": "List Density View",
+              "type": "story",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-image-view",
+              "title": "Components/Card",
+              "name": "List Image View",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-picto-view",
+              "title": "Components/Card",
+              "name": "List Picto View",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            },
+            {
+              "id": "components-card--list-date-view",
+              "title": "Components/Card",
+              "name": "List Date View",
+              "importPath": "./src/components/Card/Card.stories.tsx"
+            }
+          ]
+        },
+        {
+          "query": "content block list",
+          "hits": [
+            {
+              "id": "components-contentblock--selectable-list",
+              "title": "Components/ContentBlock",
+              "name": "Selectable List",
+              "type": "story",
+              "importPath": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+            },
+            {
+              "id": "components-contentblock--selectable-radio-list",
+              "title": "Components/ContentBlock",
+              "name": "Selectable Radio List",
+              "type": "story",
+              "importPath": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+            }
+          ]
+        }
+      ],
+      "required_story_hits": [
+        {
+          "id": "components-card--list-density-view",
+          "title": "Components/Card",
+          "name": "List Density View",
+          "type": "story",
+          "importPath": "./src/components/Card/Card.stories.tsx"
+        },
+        {
+          "id": "components-card--list-date-view",
+          "title": "Components/Card",
+          "name": "List Date View",
+          "type": "story",
+          "importPath": "./src/components/Card/Card.stories.tsx"
+        },
+        {
+          "id": "components-contentblock--selectable-list",
+          "title": "Components/ContentBlock",
+          "name": "Selectable List",
+          "type": "story",
+          "importPath": "./src/components/ContentBlock/ContentBlock.stories.tsx"
+        }
+      ],
+      "local_registry_queries": [
+        {
+          "query": "message list",
+          "hits": [
+            {
+              "score": 1,
+              "name": "sanofi-card-list-center-content-view-atomic-story",
+              "title": "Card List Center Content View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-center-content-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-list-date-view-atomic-story",
+              "title": "Card List Date View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-date-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-list-density-view-atomic-story",
+              "title": "Card List Density View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-density-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-list-image-ratio-view-atomic-story",
+              "title": "Card List Image Ratio View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-image-ratio-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-list-image-view-atomic-story",
+              "title": "Card List Image View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-image-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-list-picto-view-atomic-story",
+              "title": "Card List Picto View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-picto-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-filter-list-example-atomic-story",
+              "title": "ChipFilter List Example atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-filter-list-example-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-filter"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-list-deprecated",
+              "title": "ChipList (Deprecated) primitive",
+              "type": "registry:component",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-list-deprecated.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-list-deprecated-complete-package",
+              "title": "ChipList (Deprecated) complete standard package",
+              "type": "registry:package",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-list-deprecated-complete-package.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-list-deprecated"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-chip-list-deprecated-default-atomic-story",
+              "title": "ChipList (Deprecated) Default atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-chip-list-deprecated-default-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-chip-list-deprecated"
+              ]
+            }
+          ]
+        },
+        {
+          "query": "card list",
+          "hits": [
+            {
+              "score": 2,
+              "name": "sanofi-card-list-center-content-view-atomic-story",
+              "title": "Card List Center Content View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-center-content-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-card-list-date-view-atomic-story",
+              "title": "Card List Date View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-date-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-card-list-density-view-atomic-story",
+              "title": "Card List Density View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-density-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-card-list-image-ratio-view-atomic-story",
+              "title": "Card List Image Ratio View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-image-ratio-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-card-list-image-view-atomic-story",
+              "title": "Card List Image View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-image-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-card-list-picto-view-atomic-story",
+              "title": "Card List Picto View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-picto-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card",
+              "title": "Card primitive",
+              "type": "registry:component",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-action",
+              "title": "Card/Action primitive",
+              "type": "registry:component",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-action.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-action-complete-package",
+              "title": "Card/Action complete standard package",
+              "type": "registry:package",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-action-complete-package.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card-action"
+              ]
+            },
+            {
+              "score": 1,
+              "name": "sanofi-card-action-default-atomic-story",
+              "title": "Card/Action Default atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-action-default-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card-action"
+              ]
+            }
+          ]
+        },
+        {
+          "query": "content block list",
+          "hits": [
+            {
+              "score": 3,
+              "name": "sanofi-content-block-selectable-list-atomic-story",
+              "title": "ContentBlock Selectable List atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-list-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 3,
+              "name": "sanofi-content-block-selectable-radio-list-atomic-story",
+              "title": "ContentBlock Selectable Radio List atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-radio-list-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-card-list-center-content-view-atomic-story",
+              "title": "Card List Center Content View atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-card-list-center-content-view-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-card"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block",
+              "title": "ContentBlock primitive",
+              "type": "registry:component",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block-complete-package",
+              "title": "ContentBlock complete standard package",
+              "type": "registry:package",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-complete-package.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block-default-atomic-story",
+              "title": "ContentBlock Default atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-default-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block-interactive-atomic-story",
+              "title": "ContentBlock Interactive atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-interactive-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block-interactive-disabled-atomic-story",
+              "title": "ContentBlock Interactive Disabled atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-interactive-disabled-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block-interactive-selected-atomic-story",
+              "title": "ContentBlock Interactive Selected atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-interactive-selected-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            },
+            {
+              "score": 2,
+              "name": "sanofi-content-block-interactive-with-decorative-button-atomic-story",
+              "title": "ContentBlock Interactive With Decorative Button atomic story",
+              "type": "registry:story",
+              "path": "design-system-plugin/design-system/registry/items/sanofi-content-block-interactive-with-decorative-button-atomic-story.json",
+              "registryDependencies": [
+                "sanofi-elements-tokens",
+                "sanofi-design-prototype-generator",
+                "sanofi-content-block"
+              ]
+            }
+          ]
+        }
+      ],
+      "local_contracts": [
+        "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+        "design-system-plugin/design-system/primitives/components/card/primitive.json",
+        "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+      ],
+      "remote_hit_count": 8,
+      "local_hit_count": 23,
+      "evidence": [
+        "components-card--list-density-view (./src/components/Card/Card.stories.tsx)",
+        "components-card--list-date-view (./src/components/Card/Card.stories.tsx)",
+        "components-contentblock--selectable-list (./src/components/ContentBlock/ContentBlock.stories.tsx)",
+        "sanofi-card-list-center-content-view-atomic-story (design-system-plugin/design-system/registry/items/sanofi-card-list-center-content-view-atomic-story.json)",
+        "sanofi-card-list-date-view-atomic-story (design-system-plugin/design-system/registry/items/sanofi-card-list-date-view-atomic-story.json)",
+        "sanofi-content-block-selectable-list-atomic-story (design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-list-atomic-story.json)",
+        "sanofi-content-block-selectable-radio-list-atomic-story (design-system-plugin/design-system/registry/items/sanofi-content-block-selectable-radio-list-atomic-story.json)",
+        "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+        "design-system-plugin/design-system/primitives/components/card/primitive.json",
+        "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+      ]
+    }
+  ]
+}

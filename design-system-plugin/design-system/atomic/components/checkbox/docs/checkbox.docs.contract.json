@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.1.0",
+  "id": "checkbox-docs-contract",
+  "component_id": "checkbox",
+  "component_name": "Checkbox",
+  "docs_id": "components-checkbox--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-checkbox--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-checkbox--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "checkboxSize",
+        "required": false,
+        "description": "The checkbox size\"small\"\"medium\"\"large\"",
+        "default": "\"CheckboxSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "The checkbox color variantstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label text displayed next to the checkbox.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-checkbox--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Checkbox, CheckboxSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Checkbox\n    label=\"Checkbox\"\n    checkboxSize={CheckboxSize.MEDIUM}\n    color={CheckboxColor.BRANDED}\n    value=\"checkbox\"\n  />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-checkbox--color-variations",
+      "name": "Color Variations",
+      "export_name": "ColorVariations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--with-link",
+      "name": "With Link",
+      "export_name": "WithLink",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    },
+    {
+      "id": "components-checkbox--with-subtext",
+      "name": "With Subtext",
+      "export_name": "WithSubtext",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Checkbox/Checkbox.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-checkbox--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox.contract.json"
+  }
+}

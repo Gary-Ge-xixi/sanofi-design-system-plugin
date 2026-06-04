@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "checkbox-tree",
+  "component_name": "CheckboxTree",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/CheckboxTree"
+  },
+  "docs": [
+    {
+      "id": "components-checkboxtree--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/CheckboxTree/CheckboxTree.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-checkboxtree--collapsible",
+      "name": "Collapsible",
+      "export_name": "Collapsible",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx"
+    },
+    {
+      "id": "components-checkboxtree--color-variations",
+      "name": "Color Variations",
+      "export_name": "ColorVariations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx"
+    },
+    {
+      "id": "components-checkboxtree--deeply-nested",
+      "name": "Deeply Nested",
+      "export_name": "DeeplyNested",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx"
+    },
+    {
+      "id": "components-checkboxtree--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx"
+    }
+  ]
+}

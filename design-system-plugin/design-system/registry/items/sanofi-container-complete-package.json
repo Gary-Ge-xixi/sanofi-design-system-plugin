@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-container-complete-package",
+  "title": "Container complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Container package covering Docs plus all Storybook story atoms.",
+  "component_id": "container",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-container"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/container/container.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/container/container.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/container/container.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/container/container.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/container/docs/container.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/container/docs/container.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/container/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/container/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/container-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/container-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/container.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/container.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/container/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/container/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-container--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 3,
+    "materialized_stories": 3,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-container--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-container-default-atomic-story"
+    },
+    {
+      "story_id": "components-container--fixed",
+      "story_name": "Fixed",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-container-fixed-atomic-story"
+    },
+    {
+      "story_id": "components-container--fluid",
+      "story_name": "Fluid",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-container-fluid-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-container--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/container/container.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/container/docs/container.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/container.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/container/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "container",
+      "Container",
+      "container complete",
+      "Container complete package",
+      "container docs"
+    ],
+    "when_to_use": "Use first for any Container generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Container behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

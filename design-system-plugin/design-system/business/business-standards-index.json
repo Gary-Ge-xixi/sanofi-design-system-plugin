@@ -1,0 +1,127 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-standards-index",
+  "status": "ready",
+  "purpose": "Local executable index for business scenario page generation standards.",
+  "coverage_areas": [
+    {
+      "id": "business-page-taxonomy",
+      "status": "ready",
+      "path": "page-taxonomy.json",
+      "covers": "approval, detail, create/edit form, import result, report, customer detail date query, permission admin, exception state, data-entry table"
+    },
+    {
+      "id": "business-task-flows",
+      "status": "ready",
+      "path": "task-flow-standard.json",
+      "covers": "query, fill, approval, submit, reject, lock, import, export, bulk action"
+    },
+    {
+      "id": "business-data-model",
+      "status": "ready",
+      "path": "data-model-standard.json",
+      "covers": "field types, required flags, unit/date/money/quantity/status/permission/action columns"
+    },
+    {
+      "id": "business-table",
+      "status": "ready",
+      "path": "../contracts/page-modules/business-table.contract.json",
+      "covers": "fallback table contract until official Table/DataGrid primitive is registered"
+    },
+    {
+      "id": "business-chart",
+      "status": "ready",
+      "path": "../contracts/page-modules/business-chart.contract.json",
+      "covers": "BarChart evidence, accessibility, threshold lines, legend, labels, color policy"
+    },
+    {
+      "id": "business-form",
+      "status": "ready",
+      "path": "../contracts/page-modules/business-form.contract.json",
+      "covers": "complex form layout, validation, errors, linked controls, async search, permission states"
+    },
+    {
+      "id": "business-density",
+      "status": "ready",
+      "path": "../rules/density-standards.json",
+      "covers": "compact/default/spacious density and screenshot thresholds by page family"
+    },
+    {
+      "id": "business-layout-typography",
+      "status": "ready",
+      "path": "../rules/business-layout-typography.json",
+      "covers": "letter spacing, page title/subtitle hierarchy, PageHeader anatomy, and Container/Grid-backed layout"
+    },
+    {
+      "id": "business-app-shell-scroll",
+      "status": "ready",
+      "path": "../rules/business-app-shell-scroll.json",
+      "covers": "fixed app shell with content-only scrolling so topbar and navigation do not scroll with page content"
+    },
+    {
+      "id": "business-icon-usage",
+      "status": "ready",
+      "path": "../rules/icon-usage.json",
+      "covers": "Icon/ButtonIcon provenance, no functional glyph fallback, default navigation icons, sidebar toggles, search icons, tree toggles, and link affordance icons"
+    },
+    {
+      "id": "business-content",
+      "status": "ready",
+      "path": "content-standard.json",
+      "covers": "Chinese terminology, button copy, empty/error/success/approval status copy"
+    },
+    {
+      "id": "business-interaction-states",
+      "status": "ready",
+      "path": "interaction-state-standard.json",
+      "covers": "loading, empty, error, readonly, disabled, permission denied, dirty form, sticky save bar"
+    },
+    {
+      "id": "business-elevation",
+      "status": "ready",
+      "path": "../rules/elevation-usage.json",
+      "covers": "global shadow/elevation roles for headers, menus, sticky bars, overlays, and top-layer notifications"
+    },
+    {
+      "id": "business-visual-acceptance",
+      "status": "ready",
+      "path": "../reference-fit/business-page-family.rules.json",
+      "covers": "reference-fit coverage for each business page family"
+    },
+    {
+      "id": "cursor-workflow",
+      "status": "ready",
+      "path": "../../../.cursor/rules/sanofi-design-system.mdc",
+      "covers": "Cursor project rule, command workflow, and required validators"
+    }
+  ],
+  "required_page_profiles": [
+    "admin-data-entry-table",
+    "approval-workflow",
+    "entity-detail",
+    "entity-form",
+    "import-result",
+    "report-dashboard",
+    "information-aggregation",
+    "customer-detail-date-query",
+    "permission-admin",
+    "exception-state"
+  ],
+  "required_rules": [
+    "business-page-standards",
+    "table-usage",
+    "chart-usage",
+    "form-usage",
+    "density-standards",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "icon-usage",
+    "content-standards",
+    "interaction-state-standards",
+    "business-admin-defaults",
+    "elevation-usage",
+    "business-page-family-reference-fit",
+    "admin-dashboard-chart-reference-fit"
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

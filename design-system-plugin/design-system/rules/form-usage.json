@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "id": "form-usage",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Business forms must expose complex form states, validation, linked controls, async search, and permission states.",
+  "source_provenance": {
+    "contract": "../contracts/page-modules/business-form.contract.json",
+    "data_model": "../business/data-model-standard.json",
+    "task_flows": "../business/task-flow-standard.json"
+  },
+  "required_attributes": [
+    "data-business-module=\"business-form\"",
+    "data-form-contract=\"business-form\""
+  ],
+  "required_states": [
+    "dirty",
+    "validating",
+    "validation-error",
+    "saving",
+    "saved",
+    "readonly",
+    "disabled",
+    "permission-denied"
+  ],
+  "required_validation_ui": [
+    "required marker",
+    "inline field error",
+    "submit-level validation summary",
+    "field-level aria-describedby"
+  ],
+  "linked_control_policy": [
+    "Dependent filters must declare parent field, child field, reset policy, and loading state.",
+    "Async search must preserve selected values while options refresh.",
+    "Permission-disabled fields must include a visible reason."
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

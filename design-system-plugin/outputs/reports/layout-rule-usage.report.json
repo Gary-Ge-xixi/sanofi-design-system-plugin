@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-layout-rule-usage",
+  "target": "outputs/html/customer-detail-date-query.resolved.html",
+  "rule": "layout-grid-container",
+  "status": "pass",
+  "checked": {
+    "layout_refs": 2,
+    "primitive_refs": 39,
+    "doc_refs": 45,
+    "story_refs": 39,
+    "has_container_primitive": true,
+    "has_grid_primitive": true,
+    "container_root_refs": 1,
+    "container_content_refs": 1,
+    "grid_root_refs": 1,
+    "grid_item_refs": 7,
+    "unconstrained_container_refs": 0,
+    "missing_docs": [],
+    "missing_stories": []
+  },
+  "failures": []
+}

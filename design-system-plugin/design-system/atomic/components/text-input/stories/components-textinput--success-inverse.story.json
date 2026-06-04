@@ -1,0 +1,103 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-textinput--success-inverse",
+  "component_id": "text-input",
+  "component_name": "TextInput",
+  "story_id": "components-textinput--success-inverse",
+  "story_name": "Success Inverse",
+  "export_name": "SuccessInverse",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": true,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-textinput--success-inverse&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-textinput--success-inverse&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TextInput.stories-B5ev_GbP.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/text-input/assets/TextInput.stories-B5ev_GbP.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/text-input/assets/components-textinput--success-inverse.iframe.html",
+    "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+    "component_path": "./src/components/TextInput/TextInput.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...e,subText:\"This is a success message\",state:a.SUCCESS,inverse:!0}",
+    "values": {
+      "id": "text-input",
+      "label": "Text Input",
+      "subText": "This is a success message",
+      "type": "text",
+      "state": "success",
+      "inverse": true,
+      "disabled": false,
+      "required": false,
+      "placeholder": "Placeholder",
+      "size": "large",
+      "filledStateIcon": false
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{type:{options:[\"text\",\"password\",\"email\",\"number\",\"tel\"],control:{type:\"select\"},description:\"text, password, email, number or tel\"},size:{control:{type:\"select\"},options:Object.values(r),description:\"Input size\"},onChange:{action:\"changed\"}}",
+    "fields": [
+      "type",
+      "size",
+      "onChange"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "inverse"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    subText: \"This is a success message\",\n    state: FormControlState.SUCCESS,\n    inverse: true\n  }\n}",
+    "story_object_source": "{args:{...e,subText:\"This is a success message\",state:a.SUCCESS,inverse:!0}}"
+  },
+  "template": {
+    "id": "text-input-success-inverse-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/text-input/templates/html.success-inverse.template.html",
+    "output_path": "design-system-plugin/outputs/html/text-input-success-inverse.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "text-input",
+    "local_path": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-textinput--docs",
+    "story_id": "components-textinput--success-inverse",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/text-input/assets/TextInput.stories-B5ev_GbP.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/text-input/assets/components-textinput--success-inverse.iframe.html"
+  }
+}

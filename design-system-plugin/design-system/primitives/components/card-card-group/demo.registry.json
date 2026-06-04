@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Card/CardGroup",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-card-cardgroup--card-grids-group",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group-picto",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

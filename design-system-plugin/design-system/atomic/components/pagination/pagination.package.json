@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "id": "pagination-complete-standard-package",
+  "component_id": "pagination",
+  "component_name": "Pagination",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-pagination--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/pagination/docs/pagination.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-pagination--compact",
+      "story_name": "Compact",
+      "export_name": "Compact",
+      "semantic_type": "variant",
+      "variant": "compact",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--compact.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-compact.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-pagination--compact-with-first-and-last-buttons",
+      "story_name": "Compact With First And Last Buttons",
+      "export_name": "CompactWithFirstAndLastButtons",
+      "semantic_type": "variant",
+      "variant": "compact-with-first-and-last-buttons",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--compact-with-first-and-last-buttons.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-compact.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-pagination--compact-with-input",
+      "story_name": "Compact With Input",
+      "export_name": "CompactWithInput",
+      "semantic_type": "variant",
+      "variant": "compact-with-input",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--compact-with-input.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-compact-with-input.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-pagination--compact-with-input-and-first-last-buttons",
+      "story_name": "Compact With Input And First Last Buttons",
+      "export_name": "CompactWithInputAndFirstLastButtons",
+      "semantic_type": "variant",
+      "variant": "compact-with-input-and-first-last-buttons",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--compact-with-input-and-first-last-buttons.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-compact-with-input.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-pagination--controlled",
+      "story_name": "Controlled",
+      "export_name": "Controlled",
+      "semantic_type": "variant",
+      "variant": "controlled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--controlled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-pagination--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-pagination--mobile",
+      "story_name": "Mobile",
+      "export_name": "Mobile",
+      "semantic_type": "variant",
+      "variant": "mobile",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/pagination/stories/components-pagination--mobile.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-pagination--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/pagination/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/pagination/pagination.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/pagination-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-pagination--compact",
+        "output_path": "design-system-plugin/outputs/html/pagination-compact.atomic.html"
+      },
+      {
+        "story_id": "components-pagination--compact-with-first-and-last-buttons",
+        "output_path": "design-system-plugin/outputs/html/pagination-compact.atomic.html"
+      },
+      {
+        "story_id": "components-pagination--compact-with-input",
+        "output_path": "design-system-plugin/outputs/html/pagination-compact-with-input.atomic.html"
+      },
+      {
+        "story_id": "components-pagination--compact-with-input-and-first-last-buttons",
+        "output_path": "design-system-plugin/outputs/html/pagination-compact-with-input.atomic.html"
+      },
+      {
+        "story_id": "components-pagination--controlled",
+        "output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html"
+      },
+      {
+        "story_id": "components-pagination--default",
+        "output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html"
+      },
+      {
+        "story_id": "components-pagination--mobile",
+        "output_path": "design-system-plugin/outputs/html/pagination-standard.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-pagination-complete-package.json",
+    "story_item_prefix": "sanofi-pagination-"
+  },
+  "validation": {
+    "required_story_count": 7,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-pagination--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/pagination/pagination.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/pagination/docs/pagination.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/pagination/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

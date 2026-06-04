@@ -1,0 +1,2100 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-03T03:04:56.856Z",
+  "source": {
+    "components": "design-system-plugin/design-system/knowledge/components.json",
+    "docs_index": "design-system-plugin/design-system/knowledge/docs-index.json",
+    "storybook_index": "research/storybook/index.json",
+    "primitive_index": "design-system-plugin/design-system/primitives/primitive-index.json",
+    "schema": "design-system-plugin/design-system/contracts/schemas/component-contract.schema.json"
+  },
+  "counts": {
+    "component_contracts": 95,
+    "primitive_contracts_expected": 96,
+    "primitive_contracts_covered": 96,
+    "props_extracted_contracts": 92,
+    "docs_only_contracts": 0,
+    "primitive_linked_contracts": 95
+  },
+  "primitive_coverage": [
+    {
+      "id": "accordion",
+      "component": "Accordion",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "accordion"
+      ]
+    },
+    {
+      "id": "accordion-item",
+      "component": "Accordion.Item",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "accordion-item"
+      ]
+    },
+    {
+      "id": "autocomplete",
+      "component": "Autocomplete",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "autocomplete"
+      ]
+    },
+    {
+      "id": "avatar",
+      "component": "Avatar",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "avatar"
+      ]
+    },
+    {
+      "id": "avatar-avatar-group",
+      "component": "Avatar/AvatarGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "avatar-avatar-group"
+      ]
+    },
+    {
+      "id": "banner",
+      "component": "Banner",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "banner"
+      ]
+    },
+    {
+      "id": "breadcrumb",
+      "component": "Breadcrumb",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "breadcrumb"
+      ]
+    },
+    {
+      "id": "breadcrumb-item",
+      "component": "Breadcrumb.Item",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "breadcrumb-item"
+      ]
+    },
+    {
+      "id": "button",
+      "component": "Button",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "button"
+      ]
+    },
+    {
+      "id": "button-icon",
+      "component": "ButtonIcon",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "button-icon"
+      ]
+    },
+    {
+      "id": "calendar",
+      "component": "Calendar",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "calendar"
+      ]
+    },
+    {
+      "id": "card",
+      "component": "Card",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "card"
+      ]
+    },
+    {
+      "id": "card-action",
+      "component": "Card/Action",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-action"
+      ]
+    },
+    {
+      "id": "card-card-group",
+      "component": "Card/CardGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-card-group"
+      ]
+    },
+    {
+      "id": "card-content",
+      "component": "Card/Content",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-content"
+      ]
+    },
+    {
+      "id": "card-date",
+      "component": "Card/Date",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-date"
+      ]
+    },
+    {
+      "id": "card-footer",
+      "component": "Card/Footer",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-footer"
+      ]
+    },
+    {
+      "id": "card-media",
+      "component": "Card/Media",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-media"
+      ]
+    },
+    {
+      "id": "card-media-custom",
+      "component": "Card/MediaCustom",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-media-custom"
+      ]
+    },
+    {
+      "id": "card-sections",
+      "component": "Card/Sections",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-sections"
+      ]
+    },
+    {
+      "id": "carousel",
+      "component": "Carousel",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "carousel"
+      ]
+    },
+    {
+      "id": "cascading-menu",
+      "component": "CascadingMenu",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "cascading-menu"
+      ]
+    },
+    {
+      "id": "cascading-menu-item",
+      "component": "CascadingMenu/Item",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "cascading-menu-item"
+      ]
+    },
+    {
+      "id": "checkbox",
+      "component": "Checkbox",
+      "status": "ready",
+      "covered_by_contracts": [
+        "checkbox"
+      ]
+    },
+    {
+      "id": "checkbox-checkbox-group",
+      "component": "Checkbox/CheckboxGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "checkbox-checkbox-group"
+      ]
+    },
+    {
+      "id": "checkbox-group",
+      "component": "CheckboxGroup",
+      "status": "ready",
+      "covered_by_contracts": [
+        "checkbox-checkbox-group"
+      ]
+    },
+    {
+      "id": "checkbox-tree",
+      "component": "CheckboxTree",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "checkbox-tree"
+      ]
+    },
+    {
+      "id": "chip-deprecated",
+      "component": "Chip (Deprecated)",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "chip-deprecated"
+      ]
+    },
+    {
+      "id": "chip-dropdown",
+      "component": "ChipDropdown",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "chip-dropdown"
+      ]
+    },
+    {
+      "id": "chip-filter",
+      "component": "ChipFilter",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "chip-filter"
+      ]
+    },
+    {
+      "id": "chip-list-deprecated",
+      "component": "ChipList (Deprecated)",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "chip-list-deprecated"
+      ]
+    },
+    {
+      "id": "chip-select",
+      "component": "ChipSelect",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "chip-select"
+      ]
+    },
+    {
+      "id": "chip-status",
+      "component": "ChipStatus",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "chip-status"
+      ]
+    },
+    {
+      "id": "container",
+      "component": "Container",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "container"
+      ]
+    },
+    {
+      "id": "content-block",
+      "component": "ContentBlock",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "content-block"
+      ]
+    },
+    {
+      "id": "date-picker",
+      "component": "DatePicker",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "date-picker"
+      ]
+    },
+    {
+      "id": "divider",
+      "component": "Divider",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "divider"
+      ]
+    },
+    {
+      "id": "drawer",
+      "component": "Drawer",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "drawer"
+      ]
+    },
+    {
+      "id": "file-uploader",
+      "component": "FileUploader",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "file-uploader"
+      ]
+    },
+    {
+      "id": "flex",
+      "component": "Flex",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "flex"
+      ]
+    },
+    {
+      "id": "footer",
+      "component": "Footer",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "card-footer",
+        "footer"
+      ]
+    },
+    {
+      "id": "footer-bottom",
+      "component": "Footer.Bottom",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "footer-bottom"
+      ]
+    },
+    {
+      "id": "footer-footer-social-link",
+      "component": "Footer/FooterSocialLink",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "footer-footer-social-link"
+      ]
+    },
+    {
+      "id": "footer-top",
+      "component": "Footer.Top",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "footer-top"
+      ]
+    },
+    {
+      "id": "grid",
+      "component": "Grid",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "grid"
+      ]
+    },
+    {
+      "id": "hero",
+      "component": "Hero",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "hero"
+      ]
+    },
+    {
+      "id": "icon",
+      "component": "Icon",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "icon"
+      ]
+    },
+    {
+      "id": "image",
+      "component": "Image",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "image"
+      ]
+    },
+    {
+      "id": "isi-tray",
+      "component": "ISI Tray",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "isi-tray"
+      ]
+    },
+    {
+      "id": "link",
+      "component": "Link",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "link"
+      ]
+    },
+    {
+      "id": "link-link-standalone",
+      "component": "Link/LinkStandalone",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "link-link-standalone"
+      ]
+    },
+    {
+      "id": "loading-spinner",
+      "component": "LoadingSpinner",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "loading-spinner"
+      ]
+    },
+    {
+      "id": "mega-menu",
+      "component": "MegaMenu",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "mega-menu"
+      ]
+    },
+    {
+      "id": "mega-menu-item",
+      "component": "MegaMenu/Item",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "mega-menu-item"
+      ]
+    },
+    {
+      "id": "mega-menu-title",
+      "component": "MegaMenu/Title",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "mega-menu-title"
+      ]
+    },
+    {
+      "id": "mega-menu-trigger",
+      "component": "MegaMenu/Trigger",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "mega-menu-trigger"
+      ]
+    },
+    {
+      "id": "menu",
+      "component": "Menu",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "menu"
+      ]
+    },
+    {
+      "id": "menu-menu-item",
+      "component": "Menu/MenuItem",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "menu-menu-item"
+      ]
+    },
+    {
+      "id": "menu-menu-item-checkbox",
+      "component": "Menu/MenuItemCheckbox",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "menu-menu-item-checkbox"
+      ]
+    },
+    {
+      "id": "menu-menu-item-image",
+      "component": "Menu/MenuItemImage",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "menu-menu-item-image"
+      ]
+    },
+    {
+      "id": "menu-menu-item-radio",
+      "component": "Menu/MenuItemRadio",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "menu-menu-item-radio"
+      ]
+    },
+    {
+      "id": "menu-sub-menu",
+      "component": "Menu/SubMenu",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "menu-sub-menu"
+      ]
+    },
+    {
+      "id": "modal",
+      "component": "Modal",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "modal"
+      ]
+    },
+    {
+      "id": "navigation-header",
+      "component": "NavigationHeader",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "navigation-header"
+      ]
+    },
+    {
+      "id": "navigation-header-item",
+      "component": "NavigationHeader.Item",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "navigation-header-item"
+      ]
+    },
+    {
+      "id": "navigation-header-root",
+      "component": "NavigationHeader.Root",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "navigation-header-root"
+      ]
+    },
+    {
+      "id": "navigation-header-start-content",
+      "component": "NavigationHeader.StartContent",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "navigation-header-start-content"
+      ]
+    },
+    {
+      "id": "page-header",
+      "component": "PageHeader",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "page-header"
+      ]
+    },
+    {
+      "id": "pagination",
+      "component": "Pagination",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "pagination"
+      ]
+    },
+    {
+      "id": "progress-bar",
+      "component": "ProgressBar",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "progress-bar"
+      ]
+    },
+    {
+      "id": "progress-stepper-define-stepper-provider",
+      "component": "ProgressStepper/defineStepper Provider",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "progress-stepper-define-stepper-provider"
+      ]
+    },
+    {
+      "id": "progress-stepper-progress-stepper-nav",
+      "component": "ProgressStepper/ProgressStepperNav",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "progress-stepper-progress-stepper-nav"
+      ]
+    },
+    {
+      "id": "progress-stepper-use-stepper-hook",
+      "component": "ProgressStepper/useStepper Hook",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "progress-stepper-use-stepper-hook"
+      ]
+    },
+    {
+      "id": "radio",
+      "component": "Radio",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "radio"
+      ]
+    },
+    {
+      "id": "radio-radio-group",
+      "component": "Radio/RadioGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "radio-radio-group"
+      ]
+    },
+    {
+      "id": "search-input",
+      "component": "SearchInput",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "search-input"
+      ]
+    },
+    {
+      "id": "select",
+      "component": "Select",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "select"
+      ]
+    },
+    {
+      "id": "sidebar",
+      "component": "Sidebar",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "sidebar"
+      ]
+    },
+    {
+      "id": "slider",
+      "component": "Slider",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "slider"
+      ]
+    },
+    {
+      "id": "switch",
+      "component": "Switch",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "switch"
+      ]
+    },
+    {
+      "id": "switch-switch-group",
+      "component": "Switch/SwitchGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "switch-switch-group"
+      ]
+    },
+    {
+      "id": "tabs",
+      "component": "Tabs",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "tabs"
+      ]
+    },
+    {
+      "id": "tag",
+      "component": "Tag",
+      "status": "storybook-backed-static-contract",
+      "covered_by_contracts": [
+        "tag"
+      ]
+    },
+    {
+      "id": "text-area",
+      "component": "TextArea",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "text-area"
+      ]
+    },
+    {
+      "id": "text-input",
+      "component": "TextInput",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "text-input"
+      ]
+    },
+    {
+      "id": "theme-provider",
+      "component": "ThemeProvider",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "theme-provider"
+      ]
+    },
+    {
+      "id": "title",
+      "component": "Title",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "mega-menu-title",
+        "title"
+      ]
+    },
+    {
+      "id": "toast",
+      "component": "Toast",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "toast"
+      ]
+    },
+    {
+      "id": "tooltip",
+      "component": "Tooltip",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "tooltip"
+      ]
+    },
+    {
+      "id": "tree-view",
+      "component": "TreeView",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "tree-view"
+      ]
+    },
+    {
+      "id": "tree-view-sub-components-item",
+      "component": "TreeView/SubComponents/Item",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "tree-view-sub-components-item"
+      ]
+    },
+    {
+      "id": "tree-view-sub-components-leading-visual",
+      "component": "TreeView/SubComponents/LeadingVisual",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "tree-view-sub-components-leading-visual"
+      ]
+    },
+    {
+      "id": "tree-view-sub-components-sub-tree",
+      "component": "TreeView/SubComponents/SubTree",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "tree-view-sub-components-sub-tree"
+      ]
+    },
+    {
+      "id": "tree-view-sub-components-trailing-visual",
+      "component": "TreeView/SubComponents/TrailingVisual",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "tree-view-sub-components-trailing-visual"
+      ]
+    },
+    {
+      "id": "typography",
+      "component": "Typography",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "typography"
+      ]
+    },
+    {
+      "id": "video-thumbnail",
+      "component": "Video Thumbnail",
+      "status": "component-contract-backed-generic-primitive",
+      "covered_by_contracts": [
+        "video-thumbnail"
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "id": "accordion",
+      "component_name": "Accordion",
+      "status": "primitive-linked",
+      "docs_id": "components-accordion--docs",
+      "story_count": 3,
+      "prop_count": 1,
+      "primitive_ids": [
+        "accordion"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "accordion-item",
+      "component_name": "Accordion.Item",
+      "status": "primitive-linked",
+      "docs_id": "components-accordion-item--docs",
+      "story_count": 1,
+      "prop_count": 7,
+      "primitive_ids": [
+        "accordion-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/accordion-item.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "autocomplete",
+      "component_name": "Autocomplete",
+      "status": "primitive-linked",
+      "docs_id": "components-autocomplete--docs",
+      "story_count": 14,
+      "prop_count": 23,
+      "primitive_ids": [
+        "autocomplete"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "avatar",
+      "component_name": "Avatar",
+      "status": "primitive-linked",
+      "docs_id": "components-avatar--docs",
+      "story_count": 6,
+      "prop_count": 3,
+      "primitive_ids": [
+        "avatar"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/avatar.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "avatar-avatar-group",
+      "component_name": "Avatar/AvatarGroup",
+      "status": "primitive-linked",
+      "docs_id": "components-avatar-avatargroup--docs",
+      "story_count": 4,
+      "prop_count": 3,
+      "primitive_ids": [
+        "avatar-avatar-group"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "banner",
+      "component_name": "Banner",
+      "status": "primitive-linked",
+      "docs_id": "components-banner--docs",
+      "story_count": 6,
+      "prop_count": 5,
+      "primitive_ids": [
+        "banner"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/banner.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "breadcrumb",
+      "component_name": "Breadcrumb",
+      "status": "primitive-linked",
+      "docs_id": "components-breadcrumb--docs",
+      "story_count": 7,
+      "prop_count": 9,
+      "primitive_ids": [
+        "breadcrumb"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "breadcrumb-item",
+      "component_name": "Breadcrumb.Item",
+      "status": "primitive-linked",
+      "docs_id": "components-breadcrumb-item--docs",
+      "story_count": 1,
+      "prop_count": 1,
+      "primitive_ids": [
+        "breadcrumb-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "button",
+      "component_name": "Button",
+      "status": "primitive-linked",
+      "docs_id": "components-button--docs",
+      "story_count": 13,
+      "prop_count": 2,
+      "primitive_ids": [
+        "button"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/button.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "button-icon",
+      "component_name": "ButtonIcon",
+      "status": "primitive-linked",
+      "docs_id": "components-buttonicon--docs",
+      "story_count": 9,
+      "prop_count": 10,
+      "primitive_ids": [
+        "button-icon"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/button-icon.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "calendar",
+      "component_name": "Calendar",
+      "status": "primitive-linked",
+      "docs_id": "components-calendar--docs",
+      "story_count": 4,
+      "prop_count": 24,
+      "primitive_ids": [
+        "calendar"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "card",
+      "component_name": "Card",
+      "status": "primitive-linked",
+      "docs_id": "components-card--docs",
+      "story_count": 14,
+      "prop_count": 16,
+      "primitive_ids": [
+        "card"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "card-action",
+      "component_name": "Card/Action",
+      "status": "primitive-linked",
+      "docs_id": "components-card-action--docs",
+      "story_count": 1,
+      "prop_count": 2,
+      "primitive_ids": [
+        "card-action"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-action.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "card-card-group",
+      "component_name": "Card/CardGroup",
+      "status": "primitive-linked",
+      "docs_id": "components-card-cardgroup--docs",
+      "story_count": 2,
+      "prop_count": 3,
+      "primitive_ids": [
+        "card-card-group"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "card-content",
+      "component_name": "Card/Content",
+      "status": "primitive-linked",
+      "docs_id": "components-card-content--docs",
+      "story_count": 1,
+      "prop_count": 13,
+      "primitive_ids": [
+        "card-content"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-content.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "card-date",
+      "component_name": "Card/Date",
+      "status": "primitive-linked",
+      "docs_id": "components-card-date--docs",
+      "story_count": 1,
+      "prop_count": 2,
+      "primitive_ids": [
+        "card-date"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-date.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "card-footer",
+      "component_name": "Card/Footer",
+      "status": "primitive-linked",
+      "docs_id": "components-card-footer--docs",
+      "story_count": 1,
+      "prop_count": 3,
+      "primitive_ids": [
+        "card-footer",
+        "footer"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-footer.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "card-media",
+      "component_name": "Card/Media",
+      "status": "primitive-linked",
+      "docs_id": "components-card-media--docs",
+      "story_count": 1,
+      "prop_count": 2,
+      "primitive_ids": [
+        "card-media"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-media.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "card-media-custom",
+      "component_name": "Card/MediaCustom",
+      "status": "primitive-linked",
+      "docs_id": "components-card-mediacustom--docs",
+      "story_count": 1,
+      "prop_count": 4,
+      "primitive_ids": [
+        "card-media-custom"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-media-custom.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "card-sections",
+      "component_name": "Card/Sections",
+      "status": "primitive-linked",
+      "docs_id": "components-card-sections--docs",
+      "story_count": 1,
+      "prop_count": 1,
+      "primitive_ids": [
+        "card-sections"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "carousel",
+      "component_name": "Carousel",
+      "status": "primitive-linked",
+      "docs_id": "components-carousel--docs",
+      "story_count": 5,
+      "prop_count": 6,
+      "primitive_ids": [
+        "carousel"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "cascading-menu",
+      "component_name": "CascadingMenu",
+      "status": "primitive-linked",
+      "docs_id": "components-cascadingmenu--docs",
+      "story_count": 1,
+      "prop_count": 4,
+      "primitive_ids": [
+        "cascading-menu"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "cascading-menu-item",
+      "component_name": "CascadingMenu/Item",
+      "status": "primitive-linked",
+      "docs_id": "components-cascadingmenu-item--docs",
+      "story_count": 1,
+      "prop_count": 4,
+      "primitive_ids": [
+        "cascading-menu-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/cascading-menu-item.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "checkbox",
+      "component_name": "Checkbox",
+      "status": "primitive-linked",
+      "docs_id": "components-checkbox--docs",
+      "story_count": 5,
+      "prop_count": 4,
+      "primitive_ids": [
+        "checkbox"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/checkbox.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "checkbox-checkbox-group",
+      "component_name": "Checkbox/CheckboxGroup",
+      "status": "primitive-linked",
+      "docs_id": "components-checkbox-checkboxgroup--docs",
+      "story_count": 4,
+      "prop_count": 7,
+      "primitive_ids": [
+        "checkbox-checkbox-group",
+        "checkbox-group"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "checkbox-tree",
+      "component_name": "CheckboxTree",
+      "status": "primitive-linked",
+      "docs_id": "components-checkboxtree--docs",
+      "story_count": 4,
+      "prop_count": 9,
+      "primitive_ids": [
+        "checkbox-tree"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "chip-deprecated",
+      "component_name": "Chip (Deprecated)",
+      "status": "primitive-linked",
+      "docs_id": "components-chip-deprecated--docs",
+      "story_count": 8,
+      "prop_count": 12,
+      "primitive_ids": [
+        "chip-deprecated"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "chip-dropdown",
+      "component_name": "ChipDropdown",
+      "status": "primitive-linked",
+      "docs_id": "components-chipdropdown--docs",
+      "story_count": 9,
+      "prop_count": 14,
+      "primitive_ids": [
+        "chip-dropdown"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/chip-dropdown.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "chip-filter",
+      "component_name": "ChipFilter",
+      "status": "primitive-linked",
+      "docs_id": "components-chipfilter--docs",
+      "story_count": 4,
+      "prop_count": 11,
+      "primitive_ids": [
+        "chip-filter"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "chip-list-deprecated",
+      "component_name": "ChipList (Deprecated)",
+      "status": "primitive-linked",
+      "docs_id": "components-chiplist-deprecated--docs",
+      "story_count": 1,
+      "prop_count": 5,
+      "primitive_ids": [
+        "chip-list-deprecated"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/chip-list-deprecated.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "chip-select",
+      "component_name": "ChipSelect",
+      "status": "primitive-linked",
+      "docs_id": "components-chipselect--docs",
+      "story_count": 3,
+      "prop_count": 13,
+      "primitive_ids": [
+        "chip-select"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "chip-status",
+      "component_name": "ChipStatus",
+      "status": "primitive-linked",
+      "docs_id": "components-chipstatus--docs",
+      "story_count": 4,
+      "prop_count": 13,
+      "primitive_ids": [
+        "chip-status"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/chip-status.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "container",
+      "component_name": "Container",
+      "status": "primitive-linked",
+      "docs_id": "components-container--docs",
+      "story_count": 3,
+      "prop_count": 7,
+      "primitive_ids": [
+        "container"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/container.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "content-block",
+      "component_name": "ContentBlock",
+      "status": "primitive-linked",
+      "docs_id": "components-contentblock--docs",
+      "story_count": 10,
+      "prop_count": 8,
+      "primitive_ids": [
+        "content-block"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "date-picker",
+      "component_name": "DatePicker",
+      "status": "primitive-linked",
+      "docs_id": "components-datepicker--docs",
+      "story_count": 23,
+      "prop_count": 3,
+      "primitive_ids": [
+        "date-picker"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "divider",
+      "component_name": "Divider",
+      "status": "primitive-linked",
+      "docs_id": "components-divider--docs",
+      "story_count": 5,
+      "prop_count": 6,
+      "primitive_ids": [
+        "divider"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/divider.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "drawer",
+      "component_name": "Drawer",
+      "status": "primitive-linked",
+      "docs_id": "components-drawer--docs",
+      "story_count": 8,
+      "prop_count": 4,
+      "primitive_ids": [
+        "drawer"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/drawer.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "file-uploader",
+      "component_name": "FileUploader",
+      "status": "primitive-linked",
+      "docs_id": "components-fileuploader--docs",
+      "story_count": 5,
+      "prop_count": 16,
+      "primitive_ids": [
+        "file-uploader"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/file-uploader.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "flex",
+      "component_name": "Flex",
+      "status": "primitive-linked",
+      "docs_id": "components-flex--docs",
+      "story_count": 7,
+      "prop_count": 11,
+      "primitive_ids": [
+        "flex"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/flex.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "footer",
+      "component_name": "Footer",
+      "status": "primitive-linked",
+      "docs_id": "components-footer--docs",
+      "story_count": 3,
+      "prop_count": 4,
+      "primitive_ids": [
+        "footer"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/footer.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "footer-bottom",
+      "component_name": "Footer.Bottom",
+      "status": "primitive-linked",
+      "docs_id": "components-footer-bottom--docs",
+      "story_count": 1,
+      "prop_count": 6,
+      "primitive_ids": [
+        "footer-bottom"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/footer-bottom.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "footer-top",
+      "component_name": "Footer.Top",
+      "status": "primitive-linked",
+      "docs_id": "components-footer-top--docs",
+      "story_count": 1,
+      "prop_count": 8,
+      "primitive_ids": [
+        "footer-top"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/footer-top.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "footer-footer-social-link",
+      "component_name": "Footer/FooterSocialLink",
+      "status": "primitive-linked",
+      "docs_id": "components-footer-footersociallink--docs",
+      "story_count": 1,
+      "prop_count": 3,
+      "primitive_ids": [
+        "footer-footer-social-link"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/footer-footer-social-link.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "grid",
+      "component_name": "Grid",
+      "status": "primitive-linked",
+      "docs_id": "components-grid--docs",
+      "story_count": 4,
+      "prop_count": 7,
+      "primitive_ids": [
+        "grid"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "hero",
+      "component_name": "Hero",
+      "status": "primitive-linked",
+      "docs_id": "components-hero--docs",
+      "story_count": 14,
+      "prop_count": 7,
+      "primitive_ids": [
+        "hero"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "isi-tray",
+      "component_name": "ISI Tray",
+      "status": "primitive-linked",
+      "docs_id": "components-isi-tray--docs",
+      "story_count": 3,
+      "prop_count": 17,
+      "primitive_ids": [
+        "isi-tray"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "icon",
+      "component_name": "Icon",
+      "status": "primitive-linked",
+      "docs_id": "components-icon--docs",
+      "story_count": 3,
+      "prop_count": 8,
+      "primitive_ids": [
+        "icon"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "image",
+      "component_name": "Image",
+      "status": "primitive-linked",
+      "docs_id": "components-image--docs",
+      "story_count": 2,
+      "prop_count": 1,
+      "primitive_ids": [
+        "image"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/image.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "link",
+      "component_name": "Link",
+      "status": "primitive-linked",
+      "docs_id": "components-link--docs",
+      "story_count": 4,
+      "prop_count": 10,
+      "primitive_ids": [
+        "link"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/link.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "link-link-standalone",
+      "component_name": "Link/LinkStandalone",
+      "status": "primitive-linked",
+      "docs_id": "components-link-linkstandalone--docs",
+      "story_count": 5,
+      "prop_count": 12,
+      "primitive_ids": [
+        "link-link-standalone"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/link-link-standalone.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "loading-spinner",
+      "component_name": "LoadingSpinner",
+      "status": "primitive-linked",
+      "docs_id": "components-loadingspinner--docs",
+      "story_count": 2,
+      "prop_count": 5,
+      "primitive_ids": [
+        "loading-spinner"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/loading-spinner.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "mega-menu",
+      "component_name": "MegaMenu",
+      "status": "primitive-linked",
+      "docs_id": "components-megamenu--docs",
+      "story_count": 3,
+      "prop_count": 4,
+      "primitive_ids": [
+        "mega-menu"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "mega-menu-item",
+      "component_name": "MegaMenu/Item",
+      "status": "primitive-linked",
+      "docs_id": "components-megamenu-item--docs",
+      "story_count": 1,
+      "prop_count": 4,
+      "primitive_ids": [
+        "mega-menu-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/mega-menu-item.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "mega-menu-title",
+      "component_name": "MegaMenu/Title",
+      "status": "primitive-linked",
+      "docs_id": "components-megamenu-title--docs",
+      "story_count": 1,
+      "prop_count": 3,
+      "primitive_ids": [
+        "mega-menu-title",
+        "title"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/mega-menu-title.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "mega-menu-trigger",
+      "component_name": "MegaMenu/Trigger",
+      "status": "primitive-linked",
+      "docs_id": "components-megamenu-trigger--docs",
+      "story_count": 1,
+      "prop_count": 6,
+      "primitive_ids": [
+        "mega-menu-trigger"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/mega-menu-trigger.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "menu",
+      "component_name": "Menu",
+      "status": "primitive-linked",
+      "docs_id": "components-menu--docs",
+      "story_count": 9,
+      "prop_count": 9,
+      "primitive_ids": [
+        "menu"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "menu-menu-item",
+      "component_name": "Menu/MenuItem",
+      "status": "primitive-linked",
+      "docs_id": "components-menu-menuitem--docs",
+      "story_count": 1,
+      "prop_count": 13,
+      "primitive_ids": [
+        "menu-menu-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/menu-menu-item.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "menu-menu-item-checkbox",
+      "component_name": "Menu/MenuItemCheckbox",
+      "status": "primitive-linked",
+      "docs_id": "components-menu-menuitemcheckbox--docs",
+      "story_count": 1,
+      "prop_count": 8,
+      "primitive_ids": [
+        "menu-menu-item-checkbox"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "menu-menu-item-image",
+      "component_name": "Menu/MenuItemImage",
+      "status": "primitive-linked",
+      "docs_id": "components-menu-menuitemimage--docs",
+      "story_count": 1,
+      "prop_count": 9,
+      "primitive_ids": [
+        "menu-menu-item-image"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/menu-menu-item-image.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "menu-menu-item-radio",
+      "component_name": "Menu/MenuItemRadio",
+      "status": "primitive-linked",
+      "docs_id": "components-menu-menuitemradio--docs",
+      "story_count": 2,
+      "prop_count": 10,
+      "primitive_ids": [
+        "menu-menu-item-radio"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "menu-sub-menu",
+      "component_name": "Menu/SubMenu",
+      "status": "primitive-linked",
+      "docs_id": "components-menu-submenu--docs",
+      "story_count": 1,
+      "prop_count": 5,
+      "primitive_ids": [
+        "menu-sub-menu"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "modal",
+      "component_name": "Modal",
+      "status": "primitive-linked",
+      "docs_id": "components-modal--docs",
+      "story_count": 4,
+      "prop_count": 2,
+      "primitive_ids": [
+        "modal"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "navigation-header",
+      "component_name": "NavigationHeader",
+      "status": "primitive-linked",
+      "docs_id": "components-navigationheader--docs",
+      "story_count": 9,
+      "prop_count": 11,
+      "primitive_ids": [
+        "navigation-header"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "navigation-header-item",
+      "component_name": "NavigationHeader.Item",
+      "status": "primitive-linked",
+      "docs_id": "components-navigationheader-item--docs",
+      "story_count": 1,
+      "prop_count": 0,
+      "primitive_ids": [
+        "navigation-header-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/navigation-header-item.contract.json",
+      "unknowns": [
+        "props:not_extracted",
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "navigation-header-root",
+      "component_name": "NavigationHeader.Root",
+      "status": "primitive-linked",
+      "docs_id": "components-navigationheader-root--docs",
+      "story_count": 1,
+      "prop_count": 11,
+      "primitive_ids": [
+        "navigation-header-root"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/navigation-header-root.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "navigation-header-start-content",
+      "component_name": "NavigationHeader.StartContent",
+      "status": "primitive-linked",
+      "docs_id": "components-navigationheader-startcontent--docs",
+      "story_count": 3,
+      "prop_count": 3,
+      "primitive_ids": [
+        "navigation-header-start-content"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/navigation-header-start-content.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "page-header",
+      "component_name": "PageHeader",
+      "status": "primitive-linked",
+      "docs_id": "components-pageheader--docs",
+      "story_count": 3,
+      "prop_count": 9,
+      "primitive_ids": [
+        "page-header"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/page-header.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "pagination",
+      "component_name": "Pagination",
+      "status": "primitive-linked",
+      "docs_id": "components-pagination--docs",
+      "story_count": 7,
+      "prop_count": 12,
+      "primitive_ids": [
+        "pagination"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/pagination.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "progress-bar",
+      "component_name": "ProgressBar",
+      "status": "primitive-linked",
+      "docs_id": "components-progressbar--docs",
+      "story_count": 5,
+      "prop_count": 3,
+      "primitive_ids": [
+        "progress-bar"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "progress-stepper-progress-stepper-nav",
+      "component_name": "ProgressStepper/ProgressStepperNav",
+      "status": "primitive-linked",
+      "docs_id": "components-progressstepper-progresssteppernav--docs",
+      "story_count": 5,
+      "prop_count": 4,
+      "primitive_ids": [
+        "progress-stepper-progress-stepper-nav"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/progress-stepper-progress-stepper-nav.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "progress-stepper-define-stepper-provider",
+      "component_name": "ProgressStepper/defineStepper Provider",
+      "status": "primitive-linked",
+      "docs_id": "components-progressstepper-definestepper-provider--docs",
+      "story_count": 0,
+      "prop_count": 0,
+      "primitive_ids": [
+        "progress-stepper-define-stepper-provider"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/progress-stepper-define-stepper-provider.contract.json",
+      "unknowns": [
+        "props:not_extracted"
+      ]
+    },
+    {
+      "id": "progress-stepper-use-stepper-hook",
+      "component_name": "ProgressStepper/useStepper Hook",
+      "status": "primitive-linked",
+      "docs_id": "components-progressstepper-usestepper-hook--docs",
+      "story_count": 0,
+      "prop_count": 0,
+      "primitive_ids": [
+        "progress-stepper-use-stepper-hook"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/progress-stepper-use-stepper-hook.contract.json",
+      "unknowns": [
+        "props:not_extracted"
+      ]
+    },
+    {
+      "id": "radio",
+      "component_name": "Radio",
+      "status": "primitive-linked",
+      "docs_id": "components-radio--docs",
+      "story_count": 5,
+      "prop_count": 12,
+      "primitive_ids": [
+        "radio"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "radio-radio-group",
+      "component_name": "Radio/RadioGroup",
+      "status": "primitive-linked",
+      "docs_id": "components-radio-radiogroup--docs",
+      "story_count": 4,
+      "prop_count": 4,
+      "primitive_ids": [
+        "radio-radio-group"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/radio-radio-group.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "search-input",
+      "component_name": "SearchInput",
+      "status": "primitive-linked",
+      "docs_id": "components-searchinput--docs",
+      "story_count": 9,
+      "prop_count": 3,
+      "primitive_ids": [
+        "search-input"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "select",
+      "component_name": "Select",
+      "status": "primitive-linked",
+      "docs_id": "components-select--docs",
+      "story_count": 3,
+      "prop_count": 1,
+      "primitive_ids": [
+        "select"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/select.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "sidebar",
+      "component_name": "Sidebar",
+      "status": "primitive-linked",
+      "docs_id": "components-sidebar--docs",
+      "story_count": 7,
+      "prop_count": 4,
+      "primitive_ids": [
+        "sidebar"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "slider",
+      "component_name": "Slider",
+      "status": "primitive-linked",
+      "docs_id": "components-slider--docs",
+      "story_count": 7,
+      "prop_count": 8,
+      "primitive_ids": [
+        "slider"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/slider.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "switch",
+      "component_name": "Switch",
+      "status": "primitive-linked",
+      "docs_id": "components-switch--docs",
+      "story_count": 3,
+      "prop_count": 9,
+      "primitive_ids": [
+        "switch"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "switch-switch-group",
+      "component_name": "Switch/SwitchGroup",
+      "status": "primitive-linked",
+      "docs_id": "components-switch-switchgroup--docs",
+      "story_count": 1,
+      "prop_count": 5,
+      "primitive_ids": [
+        "switch-switch-group"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "tabs",
+      "component_name": "Tabs",
+      "status": "primitive-linked",
+      "docs_id": "components-tabs--docs",
+      "story_count": 9,
+      "prop_count": 1,
+      "primitive_ids": [
+        "tabs"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "tag",
+      "component_name": "Tag",
+      "status": "primitive-linked",
+      "docs_id": "components-tag--docs",
+      "story_count": 7,
+      "prop_count": 5,
+      "primitive_ids": [
+        "tag"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "text-area",
+      "component_name": "TextArea",
+      "status": "primitive-linked",
+      "docs_id": "components-textarea--docs",
+      "story_count": 9,
+      "prop_count": 1,
+      "primitive_ids": [
+        "text-area"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "text-input",
+      "component_name": "TextInput",
+      "status": "primitive-linked",
+      "docs_id": "components-textinput--docs",
+      "story_count": 15,
+      "prop_count": 1,
+      "primitive_ids": [
+        "text-input"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "theme-provider",
+      "component_name": "ThemeProvider",
+      "status": "primitive-linked",
+      "docs_id": "components-themeprovider--docs",
+      "story_count": 1,
+      "prop_count": 4,
+      "primitive_ids": [
+        "theme-provider"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/theme-provider.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "title",
+      "component_name": "Title",
+      "status": "primitive-linked",
+      "docs_id": "components-title--docs",
+      "story_count": 3,
+      "prop_count": 5,
+      "primitive_ids": [
+        "title"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/title.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "toast",
+      "component_name": "Toast",
+      "status": "primitive-linked",
+      "docs_id": "components-toast--docs",
+      "story_count": 6,
+      "prop_count": 8,
+      "primitive_ids": [
+        "toast"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "tooltip",
+      "component_name": "Tooltip",
+      "status": "primitive-linked",
+      "docs_id": "components-tooltip--docs",
+      "story_count": 8,
+      "prop_count": 13,
+      "primitive_ids": [
+        "tooltip"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "tree-view",
+      "component_name": "TreeView",
+      "status": "primitive-linked",
+      "docs_id": "components-treeview--docs",
+      "story_count": 7,
+      "prop_count": 10,
+      "primitive_ids": [
+        "tree-view"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "tree-view-sub-components-item",
+      "component_name": "TreeView/SubComponents/Item",
+      "status": "primitive-linked",
+      "docs_id": "components-treeview-subcomponents-item--docs",
+      "story_count": 1,
+      "prop_count": 5,
+      "primitive_ids": [
+        "tree-view-sub-components-item"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-item.contract.json",
+      "unknowns": []
+    },
+    {
+      "id": "tree-view-sub-components-leading-visual",
+      "component_name": "TreeView/SubComponents/LeadingVisual",
+      "status": "primitive-linked",
+      "docs_id": "components-treeview-subcomponents-leadingvisual--docs",
+      "story_count": 1,
+      "prop_count": 2,
+      "primitive_ids": [
+        "tree-view-sub-components-leading-visual"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-leading-visual.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "tree-view-sub-components-sub-tree",
+      "component_name": "TreeView/SubComponents/SubTree",
+      "status": "primitive-linked",
+      "docs_id": "components-treeview-subcomponents-subtree--docs",
+      "story_count": 1,
+      "prop_count": 1,
+      "primitive_ids": [
+        "tree-view-sub-components-sub-tree"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-sub-tree.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "tree-view-sub-components-trailing-visual",
+      "component_name": "TreeView/SubComponents/TrailingVisual",
+      "status": "primitive-linked",
+      "docs_id": "components-treeview-subcomponents-trailingvisual--docs",
+      "story_count": 1,
+      "prop_count": 2,
+      "primitive_ids": [
+        "tree-view-sub-components-trailing-visual"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-trailing-visual.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "typography",
+      "component_name": "Typography",
+      "status": "primitive-linked",
+      "docs_id": "components-typography--docs",
+      "story_count": 4,
+      "prop_count": 5,
+      "primitive_ids": [
+        "typography"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/typography.contract.json",
+      "unknowns": [
+        "usage_snippets:not_extracted"
+      ]
+    },
+    {
+      "id": "video-thumbnail",
+      "component_name": "Video Thumbnail",
+      "status": "primitive-linked",
+      "docs_id": "components-video-thumbnail--docs",
+      "story_count": 10,
+      "prop_count": 13,
+      "primitive_ids": [
+        "video-thumbnail"
+      ],
+      "local_contract_path": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+      "unknowns": []
+    }
+  ]
+}

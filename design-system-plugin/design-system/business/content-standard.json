@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-content-standard",
+  "status": "ready",
+  "language": "zh-CN",
+  "purpose": "Canonical Chinese business copy for generated operational pages.",
+  "terminology": {
+    "query": "查询",
+    "filter": "筛选",
+    "reset": "重置",
+    "create": "新增",
+    "edit": "编辑",
+    "save": "保存",
+    "submit": "提交",
+    "approve": "通过",
+    "reject": "驳回",
+    "return": "退回修改",
+    "import": "批量导入",
+    "export": "导出",
+    "download_error_rows": "下载错误明细",
+    "permission_denied": "无权限",
+    "locked": "已锁定"
+  },
+  "business_terms": {
+    "query": "查询",
+    "filter": "筛选",
+    "reset": "重置",
+    "create": "新增",
+    "edit": "编辑",
+    "save": "保存",
+    "submit": "提交",
+    "approve": "通过",
+    "reject": "驳回",
+    "return": "退回修改",
+    "import": "批量导入",
+    "export": "导出",
+    "permission": "权限",
+    "locked": "已锁定"
+  },
+  "button_copy": {
+    "primary_query": "筛选",
+    "secondary_reset": "重置",
+    "primary_create": "新增记录",
+    "secondary_import": "批量导入",
+    "tertiary_export": "导出",
+    "primary_save": "保存",
+    "primary_submit": "提交",
+    "approval_approve": "通过",
+    "approval_reject": "驳回"
+  },
+  "state_copy": {
+    "empty": "暂无符合条件的数据",
+    "loading": "正在加载数据",
+    "saving": "正在保存",
+    "saved": "已保存",
+    "error": "操作失败，请稍后重试",
+    "validation_error": "请先修正标记字段",
+    "permission_denied": "当前账号无权限执行此操作",
+    "readonly": "当前记录仅可查看",
+    "locked": "当前周期已锁定，暂不可编辑",
+    "partial_success": "部分数据处理成功，请下载错误明细查看"
+  },
+  "empty_state_copy": {
+    "no_results": "暂无符合条件的数据",
+    "no_permission_scope": "当前权限范围内暂无可查看数据",
+    "no_import_errors": "本次导入暂无错误明细"
+  },
+  "error_state_copy": {
+    "generic": "操作失败，请稍后重试",
+    "query_failed": "查询失败，请重试",
+    "save_failed": "保存失败，请检查字段后重试",
+    "import_failed": "导入失败，请下载错误明细查看原因"
+  },
+  "success_state_copy": {
+    "saved": "已保存",
+    "submitted": "已提交",
+    "approved": "已通过",
+    "import_completed": "导入完成"
+  },
+  "approval_status_copy": {
+    "pending": "待审批",
+    "approved": "已通过",
+    "rejected": "已驳回",
+    "returned": "退回修改",
+    "withdrawn": "已撤回"
+  },
+  "policy": [
+    "Operational pages should use concise business copy; do not include feature explanations or marketing value propositions.",
+    "Button text must describe the command, not the UI mechanic.",
+    "Error copy must include recovery direction when the action is recoverable."
+  ]
+}

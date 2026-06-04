@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Avatar/AvatarGroup",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-two-items",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-without-counter",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

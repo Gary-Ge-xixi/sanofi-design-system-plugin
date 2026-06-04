@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-status-complete-package",
+  "title": "ChipStatus complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local ChipStatus package covering Docs plus all Storybook story atoms.",
+  "component_id": "chip-status",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-chip-status"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/chip-status.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/chip-status.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/chip-status.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/chip-status.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/docs/chip-status.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/docs/chip-status.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/chip-status/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/chip-status/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/chip-status-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/chip-status-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-status.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-status.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-status/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-status/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipstatus--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipstatus--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chipstatus--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-status-default-atomic-story"
+    },
+    {
+      "story_id": "components-chipstatus--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-status-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-chipstatus--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-status-overview-atomic-story"
+    },
+    {
+      "story_id": "components-chipstatus--style-gallery",
+      "story_name": "Style Variations",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-chip-status-style-variations-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipstatus--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-status/chip-status.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-status/docs/chip-status.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-status.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-status/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-status",
+      "ChipStatus",
+      "chip-status complete",
+      "ChipStatus complete package",
+      "chip-status docs"
+    ],
+    "when_to_use": "Use first for any ChipStatus generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer ChipStatus behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

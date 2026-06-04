@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "breadcrumb-item",
+  "component_name": "Breadcrumb.Item",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-breadcrumb-item--default",
+      "story_name": "Default",
+      "component_id": "breadcrumb-item",
+      "component_name": "Breadcrumb.Item",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb-item/stories/components-breadcrumb-item--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/breadcrumb-item/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/breadcrumb-item-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/breadcrumb-item/assets/BreadcrumbItem.stories-BXs3jzGa.js",
+      "docs_id": "components-breadcrumb-item--docs",
+      "registry_item": "sanofi-breadcrumb-item-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb-item--docs"
+  }
+}

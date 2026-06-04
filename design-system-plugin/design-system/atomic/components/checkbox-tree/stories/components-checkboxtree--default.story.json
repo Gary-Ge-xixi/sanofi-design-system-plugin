@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-checkboxtree--default",
+  "component_id": "checkbox-tree",
+  "component_name": "CheckboxTree",
+  "story_id": "components-checkboxtree--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-checkboxtree--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-checkboxtree--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CheckboxTree.stories-Bci02ql2.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/CheckboxTree.stories-Bci02ql2.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/components-checkboxtree--default.iframe.html",
+    "import_path": "./src/components/CheckboxTree/CheckboxTree.stories.tsx",
+    "component_path": "./src/components/CheckboxTree/CheckboxTree.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{title:\"Default\",caption:\"This is a caption\",items:_}",
+    "values": {
+      "title": "Default",
+      "caption": "This is a caption",
+      "items": {
+        "extraction_status": "raw_expression",
+        "value": "_"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{checkboxesColor:{control:\"select\",options:Object.values(S),description:\"Color variant of all checkboxes in the tree\"},onChange:{action:\"changed\"}}",
+    "fields": [
+      "checkboxesColor",
+      "onChange"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    title: \"Default\",\n    caption: \"This is a caption\",\n    items: basicItems\n  }\n}",
+    "story_object_source": "{args:{title:\"Default\",caption:\"This is a caption\",items:_}}"
+  },
+  "template": {
+    "id": "checkbox-tree-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/checkbox-tree/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/checkbox-tree-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "checkbox-tree",
+    "local_path": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkboxtree--docs",
+    "story_id": "components-checkboxtree--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-tree.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox-tree/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/CheckboxTree.stories-Bci02ql2.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/checkbox-tree/assets/components-checkboxtree--default.iframe.html"
+  }
+}

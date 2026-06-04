@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-sections-complete-package",
+  "title": "Card/Sections complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Card/Sections package covering Docs plus all Storybook story atoms.",
+  "component_id": "card-sections",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card-sections"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-sections/card-sections.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/card-sections/card-sections.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-sections/card-sections.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/card-sections/card-sections.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-sections/docs/card-sections.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-sections/docs/card-sections.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-sections/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-sections/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/card-sections-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/card-sections-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-sections.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-sections--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-sections--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 1,
+    "materialized_stories": 1,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-card-sections--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-sections-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-sections--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/card-sections/card-sections.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/card-sections/docs/card-sections.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-sections.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-sections",
+      "Card/Sections",
+      "card-sections complete",
+      "Card/Sections complete package",
+      "card-sections docs"
+    ],
+    "when_to_use": "Use first for any Card/Sections generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Card/Sections behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

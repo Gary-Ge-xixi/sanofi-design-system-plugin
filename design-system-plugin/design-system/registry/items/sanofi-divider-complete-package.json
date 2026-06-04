@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-divider-complete-package",
+  "title": "Divider complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Divider package covering Docs plus all Storybook story atoms.",
+  "component_id": "divider",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-divider"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/divider.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/divider/divider.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/divider.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/divider/divider.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/docs/divider.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/divider/docs/divider.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/divider/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/divider/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/divider-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/divider-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/divider.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/divider.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/divider/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/divider/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-divider--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-divider--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-divider--custom-width",
+      "story_name": "Custom Width",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-divider-custom-width-atomic-story"
+    },
+    {
+      "story_id": "components-divider--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-divider-default-atomic-story"
+    },
+    {
+      "story_id": "components-divider--inverse",
+      "story_name": "Inverse",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-divider-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-divider--orientation",
+      "story_name": "Orientation",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-divider-orientation-atomic-story"
+    },
+    {
+      "story_id": "components-divider--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-divider-overview-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-divider--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/divider/divider.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/divider/docs/divider.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/divider.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/divider/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "divider",
+      "Divider",
+      "divider complete",
+      "Divider complete package",
+      "divider docs"
+    ],
+    "when_to_use": "Use first for any Divider generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Divider behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

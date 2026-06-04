@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-hero-full-screen-with-navigation-header-atomic-story",
+  "title": "Hero Full Screen With Navigation Header atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-hero--full-screen-with-navigation-header.",
+  "atomic_story_id": "components-hero--full-screen-with-navigation-header",
+  "component_id": "hero",
+  "docs_id": "components-hero--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-hero"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--full-screen-with-navigation-header.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--full-screen-with-navigation-header.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/hero/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/assets/Hero.stories-y38fgE3q.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/hero/assets/Hero.stories-y38fgE3q.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/assets/components-hero--full-screen-with-navigation-header.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/hero/assets/components-hero--full-screen-with-navigation-header.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/hero/templates/html.full-screen-with-navigation-header.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/hero/templates/html.full-screen-with-navigation-header.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/hero.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/hero/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-hero--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-hero--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-hero--docs",
+    "story_id": "components-hero--full-screen-with-navigation-header",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/hero/stories/components-hero--full-screen-with-navigation-header.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/hero/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-hero--full-screen-with-navigation-header&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-hero--full-screen-with-navigation-header&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Hero.stories-y38fgE3q.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/hero/assets/Hero.stories-y38fgE3q.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "hero",
+      "Hero",
+      "Full Screen With Navigation Header",
+      "components-hero--full-screen-with-navigation-header",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Hero Full Screen With Navigation Header Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-chart",
+  "status": "ready",
+  "renderer_target": "html",
+  "purpose": "Canonical chart/data-visualization module contract for business dashboard and report pages.",
+  "source_provenance": {
+    "storybook_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/elements-charts_components-charts-barchart--docs",
+    "research_report": "../../../outputs/reports/web-research/sanofi-brand-assets-barchart-research.md",
+    "extracted_docs": "../../../outputs/reports/web-research/elements-charts.index.json",
+    "chart_rule": "../../rules/chart-usage.json"
+  },
+  "component_coverage": {
+    "barchart": {
+      "status": "docs-researched",
+      "allowed_when": "Use BarChart for categorical comparisons, time buckets, progress against threshold, and business report summaries when chartData and xAxis contracts are present.",
+      "required_props": [
+        "chartData",
+        "xAxis",
+        "width",
+        "height",
+        "ariaLabel",
+        "ariaDescription"
+      ],
+      "supported_props": [
+        "labelsOnTop",
+        "tooltipRenderer",
+        "hideXLabels",
+        "hideLegend",
+        "thresholdLines",
+        "thresholdLabelPadding",
+        "locale",
+        "accessibleDataTable",
+        "shapesOnTop",
+        "yLabel"
+      ]
+    },
+    "other_chart_types": {
+      "status": "fallback-required",
+      "allowed_when": "Use static semantic fallback only when no local official chart docs or component contract exists for the requested visualization."
+    }
+  },
+  "data_contract": {
+    "required_metadata": [
+      "metric_id",
+      "label_zh",
+      "series",
+      "unit",
+      "time_grain",
+      "comparison_baseline",
+      "empty_value_policy",
+      "permission"
+    ],
+    "numeric_policy": [
+      "Money values require currency and precision.",
+      "Quantity values require unit and precision.",
+      "Percent values require denominator explanation."
+    ]
+  },
+  "dom_contract": {
+    "root_selector": "[data-business-module=\"business-chart\"]",
+    "required_attributes": [
+      "data-business-module=\"business-chart\"",
+      "data-chart-contract=\"business-chart\"",
+      "data-chart-kind"
+    ],
+    "bar_chart_attributes": [
+      "data-chart-kind=\"bar\"",
+      "data-source-component=\"BarChart\"",
+      "data-chart-prop=\"chartData\"",
+      "data-chart-prop=\"xAxis\""
+    ],
+    "fallback_attributes": [
+      "data-fallback-module=\"business-chart\"",
+      "data-fallback-reason"
+    ],
+    "forbidden_attributes": [
+      "data-primitive=\"chart\"",
+      "data-primitive=\"dataviz\""
+    ]
+  },
+  "accessibility_contract": {
+    "required": [
+      "ariaLabel or visible heading",
+      "ariaDescription for chart meaning",
+      "accessibleDataTable or adjacent data table for exact values",
+      "legend or inline series labels unless there is only one series"
+    ],
+    "empty_state": "Charts with no data must show an empty state and must not render misleading zero-height bars as real data."
+  },
+  "visual_policy": [
+    "Default business charts must use Sanofi brand or data visualization tokens, not arbitrary green or raw colors.",
+    "Threshold lines require label, unit, and source.",
+    "Do not crop axis labels; use label rotation or table fallback when labels cannot fit.",
+    "Dashboard chart cards must expose title, filter context, last updated time, and data source."
+  ]
+}

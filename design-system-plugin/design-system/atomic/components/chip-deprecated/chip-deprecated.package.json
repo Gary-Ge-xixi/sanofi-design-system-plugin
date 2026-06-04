@@ -1,0 +1,223 @@
+{
+  "schema_version": "0.1.0",
+  "id": "chip-deprecated-complete-standard-package",
+  "component_id": "chip-deprecated",
+  "component_name": "Chip (Deprecated)",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 8,
+    "materialized_stories": 8,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-chip-deprecated--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/docs/chip-deprecated.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-chip-deprecated--active",
+      "story_name": "Active",
+      "export_name": "Active",
+      "semantic_type": "variant",
+      "variant": "active",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--active.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-active.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--clickable",
+      "story_name": "Clickable",
+      "export_name": "Clickable",
+      "semantic_type": "variant",
+      "variant": "clickable",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--clickable.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-clickable.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--deletable",
+      "story_name": "Deletable",
+      "export_name": "Deletable",
+      "semantic_type": "variant",
+      "variant": "deletable",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--deletable.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-deletable.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--disabled",
+      "story_name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "variant": "disabled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--disabled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-disabled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--icon",
+      "story_name": "Icon",
+      "export_name": "Icon",
+      "semantic_type": "variant",
+      "variant": "icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-icon.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--icon-and-deletable",
+      "story_name": "Icon And Deletable",
+      "export_name": "IconAndDeletable",
+      "semantic_type": "variant",
+      "variant": "icon-and-deletable",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--icon-and-deletable.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-icon-and-deletable.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-chip-deprecated--sizes",
+      "story_name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "variant": "sizes",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/chip-deprecated/stories/components-chip-deprecated--sizes.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/chip-deprecated-sizes.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-chip-deprecated--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/chip-deprecated/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/chip-deprecated-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-chip-deprecated--active",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-active.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--clickable",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-clickable.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--default",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-default.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--deletable",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-deletable.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--disabled",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-disabled.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--icon",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-icon.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--icon-and-deletable",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-icon-and-deletable.atomic.html"
+      },
+      {
+        "story_id": "components-chip-deprecated--sizes",
+        "output_path": "design-system-plugin/outputs/html/chip-deprecated-sizes.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-chip-deprecated-complete-package.json",
+    "story_item_prefix": "sanofi-chip-deprecated-"
+  },
+  "validation": {
+    "required_story_count": 8,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-chip-deprecated--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/chip-deprecated/chip-deprecated.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/chip-deprecated/docs/chip-deprecated.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-deprecated/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

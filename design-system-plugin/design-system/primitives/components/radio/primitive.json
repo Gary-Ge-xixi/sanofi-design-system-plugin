@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Radio",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Radio",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "radio",
+      "data_attribute": "data-primitive=\"radio\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-radio--color-variations",
+      "components-radio--default",
+      "components-radio--sizes",
+      "components-radio--with-link",
+      "components-radio--with-subtext"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-radio--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

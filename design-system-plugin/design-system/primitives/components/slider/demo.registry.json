@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Slider",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-slider--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-slider--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-slider--range",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-slider--with-bottom-legend",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-slider--with-custom-scale",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-slider--with-label",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-slider--with-legend",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

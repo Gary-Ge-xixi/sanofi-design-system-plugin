@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "mega-menu-title",
+  "component_name": "MegaMenu/Title",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/MegaMenu/Title"
+  },
+  "docs": [
+    {
+      "id": "components-megamenu-title--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/Title/Title.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-megamenu-title--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/MegaMenu/Title/Title.stories.tsx"
+    }
+  ]
+}

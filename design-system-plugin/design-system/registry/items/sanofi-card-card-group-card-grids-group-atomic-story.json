@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-card-group-card-grids-group-atomic-story",
+  "title": "Card/CardGroup Card Grids Group atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-card-cardgroup--card-grids-group.",
+  "atomic_story_id": "components-card-cardgroup--card-grids-group",
+  "component_id": "card-card-group",
+  "docs_id": "components-card-cardgroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card-card-group"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/stories/components-card-cardgroup--card-grids-group.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/stories/components-card-cardgroup--card-grids-group.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/assets/components-card-cardgroup--card-grids-group.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/assets/components-card-cardgroup--card-grids-group.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/templates/html.card-grids-group.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/card-card-group/templates/html.card-grids-group.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card-cardgroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-cardgroup--docs",
+    "story_id": "components-card-cardgroup--card-grids-group",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/card-card-group/stories/components-card-cardgroup--card-grids-group.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/card-card-group/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card-cardgroup--card-grids-group&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card-cardgroup--card-grids-group&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CardGroup.stories-DXUr9FfL.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-card-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card-card-group/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card-card-group",
+      "Card/CardGroup",
+      "Card Grids Group",
+      "components-card-cardgroup--card-grids-group",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Card/CardGroup Card Grids Group Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-list-deprecated",
+  "component_name": "ChipList (Deprecated)",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-chiplist-deprecated--default",
+      "story_name": "Default",
+      "component_id": "chip-list-deprecated",
+      "component_name": "ChipList (Deprecated)",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/stories/components-chiplist-deprecated--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/chip-list-deprecated-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/chip-list-deprecated/assets/ChipList.stories-BdfXsrfi.js",
+      "docs_id": "components-chiplist-deprecated--docs",
+      "registry_item": "sanofi-chip-list-deprecated-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chip-list-deprecated--docs"
+  }
+}

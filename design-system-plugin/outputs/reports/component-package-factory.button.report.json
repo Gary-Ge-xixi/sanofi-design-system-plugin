@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1.0",
+  "status": "complete_existing",
+  "script": "build-component-package-factory",
+  "component_id": "button",
+  "component_name": "Button",
+  "tier": "L",
+  "estimated_hours": 7.9,
+  "write_mode": {
+    "write_partial": false,
+    "force": false,
+    "write_allowed": true
+  },
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 13,
+    "materialized_stories": 13,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "readiness": {
+    "can_write_complete": true,
+    "has_component_contract": true,
+    "has_primitive_contract": true,
+    "has_existing_package": true,
+    "missing_story_ids": []
+  },
+  "artifacts": {
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+    "component_atomic": "design-system-plugin/design-system/atomic/components/button/component.atomic.json",
+    "package": "design-system-plugin/design-system/atomic/components/button/button.package.json"
+  },
+  "writes": [],
+  "skipped": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json",
+      "reason": "exists_preserved"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+      "reason": "exists_preserved"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/component.atomic.json",
+      "reason": "exists_preserved"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/button.package.json",
+      "reason": "exists_preserved"
+    }
+  ]
+}

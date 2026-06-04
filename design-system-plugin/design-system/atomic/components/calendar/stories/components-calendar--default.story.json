@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-calendar--default",
+  "component_id": "calendar",
+  "component_name": "Calendar",
+  "story_id": "components-calendar--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-calendar--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-calendar--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Calendar.stories-DLyXysUD.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/calendar/assets/components-calendar--default.iframe.html",
+    "import_path": "./src/components/DatePicker/Calendar/Calendar.stories.tsx",
+    "component_path": "./src/components/DatePicker/Calendar/Calendar.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{selectedDate:\"2025-01-01\"}",
+    "values": {
+      "selectedDate": "2025-01-01"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{}",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    selectedDate: \"2025-01-01\"\n  },\n  render: function Render(args) {\n    const [, updateArgs] = useArgs<{\n      selectedDate: string;\n    }>();\n    return <>\n        <Toast />\n        <Calendar {...args} onSelectedDateChange={e => {\n        notify(args as Partial<ToastOptions>, \"onSelectedDateChange\", e);\n        updateArgs({\n          selectedDate: e\n        });\n      }} />\n      </>;\n  }\n}",
+    "story_object_source": "{args:{selectedDate:\"2025-01-01\"},render:function(t){const[,n]=h();return e.jsxs(e.Fragment,{children:[e.jsx(x,{}),e.jsx(l,{...t,onSelectedDateChange:s=>{m(t,\"onSelectedDateChange\",s),n({selectedDate:s})}})]})}}"
+  },
+  "template": {
+    "id": "calendar-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/calendar/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/calendar-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "calendar",
+    "local_path": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-calendar--docs",
+    "story_id": "components-calendar--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/calendar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/calendar/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/calendar/assets/Calendar.stories-DLyXysUD.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/calendar/assets/components-calendar--default.iframe.html"
+  }
+}

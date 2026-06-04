@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1.0",
+  "status": "unsupported",
+  "script": "build-component-package-factory",
+  "component_id": "progress-stepper-define-stepper-provider",
+  "component_name": "ProgressStepper/defineStepper Provider",
+  "tier": "S",
+  "estimated_hours": 2.8,
+  "write_mode": {
+    "write_partial": false,
+    "force": false,
+    "write_allowed": false
+  },
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 0,
+    "materialized_stories": 0,
+    "docs_contract_status": "not_generated_until_ready",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "readiness": {
+    "can_write_complete": false,
+    "has_component_contract": true,
+    "has_primitive_contract": true,
+    "has_existing_package": false,
+    "missing_story_ids": []
+  },
+  "artifacts": {
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/progress-stepper-define-stepper-provider.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/docs/progress-stepper-define-stepper-provider.docs.contract.json",
+    "component_atomic": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/component.atomic.json",
+    "package": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/progress-stepper-define-stepper-provider.package.json"
+  },
+  "writes": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/progress-stepper-define-stepper-provider.unsupported.json",
+      "reason": "unsupported-docs-only-component"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/progress-stepper-define-stepper-provider.expected-tabs.json",
+      "reason": "write_not_allowed_until_all_stories_materialized"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/docs/progress-stepper-define-stepper-provider.docs.contract.json",
+      "reason": "write_not_allowed_until_all_stories_materialized"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/component.atomic.json",
+      "reason": "write_not_allowed_until_all_stories_materialized"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/progress-stepper-define-stepper-provider/progress-stepper-define-stepper-provider.package.json",
+      "reason": "write_not_allowed_until_all_stories_materialized"
+    }
+  ]
+}

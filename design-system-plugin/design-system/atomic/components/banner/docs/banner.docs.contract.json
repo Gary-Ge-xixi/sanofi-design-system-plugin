@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "id": "banner-docs-contract",
+  "component_id": "banner",
+  "component_name": "Banner",
+  "docs_id": "components-banner--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-banner--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Banner variant\"success\"\"error\"\"warning\"\"neutral\"\"info\"",
+        "default": "\"BannerVariant.NEUTRAL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isGlobal",
+        "required": false,
+        "description": "Banner global styleboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClose",
+        "required": false,
+        "description": "A callback fired when clicking the X buttonMouseEventHandler<HTMLButtonElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onAction",
+        "required": false,
+        "description": "A callback fired when clicking the action buttonMouseEventHandler<HTMLButtonElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "actionLabel",
+        "required": false,
+        "description": "The label of the action buttonstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-banner--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Banner } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Banner variant=\"success\" onClose={() => {}} onAction={() => {}} actionLabel=\"Confirm\" isGlobal={false}>\n  A Banner was successfully created\n</Banner>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-banner--custom-icon",
+      "name": "Custom Icon",
+      "export_name": "CustomIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Banner/Banner.stories.tsx"
+    },
+    {
+      "id": "components-banner--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Banner/Banner.stories.tsx"
+    },
+    {
+      "id": "components-banner--global",
+      "name": "Global",
+      "export_name": "Global",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Banner/Banner.stories.tsx"
+    },
+    {
+      "id": "components-banner--overview",
+      "name": "Overview",
+      "export_name": "Overview",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Banner/Banner.stories.tsx"
+    },
+    {
+      "id": "components-banner--with-close-icon",
+      "name": "With Close Icon",
+      "export_name": "WithCloseIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Banner/Banner.stories.tsx"
+    },
+    {
+      "id": "components-banner--with-contents",
+      "name": "With Contents",
+      "export_name": "WithContents",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Banner/Banner.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/banner.contract.json"
+  }
+}

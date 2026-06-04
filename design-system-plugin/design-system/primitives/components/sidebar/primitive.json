@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Sidebar",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/Sidebar",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "sidebar",
+      "data_attribute": "data-primitive=\"sidebar\"",
+      "required_semantics": [
+        "aside or nav landmark",
+        "visible current page state"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-sidebar--default",
+      "components-sidebar--collapsed",
+      "components-sidebar--expanded",
+      "components-sidebar--without-header",
+      "components-sidebar--fully-collapsible",
+      "components-sidebar--sticky-behavior",
+      "components-sidebar--fully-collapsible-controlled"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-autocomplete--with-render-option-custom-layout",
+  "component_id": "autocomplete",
+  "component_name": "Autocomplete",
+  "story_id": "components-autocomplete--with-render-option-custom-layout",
+  "story_name": "With Render Option Custom Layout",
+  "export_name": "WithRenderOptionCustomLayout",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-autocomplete--with-render-option-custom-layout&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-autocomplete--with-render-option-custom-layout&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Autocomplete.stories-xY30zCRZ.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/autocomplete/assets/components-autocomplete--with-render-option-custom-layout.iframe.html",
+    "import_path": "./src/components/Autocomplete/Autocomplete.stories.tsx",
+    "component_path": "./src/components/Autocomplete/Autocomplete.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...t.args,id:\"autocomplete-render-custom\",label:\"Assign to\",placeholder:\"Search team members...\",options:I,renderOption:(e,{highlightedLabel:a})=>{const o=e;return n.jsxs($,{align:\"center\",gap:\"xs\",children:[n.jsx(z,{name:o.label,image:o.image,size:W.XSMALL}),n.jsxs(\"div\",{children:[n.jsx(\"div\",{children:a}),n.jsx(C,{variant:O.BODY_SMALL,color:A.SUBTLE,children:o.description})]})]})}}",
+    "values": {
+      "args": {
+        "extraction_status": "raw_expression",
+        "value": "{id:\"autocomplete\",label:D,placeholder:\"Type something\",state:V.DEFAULT,inverse:!1,disabled:!1,required:!1,size:G.LARGE,options:k,onChange:()=>{},onClear:()=>{}}"
+      },
+      "play": {
+        "extraction_status": "raw_expression",
+        "value": "async({canvasElement:e})=>{const a=r(e);await s.click(a.getByLabelText(D,{exact:!1}))}"
+      },
+      "render": {
+        "extraction_status": "raw_expression",
+        "value": "e=>n.jsxs(n.Fragment,{children:[n.jsx(x,{}),n.jsx(w,{...e,onChange:a=>{l(e,\"onChange\",a.target.value)},onClear:()=>{l(e,\"onClear\",\"\")}})]})"
+      },
+      "id": "autocomplete-render-custom",
+      "label": "Assign to",
+      "placeholder": "Search team members...",
+      "options": {
+        "extraction_status": "raw_expression",
+        "value": "I"
+      },
+      "renderOption": {
+        "extraction_status": "raw_expression",
+        "value": "(e,{highlightedLabel:a})=>{const o=e;return n.jsxs($,{align:\"center\",gap:\"xs\",children:[n.jsx(z,{name:o.label,image:o.image,size:W.XSMALL}),n.jsxs(\"div\",{children:[n.jsx(\"div\",{children:a}),n.jsx(C,{variant:O.BODY_SMALL,color:A.SUBTLE,children:o.description})]})]})}"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onChange:{action:\"changed\"},onClear:{action:\"changed\"},showTooltips:{control:\"boolean\",description:\"Whether to show tooltips on hover for option labels\",table:{defaultValue:{summary:\"false\"}}},tooltipPosition:{control:\"select\",options:Object.values(E),description:\"Tooltip position for option tooltips\",table:{defaultValue:{summary:\"TOP\"}}}}",
+    "fields": [
+      "onChange",
+      "onClear",
+      "showTooltips",
+      "tooltipPosition"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...Default.args,\n    id: \"autocomplete-render-custom\",\n    label: \"Assign to\",\n    placeholder: \"Search team members...\",\n    options: userOptions,\n    renderOption: (option: Option, {\n      highlightedLabel\n    }: {\n      highlightedLabel: ReactNode;\n    }) => {\n      const userOpt = option as UserOption;\n      return <Flex align=\"center\" gap=\"xs\">\n          <Avatar name={userOpt.label} image={userOpt.image} size={AvatarSize.XSMALL} />\n          <div>\n            <div>{highlightedLabel}</div>\n            <Typography variant={TypographyVariant.BODY_SMALL} color={TypographyColor.SUBTLE}>\n              {userOpt.description}\n            </Typography>\n          </div>\n        </Flex>;\n    }\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByLabelText(\"Assign to\", {\n      exact: false\n    }));\n  },\n  parameters: {\n    docs: {\n      description: {\n        story: \"Demonstrates a richer custom layout with \\`renderOption\\` — \" + \"each option shows an Avatar with a profile photo, the highlighted name, and a department subtitle.\"\n      }\n    }\n  }\n}",
+    "story_object_source": "{args:{...t.args,id:\"autocomplete-render-custom\",label:\"Assign to\",placeholder:\"Search team members...\",options:I,renderOption:(e,{highlightedLabel:a})=>{const o=e;return n.jsxs($,{align:\"center\",gap:\"xs\",children:[n.jsx(z,{name:o.label,image:o.image,size:W.XSMALL}),n.jsxs(\"div\",{children:[n.jsx(\"div\",{children:a}),n.jsx(C,{variant:O.BODY_SMALL,color:A.SUBTLE,children:o.description})]})]})}},play:async({canvasElement:e})=>{const a=r(e);await s.click(a.getByLabelText(\"Assign to\",{exact:!1}))},parameters:{docs:{description:{story:\"Demonstrates a richer custom layout with `renderOption` — each option shows an Avatar with a profile photo, the highlighted name, and a department subtitle.\"}}}}"
+  },
+  "template": {
+    "id": "autocomplete-with-render-option-custom-layout-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/autocomplete/templates/html.with-render-option-custom-layout.template.html",
+    "output_path": "design-system-plugin/outputs/html/autocomplete-with-render-option-custom-layout.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "autocomplete",
+    "local_path": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-autocomplete--docs",
+    "story_id": "components-autocomplete--with-render-option-custom-layout",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/autocomplete.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/autocomplete/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/autocomplete/assets/Autocomplete.stories-xY30zCRZ.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/autocomplete/assets/components-autocomplete--with-render-option-custom-layout.iframe.html"
+  }
+}

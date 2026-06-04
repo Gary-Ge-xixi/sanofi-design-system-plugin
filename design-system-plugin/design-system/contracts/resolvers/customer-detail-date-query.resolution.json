@@ -1,0 +1,420 @@
+{
+  "schema_version": "0.1.0",
+  "id": "customer-detail-date-query-resolution",
+  "generated_at": "2026-06-04T11:11:12.940Z",
+  "prompt": "根据日期查询客户明细复杂表单页面",
+  "intent": "customer-detail-date-query",
+  "page_type": "customer-detail-date-query",
+  "page_subtype": "customer-detail-date-query-page",
+  "pattern_id": "customer-detail-date-query",
+  "registry_item": "sanofi-customer-detail-date-query",
+  "template_id": "customer-detail-date-query",
+  "renderer_target": "html",
+  "business_context": {},
+  "sections": [
+    {
+      "id": "breadcrumb",
+      "label": "Breadcrumb",
+      "type": "navigation",
+      "required_primitives": [
+        "icon"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "icon",
+          "component_contract_id": "icon",
+          "docs_id": "components-icon--docs",
+          "story_id": "components-icon--gallery"
+        }
+      ]
+    },
+    {
+      "id": "query-header",
+      "label": "Query Header",
+      "type": "content",
+      "required_primitives": [
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        }
+      ]
+    },
+    {
+      "id": "date-query-form",
+      "label": "Date Query Form",
+      "type": "form",
+      "required_primitives": [
+        "search-input",
+        "select",
+        "date-picker",
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "search-input",
+          "component_contract_id": "search-input",
+          "docs_id": "components-searchinput--docs",
+          "story_id": "components-searchinput--default"
+        },
+        {
+          "primitive_id": "select",
+          "component_contract_id": "select",
+          "docs_id": "components-select--docs",
+          "story_id": "components-select--default"
+        },
+        {
+          "primitive_id": "date-picker",
+          "component_contract_id": "date-picker",
+          "docs_id": "components-datepicker--docs",
+          "story_id": "unknown"
+        },
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        }
+      ]
+    },
+    {
+      "id": "customer-summary",
+      "label": "Customer Summary",
+      "type": "summary",
+      "required_primitives": [
+        "card",
+        "tag"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "card",
+          "component_contract_id": "card",
+          "docs_id": "components-card--docs",
+          "story_id": "components-card--default"
+        },
+        {
+          "primitive_id": "tag",
+          "component_contract_id": "tag",
+          "docs_id": "components-tag--docs",
+          "story_id": "components-tag--semantic"
+        }
+      ]
+    },
+    {
+      "id": "customer-detail-table",
+      "label": "Customer Detail Table",
+      "type": "fallback",
+      "required_primitives": [
+        "tag",
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [
+        "table"
+      ],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        },
+        {
+          "primitive_id": "tag",
+          "component_contract_id": "tag",
+          "docs_id": "components-tag--docs",
+          "story_id": "components-tag--semantic"
+        }
+      ]
+    },
+    {
+      "id": "result-actions",
+      "label": "Result Actions",
+      "type": "controls",
+      "required_primitives": [
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        }
+      ]
+    },
+    {
+      "id": "pagination",
+      "label": "Pagination",
+      "type": "navigation",
+      "required_primitives": [
+        "pagination",
+        "button"
+      ],
+      "optional_primitives": [],
+      "fallback_modules": [],
+      "provenance": [
+        {
+          "primitive_id": "button",
+          "component_contract_id": "button",
+          "docs_id": "components-button--docs",
+          "story_id": "components-button--primary"
+        },
+        {
+          "primitive_id": "pagination",
+          "component_contract_id": "pagination",
+          "docs_id": "components-pagination--docs",
+          "story_id": "components-pagination--default"
+        }
+      ]
+    }
+  ],
+  "forbidden_sections": [],
+  "delivery_contract": null,
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "date-picker",
+    "button",
+    "card",
+    "tag",
+    "pagination"
+  ],
+  "optional_primitives": [],
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "form-usage",
+    "table-usage",
+    "business-page-family-reference-fit",
+    "content-standards",
+    "interaction-state-standards"
+  ],
+  "page_profile": {
+    "id": "customer-detail-date-query",
+    "path": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json",
+    "required_module_contracts": [
+      "business-form",
+      "business-table"
+    ],
+    "density_id": "business-default",
+    "reference_fit_id": "business-page-family-reference-fit"
+  },
+  "primitive_refs": [
+    {
+      "primitive_id": "container",
+      "component_contract_id": "container",
+      "docs_id": "components-container--docs",
+      "story_id": "components-container--fixed"
+    },
+    {
+      "primitive_id": "grid",
+      "component_contract_id": "grid",
+      "docs_id": "components-grid--docs",
+      "story_id": "components-grid--desktop"
+    },
+    {
+      "primitive_id": "navigation-header",
+      "component_contract_id": "navigation-header",
+      "docs_id": "components-navigationheader--docs",
+      "story_id": "components-navigationheader--default"
+    },
+    {
+      "primitive_id": "sidebar",
+      "component_contract_id": "sidebar",
+      "docs_id": "components-sidebar--docs",
+      "story_id": "components-sidebar--default"
+    },
+    {
+      "primitive_id": "menu",
+      "component_contract_id": "menu",
+      "docs_id": "components-menu--docs",
+      "story_id": "components-menu--default"
+    },
+    {
+      "primitive_id": "icon",
+      "component_contract_id": "icon",
+      "docs_id": "components-icon--docs",
+      "story_id": "components-icon--gallery"
+    },
+    {
+      "primitive_id": "search-input",
+      "component_contract_id": "search-input",
+      "docs_id": "components-searchinput--docs",
+      "story_id": "components-searchinput--default"
+    },
+    {
+      "primitive_id": "select",
+      "component_contract_id": "select",
+      "docs_id": "components-select--docs",
+      "story_id": "components-select--default"
+    },
+    {
+      "primitive_id": "date-picker",
+      "component_contract_id": "date-picker",
+      "docs_id": "components-datepicker--docs",
+      "story_id": "unknown"
+    },
+    {
+      "primitive_id": "button",
+      "component_contract_id": "button",
+      "docs_id": "components-button--docs",
+      "story_id": "components-button--primary"
+    },
+    {
+      "primitive_id": "card",
+      "component_contract_id": "card",
+      "docs_id": "components-card--docs",
+      "story_id": "components-card--default"
+    },
+    {
+      "primitive_id": "tag",
+      "component_contract_id": "tag",
+      "docs_id": "components-tag--docs",
+      "story_id": "components-tag--semantic"
+    },
+    {
+      "primitive_id": "pagination",
+      "component_contract_id": "pagination",
+      "docs_id": "components-pagination--docs",
+      "story_id": "components-pagination--default"
+    }
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "allowed_markup": [
+        "table"
+      ],
+      "must_not_claim_primitive": true
+    }
+  ],
+  "unsupported_gaps": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "must_not_claim_primitive": true
+    }
+  ],
+  "execution_inputs": {
+    "registry": "design-system-plugin/design-system/registry/registry.json",
+    "design_md": "design-system-plugin/design-system/DESIGN.md",
+    "registry_item": "design-system-plugin/design-system/registry/items/sanofi-customer-detail-date-query.json",
+    "pattern_index": "design-system-plugin/design-system/patterns/pattern-index.json",
+    "pattern": "design-system-plugin/design-system/patterns/customer-detail-date-query/customer-detail-date-query.pattern.json",
+    "template_index": "design-system-plugin/design-system/templates/template-index.json",
+    "template": "design-system-plugin/design-system/templates/customer-detail-date-query.template.json",
+    "rules_index": "design-system-plugin/design-system/rules/rules-index.json",
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json",
+    "page_profile_index": "design-system-plugin/design-system/page-profiles/page-profile-index.json",
+    "page_profile": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json",
+    "module_contracts": [
+      "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+      "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json"
+    ],
+    "density_rule": null,
+    "reference_fit_rule": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+    "loaded_rule_count": 9,
+    "template_index_status": "ready",
+    "pattern_index_status": "ready",
+    "delivery_contract": null
+  },
+  "source_provenance": {
+    "registry_item": "sanofi-customer-detail-date-query",
+    "registry_item_path": "design-system-plugin/design-system/registry/items/sanofi-customer-detail-date-query.json",
+    "design_md_path": "design-system-plugin/design-system/DESIGN.md",
+    "pattern_id": "customer-detail-date-query",
+    "pattern_path": "design-system-plugin/design-system/patterns/customer-detail-date-query/customer-detail-date-query.pattern.json",
+    "template_id": "customer-detail-date-query",
+    "template_path": "design-system-plugin/design-system/templates/customer-detail-date-query.template.json",
+    "docs_ids": [
+      "components-container--docs",
+      "components-grid--docs",
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs",
+      "components-searchinput--docs",
+      "components-select--docs",
+      "components-datepicker--docs",
+      "components-button--docs",
+      "components-card--docs",
+      "components-tag--docs",
+      "components-pagination--docs"
+    ],
+    "story_ids": [
+      "components-container--fixed",
+      "components-grid--desktop",
+      "components-navigationheader--default",
+      "components-sidebar--default",
+      "components-menu--default",
+      "components-icon--gallery",
+      "components-searchinput--default",
+      "components-select--default",
+      "components-button--primary",
+      "components-card--default",
+      "components-tag--semantic",
+      "components-pagination--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "layout_rule": "layout-grid-container",
+    "layout_source": "foundations-layout--docs",
+    "required_rules": [
+      "business-page-standards",
+      "business-admin-defaults",
+      "business-layout-typography",
+      "business-app-shell-scroll",
+      "form-usage",
+      "table-usage",
+      "business-page-family-reference-fit",
+      "content-standards",
+      "interaction-state-standards"
+    ],
+    "delivery_contract": "none",
+    "page_profile_id": "customer-detail-date-query",
+    "page_profile_path": "design-system-plugin/design-system/page-profiles/customer-detail-date-query.profile.json",
+    "page_module_contracts": [
+      "design-system-plugin/design-system/contracts/page-modules/business-form.contract.json",
+      "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json"
+    ],
+    "density_rule_path": "none",
+    "reference_fit_rule_path": "design-system-plugin/design-system/reference-fit/business-page-family.rules.json",
+    "fallback_reasons": [
+      {
+        "module": "table",
+        "status": "token-only-pattern",
+        "reason": "No official Table/DataTable/DataGrid primitive is registered locally."
+      }
+    ],
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json",
+    "semantic_token_map": "design-system-plugin/design-system/contracts/semantic-token-map.json"
+  }
+}

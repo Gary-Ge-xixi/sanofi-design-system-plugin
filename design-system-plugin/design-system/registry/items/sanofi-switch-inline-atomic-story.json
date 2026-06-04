@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-switch-inline-atomic-story",
+  "title": "Switch Inline atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-switch--inline.",
+  "atomic_story_id": "components-switch--inline",
+  "component_id": "switch",
+  "docs_id": "components-switch--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-switch"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch/stories/components-switch--inline.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/switch/stories/components-switch--inline.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/switch/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch/assets/components-switch--inline.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/switch/assets/components-switch--inline.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/switch/templates/html.inline.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/switch/templates/html.inline.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/switch.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/switch/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-switch--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch--docs",
+    "story_id": "components-switch--inline",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/switch/stories/components-switch--inline.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/switch/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-switch--inline&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-switch--inline&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Switch.stories-DvWhep9K.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/switch/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "switch",
+      "Switch",
+      "Inline",
+      "components-switch--inline",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Switch Inline Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

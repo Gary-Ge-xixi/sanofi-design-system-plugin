@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-date-docs-contract",
+  "component_id": "card-date",
+  "component_name": "Card/Date",
+  "docs_id": "components-card-date--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-date--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-date--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "date",
+        "required": true,
+        "description": "The card dateDate",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "invertDayAndMonth",
+        "required": false,
+        "description": "Swaps day and month order (for non-US formats)boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-date--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "Error: Cannot read properties of undefined (reading 'getDate')  at jf (/assets/react-18-DHSRfmXe.js:8:47860))  at nc (/assets/react-18-DHSRfmXe.js:8:70539))  at qv (/assets/react-18-DHSRfmXe.js:8:80863))  at f1 (/assets/react-18-DHSRfmXe.js:8:116408))  at Vm (/assets/react-18-DHSRfmXe.js:8:115490))  at _c (/assets/react-18-DHSRfmXe.js:8:115328))  at l1 (/assets/react-18-DHSRfmXe.js:8:112168))  at A1 (/assets/react-18-DHSRfmXe.js:8:123805))  at MessagePort._t (/assets/react-18-DHSRfmXe.js:1:1790))"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-card-date--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Card/CardDate.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card-date--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-date--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card-date.contract.json"
+  }
+}

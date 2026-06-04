@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-chipselect--long-label",
+  "component_id": "chip-select",
+  "component_name": "ChipSelect",
+  "story_id": "components-chipselect--long-label",
+  "story_name": "Long Label",
+  "export_name": "LongLabel",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-chipselect--long-label&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-chipselect--long-label&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ChipSelect.stories-QN41ncte.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/chip-select/assets/components-chipselect--long-label.iframe.html",
+    "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx",
+    "component_path": "./src/components/ChipSelect/ChipSelect.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:\"This is a very long label that will be truncated and show a tooltip\",size:a.MEDIUM,maxWidth:150}",
+    "values": {
+      "children": "This is a very long label that will be truncated and show a tooltip",
+      "size": "medium",
+      "maxWidth": 150
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{size:{control:\"select\",options:Object.values(a),description:\"Controls the size of the chip\",table:{defaultValue:{summary:\"small\"}}},color:{control:\"select\",options:Object.values(l),description:\"Controls the color scheme of the chip\",table:{defaultValue:{summary:\"branded\"}}},maxWidth:{control:{type:\"number\",min:50,max:300},description:\"Maximum width in pixels before text truncation (minimum: 50px)\"},onClick:{description:\"Callback function when the chip is clicked\"},disabled:{control:\"boolean\",description:\"Whether the chip is disabled\",table:{defaultValue:{summary:\"false\"}}},selected:{control:\"boolean\",description:\"Whether the chip is selected\",table:{defaultValue:{summary:\"false\"}}},iconName:{control:\"text\",description:\"The name of the icon to display when selected (defaults to 'done'). If empty, no icon will be shown\",table:{defaultValue:{summary:\"done\"}}},showIcon:{control:\"boolean\",description:\"Whether to show the icon when selected\",table:{defaultValue:{summary:\"false\"}}}}",
+    "fields": [
+      "size",
+      "color",
+      "maxWidth",
+      "onClick",
+      "disabled",
+      "selected",
+      "iconName",
+      "showIcon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    children: \"This is a very long label that will be truncated and show a tooltip\",\n    size: ChipSelectSize.MEDIUM,\n    maxWidth: 150\n  },\n  render: args => <LongLabelStory args={args} />,\n  parameters: {\n    docs: {\n      description: {\n        story: \"Example of a ChipSelect with a long label that gets truncated and displays a tooltip on hover.\"\n      }\n    }\n  }\n}",
+    "story_object_source": "{args:{children:\"This is a very long label that will be truncated and show a tooltip\",size:a.MEDIUM,maxWidth:150},render:t=>e.jsx(b,{args:t}),parameters:{docs:{description:{story:\"Example of a ChipSelect with a long label that gets truncated and displays a tooltip on hover.\"}}}}"
+  },
+  "template": {
+    "id": "chip-select-long-label-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/chip-select/templates/html.long-label.template.html",
+    "output_path": "design-system-plugin/outputs/html/chip-select-long-label.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "chip-select",
+    "local_path": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chipselect--docs",
+    "story_id": "components-chipselect--long-label",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-select.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/chip-select/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/chip-select/assets/ChipSelect.stories-QN41ncte.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/chip-select/assets/components-chipselect--long-label.iframe.html"
+  }
+}

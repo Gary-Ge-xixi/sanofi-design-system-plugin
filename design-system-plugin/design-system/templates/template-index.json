@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "templates": [
+    {
+      "id": "standalone-html",
+      "status": "ready",
+      "path": "standalone-html.template.html",
+      "output_target": "../../outputs/html/"
+    },
+    {
+      "id": "onecommercial-admin-query-panel",
+      "status": "ready",
+      "path": "onecommercial-admin-query-panel.template.json",
+      "pattern_id": "admin-query-panel",
+      "page_subtype": "data-entry-table-page",
+      "output_target": "../../outputs/html/admin-query-panel.resolved.html"
+    },
+    {
+      "id": "report-dashboard",
+      "status": "ready",
+      "path": "report-dashboard.template.json",
+      "pattern_id": "report-dashboard",
+      "page_subtype": "report-dashboard-page",
+      "output_target": "../../outputs/html/report-dashboard.resolved.html"
+    },
+    {
+      "id": "information-aggregation",
+      "status": "ready",
+      "path": "information-aggregation.template.json",
+      "pattern_id": "information-aggregation",
+      "page_subtype": "information-aggregation-page",
+      "output_target": "../../outputs/html/information-aggregation.resolved.html"
+    },
+    {
+      "id": "customer-detail-date-query",
+      "status": "ready",
+      "path": "customer-detail-date-query.template.json",
+      "pattern_id": "customer-detail-date-query",
+      "page_subtype": "customer-detail-date-query-page",
+      "output_target": "../../outputs/html/customer-detail-date-query.resolved.html"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "progress-stepper-define-stepper-provider",
+  "canonical_name": "progress-stepper-define-stepper-provider",
+  "component_name": "ProgressStepper/defineStepper Provider",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-progressstepper-definestepper-provider--docs",
+    "title": "ProgressStepper/defineStepper Provider",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-definestepper-provider--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-progressstepper-definestepper-provider--docs",
+    "import_path": "./src/components/ProgressStepper/ProgressStepperProvider.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 0,
+    "story_ids": [],
+    "records": []
+  },
+  "props": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "states": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { defineStepper, ProgressStepperNav, useStepper } from \"@sanofi-accelerator/elements\";\n\n// Define your steps\nconst steps = [\n{ id: \"step1\", label: \"Getting Started\", description: \"Welcome to the wizard\" },\n{ id: \"step2\", label: \"Configuration\", description: \"Set up your preferences\" },\n{ id: \"step3\", label: \"Complete\", description: \"Finish setup\" },\n] as const;\n\n// Create the provider\nconst StepperProvider = defineStepper(steps);\n\n// Use the provider\nfunction App() {\nreturn (\n\n<StepperProvider>\n<ProgressStepperNav />\n<StepContent />\n</StepperProvider>\n); }",
+      "function defineStepper(steps: Step[]): ComponentType<StepperProviderProps>\n\ninterface Step {\nid: string;\nlabel: string;\ndescription?: string;\n}\n\ninterface StepperProviderProps {\nchildren: ReactNode;\ninitialStep?: string;\n}",
+      "const steps = [\n{\n  id: \"account\",\n  label: \"Account\",\n  description: \"Create your account\"\n},\n{\n  id: \"profile\",\n  label: \"Profile\",\n  description: \"Complete your profile\"\n},\n{\n  id: \"preferences\",\n  label: \"Preferences\",\n  description: \"Set your preferences\"\n},\n] as const;\n\nconst StepperProvider = defineStepper(steps);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "progress-stepper-define-stepper-provider"
+    ],
+    "contracts": [
+      {
+        "id": "progress-stepper-define-stepper-provider",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/progress-stepper-define-stepper-provider/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/progress-stepper-define-stepper-provider/demo.registry.json",
+        "known_story_ids": []
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-progressstepper-definestepper-provider--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-progressstepper-definestepper-provider--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-definestepper-provider--docs.md",
+    "docs_import_path": "./src/components/ProgressStepper/ProgressStepperProvider.mdx",
+    "story_ids": [],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "props:not_extracted"
+  ]
+}

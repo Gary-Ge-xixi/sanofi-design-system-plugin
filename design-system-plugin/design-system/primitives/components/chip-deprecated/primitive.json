@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Chip (Deprecated)",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Chip (Deprecated)",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "chip-deprecated",
+      "data_attribute": "data-primitive=\"chip-deprecated\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-chip-deprecated--active",
+      "components-chip-deprecated--clickable",
+      "components-chip-deprecated--default",
+      "components-chip-deprecated--deletable",
+      "components-chip-deprecated--disabled",
+      "components-chip-deprecated--icon",
+      "components-chip-deprecated--icon-and-deletable",
+      "components-chip-deprecated--sizes"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-chip-deprecated--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-deprecated.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

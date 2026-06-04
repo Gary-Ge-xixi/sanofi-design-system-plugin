@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-hero--with-video",
+  "component_id": "hero",
+  "component_name": "Hero",
+  "story_id": "components-hero--with-video",
+  "story_name": "With Video",
+  "export_name": "WithVideo",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-hero--with-video&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-hero--with-video&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Hero.stories-y38fgE3q.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/hero/assets/Hero.stories-y38fgE3q.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/hero/assets/components-hero--with-video.iframe.html",
+    "import_path": "./src/components/Hero/Hero.stories.tsx",
+    "component_path": "./src/components/Hero/Hero.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...ee,title:\"Hero with Responsive Video Sources\",description:\"This example shows a video background with a stop button in the bottom right corner. In this case, different video sources are loaded based on viewport size, similar to the picture element for images. Video autoplay is automatically disabled when the user has enabled prefers-reduced-motion.\",video:{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",muted:!0,loop:!0,autoPlay:!0,poster:M,stopButtonAriaLabel:\"Toggle video playback\",sources:[{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",media:\"(max-width: 767px)\",type:\"video/mp4\"},{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",media:\"(min-width: 768px)\",type:\"video/mp4\"}]}}",
+    "values": {
+      "title": "Hero with Responsive Video Sources",
+      "description": "This example shows a video background with a stop button in the bottom right corner. In this case, different video sources are loaded based on viewport size, similar to the picture element for images. Video autoplay is automatically disabled when the user has enabled prefers-reduced-motion.",
+      "video": {
+        "extraction_status": "raw_expression",
+        "value": "{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",muted:!0,loop:!0,autoPlay:!0,poster:M,stopButtonAriaLabel:\"Toggle video playback\",sources:[{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",media:\"(max-width: 767px)\",type:\"video/mp4\"},{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",media:\"(min-width: 768px)\",type:\"video/mp4\"}]}"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{overlayStyle:{control:\"select\",options:Object.values(f),description:\"Overlay style\"},video:{control:\"object\",description:`\\`\\`\\`json\n{\n src: string,\n sources?:[\n  {\n    src: string,\n    media: string,\n    type?: string\n  }\n ],\n muted?: boolean,\n loop?: boolean,\n autoPlay?: boolean,\n poster?: string,\n stopButtonAriaLabel?: string\n}\n\\`\\`\\``},image:{control:\"object\",description:`\\`\\`\\`tsx\n{\n src: string,\n alt: string,\n legend?: string,\n fallbackSrc?: string,\n sources?:[\n  {\n    srcSet: string,\n    media: string,\n    type?: string\n  }\n ]\n}\n\\`\\`\\``}}",
+    "fields": [
+      "overlayStyle",
+      "video",
+      "image"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgsWithoutImage,\n    title: \"Hero with Responsive Video Sources\",\n    description: \"This example shows a video background with a stop button in the bottom right corner. \" + \"In this case, different video sources are loaded based on viewport size, similar to the picture element for images. \" + \"Video autoplay is automatically disabled when the user has enabled prefers-reduced-motion.\",\n    video: {\n      src: \"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",\n      muted: true,\n      loop: true,\n      autoPlay: true,\n      poster: imageSrc,\n      stopButtonAriaLabel: \"Toggle video playback\",\n      sources: [{\n        src: \"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",\n        media: \"(max-width: 767px)\",\n        type: \"video/mp4\"\n      }, {\n        src: \"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",\n        media: \"(min-width: 768px)\",\n        type: \"video/mp4\"\n      }]\n    }\n  }\n}",
+    "story_object_source": "{args:{...ee,title:\"Hero with Responsive Video Sources\",description:\"This example shows a video background with a stop button in the bottom right corner. In this case, different video sources are loaded based on viewport size, similar to the picture element for images. Video autoplay is automatically disabled when the user has enabled prefers-reduced-motion.\",video:{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",muted:!0,loop:!0,autoPlay:!0,poster:M,stopButtonAriaLabel:\"Toggle video playback\",sources:[{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",media:\"(max-width: 767px)\",type:\"video/mp4\"},{src:\"https://www.ethnographiques.org/IMG/nouveau_mp4/25-Riou01.mp4\",media:\"(min-width: 768px)\",type:\"video/mp4\"}]}}}"
+  },
+  "template": {
+    "id": "hero-with-video-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/hero/templates/html.with-video.template.html",
+    "output_path": "design-system-plugin/outputs/html/hero-with-video.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "hero",
+    "local_path": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-hero--docs",
+    "story_id": "components-hero--with-video",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/hero.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/hero/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/hero/assets/Hero.stories-y38fgE3q.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/hero/assets/components-hero--with-video.iframe.html"
+  }
+}

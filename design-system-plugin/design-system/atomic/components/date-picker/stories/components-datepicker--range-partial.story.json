@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-datepicker--range-partial",
+  "component_id": "date-picker",
+  "component_name": "DatePicker",
+  "story_id": "components-datepicker--range-partial",
+  "story_name": "Range Partial",
+  "export_name": "RangePartial",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-datepicker--range-partial&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-datepicker--range-partial&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/DatePicker.stories-mj8qg6gV.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--range-partial.iframe.html",
+    "import_path": "./src/components/DatePicker/DatePicker.stories.tsx",
+    "component_path": "./src/components/DatePicker/DatePicker.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mode:\"range\",label:\"Partial Date Range\",required:!1,size:s.LARGE,state:c.DEFAULT,subText:\"Only start date selected\",inverse:!1,clearable:!0,defaultValue:{start:\"2024-06-01\"}}",
+    "values": {
+      "mode": "range",
+      "label": "Partial Date Range",
+      "required": false,
+      "size": "large",
+      "state": "default",
+      "subText": "Only start date selected",
+      "inverse": false,
+      "clearable": true,
+      "defaultValue": {
+        "extraction_status": "raw_expression",
+        "value": "{start:\"2024-06-01\"}"
+      }
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mode:{control:\"select\",options:[\"single\",\"range\"],description:\"DatePicker mode - single date or range selection\"},calendarCount:{control:\"number\",description:\"Number of calendars to display (1 or 2, only works with range mode)\",min:1,max:2},size:{control:\"select\",options:Object.values(s),description:\"Input size\"},state:{control:\"select\",options:Object.values(c),description:\"Input state\"},iconAfter:{control:{type:\"select\",labels:{[u.ARROW_UPWARD]:\"Arrow upward\",[u.ARROW_DOWNWARD]:\"Arrow downward\"}},mapping:I,options:Object.keys(I),description:\"Input icon\"},onChange:{action:\"changed\"},defaultSelectorType:{control:\"select\",options:Object.values(o).filter(e=>e!==o.QUARTER),description:\"Default selector type\"},picker:{control:\"select\",options:Object.values(o),description:\"Picker granularity (day, month, quarter, year)\"}}",
+    "fields": [
+      "mode",
+      "calendarCount",
+      "size",
+      "state",
+      "iconAfter",
+      "onChange",
+      "defaultSelectorType",
+      "picker"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    mode: \"range\",\n    label: \"Partial Date Range\",\n    required: false,\n    size: InputSize.LARGE,\n    state: FormControlState.DEFAULT,\n    subText: \"Only start date selected\",\n    inverse: false,\n    clearable: true,\n    defaultValue: {\n      start: \"2024-06-01\"\n    }\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByLabelText(\"Partial Date Range (Optional)\"));\n  }\n}",
+    "story_object_source": "{args:{mode:\"range\",label:\"Partial Date Range\",required:!1,size:s.LARGE,state:c.DEFAULT,subText:\"Only start date selected\",inverse:!1,clearable:!0,defaultValue:{start:\"2024-06-01\"}},play:async({canvasElement:e})=>{const a=r(e);await t.click(a.getByLabelText(\"Partial Date Range (Optional)\"))}}"
+  },
+  "template": {
+    "id": "date-picker-range-partial-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/date-picker/templates/html.range-partial.template.html",
+    "output_path": "design-system-plugin/outputs/html/date-picker-range-partial.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "date-picker",
+    "local_path": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "story_id": "components-datepicker--range-partial",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/date-picker/assets/DatePicker.stories-mj8qg6gV.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--range-partial.iframe.html"
+  }
+}

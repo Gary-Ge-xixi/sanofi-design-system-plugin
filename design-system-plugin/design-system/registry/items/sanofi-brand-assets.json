@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-brand-assets",
+  "title": "Sanofi fixed brand assets",
+  "type": "registry:asset",
+  "renderer_target": "html",
+  "description": "Fixed local Sanofi brand assets for HTML generation, including the full Sanofi logo lockup.",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json",
+      "role": "brand-asset-contract",
+      "target": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/assets/brand/sanofi-logo-full.svg",
+      "role": "brand-logo",
+      "target": "design-system-plugin/design-system/assets/brand/sanofi-logo-full.svg"
+    }
+  ],
+  "source_provenance": {
+    "docs_url": "https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets",
+    "cdn_url": "https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg",
+    "asset_id": "sanofi-logo-full",
+    "intrinsic_size": "94x24",
+    "local_contract": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "brand assets",
+      "logo",
+      "sanofi logo",
+      "品牌资产",
+      "固定资产包",
+      "左上角 logo"
+    ],
+    "when_to_use": "Use for the top-left Sanofi logo lockup in admin HTML and other fixed Sanofi brand asset placements.",
+    "unsupported_behavior": "Do not recreate the Sanofi logo with text, CSS, glyphs, or handwritten vectors."
+  }
+}

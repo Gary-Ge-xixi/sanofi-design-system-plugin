@@ -1,0 +1,192 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(htmlDir, "business-planning-target-adjustment.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const reportJsonPath = path.join(reportDir, "icon-usage.report.json");
+const reportMdPath = path.join(reportDir, "icon-usage.report.md");
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function attr(attrs, name) {
+  const pattern = new RegExp(`${name}=["']([^"']+)["']`, "i");
+  const match = attrs.match(pattern);
+  return match ? match[1] : "";
+}
+
+function hasAttr(attrs, name) {
+  return new RegExp(`\\b${name}(?:=["'][^"']*["'])?`, "i").test(attrs);
+}
+
+function push(failures, message) {
+  failures.push(message);
+}
+
+function extractBlocks(source, pattern) {
+  const blocks = [];
+  let match;
+  while ((match = pattern.exec(source))) blocks.push(match[0]);
+  return blocks;
+}
+
+function extractIconSpans(source) {
+  const icons = [];
+  const pattern = /<span\b(?=[^>]*data-primitive=["']icon["'])([^>]*)>([\s\S]*?)<\/span>/gi;
+  let match;
+  while ((match = pattern.exec(source))) {
+    icons.push({
+      attrs: match[1],
+      inner: match[2],
+      block: match[0]
+    });
+  }
+  return icons;
+}
+
+function iconHasRole(block, role) {
+  return new RegExp(`data-primitive=["']icon["'][\\s\\S]*?data-icon-role=["']${role}["']`, "i").test(block);
+}
+
+function containsTextGlyph(block) {
+  const withoutTags = block
+    .replace(/<svg[\s\S]*?<\/svg>/gi, "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, "");
+  return /[+↔→←⌂□▦▤▥▣✓◈]/.test(withoutTags) || /(^|[^0-9])-([^0-9]|$)/.test(withoutTags);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) push(failures, `missing HTML target: ${target}`);
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+
+const icons = extractIconSpans(html);
+const navItems = extractBlocks(html, /<a\b[^>]*class=["'][^"']*\bnav-item\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi);
+const treeButtons = extractBlocks(html, /<button\b[^>]*class=["'][^"']*\btree-toggle\b[^"']*["'][^>]*data-tree-toggle=["']product["'][^>]*>[\s\S]*?<\/button>/gi);
+const sectionTreeToggles = extractBlocks(html, /<span\b[^>]*class=["'][^"']*\btree-toggle\b[^"']*["'][^>]*data-tree-toggle=["']section["'][^>]*>[\s\S]*?<\/span>/gi);
+const progressLinks = extractBlocks(html, /<a\b[^>]*class=["'][^"']*\bprogress-link\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi);
+const topbarSwitches = extractBlocks(html, /<a\b[^>]*class=["'][^"']*\btopbar-switch\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi);
+const sidebarCollapseButtons = extractBlocks(html, /<button\b[^>]*data-sidebar-collapse=["']true["'][^>]*>[\s\S]*?<\/button>/gi);
+const searchInputs = count(html, /data-primitive=["']search-input["']/g);
+
+const checks = {
+  page_icon_rule: html.includes('data-icon-rule="icon-usage"'),
+  icon_primitives: icons.length,
+  icon_primitives_with_name: icons.filter((icon) => hasAttr(icon.attrs, "data-icon-name")).length,
+  icon_primitives_with_role: icons.filter((icon) => hasAttr(icon.attrs, "data-icon-role")).length,
+  icon_primitives_with_size: icons.filter((icon) => hasAttr(icon.attrs, "data-icon-size")).length,
+  icon_primitives_with_story: icons.filter((icon) => attr(icon.attrs, "data-story-id") === "components-icon--gallery").length,
+  icon_primitives_with_docs: icons.filter((icon) => attr(icon.attrs, "data-source-doc-id") === "components-icon--docs").length,
+  icon_primitives_with_svg: icons.filter((icon) => /<svg\b/i.test(icon.inner)).length,
+  decorative_icons_hidden: icons.filter((icon) => /aria-hidden=["']true["']/i.test(icon.attrs)).length,
+  nav_items: navItems.length,
+  nav_items_with_navigation_icon: navItems.filter((block) => iconHasRole(block, "navigation")).length,
+  nav_chevron_icons: count(html, /<span\b(?=[^>]*class=["']nav-chevron["'])(?=[^>]*data-icon-role=["']sidebar-toggle["'])/g),
+  sidebar_collapse_buttons: sidebarCollapseButtons.length,
+  sidebar_collapse_icons: sidebarCollapseButtons.filter((block) => iconHasRole(block, "sidebar-collapse")).length,
+  search_inputs: searchInputs,
+  form_control_icons: count(html, /data-icon-role=["']form-control["']/g),
+  tree_toggle_buttons: treeButtons.length,
+  tree_toggle_buttons_with_icon: treeButtons.filter((block) => iconHasRole(block, "tree-toggle")).length,
+  tree_toggle_buttons_with_accessibility: treeButtons.filter((block) => /aria-label=["'][^"']+["']/i.test(block) && /aria-expanded=["'](?:true|false)["']/i.test(block)).length,
+  tree_toggle_buttons_with_compact_size: treeButtons.filter((block) => /data-control-size=["']compact["']/i.test(block) && /data-size-policy-override=["']true["']/i.test(block)).length,
+  tree_toggle_direct_svg: treeButtons.filter((block) => /<button\b[^>]*>\s*<svg\b/i.test(block)).length,
+  section_tree_toggles: sectionTreeToggles.length,
+  section_tree_toggles_with_icon: sectionTreeToggles.filter((block) => iconHasRole(block, "section-toggle")).length,
+  progress_links: progressLinks.length,
+  progress_link_affordance_icons: progressLinks.filter((block) => iconHasRole(block, "link-affordance")).length,
+  progress_link_text_glyphs: progressLinks.filter((block) => /[›↔→←]/.test(block.replace(/<svg[\s\S]*?<\/svg>/gi, ""))).length,
+  topbar_switches: topbarSwitches.length,
+  topbar_switch_affordance_icons: topbarSwitches.filter((block) => iconHasRole(block, "link-affordance")).length,
+  topbar_switch_text_glyphs: topbarSwitches.filter((block) => /[›↔→←]/.test(block.replace(/<svg[\s\S]*?<\/svg>/gi, ""))).length,
+  forbidden_glyph_icon_contexts: [
+    ...treeButtons,
+    ...sectionTreeToggles,
+    ...progressLinks,
+    ...topbarSwitches,
+    ...sidebarCollapseButtons
+  ].filter(containsTextGlyph).length
+};
+
+if (!checks.page_icon_rule) push(failures, 'page must expose data-icon-rule="icon-usage"');
+if (checks.icon_primitives < 1) push(failures, "generated page must include Icon primitive instances");
+for (const metric of [
+  "icon_primitives_with_name",
+  "icon_primitives_with_role",
+  "icon_primitives_with_size",
+  "icon_primitives_with_story",
+  "icon_primitives_with_docs",
+  "icon_primitives_with_svg",
+  "decorative_icons_hidden"
+]) {
+  if (checks[metric] !== checks.icon_primitives) {
+    push(failures, `${metric} must match icon_primitives (${checks[metric]}/${checks.icon_primitives})`);
+  }
+}
+if (checks.nav_items && checks.nav_items_with_navigation_icon !== checks.nav_items) {
+  push(failures, `top-level navigation items require navigation Icon primitives (${checks.nav_items_with_navigation_icon}/${checks.nav_items})`);
+}
+if (checks.nav_chevron_icons < 3) push(failures, `sidebar expanded groups require Icon chevrons, got ${checks.nav_chevron_icons}`);
+if (checks.sidebar_collapse_buttons && checks.sidebar_collapse_icons !== checks.sidebar_collapse_buttons) {
+  push(failures, `sidebar collapse buttons require sidebar-collapse icons (${checks.sidebar_collapse_icons}/${checks.sidebar_collapse_buttons})`);
+}
+if (checks.search_inputs && checks.form_control_icons < checks.search_inputs) {
+  push(failures, `search controls require form-control icons (${checks.form_control_icons}/${checks.search_inputs})`);
+}
+if (checks.tree_toggle_buttons < 3) push(failures, `business planning target table requires at least 3 product tree toggles, got ${checks.tree_toggle_buttons}`);
+if (checks.tree_toggle_buttons_with_icon !== checks.tree_toggle_buttons) {
+  push(failures, `tree toggle buttons require child Icon primitives (${checks.tree_toggle_buttons_with_icon}/${checks.tree_toggle_buttons})`);
+}
+if (checks.tree_toggle_buttons_with_accessibility !== checks.tree_toggle_buttons) {
+  push(failures, `tree toggle buttons require aria-label and aria-expanded (${checks.tree_toggle_buttons_with_accessibility}/${checks.tree_toggle_buttons})`);
+}
+if (checks.tree_toggle_buttons_with_compact_size !== checks.tree_toggle_buttons) {
+  push(failures, `tree toggle buttons require compact size override markers (${checks.tree_toggle_buttons_with_compact_size}/${checks.tree_toggle_buttons})`);
+}
+if (checks.tree_toggle_direct_svg) push(failures, `tree toggle buttons must not contain naked direct SVG children, got ${checks.tree_toggle_direct_svg}`);
+if (checks.section_tree_toggles && checks.section_tree_toggles_with_icon !== checks.section_tree_toggles) {
+  push(failures, `section tree toggles require section-toggle Icon primitives (${checks.section_tree_toggles_with_icon}/${checks.section_tree_toggles})`);
+}
+if (checks.progress_links && checks.progress_link_affordance_icons !== checks.progress_links) {
+  push(failures, `progress links require link-affordance icons (${checks.progress_link_affordance_icons}/${checks.progress_links})`);
+}
+if (checks.progress_link_text_glyphs) push(failures, `progress links must not use text arrow glyphs, got ${checks.progress_link_text_glyphs}`);
+if (checks.topbar_switches && checks.topbar_switch_affordance_icons !== checks.topbar_switches) {
+  push(failures, `topbar switch links require link-affordance icons (${checks.topbar_switch_affordance_icons}/${checks.topbar_switches})`);
+}
+if (checks.topbar_switch_text_glyphs) push(failures, `topbar switch links must not use text arrow glyphs, got ${checks.topbar_switch_text_glyphs}`);
+if (checks.forbidden_glyph_icon_contexts) push(failures, `functional icon contexts contain forbidden text glyphs, got ${checks.forbidden_glyph_icon_contexts}`);
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-icon-usage",
+  target: rel(target),
+  checks,
+  failures
+};
+
+fs.writeFileSync(reportJsonPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Icon Usage Validation\n\nStatus: ${report.status}\n\nTarget: \`${report.target}\`\n\n| Metric | Value |\n|---|---:|\n| Icon primitives | ${checks.icon_primitives} |\n| Top-level nav items | ${checks.nav_items} |\n| Nav items with icons | ${checks.nav_items_with_navigation_icon} |\n| Sidebar chevron icons | ${checks.nav_chevron_icons} |\n| Form-control icons | ${checks.form_control_icons} |\n| Tree toggle buttons | ${checks.tree_toggle_buttons} |\n| Tree toggle buttons with Icon | ${checks.tree_toggle_buttons_with_icon} |\n| Direct SVG tree toggles | ${checks.tree_toggle_direct_svg} |\n| Link text glyph failures | ${checks.progress_link_text_glyphs + checks.topbar_switch_text_glyphs} |\n| Forbidden glyph contexts | ${checks.forbidden_glyph_icon_contexts} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Icon usage validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Icon usage OK: ${rel(target)}`);

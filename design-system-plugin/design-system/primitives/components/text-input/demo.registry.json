@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TextInput",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-textinput--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--default-inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--disabled-inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--error-inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--error-state",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--filled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--filled-inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--success-inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--success-state",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--type-email",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--type-password",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--type-tel",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-textinput--with-tooltip",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

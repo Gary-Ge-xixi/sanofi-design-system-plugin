@@ -1,0 +1,181 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "date-picker",
+  "component_name": "DatePicker",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/DatePicker"
+  },
+  "docs": [
+    {
+      "id": "components-datepicker--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/DatePicker/DatePicker.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-datepicker--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--disabled",
+      "name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--disabled-range",
+      "name": "Disabled Range",
+      "export_name": "DisabledRange",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--dual-calendar",
+      "name": "Dual Calendar",
+      "export_name": "DualCalendar",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--dual-calendar-clearable",
+      "name": "Dual Calendar Clearable",
+      "export_name": "DualCalendarClearable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--dual-calendar-partial-range",
+      "name": "Dual Calendar Partial Range",
+      "export_name": "DualCalendarPartialRange",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--dual-calendar-with-footer",
+      "name": "Dual Calendar With Footer",
+      "export_name": "DualCalendarWithFooter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--dual-calendar-with-prefilled-range",
+      "name": "Dual Calendar With Prefilled Range",
+      "export_name": "DualCalendarWithPrefilledRange",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--medium-size",
+      "name": "Medium Size",
+      "export_name": "MediumSize",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--month-picker",
+      "name": "Month Picker",
+      "export_name": "MonthPicker",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--quarter-picker",
+      "name": "Quarter Picker",
+      "export_name": "QuarterPicker",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--range",
+      "name": "Range",
+      "export_name": "Range",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--range-empty",
+      "name": "Range Empty",
+      "export_name": "RangeEmpty",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--range-partial",
+      "name": "Range Partial",
+      "export_name": "RangePartial",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--range-with-error",
+      "name": "Range With Error",
+      "export_name": "RangeWithError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--range-with-footer",
+      "name": "Range With Footer",
+      "export_name": "RangeWithFooter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--with-clearable",
+      "name": "With Clearable",
+      "export_name": "WithClearable",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--with-error",
+      "name": "With Error",
+      "export_name": "WithError",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--with-footer",
+      "name": "With Footer",
+      "export_name": "WithFooter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--with-icon",
+      "name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--with-min-and-max-dates",
+      "name": "With Min And Max Dates",
+      "export_name": "WithMinAndMaxDates",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--year-picker",
+      "name": "Year Picker",
+      "export_name": "YearPicker",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    },
+    {
+      "id": "components-datepicker--year-picker-with-footer",
+      "name": "Year Picker With Footer",
+      "export_name": "YearPickerWithFooter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/DatePicker/DatePicker.stories.tsx"
+    }
+  ]
+}

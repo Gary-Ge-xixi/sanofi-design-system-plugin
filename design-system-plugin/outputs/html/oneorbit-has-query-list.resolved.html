@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HAS Query List | OneOrbit</title>
+    <link rel="stylesheet" href="../../design-system/tokens/tokens.css">
+    <style>
+      :root {
+        color-scheme: light;
+        --dashboard-font-family: "Sanofi Sans", "Noto Sans SC", var(--elements-core-font-family-sans);
+        --dashboard-surface-bg: var(--elements-color-components-tooltip-bg-default);
+        --dashboard-muted-bg: var(--elements-color-semantic-background-neutral);
+        --dashboard-active-bg: var(--elements-color-semantic-background-brand-subtle);
+        --dashboard-border: var(--elements-color-semantic-border-default);
+        --oo-page-bg: var(--elements-color-semantic-accent-neutral_default);
+        --oo-panel-bg: var(--elements-color-components-tooltip-bg-default);
+        --oo-muted-panel-bg: var(--elements-color-semantic-background-neutral);
+        --oo-topbar-height: 5rem;
+        --oo-content-gap: var(--elements-spacing-xl);
+        color: var(--elements-color-semantic-text-default_inverse);
+        background: var(--oo-page-bg);
+        font-family: var(--dashboard-font-family);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { min-inline-size: 0; background: var(--oo-page-bg); }
+      body { margin: 0; min-block-size: 100vh; min-inline-size: 0; overflow-x: hidden; background: var(--oo-page-bg); color: var(--elements-color-semantic-text-default_inverse); font-family: var(--dashboard-font-family); letter-spacing: 0; }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, p, dl, dd { margin: 0; }
+      button, input { font: inherit; }
+      .oo-topbar { min-block-size: var(--oo-topbar-height); display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--oo-panel-bg); border-block-end: 0.0625rem solid var(--dashboard-border); position: sticky; inset-block-start: 0; z-index: 30; }
+      .oo-brand-lockup, .oo-topbar-actions, .oo-title-row, .oo-heading-actions, .oo-filter-actions, .oo-card-title, .oo-section-heading, .oo-status-chip, .oo-actions, .oo-app-link, .oo-message-title { display: flex; align-items: center; gap: var(--elements-spacing-sm); }
+      .oo-brand-lockup { min-inline-size: 0; }
+      .oo-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
+      .oo-brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--dashboard-border); }
+      .oo-product-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-topbar-actions { justify-content: flex-end; }
+      .oo-avatar, .oo-notification-badge { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--elements-radius-rounded); font-weight: var(--elements-font-weight-bold); }
+      .oo-avatar { background: var(--elements-color-semantic-background-brand-subtle); }
+      .oo-notification-badge { background: var(--elements-color-semantic-background-info); color: var(--elements-color-components-tooltip-bg-default); }
+      .oo-main { min-inline-size: 0; }
+      .oo-query-main { padding-block: var(--elements-spacing-lg) var(--elements-spacing-2xl); }
+      .snf-container-content { padding-inline: var(--elements-spacing-xl); }
+      .oo-breadcrumb { display: flex; align-items: center; gap: var(--elements-spacing-sm); min-block-size: 3rem; color: var(--elements-color-semantic-text-default_inverse); }
+      .oo-breadcrumb a { text-decoration: underline; text-underline-offset: var(--elements-spacing-3xs); }
+      .oo-breadcrumb-chevron, .oo-inline-icon, .oo-section-icon, .oo-card-icon, .oo-app-arrow { inline-size: 1.25rem; block-size: 1.25rem; color: var(--elements-color-semantic-accent-default); }
+      .oo-breadcrumb-chevron svg, .oo-inline-icon svg, .oo-section-icon svg, .oo-card-icon svg, .oo-app-arrow svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .oo-query-panel { background: var(--oo-panel-bg); padding: var(--elements-spacing-2xl); display: grid; gap: var(--elements-spacing-xl); min-inline-size: 0; }
+      .oo-page-heading { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); min-inline-size: 0; }
+      .oo-page-heading h1 { font-size: var(--elements-font-size-500); line-height: 1.35; font-weight: var(--elements-font-weight-bold); }
+      .oo-policy-link { display: inline-flex; align-items: center; gap: var(--elements-spacing-3xs); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-window-date { font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-filter-panel { display: grid; gap: var(--elements-spacing-md); padding: var(--elements-spacing-xl); background: var(--oo-muted-panel-bg); border-radius: var(--elements-radius-sm); min-inline-size: 0; }
+      .oo-filter-grid { gap: var(--elements-spacing-md); }
+      .oo-span-3 { grid-column: span 3; min-inline-size: 0; }
+      .oo-span-6 { grid-column: span 6; min-inline-size: 0; }
+      .oo-date-range-shell { color: var(--elements-color-semantic-text-subtle_inverse); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); }
+      .oo-date-range-shell span:last-child { text-align: end; }
+      .oo-date-arrow { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .oo-filter-actions { justify-content: flex-start; padding-block-start: var(--elements-spacing-sm); }
+      .oo-result-section { display: grid; gap: var(--elements-spacing-md); min-inline-size: 0; }
+      .oo-result-count { color: var(--elements-color-semantic-text-subtle_inverse); }
+      .oo-table-shell { min-inline-size: 0; overflow-x: auto; }
+      .oo-data-table { inline-size: 100%; min-inline-size: 86rem; border-collapse: collapse; table-layout: fixed; background: var(--oo-panel-bg); }
+      .oo-data-table th, .oo-data-table td { border: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); text-align: start; vertical-align: middle; font-size: var(--elements-font-size-200); line-height: 1.5; }
+      .oo-data-table thead th { min-block-size: 3.5rem; background: var(--oo-muted-panel-bg); font-weight: var(--elements-font-weight-bold); }
+      .oo-group-row th { background: var(--oo-muted-panel-bg); font-size: var(--elements-font-size-300); font-weight: var(--elements-font-weight-bold); }
+      .oo-group-row th span { margin-inline-end: var(--elements-spacing-sm); }
+      .oo-group-code { display: inline-flex; align-items: center; min-block-size: 1.625rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); padding-inline: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); background: var(--oo-panel-bg); font-size: var(--elements-font-size-100); }
+      .oo-status-dot { display: inline-block; inline-size: .5rem; block-size: .5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .oo-action-link { color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .oo-home-main { position: relative; overflow: hidden; padding-block: var(--elements-spacing-2xl); min-block-size: calc(100vh - var(--oo-topbar-height)); }
+      .oo-home-main::before { content: ""; position: absolute; inset-block-start: -7rem; inset-inline-start: 8rem; inline-size: 34rem; block-size: 34rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-brand-subtle); opacity: .55; pointer-events: none; }
+      .oo-home-grid { position: relative; z-index: 1; align-items: stretch; gap: var(--elements-spacing-2xl); }
+      .oo-home-left { display: grid; gap: var(--elements-spacing-xl); align-content: start; min-block-size: 45rem; }
+      .oo-hero-text { padding-block: var(--elements-spacing-5xl) var(--elements-spacing-lg); display: grid; gap: var(--elements-spacing-md); }
+      .oo-hero-text h1 { font-size: var(--elements-font-size-1300); line-height: 1.1; font-weight: var(--elements-font-weight-bold); }
+      .oo-hero-text p { font-size: var(--elements-font-size-900); line-height: 1.25; font-weight: var(--elements-font-weight-bold); }
+      .oo-metric-row, .oo-app-grid, .oo-mini-metrics { display: grid; gap: var(--elements-spacing-md); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .oo-metric-card.snf-card { min-block-size: 9rem; border: 0; border-radius: var(--elements-radius-md); box-shadow: none; }
+      .oo-application-metric { grid-template-rows: auto 1fr; }
+      .oo-card-title h2, .oo-section-heading h2 { font-size: var(--elements-font-size-500); line-height: 1.35; font-weight: var(--elements-font-weight-bold); }
+      .oo-metric-value { align-self: center; justify-self: center; font-size: var(--elements-font-size-800); font-weight: var(--elements-font-weight-bold); color: var(--elements-color-semantic-text-accent-default); }
+      .oo-metric-card p { align-self: start; justify-self: center; font-size: var(--elements-font-size-300); }
+      .oo-mini-metrics div { display: grid; place-items: center; gap: var(--elements-spacing-2xs); min-block-size: 5.25rem; border-radius: var(--elements-radius-md); background: var(--oo-muted-panel-bg); }
+      .oo-mini-metrics strong { font-size: var(--elements-font-size-800); }
+      .oo-mini-metrics div:last-child strong { color: var(--elements-color-semantic-text-accent-default); }
+      .oo-apps-panel { display: grid; gap: var(--elements-spacing-xl); padding: var(--elements-spacing-2xl); border-radius: var(--elements-radius-md); background: var(--oo-panel-bg); }
+      .oo-app-card.snf-card { min-block-size: 5.5rem; padding: 0; border-radius: var(--elements-radius-rounded); border-color: var(--elements-color-semantic-accent-focus); }
+      .oo-app-link { inline-size: 100%; min-block-size: 5.5rem; padding-inline: var(--elements-spacing-xl); font-size: var(--elements-font-size-500); font-weight: var(--elements-font-weight-bold); }
+      .oo-app-icon { display: inline-grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-components-tooltip-bg-default); background: var(--elements-color-semantic-accent-default); }
+      .oo-app-arrow { margin-inline-start: auto; inline-size: 1.75rem; block-size: 1.75rem; }
+      .oo-message-panel { display: grid; align-content: start; gap: var(--elements-spacing-md); background: var(--oo-panel-bg); border-radius: var(--elements-radius-md); padding: var(--elements-spacing-xl); min-block-size: 44rem; }
+      .oo-message-list { display: grid; gap: var(--elements-spacing-sm); }
+      .oo-message-card.snf-card { min-block-size: 6.75rem; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--elements-spacing-md); border: 0; border-radius: var(--elements-radius-md); background: var(--oo-muted-panel-bg); padding: var(--elements-spacing-md) var(--elements-spacing-lg); }
+      .oo-message-main { display: grid; gap: var(--elements-spacing-sm); min-inline-size: 0; }
+      .oo-message-title strong { font-size: var(--elements-font-size-400); }
+      .oo-message-meta { display: grid; gap: var(--elements-spacing-2xs); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .oo-message-meta div { display: flex; gap: var(--elements-spacing-sm); }
+      .oo-message-meta dd { color: var(--elements-color-semantic-text-default_inverse); }
+      .oo-message-side { display: grid; justify-items: end; gap: var(--elements-spacing-lg); color: var(--elements-color-semantic-text-subtle_inverse); }
+      
+      .snf-button { display: inline-flex; align-items: center; justify-content: center; gap: var(--elements-spacing-2xs); min-block-size: 2.5rem; border: 0.0625rem solid var(--elements-color-semantic-accent-default); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-accent-default); padding-inline: var(--elements-spacing-lg); font: inherit; font-weight: var(--elements-font-weight-bold); white-space: nowrap; cursor: pointer; transition: border-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), background-color var(--elements-motion-duration-150) var(--elements-motion-ease-out), color var(--elements-motion-duration-150) var(--elements-motion-ease-out), transform var(--elements-motion-duration-75) var(--elements-motion-ease-out); }
+      .snf-button:hover { background: var(--elements-color-semantic-background-brand-subtle); }
+      .snf-button:active { transform: translateY(0.0625rem); }
+      .snf-button--primary { background: var(--elements-color-semantic-accent-default); color: var(--elements-color-components-tooltip-bg-default); }
+      .snf-button--primary:hover { background: var(--elements-color-semantic-accent-hover); }
+      .snf-button--tertiary { border-color: transparent; background: transparent; }
+      .snf-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
+      .snf-icon, .snf-button-icon, .snf-search-icon, .snf-select-chevron, .snf-nav-chevron { inline-size: 1.5rem; block-size: 1.5rem; display: inline-grid; place-items: center; flex: 0 0 auto; }
+      .snf-icon svg, .snf-button-icon svg, .snf-search-icon svg, .snf-select-chevron svg, .snf-nav-chevron svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .snf-sidebar { grid-row: 2; display: grid; grid-template-rows: auto 1fr auto; gap: var(--elements-spacing-md); padding: var(--elements-spacing-md) var(--elements-spacing-sm); background: var(--dashboard-surface-bg); border-inline-end: 0.0625rem solid var(--dashboard-border); overflow: hidden; }
+      .snf-sidebar-heading { padding-inline: var(--elements-spacing-sm); font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-sidebar-content { min-block-size: 0; overflow: auto; }
+      .snf-nav-list, .snf-nav-children { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--elements-spacing-2xs); }
+      .snf-nav-link, .snf-nav-child { display: flex; align-items: center; min-block-size: 2.5rem; border-radius: var(--elements-radius-sm); color: var(--elements-color-semantic-text-subtle_inverse); padding-inline: var(--elements-spacing-sm); }
+      .snf-nav-link { justify-content: space-between; }
+      .snf-nav-child { padding-inline-start: var(--elements-spacing-3xl); }
+      .snf-nav-link[aria-current="page"], .snf-nav-child[aria-current="page"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); font-weight: var(--elements-font-weight-bold); }
+      .snf-nav-link:hover, .snf-nav-child:hover { background: var(--dashboard-active-bg); }
+      .snf-nav-item-main { display: flex; align-items: center; gap: var(--elements-spacing-md); }
+      .snf-sidebar-footer { border-block-start: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
+      .snf-container-content { inline-size: 100%; min-inline-size: 0; padding-inline: var(--elements-spacing-xl); }
+      .snf-layout-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); align-items: start; min-inline-size: 0; }
+      .snf-field { display: grid; gap: var(--elements-spacing-2xs); min-inline-size: 0; font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-field-label { font-size: var(--elements-font-size-200); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-control-shell { inline-size: 100%; min-inline-size: 0; min-block-size: 2.5rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-2xs); padding-inline: var(--elements-spacing-sm); }
+      .snf-search-input { inline-size: 100%; min-inline-size: 0; min-block-size: 2.25rem; border: 0; background: transparent; color: inherit; padding: 0; font: inherit; outline: 0; }
+      .snf-select-shell { position: relative; min-inline-size: 0; }
+      .snf-select-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; cursor: pointer; }
+      .snf-select-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-select-listbox { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline: 0; z-index: 20; display: grid; gap: var(--elements-spacing-3xs); max-block-size: 12rem; overflow: auto; margin: 0; padding: var(--elements-spacing-2xs); list-style: none; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
+      .snf-select-listbox[hidden] { display: none; }
+      .snf-select-option { border-radius: var(--elements-radius-sm); padding: var(--elements-spacing-sm); cursor: pointer; color: var(--elements-color-semantic-text-default_inverse); }
+      .snf-select-option:hover, .snf-select-option[aria-selected="true"] { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .snf-card { display: grid; gap: var(--elements-spacing-md); min-block-size: 11rem; padding: var(--elements-spacing-lg); background: var(--dashboard-surface-bg); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); }
+      .snf-tag { display: inline-flex; align-items: center; inline-size: fit-content; border: 0.0625rem solid var(--elements-color-components-tag-branded-border); border-radius: var(--elements-radius-rounded); background: var(--elements-color-components-tag-branded-bg-subtle); color: var(--elements-color-components-tag-branded-text); padding: var(--elements-spacing-3xs) var(--elements-spacing-sm); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .snf-tag--semantic-success { border-color: var(--elements-color-components-tag-semantic_green-border); background: var(--elements-color-components-tag-semantic_green-bg-solid); color: var(--elements-color-components-tag-semantic_green-text-inverse); }
+      .snf-progress { overflow: hidden; min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-background-neutral-subtle); }
+      .snf-progress-fill { inline-size: var(--progress-value); min-block-size: 0.5rem; border-radius: var(--elements-radius-rounded); background: var(--elements-color-semantic-accent-default); }
+      .snf-tabs { display: flex; gap: var(--elements-spacing-sm); border-block-end: 0.0625rem solid var(--dashboard-border); margin-block-end: var(--elements-spacing-md); }
+      .snf-tab { border: 0; border-block-end: 0.1875rem solid transparent; background: transparent; color: var(--elements-color-semantic-text-default_inverse); padding: var(--elements-spacing-sm) var(--elements-spacing-md); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
+      .snf-tab[aria-selected="true"] { color: var(--elements-color-semantic-text-accent-default); border-block-end-color: var(--elements-color-semantic-accent-default); }
+      .snf-button:focus-visible, .snf-nav-link:focus-visible, .snf-nav-child:focus-visible, .snf-control-shell:focus-within, .snf-control-shell:focus-visible, .snf-tab:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }
+    </style>
+  </head>
+  <body class="oneorbit-query" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-token-source="foundations-colors--docs">
+    <header class="oo-topbar" data-primitive="navigation-header" data-source-component="navigation-header" data-story-id="components-navigationheader--default" data-source-doc-id="components-navigationheader--docs" data-pattern="oneorbit-topbar" data-component-instance="HAS Query List.topbar" data-token-source="foundations-colors--docs">
+    <div class="oo-brand-lockup">
+      <img class="oo-brand-logo" src="../../design-system/assets/brand/sanofi-logo-full.svg" alt="Sanofi" data-brand-asset-id="sanofi-logo-full" data-brand-asset-type="logo" data-source-doc-id="brand-assets" data-source-url="https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets">
+      <span class="oo-brand-divider" aria-hidden="true"></span>
+      <span class="oo-product-name">OneOrbit</span>
+    </div>
+    <div class="oo-topbar-actions">
+      
+      <span class="oo-avatar" aria-label="当前用户 L" data-primitive="avatar" data-source-component="avatar" data-story-id="components-avatar--with-initials" data-source-doc-id="components-avatar--docs" data-pattern="oneorbit-user" data-component-instance="HAS Query List.avatar" data-token-source="foundations-colors--docs">L</span>
+    </div>
+  </header>
+    <main class="oo-main oo-query-main" data-oneorbit-page="query-list" data-source-report="outputs/reports/oneorbit-component-source-map.md">
+      <section class="snf-container" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.container" data-component-id="container" data-primitive="container" data-source-component="container" data-story-id="components-container--fixed" data-source-doc-id="components-container--docs" data-pattern="layout-container" data-token-source="foundations-colors--docs" data-layout-rule="layout-grid-container" data-container-part="root" data-container-mode="fixed" data-container-width-token="--elements-container-width-2xl" data-component-contract="Container"><div class="snf-container-content" data-container-part="contentContainer" data-component-contract="Container.contentContainer" data-component-slot="Container.contentContainer" data-source-doc-id="components-container--docs">
+        <nav class="oo-breadcrumb" aria-label="面包屑" data-primitive="breadcrumb" data-source-component="breadcrumb" data-story-id="components-breadcrumb--not-collapsed" data-source-doc-id="components-breadcrumb--docs" data-pattern="oneorbit-breadcrumb" data-component-instance="HAS Query List.breadcrumb" data-token-source="foundations-colors--docs">
+    <a href="#">OneOrbit</a>
+    <span class="oo-breadcrumb-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronRight" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronRight" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 6 6 6-6 6"></path></svg></span>
+    <span aria-current="page">HAS申请系统</span>
+  </nav>
+        <section class="oo-query-panel" data-primitive="page-header" data-source-component="page-header" data-story-id="components-pageheader--default" data-source-doc-id="components-pageheader--docs" data-pattern="oneorbit-query-page-header" data-component-instance="oneorbit.query.pageHeader" data-token-source="foundations-colors--docs">
+          <div class="oo-page-heading">
+            <div class="oo-title-row">
+              <h1>HAS申请系统</h1>
+              <a class="oo-policy-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="page-header-action">
+    <span class="oo-inline-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.policy" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="policy" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h8l4 4v14H7Z"></path><path d="M15 3v5h5"></path><path d="M10 13h6"></path><path d="M10 17h4"></path></svg></span><span>查看相关政策</span>
+  </a>
+            </div>
+            <div class="oo-heading-actions">
+              <span class="oo-window-date">窗口期：2024年3月26日-2024年5月31日</span>
+              <button class="snf-button snf-button--primary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.actions.create" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="primary" data-button-size="medium"><span>新建供货困难申请</span></button>
+            </div>
+          </div>
+          <section class="oo-filter-panel" data-pattern="admin-query-filter-panel" data-source-doc-id="components-grid--docs components-searchinput--docs components-datepicker--docs components-select--docs">
+            <div class="snf-layout-grid oo-filter-grid" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.filter.grid" data-component-id="grid" data-primitive="grid" data-source-component="grid" data-story-id="components-grid--desktop" data-source-doc-id="components-grid--docs" data-pattern="layout-grid" data-token-source="foundations-colors--docs" data-layout-rule="layout-grid-container" data-grid-part="root" data-grid-columns="12" data-grid-gap-token="--elements-grid-gutter-lg" data-component-contract="Grid.Root">
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="hospital-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field snf-search-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.filter.hospital" data-component-id="search-input" data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-search-size="medium" data-field-control="root" data-field-control-kind="search-input" data-control-size="medium">
+      <span class="snf-field-label">医院名称或编码</span>
+      <span class="snf-control-shell snf-search-shell" data-control-shell="field" data-control-kind="search-input">
+        <span class="snf-search-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.search" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="search" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg></span>
+        <input id="filter-hospital" class="snf-search-input" type="search" placeholder="请输入医院名称或编码" aria-label="医院名称或编码">
+      </span>
+    </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="product-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field snf-search-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.filter.product" data-component-id="search-input" data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-search-size="medium" data-field-control="root" data-field-control-kind="search-input" data-control-size="medium">
+      <span class="snf-field-label">产品名称或编码</span>
+      <span class="snf-control-shell snf-search-shell" data-control-shell="field" data-control-kind="search-input">
+        <span class="snf-search-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.search" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="search" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg></span>
+        <input id="filter-product" class="snf-search-input" type="search" placeholder="请输入产品名称或编码" aria-label="产品名称或编码">
+      </span>
+    </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="role-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field snf-search-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.filter.role" data-component-id="search-input" data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-search-size="medium" data-field-control="root" data-field-control-kind="search-input" data-control-size="medium">
+      <span class="snf-field-label">审批角色</span>
+      <span class="snf-control-shell snf-search-shell" data-control-shell="field" data-control-kind="search-input">
+        <span class="snf-search-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.search" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="search" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg></span>
+        <input id="filter-role" class="snf-search-input" type="search" placeholder="请输入审批角色" aria-label="审批角色">
+      </span>
+    </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="approver-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field snf-search-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.filter.approver" data-component-id="search-input" data-primitive="search-input" data-source-component="search-input" data-story-id="components-searchinput--default" data-source-doc-id="components-searchinput--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-search-size="medium" data-field-control="root" data-field-control-kind="search-input" data-control-size="medium">
+      <span class="snf-field-label">审批人</span>
+      <span class="snf-control-shell snf-search-shell" data-control-shell="field" data-control-kind="search-input">
+        <span class="snf-search-icon" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.search" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="search" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg></span>
+        <input id="filter-approver" class="snf-search-input" type="search" placeholder="请输入审批人" aria-label="审批人">
+      </span>
+    </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="effective-date-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field oo-date-range-field" data-primitive="date-picker" data-source-component="date-picker" data-story-id="components-datepicker--range" data-source-doc-id="components-datepicker--docs" data-pattern="filter-date-range" data-component-instance="oneorbit.query.filter.effectiveDate" data-token-source="foundations-colors--docs" data-fallback-module="date-range" data-fallback-reason="No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives." data-date-picker-mode="range" data-date-picker-size="medium" data-field-control="root" data-field-control-kind="date-range" data-control-size="medium">
+    <span class="snf-field-label">生效时间</span>
+    <span class="snf-control-shell oo-date-range-shell" data-control-shell="field" data-control-kind="date-range">
+      <span>开始时间</span>
+      <span class="oo-date-arrow" aria-hidden="true">→</span>
+      <span>结束时间</span>
+    </span>
+  </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="expiry-date-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field oo-date-range-field" data-primitive="date-picker" data-source-component="date-picker" data-story-id="components-datepicker--range" data-source-doc-id="components-datepicker--docs" data-pattern="filter-date-range" data-component-instance="oneorbit.query.filter.expiryDate" data-token-source="foundations-colors--docs" data-fallback-module="date-range" data-fallback-reason="No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives." data-date-picker-mode="range" data-date-picker-size="medium" data-field-control="root" data-field-control-kind="date-range" data-control-size="medium">
+    <span class="snf-field-label">失效时间</span>
+    <span class="snf-control-shell oo-date-range-shell" data-control-shell="field" data-control-kind="date-range">
+      <span>开始时间</span>
+      <span class="oo-date-arrow" aria-hidden="true">→</span>
+      <span>结束时间</span>
+    </span>
+  </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="apply-date-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><label class="snf-field oo-date-range-field" data-primitive="date-picker" data-source-component="date-picker" data-story-id="components-datepicker--range" data-source-doc-id="components-datepicker--docs" data-pattern="filter-date-range" data-component-instance="oneorbit.query.filter.applyDate" data-token-source="foundations-colors--docs" data-fallback-module="date-range" data-fallback-reason="No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives." data-date-picker-mode="range" data-date-picker-size="medium" data-field-control="root" data-field-control-kind="date-range" data-control-size="medium">
+    <span class="snf-field-label">申请时间</span>
+    <span class="snf-control-shell oo-date-range-shell" data-control-shell="field" data-control-kind="date-range">
+      <span>开始时间</span>
+      <span class="oo-date-arrow" aria-hidden="true">→</span>
+      <span>结束时间</span>
+    </span>
+  </label></div>
+    <div class="oo-span-3" data-grid-part="item" data-component-contract="Grid.Item" data-grid-item-name="type-filter" data-grid-item-span="3" data-grid-item-xl="3" data-grid-item-xxl="3"><div class="snf-field snf-select-field" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.filter.applicationType" data-component-id="select" data-primitive="select" data-source-component="select" data-story-id="components-select--default" data-source-doc-id="components-select--docs" data-pattern="dashboard-toolbar" data-token-source="foundations-colors--docs" data-select-size="medium" data-select-label-position="top" data-select-native="false" data-native="false" data-field-control="root" data-field-control-kind="select" data-control-size="medium">
+      <span class="snf-field-label" id="application-type-label">申请类型</span>
+      <div class="snf-select-shell" data-select-part="root">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="application-type-label application-type-value" aria-controls="application-type-listbox" data-control-shell="field" data-control-kind="select" data-select-trigger>
+          <span class="snf-select-value" id="application-type-value" data-select-value>请选择申请类型</span>
+          <span class="snf-select-chevron" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="icon.chevronDown" data-component-id="icon" data-primitive="icon" data-source-component="icon" data-story-id="components-icon--gallery" data-source-doc-id="components-icon--docs" data-pattern="dashboard-icon" data-token-source="foundations-colors--docs" data-icon-name="chevronDown" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m7 10 5 5 5-5"></path></svg></span>
+        </button>
+        <ul class="snf-select-listbox" role="listbox" id="application-type-listbox" aria-labelledby="application-type-label" hidden data-select-listbox>
+          <li class="snf-select-option" role="option" id="application-type-option-0" data-value="请选择申请类型" aria-selected="true">请选择申请类型</li><li class="snf-select-option" role="option" id="application-type-option-1" data-value="医院账期过长" aria-selected="false">医院账期过长</li><li class="snf-select-option" role="option" id="application-type-option-2" data-value="非公立医院" aria-selected="false">非公立医院</li><li class="snf-select-option" role="option" id="application-type-option-3" data-value="医院不足额回款" aria-selected="false">医院不足额回款</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+            <div class="oo-filter-actions">
+              <button class="snf-button snf-button--secondary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.actions.filter" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="secondary" data-button-size="medium"><span>筛选</span></button>
+              <button class="snf-button snf-button--tertiary" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.actions.reset" data-component-id="button" data-primitive="button" data-source-component="button" data-story-id="components-button--primary" data-source-doc-id="components-button--docs" data-pattern="dashboard-action" data-token-source="foundations-colors--docs" type="button" data-button-variant="tertiary" data-button-size="medium"><span>重置</span></button>
+            </div>
+          </section>
+          <section class="oo-result-section" aria-label="查询结果">
+            <div class="snf-tabs" data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package" data-component-instance="oneorbit.query.status.tabs" data-component-id="tabs" data-primitive="tabs" data-source-component="tabs" data-story-id="components-tabs--default" data-source-doc-id="components-tabs--docs" data-pattern="approval-status-tabs" data-token-source="foundations-colors--docs" role="tablist"><button class="snf-tab" role="tab" type="button" id="pending-tab" aria-controls="pending-panel" aria-selected="true" data-tab-target="pending">审批中(8)</button><button class="snf-tab" role="tab" type="button" id="active-tab" aria-controls="active-panel" aria-selected="false" data-tab-target="active">已生效(9)</button><button class="snf-tab" role="tab" type="button" id="rejected-tab" aria-controls="rejected-panel" aria-selected="false" data-tab-target="rejected">已拒绝(3)</button><button class="snf-tab" role="tab" type="button" id="expired-tab" aria-controls="expired-panel" aria-selected="false" data-tab-target="expired">已过期(10)</button><button class="snf-tab" role="tab" type="button" id="all-tab" aria-controls="all-panel" aria-selected="false" data-tab-target="all">全部(66)</button></div>
+            <p class="oo-result-count">共8条</p>
+            <div class="oo-table-shell" data-fallback-module="table" data-fallback-reason="No official Table/DataTable/DataGrid runtime component is registered locally.">
+              <table class="oo-data-table">
+                <thead>
+                  <tr>
+                    <th>申请单位及产品</th>
+                    <th>申请比例</th>
+                    <th>申请类型</th>
+                    <th>生效时间</th>
+                    <th>失效时间</th>
+                    <th>申请时间</th>
+                    <th>审批角色</th>
+                    <th>审批人</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody class="oo-table-group" data-table-group="上海第一人民医院">
+      <tr class="oo-group-row">
+        <th colspan="10"><span class="oo-group-code">ABC1234</span><span>上海第一人民医院</span></th>
+      </tr>
+      <tr>
+      <td>达必妥 300g_AD</td>
+      <td>3%</td>
+      <td>医院账期过长</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Hannah2 Han;POS9877665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">撤销</a></td>
+    </tr><tr>
+      <td>达必妥 200g_AD</td>
+      <td>3%</td>
+      <td>医院账期过长</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Hannah2 Han;POS9877665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a></td>
+    </tr><tr>
+      <td>达必妥 100g_AD</td>
+      <td>3%</td>
+      <td>医院账期过长</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Luha3;POS0987665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a></td>
+    </tr>
+    </tbody><tbody class="oo-table-group" data-table-group="上海第四人民医院">
+      <tr class="oo-group-row">
+        <th colspan="10"><span class="oo-group-code">ABC1234</span><span>上海第四人民医院</span></th>
+      </tr>
+      <tr>
+      <td>达必妥 300g_AD</td>
+      <td>1%</td>
+      <td>非公立医院</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Lee3;POS4577665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a></td>
+    </tr><tr>
+      <td>达必妥 200g_AD</td>
+      <td>1%</td>
+      <td>非公立医院</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Hannah2 Han;POS9877665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a></td>
+    </tr><tr>
+      <td>达必妥 100g_AD</td>
+      <td>1%</td>
+      <td>非公立医院</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Liu2;POS9877665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a></td>
+    </tr>
+    </tbody><tbody class="oo-table-group" data-table-group="上海第九人民医院">
+      <tr class="oo-group-row">
+        <th colspan="10"><span class="oo-group-code">ABC1234</span><span>上海第九人民医院</span></th>
+      </tr>
+      <tr>
+      <td>达必妥 300g_AD</td>
+      <td>1%</td>
+      <td>医院不足额回款</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Nan3;POS9877665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a></td>
+    </tr><tr>
+      <td>达必妥 100g_AD</td>
+      <td>1%</td>
+      <td>医院不足额回款</td>
+      <td>2024.01.01</td>
+      <td>2024.03.31</td>
+      <td>2024.07.01 09:12</td>
+      <td>角色名称</td>
+      <td>Hannah2 Han;POS9877665</td>
+      <td><span class="oo-status-chip" data-primitive="chip-status" data-source-component="chip-status" data-story-id="components-chipstatus--default" data-source-doc-id="components-chipstatus--docs" data-pattern="table-status" data-component-instance="oneorbit.query.table.status" data-token-source="foundations-colors--docs">
+    <span class="oo-status-dot" aria-hidden="true"></span>审批中
+  </span></td>
+      <td class="oo-actions"><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">查看</a><a class="oo-action-link" href="#" data-source-component="link" data-source-doc-id="components-link--docs" data-pattern="table-action">撤销</a></td>
+    </tr>
+    </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div></section>
+    </main>
+    <script data-component-runtime="sanofi-local-atomic-components" data-render-source="local-atomic-component-package">
+      (() => {
+        const closeSelect = (root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          if (!trigger || !listbox) return;
+          trigger.setAttribute("aria-expanded", "false");
+          listbox.hidden = true;
+        };
+
+        document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          const trigger = root.querySelector("[data-select-trigger]");
+          const listbox = root.querySelector("[data-select-listbox]");
+          const valueNode = root.querySelector("[data-select-value]");
+          if (!trigger || !listbox || !valueNode) return;
+
+          trigger.addEventListener("click", () => {
+            const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
+            trigger.setAttribute("aria-expanded", String(nextExpanded));
+            listbox.hidden = !nextExpanded;
+          });
+
+          listbox.querySelectorAll("[role='option']").forEach((option) => {
+            option.addEventListener("click", () => {
+              listbox.querySelectorAll("[role='option']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              option.setAttribute("aria-selected", "true");
+              valueNode.textContent = option.textContent.trim();
+              closeSelect(root);
+            });
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          document.querySelectorAll("[data-component-id='select'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+            if (!root.contains(event.target)) closeSelect(root);
+          });
+        });
+
+        document.querySelectorAll("[data-component-id='tabs'][data-component-runtime='sanofi-local-atomic-components']").forEach((root) => {
+          root.querySelectorAll("[role='tab']").forEach((tab) => {
+            tab.addEventListener("click", () => {
+              root.querySelectorAll("[role='tab']").forEach((item) => item.setAttribute("aria-selected", "false"));
+              tab.setAttribute("aria-selected", "true");
+            });
+          });
+        });
+
+        document.querySelectorAll("[data-sidebar-toggle]").forEach((toggle) => {
+          toggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            const expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!expanded));
+            const children = toggle.parentElement?.querySelector(".snf-nav-children");
+            if (children) children.hidden = expanded;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

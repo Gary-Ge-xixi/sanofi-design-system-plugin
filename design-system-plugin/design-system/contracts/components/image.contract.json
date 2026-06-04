@@ -1,0 +1,131 @@
+{
+  "schema_version": "0.1.0",
+  "id": "image",
+  "canonical_name": "image",
+  "component_name": "Image",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-image--docs",
+    "title": "Image",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-image--docs",
+    "import_path": "./src/components/Image/Image.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 2,
+    "story_ids": [
+      "components-image--default",
+      "components-image--overview"
+    ],
+    "records": [
+      {
+        "id": "components-image--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Image/Image.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-image--overview",
+        "name": "Overview",
+        "normalized_name": "overview",
+        "import_path": "./src/components/Image/Image.stories.tsx",
+        "export_name": "Overview"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "src",
+        "required": true,
+        "description": "Image source URL.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "overview"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "overview"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "image"
+    ],
+    "contracts": [
+      {
+        "id": "image",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/image/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/image/demo.registry.json",
+        "known_story_ids": [
+          "components-image--default",
+          "components-image--overview",
+          "components-image--default",
+          "components-image--overview"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-image--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-image--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-image--docs.md",
+    "docs_import_path": "./src/components/Image/Image.stories.tsx",
+    "story_ids": [
+      "components-image--default",
+      "components-image--overview"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

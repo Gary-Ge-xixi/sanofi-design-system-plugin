@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-checkbox-checkboxgroup--neutral-color",
+  "component_id": "checkbox-checkbox-group",
+  "component_name": "Checkbox/CheckboxGroup",
+  "story_id": "components-checkbox-checkboxgroup--neutral-color",
+  "story_name": "Neutral Color",
+  "export_name": "NeutralColor",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-checkbox-checkboxgroup--neutral-color&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-checkbox-checkboxgroup--neutral-color&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/components-checkbox-checkboxgroup--neutral-color.iframe.html",
+    "import_path": "./src/components/CheckboxGroup/CheckboxGroup.stories.tsx",
+    "component_path": "./src/components/CheckboxGroup/CheckboxGroup.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...a,title:\"Neutral Checkbox Group\",checkboxesColor:p.NEUTRAL}",
+    "values": {
+      "title": "Neutral Checkbox Group",
+      "caption": "Optional Caption",
+      "error": "Error Message",
+      "children": {
+        "extraction_status": "raw_expression",
+        "value": "[\"Checkbox A\",\"Checkbox B\",\"Checkbox C\",\"Checkbox D\",\"Checkbox E\",\"Checkbox F\"].map(s=>c.jsx(m,{label:s},s))"
+      },
+      "orientation": "vertical",
+      "checkboxesSize": "medium",
+      "checkboxesColor": "neutral"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{title:{controls:\"string\"},caption:{controls:\"string\"},error:{controls:\"string\"}}",
+    "fields": [
+      "title",
+      "caption",
+      "error"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    title: \"Neutral Checkbox Group\",\n    checkboxesColor: CheckboxColor.NEUTRAL\n  }\n}",
+    "story_object_source": "{args:{...a,title:\"Neutral Checkbox Group\",checkboxesColor:p.NEUTRAL}}"
+  },
+  "template": {
+    "id": "checkbox-checkbox-group-neutral-color-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/templates/html.neutral-color.template.html",
+    "output_path": "design-system-plugin/outputs/html/checkbox-checkbox-group-neutral-color.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "checkbox-checkbox-group",
+    "local_path": "design-system-plugin/design-system/primitives/components/checkbox-checkbox-group/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-checkbox-checkboxgroup--docs",
+    "story_id": "components-checkbox-checkboxgroup--neutral-color",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/checkbox-checkbox-group.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/checkbox-checkbox-group/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/CheckboxGroup.stories-DrXQ9HGt.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/checkbox-checkbox-group/assets/components-checkbox-checkboxgroup--neutral-color.iframe.html"
+  }
+}

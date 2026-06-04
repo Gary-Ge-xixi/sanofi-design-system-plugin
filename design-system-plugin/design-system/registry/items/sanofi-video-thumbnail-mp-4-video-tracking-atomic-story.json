@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-video-thumbnail-mp-4-video-tracking-atomic-story",
+  "title": "Video Thumbnail MP 4 Video Tracking atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-video-thumbnail--mp-4-video-tracking.",
+  "atomic_story_id": "components-video-thumbnail--mp-4-video-tracking",
+  "component_id": "video-thumbnail",
+  "docs_id": "components-video-thumbnail--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-video-thumbnail"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--mp-4-video-tracking.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--mp-4-video-tracking.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/components-video-thumbnail--mp-4-video-tracking.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/components-video-thumbnail--mp-4-video-tracking.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/video-thumbnail/templates/html.mp-4-video-tracking.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/video-thumbnail/templates/html.mp-4-video-tracking.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-video-thumbnail--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-video-thumbnail--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "story_id": "components-video-thumbnail--mp-4-video-tracking",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--mp-4-video-tracking.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/video-thumbnail/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-video-thumbnail--mp-4-video-tracking&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-video-thumbnail--mp-4-video-tracking&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/video-thumbnail/assets/VideoThumbnail.stories-CW0CMIWK.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "video-thumbnail",
+      "Video Thumbnail",
+      "MP 4 Video Tracking",
+      "components-video-thumbnail--mp-4-video-tracking",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Video Thumbnail MP 4 Video Tracking Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

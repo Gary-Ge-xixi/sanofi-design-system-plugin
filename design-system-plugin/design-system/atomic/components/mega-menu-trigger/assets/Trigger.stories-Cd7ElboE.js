@@ -1,0 +1,3 @@
+import{j as t}from"./iframe-DU6-gHk6.js";import{T as r}from"./Trigger-C5W1dumA.js";const o={component:r,title:"Components/MegaMenu/Trigger",tags:["isHidden"],parameters:{chromatic:{disableSnapshot:!0}},argTypes:{menuContent:{description:"Content of the MegaMenu"},hasActiveShadow:{description:"Display the active shadow when menu is open"}}},e={render:()=>t.jsx(r,{})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  render: () => <Trigger />
+}`,...e.parameters?.docs?.source}}};const s=["Default"],i=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:s,default:o},Symbol.toStringTag,{value:"Module"}));export{i as T};

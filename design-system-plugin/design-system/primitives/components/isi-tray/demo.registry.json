@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "component": "ISI Tray",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-isi-tray--isi",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-content-and-indication",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-indication",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

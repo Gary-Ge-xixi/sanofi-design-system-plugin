@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-slider-complete-package",
+  "title": "Slider complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Slider package covering Docs plus all Storybook story atoms.",
+  "component_id": "slider",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-slider"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/slider.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/slider/slider.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/slider.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/slider/slider.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/docs/slider.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/slider/docs/slider.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/slider/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/slider/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/slider-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/slider-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/slider.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/slider.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/slider/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/slider/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-slider--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-default-atomic-story"
+    },
+    {
+      "story_id": "components-slider--disabled",
+      "story_name": "Disabled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-disabled-atomic-story"
+    },
+    {
+      "story_id": "components-slider--range",
+      "story_name": "Range",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-range-atomic-story"
+    },
+    {
+      "story_id": "components-slider--with-bottom-legend",
+      "story_name": "With Bottom Legend",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-with-bottom-legend-atomic-story"
+    },
+    {
+      "story_id": "components-slider--with-custom-scale",
+      "story_name": "With Custom Scale",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-with-custom-scale-atomic-story"
+    },
+    {
+      "story_id": "components-slider--with-label",
+      "story_name": "With Label",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-with-label-atomic-story"
+    },
+    {
+      "story_id": "components-slider--with-legend",
+      "story_name": "With Legend",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-slider-with-legend-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-slider--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/slider/slider.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/slider/docs/slider.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/slider.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/slider/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "slider",
+      "Slider",
+      "slider complete",
+      "Slider complete package",
+      "slider docs"
+    ],
+    "when_to_use": "Use first for any Slider generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Slider behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-admin-delivery-contract",
+  "target": "outputs/html/admin-dashboard.resolved.html",
+  "rule": "admin-delivery-contract",
+  "status": "pass",
+  "checked": {
+    "applicable": true,
+    "html_is_dashboard": true,
+    "resolution_is_dashboard": false,
+    "viewport_policy": "none",
+    "icon_primitive_refs": 10,
+    "icon_story_refs": 10,
+    "responsive_fragments": 0,
+    "mobile_story_refs": 0,
+    "glyph_fallbacks": 0,
+    "container_root_refs": 1,
+    "container_content_refs": 1,
+    "brand_asset_refs": 1,
+    "brand_asset_file": "design-system/assets/brand/sanofi-logo-full.svg",
+    "brand_asset_is_sanofi_svg": true,
+    "brand_asset_intrinsic_94x24": true,
+    "brand_asset_zeroheight_refs": 0,
+    "text_logo_refs": 0,
+    "grid_root_refs": 1,
+    "grid_item_refs": 6,
+    "unconstrained_container_refs": 0
+  },
+  "failures": []
+}

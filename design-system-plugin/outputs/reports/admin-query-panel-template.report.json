@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-admin-query-panel-template",
+  "target": "outputs/html/admin-query-panel.resolved.html",
+  "resolution": "design-system/contracts/resolvers/admin-query-panel.resolution.json",
+  "checked": {
+    "registry_item": "sanofi-admin-query-panel",
+    "pattern_id": "admin-query-panel",
+    "template_id": "onecommercial-admin-query-panel",
+    "page_subtype": "data-entry-table-page",
+    "required_sections": 5,
+    "required_list_markers": 12,
+    "required_select_markers": 11,
+    "required_primitives": 5
+  },
+  "failures": []
+}

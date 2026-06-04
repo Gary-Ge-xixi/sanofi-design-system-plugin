@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Menu",
+  "stories": [
+    {
+      "story_id": "components-menu--checkbox",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-menu--context-menu",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-menu--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-menu--image",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-menu--selected",
+      "story_name": "Selected"
+    },
+    {
+      "story_id": "components-menu--sizes",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-menu--with-scroll",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-menu--with-sections",
+      "story_name": "With Sections"
+    },
+    {
+      "story_id": "components-menu--with-sub-menus",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

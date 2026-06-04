@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1.0",
+  "id": "icon-usage",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Ensure generated business/admin pages use Sanofi Icon/ButtonIcon provenance for functional icons instead of text glyph fallbacks.",
+  "source_provenance": {
+    "icon_docs": "components-icon--docs",
+    "icon_contract": "../atomic/components/icon/docs/icon.docs.contract.json",
+    "button_icon_docs": "components-buttonicon--docs",
+    "button_icon_contract": "../atomic/components/button-icon/docs/button-icon.docs.contract.json",
+    "default_rule": "business-admin-defaults",
+    "runtime_boundary": "component-runtime-contract"
+  },
+  "component_contract": {
+    "icon": {
+      "primitive": "icon",
+      "required_attrs": [
+        "data-primitive=\"icon\"",
+        "data-source-component=\"icon\"",
+        "data-story-id=\"components-icon--gallery\"",
+        "data-source-doc-id=\"components-icon--docs\"",
+        "data-icon-name",
+        "data-icon-role",
+        "data-icon-size"
+      ],
+      "required_dom": [
+        "svg"
+      ],
+      "decorative_accessibility": "Decorative icons must be hidden from assistive technology with aria-hidden=\"true\".",
+      "interactive_accessibility": "Interactive icon-only controls must put aria-label on the button or anchor and hide the inner Icon from assistive technology."
+    },
+    "button_icon": {
+      "primitive": "button-icon",
+      "required_attrs": [
+        "data-primitive=\"button-icon\"",
+        "data-source-component=\"button-icon\"",
+        "data-source-doc-id=\"components-buttonicon--docs\"",
+        "data-button-size=\"medium\""
+      ],
+      "default_size": "medium"
+    }
+  },
+  "business_admin_size_policy": {
+    "standard_icon_default": "1.5rem",
+    "navigation_icon": "1.25rem",
+    "form_control_icon": "1.25rem",
+    "link_affordance_icon": "1.25rem",
+    "tree_toggle_button": "1.25rem",
+    "tree_toggle_icon": "0.875rem",
+    "notes": [
+      "Business/admin compact pages may use explicit role-based icon sizes instead of the Icon API default.",
+      "Role-based icon size must be exposed through data-icon-size so validators can distinguish deliberate compact usage from arbitrary scaling."
+    ]
+  },
+  "required_page_marker": "data-icon-rule=\"icon-usage\"",
+  "functional_icon_roles": [
+    "navigation",
+    "sidebar-toggle",
+    "sidebar-collapse",
+    "form-control",
+    "tree-toggle",
+    "section-toggle",
+    "link-affordance"
+  ],
+  "rules": [
+    {
+      "id": "no-functional-text-glyph-icons",
+      "description": "Do not use bare text glyphs such as +, -, arrows, or box symbols as functional icons.",
+      "forbidden_glyphs_in_icon_context": [
+        "+",
+        "-",
+        "→",
+        "←",
+        "↔",
+        "⌂",
+        "□",
+        "▦",
+        "▤",
+        "▥",
+        "▣",
+        "✓",
+        "◈"
+      ],
+      "allowed_text_separators": [
+        "breadcrumb separators such as › when they are not inside an icon role or interactive affordance"
+      ]
+    },
+    {
+      "id": "navigation-default-icons",
+      "description": "When business admin defaults are active, every top-level navigation item must include an Icon primitive with data-icon-role=\"navigation\"."
+    },
+    {
+      "id": "sidebar-toggle-icons",
+      "description": "Sidebar expand/collapse affordances must use Icon primitive provenance and must not be naked SVG or arrow text."
+    },
+    {
+      "id": "tree-toggle-icons",
+      "description": "Tree expand/collapse controls must be fixed-size buttons with aria-label, aria-expanded, and a child Icon primitive named add/remove."
+    },
+    {
+      "id": "form-control-icons",
+      "description": "Search, date, select, and similar form-control icons must use Icon provenance and edge-safe spacing."
+    },
+    {
+      "id": "link-affordance-icons",
+      "description": "Action-link arrows or swap affordances must use Icon primitive provenance instead of inline text arrows."
+    }
+  ],
+  "validator": "../../scripts/validate-icon-usage",
+  "report_outputs": [
+    "outputs/reports/icon-usage.report.json",
+    "outputs/reports/icon-usage.report.md"
+  ]
+}

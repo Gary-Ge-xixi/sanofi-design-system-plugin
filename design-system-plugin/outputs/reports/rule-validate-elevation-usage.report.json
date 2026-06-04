@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds rule validate elevation-usage",
+  "status": "pass",
+  "generated_at": "2026-06-04T04:22:44.192Z",
+  "rule_id": "elevation-usage",
+  "target": "design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+  "rule": {
+    "id": "elevation-usage",
+    "path": "elevation-usage.json",
+    "script": "../../scripts/validate-elevation-usage"
+  },
+  "run": {
+    "script": "validate-elevation-usage",
+    "command": "node design-system-plugin/scripts/validate-elevation-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "status": "pass",
+    "status_code": 0,
+    "stdout": "Elevation usage OK: outputs/html/admin-query-panel.resolved.html\n",
+    "stderr": ""
+  },
+  "failures": []
+}

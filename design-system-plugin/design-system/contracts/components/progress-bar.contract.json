@@ -1,0 +1,185 @@
+{
+  "schema_version": "0.1.0",
+  "id": "progress-bar",
+  "canonical_name": "progress-bar",
+  "component_name": "ProgressBar",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-progressbar--docs",
+    "title": "ProgressBar",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-progressbar--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-progressbar--docs",
+    "import_path": "./src/components/ProgressBar/ProgressBar.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 5,
+    "story_ids": [
+      "components-progressbar--all-densities",
+      "components-progressbar--all-sizes",
+      "components-progressbar--all-states",
+      "components-progressbar--custom-value-text",
+      "components-progressbar--default"
+    ],
+    "records": [
+      {
+        "id": "components-progressbar--all-densities",
+        "name": "All Densities",
+        "normalized_name": "all-densities",
+        "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+        "export_name": "AllDensities"
+      },
+      {
+        "id": "components-progressbar--all-sizes",
+        "name": "All Sizes",
+        "normalized_name": "all-sizes",
+        "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+        "export_name": "AllSizes"
+      },
+      {
+        "id": "components-progressbar--all-states",
+        "name": "All States",
+        "normalized_name": "all-states",
+        "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+        "export_name": "AllStates"
+      },
+      {
+        "id": "components-progressbar--custom-value-text",
+        "name": "Custom Value Text",
+        "normalized_name": "custom-value-text",
+        "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+        "export_name": "CustomValueText"
+      },
+      {
+        "id": "components-progressbar--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "state",
+        "required": false,
+        "description": "Visual state indicating progress status.\"success\"\"error\"\"in-progress\"",
+        "default": "\"ProgressBarState.IN_PROGRESS\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Height of the progress track.\"small\"\"medium\"",
+        "default": "\"ProgressBarSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "density",
+        "required": false,
+        "description": "Controls visibility of label and helper text.\"default\"\"compact\"\"ultra-compact\"",
+        "default": "\"ProgressBarDensity.DEFAULT\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "all-densities",
+      "all-sizes",
+      "all-states",
+      "custom-value-text",
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "all-densities",
+      "all-sizes",
+      "all-states",
+      "custom-value-text",
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { ProgressBar } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <ProgressBar\n    value={50}\n    label=\"Progress bar label\"\n    helperText=\"25Mb of 50Mb\"\n  />\n);",
+      "<ProgressBar\n  value={24}\n  label=\"Scoring Progress\"\n  valueText=\"5/21\"\n  helperText=\"5 out of 21 items completed\"\n/>"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "progress-bar"
+    ],
+    "contracts": [
+      {
+        "id": "progress-bar",
+        "status": "storybook-backed-static-contract",
+        "contract_path": "design-system-plugin/design-system/primitives/components/progress-bar/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/progress-bar/demo.registry.json",
+        "known_story_ids": [
+          "components-progressbar--default",
+          "components-progressbar--all-states",
+          "components-progressbar--all-densities",
+          "components-progressbar--all-sizes",
+          "components-progressbar--custom-value-text",
+          "components-progressbar--all-densities",
+          "components-progressbar--all-sizes",
+          "components-progressbar--all-states",
+          "components-progressbar--custom-value-text",
+          "components-progressbar--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-progressbar--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-progressbar--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-progressbar--docs.md",
+    "docs_import_path": "./src/components/ProgressBar/ProgressBar.mdx",
+    "story_ids": [
+      "components-progressbar--all-densities",
+      "components-progressbar--all-sizes",
+      "components-progressbar--all-states",
+      "components-progressbar--custom-value-text",
+      "components-progressbar--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

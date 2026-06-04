@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "component": "NavigationHeader",
+  "stories": [
+    {
+      "story_id": "components-navigationheader--contained-nav-header",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-navigationheader--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-navigationheader--double-navigation",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-navigationheader--full-width-nav-header",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-navigationheader--mobile-view",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-navigationheader--sanofi-example",
+      "story_name": "Sanofi Example"
+    },
+    {
+      "story_id": "components-navigationheader--with-auto-overflow",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-navigationheader--with-dropdown-menu",
+      "story_name": "With Dropdown Menu"
+    },
+    {
+      "story_id": "components-navigationheader--with-sub-header",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

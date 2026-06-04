@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "progress-stepper-use-stepper-hook",
+  "canonical_name": "progress-stepper-use-stepper-hook",
+  "component_name": "ProgressStepper/useStepper Hook",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-progressstepper-usestepper-hook--docs",
+    "title": "ProgressStepper/useStepper Hook",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-usestepper-hook--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-progressstepper-usestepper-hook--docs",
+    "import_path": "./src/components/ProgressStepper/ProgressStepperHook.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 0,
+    "story_ids": [],
+    "records": []
+  },
+  "props": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "states": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { useStepper, defineStepper } from \"@sanofi-accelerator/elements\";\n\nconst steps = [\n{ id: \"step1\", label: \"First Step\" },\n{ id: \"step2\", label: \"Second Step\" },\n{ id: \"step3\", label: \"Third Step\" },\n] as const;\n\nconst StepperProvider = defineStepper(steps);\n\nfunction MyStepperComponent() {\nconst { current, next, previous, goTo, steps } = useStepper();\n\nreturn (\n\n<div>\n<h2>Current Step: {current}</h2>\n<button onClick={previous}>Previous</button>\n<button onClick={next}>Next</button>\n</div>\n); }\n\n// Must be wrapped with provider\nfunction App() {\nreturn (\n\n<StepperProvider>\n<MyStepperComponent />\n</StepperProvider>\n); }",
+      "const { steps } = useStepper();\nconsole.log(steps);\n// [\n//   { id: \"step1\", label: \"First Step\", description: \"...\" },\n//   { id: \"step2\", label: \"Second Step\", description: \"...\" },\n//   ...\n// ]",
+      "const { current } = useStepper();\nconsole.log(current); // \"step2\""
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "progress-stepper-use-stepper-hook"
+    ],
+    "contracts": [
+      {
+        "id": "progress-stepper-use-stepper-hook",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/progress-stepper-use-stepper-hook/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/progress-stepper-use-stepper-hook/demo.registry.json",
+        "known_story_ids": []
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-progressstepper-usestepper-hook--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-progressstepper-usestepper-hook--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-progressstepper-usestepper-hook--docs.md",
+    "docs_import_path": "./src/components/ProgressStepper/ProgressStepperHook.mdx",
+    "story_ids": [],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "props:not_extracted"
+  ]
+}

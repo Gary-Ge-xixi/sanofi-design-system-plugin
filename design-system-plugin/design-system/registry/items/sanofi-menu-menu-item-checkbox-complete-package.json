@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-menu-item-checkbox-complete-package",
+  "title": "Menu/MenuItemCheckbox complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Menu/MenuItemCheckbox package covering Docs plus all Storybook story atoms.",
+  "component_id": "menu-menu-item-checkbox",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu-menu-item-checkbox"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/menu-menu-item-checkbox.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/menu-menu-item-checkbox.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/menu-menu-item-checkbox.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/menu-menu-item-checkbox.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/docs/menu-menu-item-checkbox.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/docs/menu-menu-item-checkbox.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/menu-menu-item-checkbox-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/menu-menu-item-checkbox-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 1,
+    "materialized_stories": 1,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-menu-menuitemcheckbox--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-menu-menu-item-checkbox-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/menu-menu-item-checkbox.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/docs/menu-menu-item-checkbox.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-menu-item-checkbox",
+      "Menu/MenuItemCheckbox",
+      "menu-menu-item-checkbox complete",
+      "Menu/MenuItemCheckbox complete package",
+      "menu-menu-item-checkbox docs"
+    ],
+    "when_to_use": "Use first for any Menu/MenuItemCheckbox generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Menu/MenuItemCheckbox behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

@@ -1,0 +1,523 @@
+{
+  "schema_version": "0.1.0",
+  "id": "date-picker-complete-standard-package",
+  "component_id": "date-picker",
+  "component_name": "DatePicker",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 23,
+    "materialized_stories": 23,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-datepicker--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/date-picker/docs/date-picker.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-datepicker--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--disabled",
+      "story_name": "Disabled",
+      "export_name": "Disabled",
+      "semantic_type": "variant",
+      "variant": "disabled",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--disabled.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-disabled.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--disabled-range",
+      "story_name": "Disabled Range",
+      "export_name": "DisabledRange",
+      "semantic_type": "variant",
+      "variant": "disabled-range",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--disabled-range.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-disabled-range.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar",
+      "story_name": "Dual Calendar",
+      "export_name": "DualCalendar",
+      "semantic_type": "variant",
+      "variant": "dual-calendar",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--dual-calendar.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-clearable",
+      "story_name": "Dual Calendar Clearable",
+      "export_name": "DualCalendarClearable",
+      "semantic_type": "variant",
+      "variant": "dual-calendar-clearable",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--dual-calendar-clearable.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-clearable.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-partial-range",
+      "story_name": "Dual Calendar Partial Range",
+      "export_name": "DualCalendarPartialRange",
+      "semantic_type": "variant",
+      "variant": "dual-calendar-partial-range",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--dual-calendar-partial-range.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-partial-range.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-footer",
+      "story_name": "Dual Calendar With Footer",
+      "export_name": "DualCalendarWithFooter",
+      "semantic_type": "variant",
+      "variant": "dual-calendar-with-footer",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--dual-calendar-with-footer.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-with-footer.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-prefilled-range",
+      "story_name": "Dual Calendar With Prefilled Range",
+      "export_name": "DualCalendarWithPrefilledRange",
+      "semantic_type": "variant",
+      "variant": "dual-calendar-with-prefilled-range",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--dual-calendar-with-prefilled-range.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-with-prefilled-range.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--medium-size",
+      "story_name": "Medium Size",
+      "export_name": "MediumSize",
+      "semantic_type": "variant",
+      "variant": "medium-size",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--medium-size.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-medium-size.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--month-picker",
+      "story_name": "Month Picker",
+      "export_name": "MonthPicker",
+      "semantic_type": "variant",
+      "variant": "month-picker",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--month-picker.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-month-picker.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--quarter-picker",
+      "story_name": "Quarter Picker",
+      "export_name": "QuarterPicker",
+      "semantic_type": "variant",
+      "variant": "quarter-picker",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--quarter-picker.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-quarter-picker.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--range",
+      "story_name": "Range",
+      "export_name": "Range",
+      "semantic_type": "variant",
+      "variant": "range",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-range.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--range-empty",
+      "story_name": "Range Empty",
+      "export_name": "RangeEmpty",
+      "semantic_type": "variant",
+      "variant": "range-empty",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-empty.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-range-empty.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--range-partial",
+      "story_name": "Range Partial",
+      "export_name": "RangePartial",
+      "semantic_type": "variant",
+      "variant": "range-partial",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-partial.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-range-partial.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--range-with-error",
+      "story_name": "Range With Error",
+      "export_name": "RangeWithError",
+      "semantic_type": "variant",
+      "variant": "range-with-error",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-with-error.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-range-with-error.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--range-with-footer",
+      "story_name": "Range With Footer",
+      "export_name": "RangeWithFooter",
+      "semantic_type": "variant",
+      "variant": "range-with-footer",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range-with-footer.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-range-with-footer.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--with-clearable",
+      "story_name": "With Clearable",
+      "export_name": "WithClearable",
+      "semantic_type": "variant",
+      "variant": "with-clearable",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--with-clearable.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-with-clearable.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--with-error",
+      "story_name": "With Error",
+      "export_name": "WithError",
+      "semantic_type": "variant",
+      "variant": "with-error",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--with-error.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-with-error.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--with-footer",
+      "story_name": "With Footer",
+      "export_name": "WithFooter",
+      "semantic_type": "variant",
+      "variant": "with-footer",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--with-footer.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-with-footer.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--with-icon",
+      "story_name": "With Icon",
+      "export_name": "WithIcon",
+      "semantic_type": "variant",
+      "variant": "with-icon",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--with-icon.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-with-icon.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--with-min-and-max-dates",
+      "story_name": "With Min And Max Dates",
+      "export_name": "WithMinAndMaxDates",
+      "semantic_type": "variant",
+      "variant": "with-min-and-max-dates",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--with-min-and-max-dates.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-with-min-and-max-dates.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--year-picker",
+      "story_name": "Year Picker",
+      "export_name": "YearPicker",
+      "semantic_type": "variant",
+      "variant": "year-picker",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--year-picker.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-year-picker.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-datepicker--year-picker-with-footer",
+      "story_name": "Year Picker With Footer",
+      "export_name": "YearPickerWithFooter",
+      "semantic_type": "variant",
+      "variant": "year-picker-with-footer",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--year-picker-with-footer.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/date-picker-year-picker-with-footer.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-datepicker--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/date-picker/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/date-picker-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-datepicker--default",
+        "output_path": "design-system-plugin/outputs/html/date-picker-default.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--disabled",
+        "output_path": "design-system-plugin/outputs/html/date-picker-disabled.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--disabled-range",
+        "output_path": "design-system-plugin/outputs/html/date-picker-disabled-range.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--dual-calendar",
+        "output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--dual-calendar-clearable",
+        "output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-clearable.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--dual-calendar-partial-range",
+        "output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-partial-range.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--dual-calendar-with-footer",
+        "output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-with-footer.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--dual-calendar-with-prefilled-range",
+        "output_path": "design-system-plugin/outputs/html/date-picker-dual-calendar-with-prefilled-range.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--medium-size",
+        "output_path": "design-system-plugin/outputs/html/date-picker-medium-size.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--month-picker",
+        "output_path": "design-system-plugin/outputs/html/date-picker-month-picker.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--quarter-picker",
+        "output_path": "design-system-plugin/outputs/html/date-picker-quarter-picker.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--range",
+        "output_path": "design-system-plugin/outputs/html/date-picker-range.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--range-empty",
+        "output_path": "design-system-plugin/outputs/html/date-picker-range-empty.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--range-partial",
+        "output_path": "design-system-plugin/outputs/html/date-picker-range-partial.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--range-with-error",
+        "output_path": "design-system-plugin/outputs/html/date-picker-range-with-error.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--range-with-footer",
+        "output_path": "design-system-plugin/outputs/html/date-picker-range-with-footer.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--with-clearable",
+        "output_path": "design-system-plugin/outputs/html/date-picker-with-clearable.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--with-error",
+        "output_path": "design-system-plugin/outputs/html/date-picker-with-error.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--with-footer",
+        "output_path": "design-system-plugin/outputs/html/date-picker-with-footer.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--with-icon",
+        "output_path": "design-system-plugin/outputs/html/date-picker-with-icon.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--with-min-and-max-dates",
+        "output_path": "design-system-plugin/outputs/html/date-picker-with-min-and-max-dates.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--year-picker",
+        "output_path": "design-system-plugin/outputs/html/date-picker-year-picker.atomic.html"
+      },
+      {
+        "story_id": "components-datepicker--year-picker-with-footer",
+        "output_path": "design-system-plugin/outputs/html/date-picker-year-picker-with-footer.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-date-picker-complete-package.json",
+    "story_item_prefix": "sanofi-date-picker-"
+  },
+  "validation": {
+    "required_story_count": 23,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-datepicker--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/date-picker/date-picker.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/date-picker/docs/date-picker.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

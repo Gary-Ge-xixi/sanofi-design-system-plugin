@@ -1,0 +1,772 @@
+{
+  "schema_version": "0.2.0",
+  "atomic_contract_version": "0.2.0",
+  "component_id": "button",
+  "component_name": "Button",
+  "renderer_target": "html",
+  "component_identity": {
+    "canonical_id": "button",
+    "package_import": "@sanofi-accelerator/elements/Button",
+    "docs_id": "components-button--docs",
+    "category": "Components"
+  },
+  "stories": [
+    {
+      "story_id": "components-button--button-link",
+      "story_name": "Button Link",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--button-link.story.json",
+      "variant": "tertiary",
+      "semantic_type": "link",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-button-link.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--default",
+      "story_name": "Default",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--default.story.json",
+      "variant": "primary",
+      "semantic_type": "default_controls",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-default.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--overview",
+      "story_name": "Overview",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--overview.story.json",
+      "variant": "unknown",
+      "semantic_type": "overview_matrix",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-overview.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--overview-inverse",
+      "story_name": "Overview Inverse",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--overview-inverse.story.json",
+      "variant": "unknown",
+      "semantic_type": "overview_inverse_matrix",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-overview-inverse.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--primary",
+      "story_name": "Primary",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary.story.json",
+      "variant": "primary",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-primary.atomic.html"
+    },
+    {
+      "story_id": "components-button--primary-destruct",
+      "story_name": "Primary Destruct",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary-destruct.story.json",
+      "variant": "primary-destruct",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-primary-destruct.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--primary-neutral",
+      "story_name": "Primary Neutral",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary-neutral.story.json",
+      "variant": "primary-neutral",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-primary-neutral.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--secondary",
+      "story_name": "Secondary",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary.story.json",
+      "variant": "secondary",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-secondary.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--secondary-destruct",
+      "story_name": "Secondary Destruct",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary-destruct.story.json",
+      "variant": "secondary-destruct",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-secondary-destruct.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--secondary-neutral",
+      "story_name": "Secondary Neutral",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary-neutral.story.json",
+      "variant": "secondary-neutral",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-secondary-neutral.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--tertiary",
+      "story_name": "Tertiary",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary.story.json",
+      "variant": "tertiary",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-tertiary.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--tertiary-destruct",
+      "story_name": "Tertiary Destruct",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary-destruct.story.json",
+      "variant": "tertiary-destruct",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-tertiary-destruct.atomic.v2.html"
+    },
+    {
+      "story_id": "components-button--tertiary-neutral",
+      "story_name": "Tertiary Neutral",
+      "path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary-neutral.story.json",
+      "variant": "tertiary-neutral",
+      "semantic_type": "variant",
+      "status": "materialized",
+      "template_path": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+      "output_path": "design-system-plugin/outputs/html/button-tertiary-neutral.atomic.v2.html"
+    }
+  ],
+  "expected_tabs": {
+    "local_path": "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json",
+    "docs": [
+      {
+        "id": "components-button--docs",
+        "name": "Docs",
+        "type": "docs",
+        "semantic_type": "docs_contract"
+      }
+    ],
+    "stories": [
+      {
+        "story_id": "components-button--primary",
+        "story_name": "Primary",
+        "export_name": "Primary",
+        "semantic_type": "variant",
+        "variant": "primary",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-primary.atomic.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--primary-neutral",
+        "story_name": "Primary Neutral",
+        "export_name": "PrimaryNeutral",
+        "semantic_type": "variant",
+        "variant": "primary-neutral",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary-neutral.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-primary-neutral.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--overview",
+        "story_name": "Overview",
+        "export_name": "Overview",
+        "semantic_type": "overview_matrix",
+        "variant": "not_applicable",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--overview.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-overview.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--overview-inverse",
+        "story_name": "Overview Inverse",
+        "export_name": "OverviewInverse",
+        "semantic_type": "overview_inverse_matrix",
+        "variant": "not_applicable",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--overview-inverse.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-overview-inverse.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--default",
+        "story_name": "Default",
+        "export_name": "Default",
+        "semantic_type": "default_controls",
+        "variant": "primary",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--default.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-default.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--secondary",
+        "story_name": "Secondary",
+        "export_name": "Secondary",
+        "semantic_type": "variant",
+        "variant": "secondary",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-secondary.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--secondary-neutral",
+        "story_name": "Secondary Neutral",
+        "export_name": "SecondaryNeutral",
+        "semantic_type": "variant",
+        "variant": "secondary-neutral",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary-neutral.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-secondary-neutral.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--tertiary",
+        "story_name": "Tertiary",
+        "export_name": "Tertiary",
+        "semantic_type": "variant",
+        "variant": "tertiary",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-tertiary.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--tertiary-neutral",
+        "story_name": "Tertiary Neutral",
+        "export_name": "TertiaryNeutral",
+        "semantic_type": "variant",
+        "variant": "tertiary-neutral",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary-neutral.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-tertiary-neutral.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--primary-destruct",
+        "story_name": "Primary Destruct",
+        "export_name": "PrimaryDestruct",
+        "semantic_type": "variant",
+        "variant": "primary-destruct",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary-destruct.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-primary-destruct.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--secondary-destruct",
+        "story_name": "Secondary Destruct",
+        "export_name": "SecondaryDestruct",
+        "semantic_type": "variant",
+        "variant": "secondary-destruct",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary-destruct.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-secondary-destruct.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--tertiary-destruct",
+        "story_name": "Tertiary Destruct",
+        "export_name": "TertiaryDestruct",
+        "semantic_type": "variant",
+        "variant": "tertiary-destruct",
+        "expected_element": "button",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary-destruct.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-tertiary-destruct.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      },
+      {
+        "story_id": "components-button--button-link",
+        "story_name": "Button Link",
+        "export_name": "ButtonLink",
+        "semantic_type": "link",
+        "variant": "tertiary",
+        "expected_element": "a",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--button-link.story.json",
+        "render_output_path": "design-system-plugin/outputs/html/button-button-link.atomic.v2.html",
+        "source_provenance": {
+          "storybook_index": "research/storybook/index.json",
+          "docs_id": "components-button--docs",
+          "token_source": "foundations-colors--docs"
+        }
+      }
+    ]
+  },
+  "docs_contract": {
+    "local_path": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+    "status": "generated"
+  },
+  "api_arg_types": {
+    "extraction_status": "from_component_contract_and_story_bundle",
+    "props": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Visual style variant of the button.\"primary\"\"secondary\"\"tertiary\"\"primary-neutral\"\"primary-destruct\"\"secondary-neutral\"\"secondary-destruct\"\"tertiary-neutral\"\"tertiary-destruct\"Show 1 more...",
+        "default": "\"ButtonVariant.PRIMARY\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size of the button.\"small\"\"medium\"\"xsmall\"\"large\"",
+        "default": "\"ButtonSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      }
+    ],
+    "argTypes": [
+      "variant",
+      "size",
+      "label",
+      "icon",
+      "iconPosition",
+      "inverse",
+      "fullWidth",
+      "disabled",
+      "isLoading",
+      "onClick",
+      "brandTheme"
+    ]
+  },
+  "variant_matrix": {
+    "extraction_status": "from_button_docgen_and_storybook_story_index",
+    "items": [
+      {
+        "id": "primary",
+        "story_id": "components-button--primary",
+        "description": "High-emphasis, brand-colored button for primary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary.story.json"
+      },
+      {
+        "id": "primary-neutral",
+        "story_id": "components-button--primary-neutral",
+        "description": "High-emphasis, neutral-colored button for primary actions without brand color",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary-neutral.story.json"
+      },
+      {
+        "id": "primary-destruct",
+        "story_id": "components-button--primary-destruct",
+        "description": "High-emphasis, red/danger button for destructive primary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--primary-destruct.story.json"
+      },
+      {
+        "id": "secondary",
+        "story_id": "components-button--secondary",
+        "description": "Medium-emphasis, outlined brand-colored button for secondary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary.story.json"
+      },
+      {
+        "id": "secondary-neutral",
+        "story_id": "components-button--secondary-neutral",
+        "description": "Medium-emphasis, outlined neutral button for secondary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary-neutral.story.json"
+      },
+      {
+        "id": "secondary-destruct",
+        "story_id": "components-button--secondary-destruct",
+        "description": "Medium-emphasis, outlined red/danger button for destructive secondary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--secondary-destruct.story.json"
+      },
+      {
+        "id": "tertiary",
+        "story_id": "components-button--tertiary",
+        "description": "Low-emphasis, text-only brand-colored button for tertiary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary.story.json"
+      },
+      {
+        "id": "tertiary-neutral",
+        "story_id": "components-button--tertiary-neutral",
+        "description": "Low-emphasis, text-only neutral button for tertiary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary-neutral.story.json"
+      },
+      {
+        "id": "tertiary-destruct",
+        "story_id": "components-button--tertiary-destruct",
+        "description": "Low-emphasis, text-only red/danger button for destructive tertiary actions",
+        "source": "Button docgen variant enum and Storybook story index",
+        "status": "materialized",
+        "atomic_story_path": "design-system-plugin/design-system/atomic/components/button/stories/components-button--tertiary-destruct.story.json"
+      }
+    ]
+  },
+  "size_matrix": {
+    "extraction_status": "from_button_docgen",
+    "exact_css_status": "official_height_extracted_padding_token_guided",
+    "source_note": "Button docgen exposes official heights. Padding/gap render values are token-guided until production CSS modules are fully extracted.",
+    "items": [
+      {
+        "id": "xsmall",
+        "storybook_enum": "ButtonSize.XSMALL",
+        "official_height": "24px",
+        "render_height": "1.5rem",
+        "render_padding_inline": "var(--elements-spacing-sm)",
+        "render_gap": "var(--elements-spacing-2xs)",
+        "typography_variant": "BUTTON_XSMALL",
+        "usage": "Inline actions and dense UIs"
+      },
+      {
+        "id": "small",
+        "storybook_enum": "ButtonSize.SMALL",
+        "official_height": "32px",
+        "render_height": "2rem",
+        "render_padding_inline": "var(--elements-spacing-md)",
+        "render_gap": "var(--elements-spacing-2xs)",
+        "typography_variant": "BUTTON_SMALL",
+        "usage": "Compact spaces like tables and cards"
+      },
+      {
+        "id": "medium",
+        "storybook_enum": "ButtonSize.MEDIUM",
+        "official_height": "40px",
+        "render_height": "2.5rem",
+        "render_padding_inline": "var(--elements-spacing-lg)",
+        "render_gap": "var(--elements-spacing-2xs)",
+        "typography_variant": "BUTTON",
+        "usage": "Default size for most use cases"
+      },
+      {
+        "id": "large",
+        "storybook_enum": "ButtonSize.LARGE",
+        "official_height": "48px",
+        "render_height": "3rem",
+        "render_padding_inline": "var(--elements-spacing-xl)",
+        "render_gap": "var(--elements-spacing-sm)",
+        "typography_variant": "BUTTON",
+        "usage": "Hero sections and prominent CTAs"
+      }
+    ]
+  },
+  "state_matrix": {
+    "extraction_status": "from_storybook_overview_table_and_pseudo_parameters",
+    "items": [
+      {
+        "id": "default",
+        "storybook_source": "ButtonsTable Default column",
+        "attrs": {}
+      },
+      {
+        "id": "hover",
+        "storybook_source": "parameters.pseudo.hover -> .is-hover",
+        "class_name": "is-hover",
+        "attrs": {}
+      },
+      {
+        "id": "active",
+        "storybook_source": "parameters.pseudo.active -> .is-active and keyboard data-active",
+        "class_name": "is-active",
+        "attrs": {
+          "data-active": "true"
+        }
+      },
+      {
+        "id": "focus",
+        "storybook_source": "parameters.pseudo.focusVisible -> .is-focus",
+        "class_name": "is-focus",
+        "attrs": {}
+      },
+      {
+        "id": "disabled",
+        "storybook_source": "ButtonsTable disabled={true}",
+        "attrs": {
+          "disabled": true
+        }
+      },
+      {
+        "id": "loading",
+        "storybook_source": "ButtonsTable isLoading={true}; component disables interactions while loading",
+        "attrs": {
+          "disabled": true,
+          "aria-busy": "true"
+        }
+      }
+    ]
+  },
+  "spacing_model": {
+    "extraction_status": "from_storybook_layout_and_token_guided_rendering",
+    "story_layout": {
+      "stack_gap": "20px in StoryLayout source",
+      "table_cell_padding": "10px in ButtonsTable source"
+    },
+    "render_tokens": {
+      "panel_gap": "var(--elements-spacing-lg)",
+      "row_gap": "var(--elements-spacing-md)",
+      "cell_gap": "var(--elements-spacing-sm)",
+      "radius": "var(--elements-radius-rounded)"
+    },
+    "note": "Storybook layout spacing is recorded as source evidence. Rendered HTML uses Elements spacing/radius tokens."
+  },
+  "color_token_bindings": {
+    "extraction_status": "token_guided_from_tokens_css_and_button_docgen",
+    "note": "Component-level Button background tokens are used where available. Other visual roles use semantic tokens; exact production CSS classes are not fully extracted in this stage.",
+    "variants": {
+      "primary": {
+        "background": "var(--elements-color-semantic-accent-default)",
+        "text": "var(--elements-color-semantic-text-default)",
+        "border": "var(--elements-color-semantic-accent-default)",
+        "hover_background": "var(--elements-color-semantic-accent-hover)",
+        "active_background": "var(--elements-color-semantic-accent-active)"
+      },
+      "primary-neutral": {
+        "background": "var(--elements-color-semantic-accent-neutral_default)",
+        "text": "var(--elements-color-semantic-text-default_inverse)",
+        "border": "var(--elements-color-semantic-border-default)",
+        "hover_background": "var(--elements-color-semantic-accent-neutral_hover)",
+        "active_background": "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "primary-destruct": {
+        "background": "var(--elements-color-semantic-destruct-default)",
+        "text": "var(--elements-color-semantic-text-default)",
+        "border": "var(--elements-color-semantic-destruct-default)",
+        "hover_background": "var(--elements-color-semantic-destruct-hover)",
+        "active_background": "var(--elements-color-semantic-destruct-active)"
+      },
+      "secondary": {
+        "background": "var(--elements-color-components-button-bg-secondary)",
+        "text": "var(--elements-color-semantic-text-accent-default)",
+        "border": "var(--elements-color-semantic-accent-default)",
+        "hover_background": "var(--elements-color-semantic-background-brand-subtle)",
+        "active_background": "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "secondary-neutral": {
+        "background": "var(--elements-color-components-button-bg-secondary-neutral)",
+        "text": "var(--elements-color-semantic-text-default_inverse)",
+        "border": "var(--elements-color-semantic-border-default)",
+        "hover_background": "var(--elements-color-semantic-accent-neutral_hover)",
+        "active_background": "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "secondary-destruct": {
+        "background": "var(--elements-color-semantic-background-error-subtle)",
+        "text": "var(--elements-color-semantic-text-error)",
+        "border": "var(--elements-color-semantic-border-error)",
+        "hover_background": "var(--elements-color-semantic-background-error)",
+        "active_background": "var(--elements-color-semantic-destruct-active)"
+      },
+      "tertiary": {
+        "background": "transparent",
+        "text": "var(--elements-color-semantic-text-accent-default)",
+        "border": "transparent",
+        "hover_background": "var(--elements-color-semantic-background-brand-subtle)",
+        "active_background": "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "tertiary-neutral": {
+        "background": "transparent",
+        "text": "var(--elements-color-semantic-text-default_inverse)",
+        "border": "transparent",
+        "hover_background": "var(--elements-color-semantic-accent-neutral_hover)",
+        "active_background": "var(--elements-color-semantic-accent-neutral_active)"
+      },
+      "tertiary-destruct": {
+        "background": "transparent",
+        "text": "var(--elements-color-semantic-text-error)",
+        "border": "transparent",
+        "hover_background": "var(--elements-color-semantic-background-error-subtle)",
+        "active_background": "var(--elements-color-semantic-background-error)"
+      }
+    },
+    "states": {
+      "focus_outline": "var(--elements-color-semantic-accent-focus)",
+      "disabled_text": "var(--elements-color-semantic-text-disabled_inverse)",
+      "disabled_border": "var(--elements-color-semantic-border-subtle)",
+      "disabled_background": "var(--elements-color-semantic-background-neutral)"
+    }
+  },
+  "anatomy_slots": {
+    "extraction_status": "from_button_component_docgen_and_render_function",
+    "items": [
+      {
+        "id": "root",
+        "element": "button or anchor",
+        "source": "Button component render uses configurable as tag"
+      },
+      {
+        "id": "content-container",
+        "element": "span",
+        "source": "Button render function"
+      },
+      {
+        "id": "label",
+        "element": "label text",
+        "required": true,
+        "source": "Button docgen label required"
+      },
+      {
+        "id": "start-icon",
+        "prop": "icon + iconPosition=start",
+        "source": "Button docgen iconPosition enum"
+      },
+      {
+        "id": "end-icon",
+        "prop": "icon + iconPosition=end",
+        "source": "Button docgen iconPosition enum"
+      },
+      {
+        "id": "loader",
+        "prop": "isLoading",
+        "source": "Button render function and docgen"
+      }
+    ]
+  },
+  "accessibility_rules": {
+    "extraction_status": "from_button_docgen_and_html_semantics",
+    "rules": [
+      "Use button element for actions.",
+      "Use anchor element only when as='a' with href is explicitly required.",
+      "label is required because it provides the accessible name.",
+      "disabled and isLoading both disable user interaction.",
+      "focus-visible must be represented with a visible focus indicator."
+    ]
+  },
+  "render_templates": {
+    "html": "design-system-plugin/design-system/atomic/components/button/templates/html.button-v2.template.html",
+    "outputs": [
+      "design-system-plugin/outputs/html/button-button-link.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-default.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-overview.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-overview-inverse.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-primary.atomic.html",
+      "design-system-plugin/outputs/html/button-primary-destruct.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-primary-neutral.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-secondary.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-secondary-destruct.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-secondary-neutral.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-tertiary.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-tertiary-destruct.atomic.v2.html",
+      "design-system-plugin/outputs/html/button-tertiary-neutral.atomic.v2.html"
+    ]
+  },
+  "validation_rules": [
+    "No raw hex/rgb/hsl colors in rendered HTML.",
+    "No direct core color token refs in rendered HTML.",
+    "All data-primitive values must exist in primitive-index.json.",
+    "All data-story-id values must exist in Button primitive known_story_ids.",
+    "Every rendered sample must carry data-source-doc-id and data-token-source."
+  ],
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+    "story_ids": [
+      "components-button--primary",
+      "components-button--primary-neutral",
+      "components-button--overview",
+      "components-button--overview-inverse",
+      "components-button--default",
+      "components-button--secondary",
+      "components-button--secondary-neutral",
+      "components-button--tertiary",
+      "components-button--tertiary-neutral",
+      "components-button--primary-destruct",
+      "components-button--secondary-destruct",
+      "components-button--tertiary-destruct",
+      "components-button--button-link"
+    ],
+    "materialized_story_ids": [
+      "components-button--button-link",
+      "components-button--default",
+      "components-button--overview",
+      "components-button--overview-inverse",
+      "components-button--primary",
+      "components-button--primary-destruct",
+      "components-button--primary-neutral",
+      "components-button--secondary",
+      "components-button--secondary-destruct",
+      "components-button--secondary-neutral",
+      "components-button--tertiary",
+      "components-button--tertiary-destruct",
+      "components-button--tertiary-neutral"
+    ],
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "story_bundle": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

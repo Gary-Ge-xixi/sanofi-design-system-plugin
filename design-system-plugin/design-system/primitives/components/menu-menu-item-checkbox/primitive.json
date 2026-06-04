@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Menu/MenuItemCheckbox",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Menu/MenuItemCheckbox",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "menu-menu-item-checkbox",
+      "data_attribute": "data-primitive=\"menu-menu-item-checkbox\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-menu-menuitemcheckbox--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

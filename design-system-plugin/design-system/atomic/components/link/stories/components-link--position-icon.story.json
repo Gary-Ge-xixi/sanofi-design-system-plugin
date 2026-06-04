@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-link--position-icon",
+  "component_id": "link",
+  "component_name": "Link",
+  "story_id": "components-link--position-icon",
+  "story_name": "Position Icon",
+  "export_name": "PositionIcon",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-link--position-icon&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-link--position-icon&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Link.stories-B9m_jJ0Y.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/link/assets/Link.stories-B9m_jJ0Y.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/link/assets/components-link--position-icon.iframe.html",
+    "import_path": "./src/components/Link/Link.stories.tsx",
+    "component_path": "./src/components/Link/Link.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{}",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  /**\n   * This is a hack to have a good display of the code in the storybook\n   * cf github issue https://github.com/storybookjs/storybook/issues/23248\n   */\n\n  render: args => {\n    return <div style={{\n      display: \"flex\",\n      flexDirection: \"column\",\n      justifyContent: \"flex-start\",\n      gap: \"24px\"\n    }}>\n        <Link {...args}>Default Link</Link>\n        <Link {...args} iconName={IconName.OPEN_IN_NEW}>\n          End position\n        </Link>\n        <Link {...args} iconName={IconName.OPEN_IN_NEW} iconPosition={IconPosition.START}>\n          Start position\n        </Link>\n        <Link {...args} iconName={IconName.LENS}>\n          Other Icon\n        </Link>\n      </div>;\n  }\n}",
+    "story_object_source": "{render:e=>n.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",justifyContent:\"flex-start\",gap:\"24px\"},children:[n.jsx(r,{...e,children:\"Default Link\"}),n.jsx(r,{...e,iconName:t.OPEN_IN_NEW,children:\"End position\"}),n.jsx(r,{...e,iconName:t.OPEN_IN_NEW,iconPosition:l.START,children:\"Start position\"}),n.jsx(r,{...e,iconName:t.LENS,children:\"Other Icon\"})]})}"
+  },
+  "template": {
+    "id": "link-position-icon-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/link/templates/html.position-icon.template.html",
+    "output_path": "design-system-plugin/outputs/html/link-position-icon.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/link.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "link",
+    "local_path": "design-system-plugin/design-system/primitives/components/link/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-link--docs",
+    "story_id": "components-link--position-icon",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/link.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/link/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/link/assets/Link.stories-B9m_jJ0Y.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/link/assets/components-link--position-icon.iframe.html"
+  }
+}

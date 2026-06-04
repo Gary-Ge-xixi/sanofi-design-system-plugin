@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Footer",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Footer",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "footer",
+      "data_attribute": "data-primitive=\"footer\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-footer--custom-product-logo",
+      "components-footer--default",
+      "components-footer--simple"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-footer--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

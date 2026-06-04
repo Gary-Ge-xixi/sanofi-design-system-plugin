@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "id": "density-standards",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Define scenario-based density levels and screenshot-level thresholds for generated business pages.",
+  "source_provenance": {
+    "admin_density": "admin-density.json",
+    "page_taxonomy": "../business/page-taxonomy.json",
+    "reference_fit": "../reference-fit/business-page-family.rules.json"
+  },
+  "density_levels": [
+    {
+      "id": "admin-compact",
+      "use_for": ["admin-data-entry-table", "permission-admin"],
+      "thresholds": {
+        "desktop_1440_first_viewport_rows_min": 7,
+        "toolbar_controls_first_row_min": 5,
+        "sidebar_visible": true
+      }
+    },
+    {
+      "id": "business-default",
+      "use_for": ["approval-workflow", "entity-detail", "entity-form", "import-result", "report-dashboard", "information-aggregation"],
+      "thresholds": {
+        "desktop_1440_primary_task_visible": true,
+        "field_group_scan_time": "primary fields visible before secondary detail"
+      }
+    },
+    {
+      "id": "exception-spacious",
+      "use_for": ["exception-state"],
+      "thresholds": {
+        "primary_message_not_crowded": true,
+        "recovery_actions_visible": true
+      }
+    }
+  ],
+  "forbidden_patterns": [
+    "marketing section spacing on backend pages",
+    "card-in-card page scaffolds",
+    "density changes that hide sticky save actions or table pagination"
+  ],
+  "validator": "../../scripts/validate-business-standards"
+}

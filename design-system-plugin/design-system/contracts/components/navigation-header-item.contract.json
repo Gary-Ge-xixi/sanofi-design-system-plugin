@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1.0",
+  "id": "navigation-header-item",
+  "canonical_name": "navigation-header-item",
+  "component_name": "NavigationHeader.Item",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-navigationheader-item--docs",
+    "title": "NavigationHeader.Item",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-item--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-item--docs",
+    "import_path": "./src/components/NavigationHeader/Item/Item.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-navigationheader-item--default"
+    ],
+    "records": [
+      {
+        "id": "components-navigationheader-item--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/NavigationHeader/Item/Item.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "not_extracted",
+    "items": []
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "navigation-header-item"
+    ],
+    "contracts": [
+      {
+        "id": "navigation-header-item",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/navigation-header-item/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/navigation-header-item/demo.registry.json",
+        "known_story_ids": [
+          "components-navigationheader-item--default",
+          "components-navigationheader-item--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader-item--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader-item--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader-item--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/Item/Item.stories.tsx",
+    "story_ids": [
+      "components-navigationheader-item--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "props:not_extracted",
+    "usage_snippets:not_extracted"
+  ]
+}

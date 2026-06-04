@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sanofi Elements Maintenance Dashboard</title>
+  <style>
+    body { margin: 0; font-family: "Sanofi Sans", "Noto Sans SC", Arial, sans-serif; color: #111; background: #f4f4f4; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px; }
+    h1 { font-size: 32px; margin: 0 0 8px; }
+    h2 { font-size: 20px; margin: 28px 0 12px; }
+    .muted { color: #666; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+    .metric { font-size: 28px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #ddd; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #eee; text-align: left; font-size: 14px; }
+    th { background: #fafafa; }
+    .pass { color: #0b7a3b; }
+    .fail { color: #b42318; }
+    .unknown, .warn { color: #8a5a00; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Sanofi Elements Maintenance Dashboard</h1>
+  <p class="muted">Generated at 2026-06-04T03:11:27.770Z. This page summarizes the local design-system maintenance state.</p>
+  <section class="grid">
+    <div class="card"><div class="muted">Registry items</div><div class="metric">620</div></div>
+    <div class="card"><div class="muted">Component contracts</div><div class="metric">95</div></div>
+    <div class="card"><div class="muted">Completed components</div><div class="metric">93</div></div>
+    <div class="card"><div class="muted">Rules</div><div class="metric">21</div></div>
+  </section>
+  <h2>Report Status</h2>
+  <section class="grid">
+    <div class="card"><div class="muted">pass</div><div class="metric pass">140</div></div>
+    <div class="card"><div class="muted">ready_to_write_complete</div><div class="metric ready_to_write_complete">92</div></div>
+    <div class="card"><div class="muted">complete_existing</div><div class="metric complete_existing">1</div></div>
+    <div class="card"><div class="muted">unsupported</div><div class="metric unsupported">2</div></div>
+    <div class="card"><div class="muted">blocked</div><div class="metric blocked">1</div></div>
+    <div class="card"><div class="muted">fail</div><div class="metric fail">1</div></div>
+  </section>
+  <h2>Fallback Gaps</h2>
+  <table>
+    <thead><tr><th>Module</th><th>Status</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>table</td><td>token-only-pattern</td><td>No official Table/DataTable/DataGrid primitive is registered locally.</td></tr>
+      <tr><td>chart</td><td>token-only-pattern</td><td>No official Chart/Data Visualization primitive is registered locally.</td></tr>
+      <tr><td>metric-card</td><td>compose-from-primitives</td><td>No dedicated Metric/KPI primitive is registered locally.</td></tr>
+      <tr><td>page-header</td><td>docs-only-gap</td><td>PageHeader docs exist but no primitive contract is registered yet.</td></tr>
+      <tr><td>date-picker</td><td>docs-only-gap</td><td>DatePicker docs exist but no primitive contract is registered yet.</td></tr>
+      <tr><td>modal</td><td>docs-only-gap</td><td>Modal docs exist but no primitive contract is registered yet.</td></tr>
+      <tr><td>drawer</td><td>docs-only-gap</td><td>Drawer docs exist but no primitive contract is registered yet.</td></tr>
+    </tbody>
+  </table>
+  <h2>Recent Report Index</h2>
+  <table>
+    <thead><tr><th>Report</th><th>Status</th><th>Script</th></tr></thead>
+    <tbody>
+      <tr><td>footer-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>footer-footer-social-link-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>footer-top-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>generic-primitives-build.report.json</td><td class="pass">pass</td><td>build-generic-primitives</td></tr>
+      <tr><td>grid-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>hero-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>html-renderer.report.json</td><td class="pass">pass</td><td>render-template-html</td></tr>
+      <tr><td>icon-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>image-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>isi-tray-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>knowledge-base.report.json</td><td class="pass">pass</td><td>build-knowledge-base</td></tr>
+      <tr><td>layout-rule-usage.report.json</td><td class="pass">pass</td><td>validate-layout-rule-usage</td></tr>
+      <tr><td>link-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>link-link-standalone-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>loading-spinner-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>local-registry-build.report.json</td><td class="pass">pass</td><td>build-local-registry</td></tr>
+      <tr><td>local-registry-validation.report.json</td><td class="pass">pass</td><td>validate-local-registry</td></tr>
+      <tr><td>maintenance-dashboard.report.json</td><td class="pass">pass</td><td>sanofi-ds report dashboard</td></tr>
+      <tr><td>maintenance-doctor.report.json</td><td class="pass">pass</td><td>sanofi-ds doctor</td></tr>
+      <tr><td>materialize-all-component-stories.report.json</td><td class="fail">fail</td><td>materialize-all-component-stories</td></tr>
+      <tr><td>mega-menu-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>mega-menu-item-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>mega-menu-title-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>mega-menu-trigger-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>menu-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>menu-menu-item-checkbox-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>menu-menu-item-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>menu-menu-item-image-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>menu-menu-item-radio-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>menu-sub-menu-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>modal-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>navigation-header-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>navigation-header-item-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>navigation-header-root-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>navigation-header-start-content-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>page-header-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>page-pattern.report.json</td><td class="pass">pass</td><td>validate-page-pattern</td></tr>
+      <tr><td>pagination-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>pattern-resolver-validation.report.json</td><td class="pass">pass</td><td>validate-pattern-resolver</td></tr>
+      <tr><td>pattern-resolver.report.json</td><td class="pass">pass</td><td>resolve-pattern-runtime</td></tr>
+      <tr><td>primitive-usage.report.json</td><td class="pass">pass</td><td>validate-primitive-usage</td></tr>
+      <tr><td>profile-inspect-admin-data-entry-table.report.json</td><td class="pass">pass</td><td>sanofi-ds profile inspect admin-data-entry-table</td></tr>
+      <tr><td>progress-bar-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>progress-stepper-progress-stepper-nav-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>provenance-validation.report.json</td><td class="pass">pass</td><td>validate-provenance</td></tr>
+      <tr><td>radio-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>radio-radio-group-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>reference-fit.report.json</td><td class="pass">pass</td><td>validate-reference-fit</td></tr>
+      <tr><td>render.report.json</td><td class="pass">pass</td><td>sanofi-ds render</td></tr>
+      <tr><td>rule-list.report.json</td><td class="pass">pass</td><td>sanofi-ds rule list</td></tr>
+      <tr><td>rule-validate-admin-data-entry-table-reference-fit.report.json</td><td class="pass">pass</td><td>sanofi-ds rule validate admin-data-entry-table-reference-fit</td></tr>
+      <tr><td>search-input-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>select-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>semantic-token-map-validation.report.json</td><td class="pass">pass</td><td>validate-semantic-token-map</td></tr>
+      <tr><td>semantic-token-map.report.json</td><td class="pass">pass</td><td>build-semantic-token-map</td></tr>
+      <tr><td>sidebar-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>slider-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>source-index-validation.report.json</td><td class="pass">pass</td><td>validate-source-index</td></tr>
+      <tr><td>story-atom-materialization.report.json</td><td class="pass">pass</td><td>materialize-story-atom</td></tr>
+      <tr><td>switch-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>switch-switch-group-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tabs-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tag-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>text-area-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>text-input-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>theme-provider-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>title-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>toast-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>token-diff.report.json</td><td class="pass">pass</td><td>sanofi-ds token diff</td></tr>
+      <tr><td>token-transform.report.json</td><td class="pass">pass</td><td>transform-tokens</td></tr>
+      <tr><td>token-usage.report.json</td><td class="pass">pass</td><td>validate-token-usage</td></tr>
+      <tr><td>tooltip-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tree-view-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tree-view-sub-components-item-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tree-view-sub-components-leading-visual-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tree-view-sub-components-sub-tree-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>tree-view-sub-components-trailing-visual-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>typography-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+      <tr><td>typography-rule-usage.report.json</td><td class="pass">pass</td><td>validate-typography-rule-usage</td></tr>
+      <tr><td>video-thumbnail-complete-dom-validation.report.json</td><td class="pass">pass</td><td>validate-component-package-dom</td></tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>

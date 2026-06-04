@@ -1,0 +1,563 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "render-component-package",
+  "results": [
+    {
+      "component_id": "accordion",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/accordion-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "accordion-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/accordion-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "autocomplete",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/autocomplete-complete.atomic.html",
+      "story_outputs": 14
+    },
+    {
+      "component_id": "avatar",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/avatar-complete.atomic.html",
+      "story_outputs": 6
+    },
+    {
+      "component_id": "avatar-avatar-group",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/avatar-avatar-group-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "banner",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/banner-complete.atomic.html",
+      "story_outputs": 6
+    },
+    {
+      "component_id": "breadcrumb",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/breadcrumb-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "breadcrumb-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/breadcrumb-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "button",
+      "status": "delegated-to-button-renderer"
+    },
+    {
+      "component_id": "button-icon",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/button-icon-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "calendar",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/calendar-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "card",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-complete.atomic.html",
+      "story_outputs": 14
+    },
+    {
+      "component_id": "card-action",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-action-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "card-card-group",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-card-group-complete.atomic.html",
+      "story_outputs": 2
+    },
+    {
+      "component_id": "card-content",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-content-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "card-date",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-date-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "card-footer",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-footer-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "card-media",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-media-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "card-media-custom",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-media-custom-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "card-sections",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/card-sections-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "carousel",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/carousel-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "cascading-menu",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/cascading-menu-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "cascading-menu-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/cascading-menu-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "checkbox",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/checkbox-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "checkbox-checkbox-group",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/checkbox-checkbox-group-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "checkbox-tree",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/checkbox-tree-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "chip-deprecated",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/chip-deprecated-complete.atomic.html",
+      "story_outputs": 8
+    },
+    {
+      "component_id": "chip-dropdown",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/chip-dropdown-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "chip-filter",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/chip-filter-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "chip-list-deprecated",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/chip-list-deprecated-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "chip-select",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/chip-select-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "chip-status",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/chip-status-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "container",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/container-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "content-block",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/content-block-complete.atomic.html",
+      "story_outputs": 10
+    },
+    {
+      "component_id": "date-picker",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/date-picker-complete.atomic.html",
+      "story_outputs": 23
+    },
+    {
+      "component_id": "divider",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/divider-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "drawer",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/drawer-complete.atomic.html",
+      "story_outputs": 8
+    },
+    {
+      "component_id": "file-uploader",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/file-uploader-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "flex",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/flex-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "footer",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/footer-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "footer-bottom",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/footer-bottom-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "footer-footer-social-link",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/footer-footer-social-link-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "footer-top",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/footer-top-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "grid",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/grid-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "hero",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/hero-complete.atomic.html",
+      "story_outputs": 14
+    },
+    {
+      "component_id": "icon",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/icon-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "image",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/image-complete.atomic.html",
+      "story_outputs": 2
+    },
+    {
+      "component_id": "isi-tray",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/isi-tray-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "link",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/link-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "link-link-standalone",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/link-link-standalone-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "loading-spinner",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/loading-spinner-complete.atomic.html",
+      "story_outputs": 2
+    },
+    {
+      "component_id": "mega-menu",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/mega-menu-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "mega-menu-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/mega-menu-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "mega-menu-title",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/mega-menu-title-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "mega-menu-trigger",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/mega-menu-trigger-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "menu",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/menu-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "menu-menu-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/menu-menu-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "menu-menu-item-checkbox",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/menu-menu-item-checkbox-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "menu-menu-item-image",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/menu-menu-item-image-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "menu-menu-item-radio",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/menu-menu-item-radio-complete.atomic.html",
+      "story_outputs": 2
+    },
+    {
+      "component_id": "menu-sub-menu",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/menu-sub-menu-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "modal",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/modal-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "navigation-header",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/navigation-header-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "navigation-header-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/navigation-header-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "navigation-header-root",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/navigation-header-root-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "navigation-header-start-content",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/navigation-header-start-content-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "page-header",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/page-header-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "pagination",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/pagination-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "progress-bar",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/progress-bar-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "progress-stepper-progress-stepper-nav",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/progress-stepper-progress-stepper-nav-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "radio",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/radio-complete.atomic.html",
+      "story_outputs": 5
+    },
+    {
+      "component_id": "radio-radio-group",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/radio-radio-group-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "search-input",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/search-input-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "select",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/select-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "sidebar",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/sidebar-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "slider",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/slider-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "switch",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/switch-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "switch-switch-group",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/switch-switch-group-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "tabs",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tabs-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "tag",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tag-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "text-area",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/text-area-complete.atomic.html",
+      "story_outputs": 9
+    },
+    {
+      "component_id": "text-input",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/text-input-complete.atomic.html",
+      "story_outputs": 15
+    },
+    {
+      "component_id": "theme-provider",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/theme-provider-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "title",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/title-complete.atomic.html",
+      "story_outputs": 3
+    },
+    {
+      "component_id": "toast",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/toast-complete.atomic.html",
+      "story_outputs": 6
+    },
+    {
+      "component_id": "tooltip",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tooltip-complete.atomic.html",
+      "story_outputs": 8
+    },
+    {
+      "component_id": "tree-view",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tree-view-complete.atomic.html",
+      "story_outputs": 7
+    },
+    {
+      "component_id": "tree-view-sub-components-item",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tree-view-sub-components-item-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "tree-view-sub-components-leading-visual",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tree-view-sub-components-leading-visual-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "tree-view-sub-components-sub-tree",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tree-view-sub-components-sub-tree-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "tree-view-sub-components-trailing-visual",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/tree-view-sub-components-trailing-visual-complete.atomic.html",
+      "story_outputs": 1
+    },
+    {
+      "component_id": "typography",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/typography-complete.atomic.html",
+      "story_outputs": 4
+    },
+    {
+      "component_id": "video-thumbnail",
+      "status": "rendered",
+      "output": "design-system-plugin/outputs/html/video-thumbnail-complete.atomic.html",
+      "story_outputs": 10
+    }
+  ]
+}

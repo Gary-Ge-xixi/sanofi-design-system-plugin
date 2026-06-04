@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-accordion-small-accordion-atomic-story",
+  "title": "Accordion Small Accordion atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-accordion--small-accordion.",
+  "atomic_story_id": "components-accordion--small-accordion",
+  "component_id": "accordion",
+  "docs_id": "components-accordion--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-accordion"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/stories/components-accordion--small-accordion.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/stories/components-accordion--small-accordion.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/assets/Accordion.stories-kPOrYbvl.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/assets/Accordion.stories-kPOrYbvl.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/assets/components-accordion--small-accordion.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/assets/components-accordion--small-accordion.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/accordion/templates/html.small-accordion.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/accordion/templates/html.small-accordion.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/accordion.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/accordion/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-accordion--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-accordion--docs",
+    "story_id": "components-accordion--small-accordion",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/accordion/stories/components-accordion--small-accordion.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/accordion/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-accordion--small-accordion&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-accordion--small-accordion&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Accordion.stories-kPOrYbvl.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/accordion/assets/Accordion.stories-kPOrYbvl.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/accordion.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/accordion/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "accordion",
+      "Accordion",
+      "Small Accordion",
+      "components-accordion--small-accordion",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Accordion Small Accordion Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

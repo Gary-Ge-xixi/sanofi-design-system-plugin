@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-search-input-disabled-atomic-story",
+  "title": "SearchInput Disabled atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-searchinput--disabled.",
+  "atomic_story_id": "components-searchinput--disabled",
+  "component_id": "search-input",
+  "docs_id": "components-searchinput--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-search-input"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--disabled.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--disabled.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/assets/SearchInput.stories-Ra1oIw42.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/assets/SearchInput.stories-Ra1oIw42.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/assets/components-searchinput--disabled.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/assets/components-searchinput--disabled.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/search-input/templates/html.disabled.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/search-input/templates/html.disabled.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/search-input.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/search-input/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "story_id": "components-searchinput--disabled",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/search-input/stories/components-searchinput--disabled.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/search-input/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-searchinput--disabled&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-searchinput--disabled&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/SearchInput.stories-Ra1oIw42.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/search-input/assets/SearchInput.stories-Ra1oIw42.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "search-input",
+      "SearchInput",
+      "Disabled",
+      "components-searchinput--disabled",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact SearchInput Disabled Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

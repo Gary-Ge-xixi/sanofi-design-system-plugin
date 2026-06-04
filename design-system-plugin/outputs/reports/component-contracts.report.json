@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-component-contracts",
+  "generated_at": "2026-06-03T03:04:56.856Z",
+  "counts": {
+    "component_contracts": 95,
+    "primitive_contracts_expected": 96,
+    "primitive_contracts_covered": 96,
+    "props_extracted_contracts": 92,
+    "docs_only_contracts": 0,
+    "primitive_linked_contracts": 95
+  },
+  "output": {
+    "index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "markdown_index": "design-system-plugin/design-system/contracts/components/component-contract-index.md",
+    "contracts_dir": "design-system-plugin/design-system/contracts/components"
+  }
+}

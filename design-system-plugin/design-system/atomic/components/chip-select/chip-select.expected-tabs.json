@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "chip-select",
+  "component_name": "ChipSelect",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/ChipSelect"
+  },
+  "docs": [
+    {
+      "id": "components-chipselect--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ChipSelect/ChipSelect.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-chipselect--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx"
+    },
+    {
+      "id": "components-chipselect--long-label",
+      "name": "Long Label",
+      "export_name": "LongLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx"
+    },
+    {
+      "id": "components-chipselect--style-variations",
+      "name": "Style Variations",
+      "export_name": "StyleVariations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/ChipSelect/ChipSelect.stories.tsx"
+    }
+  ]
+}

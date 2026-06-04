@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Breadcrumb.Item",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Breadcrumb.Item",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "breadcrumb-item",
+      "data_attribute": "data-primitive=\"breadcrumb-item\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-breadcrumb-item--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-breadcrumb-item--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb-item.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

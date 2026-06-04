@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "PageHeader",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/PageHeader",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/page-header.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "page-header",
+      "data_attribute": "data-primitive=\"page-header\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-pageheader--container-type-fixed",
+      "components-pageheader--default",
+      "components-pageheader--title-custom"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-pageheader--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/page-header.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

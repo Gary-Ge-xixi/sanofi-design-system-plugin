@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "component": "MegaMenu",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-megamenu--example",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-megamenu--fitted-content-mega-menu",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-megamenu--nav-header-custom-placement",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

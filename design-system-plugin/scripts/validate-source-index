@@ -1,0 +1,118 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const sourceIndexPath = path.join(
+  pluginRoot,
+  "design-system",
+  "knowledge",
+  "source-index.json"
+);
+const componentsPath = path.join(pluginRoot, "design-system", "knowledge", "components.json");
+const tokensPath = path.join(pluginRoot, "design-system", "knowledge", "tokens.json");
+const reportPath = path.join(reportDir, "source-index-validation.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function collectPaths(value, paths = []) {
+  if (!value) return paths;
+  if (Array.isArray(value)) {
+    for (const item of value) collectPaths(item, paths);
+    return paths;
+  }
+  if (typeof value === "object") {
+    for (const [key, nested] of Object.entries(value)) {
+      if (
+        (key === "local_path" ||
+          key === "contract_path" ||
+          key === "demo_registry_path" ||
+          key.endsWith("_path")) &&
+        typeof nested === "string" &&
+        nested.startsWith("design-system-plugin/")
+      ) {
+        paths.push(nested);
+      } else if (
+        (key === "local_path" ||
+          key === "contract_path" ||
+          key === "demo_registry_path" ||
+          key.endsWith("_path")) &&
+        typeof nested === "string" &&
+        nested.startsWith("research/")
+      ) {
+        paths.push(nested);
+      } else {
+        collectPaths(nested, paths);
+      }
+    }
+  }
+  return paths;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+const sourceIndex = readJson(sourceIndexPath);
+const components = readJson(componentsPath);
+const tokens = readJson(tokensPath);
+const paths = [
+  "design-system-plugin/design-system/knowledge/source-index.json",
+  "design-system-plugin/design-system/knowledge/source-index.md",
+  "design-system-plugin/design-system/knowledge/storybook-pages.json",
+  "design-system-plugin/design-system/knowledge/components.json",
+  "design-system-plugin/design-system/knowledge/tokens.json",
+  "design-system-plugin/design-system/knowledge/coverage.json",
+  "design-system-plugin/design-system/knowledge/README.md",
+  ...collectPaths(sourceIndex),
+  ...collectPaths(components),
+  ...collectPaths(tokens)
+];
+
+const uniquePaths = [...new Set(paths)].sort();
+const missingPaths = uniquePaths.filter((relativePath) => !exists(relativePath));
+
+if (!sourceIndex.source_priority?.[0]?.startsWith("primary: Storybook")) {
+  failures.push("source priority must start with Storybook primary source");
+}
+
+if (!tokens.token_sources?.brand_policy?.green_usage?.includes("never primary")) {
+  failures.push("token brand policy must explicitly block green as primary brand/accent");
+}
+
+if (missingPaths.length) {
+  failures.push(`missing indexed local paths: ${missingPaths.join(", ")}`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-source-index",
+  checked: {
+    indexed_paths: uniquePaths.length,
+    missing_paths: missingPaths.length,
+    component_records: components.components?.length || 0
+  },
+  failures,
+  details: {
+    missing_paths: missingPaths
+  }
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Source index validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(
+  `Source index OK: ${uniquePaths.length} local paths, ${components.components?.length || 0} component records`
+);

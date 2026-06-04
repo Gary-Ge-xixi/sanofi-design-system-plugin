@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-content-block-interactive-with-decorative-button-atomic-story",
+  "title": "ContentBlock Interactive With Decorative Button atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-contentblock--interactive-with-decorative-button.",
+  "atomic_story_id": "components-contentblock--interactive-with-decorative-button",
+  "component_id": "content-block",
+  "docs_id": "components-contentblock--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-content-block"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive-with-decorative-button.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive-with-decorative-button.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/assets/components-contentblock--interactive-with-decorative-button.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/assets/components-contentblock--interactive-with-decorative-button.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/content-block/templates/html.interactive-with-decorative-button.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/content-block/templates/html.interactive-with-decorative-button.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/content-block/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "story_id": "components-contentblock--interactive-with-decorative-button",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/content-block/stories/components-contentblock--interactive-with-decorative-button.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/content-block/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-contentblock--interactive-with-decorative-button&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-contentblock--interactive-with-decorative-button&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ContentBlock.stories-BY6ovRMm.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "content-block",
+      "ContentBlock",
+      "Interactive With Decorative Button",
+      "components-contentblock--interactive-with-decorative-button",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact ContentBlock Interactive With Decorative Button Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

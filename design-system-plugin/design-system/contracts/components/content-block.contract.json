@@ -1,0 +1,286 @@
+{
+  "schema_version": "0.1.0",
+  "id": "content-block",
+  "canonical_name": "content-block",
+  "component_name": "ContentBlock",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-contentblock--docs",
+    "title": "ContentBlock",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-contentblock--docs",
+    "import_path": "./src/components/ContentBlock/ContentBlock.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 10,
+    "story_ids": [
+      "components-contentblock--default",
+      "components-contentblock--interactive",
+      "components-contentblock--interactive-disabled",
+      "components-contentblock--interactive-selected",
+      "components-contentblock--interactive-with-decorative-button",
+      "components-contentblock--non-interactive-with-multiple-actions",
+      "components-contentblock--padding-sizes",
+      "components-contentblock--selectable-list",
+      "components-contentblock--selectable-radio-list",
+      "components-contentblock--with-link"
+    ],
+    "records": [
+      {
+        "id": "components-contentblock--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-contentblock--interactive",
+        "name": "Interactive",
+        "normalized_name": "interactive",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "Interactive"
+      },
+      {
+        "id": "components-contentblock--interactive-disabled",
+        "name": "Interactive Disabled",
+        "normalized_name": "interactive-disabled",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "InteractiveDisabled"
+      },
+      {
+        "id": "components-contentblock--interactive-selected",
+        "name": "Interactive Selected",
+        "normalized_name": "interactive-selected",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "InteractiveSelected"
+      },
+      {
+        "id": "components-contentblock--interactive-with-decorative-button",
+        "name": "Interactive With Decorative Button",
+        "normalized_name": "interactive-with-decorative-button",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "InteractiveWithDecorativeButton"
+      },
+      {
+        "id": "components-contentblock--non-interactive-with-multiple-actions",
+        "name": "Non Interactive With Multiple Actions",
+        "normalized_name": "non-interactive-with-multiple-actions",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "NonInteractiveWithMultipleActions"
+      },
+      {
+        "id": "components-contentblock--padding-sizes",
+        "name": "Padding Sizes",
+        "normalized_name": "padding-sizes",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "PaddingSizes"
+      },
+      {
+        "id": "components-contentblock--selectable-list",
+        "name": "Selectable List",
+        "normalized_name": "selectable-list",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "SelectableList"
+      },
+      {
+        "id": "components-contentblock--selectable-radio-list",
+        "name": "Selectable Radio List",
+        "normalized_name": "selectable-radio-list",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "SelectableRadioList"
+      },
+      {
+        "id": "components-contentblock--with-link",
+        "name": "With Link",
+        "normalized_name": "with-link",
+        "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+        "export_name": "WithLink"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "padding",
+        "required": false,
+        "description": "Inner padding using Elements spacing tokensContentBlockPadding",
+        "default": "md",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "border",
+        "required": false,
+        "description": "Renders a border around the blockboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isSelected",
+        "required": false,
+        "description": "Marks the block as selected (interactive variant only)boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isActive",
+        "required": false,
+        "description": "Marks the block as active (interactive variant only)boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Disables the interactive block, preventing clicks and applying a desaturated visual style (interactive variant only)boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": true,
+        "description": "Content to render inside the blockReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for ContentBlock elements.{ root?: string }",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "Click handler that activates the interactive variant. When absent, renders as a passive container.() => void",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "interactive",
+      "interactive-disabled",
+      "interactive-selected",
+      "interactive-with-decorative-button",
+      "non-interactive-with-multiple-actions",
+      "padding-sizes",
+      "selectable-list",
+      "selectable-radio-list",
+      "with-link"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "interactive",
+      "interactive-disabled",
+      "interactive-selected",
+      "interactive-with-decorative-button",
+      "non-interactive-with-multiple-actions",
+      "padding-sizes",
+      "selectable-list",
+      "selectable-radio-list",
+      "with-link"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { ContentBlock, ContentBlockPadding, Title, TitleVariant, Typography } from \"@sanofi-accelerator/elements\";\n\n<ContentBlock padding={ContentBlockPadding.MD} border>\n<Title variant={TitleVariant.TITLE_3}>Content Block</Title>\n<Typography>\n  This is a default (non-interactive) content block.\n</Typography>\n</ContentBlock>",
+      "import { ContentBlock, Title, TitleVariant, Typography } from \"@sanofi-accelerator/elements\";\n\n<ContentBlock border onClick={() => handleClick()}>\n<Title variant={TitleVariant.TITLE_3}>Interactive Block</Title>\n<Typography>\n  Click anywhere on this block. The entire surface is clickable.\n</Typography>\n</ContentBlock>",
+      "import { ContentBlock, Checkbox, Flex, Title, TitleVariant, Typography, Tag, TagCategoricalColor } from \"@sanofi-accelerator/elements\";\n\nconst [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());\n\nconst toggleSelection = (id: string) => {\nsetSelectedIds((prev) => {\nconst newSet = new Set(prev);\nnewSet.has(id) ? newSet.delete(id) : newSet.add(id);\nreturn newSet;\n});\n};\n\n{items.map((item) => {\nconst isSelected = selectedIds.has(item.id);\nreturn (\n<ContentBlock\nkey={item.id}\nborder\nonClick={() => toggleSelection(item.id)}\nisSelected={isSelected} >\n<Flex align=\"start\" justify=\"between\" gap=\"md\">\n<Flex align=\"start\" gap=\"md\">\n<Checkbox\nchecked={isSelected}\ntabIndex={-1}\naria-hidden\nonChange={() => {}}\n/>\n<Flex direction=\"column\">\n<Title variant={TitleVariant.TITLE_4}>{item.title}</Title>\n<Typography>{item.description}</Typography>\n</Flex>\n</Flex>\n<Tag color={TagCategoricalColor.BLUE}>{item.tag}</Tag>\n</Flex>\n</ContentBlock>\n);\n})}"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "content-block"
+    ],
+    "contracts": [
+      {
+        "id": "content-block",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/content-block/demo.registry.json",
+        "known_story_ids": [
+          "components-contentblock--default",
+          "components-contentblock--interactive",
+          "components-contentblock--interactive-disabled",
+          "components-contentblock--interactive-selected",
+          "components-contentblock--interactive-with-decorative-button",
+          "components-contentblock--non-interactive-with-multiple-actions",
+          "components-contentblock--padding-sizes",
+          "components-contentblock--selectable-list",
+          "components-contentblock--selectable-radio-list",
+          "components-contentblock--with-link",
+          "components-contentblock--default",
+          "components-contentblock--interactive",
+          "components-contentblock--interactive-disabled",
+          "components-contentblock--interactive-selected",
+          "components-contentblock--interactive-with-decorative-button",
+          "components-contentblock--non-interactive-with-multiple-actions",
+          "components-contentblock--padding-sizes",
+          "components-contentblock--selectable-list",
+          "components-contentblock--selectable-radio-list",
+          "components-contentblock--with-link"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-contentblock--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-contentblock--docs.md",
+    "docs_import_path": "./src/components/ContentBlock/ContentBlock.mdx",
+    "story_ids": [
+      "components-contentblock--default",
+      "components-contentblock--interactive",
+      "components-contentblock--interactive-disabled",
+      "components-contentblock--interactive-selected",
+      "components-contentblock--interactive-with-decorative-button",
+      "components-contentblock--non-interactive-with-multiple-actions",
+      "components-contentblock--padding-sizes",
+      "components-contentblock--selectable-list",
+      "components-contentblock--selectable-radio-list",
+      "components-contentblock--with-link"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

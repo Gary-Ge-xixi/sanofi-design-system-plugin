@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Sidebar"
+  },
+  "docs": [
+    {
+      "id": "components-sidebar--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Sidebar/Sidebar.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-sidebar--collapsed",
+      "name": "Collapsed",
+      "export_name": "Collapsed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--expanded",
+      "name": "Expanded",
+      "export_name": "Expanded",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--fully-collapsible",
+      "name": "Fully Collapsible",
+      "export_name": "FullyCollapsible",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--fully-collapsible-controlled",
+      "name": "Fully Collapsible Controlled",
+      "export_name": "FullyCollapsibleControlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--sticky-behavior",
+      "name": "Sticky Behavior",
+      "export_name": "StickyBehavior",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--without-header",
+      "name": "Without Header",
+      "export_name": "WithoutHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    }
+  ]
+}

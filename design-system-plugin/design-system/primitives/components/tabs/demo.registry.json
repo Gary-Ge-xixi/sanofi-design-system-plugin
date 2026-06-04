@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Tabs",
+  "stories": [
+    {
+      "story_id": "components-tabs--controlled",
+      "story_name": "Controlled"
+    },
+    {
+      "story_id": "components-tabs--default",
+      "story_name": "Default"
+    },
+    {
+      "story_id": "components-tabs--default-selected-tab",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tabs--full-width",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tabs--lazy-mount",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tabs--lazy-mount-with-unmount",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tabs--uncontrolled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-tabs--with-nav",
+      "story_name": "With Nav"
+    },
+    {
+      "story_id": "components-tabs--with-nav-in-resizable-panel",
+      "source": "component-contract-story-index"
+    }
+  ],
+  "status": "generated-from-component-contract"
+}

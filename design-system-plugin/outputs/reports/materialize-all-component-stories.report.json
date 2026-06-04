@@ -1,0 +1,1950 @@
+{
+  "schema_version": "0.1.0",
+  "status": "fail",
+  "script": "materialize-all-component-stories",
+  "checked": {
+    "total_stories": 425,
+    "processed": 425,
+    "passed": 386,
+    "failed": 39,
+    "timeout_ms": 15000
+  },
+  "failures": [
+    {
+      "story_id": "components-breadcrumb-item--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-action--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group",
+      "status": "fail",
+      "error": "Unable to find story variable for CardGridsGroup\n"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group-picto",
+      "status": "fail",
+      "error": "Unable to find story variable for CardGridsGroupPicto\n"
+    },
+    {
+      "story_id": "components-card-content--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-date--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-footer--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-media--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-mediacustom--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-sections--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-flex--align-content",
+      "status": "fail",
+      "error": "Unable to find story variable for AlignContent\n"
+    },
+    {
+      "story_id": "components-flex--as-child-list",
+      "status": "fail",
+      "error": "Unable to find story variable for AsChildList\n"
+    },
+    {
+      "story_id": "components-flex--column-stack",
+      "status": "fail",
+      "error": "Unable to find story variable for ColumnStack\n"
+    },
+    {
+      "story_id": "components-flex--flex-shorthand",
+      "status": "fail",
+      "error": "Unable to find story variable for FlexShorthand\n"
+    },
+    {
+      "story_id": "components-flex--horizontal-flow",
+      "status": "fail",
+      "error": "Unable to find story variable for HorizontalFlow\n"
+    },
+    {
+      "story_id": "components-flex--justify-distribution",
+      "status": "fail",
+      "error": "Unable to find story variable for JustifyDistribution\n"
+    },
+    {
+      "story_id": "components-flex--wrapping-grid",
+      "status": "fail",
+      "error": "Unable to find story variable for WrappingGrid\n"
+    },
+    {
+      "story_id": "components-footer-bottom--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-footer-footersociallink--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-footer-top--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-image--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-image--overview",
+      "status": "fail",
+      "error": "Unable to find story variable for Overview\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse",
+      "status": "fail",
+      "error": "Unable to find story variable for Inverse\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse-accent",
+      "status": "fail",
+      "error": "Unable to find story variable for InverseAccent\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--position-icon",
+      "status": "fail",
+      "error": "Unable to find story variable for PositionIcon\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--sizes",
+      "status": "fail",
+      "error": "Unable to find story variable for Sizes\n"
+    },
+    {
+      "story_id": "components-menu-menuitem--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-menuitemcheckbox--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-menuitemimage--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--checked",
+      "status": "fail",
+      "error": "Unable to find story variable for Checked\n"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-submenu--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-title--font-weights",
+      "status": "fail",
+      "error": "Unable to find story variable for FontWeights\n"
+    },
+    {
+      "story_id": "components-title--variants",
+      "status": "fail",
+      "error": "Unable to find story variable for Variants\n"
+    },
+    {
+      "story_id": "components-typography--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-typography--font-weights",
+      "status": "fail",
+      "error": "Unable to find story variable for FontWeights\n"
+    },
+    {
+      "story_id": "components-typography--text-direction",
+      "status": "fail",
+      "error": "Unable to find story variable for TextDirection\n"
+    },
+    {
+      "story_id": "components-typography--variants",
+      "status": "fail",
+      "error": "Unable to find story variable for Variants\n"
+    }
+  ],
+  "results": [
+    {
+      "story_id": "components-accordion--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-accordion--medium-accordion-with-slots",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-accordion--small-accordion",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-accordion-item--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--async-search",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--async-search-error",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--async-search-multiple",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--chips-outside",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--free-solo",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--multiple",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-description",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-description-multiple",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option-custom-layout",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-render-option-multiple",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-tooltips",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-autocomplete--with-tooltips-multiple",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar--all-sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar--text-overflow",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar--with-default-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar--with-initials",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar--with-label",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-two-items",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-counter",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-avatar-avatargroup--avatar-group-without-counter",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-banner--custom-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-banner--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-banner--global",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-banner--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-banner--with-close-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-banner--with-contents",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--collapsed",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--custom-max-width",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--ellipsis-truncation",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--not-collapsed",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--one-item-on-each-side",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--two-items-on-each-side",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb--wrap-vs-no-wrap",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-breadcrumb-item--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-button--button-link",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--overview-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--primary",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--primary-destruct",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--primary-neutral",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--secondary",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--secondary-destruct",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--secondary-neutral",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--tertiary",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--tertiary-destruct",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-button--tertiary-neutral",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--primary",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--primary-destruct",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--primary-neutral",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--secondary",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--secondary-destruct",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--secondary-neutral",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--tertiary",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--tertiary-destruct",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-buttonicon--tertiary-neutral",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-calendar--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-calendar--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-calendar--range-selection",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-calendar--with-date-constraints",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--card-custom-number",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--card-custom-picto",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--card-image",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--card-image-clickable",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--card-imageshow-full-content",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--card-video",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--learning-module",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--list-center-content-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--list-date-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--list-density-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--list-image-ratio-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--list-image-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card--list-picto-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-card-action--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group",
+      "status": "fail",
+      "error": "Unable to find story variable for CardGridsGroup\n"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group-picto",
+      "status": "fail",
+      "error": "Unable to find story variable for CardGridsGroupPicto\n"
+    },
+    {
+      "story_id": "components-card-content--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-date--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-footer--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-media--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-mediacustom--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-card-sections--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-carousel--carousel-one-item-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-carousel--carousel-with-card-group",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-carousel--carousel-with-image",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-carousel--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-carousel--rtl-carousel",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-cascadingmenu--example",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-cascadingmenu-item--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox--color-variations",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox--with-link",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox--with-subtext",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--horizontal",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--neutral-color",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--small-size",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkbox-checkboxgroup--vertical",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkboxtree--collapsible",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkboxtree--color-variations",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkboxtree--deeply-nested",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-checkboxtree--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--active",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--clickable",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--deletable",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--icon-and-deletable",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chip-deprecated--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--disabled-items-and-icons",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--multi-select",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--real-world-admin-vs-readonly",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-controlled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--with-chip-status-inherit-multi-select",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipdropdown--with-render-item",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipfilter--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipfilter--list-with-removal",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipfilter--long-label",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipfilter--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chiplist-deprecated--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipselect--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipselect--long-label",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipselect--style-variations",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipstatus--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipstatus--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipstatus--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-chipstatus--style-gallery",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-container--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-container--fixed",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-container--fluid",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--interactive",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--interactive-disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--interactive-selected",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--interactive-with-decorative-button",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--padding-sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--selectable-list",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--selectable-radio-list",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-contentblock--with-link",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--disabled-range",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-clearable",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-partial-range",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-footer",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-prefilled-range",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--medium-size",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--month-picker",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--quarter-picker",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--range",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--range-empty",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--range-partial",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--range-with-error",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--range-with-footer",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--with-clearable",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--with-error",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--with-footer",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--with-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--with-min-and-max-dates",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--year-picker",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-datepicker--year-picker-with-footer",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-divider--custom-width",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-divider--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-divider--inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-divider--orientation",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-divider--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--bottom-side",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--custom-content-height",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--custom-drawer-width",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--end-side",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--non-dismissible",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--start-side",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-drawer--top-side",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-fileuploader--controlled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-fileuploader--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-fileuploader--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-fileuploader--multiple-files",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-fileuploader--preloaded-files",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-flex--align-content",
+      "status": "fail",
+      "error": "Unable to find story variable for AlignContent\n"
+    },
+    {
+      "story_id": "components-flex--as-child-list",
+      "status": "fail",
+      "error": "Unable to find story variable for AsChildList\n"
+    },
+    {
+      "story_id": "components-flex--column-stack",
+      "status": "fail",
+      "error": "Unable to find story variable for ColumnStack\n"
+    },
+    {
+      "story_id": "components-flex--flex-shorthand",
+      "status": "fail",
+      "error": "Unable to find story variable for FlexShorthand\n"
+    },
+    {
+      "story_id": "components-flex--horizontal-flow",
+      "status": "fail",
+      "error": "Unable to find story variable for HorizontalFlow\n"
+    },
+    {
+      "story_id": "components-flex--justify-distribution",
+      "status": "fail",
+      "error": "Unable to find story variable for JustifyDistribution\n"
+    },
+    {
+      "story_id": "components-flex--wrapping-grid",
+      "status": "fail",
+      "error": "Unable to find story variable for WrappingGrid\n"
+    },
+    {
+      "story_id": "components-footer--custom-product-logo",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-footer--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-footer--simple",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-footer-bottom--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-footer-footersociallink--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-footer-top--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-grid--desktop",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-grid--large-mobile",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-grid--mobile",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-grid--tablet",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--content-after-hero",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--full-screen",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--full-screen-with-navigation-header",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--full-screen-with-video",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--justify-center",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--justify-end",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--overlay-black-style",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--overlay-white-style",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--responsive-images-with-picture",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--variant-compact",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--variant-dynamic",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--with-video",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-hero--with-video-hls",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-icon--custom-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-icon--fallback-icons",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-icon--gallery",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-image--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-image--overview",
+      "status": "fail",
+      "error": "Unable to find story variable for Overview\n"
+    },
+    {
+      "story_id": "components-isi-tray--isi",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-content-and-indication",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-isi-tray--isi-with-indication",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-link--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-link--inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-link--position-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-link--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-link-linkstandalone--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse",
+      "status": "fail",
+      "error": "Unable to find story variable for Inverse\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse-accent",
+      "status": "fail",
+      "error": "Unable to find story variable for InverseAccent\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--position-icon",
+      "status": "fail",
+      "error": "Unable to find story variable for PositionIcon\n"
+    },
+    {
+      "story_id": "components-link-linkstandalone--sizes",
+      "status": "fail",
+      "error": "Unable to find story variable for Sizes\n"
+    },
+    {
+      "story_id": "components-loadingspinner--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-loadingspinner--sanofi-dot",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-megamenu--example",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-megamenu--fitted-content-mega-menu",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-megamenu--nav-header-custom-placement",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-megamenu-item--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-megamenu-title--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-megamenu-trigger--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--checkbox",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--context-menu",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--image",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--selected",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--with-scroll",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--with-sections",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu--with-sub-menus",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-menu-menuitem--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-menuitemcheckbox--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-menuitemimage--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--checked",
+      "status": "fail",
+      "error": "Unable to find story variable for Checked\n"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-menu-submenu--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-modal--customisation",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-modal--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-modal--non-dismissible-modal",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-modal--with-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--contained-nav-header",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--double-navigation",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--full-width-nav-header",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--mobile-view",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--sanofi-example",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--with-auto-overflow",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--with-dropdown-menu",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader--with-sub-header",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader-item--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader-root--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--custom-overflow-label",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-navigationheader-startcontent--with-auto-overflow",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pageheader--container-type-fixed",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pageheader--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pageheader--title-custom",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--compact",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--compact-with-first-and-last-buttons",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--compact-with-input",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--compact-with-input-and-first-last-buttons",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--controlled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-pagination--mobile",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressbar--all-densities",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressbar--all-sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressbar--all-states",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressbar--custom-value-text",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressbar--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--interactive",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--many-steps",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--with-initial-step",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-progressstepper-progresssteppernav--without-descriptions",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio--color-variations",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio--with-link",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio--with-subtext",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio-radiogroup--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio-radiogroup--horizontal-radios-with-error",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-radio-radiogroup--with-error",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--error-state",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--submit-variant",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--submit-variant-sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--submit-with-button-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-searchinput--submit-with-custom-buttons",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-select--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-select--right-to-left",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-select--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--collapsed",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--expanded",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible-controlled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--sticky-behavior",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-sidebar--without-header",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--range",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--with-bottom-legend",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--with-custom-scale",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--with-label",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-slider--with-legend",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-switch--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-switch--default-checked",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-switch--inline",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-switch-switchgroup--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--controlled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--default-selected-tab",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--full-width",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--lazy-mount",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--lazy-mount-with-unmount",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--uncontrolled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--with-nav",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tabs--with-nav-in-resizable-panel",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--categorical",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--semantic",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--variants",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tag--with-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--error-state",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--no-counter",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--overview",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--overview-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--success",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textarea--with-tooltip",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--default-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--disabled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--disabled-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--error-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--error-state",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--filled",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--filled-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--sizes",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--success-inverse",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--success-state",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--type-email",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--type-password",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--type-tel",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-textinput--with-tooltip",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-themeprovider--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-title--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-title--font-weights",
+      "status": "fail",
+      "error": "Unable to find story variable for FontWeights\n"
+    },
+    {
+      "story_id": "components-title--variants",
+      "status": "fail",
+      "error": "Unable to find story variable for Variants\n"
+    },
+    {
+      "story_id": "components-toast--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-toast--dual-action",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-toast--example",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-toast--single-action",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-toast--toast-statuses",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-toast--toast-with-buttons",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--auto-placement",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--inline",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--max-width",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--overflowing",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--placement",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--with-icon",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-tooltip--within-list",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--color-accent",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--custom-leading-visuals",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--decorations",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--file-explorer",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--inside-sidebar",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--playground",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview--rtl",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview-subcomponents-item--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview-subcomponents-leadingvisual--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview-subcomponents-subtree--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-treeview-subcomponents-trailingvisual--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-typography--default",
+      "status": "fail",
+      "error": "Unable to find story variable for Default\n"
+    },
+    {
+      "story_id": "components-typography--font-weights",
+      "status": "fail",
+      "error": "Unable to find story variable for FontWeights\n"
+    },
+    {
+      "story_id": "components-typography--text-direction",
+      "status": "fail",
+      "error": "Unable to find story variable for TextDirection\n"
+    },
+    {
+      "story_id": "components-typography--variants",
+      "status": "fail",
+      "error": "Unable to find story variable for Variants\n"
+    },
+    {
+      "story_id": "components-video-thumbnail--default",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--disabled-status",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--mp-4-video-tracking",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--no-embedded-player",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--no-title",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--sanofi-video",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--streaming-video",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video-tracking",
+      "status": "pass"
+    },
+    {
+      "story_id": "components-video-thumbnail--youtube-video-tracking",
+      "status": "pass"
+    }
+  ]
+}

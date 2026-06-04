@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "id": "permission-admin",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "permission-admin",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "assign-and-review-access",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "table-usage",
+    "form-usage",
+    "interaction-state-standards",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-table",
+    "business-form"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "principal-selector",
+      "permission-matrix",
+      "change-summary",
+      "sticky-save-bar"
+    ],
+    "forbidden_sections": [
+      "public-user-table",
+      "marketing-hero"
+    ],
+    "required_attrs": [
+      "data-page-family=\"permission-admin\"",
+      "data-business-task=\"assign-and-review-access\""
+    ]
+  },
+  "state_requirements": [
+    "dirty-form",
+    "permission-denied",
+    "readonly",
+    "saving",
+    "saved"
+  ]
+}

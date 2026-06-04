@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-menu-item-checkbox",
+  "title": "Menu/MenuItemCheckbox primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Menu/MenuItemCheckbox.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "menu-menu-item-checkbox",
+  "docs_id": "components-menu-menuitemcheckbox--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemcheckbox--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-menu-item-checkbox",
+      "Menu/MenuItemCheckbox",
+      "Menu/Menu Item Checkbox"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Menu/MenuItemCheckbox primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

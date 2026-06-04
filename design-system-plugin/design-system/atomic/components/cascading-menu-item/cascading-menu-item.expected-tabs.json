@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "cascading-menu-item",
+  "component_name": "CascadingMenu/Item",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/CascadingMenu/Item"
+  },
+  "docs": [
+    {
+      "id": "components-cascadingmenu-item--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/NavigationHeader/CascadingMenu/Item/Item.stories.tsx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-cascadingmenu-item--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/NavigationHeader/CascadingMenu/Item/Item.stories.tsx"
+    }
+  ]
+}

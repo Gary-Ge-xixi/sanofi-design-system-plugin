@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "id": "avatar-docs-contract",
+  "component_id": "avatar",
+  "component_name": "Avatar",
+  "docs_id": "components-avatar--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "size",
+        "required": false,
+        "description": "Size variant of the avatar.\"x-small\"\"small\"\"medium\"\"large\"\"x-large\"\"xx-large\"",
+        "default": "\"AvatarSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isDescriptionVisible",
+        "required": false,
+        "description": "Shows the label text below the avatar.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isNameVisible",
+        "required": false,
+        "description": "Shows the name text next to the avatar.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Avatar } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Avatar\n  image=\"https://cdn.prod.accelerator.sanofi/elements/images/Marie-Curie-avatar.jpeg\"\n  name=\"Marie Curie\" />\n  onClick={(e) => {\n\talert('Avatar clicked');\n\tconsole.log(e);\n}}\n);",
+      "import { Avatar } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Avatar name=\"Marie Curie\" />\n);",
+      "import { Avatar } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Avatar />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-avatar--all-sizes",
+      "name": "All Sizes",
+      "export_name": "AllSizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--text-overflow",
+      "name": "Text Overflow",
+      "export_name": "TextOverflow",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--with-default-icon",
+      "name": "With Default Icon",
+      "export_name": "WithDefaultIcon",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--with-initials",
+      "name": "With Initials",
+      "export_name": "WithInitials",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    },
+    {
+      "id": "components-avatar--with-label",
+      "name": "With Label",
+      "export_name": "WithLabel",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Avatar/Avatar.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-avatar--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar.contract.json"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Switch",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-switch--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-switch--default-checked",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-switch--inline",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

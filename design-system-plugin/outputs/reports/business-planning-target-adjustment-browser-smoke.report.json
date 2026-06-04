@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "business-planning-target-adjustment-browser-smoke",
+  "target": "design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html",
+  "screenshot": "design-system-plugin/outputs/reports/business-planning-target-adjustment-1920x1080.png",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "before": {
+    "label": "before-main-scroll",
+    "bodyOverflow": "hidden",
+    "bodyBlockSize": "1080px",
+    "documentScrollTop": 0,
+    "mainOverflowY": "auto",
+    "mainScrollTop": 0,
+    "mainScrollable": true,
+    "topbar": {
+      "top": 0,
+      "left": 0,
+      "right": 1920,
+      "bottom": 80,
+      "width": 1920,
+      "height": 80
+    },
+    "sidebar": {
+      "top": 80,
+      "left": 0,
+      "right": 288,
+      "bottom": 1080,
+      "width": 288,
+      "height": 1000
+    },
+    "main": {
+      "top": 80,
+      "left": 288,
+      "right": 1920,
+      "bottom": 1080,
+      "width": 1632,
+      "height": 1000
+    },
+    "actionBar": {
+      "top": 986,
+      "left": 312,
+      "right": 1896,
+      "bottom": 1064,
+      "width": 1584,
+      "height": 78
+    },
+    "activeTabText": "机构目标",
+    "tableColumns": 10,
+    "editableInputs": 8,
+    "visibleNativeSelects": 0,
+    "actionBarVisible": true
+  },
+  "after": {
+    "label": "after-main-scroll",
+    "bodyOverflow": "hidden",
+    "bodyBlockSize": "1080px",
+    "documentScrollTop": 0,
+    "mainOverflowY": "auto",
+    "mainScrollTop": 26,
+    "mainScrollable": true,
+    "topbar": {
+      "top": 0,
+      "left": 0,
+      "right": 1920,
+      "bottom": 80,
+      "width": 1920,
+      "height": 80
+    },
+    "sidebar": {
+      "top": 80,
+      "left": 0,
+      "right": 288,
+      "bottom": 1080,
+      "width": 288,
+      "height": 1000
+    },
+    "main": {
+      "top": 80,
+      "left": 288,
+      "right": 1920,
+      "bottom": 1080,
+      "width": 1632,
+      "height": 1000
+    },
+    "actionBar": {
+      "top": 986,
+      "left": 312,
+      "right": 1896,
+      "bottom": 1064,
+      "width": 1584,
+      "height": 78
+    },
+    "activeTabText": "机构目标",
+    "tableColumns": 10,
+    "editableInputs": 8,
+    "visibleNativeSelects": 0,
+    "actionBarVisible": true
+  },
+  "checks": {
+    "body_locked": true,
+    "document_not_scrolled": true,
+    "main_owns_scroll": true,
+    "topbar_fixed": true,
+    "sidebar_visible": true,
+    "action_bar_visible_after_scroll": true,
+    "active_tab_institution": true,
+    "table_columns_ok": true,
+    "editable_inputs_ok": true,
+    "no_visible_native_select": true
+  },
+  "failures": []
+}

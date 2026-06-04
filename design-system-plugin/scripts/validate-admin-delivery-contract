@@ -1,0 +1,143 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-dashboard.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulesPath = path.join(pluginRoot, "design-system", "rules", "admin-delivery-contract.json");
+const resolutionPath = path.join(pluginRoot, "design-system", "contracts", "resolvers", "latest-resolution.json");
+const brandAssetPath = path.join(pluginRoot, "design-system", "assets", "brand", "sanofi-logo-full.svg");
+const reportPath = path.join(reportDir, "admin-delivery-contract.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function countMatches(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function includesAny(source, values) {
+  return values.filter((value) => source.includes(value));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing HTML target: ${target}`);
+if (!fs.existsSync(rulesPath)) failures.push("missing admin delivery contract rule");
+if (!fs.existsSync(brandAssetPath)) failures.push("missing Sanofi brand asset file");
+
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const brandAssetSvg = fs.existsSync(brandAssetPath) ? fs.readFileSync(brandAssetPath, "utf8") : "";
+const rules = fs.existsSync(rulesPath) ? readJson(rulesPath) : { delivery_contract: {} };
+const resolution = fs.existsSync(resolutionPath) ? readJson(resolutionPath) : {};
+const contract = rules.delivery_contract || {};
+const htmlIsDashboard = /data-pattern=["']admin-dashboard["']/.test(html) || /data-page-pattern=["']admin-dashboard["']/.test(html);
+const resolutionIsDashboard = resolution.pattern_id === "admin-dashboard";
+const applicable = htmlIsDashboard || resolutionIsDashboard;
+const containerRootRefs = countMatches(html, /data-container-part=["']root["']/g);
+const containerContentRefs = countMatches(html, /data-container-part=["']contentContainer["']/g);
+const gridRootRefs = countMatches(html, /data-grid-part=["']root["']/g);
+const gridItemRefs = countMatches(html, /data-grid-part=["']item["']/g);
+const unconstrainedContainerRefs = countMatches(html, /\.container\s*\{[^}]*max-inline-size:\s*none/gi);
+const brandAssetRefs = countMatches(html, /data-brand-asset-id=["']sanofi-logo-full["']/g);
+const textLogoRefs = countMatches(html, /<(?:span|div)\b[^>]*class=["'][^"']*\bbrand-word\b/i);
+
+if (applicable) {
+  if (resolutionIsDashboard && resolution.delivery_contract?.viewport_policy !== "desktop-only") {
+    failures.push("admin-dashboard resolution must carry desktop-only delivery contract");
+  }
+
+  for (const marker of contract.required_html_markers || []) {
+    if (!html.includes(marker)) failures.push(`missing delivery contract marker: ${marker}`);
+  }
+
+  const forbiddenResponsiveFragments = includesAny(html, contract.forbidden_responsive_fragments || []);
+  if (forbiddenResponsiveFragments.length) {
+    failures.push(`forbidden responsive fragments: ${[...new Set(forbiddenResponsiveFragments)].join(", ")}`);
+  }
+
+  const forbiddenStoryIds = includesAny(html, contract.forbidden_story_ids || []);
+  if (forbiddenStoryIds.length) {
+    failures.push(`forbidden mobile story refs: ${[...new Set(forbiddenStoryIds)].join(", ")}`);
+  }
+
+  const sidebarHiddenBreakpoints =
+    /\.(?:template-)?sidebar\b[^{}]*\{[^}]*display:\s*none/i.test(html) ||
+    /@media[\s\S]*\.(?:template-)?sidebar\b[\s\S]*display:\s*none/i.test(html);
+  if (sidebarHiddenBreakpoints) failures.push("sidebar must not be hidden by breakpoint CSS");
+
+  const glyphFallbacks = includesAny(html, contract.forbidden_glyph_fallbacks || []);
+  if (glyphFallbacks.length) {
+    failures.push(`forbidden icon glyph fallbacks: ${[...new Set(glyphFallbacks)].join(", ")}`);
+  }
+
+  const iconPrimitiveRefs = countMatches(html, /data-primitive=["']icon["']/g);
+  const iconStoryRefs = countMatches(html, /data-story-id=["']components-icon--gallery["']/g);
+  if (!iconPrimitiveRefs) failures.push("visible icon assets must use Icon primitive provenance");
+  if (!iconStoryRefs) failures.push("visible icon assets must use components-icon--gallery story provenance");
+  if (!containerRootRefs || !containerContentRefs) {
+    failures.push("admin-dashboard must preserve Container root/contentContainer component structure");
+  }
+  if (!brandAssetRefs) {
+    failures.push("admin-dashboard top-left Sanofi logo must use fixed Brand Asset package");
+  }
+  if (!/id=["']Sanofi logo["']/i.test(brandAssetSvg) || !/width=["']94["'][^>]*height=["']24["']/i.test(brandAssetSvg)) {
+    failures.push("fixed brand asset file must be the official Sanofi 94x24 SVG logo");
+  }
+  if (/zeroheight/i.test(brandAssetSvg)) {
+    failures.push("fixed brand asset file must not be the Zeroheight shell logo");
+  }
+  if (textLogoRefs) {
+    failures.push("admin-dashboard must not recreate Sanofi logo with text/CSS brand-word markup");
+  }
+  if (!gridRootRefs || gridItemRefs < 6) {
+    failures.push("admin-dashboard must preserve Grid.Root and Grid.Item component structure for dashboard modules");
+  }
+  if (unconstrainedContainerRefs) {
+    failures.push("admin-dashboard Container must not use max-inline-size: none");
+  }
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-admin-delivery-contract",
+  target: path.relative(pluginRoot, target),
+  rule: rules.id || "admin-delivery-contract",
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    applicable,
+    html_is_dashboard: htmlIsDashboard,
+    resolution_is_dashboard: resolutionIsDashboard,
+    viewport_policy: resolution.delivery_contract?.viewport_policy || "none",
+    icon_primitive_refs: countMatches(html, /data-primitive=["']icon["']/g),
+    icon_story_refs: countMatches(html, /data-story-id=["']components-icon--gallery["']/g),
+    responsive_fragments: countMatches(html, /@media|max-width|min-width/g),
+    mobile_story_refs: countMatches(html, /components-grid--large-mobile|components-grid--mobile|components-navigationheader--mobile-view/g),
+    glyph_fallbacks: includesAny(html, contract.forbidden_glyph_fallbacks || []).length,
+    container_root_refs: containerRootRefs,
+    container_content_refs: containerContentRefs,
+    brand_asset_refs: brandAssetRefs,
+    brand_asset_file: path.relative(pluginRoot, brandAssetPath),
+    brand_asset_is_sanofi_svg: /id=["']Sanofi logo["']/i.test(brandAssetSvg),
+    brand_asset_intrinsic_94x24: /width=["']94["'][^>]*height=["']24["']/i.test(brandAssetSvg),
+    brand_asset_zeroheight_refs: countMatches(brandAssetSvg, /zeroheight/gi),
+    text_logo_refs: textLogoRefs,
+    grid_root_refs: gridRootRefs,
+    grid_item_refs: gridItemRefs,
+    unconstrained_container_refs: unconstrainedContainerRefs
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+
+if (failures.length) {
+  console.error(`Admin delivery contract validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Admin delivery contract OK: ${path.relative(pluginRoot, target)}`);

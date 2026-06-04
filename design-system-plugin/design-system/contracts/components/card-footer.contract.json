@@ -1,0 +1,147 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-footer",
+  "canonical_name": "card-footer",
+  "component_name": "Card/Footer",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-card-footer--docs",
+    "title": "Card/Footer",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-footer--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-footer--docs",
+    "import_path": "./src/components/Card/CardFooter.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-card-footer--default"
+    ],
+    "records": [
+      {
+        "id": "components-card-footer--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Card/CardFooter.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "firstContent",
+        "required": false,
+        "description": "Left-aligned content (e.g., price, metadata)ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "secondContent",
+        "required": false,
+        "description": "Right-aligned content (e.g., action button)ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isCentered",
+        "required": false,
+        "description": "Centers both content slotsboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "card-footer",
+      "footer"
+    ],
+    "contracts": [
+      {
+        "id": "card-footer",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/card-footer/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/card-footer/demo.registry.json",
+        "known_story_ids": [
+          "components-card-footer--default",
+          "components-card-footer--default"
+        ]
+      },
+      {
+        "id": "footer",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/footer/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/footer/demo.registry.json",
+        "known_story_ids": [
+          "components-footer--custom-product-logo",
+          "components-footer--default",
+          "components-footer--simple",
+          "components-footer--custom-product-logo",
+          "components-footer--default",
+          "components-footer--simple"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-footer--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-card-footer--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-footer--docs.md",
+    "docs_import_path": "./src/components/Card/CardFooter.stories.tsx",
+    "story_ids": [
+      "components-card-footer--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

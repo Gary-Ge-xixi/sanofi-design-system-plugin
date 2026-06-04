@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Switch",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/Switch",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "switch",
+      "data_attribute": "data-primitive=\"switch\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-switch--default",
+      "components-switch--default-checked",
+      "components-switch--inline"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-switch--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer-docs-contract",
+  "component_id": "footer",
+  "component_name": "Footer",
+  "docs_id": "components-footer--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "withBackToTop",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS classstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Footer contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Footer, Button, ButtonVariant, ButtonSize, IconName, IconPosition, createToast, Toast, ToastOptions } from \"@sanofi-accelerator/elements\";\n\nconst notify = (args: ToastOptions) => {\n  createToast({\n    title: \"The backToTop props is called.\",\n    text: \"The backToTop props is called.\",\n    variant: ToastVariant.SUCCESS,\n    displayCloseButton: true,\n    position: ToastPosition.TOP_END,\n    ...args,\n  });\n};\n\n  const Component = () => (\n    <>\n      <Toast />\n      <Footer>\n        <Footer.Top\n          brandLogo={{\n            src: \"https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg\",\n            alt: \"sanofi_logo\",\n            title: \"Sanofi\",\n          }}\n          additionalInformation=\"This is a placeholder for additional informations.\"\n          socialLinks={\n            <>\n              <Footer.SocialLink platform=\"instagram\" href=\"https://www.instagram.com/\" />\n              <Footer.SocialLink platform=\"linkedIn\" href=\"https://www.linkedin.com/\" />\n              <Footer.SocialLink platform=\"x\" href=\"https://www.twitter.com/\" />\n              <Footer.SocialLink platform=\"tikTok\" href=\"https://www.tiktok.com/\" />\n              <Footer.SocialLink platform=\"youTube\" href=\"https://www.youtube.com/\" />\n              <Footer.SocialLink platform=\"facebook\" href=\"https://www.facebook.com/\" />\n            </>\n          }\n          backToTop={\n            <Button\n              label=\"Back to top\"\n              variant={ButtonVariant.TERTIARY}\n              icon={IconName.ARROW_UPWARD}\n              iconPosition={IconPosition.END}\n              onClick={() => notify({ ...args })}\n              inverse\n            />\n          }\n        >\n          <Footer.Column>\n            <Footer.TitleLink href=\"#\">Category 1</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n          <Footer.Column>\n            <Footer.TitleLink>Category 2</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n          <Footer.Column>\n            <Footer.TitleLink>Category 3</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n          <Footer.Column>\n            <Footer.TitleLink>Category 4</Footer.TitleLink>\n            <Footer.Link href=\"#\">Link 1</Footer.Link>\n            <Footer.Link href=\"#\">Link 2</Footer.Link>\n            <Footer.Link href=\"#\">Link 3</Footer.Link>\n            <Footer.Link href=\"#\">Link 4</Footer.Link>\n            <Footer.Link href=\"#\">Link 5</Footer.Link>\n          </Footer.Column>\n        </Footer.Top>\n        <Footer.Bottom legalMention={legalMention}>\n          <Footer.BottomLink href=\"#\">Site Map</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Legal Notice</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Cookies Policy</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Privacy & Data Protection</Footer.BottomLink>\n          <Footer.BottomLink href=\"#\">Accessibility</Footer.BottomLink>\n        </Footer.Bottom>\n      </Footer>\n    </>\n  );"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-footer--custom-product-logo",
+      "name": "Custom Product Logo",
+      "export_name": "CustomProductLogo",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Footer.stories.tsx"
+    },
+    {
+      "id": "components-footer--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Footer.stories.tsx"
+    },
+    {
+      "id": "components-footer--simple",
+      "name": "Simple",
+      "export_name": "Simple",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Footer/Footer.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-footer--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/footer.contract.json"
+  }
+}

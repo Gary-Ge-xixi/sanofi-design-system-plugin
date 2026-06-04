@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0",
+  "id": "business-interaction-state-standard",
+  "status": "ready",
+  "purpose": "Required interaction states for generated business pages.",
+  "states": [
+    {
+      "id": "loading",
+      "required_ui": ["loading indicator", "preserved layout slot"],
+      "copy_key": "loading"
+    },
+    {
+      "id": "empty",
+      "required_ui": ["empty message", "recovery action when available"],
+      "copy_key": "empty"
+    },
+    {
+      "id": "error",
+      "required_ui": ["error message", "retry or contact action"],
+      "copy_key": "error"
+    },
+    {
+      "id": "readonly",
+      "required_ui": ["readonly values", "readonly reason"],
+      "copy_key": "readonly"
+    },
+    {
+      "id": "disabled",
+      "required_ui": ["disabled control", "accessible disabled state"],
+      "copy_key": "validation_error"
+    },
+    {
+      "id": "permission-denied",
+      "required_ui": ["permission message", "visible context"],
+      "copy_key": "permission_denied"
+    },
+    {
+      "id": "dirty-form",
+      "required_ui": ["dirty indicator", "save/discard affordance"],
+      "copy_key": "saving"
+    },
+    {
+      "id": "sticky-save-bar",
+      "required_ui": ["sticky action region", "non-overlap with final content"],
+      "copy_key": "save"
+    },
+    {
+      "id": "partial-failed",
+      "required_ui": ["success count", "failure count", "download error rows"],
+      "copy_key": "partial_success"
+    }
+  ],
+  "html_contract": {
+    "required_markers": [
+      "data-interaction-state",
+      "data-state-copy-key"
+    ],
+    "forbidden_patterns": [
+      "display:none for permission-only hidden data",
+      "silent disabled action without reason"
+    ]
+  }
+}

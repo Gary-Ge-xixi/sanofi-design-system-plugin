@@ -1,0 +1,277 @@
+{
+  "schema_version": "0.1.0",
+  "id": "file-uploader",
+  "canonical_name": "file-uploader",
+  "component_name": "FileUploader",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-fileuploader--docs",
+    "title": "FileUploader",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-fileuploader--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-fileuploader--docs",
+    "import_path": "./src/components/FileUploader/FileUploader.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 5,
+    "story_ids": [
+      "components-fileuploader--controlled",
+      "components-fileuploader--default",
+      "components-fileuploader--disabled",
+      "components-fileuploader--multiple-files",
+      "components-fileuploader--preloaded-files"
+    ],
+    "records": [
+      {
+        "id": "components-fileuploader--controlled",
+        "name": "Controlled",
+        "normalized_name": "controlled",
+        "import_path": "./src/components/FileUploader/FileUploader.stories.tsx",
+        "export_name": "Controlled"
+      },
+      {
+        "id": "components-fileuploader--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/FileUploader/FileUploader.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-fileuploader--disabled",
+        "name": "Disabled",
+        "normalized_name": "disabled",
+        "import_path": "./src/components/FileUploader/FileUploader.stories.tsx",
+        "export_name": "Disabled"
+      },
+      {
+        "id": "components-fileuploader--multiple-files",
+        "name": "Multiple Files",
+        "normalized_name": "multiple-files",
+        "import_path": "./src/components/FileUploader/FileUploader.stories.tsx",
+        "export_name": "MultipleFiles"
+      },
+      {
+        "id": "components-fileuploader--preloaded-files",
+        "name": "Preloaded Files",
+        "normalized_name": "preloaded-files",
+        "import_path": "./src/components/FileUploader/FileUploader.stories.tsx",
+        "export_name": "PreloadedFiles"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "id",
+        "required": false,
+        "description": "Unique identifier for the file uploader.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label for the file uploaderstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "accept",
+        "required": false,
+        "description": "Accepted file types (e.g., '.xlsx,.pdf')string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxSize",
+        "required": false,
+        "description": "Maximum file size in MBnumber",
+        "default": "50",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxFiles",
+        "required": false,
+        "description": "Maximum number of files allowednumber",
+        "default": "3",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "multiple",
+        "required": false,
+        "description": "Allow multiple file selectionboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "dropZoneHeight",
+        "required": false,
+        "description": "Custom height for the drop zone (e.g., \"200px\", \"12rem\")string",
+        "default": "\"\\\"10.75rem\\\" (172px)\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "files",
+        "required": false,
+        "description": "Currently uploaded files (controlled component)UploadedFile[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onFilesChange",
+        "required": false,
+        "description": "Callback when files are added or removed((files: UploadedFile[]) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onFileRemove",
+        "required": false,
+        "description": "Callback when a file is removed((fileId: string) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onError",
+        "required": false,
+        "description": "Callback when an error occurs((error: FileUploadError) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "state",
+        "required": false,
+        "description": "Form control state\"success\"\"error\"\"default\"",
+        "default": "default",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "Whether the component is disabledboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "required",
+        "required": false,
+        "description": "Whether the field is requiredboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Brand theme\"primary\"\"secondary\"\"tertiary\"",
+        "default": "primary",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom class names for different parts of the component{ wrapper?: string; dropZone?: string; fileList?: string \\",
+        "default": "undefined; } \\",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "controlled",
+      "default",
+      "disabled",
+      "multiple-files",
+      "preloaded-files"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "controlled",
+      "default",
+      "disabled",
+      "multiple-files",
+      "preloaded-files"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { FileUploader } from '@sanofi-accelerator/elements';\n\nfunction MyComponent() {\n  return (\n    <FileUploader\n      label=\"Upload your documents\"\n      accept=\".pdf,.xlsx,.jpg,.png\"\n      maxSize={50}\n      maxFiles={3}\n      multiple\n    />\n  );\n}",
+      "<FileUploader\n  label=\"Upload files\"\n  onFilesChange={(files) => console.log('Files changed:', files)}\n  onFileRemove={(fileId) => console.log('File removed:', fileId)}\n/>",
+      "const [files, setFiles] = useState<UploadedFile[]>([]);\n\n<FileUploader\n  label=\"Upload files\"\n  files={files}\n  onFilesChange={setFiles}\n/>"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "file-uploader"
+    ],
+    "contracts": [
+      {
+        "id": "file-uploader",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/file-uploader/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/file-uploader/demo.registry.json",
+        "known_story_ids": [
+          "components-fileuploader--controlled",
+          "components-fileuploader--default",
+          "components-fileuploader--disabled",
+          "components-fileuploader--multiple-files",
+          "components-fileuploader--preloaded-files",
+          "components-fileuploader--controlled",
+          "components-fileuploader--default",
+          "components-fileuploader--disabled",
+          "components-fileuploader--multiple-files",
+          "components-fileuploader--preloaded-files"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-fileuploader--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-fileuploader--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-fileuploader--docs.md",
+    "docs_import_path": "./src/components/FileUploader/FileUploader.mdx",
+    "story_ids": [
+      "components-fileuploader--controlled",
+      "components-fileuploader--default",
+      "components-fileuploader--disabled",
+      "components-fileuploader--multiple-files",
+      "components-fileuploader--preloaded-files"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

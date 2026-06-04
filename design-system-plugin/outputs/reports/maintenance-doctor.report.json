@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds doctor",
+  "status": "pass",
+  "generated_at": "2026-06-04T13:36:40.708Z",
+  "summary": {
+    "scripts": 67,
+    "registry_items": 623,
+    "docs": 111,
+    "stories": 429,
+    "component_contracts": 95,
+    "atomic_components": 93,
+    "completed_components": 93,
+    "rules": 37,
+    "reports": 262,
+    "report_status_counts": {
+      "pass": 165,
+      "ready_to_write_complete": 92,
+      "complete_existing": 1,
+      "unsupported": 2,
+      "blocked": 1,
+      "fail": 1
+    }
+  },
+  "file_checks": [
+    {
+      "path": "design-system/DESIGN.md",
+      "exists": true
+    },
+    {
+      "path": "design-system/registry/registry.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/tokens/tokens.css",
+      "exists": true
+    },
+    {
+      "path": "design-system/tokens/token-manifest.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/tokens/token-manifest.generated.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/contracts/components/component-contract-index.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/atomic/component-coverage-matrix.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/page-profiles/admin-data-entry-table.profile.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/reference-fit/admin-data-entry-table.rules.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/business/business-standards-index.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/reference-fit/business-page-family.rules.json",
+      "exists": true
+    },
+    {
+      "path": "design-system/policies/fallback-policy.json",
+      "exists": true
+    },
+    {
+      "path": "outputs/html/admin-query-panel.resolved.html",
+      "exists": true
+    }
+  ],
+  "failures": []
+}

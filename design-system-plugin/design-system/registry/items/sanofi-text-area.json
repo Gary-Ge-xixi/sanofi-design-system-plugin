@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-text-area",
+  "title": "TextArea primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for TextArea.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "text-area",
+  "docs_id": "components-textarea--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/text-area/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/text-area/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/text-area/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/text-area/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/text-area.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-textarea--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-textarea--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-textarea--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/text-area.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 9,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "text-area",
+      "TextArea",
+      "Text Area"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official TextArea primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

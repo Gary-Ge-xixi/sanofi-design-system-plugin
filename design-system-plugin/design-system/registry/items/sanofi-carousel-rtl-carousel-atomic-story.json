@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-carousel-rtl-carousel-atomic-story",
+  "title": "Carousel RTL Carousel atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-carousel--rtl-carousel.",
+  "atomic_story_id": "components-carousel--rtl-carousel",
+  "component_id": "carousel",
+  "docs_id": "components-carousel--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-carousel"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--rtl-carousel.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--rtl-carousel.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/assets/components-carousel--rtl-carousel.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/assets/components-carousel--rtl-carousel.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/carousel/templates/html.rtl-carousel.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/carousel/templates/html.rtl-carousel.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/carousel.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/carousel/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-carousel--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-carousel--docs",
+    "story_id": "components-carousel--rtl-carousel",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/carousel/stories/components-carousel--rtl-carousel.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/carousel/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-carousel--rtl-carousel&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-carousel--rtl-carousel&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Carousel.stories-CQj2BVpA.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/carousel/assets/Carousel.stories-CQj2BVpA.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/carousel.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/carousel/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "carousel",
+      "Carousel",
+      "RTL Carousel",
+      "components-carousel--rtl-carousel",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Carousel RTL Carousel Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

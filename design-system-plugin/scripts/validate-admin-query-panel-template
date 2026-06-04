@@ -1,0 +1,145 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "admin-query-panel.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const defaultResolution = path.join(pluginRoot, "design-system", "contracts", "resolvers", "admin-query-panel.resolution.json");
+const resolutionPath = process.argv[3]
+  ? path.resolve(process.cwd(), process.argv[3])
+  : defaultResolution;
+const rulesPath = path.join(pluginRoot, "design-system", "rules", "admin-query-panel-template.json");
+const reportPath = path.join(reportDir, "admin-query-panel-template.report.json");
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing HTML target: ${target}`);
+if (!fs.existsSync(resolutionPath)) failures.push(`missing admin query panel resolution: ${resolutionPath}`);
+
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+const resolution = fs.existsSync(resolutionPath) ? readJson(resolutionPath) : {};
+const rules = readJson(rulesPath);
+
+for (const marker of rules.html_contract.required_attributes || []) {
+  if (!html.includes(marker)) failures.push(`missing admin query panel marker: ${marker}`);
+}
+
+for (const marker of rules.html_contract.forbidden_markers || []) {
+  if (html.includes(marker)) failures.push(`forbidden admin query panel marker present: ${marker}`);
+}
+
+if (resolution.registry_item !== "sanofi-admin-query-panel") {
+  failures.push("resolution registry_item must be sanofi-admin-query-panel");
+}
+if (resolution.pattern_id !== "admin-query-panel") {
+  failures.push("resolution pattern_id must be admin-query-panel");
+}
+if (resolution.template_id !== "onecommercial-admin-query-panel") {
+  failures.push("resolution template_id must be onecommercial-admin-query-panel");
+}
+if (resolution.page_subtype !== "data-entry-table-page") {
+  failures.push("resolution page_subtype must be data-entry-table-page");
+}
+if (!resolution.execution_inputs?.template?.endsWith("onecommercial-admin-query-panel.template.json")) {
+  failures.push("resolution must record consumed OneCommercial template path");
+}
+if (!resolution.execution_inputs?.registry_item?.endsWith("sanofi-admin-query-panel.json")) {
+  failures.push("resolution must record consumed sanofi-admin-query-panel registry item");
+}
+
+const requiredSections = [
+  "query-toolbar",
+  "primary-actions",
+  "editable-data-table-fallback",
+  "pagination",
+  "save-bar"
+];
+for (const section of requiredSections) {
+  if (!html.includes(`data-section="${section}"`)) failures.push(`missing required section: ${section}`);
+}
+
+const requiredListMarkers = [
+  "data-list-kind=\"sidebar-navigation\"",
+  "data-list-kind=\"sidebar-sub-list\"",
+  "data-list-item-kind=\"parent-with-children\"",
+  "data-list-item-kind=\"child\"",
+  "data-menu-role=\"submenu-trigger\"",
+  "data-menu-role=\"item\"",
+  "data-menu-level=\"0\"",
+  "data-menu-level=\"1\"",
+  "data-table-list-role=\"fallback\"",
+  "data-story-id=\"components-sidebar--expanded\"",
+  "data-story-id=\"components-menu--with-sub-menus\"",
+  "data-story-id=\"components-menu-menuitem--default\""
+];
+for (const marker of requiredListMarkers) {
+  if (!html.includes(marker)) failures.push(`missing list/template marker: ${marker}`);
+}
+
+const requiredSelectMarkers = [
+  "class=\"select-shell\"",
+  "class=\"select-trigger\"",
+  "class=\"select-native\"",
+  "data-select-part=\"trigger\"",
+  "data-select-part=\"native\"",
+  "data-select-native=\"false\"",
+  "data-select-size=\"medium\"",
+  "data-select-label-position=\"top\"",
+  "role=\"combobox\"",
+  "aria-haspopup=\"listbox\"",
+  "data-story-id=\"components-select--default\""
+];
+for (const marker of requiredSelectMarkers) {
+  if (!html.includes(marker)) failures.push(`missing select framework marker: ${marker}`);
+}
+if (html.includes('data-select-size="large"')) {
+  failures.push('admin query panel Select default must be medium, not large');
+}
+
+const requiredPrimitives = [
+  "icon",
+  "select",
+  "button",
+  "text-input",
+  "pagination"
+];
+for (const primitive of requiredPrimitives) {
+  if (!html.includes(`data-primitive="${primitive}"`)) failures.push(`missing required primitive marker: ${primitive}`);
+}
+
+if (!html.includes("data-fallback-module=\"table\"")) failures.push("missing table fallback marker");
+if (!html.includes("<table")) failures.push("query panel must render native table fallback");
+if (!html.includes("CDC库存填报")) failures.push("query panel content must preserve CDC inventory fill context");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-admin-query-panel-template",
+  target: path.relative(pluginRoot, target),
+  resolution: path.relative(pluginRoot, resolutionPath),
+  checked: {
+    registry_item: resolution.registry_item || "unknown",
+    pattern_id: resolution.pattern_id || "unknown",
+    template_id: resolution.template_id || "unknown",
+    page_subtype: resolution.page_subtype || "unknown",
+    required_sections: requiredSections.length,
+    required_list_markers: requiredListMarkers.length,
+    required_select_markers: requiredSelectMarkers.length,
+    required_primitives: requiredPrimitives.length
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+if (failures.length) {
+  console.error(`Admin query panel validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+console.log(`Admin query panel template OK: ${path.relative(pluginRoot, target)}`);

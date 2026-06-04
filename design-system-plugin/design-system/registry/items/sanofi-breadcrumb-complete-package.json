@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-breadcrumb-complete-package",
+  "title": "Breadcrumb complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Breadcrumb package covering Docs plus all Storybook story atoms.",
+  "component_id": "breadcrumb",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/breadcrumb.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/breadcrumb.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/breadcrumb.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/breadcrumb.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/docs/breadcrumb.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/docs/breadcrumb.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/breadcrumb-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/breadcrumb-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-breadcrumb--collapsed",
+      "story_name": "Collapsed",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-collapsed-atomic-story"
+    },
+    {
+      "story_id": "components-breadcrumb--custom-max-width",
+      "story_name": "Custom Max Width",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-custom-max-width-atomic-story"
+    },
+    {
+      "story_id": "components-breadcrumb--ellipsis-truncation",
+      "story_name": "Ellipsis Truncation",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-ellipsis-truncation-atomic-story"
+    },
+    {
+      "story_id": "components-breadcrumb--not-collapsed",
+      "story_name": "Not Collapsed",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-not-collapsed-atomic-story"
+    },
+    {
+      "story_id": "components-breadcrumb--one-item-on-each-side",
+      "story_name": "One Item On Each Side",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-one-item-on-each-side-atomic-story"
+    },
+    {
+      "story_id": "components-breadcrumb--two-items-on-each-side",
+      "story_name": "Two Items On Each Side",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-two-items-on-each-side-atomic-story"
+    },
+    {
+      "story_id": "components-breadcrumb--wrap-vs-no-wrap",
+      "story_name": "Wrap Vs No Wrap",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-breadcrumb-wrap-vs-no-wrap-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/breadcrumb/breadcrumb.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/breadcrumb/docs/breadcrumb.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "breadcrumb",
+      "Breadcrumb",
+      "breadcrumb complete",
+      "Breadcrumb complete package",
+      "breadcrumb docs"
+    ],
+    "when_to_use": "Use first for any Breadcrumb generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Breadcrumb behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

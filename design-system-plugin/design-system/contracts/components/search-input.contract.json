@@ -1,0 +1,238 @@
+{
+  "schema_version": "0.1.0",
+  "id": "search-input",
+  "canonical_name": "search-input",
+  "component_name": "SearchInput",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-searchinput--docs",
+    "title": "SearchInput",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-searchinput--docs",
+    "import_path": "./src/components/SearchInput/SearchInput.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 9,
+    "story_ids": [
+      "components-searchinput--default",
+      "components-searchinput--disabled",
+      "components-searchinput--error-state",
+      "components-searchinput--inverse",
+      "components-searchinput--sizes",
+      "components-searchinput--submit-variant",
+      "components-searchinput--submit-variant-sizes",
+      "components-searchinput--submit-with-button-icon",
+      "components-searchinput--submit-with-custom-buttons"
+    ],
+    "records": [
+      {
+        "id": "components-searchinput--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-searchinput--disabled",
+        "name": "Disabled",
+        "normalized_name": "disabled",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "Disabled"
+      },
+      {
+        "id": "components-searchinput--error-state",
+        "name": "Error State",
+        "normalized_name": "error-state",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "ErrorState"
+      },
+      {
+        "id": "components-searchinput--inverse",
+        "name": "Inverse",
+        "normalized_name": "inverse",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "Inverse"
+      },
+      {
+        "id": "components-searchinput--sizes",
+        "name": "Sizes",
+        "normalized_name": "sizes",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "Sizes"
+      },
+      {
+        "id": "components-searchinput--submit-variant",
+        "name": "Submit Variant",
+        "normalized_name": "submit-variant",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "SubmitVariant"
+      },
+      {
+        "id": "components-searchinput--submit-variant-sizes",
+        "name": "Submit Variant Sizes",
+        "normalized_name": "submit-variant-sizes",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "SubmitVariantSizes"
+      },
+      {
+        "id": "components-searchinput--submit-with-button-icon",
+        "name": "Submit With Button Icon",
+        "normalized_name": "submit-with-button-icon",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "SubmitWithButtonIcon"
+      },
+      {
+        "id": "components-searchinput--submit-with-custom-buttons",
+        "name": "Submit With Custom Buttons",
+        "normalized_name": "submit-with-custom-buttons",
+        "import_path": "./src/components/SearchInput/SearchInput.stories.tsx",
+        "export_name": "SubmitWithCustomButtons"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "placeholder",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "inverse",
+        "required": false,
+        "description": "Applies inverse styling for use on dark backgrounds.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "disabled",
+      "error-state",
+      "inverse",
+      "sizes",
+      "submit-variant",
+      "submit-variant-sizes",
+      "submit-with-button-icon",
+      "submit-with-custom-buttons"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "disabled",
+      "error-state",
+      "inverse",
+      "sizes",
+      "submit-variant",
+      "submit-variant-sizes",
+      "submit-with-button-icon",
+      "submit-with-custom-buttons"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { SearchInput, SearchInputVariant } from \"@sanofi-accelerator/elements\";\n\n// Default variant - with clear functionality\nconst DefaultExample = () => (\n  <SearchInput\n    variant=\"default\" // Optional - this is the default\n    placeholder=\"Search here\"\n    onChange={handleChange}\n    onClear={handleClear}\n  />\n);\n\n// Submit variant - with submit button\nconst SubmitExample = () => (\n  <SearchInput\n    variant={SearchInputVariant.SUBMIT}\n    placeholder=\"Search here\"\n    onChange={handleChange}\n    onClear={handleClear}\n    onSearch={handleSearch}\n    ariaSubmitLabel=\"Submit search\"\n  />\n);\n\n// Submit variant with custom icon - preserves iconAfter functionality\nconst SubmitWithCustomIcon = () => (\n  <SearchInput\n    variant={SearchInputVariant.SUBMIT}\n    placeholder=\"Search here\"\n    iconAfter={<Icon name={IconName.VISIBILITY} />}\n    onChange={handleChange}\n    onClear={handleClear}\n    onSearch={handleSearch}\n    ariaSubmitLabel=\"Submit search\"\n  />\n);\n\nfunction handleChange(e) {\n  // handle input change\n}\n\nfunction handleClear() {\n  // handle clear action\n}\n\nfunction handleSearch(value) {\n  // handle search action with search value\n  console.log('Searching for:', value);\n}"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { SearchInput, SearchInputVariant } from \"@sanofi-accelerator/elements\";\n\n// Default variant - with clear functionality\nconst DefaultExample = () => (\n  <SearchInput\n    variant=\"default\" // Optional - this is the default\n    placeholder=\"Search here\"\n    onChange={handleChange}\n    onClear={handleClear}\n  />\n);\n\n// Submit variant - with submit button\nconst SubmitExample = () => (\n  <SearchInput\n    variant={SearchInputVariant.SUBMIT}\n    placeholder=\"Search here\"\n    onChange={handleChange}\n    onClear={handleClear}\n    onSearch={handleSearch}\n    ariaSubmitLabel=\"Submit search\"\n  />\n);\n\n// Submit variant with custom icon - preserves iconAfter functionality\nconst SubmitWithCustomIcon = () => (\n  <SearchInput\n    variant={SearchInputVariant.SUBMIT}\n    placeholder=\"Search here\"\n    iconAfter={<Icon name={IconName.VISIBILITY} />}\n    onChange={handleChange}\n    onClear={handleClear}\n    onSearch={handleSearch}\n    ariaSubmitLabel=\"Submit search\"\n  />\n);\n\nfunction handleChange(e) {\n  // handle input change\n}\n\nfunction handleClear() {\n  // handle clear action\n}\n\nfunction handleSearch(value) {\n  // handle search action with search value\n  console.log('Searching for:', value);\n}"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "search-input"
+    ],
+    "contracts": [
+      {
+        "id": "search-input",
+        "status": "storybook-backed-static-contract",
+        "contract_path": "design-system-plugin/design-system/primitives/components/search-input/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/search-input/demo.registry.json",
+        "known_story_ids": [
+          "components-searchinput--default",
+          "components-searchinput--sizes",
+          "components-searchinput--submit-variant",
+          "components-searchinput--error-state",
+          "components-searchinput--disabled",
+          "components-searchinput--inverse",
+          "components-searchinput--submit-variant-sizes",
+          "components-searchinput--submit-with-button-icon",
+          "components-searchinput--submit-with-custom-buttons",
+          "components-searchinput--default",
+          "components-searchinput--disabled",
+          "components-searchinput--error-state",
+          "components-searchinput--inverse",
+          "components-searchinput--sizes",
+          "components-searchinput--submit-variant",
+          "components-searchinput--submit-variant-sizes",
+          "components-searchinput--submit-with-button-icon",
+          "components-searchinput--submit-with-custom-buttons"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-searchinput--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-searchinput--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-searchinput--docs.md",
+    "docs_import_path": "./src/components/SearchInput/SearchInput.mdx",
+    "story_ids": [
+      "components-searchinput--default",
+      "components-searchinput--disabled",
+      "components-searchinput--error-state",
+      "components-searchinput--inverse",
+      "components-searchinput--sizes",
+      "components-searchinput--submit-variant",
+      "components-searchinput--submit-variant-sizes",
+      "components-searchinput--submit-with-button-icon",
+      "components-searchinput--submit-with-custom-buttons"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

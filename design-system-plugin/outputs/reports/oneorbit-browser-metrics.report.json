@@ -1,0 +1,74 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "results": [
+    {
+      "id": "oneorbit-has-query-list",
+      "url": "http://127.0.0.1:8799/outputs/html/oneorbit-has-query-list.resolved.html",
+      "screenshot": "/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/screenshots/oneorbit-has-query-list-1440.png",
+      "metrics": {
+        "title": "HAS Query List | OneOrbit",
+        "viewportWidth": 1440,
+        "viewportHeight": 900,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "nativeSelectCount": 0,
+        "brandAssetCount": 1,
+        "largeSizeAttrCount": 0,
+        "runtimeComponentCount": 18,
+        "fieldControlRootCount": 8,
+        "fieldControlShellCount": 8,
+        "dateRangeFieldCount": 3,
+        "selectFieldCount": 1,
+        "searchFieldCount": 4,
+        "fallbackReasonCount": 4,
+        "messageCardCount": 0,
+        "tableGroupCount": 3
+      },
+      "selectInteraction": {
+        "before": "false",
+        "afterOpen": {
+          "expanded": "true",
+          "hidden": false,
+          "optionCount": 4
+        },
+        "afterSelect": {
+          "expanded": "false",
+          "hidden": true,
+          "value": "医院账期过长"
+        }
+      }
+    },
+    {
+      "id": "oneorbit-message-todo",
+      "url": "http://127.0.0.1:8799/outputs/html/oneorbit-message-todo.resolved.html",
+      "screenshot": "/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/screenshots/oneorbit-message-todo-1440.png",
+      "metrics": {
+        "title": "Message Todo Home | OneOrbit",
+        "viewportWidth": 1440,
+        "viewportHeight": 900,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "nativeSelectCount": 0,
+        "brandAssetCount": 1,
+        "largeSizeAttrCount": 0,
+        "runtimeComponentCount": 22,
+        "fieldControlRootCount": 0,
+        "fieldControlShellCount": 0,
+        "dateRangeFieldCount": 0,
+        "selectFieldCount": 0,
+        "searchFieldCount": 0,
+        "fallbackReasonCount": 1,
+        "messageCardCount": 5,
+        "tableGroupCount": 0
+      },
+      "selectInteraction": null
+    }
+  ]
+}

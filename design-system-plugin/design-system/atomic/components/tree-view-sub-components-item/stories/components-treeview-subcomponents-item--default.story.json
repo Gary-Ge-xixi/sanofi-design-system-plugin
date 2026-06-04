@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-treeview-subcomponents-item--default",
+  "component_id": "tree-view-sub-components-item",
+  "component_name": "TreeView/SubComponents/Item",
+  "story_id": "components-treeview-subcomponents-item--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-treeview-subcomponents-item--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-treeview-subcomponents-item--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TreeViewItem.stories-ClIriHHB.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-item/assets/TreeViewItem.stories-ClIriHHB.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-item/assets/components-treeview-subcomponents-item--default.iframe.html",
+    "import_path": "./src/components/TreeView/TreeViewItem.stories.tsx",
+    "component_path": "./src/components/TreeView/TreeViewItem.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{}",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {}\n}",
+    "story_object_source": "{args:{}}"
+  },
+  "template": {
+    "id": "tree-view-sub-components-item-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-item/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/tree-view-sub-components-item-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-item.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tree-view-sub-components-item",
+    "local_path": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-item/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-item--docs",
+    "story_id": "components-treeview-subcomponents-item--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-item.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view-sub-components-item/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-item/assets/TreeViewItem.stories-ClIriHHB.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tree-view-sub-components-item/assets/components-treeview-subcomponents-item--default.iframe.html"
+  }
+}

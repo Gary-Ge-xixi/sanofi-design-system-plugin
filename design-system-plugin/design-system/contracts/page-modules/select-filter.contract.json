@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1.0",
+  "id": "select-filter",
+  "status": "ready",
+  "renderer_target": "html",
+  "component_contract_id": "select",
+  "source_provenance": {
+    "docs_id": "components-select--docs",
+    "story_id": "components-select--default",
+    "token_source": "foundations-colors--docs"
+  },
+  "when_to_use": "Use for compact backend filter bars where Select is used as a query criterion.",
+  "when_not_to_use": "Do not use a visible native select as the primary UI shell for Sanofi Elements pages.",
+  "dom_contract": {
+    "root_selector": ".filter-field",
+    "required_structure": [
+      "label.filter-field",
+      ".select-shell[data-select-part=\"root\"]",
+      "select.select-native[data-select-native=\"true\"]",
+      "button.select-trigger[role=\"combobox\"][data-select-native=\"false\"]",
+      ".select-value",
+      ".select-chevron"
+    ],
+    "forbidden_structure": [
+      "label.filter-field > select.select-native"
+    ],
+    "required_attributes": [
+      "data-primitive=\"select\"",
+      "data-source-component=\"select\"",
+      "data-story-id=\"components-select--default\"",
+      "data-source-doc-id=\"components-select--docs\"",
+      "data-select-size=\"medium\"",
+      "data-select-label-position=\"top\"",
+      "role=\"combobox\"",
+      "aria-haspopup=\"listbox\"",
+      "aria-expanded=\"false\""
+    ]
+  },
+  "density_bindings": {
+    "height": "--admin-density-control-height",
+    "horizontal_padding": "--admin-density-control-padding-inline",
+    "toolbar_gap": "--admin-density-toolbar-gap"
+  },
+  "state_contract": {
+    "default": "border uses neutral table border token and text uses default text token",
+    "hover": "border color may strengthen to semantic border default",
+    "focus_visible": "outline uses semantic accent default",
+    "disabled": "unsupported in this profile unless declared in template data"
+  },
+  "accessibility": {
+    "labeling": "Visible value must be associated with an sr-only label through aria-labelledby.",
+    "native_semantics": "Hidden native select may exist only as semantic fallback and must not be the visual shell."
+  }
+}

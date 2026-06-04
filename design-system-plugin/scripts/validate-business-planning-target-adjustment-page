@@ -1,0 +1,231 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(htmlDir, "business-planning-target-adjustment.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const reportPath = path.join(reportDir, "business-planning-target-adjustment.report.json");
+const reportMdPath = path.join(reportDir, "business-planning-target-adjustment.report.md");
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function extractTagAttrs(source, tagName) {
+  const attrs = [];
+  const re = new RegExp(`<${tagName}\\b([^>]*)>`, "gi");
+  let match;
+  while ((match = re.exec(source))) attrs.push(match[1]);
+  return attrs;
+}
+
+function isVisuallyHiddenSelect(attrs) {
+  return (
+    /\bhidden\b/i.test(attrs) ||
+    /aria-hidden=["']true["']/i.test(attrs) ||
+    /data-select-native=["']true["']/i.test(attrs) ||
+    /style=["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(attrs)
+  );
+}
+
+function selectorBlock(source, selector) {
+  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = source.match(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`, "s"));
+  return match ? match[1].replace(/\s+/g, " ").trim() : "";
+}
+
+function hasDeclaration(block, property, valuePattern) {
+  return new RegExp(`${property}\\s*:\\s*${valuePattern}\\s*;`).test(block);
+}
+
+function includesAll(source, markers) {
+  return markers.filter((marker) => !source.includes(marker));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing HTML target: ${target}`);
+const html = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+
+const bodyBlock = selectorBlock(html, "body");
+const shellBlock = selectorBlock(html, ".shell");
+const mainBlock = selectorBlock(html, ".main");
+const selectAttrs = extractTagAttrs(html, "select");
+const visibleNativeSelectPrimitiveCount = selectAttrs.filter((attrs) => (
+  /data-primitive=["']select["']/i.test(attrs) && !isVisuallyHiddenSelect(attrs)
+)).length;
+
+const checks = {
+  sections: {},
+  page_attrs: {},
+  nav_items: count(html, /class="nav-item/g),
+  nav_icons: count(html, /class="nav-icon"/g),
+  search_inputs: count(html, /data-primitive="search-input"/g),
+  tabs: count(html, /role="tab"/g),
+  runtime_tabs: count(html, /data-component-id="tabs"/g),
+  table_columns: count(html, /<th\b[^>]*scope="col"/g),
+  product_rows: count(html, /data-row-kind="product"/g),
+  hospital_rows: count(html, /data-row-kind="hospital"/g),
+  tree_toggle_buttons: count(html, /<button\b[^>]*class="tree-toggle"[^>]*data-tree-toggle="product"/g),
+  tree_toggle_svgs: count(html, /class="tree-toggle"[^>]*>[\s\S]*?<svg\b/g),
+  tree_toggle_icon_primitives: count(html, /class="tree-toggle"[^>]*>[\s\S]*?data-primitive="icon"[\s\S]*?data-icon-role="tree-toggle"/g),
+  tree_toggle_direct_svgs: count(html, /<button\b[^>]*class="tree-toggle"[^>]*>\s*<svg\b/g),
+  tree_toggle_expanded: count(html, /data-tree-toggle="product"[^>]*data-tree-state="expanded"/g),
+  tree_toggle_collapsed: count(html, /data-tree-toggle="product"[^>]*data-tree-state="collapsed"/g),
+  tree_toggle_text_glyphs: count(html, /class="tree-toggle"[^>]*>\s*[+-]\s*</g),
+  tree_toggle_compact_overrides: count(html, /data-tree-toggle="product"[^>]*data-control-size="compact"[^>]*data-size-policy-override="true"/g),
+  tree_toggle_css_nonselectable: /\.tree-toggle\s*\{[^}]*user-select:\s*none;/s.test(html),
+  tree_product_cell_grid_track: /\.planning-product-cell\s*\{[^}]*display:\s*grid;[^}]*grid-template-columns:\s*1\.25rem minmax\(0, 1fr\);/s.test(html),
+  editable_target_inputs: count(html, /class="target-input"/g),
+  visible_native_select_primitives: visibleNativeSelectPrimitiveCount,
+  large_size_attrs: count(html, /data-(?:select|date-picker|button|control)-size="large"/g),
+  local_runtime_scripts: count(html, /<script\b[^>]*data-component-runtime="sanofi-local-atomic-components"/g),
+  header_elevation: html.includes('data-elevation-role="header"') && html.includes('data-elevation-token="--elements-core-elevation-02"'),
+  sticky_elevation: html.includes('data-elevation-role="sticky-action"') && html.includes('data-elevation-token="--elements-core-elevation-03"'),
+  action_bar_css_pinned_bottom: /\.save-bar\.planning-action-bar\s*\{[^}]*inset-block-end:\s*0;[^}]*inset-inline-start:\s*var\(--example-sidebar-width\);[^}]*inset-inline-end:\s*0;/s.test(html),
+  body_scroll_locked: hasDeclaration(bodyBlock, "block-size", "100vh") && hasDeclaration(bodyBlock, "overflow", "hidden"),
+  shell_scroll_locked: hasDeclaration(shellBlock, "block-size", "100vh") && hasDeclaration(shellBlock, "overflow", "hidden"),
+  main_scroll_owner: hasDeclaration(mainBlock, "min-block-size", "0") && hasDeclaration(mainBlock, "overflow", "auto")
+};
+
+for (const [name, value] of [
+  ["data-design-system", "sanofi-elements"],
+  ["data-business-standard", "business-page-standards"],
+  ["data-default-rule", "business-admin-defaults"],
+  ["data-default-overrides", "none"],
+  ["data-page-profile", "admin-data-entry-table"],
+  ["data-page-family", "admin-data-entry-table"],
+  ["data-business-task", "query-fill-submit-target-adjustment"],
+  ["data-reference-fit", "business-page-family"],
+  ["data-density", "admin-compact"],
+  ["data-app-shell-scroll", "content-only"],
+  ["data-scroll-rule", "business-app-shell-scroll"],
+  ["data-icon-rule", "icon-usage"],
+  ["data-elevation-rule", "elevation-usage"]
+]) {
+  const marker = `${name}="${value}"`;
+  const present = html.includes(marker);
+  checks.page_attrs[marker] = present;
+  if (!present) failures.push(`missing page attr ${marker}`);
+}
+
+for (const section of [
+  "breadcrumb",
+  "target-adjustment",
+  "target-adjustment-header",
+  "query-toolbar",
+  "primary-actions",
+  "target-tabs",
+  "editable-data-table-fallback",
+  "save-bar"
+]) {
+  const present = html.includes(`data-section="${section}"`);
+  checks.sections[section] = present;
+  if (!present) failures.push(`missing section ${section}`);
+}
+
+for (const marker of includesAll(html, [
+  "Business Planning",
+  "ZD-001 李雷",
+  "切换",
+  "BP团队2026Q2常规品目标调整",
+  "待提交",
+  "查看进度",
+  "岗位编码/名称",
+  "医院编码/名称",
+  "产品编码/名称",
+  "季度目标",
+  "月度目标",
+  "机构目标",
+  "团队目标",
+  "PROD-009 潘太欣（100mg）",
+  "上海华山医院",
+  "保存",
+  "刷新合理性评估",
+  "确认下发",
+  "提交申请单",
+  'data-fallback-module="business-table"',
+  'data-fallback-reason="No official Table/DataGrid primitive is registered locally."',
+  'data-output-state-official-runtime="absent"',
+  'data-output-state-local-atomic-runtime="present"',
+  'data-output-state-explicit-fallback="present"',
+  'data-nav-default="with-icons"',
+  'data-sidebar-state="expanded"',
+  'data-sidebar-collapse="true"',
+  'data-icon-rule="icon-usage"',
+  'data-grid-mode="normal-12"',
+  'data-field-span-desktop="3"',
+  'data-tabs-mode="segmented"',
+  'aria-selected="true"',
+  'data-tree-toggle="product"',
+  'data-tree-state="expanded"',
+  'data-tree-state="collapsed"',
+  'data-control-size="compact"',
+  'data-size-policy-override="true"',
+  'data-no-pagination="true"'
+])) {
+  failures.push(`missing required marker ${marker}`);
+}
+
+if (checks.nav_items < 4) failures.push(`left navigation must include at least 4 top-level items, got ${checks.nav_items}`);
+if (checks.nav_icons < checks.nav_items) failures.push(`default icon navigation requires one icon per top-level item, got ${checks.nav_icons}/${checks.nav_items}`);
+if (checks.search_inputs < 3) failures.push(`query toolbar requires 3 SearchInput controls, got ${checks.search_inputs}`);
+if (checks.tabs < 4) failures.push(`target dimension tabs require 4 tabs, got ${checks.tabs}`);
+if (checks.runtime_tabs < 1) failures.push("target tabs must use local runtime-equivalent Tabs markup");
+if (checks.table_columns < 10) failures.push(`target table requires at least 10 columns, got ${checks.table_columns}`);
+if (checks.product_rows < 3) failures.push(`target table requires at least 3 product rows, got ${checks.product_rows}`);
+if (checks.hospital_rows < 4) failures.push(`target table requires at least 4 hospital rows, got ${checks.hospital_rows}`);
+if (checks.tree_toggle_buttons < 3) failures.push(`product rows require at least 3 SVG tree toggle buttons, got ${checks.tree_toggle_buttons}`);
+if (checks.tree_toggle_svgs < 4) failures.push(`tree toggles must render as SVG icons, got ${checks.tree_toggle_svgs}`);
+if (checks.tree_toggle_icon_primitives < checks.tree_toggle_buttons) {
+  failures.push(`product tree toggles must render child Icon primitives, got ${checks.tree_toggle_icon_primitives}/${checks.tree_toggle_buttons}`);
+}
+if (checks.tree_toggle_direct_svgs) failures.push(`tree toggle buttons must not contain naked direct SVG children, got ${checks.tree_toggle_direct_svgs}`);
+if (checks.tree_toggle_expanded < 1) failures.push("tree toggles must expose at least one expanded product state");
+if (checks.tree_toggle_collapsed < 2) failures.push(`tree toggles must expose at least two collapsed product states, got ${checks.tree_toggle_collapsed}`);
+if (checks.tree_toggle_text_glyphs) failures.push(`tree toggles must not use selectable +/- text glyphs, got ${checks.tree_toggle_text_glyphs}`);
+if (checks.tree_toggle_compact_overrides < checks.tree_toggle_buttons) {
+  failures.push(`compact tree toggles must carry explicit size override markers, got ${checks.tree_toggle_compact_overrides}/${checks.tree_toggle_buttons}`);
+}
+if (!checks.tree_toggle_css_nonselectable) failures.push("tree toggle CSS must disable text selection");
+if (!checks.tree_product_cell_grid_track) failures.push("product cell must reserve a fixed 1.25rem tree-toggle track");
+if (checks.editable_target_inputs < 6) failures.push(`target table requires at least 6 editable target inputs, got ${checks.editable_target_inputs}`);
+if (checks.visible_native_select_primitives) failures.push(`visible native select[data-primitive="select"] is forbidden, got ${checks.visible_native_select_primitives}`);
+if (checks.large_size_attrs) failures.push(`default component size must not be large, got ${checks.large_size_attrs} large size attrs`);
+if (!checks.local_runtime_scripts) failures.push("runtime-equivalent Tabs markup requires the local component runtime script");
+if (!checks.header_elevation) failures.push("topbar must use header elevation token 02");
+if (!checks.sticky_elevation) failures.push("bottom action bar must use sticky-action elevation token 03");
+if (!checks.action_bar_css_pinned_bottom) failures.push("planning action bar must pin to the viewport bottom and align to the sidebar edge");
+if (!checks.body_scroll_locked) failures.push("body must be viewport locked with overflow hidden");
+if (!checks.shell_scroll_locked) failures.push("app shell must be viewport locked with overflow hidden");
+if (!checks.main_scroll_owner) failures.push("main content region must own scrolling with min-block-size 0 and overflow auto");
+
+const report = {
+  schema_version: "0.1.0",
+  status: failures.length ? "fail" : "pass",
+  script: "validate-business-planning-target-adjustment-page",
+  target: rel(target),
+  checks,
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Business Planning Target Adjustment Validation\n\nStatus: ${report.status}\n\nTarget: \`${report.target}\`\n\n| Metric | Value |\n|---|---:|\n| Top-level nav items | ${checks.nav_items} |\n| Nav icons | ${checks.nav_icons} |\n| Search inputs | ${checks.search_inputs} |\n| Tabs | ${checks.tabs} |\n| Table columns | ${checks.table_columns} |\n| Product rows | ${checks.product_rows} |\n| Hospital rows | ${checks.hospital_rows} |\n| Tree toggle buttons | ${checks.tree_toggle_buttons} |\n| Tree toggle SVGs | ${checks.tree_toggle_svgs} |\n| Tree toggle Icon primitives | ${checks.tree_toggle_icon_primitives} |\n| Tree toggle direct SVGs | ${checks.tree_toggle_direct_svgs} |\n| Tree toggle text glyphs | ${checks.tree_toggle_text_glyphs} |\n| Tree toggle nonselectable CSS | ${checks.tree_toggle_css_nonselectable} |\n| Product cell fixed icon track | ${checks.tree_product_cell_grid_track} |\n| Editable target inputs | ${checks.editable_target_inputs} |\n| Visible native Select primitives | ${checks.visible_native_select_primitives} |\n| Large size attrs |  |\n| Action bar pinned bottom |  |\n| Body scroll locked | ${checks.body_scroll_locked} |\n| Main owns scroll | ${checks.main_scroll_owner} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Business planning target adjustment validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Business planning target adjustment OK: ${rel(target)}`);

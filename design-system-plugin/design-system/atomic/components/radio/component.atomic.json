@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "radio",
+  "component_name": "Radio",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-radio--color-variations",
+      "story_name": "Color Variations",
+      "component_id": "radio",
+      "component_name": "Radio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio/stories/components-radio--color-variations.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio/templates/html.color-variations.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-color-variations.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+      "docs_id": "components-radio--docs",
+      "registry_item": "sanofi-radio-color-variations-atomic-story"
+    },
+    {
+      "story_id": "components-radio--default",
+      "story_name": "Default",
+      "component_id": "radio",
+      "component_name": "Radio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio/stories/components-radio--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+      "docs_id": "components-radio--docs",
+      "registry_item": "sanofi-radio-default-atomic-story"
+    },
+    {
+      "story_id": "components-radio--sizes",
+      "story_name": "Sizes",
+      "component_id": "radio",
+      "component_name": "Radio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio/stories/components-radio--sizes.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio/templates/html.sizes.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-sizes.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+      "docs_id": "components-radio--docs",
+      "registry_item": "sanofi-radio-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-radio--with-link",
+      "story_name": "With Link",
+      "component_id": "radio",
+      "component_name": "Radio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio/stories/components-radio--with-link.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio/templates/html.with-link.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-with-link.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+      "docs_id": "components-radio--docs",
+      "registry_item": "sanofi-radio-with-link-atomic-story"
+    },
+    {
+      "story_id": "components-radio--with-subtext",
+      "story_name": "With Subtext",
+      "component_id": "radio",
+      "component_name": "Radio",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/radio/stories/components-radio--with-subtext.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/radio/templates/html.with-subtext.template.html",
+      "output_path": "design-system-plugin/outputs/html/radio-with-subtext.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/radio/assets/Radio.stories-C-mB9CSx.js",
+      "docs_id": "components-radio--docs",
+      "registry_item": "sanofi-radio-with-subtext-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio--docs"
+  }
+}

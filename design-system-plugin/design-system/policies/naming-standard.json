@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "id": "naming-standard",
+  "canonical_rules": {
+    "component_id": "lowercase kebab-case derived from Storybook title without Components prefix",
+    "primitive_id": "lowercase kebab-case from primitive-index.json",
+    "pattern_id": "lowercase kebab-case describing page or workflow",
+    "variant_id": "lowercase kebab-case from Storybook story or API value",
+    "token_role": "lowercase snake_case semantic role"
+  },
+  "category_aliases": {
+    "components": "Components",
+    "Components": "Components"
+  },
+  "blocked": [
+    "Invented component names",
+    "Mixed-case pattern ids",
+    "Color names used as business roles without semantic mapping"
+  ]
+}

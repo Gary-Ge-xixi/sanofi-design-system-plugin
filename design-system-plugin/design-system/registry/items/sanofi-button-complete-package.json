@@ -1,0 +1,174 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-button-complete-package",
+  "title": "Button complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Button package covering Docs plus all Storybook story atoms.",
+  "component_id": "button",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-button"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/button.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/button/button.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/button/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/button/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/button-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/button-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/button.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/button.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/button/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-button--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 13,
+    "materialized_stories": 13,
+    "docs_contract_status": "generated",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-button--primary",
+      "story_name": "Primary",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-primary-atomic-story"
+    },
+    {
+      "story_id": "components-button--primary-neutral",
+      "story_name": "Primary Neutral",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-primary-neutral-atomic-story"
+    },
+    {
+      "story_id": "components-button--overview",
+      "story_name": "Overview",
+      "semantic_type": "overview_matrix",
+      "registry_item": "sanofi-button-overview-atomic-story"
+    },
+    {
+      "story_id": "components-button--overview-inverse",
+      "story_name": "Overview Inverse",
+      "semantic_type": "overview_inverse_matrix",
+      "registry_item": "sanofi-button-overview-inverse-atomic-story"
+    },
+    {
+      "story_id": "components-button--default",
+      "story_name": "Default",
+      "semantic_type": "default_controls",
+      "registry_item": "sanofi-button-default-atomic-story"
+    },
+    {
+      "story_id": "components-button--secondary",
+      "story_name": "Secondary",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-secondary-atomic-story"
+    },
+    {
+      "story_id": "components-button--secondary-neutral",
+      "story_name": "Secondary Neutral",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-secondary-neutral-atomic-story"
+    },
+    {
+      "story_id": "components-button--tertiary",
+      "story_name": "Tertiary",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-tertiary-atomic-story"
+    },
+    {
+      "story_id": "components-button--tertiary-neutral",
+      "story_name": "Tertiary Neutral",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-tertiary-neutral-atomic-story"
+    },
+    {
+      "story_id": "components-button--primary-destruct",
+      "story_name": "Primary Destruct",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-primary-destruct-atomic-story"
+    },
+    {
+      "story_id": "components-button--secondary-destruct",
+      "story_name": "Secondary Destruct",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-secondary-destruct-atomic-story"
+    },
+    {
+      "story_id": "components-button--tertiary-destruct",
+      "story_name": "Tertiary Destruct",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-button-tertiary-destruct-atomic-story"
+    },
+    {
+      "story_id": "components-button--button-link",
+      "story_name": "Button Link",
+      "semantic_type": "link",
+      "registry_item": "sanofi-button-button-link-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-button--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/button/button.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/button/docs/button.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/button/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "story_bundle": "design-system-plugin/design-system/atomic/components/button/assets/Button.stories-CGg2KCkY.js",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "button",
+      "Button",
+      "button complete",
+      "Button complete package",
+      "button docs",
+      "button link",
+      "primary neutral button",
+      "secondary neutral button",
+      "destructive button",
+      "overview inverse",
+      "按钮",
+      "完整按钮包"
+    ],
+    "when_to_use": "Use first for any Button generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Button behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

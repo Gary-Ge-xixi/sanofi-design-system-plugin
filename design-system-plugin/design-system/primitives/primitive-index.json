@@ -1,0 +1,705 @@
+{
+  "schema_version": "0.2.0",
+  "coverage_status": "component-contract-backed",
+  "source_catalog": "component-contract-index.json",
+  "components_with_visible_demo_tabs": 23,
+  "components_total": 95,
+  "primitives": [
+    {
+      "id": "accordion",
+      "component": "Accordion",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/accordion/primitive.json",
+      "demo_registry": "components/accordion/demo.registry.json"
+    },
+    {
+      "id": "accordion-item",
+      "component": "Accordion.Item",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/accordion-item/primitive.json",
+      "demo_registry": "components/accordion-item/demo.registry.json"
+    },
+    {
+      "id": "autocomplete",
+      "component": "Autocomplete",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/autocomplete/primitive.json",
+      "demo_registry": "components/autocomplete/demo.registry.json"
+    },
+    {
+      "id": "avatar",
+      "component": "Avatar",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/avatar/primitive.json",
+      "demo_registry": "components/avatar/demo.registry.json"
+    },
+    {
+      "id": "avatar-avatar-group",
+      "component": "Avatar/AvatarGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/avatar-avatar-group/primitive.json",
+      "demo_registry": "components/avatar-avatar-group/demo.registry.json"
+    },
+    {
+      "id": "banner",
+      "component": "Banner",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/banner/primitive.json",
+      "demo_registry": "components/banner/demo.registry.json"
+    },
+    {
+      "id": "breadcrumb",
+      "component": "Breadcrumb",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/breadcrumb/primitive.json",
+      "demo_registry": "components/breadcrumb/demo.registry.json"
+    },
+    {
+      "id": "breadcrumb-item",
+      "component": "Breadcrumb.Item",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/breadcrumb-item/primitive.json",
+      "demo_registry": "components/breadcrumb-item/demo.registry.json"
+    },
+    {
+      "id": "button",
+      "component": "Button",
+      "status": "storybook-backed-static-contract",
+      "path": "components/button/primitive.json",
+      "demo_registry": "components/button/demo.registry.json"
+    },
+    {
+      "id": "button-icon",
+      "component": "ButtonIcon",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/button-icon/primitive.json",
+      "demo_registry": "components/button-icon/demo.registry.json"
+    },
+    {
+      "id": "calendar",
+      "component": "Calendar",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/calendar/primitive.json",
+      "demo_registry": "components/calendar/demo.registry.json"
+    },
+    {
+      "id": "card",
+      "component": "Card",
+      "status": "storybook-backed-static-contract",
+      "path": "components/card/primitive.json",
+      "demo_registry": "components/card/demo.registry.json"
+    },
+    {
+      "id": "card-action",
+      "component": "Card/Action",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-action/primitive.json",
+      "demo_registry": "components/card-action/demo.registry.json"
+    },
+    {
+      "id": "card-card-group",
+      "component": "Card/CardGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-card-group/primitive.json",
+      "demo_registry": "components/card-card-group/demo.registry.json"
+    },
+    {
+      "id": "card-content",
+      "component": "Card/Content",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-content/primitive.json",
+      "demo_registry": "components/card-content/demo.registry.json"
+    },
+    {
+      "id": "card-date",
+      "component": "Card/Date",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-date/primitive.json",
+      "demo_registry": "components/card-date/demo.registry.json"
+    },
+    {
+      "id": "card-footer",
+      "component": "Card/Footer",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-footer/primitive.json",
+      "demo_registry": "components/card-footer/demo.registry.json"
+    },
+    {
+      "id": "card-media",
+      "component": "Card/Media",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-media/primitive.json",
+      "demo_registry": "components/card-media/demo.registry.json"
+    },
+    {
+      "id": "card-media-custom",
+      "component": "Card/MediaCustom",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-media-custom/primitive.json",
+      "demo_registry": "components/card-media-custom/demo.registry.json"
+    },
+    {
+      "id": "card-sections",
+      "component": "Card/Sections",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/card-sections/primitive.json",
+      "demo_registry": "components/card-sections/demo.registry.json"
+    },
+    {
+      "id": "carousel",
+      "component": "Carousel",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/carousel/primitive.json",
+      "demo_registry": "components/carousel/demo.registry.json"
+    },
+    {
+      "id": "cascading-menu",
+      "component": "CascadingMenu",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/cascading-menu/primitive.json",
+      "demo_registry": "components/cascading-menu/demo.registry.json"
+    },
+    {
+      "id": "cascading-menu-item",
+      "component": "CascadingMenu/Item",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/cascading-menu-item/primitive.json",
+      "demo_registry": "components/cascading-menu-item/demo.registry.json"
+    },
+    {
+      "id": "checkbox",
+      "component": "Checkbox",
+      "status": "ready",
+      "path": "components/checkbox/primitive.json",
+      "demo_registry": "components/checkbox/demo.registry.json"
+    },
+    {
+      "id": "checkbox-checkbox-group",
+      "component": "Checkbox/CheckboxGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/checkbox-checkbox-group/primitive.json",
+      "demo_registry": "components/checkbox-checkbox-group/demo.registry.json"
+    },
+    {
+      "id": "checkbox-group",
+      "component": "CheckboxGroup",
+      "status": "ready",
+      "path": "components/checkbox/primitive.json",
+      "demo_registry": "components/checkbox/demo.registry.json"
+    },
+    {
+      "id": "checkbox-tree",
+      "component": "CheckboxTree",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/checkbox-tree/primitive.json",
+      "demo_registry": "components/checkbox-tree/demo.registry.json"
+    },
+    {
+      "id": "chip-deprecated",
+      "component": "Chip (Deprecated)",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/chip-deprecated/primitive.json",
+      "demo_registry": "components/chip-deprecated/demo.registry.json"
+    },
+    {
+      "id": "chip-dropdown",
+      "component": "ChipDropdown",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/chip-dropdown/primitive.json",
+      "demo_registry": "components/chip-dropdown/demo.registry.json"
+    },
+    {
+      "id": "chip-filter",
+      "component": "ChipFilter",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/chip-filter/primitive.json",
+      "demo_registry": "components/chip-filter/demo.registry.json"
+    },
+    {
+      "id": "chip-list-deprecated",
+      "component": "ChipList (Deprecated)",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/chip-list-deprecated/primitive.json",
+      "demo_registry": "components/chip-list-deprecated/demo.registry.json"
+    },
+    {
+      "id": "chip-select",
+      "component": "ChipSelect",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/chip-select/primitive.json",
+      "demo_registry": "components/chip-select/demo.registry.json"
+    },
+    {
+      "id": "chip-status",
+      "component": "ChipStatus",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/chip-status/primitive.json",
+      "demo_registry": "components/chip-status/demo.registry.json"
+    },
+    {
+      "id": "container",
+      "component": "Container",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/container/primitive.json",
+      "demo_registry": "components/container/demo.registry.json"
+    },
+    {
+      "id": "content-block",
+      "component": "ContentBlock",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/content-block/primitive.json",
+      "demo_registry": "components/content-block/demo.registry.json"
+    },
+    {
+      "id": "date-picker",
+      "component": "DatePicker",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/date-picker/primitive.json",
+      "demo_registry": "components/date-picker/demo.registry.json"
+    },
+    {
+      "id": "divider",
+      "component": "Divider",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/divider/primitive.json",
+      "demo_registry": "components/divider/demo.registry.json"
+    },
+    {
+      "id": "drawer",
+      "component": "Drawer",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/drawer/primitive.json",
+      "demo_registry": "components/drawer/demo.registry.json"
+    },
+    {
+      "id": "file-uploader",
+      "component": "FileUploader",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/file-uploader/primitive.json",
+      "demo_registry": "components/file-uploader/demo.registry.json"
+    },
+    {
+      "id": "flex",
+      "component": "Flex",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/flex/primitive.json",
+      "demo_registry": "components/flex/demo.registry.json"
+    },
+    {
+      "id": "footer",
+      "component": "Footer",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/footer/primitive.json",
+      "demo_registry": "components/footer/demo.registry.json"
+    },
+    {
+      "id": "footer-bottom",
+      "component": "Footer.Bottom",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/footer-bottom/primitive.json",
+      "demo_registry": "components/footer-bottom/demo.registry.json"
+    },
+    {
+      "id": "footer-footer-social-link",
+      "component": "Footer/FooterSocialLink",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/footer-footer-social-link/primitive.json",
+      "demo_registry": "components/footer-footer-social-link/demo.registry.json"
+    },
+    {
+      "id": "footer-top",
+      "component": "Footer.Top",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/footer-top/primitive.json",
+      "demo_registry": "components/footer-top/demo.registry.json"
+    },
+    {
+      "id": "grid",
+      "component": "Grid",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/grid/primitive.json",
+      "demo_registry": "components/grid/demo.registry.json"
+    },
+    {
+      "id": "hero",
+      "component": "Hero",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/hero/primitive.json",
+      "demo_registry": "components/hero/demo.registry.json"
+    },
+    {
+      "id": "icon",
+      "component": "Icon",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/icon/primitive.json",
+      "demo_registry": "components/icon/demo.registry.json"
+    },
+    {
+      "id": "image",
+      "component": "Image",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/image/primitive.json",
+      "demo_registry": "components/image/demo.registry.json"
+    },
+    {
+      "id": "isi-tray",
+      "component": "ISI Tray",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/isi-tray/primitive.json",
+      "demo_registry": "components/isi-tray/demo.registry.json"
+    },
+    {
+      "id": "link",
+      "component": "Link",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/link/primitive.json",
+      "demo_registry": "components/link/demo.registry.json"
+    },
+    {
+      "id": "link-link-standalone",
+      "component": "Link/LinkStandalone",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/link-link-standalone/primitive.json",
+      "demo_registry": "components/link-link-standalone/demo.registry.json"
+    },
+    {
+      "id": "loading-spinner",
+      "component": "LoadingSpinner",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/loading-spinner/primitive.json",
+      "demo_registry": "components/loading-spinner/demo.registry.json"
+    },
+    {
+      "id": "mega-menu",
+      "component": "MegaMenu",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/mega-menu/primitive.json",
+      "demo_registry": "components/mega-menu/demo.registry.json"
+    },
+    {
+      "id": "mega-menu-item",
+      "component": "MegaMenu/Item",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/mega-menu-item/primitive.json",
+      "demo_registry": "components/mega-menu-item/demo.registry.json"
+    },
+    {
+      "id": "mega-menu-title",
+      "component": "MegaMenu/Title",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/mega-menu-title/primitive.json",
+      "demo_registry": "components/mega-menu-title/demo.registry.json"
+    },
+    {
+      "id": "mega-menu-trigger",
+      "component": "MegaMenu/Trigger",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/mega-menu-trigger/primitive.json",
+      "demo_registry": "components/mega-menu-trigger/demo.registry.json"
+    },
+    {
+      "id": "menu",
+      "component": "Menu",
+      "status": "storybook-backed-static-contract",
+      "path": "components/menu/primitive.json",
+      "demo_registry": "components/menu/demo.registry.json"
+    },
+    {
+      "id": "menu-menu-item",
+      "component": "Menu/MenuItem",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/menu-menu-item/primitive.json",
+      "demo_registry": "components/menu-menu-item/demo.registry.json"
+    },
+    {
+      "id": "menu-menu-item-checkbox",
+      "component": "Menu/MenuItemCheckbox",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/menu-menu-item-checkbox/primitive.json",
+      "demo_registry": "components/menu-menu-item-checkbox/demo.registry.json"
+    },
+    {
+      "id": "menu-menu-item-image",
+      "component": "Menu/MenuItemImage",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/menu-menu-item-image/primitive.json",
+      "demo_registry": "components/menu-menu-item-image/demo.registry.json"
+    },
+    {
+      "id": "menu-menu-item-radio",
+      "component": "Menu/MenuItemRadio",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/menu-menu-item-radio/primitive.json",
+      "demo_registry": "components/menu-menu-item-radio/demo.registry.json"
+    },
+    {
+      "id": "menu-sub-menu",
+      "component": "Menu/SubMenu",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/menu-sub-menu/primitive.json",
+      "demo_registry": "components/menu-sub-menu/demo.registry.json"
+    },
+    {
+      "id": "modal",
+      "component": "Modal",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/modal/primitive.json",
+      "demo_registry": "components/modal/demo.registry.json"
+    },
+    {
+      "id": "navigation-header",
+      "component": "NavigationHeader",
+      "status": "storybook-backed-static-contract",
+      "path": "components/navigation-header/primitive.json",
+      "demo_registry": "components/navigation-header/demo.registry.json"
+    },
+    {
+      "id": "navigation-header-item",
+      "component": "NavigationHeader.Item",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/navigation-header-item/primitive.json",
+      "demo_registry": "components/navigation-header-item/demo.registry.json"
+    },
+    {
+      "id": "navigation-header-root",
+      "component": "NavigationHeader.Root",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/navigation-header-root/primitive.json",
+      "demo_registry": "components/navigation-header-root/demo.registry.json"
+    },
+    {
+      "id": "navigation-header-start-content",
+      "component": "NavigationHeader.StartContent",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/navigation-header-start-content/primitive.json",
+      "demo_registry": "components/navigation-header-start-content/demo.registry.json"
+    },
+    {
+      "id": "page-header",
+      "component": "PageHeader",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/page-header/primitive.json",
+      "demo_registry": "components/page-header/demo.registry.json"
+    },
+    {
+      "id": "pagination",
+      "component": "Pagination",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/pagination/primitive.json",
+      "demo_registry": "components/pagination/demo.registry.json"
+    },
+    {
+      "id": "progress-bar",
+      "component": "ProgressBar",
+      "status": "storybook-backed-static-contract",
+      "path": "components/progress-bar/primitive.json",
+      "demo_registry": "components/progress-bar/demo.registry.json"
+    },
+    {
+      "id": "progress-stepper-define-stepper-provider",
+      "component": "ProgressStepper/defineStepper Provider",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/progress-stepper-define-stepper-provider/primitive.json",
+      "demo_registry": "components/progress-stepper-define-stepper-provider/demo.registry.json"
+    },
+    {
+      "id": "progress-stepper-progress-stepper-nav",
+      "component": "ProgressStepper/ProgressStepperNav",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/progress-stepper-progress-stepper-nav/primitive.json",
+      "demo_registry": "components/progress-stepper-progress-stepper-nav/demo.registry.json"
+    },
+    {
+      "id": "progress-stepper-use-stepper-hook",
+      "component": "ProgressStepper/useStepper Hook",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/progress-stepper-use-stepper-hook/primitive.json",
+      "demo_registry": "components/progress-stepper-use-stepper-hook/demo.registry.json"
+    },
+    {
+      "id": "radio",
+      "component": "Radio",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/radio/primitive.json",
+      "demo_registry": "components/radio/demo.registry.json"
+    },
+    {
+      "id": "radio-radio-group",
+      "component": "Radio/RadioGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/radio-radio-group/primitive.json",
+      "demo_registry": "components/radio-radio-group/demo.registry.json"
+    },
+    {
+      "id": "search-input",
+      "component": "SearchInput",
+      "status": "storybook-backed-static-contract",
+      "path": "components/search-input/primitive.json",
+      "demo_registry": "components/search-input/demo.registry.json"
+    },
+    {
+      "id": "select",
+      "component": "Select",
+      "status": "storybook-backed-static-contract",
+      "path": "components/select/primitive.json",
+      "demo_registry": "components/select/demo.registry.json"
+    },
+    {
+      "id": "sidebar",
+      "component": "Sidebar",
+      "status": "storybook-backed-static-contract",
+      "path": "components/sidebar/primitive.json",
+      "demo_registry": "components/sidebar/demo.registry.json"
+    },
+    {
+      "id": "slider",
+      "component": "Slider",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/slider/primitive.json",
+      "demo_registry": "components/slider/demo.registry.json"
+    },
+    {
+      "id": "switch",
+      "component": "Switch",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/switch/primitive.json",
+      "demo_registry": "components/switch/demo.registry.json"
+    },
+    {
+      "id": "switch-switch-group",
+      "component": "Switch/SwitchGroup",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/switch-switch-group/primitive.json",
+      "demo_registry": "components/switch-switch-group/demo.registry.json"
+    },
+    {
+      "id": "tabs",
+      "component": "Tabs",
+      "status": "storybook-backed-static-contract",
+      "path": "components/tabs/primitive.json",
+      "demo_registry": "components/tabs/demo.registry.json"
+    },
+    {
+      "id": "tag",
+      "component": "Tag",
+      "status": "storybook-backed-static-contract",
+      "path": "components/tag/primitive.json",
+      "demo_registry": "components/tag/demo.registry.json"
+    },
+    {
+      "id": "text-area",
+      "component": "TextArea",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/text-area/primitive.json",
+      "demo_registry": "components/text-area/demo.registry.json"
+    },
+    {
+      "id": "text-input",
+      "component": "TextInput",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/text-input/primitive.json",
+      "demo_registry": "components/text-input/demo.registry.json"
+    },
+    {
+      "id": "theme-provider",
+      "component": "ThemeProvider",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/theme-provider/primitive.json",
+      "demo_registry": "components/theme-provider/demo.registry.json"
+    },
+    {
+      "id": "title",
+      "component": "Title",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/title/primitive.json",
+      "demo_registry": "components/title/demo.registry.json"
+    },
+    {
+      "id": "toast",
+      "component": "Toast",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/toast/primitive.json",
+      "demo_registry": "components/toast/demo.registry.json"
+    },
+    {
+      "id": "tooltip",
+      "component": "Tooltip",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/tooltip/primitive.json",
+      "demo_registry": "components/tooltip/demo.registry.json"
+    },
+    {
+      "id": "tree-view",
+      "component": "TreeView",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/tree-view/primitive.json",
+      "demo_registry": "components/tree-view/demo.registry.json"
+    },
+    {
+      "id": "tree-view-sub-components-item",
+      "component": "TreeView/SubComponents/Item",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/tree-view-sub-components-item/primitive.json",
+      "demo_registry": "components/tree-view-sub-components-item/demo.registry.json"
+    },
+    {
+      "id": "tree-view-sub-components-leading-visual",
+      "component": "TreeView/SubComponents/LeadingVisual",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/tree-view-sub-components-leading-visual/primitive.json",
+      "demo_registry": "components/tree-view-sub-components-leading-visual/demo.registry.json"
+    },
+    {
+      "id": "tree-view-sub-components-sub-tree",
+      "component": "TreeView/SubComponents/SubTree",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/tree-view-sub-components-sub-tree/primitive.json",
+      "demo_registry": "components/tree-view-sub-components-sub-tree/demo.registry.json"
+    },
+    {
+      "id": "tree-view-sub-components-trailing-visual",
+      "component": "TreeView/SubComponents/TrailingVisual",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/tree-view-sub-components-trailing-visual/primitive.json",
+      "demo_registry": "components/tree-view-sub-components-trailing-visual/demo.registry.json"
+    },
+    {
+      "id": "typography",
+      "component": "Typography",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/typography/primitive.json",
+      "demo_registry": "components/typography/demo.registry.json"
+    },
+    {
+      "id": "video-thumbnail",
+      "component": "Video Thumbnail",
+      "status": "component-contract-backed-generic-primitive",
+      "path": "components/video-thumbnail/primitive.json",
+      "demo_registry": "components/video-thumbnail/demo.registry.json"
+    }
+  ],
+  "not_yet_normalized": [
+    "Accordion",
+    "Breadcrumb",
+    "Button",
+    "Card",
+    "Chip",
+    "Divider",
+    "Footer",
+    "Hero Section",
+    "Link",
+    "Loading Spinner",
+    "Menu",
+    "Navigation Header",
+    "Pagination",
+    "Radio Button",
+    "Search Input",
+    "Select",
+    "Tabs",
+    "Text Area",
+    "Text Input",
+    "Tooltip",
+    "Video Thumbnail"
+  ],
+  "primitives_total": 96
+}

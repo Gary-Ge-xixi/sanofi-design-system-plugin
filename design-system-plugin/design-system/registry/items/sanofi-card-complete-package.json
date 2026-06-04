@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-complete-package",
+  "title": "Card complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Card package covering Docs plus all Storybook story atoms.",
+  "component_id": "card",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/card.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/card/card.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/card.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/card/card.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/docs/card.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card/docs/card.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/card-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/card-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 14,
+    "materialized_stories": 14,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-card--card-custom-number",
+      "story_name": "Card Custom Number",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-custom-number-atomic-story"
+    },
+    {
+      "story_id": "components-card--card-custom-picto",
+      "story_name": "Card Custom Picto",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-custom-picto-atomic-story"
+    },
+    {
+      "story_id": "components-card--card-image",
+      "story_name": "Card Image",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-image-atomic-story"
+    },
+    {
+      "story_id": "components-card--card-image-clickable",
+      "story_name": "Card Image Clickable",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-image-clickable-atomic-story"
+    },
+    {
+      "story_id": "components-card--card-imageshow-full-content",
+      "story_name": "Card Imageshow Full Content",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-imageshow-full-content-atomic-story"
+    },
+    {
+      "story_id": "components-card--card-video",
+      "story_name": "Card Video",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-card-video-atomic-story"
+    },
+    {
+      "story_id": "components-card--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-default-atomic-story"
+    },
+    {
+      "story_id": "components-card--learning-module",
+      "story_name": "Learning Module",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-learning-module-atomic-story"
+    },
+    {
+      "story_id": "components-card--list-center-content-view",
+      "story_name": "List Center Content View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-list-center-content-view-atomic-story"
+    },
+    {
+      "story_id": "components-card--list-date-view",
+      "story_name": "List Date View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-list-date-view-atomic-story"
+    },
+    {
+      "story_id": "components-card--list-density-view",
+      "story_name": "List Density View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-list-density-view-atomic-story"
+    },
+    {
+      "story_id": "components-card--list-image-ratio-view",
+      "story_name": "List Image Ratio View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-list-image-ratio-view-atomic-story"
+    },
+    {
+      "story_id": "components-card--list-image-view",
+      "story_name": "List Image View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-list-image-view-atomic-story"
+    },
+    {
+      "story_id": "components-card--list-picto-view",
+      "story_name": "List Picto View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-card-list-picto-view-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/card/card.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/card/docs/card.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card",
+      "Card",
+      "card complete",
+      "Card complete package",
+      "card docs"
+    ],
+    "when_to_use": "Use first for any Card generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Card behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

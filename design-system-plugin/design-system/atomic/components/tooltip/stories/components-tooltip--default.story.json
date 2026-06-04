@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-tooltip--default",
+  "component_id": "tooltip",
+  "component_name": "Tooltip",
+  "story_id": "components-tooltip--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tooltip--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tooltip--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tooltip.stories-CHRJF3N4.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tooltip/assets/components-tooltip--default.iframe.html",
+    "import_path": "./src/components/Tooltip/Tooltip.stories.tsx",
+    "component_path": "./src/components/Tooltip/index.ts"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{position:{description:\"Position of the Tooltip\",control:\"select\",options:Object.values(n)},title:{description:\"Title of the Tooltip\",control:\"text\"},label:{description:\"Content of the Tooltip\",control:\"text\"},inverse:{description:\"Set the background-color to dark\",control:\"boolean\"},isOpen:{description:\"Programmatically opens the Tooltip\",control:\"boolean\"},delay:{description:\"Set a delay before Tooltip opens (in ms)\",control:\"number\"},maxWidth:{description:\"Set the max-width of the Tooltip content\",control:\"number\"},capturePointer:{description:\"If false, pointer events pass through the tooltip (e.g. scrolling)\",control:\"boolean\"}}",
+    "fields": [
+      "position",
+      "title",
+      "label",
+      "inverse",
+      "isOpen",
+      "delay",
+      "maxWidth",
+      "capturePointer"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: ({\n    label,\n    ...rest\n  }) => <Tooltip position=\"right-start\" title=\"Tooltip Title\" label={label ?? <Content inverse={!rest.inverse} />} {...rest}>\n      <Button label=\"Hover me\" data-testid=\"button\" />\n    </Tooltip>,\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.hover(canvas.getByTestId(\"button\"));\n  }\n}",
+    "story_object_source": "{render:({label:t,...o})=>e.jsx(i,{position:\"right-start\",title:\"Tooltip Title\",label:t??e.jsx(g,{inverse:!o.inverse}),...o,children:e.jsx(l,{label:\"Hover me\",\"data-testid\":\"button\"})}),play:async({canvasElement:t})=>{const o=w(t);await f.hover(o.getByTestId(\"button\"))}}"
+  },
+  "template": {
+    "id": "tooltip-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tooltip/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/tooltip-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tooltip",
+    "local_path": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-tooltip--docs",
+    "story_id": "components-tooltip--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tooltip.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tooltip/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tooltip/assets/Tooltip.stories-CHRJF3N4.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tooltip/assets/components-tooltip--default.iframe.html"
+  }
+}

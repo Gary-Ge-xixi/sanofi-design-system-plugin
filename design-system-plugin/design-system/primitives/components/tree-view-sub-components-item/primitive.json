@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TreeView/SubComponents/Item",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/TreeView/SubComponents/Item",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-item.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "tree-view-sub-components-item",
+      "data_attribute": "data-primitive=\"tree-view-sub-components-item\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-treeview-subcomponents-item--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-item--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-item.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

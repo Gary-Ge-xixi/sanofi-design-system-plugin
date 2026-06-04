@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-sidebar--without-header",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "story_id": "components-sidebar--without-header",
+  "story_name": "Without Header",
+  "export_name": "WithoutHeader",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-sidebar--without-header&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-sidebar--without-header&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Sidebar.stories-B82TPxCS.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--without-header.iframe.html",
+    "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{collapsible:{control:\"boolean\",description:\"Enable collapse/expand functionality\"},defaultCollapsed:{control:\"boolean\",description:\"Initial collapsed state\"},sticky:{control:\"boolean\",description:\"Sticky positioning at top of viewport\"},fullyCollapsible:{control:\"boolean\",description:\"Completely hide sidebar when collapsed (zero width). Use with controlled mode.\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoSmallSrc:{control:{type:\"file\",accept:\".png,.svg\"}}}",
+    "fields": [
+      "collapsible",
+      "defaultCollapsed",
+      "sticky",
+      "fullyCollapsible",
+      "logoSrc",
+      "logoSmallSrc"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: () => <WithoutHeaderComponent />\n}",
+    "story_object_source": "{render:()=>e.jsx(B,{})}"
+  },
+  "template": {
+    "id": "sidebar-without-header-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/sidebar/templates/html.without-header.template.html",
+    "output_path": "design-system-plugin/outputs/html/sidebar-without-header.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "sidebar",
+    "local_path": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "story_id": "components-sidebar--without-header",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/sidebar/assets/Sidebar.stories-B82TPxCS.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--without-header.iframe.html"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.1.0",
+  "id": "menu-sub-menu-docs-contract",
+  "component_id": "menu-sub-menu",
+  "component_name": "Menu/SubMenu",
+  "docs_id": "components-menu-submenu--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-submenu--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "iconBefore",
+        "required": false,
+        "description": "Icon displayed before the labelReactElement<unknown, string \\",
+        "default": "JSXElementConstructor<any>>",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "description",
+        "required": false,
+        "description": "Description text below the labelstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shortcut",
+        "required": false,
+        "description": "Keyboard shortcut hint (e.g., \"Ctrl+C\")string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": true,
+        "description": "ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "((event: MouseEvent<HTMLLIElement, MouseEvent>) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-menu-submenu--docs",
+    "when_not_to_use": "unknown",
+    "snippets": []
+  },
+  "story_tabs": [
+    {
+      "id": "components-menu-submenu--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Menu/subMenu/SubMenu.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-submenu--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-menu-submenu--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-sub-menu.contract.json"
+  }
+}

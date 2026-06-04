@@ -1,0 +1,146 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-data-entry-table",
+  "status": "ready",
+  "renderer_target": "html",
+  "canonical_pattern_id": "admin-query-panel",
+  "canonical_template_id": "onecommercial-admin-query-panel",
+  "aliases": [
+    "admin-query-panel",
+    "admin-query-list",
+    "admin-data-entry-table",
+    "onecommercial-cdc-inventory-fill"
+  ],
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "query-and-fill",
+    "business_context": "OneCommercial CDC inventory data entry",
+    "language": "zh-CN"
+  },
+  "source_provenance": {
+    "layout_docs": [
+      "foundations-layout--docs",
+      "components-container--docs",
+      "components-grid--docs"
+    ],
+    "navigation_docs": [
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs"
+    ],
+    "form_docs": [
+      "components-select--docs",
+      "components-button--docs",
+      "components-textinput--docs",
+      "components-pagination--docs"
+    ],
+    "token_source": "foundations-colors--docs",
+    "profile_source": "local-reference-fit-from-onecommercial-screenshots"
+  },
+  "required_rules": [
+    "layout-grid-container",
+    "typography-font-stack",
+    "admin-template-navigation",
+    "admin-query-panel-template",
+    "admin-density",
+    "admin-data-entry-table-reference-fit"
+  ],
+  "required_module_contracts": [
+    "select-filter",
+    "data-table-fallback"
+  ],
+  "layout_priority": [
+    "global-topbar",
+    "left-sidebar-navigation",
+    "content-container",
+    "breadcrumb-and-title",
+    "query-toolbar",
+    "primary-actions",
+    "editable-table-fallback",
+    "pagination",
+    "sticky-save-bar"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "query-toolbar",
+      "primary-actions",
+      "editable-data-table-fallback",
+      "pagination",
+      "save-bar"
+    ],
+    "forbidden_sections": [
+      "kpi-summary",
+      "chart-fallback",
+      "work-queue"
+    ],
+    "required_attrs": [
+      "data-page-profile=\"admin-data-entry-table\"",
+      "data-density=\"admin-compact\"",
+      "data-reference-fit=\"admin-data-entry-table\""
+    ]
+  },
+  "module_requirements": {
+    "query_toolbar": {
+      "module_contract_id": "select-filter",
+      "filter_count": 4,
+      "action_count": 3,
+      "layout": "single-row-on-desktop",
+      "mobile_behavior": "wrap-to-one-column-below-phone"
+    },
+    "table": {
+      "module_contract_id": "data-table-fallback",
+      "fallback_module": "table",
+      "column_count": 6,
+      "minimum_body_rows": 6,
+      "editable_column": "数量"
+    },
+    "navigation": {
+      "min_top_level_items": 5,
+      "requires_nested_levels": [
+        0,
+        1
+      ],
+      "active_item": "CDC库存"
+    }
+  },
+  "component_precedence": [
+    "official primitive contract",
+    "storybook story atom",
+    "page module contract",
+    "token-only fallback",
+    "unsupported gap"
+  ],
+  "fallback_policy": {
+    "table": {
+      "status": "token-only-pattern",
+      "allowed_markup": [
+        "table",
+        "thead",
+        "tbody",
+        "tr",
+        "th",
+        "td"
+      ],
+      "must_not_claim_primitive": true,
+      "required_marker": "data-table-list-role=\"fallback\""
+    }
+  },
+  "output_contract": {
+    "developer_html": "outputs/html/admin-query-panel.resolved.html",
+    "audit_reports": [
+      "outputs/reports/admin-page-profile.report.json",
+      "outputs/reports/reference-fit.report.json"
+    ],
+    "must_include_provenance": true,
+    "must_pass_validators": [
+      "validate-admin-page-profile",
+      "validate-reference-fit",
+      "validate-admin-query-panel-template",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-provenance"
+    ]
+  }
+}

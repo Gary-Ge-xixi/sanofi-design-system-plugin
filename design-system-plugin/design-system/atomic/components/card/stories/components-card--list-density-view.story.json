@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-card--list-density-view",
+  "component_id": "card",
+  "component_name": "Card",
+  "story_id": "components-card--list-density-view",
+  "story_name": "List Density View",
+  "export_name": "ListDensityView",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card--list-density-view&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card--list-density-view&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Card.stories-CFArP5N1.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/card/assets/components-card--list-density-view.iframe.html",
+    "import_path": "./src/components/Card/Card.stories.tsx",
+    "component_path": "./src/components/Card/Card.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...l,ratio:\"1\",isCentered:!1,density:m.TIGHT,title:\"This is a title placeholder\"}",
+    "values": {
+      "hasBorder": true,
+      "hasShadow": false,
+      "type": "grid",
+      "isCentered": false,
+      "withButtonIcon": true,
+      "positionPicto": "left",
+      "brandTheme": "primary",
+      "density": "tight",
+      "color": "current-color",
+      "invertDayAndMonth": false,
+      "ratio": "1",
+      "title": "This is a title placeholder"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:{description:\"The card children\",control:{disable:!0}},hasBorder:{description:\"If the card has a border\",control:{control:\"boolean\"}},hasShadow:{description:\"If the card has a shadow at hover\",control:{control:\"boolean\"}},type:{description:\"The type of card\",control:\"select\",options:Object.values(u)},isCentered:{description:\"If the card elements are centered\",control:\"boolean\"},density:{description:\"The density of the card\",control:\"select\",options:Object.values(m)},invertDayAndMonth:{description:\"If the day and month are inverted\",control:\"boolean\"},color:{description:\"The color of the number\",control:\"select\",options:[D.CURRENT_COLOR,D.ACCENT_DEFAULT]},brandTheme:{description:\"The brand theme\",control:\"select\",options:Object.values(Y)},titleSize:{description:\"The title size\",control:\"select\",options:Object.values(H)},showFullContent:{description:\"If the subtext should not be truncated\",control:\"boolean\"}}",
+    "fields": [
+      "children",
+      "hasBorder",
+      "hasShadow",
+      "type",
+      "isCentered",
+      "density",
+      "invertDayAndMonth",
+      "color",
+      "brandTheme",
+      "titleSize",
+      "showFullContent"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  decorators: [Story => <Story />],\n  args: {\n    ...defaultArgs,\n    ratio: \"1\",\n    isCentered: false,\n    density: CardDensity.TIGHT,\n    title: \"This is a title placeholder\"\n  },\n  argTypes: {\n    ratio: {\n      description: \"The ratio of the image\",\n      control: \"select\",\n      options: [\"1/1\", \"16/9\", \"21/9\", \"4/3\", \"16/10\"]\n    },\n    isCentered: {\n      description: \"If the content is centered\",\n      control: \"boolean\"\n    },\n    density: {\n      description: \"The density of the card\",\n      control: \"select\",\n      options: Object.values(CardDensity)\n    }\n  },\n  render: args => {\n    const isDark = useDarkMode();\n    const customImageClasses = cn({\n      [styles.dark]: isDark,\n      [styles.light]: !isDark\n    });\n    return <div style={{\n      display: \"flex\",\n      flexDirection: \"column\",\n      gap: \"1rem\"\n    }}>\n        <Card {...args} type={CardType.LIST}>\n          <Card.Media ratio={args.ratio}>\n            <Image src={sanofiImage} alt=\"Sanofi team collaborating on innovative solutions\" />\n          </Card.Media>\n          <Card.Section>\n            <Card.Content isCentered={args.isCentered} category=\"Eyebrow One (i.e Category)\" date=\"Eyebrow Two (i.e Date)\" title={<Title variant={args.titleSize}>{args.title}</Title>} subText=\"Lorem ipsum dolor sit amet, \" buttonSlot={args.withButtonIcon && <Card.Button icon={IconName.MORE_VERT} onClick={() => notify(args)} aria-label=\"More actions Card List Density View\" />} />\n            <Card.Action isCentered={args.isCentered}>\n              <LinkStandalone href={sanofiUrl} size={LinkSize.SMALL}>\n                Standalone link\n              </LinkStandalone>\n            </Card.Action>\n          </Card.Section>\n        </Card>\n\n        <Card {...args} type={CardType.LIST}>\n          <Card.MediaCustom isCentered={args.isCentered}>\n            <Image src={clinical} alt=\"Sanofi's dedication to patient safety and care\" className={customImageClasses} />\n          </Card.MediaCustom>\n          <Card.Section>\n            <Card.Content isCentered={args.isCentered} category=\"Eyebrow One (i.e Category)\" date=\"Eyebrow Two (i.e Date)\" title=\"This is a title placeholder for a card which has a maximum line length on two lines.\" subText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\" buttonSlot={args.withButtonIcon && <Card.Button icon={IconName.MORE_VERT} onClick={() => notify(args)} aria-label=\"More actions Second Card List Density View\" />} />\n            <Card.Action isCentered={args.isCentered}>\n              <LinkStandalone href={sanofiUrl} size={LinkSize.SMALL}>\n                Standalone link\n              </LinkStandalone>\n            </Card.Action>\n          </Card.Section>\n        </Card>\n        <Card {...args} type={CardType.LIST}>\n          <Card.MediaCustom isCentered={args.isCentered}>\n            <Card.Date date={new Date(\"12/12/2020\")} />\n          </Card.MediaCustom>\n          <Card.Section>\n            <Card.Content isCentered={args.isCentered} category=\"Eyebrow One (i.e Category)\" date=\"Eyebrow Two (i.e Date)\" title=\"This is a title placeholder for a card which has a maximum line length on two lines.\" subText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\" buttonSlot={args.withButtonIcon && <Card.Button icon={IconName.DATE_RANGE} onClick={() => notify(args)} aria-label=\"Date range\" />} />\n            <Card.Action isCentered={args.isCentered}>\n              <LinkStandalone href={sanofiUrl} size={LinkSize.SMALL}>\n                Standalone link\n              </LinkStandalone>\n            </Card.Action>\n          </Card.Section>\n        </Card>\n      </div>;\n  }\n}",
+    "story_object_source": "{decorators:[t=>e.jsx(t,{})],args:{...l,ratio:\"1\",isCentered:!1,density:m.TIGHT,title:\"This is a title placeholder\"},argTypes:{ratio:{description:\"The ratio of the image\",control:\"select\",options:[\"1/1\",\"16/9\",\"21/9\",\"4/3\",\"16/10\"]},isCentered:{description:\"If the content is centered\",control:\"boolean\"},density:{description:\"The density of the card\",control:\"select\",options:Object.values(m)}},render:t=>{const C=V(),g=B({[p.dark]:C,[p.light]:!C});return e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"1rem\"},children:[e.jsxs(i,{...t,type:u.LIST,children:[e.jsx(i.Media,{ratio:t.ratio,children:e.jsx(c,{src:h,alt:\"Sanofi team collaborating on innovative solutions\"})}),e.jsxs(i.Section,{children:[e.jsx(i.Content,{isCentered:t.isCentered,category:\"Eyebrow One (i.e Category)\",date:\"Eyebrow Two (i.e Date)\",title:e.jsx(d,{variant:t.titleSize,children:t.title}),subText:\"Lorem ipsum dolor sit amet, \",buttonSlot:t.withButtonIcon&&e.jsx(i.Button,{icon:n.MORE_VERT,onClick:()=>r(t),\"aria-label\":\"More actions Card List Density View\"})}),e.jsx(i.Action,{isCentered:t.isCentered,children:e.jsx(a,{href:o,size:s.SMALL,children:\"Standalone link\"})})]})]}),e.jsxs(i,{...t,type:u.LIST,children:[e.jsx(i.MediaCustom,{isCentered:t.isCentered,children:e.jsx(c,{src:R,alt:\"Sanofi's dedication to patient safety and care\",className:g})}),e.jsxs(i.Section,{children:[e.jsx(i.Content,{isCentered:t.isCentered,category:\"Eyebrow One (i.e Category)\",date:\"Eyebrow Two (i.e Date)\",title:\"This is a title placeholder for a card which has a maximum line length on two lines.\",subText:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\",buttonSlot:t.withButtonIcon&&e.jsx(i.Button,{icon:n.MORE_VERT,onClick:()=>r(t),\"aria-label\":\"More actions Second Card List Density View\"})}),e.jsx(i.Action,{isCentered:t.isCentered,children:e.jsx(a,{href:o,size:s.SMALL,children:\"Standalone link\"})})]})]}),e.jsxs(i,{...t,type:u.LIST,children:[e.jsx(i.MediaCustom,{isCentered:t.isCentered,children:e.jsx(i.Date,{date:new Date(\"12/12/2020\")})}),e.jsxs(i.Section,{children:[e.jsx(i.Content,{isCentered:t.isCentered,category:\"Eyebrow One (i.e Category)\",date:\"Eyebrow Two (i.e Date)\",title:\"This is a title placeholder for a card which has a maximum line length on two lines.\",subText:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\",buttonSlot:t.withButtonIcon&&e.jsx(i.Button,{icon:n.DATE_RANGE,onClick:()=>r(t),\"aria-label\":\"Date range\"})}),e.jsx(i.Action,{isCentered:t.isCentered,children:e.jsx(a,{href:o,size:s.SMALL,children:\"Standalone link\"})})]})]})]})}}"
+  },
+  "template": {
+    "id": "card-list-density-view-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/card/templates/html.list-density-view.template.html",
+    "output_path": "design-system-plugin/outputs/html/card-list-density-view.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "card",
+    "local_path": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "story_id": "components-card--list-density-view",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/card/assets/components-card--list-density-view.iframe.html"
+  }
+}

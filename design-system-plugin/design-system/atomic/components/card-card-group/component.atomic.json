@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "card-card-group",
+  "component_name": "Card/CardGroup",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-card-cardgroup--card-grids-group",
+      "story_name": "Card Grids Group",
+      "component_id": "card-card-group",
+      "component_name": "Card/CardGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/stories/components-card-cardgroup--card-grids-group.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/card-card-group/templates/html.card-grids-group.template.html",
+      "output_path": "design-system-plugin/outputs/html/card-card-group-card-grids-group.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js",
+      "docs_id": "components-card-cardgroup--docs",
+      "registry_item": "sanofi-card-card-group-card-grids-group-atomic-story"
+    },
+    {
+      "story_id": "components-card-cardgroup--card-grids-group-picto",
+      "story_name": "Card Grids Group Picto",
+      "component_id": "card-card-group",
+      "component_name": "Card/CardGroup",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/card-card-group/stories/components-card-cardgroup--card-grids-group-picto.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/card-card-group/templates/html.card-grids-group-picto.template.html",
+      "output_path": "design-system-plugin/outputs/html/card-card-group-card-grids-group-picto.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/card-card-group/assets/CardGroup.stories-DXUr9FfL.js",
+      "docs_id": "components-card-cardgroup--docs",
+      "registry_item": "sanofi-card-card-group-card-grids-group-picto-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card-card-group--docs"
+  }
+}

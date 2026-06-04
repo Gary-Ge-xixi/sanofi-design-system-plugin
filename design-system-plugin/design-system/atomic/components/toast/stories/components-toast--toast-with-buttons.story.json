@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-toast--toast-with-buttons",
+  "component_id": "toast",
+  "component_name": "Toast",
+  "story_id": "components-toast--toast-with-buttons",
+  "story_name": "Toast With Buttons",
+  "export_name": "ToastWithButtons",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-toast--toast-with-buttons&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-toast--toast-with-buttons&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Toast.stories-BnqixObE.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/toast/assets/components-toast--toast-with-buttons.iframe.html",
+    "import_path": "./src/components/Toast/Toast.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{title:{type:\"string\",description:\"Title of the Toast\"},text:{type:\"string\",description:\"Subtitle of the Toast\"},variant:{description:\"Variant\",control:\"select\",options:Object.values(n)},displayCloseButton:{type:\"boolean\",description:\"Display Close button\"},position:{description:\"Position\",control:\"select\",options:Object.values(v)},duration:{control:\"number\",description:\"Duration of the Toast. Set to Infinite to make a non-dismissible Toast\"},actions:{control:\"object\",description:\"Display one or two actions on the Toast\"},offset:{control:\"number\",defaultValue:0,description:\"Offset for the Toast\"}}",
+    "fields": [
+      "title",
+      "text",
+      "variant",
+      "displayCloseButton",
+      "position",
+      "duration",
+      "actions",
+      "offset"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: args => {\n    const notify = (actions: ToastType[\"actions\"]) => () => {\n      createToast({\n        text: \"A Toast was successfully created.\",\n        variant: ToastVariant.SUCCESS,\n        displayCloseButton: true,\n        actions,\n        ...args\n      });\n    };\n    return <div style={{\n      display: \"flex\",\n      gap: 8\n    }}>\n        <Toast />\n        <Button label=\"Single\" data-testid=\"button-single\" onClick={notify([{\n        label: \"Confirm\",\n        onClick: (_evt, closeToast) => {\n          closeToast();\n        }\n      }])} />\n        <Button label=\"Double\" data-testid=\"button-double\" onClick={notify([{\n        label: \"Confirm\"\n      }, {\n        label: \"Dismiss\",\n        onClick: (_evt, closeToast) => {\n          closeToast();\n        }\n      }])} />\n      </div>;\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByTestId(\"button-single\"));\n    await userEvent.click(canvas.getByTestId(\"button-double\"));\n  }\n}",
+    "story_object_source": "{render:t=>{const a=u=>()=>{b({text:\"A Toast was successfully created.\",variant:n.SUCCESS,displayCloseButton:!0,actions:u,...t})};return e.jsxs(\"div\",{style:{display:\"flex\",gap:8},children:[e.jsx(m,{}),e.jsx(T,{label:\"Single\",\"data-testid\":\"button-single\",onClick:a([{label:\"Confirm\",onClick:(u,p)=>{p()}}])}),e.jsx(T,{label:\"Double\",\"data-testid\":\"button-double\",onClick:a([{label:\"Confirm\"},{label:\"Dismiss\",onClick:(u,p)=>{p()}}])})]})},play:async({canvasElement:t})=>{const a=y(t);await f.click(a.getByTestId(\"button-single\")),await f.click(a.getByTestId(\"button-double\"))}}"
+  },
+  "template": {
+    "id": "toast-toast-with-buttons-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/toast/templates/html.toast-with-buttons.template.html",
+    "output_path": "design-system-plugin/outputs/html/toast-toast-with-buttons.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "toast",
+    "local_path": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-toast--docs",
+    "story_id": "components-toast--toast-with-buttons",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/toast.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/toast/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/toast/assets/Toast.stories-BnqixObE.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/toast/assets/components-toast--toast-with-buttons.iframe.html"
+  }
+}

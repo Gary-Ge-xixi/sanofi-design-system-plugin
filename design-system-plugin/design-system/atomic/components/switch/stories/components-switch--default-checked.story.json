@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-switch--default-checked",
+  "component_id": "switch",
+  "component_name": "Switch",
+  "story_id": "components-switch--default-checked",
+  "story_name": "Default Checked",
+  "export_name": "DefaultChecked",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-switch--default-checked&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-switch--default-checked&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Switch.stories-DvWhep9K.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/switch/assets/components-switch--default-checked.iframe.html",
+    "import_path": "./src/components/Switch/Switch.stories.tsx",
+    "component_path": "./src/components/Switch/Switch.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...e.args,defaultChecked:!0}",
+    "values": {
+      "args": {
+        "extraction_status": "raw_expression",
+        "value": "{label:\"Switch\",disabled:!1,size:r.MEDIUM,labelPosition:s.END,fullWidth:!1,defaultChecked:!1}"
+      },
+      "defaultChecked": true
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onChange:{action:\"changed\"},size:{options:Object.values(r),control:{type:\"select\"}},labelPosition:{options:Object.values(s),control:{type:\"select\"}}}",
+    "fields": [
+      "onChange",
+      "size",
+      "labelPosition"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...Default.args,\n    defaultChecked: true\n  }\n}",
+    "story_object_source": "{args:{...e.args,defaultChecked:!0}}"
+  },
+  "template": {
+    "id": "switch-default-checked-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/switch/templates/html.default-checked.template.html",
+    "output_path": "design-system-plugin/outputs/html/switch-default-checked.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "switch",
+    "local_path": "design-system-plugin/design-system/primitives/components/switch/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-switch--docs",
+    "story_id": "components-switch--default-checked",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/switch/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/switch/assets/Switch.stories-DvWhep9K.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/switch/assets/components-switch--default-checked.iframe.html"
+  }
+}

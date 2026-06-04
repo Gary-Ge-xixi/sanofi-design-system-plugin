@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-buttonicon--primary",
+  "component_id": "button-icon",
+  "component_name": "ButtonIcon",
+  "story_id": "components-buttonicon--primary",
+  "story_name": "Primary",
+  "export_name": "Primary",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "primary",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-buttonicon--primary&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-buttonicon--primary&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ButtonIcon.stories-BdGEm5ZN.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/button-icon/assets/ButtonIcon.stories-BdGEm5ZN.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/button-icon/assets/components-buttonicon--primary.iframe.html",
+    "import_path": "./src/components/ButtonIcon/ButtonIcon.stories.tsx",
+    "component_path": "./src/components/ButtonIcon/ButtonIcon.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...s,variant:e.PRIMARY}",
+    "values": {
+      "size": "medium",
+      "inverse": false,
+      "disabled": false,
+      "icon": "bookmark",
+      "isLoading": false,
+      "variant": "primary"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onClick:{action:\"clicked\"},icon:{options:Object.keys(y),defaultValue:o.ARROW_FORWARD,mapping:y,control:{type:\"select\"}}}",
+    "fields": [
+      "onClick",
+      "icon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "primary"
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    variant: ButtonVariant.PRIMARY\n  },\n  render: args => <StoryLayout {...args} />\n}",
+    "story_object_source": "{args:{...s,variant:e.PRIMARY},render:r=>a.jsx(t,{...r})}"
+  },
+  "template": {
+    "id": "button-icon-primary-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/button-icon/templates/html.primary.template.html",
+    "output_path": "design-system-plugin/outputs/html/button-icon-primary.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/button-icon.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "button-icon",
+    "local_path": "design-system-plugin/design-system/primitives/components/button-icon/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-buttonicon--docs",
+    "story_id": "components-buttonicon--primary",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button-icon.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/button-icon/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/button-icon/assets/ButtonIcon.stories-BdGEm5ZN.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/button-icon/assets/components-buttonicon--primary.iframe.html"
+  }
+}

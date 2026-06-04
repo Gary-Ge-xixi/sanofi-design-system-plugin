@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.1.0",
+  "id": "radio-docs-contract",
+  "component_id": "radio",
+  "component_name": "Radio",
+  "docs_id": "components-radio--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-radio--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "sizeRadio",
+        "required": false,
+        "description": "The radio size\"small\"\"medium\"\"large\"",
+        "default": "\"RadioSize.MEDIUM\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "The radio color variantstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "description": "Label text displayed next to the radio.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultChecked",
+        "required": false,
+        "description": "boolean",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClick",
+        "required": false,
+        "description": "function",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "description": "function",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subtext",
+        "required": false,
+        "description": "Optional subtext below the labelReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "Custom CSS classes for radio elements.RadioClassesProps",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "disableAnimation",
+        "required": false,
+        "description": "Disable animation for this radio instanceboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "checked",
+        "required": false,
+        "description": "The radio checked state-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-radio--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Radio, RadioSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <Radio\n    label=\"Radio\"\n    radioSize={RadioSize.MEDIUM}\n    value=\"radio\"\n  />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-radio--color-variations",
+      "name": "Color Variations",
+      "export_name": "ColorVariations",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Radio/Radio.stories.tsx"
+    },
+    {
+      "id": "components-radio--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Radio/Radio.stories.tsx"
+    },
+    {
+      "id": "components-radio--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Radio/Radio.stories.tsx"
+    },
+    {
+      "id": "components-radio--with-link",
+      "name": "With Link",
+      "export_name": "WithLink",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Radio/Radio.stories.tsx"
+    },
+    {
+      "id": "components-radio--with-subtext",
+      "name": "With Subtext",
+      "export_name": "WithSubtext",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Radio/Radio.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-radio--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio.contract.json"
+  }
+}

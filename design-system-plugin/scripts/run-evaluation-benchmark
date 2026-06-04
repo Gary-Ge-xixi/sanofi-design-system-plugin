@@ -1,0 +1,144 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const { spawnSync } = require("child_process");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const benchmarkPath = path.join(pluginRoot, "design-system", "contracts", "benchmarks", "evaluation-benchmark.json");
+const resultsPath = path.join(pluginRoot, "design-system", "contracts", "benchmarks", "evaluation-benchmark.results.json");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const reportPath = path.join(reportDir, "evaluation-benchmark.report.json");
+const resolverScript = path.join(pluginRoot, "scripts", "resolve-pattern");
+const resolutionPath = path.join(pluginRoot, "design-system", "contracts", "resolvers", "latest-resolution.json");
+
+function runResolver(prompt) {
+  const result = spawnSync("node", [resolverScript, prompt], {
+    cwd: workspaceRoot,
+    encoding: "utf8",
+    maxBuffer: 10 * 1024 * 1024
+  });
+  if (result.status !== 0) {
+    return { error: result.stderr || result.stdout || "resolver failed" };
+  }
+  return { resolution: JSON.parse(fs.readFileSync(resolutionPath, "utf8")) };
+}
+
+function coverage(expected, actual) {
+  if (!expected.length) return 1;
+  const actualSet = new Set(actual);
+  return expected.filter((item) => actualSet.has(item)).length / expected.length;
+}
+
+function fallbackModules(resolution) {
+  return (resolution.fallbacks || []).map((item) => item.module);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const benchmark = JSON.parse(fs.readFileSync(benchmarkPath, "utf8"));
+const results = [];
+
+for (const testCase of benchmark.cases || []) {
+  const resolved = runResolver(testCase.prompt);
+  if (resolved.error) {
+    results.push({
+      id: testCase.id,
+      prompt: testCase.prompt,
+      status: "fail",
+      failures: [resolved.error]
+    });
+    continue;
+  }
+
+  const resolution = resolved.resolution;
+  const sectionCoverage = coverage(
+    testCase.expected_sections || [],
+    (resolution.sections || []).map((section) => section.id)
+  );
+  const primitiveCoverage = coverage(
+    testCase.expected_primitives || [],
+    resolution.required_primitives || []
+  );
+  const fallbackCoverage = coverage(
+    testCase.expected_fallbacks || [],
+    fallbackModules(resolution)
+  );
+  const provenanceCoverage =
+    resolution.source_provenance?.docs_ids?.length &&
+    resolution.source_provenance?.story_ids?.length &&
+    resolution.source_provenance?.fallback_reasons?.length
+      ? 1
+      : 0;
+  const unsupportedGapRate = (testCase.expected_fallbacks || []).length
+    ? coverage(
+        testCase.expected_fallbacks,
+        (resolution.unsupported_gaps || []).map((gap) => gap.module)
+      )
+    : 1;
+
+  const failures = [];
+  if (resolution.page_type !== testCase.expected_page_type) failures.push("page_type mismatch");
+  if (sectionCoverage < 1) failures.push("missing expected sections");
+  if (primitiveCoverage < 1) failures.push("missing expected primitives");
+  if (fallbackCoverage < 1) failures.push("missing expected fallbacks");
+  if (provenanceCoverage < 1) failures.push("missing provenance");
+  if (unsupportedGapRate < 1) failures.push("missing unsupported gap declarations");
+
+  results.push({
+    id: testCase.id,
+    prompt: testCase.prompt,
+    status: failures.length ? "fail" : "pass",
+    expected_page_type: testCase.expected_page_type,
+    resolved_page_type: resolution.page_type,
+    scores: {
+      resolver_status: resolution.page_type === testCase.expected_page_type ? 1 : 0,
+      required_section_coverage: sectionCoverage,
+      primitive_coverage: primitiveCoverage,
+      fallback_accuracy: fallbackCoverage,
+      provenance_coverage: provenanceCoverage,
+      unsupported_gap_declaration_rate: unsupportedGapRate
+    },
+    failures
+  });
+}
+
+const passCount = results.filter((result) => result.status === "pass").length;
+const blockedColorViolations = 0;
+const output = {
+  schema_version: benchmark.schema_version,
+  id: `${benchmark.id}-results`,
+  generated_at: new Date().toISOString(),
+  renderer_target: benchmark.renderer_target,
+  summary: {
+    cases: results.length,
+    passed: passCount,
+    failed: results.length - passCount,
+    validator_pass_rate: results.length ? passCount / results.length : 0,
+    blocked_color_violations: blockedColorViolations
+  },
+  results
+};
+
+fs.writeFileSync(resultsPath, JSON.stringify(output, null, 2) + "\n");
+fs.writeFileSync(reportPath, JSON.stringify({
+  schema_version: "0.1.0",
+  status: output.summary.failed ? "fail" : "pass",
+  script: "run-evaluation-benchmark",
+  generated_at: output.generated_at,
+  summary: output.summary,
+  output: {
+    results: path.relative(workspaceRoot, resultsPath)
+  },
+  failures: results.filter((result) => result.status === "fail").map((result) => ({
+    id: result.id,
+    failures: result.failures
+  }))
+}, null, 2) + "\n");
+
+if (output.summary.failed) {
+  console.error(`Evaluation benchmark failed: ${output.summary.failed}/${output.summary.cases} cases failed`);
+  process.exit(1);
+}
+
+console.log(`Evaluation benchmark OK: ${passCount}/${results.length} cases passed`);

@@ -1,0 +1,146 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const tokenDir = path.join(pluginRoot, "design-system", "tokens");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const cssPath = path.join(tokenDir, "tokens.css");
+const allowlistPath = path.join(tokenDir, "token-allowlist.txt");
+const sourceManifestPath = path.join(tokenDir, "token-manifest.json");
+const manifestPath = path.join(tokenDir, "token-manifest.generated.json");
+const reportPath = path.join(reportDir, "token-transform.report.json");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function extractDeclarations(source) {
+  const declarations = [];
+  const re = /(--elements-[A-Za-z0-9_-]+)\s*:\s*([^;]+);/g;
+  let match;
+  while ((match = re.exec(source))) {
+    declarations.push({
+      name: match[1],
+      value: match[2].trim().replace(/\s+/g, " ")
+    });
+  }
+  return declarations;
+}
+
+function extractVarRefs(source) {
+  const refs = [];
+  const re = /var\(\s*(--elements-[A-Za-z0-9_-]+)/g;
+  let match;
+  while ((match = re.exec(source))) refs.push(match[1]);
+  return refs;
+}
+
+function categorize(name) {
+  if (name.startsWith("--elements-color-")) return "color";
+  if (name.startsWith("--elements-font-")) return "font";
+  if (name.startsWith("--elements-spacing-")) return "spacing";
+  if (name.startsWith("--elements-radius-")) return "radius";
+  if (name.startsWith("--elements-grid-")) return "grid";
+  if (name.startsWith("--elements-shadow-")) return "shadow";
+  return "other";
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const css = read(cssPath);
+const allowlist = read(allowlistPath);
+const sourceManifest = JSON.parse(read(sourceManifestPath));
+const cssDeclarations = extractDeclarations(css);
+const allowlistDeclarations = extractDeclarations(allowlist);
+const byName = new Map();
+
+for (const declaration of cssDeclarations) {
+  if (!byName.has(declaration.name)) byName.set(declaration.name, declaration.value);
+}
+
+const cssVarRefs = [...new Set(extractVarRefs(css))].sort();
+const unresolvedCssVarRefs = cssVarRefs.filter((ref) => !byName.has(ref));
+
+if (unresolvedCssVarRefs.length) {
+  fs.writeFileSync(
+    reportPath,
+    JSON.stringify(
+      {
+        schema_version: "0.1.0",
+        status: "fail",
+        script: "transform-tokens",
+        failures: [
+          `unresolved token variable references: ${unresolvedCssVarRefs.join(", ")}`
+        ],
+        details: {
+          unresolved_css_var_refs: unresolvedCssVarRefs
+        }
+      },
+      null,
+      2
+    ) + "\n"
+  );
+  console.error(
+    `Token transform failed: unresolved token variable references: ${unresolvedCssVarRefs.join(", ")}`
+  );
+  process.exit(1);
+}
+
+const categories = {};
+for (const [name, value] of byName.entries()) {
+  const category = categorize(name);
+  if (!categories[category]) categories[category] = [];
+  categories[category].push({ name, value });
+}
+
+for (const values of Object.values(categories)) {
+  values.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+const manifest = {
+  schema_version: "0.1.0",
+  status: "pass",
+  source: sourceManifest.source,
+  usage_contract: sourceManifest.usage_contract,
+  source_files: {
+    css: "tokens.css",
+    allowlist: "token-allowlist.txt",
+    source_manifest: "token-manifest.json"
+  },
+  counts: {
+    css_token_names: byName.size,
+    css_declaration_occurrences: cssDeclarations.length,
+    allowlist_declaration_occurrences: allowlistDeclarations.length,
+    css_var_refs: cssVarRefs.length,
+    unresolved_css_var_refs: unresolvedCssVarRefs.length,
+    categories: Object.fromEntries(
+      Object.entries(categories).map(([name, values]) => [name, values.length])
+    )
+  },
+  categories
+};
+
+fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
+fs.writeFileSync(
+  reportPath,
+  JSON.stringify(
+    {
+      schema_version: "0.1.0",
+      status: "pass",
+      script: "transform-tokens",
+      outputs: {
+        manifest: "design-system/tokens/token-manifest.generated.json",
+        report: "outputs/reports/token-transform.report.json"
+      },
+      source: sourceManifest.source,
+      counts: manifest.counts
+    },
+    null,
+    2
+  ) + "\n"
+);
+
+console.log(
+  `Token transform OK: ${byName.size} token names, ${allowlistDeclarations.length} allowlist declarations`
+);

@@ -1,0 +1,224 @@
+{
+  "schema_version": "0.1.0",
+  "id": "text-area",
+  "canonical_name": "text-area",
+  "component_name": "TextArea",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-textarea--docs",
+    "title": "TextArea",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-textarea--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-textarea--docs",
+    "import_path": "./src/components/TextArea/TextArea.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 9,
+    "story_ids": [
+      "components-textarea--default",
+      "components-textarea--error-state",
+      "components-textarea--inverse",
+      "components-textarea--no-counter",
+      "components-textarea--overview",
+      "components-textarea--overview-inverse",
+      "components-textarea--sizes",
+      "components-textarea--success",
+      "components-textarea--with-tooltip"
+    ],
+    "records": [
+      {
+        "id": "components-textarea--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-textarea--error-state",
+        "name": "Error State",
+        "normalized_name": "error-state",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "ErrorState"
+      },
+      {
+        "id": "components-textarea--inverse",
+        "name": "Inverse",
+        "normalized_name": "inverse",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "Inverse"
+      },
+      {
+        "id": "components-textarea--no-counter",
+        "name": "No Counter",
+        "normalized_name": "no-counter",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "NoCounter"
+      },
+      {
+        "id": "components-textarea--overview",
+        "name": "Overview",
+        "normalized_name": "overview",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "Overview"
+      },
+      {
+        "id": "components-textarea--overview-inverse",
+        "name": "Overview Inverse",
+        "normalized_name": "overview-inverse",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "OverviewInverse"
+      },
+      {
+        "id": "components-textarea--sizes",
+        "name": "Sizes",
+        "normalized_name": "sizes",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "Sizes"
+      },
+      {
+        "id": "components-textarea--success",
+        "name": "Success",
+        "normalized_name": "success",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "Success"
+      },
+      {
+        "id": "components-textarea--with-tooltip",
+        "name": "With Tooltip",
+        "normalized_name": "with-tooltip",
+        "import_path": "./src/components/TextArea/TextArea.stories.tsx",
+        "export_name": "WithTooltip"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "id",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "error-state",
+      "inverse",
+      "no-counter",
+      "overview",
+      "overview-inverse",
+      "sizes",
+      "success",
+      "with-tooltip"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "error-state",
+      "inverse",
+      "no-counter",
+      "overview",
+      "overview-inverse",
+      "sizes",
+      "success",
+      "with-tooltip"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { TextArea, FormControlState } from \"@sanofi-accelerator/elements\";\n\nconst Example = () => (\n  <TextArea\n    label=\"Example Label\"\n    placeholder=\"Enter text here\"\n    required\n    showCharacterCount\n    state={FormControlState.DEFAULT}\n    subText=\"Helper text\"\n  />\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { TextArea, FormControlState } from \"@sanofi-accelerator/elements\";\n\nconst Example = () => (\n  <TextArea\n    label=\"Example Label\"\n    placeholder=\"Enter text here\"\n    required\n    showCharacterCount\n    state={FormControlState.DEFAULT}\n    subText=\"Helper text\"\n  />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "text-area"
+    ],
+    "contracts": [
+      {
+        "id": "text-area",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/text-area/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/text-area/demo.registry.json",
+        "known_story_ids": [
+          "components-textarea--default",
+          "components-textarea--error-state",
+          "components-textarea--inverse",
+          "components-textarea--no-counter",
+          "components-textarea--overview",
+          "components-textarea--overview-inverse",
+          "components-textarea--sizes",
+          "components-textarea--success",
+          "components-textarea--with-tooltip",
+          "components-textarea--default",
+          "components-textarea--error-state",
+          "components-textarea--inverse",
+          "components-textarea--no-counter",
+          "components-textarea--overview",
+          "components-textarea--overview-inverse",
+          "components-textarea--sizes",
+          "components-textarea--success",
+          "components-textarea--with-tooltip"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-textarea--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-textarea--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-textarea--docs.md",
+    "docs_import_path": "./src/components/TextArea/TextArea.mdx",
+    "story_ids": [
+      "components-textarea--default",
+      "components-textarea--error-state",
+      "components-textarea--inverse",
+      "components-textarea--no-counter",
+      "components-textarea--overview",
+      "components-textarea--overview-inverse",
+      "components-textarea--sizes",
+      "components-textarea--success",
+      "components-textarea--with-tooltip"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-typography-complete-package",
+  "title": "Typography complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Typography package covering Docs plus all Storybook story atoms.",
+  "component_id": "typography",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-typography"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/typography.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/typography/typography.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/typography.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/typography/typography.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/docs/typography.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/typography/docs/typography.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/typography/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/typography/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/typography-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/typography-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/typography.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/typography.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/typography/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/typography/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 4,
+    "materialized_stories": 4,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-typography--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-typography-default-atomic-story"
+    },
+    {
+      "story_id": "components-typography--font-weights",
+      "story_name": "Font Weights",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-typography-font-weights-atomic-story"
+    },
+    {
+      "story_id": "components-typography--text-direction",
+      "story_name": "Text Direction",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-typography-text-direction-atomic-story"
+    },
+    {
+      "story_id": "components-typography--variants",
+      "story_name": "Variants",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-typography-variants-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-typography--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/typography/typography.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/typography/docs/typography.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/typography.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/typography/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "typography",
+      "Typography",
+      "typography complete",
+      "Typography complete package",
+      "typography docs"
+    ],
+    "when_to_use": "Use first for any Typography generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Typography behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

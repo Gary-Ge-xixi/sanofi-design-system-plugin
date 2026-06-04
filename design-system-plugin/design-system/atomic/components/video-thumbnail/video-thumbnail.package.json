@@ -1,0 +1,263 @@
+{
+  "schema_version": "0.1.0",
+  "id": "video-thumbnail-complete-standard-package",
+  "component_id": "video-thumbnail",
+  "component_name": "Video Thumbnail",
+  "renderer_target": "html",
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 10,
+    "materialized_stories": 10,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "docs_contract": {
+    "docs_id": "components-video-thumbnail--docs",
+    "local_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/docs/video-thumbnail.docs.contract.json"
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-video-thumbnail--default",
+      "story_name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "variant": "default",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--default.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-default.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--disabled-status",
+      "story_name": "Disabled Status",
+      "export_name": "DisabledStatus",
+      "semantic_type": "variant",
+      "variant": "disabled-status",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--disabled-status.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-disabled-status.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--mp-4-video-tracking",
+      "story_name": "MP 4 Video Tracking",
+      "export_name": "MP4VideoTracking",
+      "semantic_type": "variant",
+      "variant": "mp-4-video-tracking",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--mp-4-video-tracking.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-mp-4-video-tracking.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--no-embedded-player",
+      "story_name": "No Embedded Player",
+      "export_name": "NoEmbeddedPlayer",
+      "semantic_type": "variant",
+      "variant": "no-embedded-player",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--no-embedded-player.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-no-embedded-player.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--no-title",
+      "story_name": "No Title",
+      "export_name": "NoTitle",
+      "semantic_type": "variant",
+      "variant": "no-title",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--no-title.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-no-title.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--sanofi-video",
+      "story_name": "Sanofi Video",
+      "export_name": "SanofiVideo",
+      "semantic_type": "variant",
+      "variant": "sanofi-video",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--sanofi-video.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-sanofi-video.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--streaming-video",
+      "story_name": "Streaming Video",
+      "export_name": "StreamingVideo",
+      "semantic_type": "variant",
+      "variant": "streaming-video",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--streaming-video.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-streaming-video.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video",
+      "story_name": "Vimeo Video",
+      "export_name": "VimeoVideo",
+      "semantic_type": "variant",
+      "variant": "vimeo-video",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--vimeo-video.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-vimeo-video.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video-tracking",
+      "story_name": "Vimeo Video Tracking",
+      "export_name": "VimeoVideoTracking",
+      "semantic_type": "variant",
+      "variant": "vimeo-video-tracking",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--vimeo-video-tracking.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-vimeo-video-tracking.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    },
+    {
+      "story_id": "components-video-thumbnail--youtube-video-tracking",
+      "story_name": "Youtube Video Tracking",
+      "export_name": "YoutubeVideoTracking",
+      "semantic_type": "variant",
+      "variant": "youtube-video-tracking",
+      "expected_element": "not_extracted",
+      "status": "materialized",
+      "atomic_story_path": "design-system-plugin/design-system/atomic/components/video-thumbnail/stories/components-video-thumbnail--youtube-video-tracking.story.json",
+      "render_output_path": "design-system-plugin/outputs/html/video-thumbnail-youtube-video-tracking.atomic.html",
+      "source_provenance": {
+        "storybook_index": "research/storybook/index.json",
+        "docs_id": "components-video-thumbnail--docs",
+        "token_source": "foundations-colors--docs"
+      }
+    }
+  ],
+  "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+  "primitive_contract": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+  "component_atomic_contract": "design-system-plugin/design-system/atomic/components/video-thumbnail/component.atomic.json",
+  "expected_tabs": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.expected-tabs.json",
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "render_outputs": {
+    "complete_html": "design-system-plugin/outputs/html/video-thumbnail-complete.atomic.html",
+    "per_story_outputs": [
+      {
+        "story_id": "components-video-thumbnail--default",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-default.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--disabled-status",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-disabled-status.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--mp-4-video-tracking",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-mp-4-video-tracking.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--no-embedded-player",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-no-embedded-player.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--no-title",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-no-title.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--sanofi-video",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-sanofi-video.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--streaming-video",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-streaming-video.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--vimeo-video",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-vimeo-video.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--vimeo-video-tracking",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-vimeo-video-tracking.atomic.html"
+      },
+      {
+        "story_id": "components-video-thumbnail--youtube-video-tracking",
+        "output_path": "design-system-plugin/outputs/html/video-thumbnail-youtube-video-tracking.atomic.html"
+      }
+    ]
+  },
+  "registry": {
+    "package_item": "design-system-plugin/design-system/registry/items/sanofi-video-thumbnail-complete-package.json",
+    "story_item_prefix": "sanofi-video-thumbnail-"
+  },
+  "validation": {
+    "required_story_count": 10,
+    "required_docs_count": 1,
+    "required_validators": [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    "special_semantics": []
+  },
+  "source_provenance": {
+    "docs_id": "components-video-thumbnail--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/video-thumbnail/video-thumbnail.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/video-thumbnail/docs/video-thumbnail.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/video-thumbnail.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/video-thumbnail/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  }
+}

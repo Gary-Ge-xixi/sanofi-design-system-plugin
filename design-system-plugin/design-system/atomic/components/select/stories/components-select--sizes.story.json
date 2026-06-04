@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-select--sizes",
+  "component_id": "select",
+  "component_name": "Select",
+  "story_id": "components-select--sizes",
+  "story_name": "Sizes",
+  "export_name": "Sizes",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-select--sizes&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-select--sizes&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Select.stories-DzNzUrtJ.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/select/assets/components-select--sizes.iframe.html",
+    "import_path": "./src/components/Select/Select.stories.tsx",
+    "component_path": "./src/components/Select/Select.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{label:\"Label\",subText:\"\",labelPosition:r.TOP}",
+    "values": {
+      "label": "Label",
+      "subText": "",
+      "labelPosition": "top"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{onChange:{action:\"changed\"},size:{options:Object.values(i),control:{type:\"radio\"}},labelPosition:{options:Object.values(r),control:{type:\"radio\"}}}",
+    "fields": [
+      "onChange",
+      "size",
+      "labelPosition"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    label: \"Label\",\n    subText: \"\",\n    labelPosition: SelectLabelPosition.TOP\n  },\n  render: args => <div style={{\n    display: \"flex\",\n    flexDirection: \"column\",\n    gap: \"24px\",\n    maxWidth: \"400px\"\n  }}>\n      <Select id=\"select-size-small\" label={args.label || \"Small\"} subText={args.subText} placeholder=\"Select an option\" size={InputSize.SMALL} labelPosition={args.labelPosition} options={options} />\n      <Select id=\"select-size-medium\" label={args.label || \"Medium\"} subText={args.subText} placeholder=\"Select an option\" size={InputSize.MEDIUM} labelPosition={args.labelPosition} options={options} />\n      <Select id=\"select-size-large\" label={args.label || \"Large\"} subText={args.subText} placeholder=\"Select an option\" size={InputSize.LARGE} labelPosition={args.labelPosition} options={options} />\n    </div>\n}",
+    "story_object_source": "{args:{label:\"Label\",subText:\"\",labelPosition:r.TOP},render:e=>l.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"24px\",maxWidth:\"400px\"},children:[l.jsx(o,{id:\"select-size-small\",label:e.label||\"Small\",subText:e.subText,placeholder:\"Select an option\",size:i.SMALL,labelPosition:e.labelPosition,options:n}),l.jsx(o,{id:\"select-size-medium\",label:e.label||\"Medium\",subText:e.subText,placeholder:\"Select an option\",size:i.MEDIUM,labelPosition:e.labelPosition,options:n}),l.jsx(o,{id:\"select-size-large\",label:e.label||\"Large\",subText:e.subText,placeholder:\"Select an option\",size:i.LARGE,labelPosition:e.labelPosition,options:n})]})}"
+  },
+  "template": {
+    "id": "select-sizes-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/select/templates/html.sizes.template.html",
+    "output_path": "design-system-plugin/outputs/html/select-sizes.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/select.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "select",
+    "local_path": "design-system-plugin/design-system/primitives/components/select/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-select--docs",
+    "story_id": "components-select--sizes",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/select.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/select/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/select/assets/components-select--sizes.iframe.html"
+  }
+}

@@ -1,0 +1,128 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const defaultHtml = path.join(pluginRoot, "outputs", "html", "business-query-form.resolved.html");
+const target = path.resolve(process.cwd(), process.argv[2] || defaultHtml);
+const rulePath = path.join(pluginRoot, "design-system", "rules", "business-layout-typography.json");
+const reportPath = path.join(reportDir, "page-layout-typography.report.json");
+const reportMdPath = path.join(reportDir, "page-layout-typography.report.md");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath) {
+  return JSON.parse(read(filePath));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function count(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+function collectCssDeclarations(source, property) {
+  const declarations = [];
+  const re = new RegExp(`${property}\\s*:\\s*([^;]+);`, "g");
+  let match;
+  while ((match = re.exec(source))) {
+    declarations.push({
+      declaration: match[0].replace(/\s+/g, " ").trim(),
+      value: match[1].replace(/\s+/g, " ").trim()
+    });
+  }
+  return declarations;
+}
+
+function hasAll(source, fragments) {
+  return fragments.filter((fragment) => !source.includes(fragment));
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const html = fs.existsSync(target) ? read(target) : "";
+const rule = readJson(rulePath);
+const failures = [];
+
+if (!html) failures.push(`missing HTML target: ${target}`);
+
+const missingPageMarkers = hasAll(html, rule.html_contract.required_page_markers || []);
+const missingPageHeaderMarkers = hasAll(html, rule.html_contract.required_page_header_markers || []);
+const missingLayoutMarkers = hasAll(html, rule.html_contract.required_layout_markers || []);
+const missingCssFragments = hasAll(html, rule.html_contract.required_css_fragments || []);
+const forbiddenCssFragments = (rule.html_contract.forbidden_css_fragments || []).filter((fragment) => html.includes(fragment));
+
+for (const marker of missingPageMarkers) failures.push(`missing page layout/typography marker: ${marker}`);
+for (const marker of missingPageHeaderMarkers) failures.push(`missing PageHeader marker: ${marker}`);
+for (const marker of missingLayoutMarkers) failures.push(`missing layout marker: ${marker}`);
+for (const fragment of missingCssFragments) failures.push(`missing CSS fragment: ${fragment}`);
+for (const fragment of forbiddenCssFragments) failures.push(`forbidden CSS fragment: ${fragment}`);
+
+const letterSpacingDeclarations = collectCssDeclarations(html, "letter-spacing");
+const invalidLetterSpacing = letterSpacingDeclarations.filter((item) => (
+  item.value !== "0" &&
+  item.value !== "0rem" &&
+  item.value !== "var(--elements-core-font-letterspacing-default)"
+));
+for (const item of invalidLetterSpacing) failures.push(`invalid letter-spacing: ${item.declaration}`);
+
+const h1RawLineHeight = /h1\s*\{[^}]*line-height\s*:\s*(?!var\(\s*--elements-font-lineheight-[0-9]+\s*\))[^;]+;/s.test(html);
+if (h1RawLineHeight) failures.push("page title h1 must use an Elements line-height token");
+
+const pageHeaderRootCount = count(html, /data-pageheader-part=["']root["']/g);
+const pageHeaderTitleCount = count(html, /data-pageheader-part=["']title["']/g);
+const pageHeaderDescriptionCount = count(html, /data-pageheader-part=["']description["']/g);
+const pageHeaderActionCount = count(html, /data-pageheader-part=["']actions["']/g);
+const containerContentCount = count(html, /data-container-part=["']contentContainer["']/g);
+const gridRootCount = count(html, /data-grid-part=["']root["']/g);
+const gridItemCount = count(html, /data-grid-part=["']item["']/g);
+
+if (pageHeaderRootCount < 1) failures.push("PageHeader root is required");
+if (pageHeaderTitleCount < 1) failures.push("PageHeader title part is required");
+if (pageHeaderDescriptionCount < 1) failures.push("PageHeader description part is required");
+if (containerContentCount < 1) failures.push("Container contentContainer part is required");
+if (gridRootCount < 1) failures.push("Grid root is required");
+if (gridItemCount < 1) failures.push("Grid item is required");
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-page-layout-typography",
+  target: rel(target),
+  rule: rel(rulePath),
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    page_header_roots: pageHeaderRootCount,
+    page_header_titles: pageHeaderTitleCount,
+    page_header_descriptions: pageHeaderDescriptionCount,
+    page_header_actions: pageHeaderActionCount,
+    container_content_parts: containerContentCount,
+    grid_roots: gridRootCount,
+    grid_items: gridItemCount,
+    letter_spacing_declarations: letterSpacingDeclarations.length,
+    invalid_letter_spacing: invalidLetterSpacing.length,
+    missing_page_markers: missingPageMarkers,
+    missing_page_header_markers: missingPageHeaderMarkers,
+    missing_layout_markers: missingLayoutMarkers,
+    missing_css_fragments: missingCssFragments,
+    forbidden_css_fragments: forbiddenCssFragments
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Page Layout Typography Validation\n\nStatus: ${report.status}\n\nTarget: \`${report.target}\`\n\n| Metric | Value |\n|---|---:|\n| PageHeader roots | ${pageHeaderRootCount} |\n| PageHeader titles | ${pageHeaderTitleCount} |\n| PageHeader descriptions | ${pageHeaderDescriptionCount} |\n| Container content parts | ${containerContentCount} |\n| Grid roots | ${gridRootCount} |\n| Grid items | ${gridItemCount} |\n| Invalid letter spacing | ${invalidLetterSpacing.length} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Page layout typography validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Page layout typography OK: ${rel(target)}`);

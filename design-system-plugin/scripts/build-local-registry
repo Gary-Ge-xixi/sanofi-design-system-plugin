@@ -1,0 +1,904 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const registryDir = path.join(pluginRoot, "design-system", "registry");
+const itemsDir = path.join(registryDir, "items");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function readOptionalJson(relativePath, fallback) {
+  if (!exists(relativePath)) return fallback;
+  return readJson(relativePath);
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function localPath(...parts) {
+  return path.join("design-system-plugin", ...parts).replaceAll(path.sep, "/");
+}
+
+function toRegistryName(value) {
+  return `sanofi-${String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")}`;
+}
+
+function itemPath(name) {
+  return localPath("design-system", "registry", "items", `${name}.json`);
+}
+
+function asFile(pathValue, role, target = pathValue) {
+  return {
+    path: pathValue,
+    role,
+    target
+  };
+}
+
+function compact(value) {
+  return Array.isArray(value) ? value.filter(Boolean) : [];
+}
+
+function ruleId(rule) {
+  return typeof rule === "string" ? rule : rule?.id;
+}
+
+function patternDetail(entry) {
+  if (!entry?.path) return entry || null;
+  const detailPath = localPath("design-system", "patterns", entry.path);
+  if (!exists(detailPath)) return entry;
+  return {
+    ...entry,
+    ...readJson(detailPath)
+  };
+}
+
+function walk(dir, predicate, results = []) {
+  if (!fs.existsSync(dir)) return results;
+  for (const entry of fs.readdirSync(dir)) {
+    const absolutePath = path.join(dir, entry);
+    if (fs.statSync(absolutePath).isDirectory()) {
+      walk(absolutePath, predicate, results);
+    } else if (predicate(absolutePath)) {
+      results.push(absolutePath);
+    }
+  }
+  return results.sort();
+}
+
+function rel(absolutePath) {
+  return path.relative(workspaceRoot, absolutePath).replaceAll(path.sep, "/");
+}
+
+fs.mkdirSync(itemsDir, { recursive: true });
+fs.mkdirSync(reportDir, { recursive: true });
+
+const generatedAt = new Date().toISOString();
+const sourceIndex = readJson("design-system-plugin/design-system/knowledge/source-index.json");
+const primitiveIndex = readJson("design-system-plugin/design-system/primitives/primitive-index.json");
+const componentContractIndex = readJson(
+  "design-system-plugin/design-system/contracts/components/component-contract-index.json"
+);
+const semanticTokenMap = readJson("design-system-plugin/design-system/contracts/semantic-token-map.json");
+const patternIndex = readJson("design-system-plugin/design-system/patterns/pattern-index.json");
+const adminResolution = readJson(
+  "design-system-plugin/design-system/contracts/resolvers/admin-dashboard.resolution.json"
+);
+const atomicIndex = readOptionalJson(
+  "design-system-plugin/design-system/atomic/atomic-component-index.json",
+  { stories: [], counts: { stories: 0, components: 0 } }
+);
+const componentPackages = walk(
+  path.join(pluginRoot, "design-system", "atomic", "components"),
+  (filePath) => filePath.endsWith(".package.json")
+)
+  .map((filePath) => ({ path: rel(filePath), package: readJson(rel(filePath)) }))
+  .filter((record) => record.package.coverage?.story_coverage_status === "complete")
+  .sort((a, b) => a.package.component_id.localeCompare(b.package.component_id));
+
+const contractsByPrimitive = new Map();
+for (const contract of componentContractIndex.contracts || []) {
+  contractsByPrimitive.set(contract.id, contract);
+  for (const primitiveId of contract.primitive_ids || []) {
+    contractsByPrimitive.set(primitiveId, contract);
+  }
+}
+
+const primitiveItems = (primitiveIndex.primitives || []).map((primitive) => {
+  const contract = contractsByPrimitive.get(primitive.id);
+  const name = toRegistryName(primitive.id);
+  const docsId = contract?.docs_id || null;
+  const storyIds = contract?.story_count ? undefined : [];
+
+  return {
+    schema_version: "0.1.0",
+    name,
+    title: `${primitive.component} primitive`,
+    type: "registry:component",
+    renderer_target: "html",
+    description: `Local Sanofi Elements primitive contract for ${primitive.component}.`,
+    status: primitive.status,
+    component_id: primitive.id,
+    docs_id: docsId,
+    registryDependencies: ["sanofi-elements-tokens", "sanofi-design-prototype-generator"],
+    files: compact([
+      asFile(localPath("design-system", "primitives", primitive.path), "primitive-contract"),
+      asFile(localPath("design-system", "primitives", primitive.demo_registry), "demo-registry"),
+      contract ? asFile(contract.local_contract_path, "component-contract") : null,
+      docsId ? asFile(localPath("design-system", "knowledge", "docs", `${docsId}.md`), "source-doc") : null
+    ]),
+    source_provenance: {
+      docs_id: docsId || "unknown",
+      component_contract: contract?.local_contract_path || "unsupported",
+      token_source: semanticTokenMap.source?.primary_docs_entry || "foundations-colors--docs",
+      story_count: contract?.story_count ?? "not_extracted",
+      primitive_registry: localPath("design-system", "primitives", "primitive-index.json")
+    },
+    ai: {
+      prompt_keywords: [
+        primitive.id,
+        primitive.component,
+        primitive.component.replace(/([a-z])([A-Z])/g, "$1 $2")
+      ],
+      when_to_use: `Use for HTML prototypes that need the official ${primitive.component} primitive.`,
+      unsupported_behavior: "Do not invent props or states beyond the component contract."
+    },
+    _story_ids: storyIds
+  };
+});
+
+const tokenItem = {
+  schema_version: "0.1.0",
+  name: "sanofi-elements-tokens",
+  title: "Sanofi Elements tokens",
+  type: "registry:style",
+  renderer_target: "html",
+  description: "Local token stylesheet and semantic token map from Sanofi Elements Storybook.",
+  registryDependencies: [],
+  files: [
+    asFile(localPath("design-system", "tokens", "tokens.css"), "stylesheet"),
+    asFile(localPath("design-system", "tokens", "token-manifest.json"), "token-manifest"),
+    asFile(localPath("design-system", "tokens", "token-allowlist.txt"), "token-allowlist"),
+    asFile(localPath("design-system", "contracts", "semantic-token-map.json"), "semantic-token-map"),
+    asFile(localPath("design-system", "knowledge", "docs", "foundations-colors--docs.md"), "source-doc"),
+    asFile(localPath("design-system", "knowledge", "docs", "foundations-motion--docs.md"), "source-doc")
+  ],
+  source_provenance: {
+    docs_id: "foundations-colors--docs",
+    motion_docs_id: "foundations-motion--docs",
+    token_source: semanticTokenMap.source?.primary_docs_entry || "foundations-colors--docs",
+    tokens_css: localPath("design-system", "tokens", "tokens.css"),
+    storybook_version_observed: semanticTokenMap.source?.storybook_version_observed || "v3.48.3"
+  },
+  ai: {
+    prompt_keywords: ["tokens", "colors", "brand", "semantic color", "purple", "Sanofi"],
+    when_to_use: "Load before rendering any HTML or choosing visual colors.",
+    unsupported_behavior: "Do not use raw hex/rgb or direct core color references in generated HTML."
+  }
+};
+
+const brandAssetItem = {
+  schema_version: "0.1.0",
+  name: "sanofi-brand-assets",
+  title: "Sanofi fixed brand assets",
+  type: "registry:asset",
+  renderer_target: "html",
+  description: "Fixed local Sanofi brand assets for HTML generation, including the full Sanofi logo lockup.",
+  registryDependencies: ["sanofi-elements-tokens", "sanofi-design-prototype-generator"],
+  files: [
+    asFile(localPath("design-system", "assets", "brand", "brand-assets.contract.json"), "brand-asset-contract"),
+    asFile(localPath("design-system", "assets", "brand", "sanofi-logo-full.svg"), "brand-logo")
+  ],
+  source_provenance: {
+    docs_url: "https://elements.sanofidesign.com/557b0250b/p/396515-brand-assets",
+    cdn_url: "https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg",
+    asset_id: "sanofi-logo-full",
+    intrinsic_size: "94x24",
+    local_contract: localPath("design-system", "assets", "brand", "brand-assets.contract.json")
+  },
+  ai: {
+    prompt_keywords: ["brand assets", "logo", "sanofi logo", "品牌资产", "固定资产包", "左上角 logo"],
+    when_to_use: "Use for the top-left Sanofi logo lockup in admin HTML and other fixed Sanofi brand asset placements.",
+    unsupported_behavior: "Do not recreate the Sanofi logo with text, CSS, glyphs, or handwritten vectors."
+  }
+};
+
+const workflowItem = {
+  schema_version: "0.1.0",
+  name: "sanofi-design-prototype-generator",
+  title: "Design prototype generator workflow",
+  type: "registry:lib",
+  renderer_target: "html",
+  description: "Local skill workflow, policies, validators, and source index for Sanofi Elements HTML generation.",
+  registryDependencies: ["sanofi-elements-tokens"],
+  files: [
+    asFile(localPath("design-system", "DESIGN.md"), "design-md"),
+    asFile(localPath("skills", "design-prototype-generator", "SKILL.md"), "skill"),
+    asFile(localPath("design-system", "knowledge", "source-index.json"), "source-index"),
+    asFile(localPath("design-system", "contracts", "components", "component-contract-index.json"), "component-contract-index"),
+    asFile(localPath("design-system", "atomic", "component-package-standard.json"), "component-package-standard"),
+    asFile(localPath("design-system", "atomic", "component-coverage-matrix.json"), "component-coverage-matrix"),
+    asFile(localPath("design-system", "contracts", "schemas", "component-contract.schema.json"), "schema"),
+    asFile(localPath("design-system", "contracts", "schemas", "pattern-resolver.schema.json"), "schema"),
+    asFile(localPath("design-system", "policies", "fallback-policy.json"), "policy"),
+    asFile(localPath("design-system", "policies", "naming-standard.json"), "policy"),
+    asFile(localPath("design-system", "policies", "source-provenance.json"), "policy"),
+    asFile(localPath("design-system", "rules", "rules-index.json"), "rules-index"),
+    asFile(localPath("design-system", "rules", "component-runtime-contract.json"), "component-runtime-rule"),
+    asFile(localPath("design-system", "rules", "component-size-policy.json"), "component-size-policy"),
+    asFile(localPath("design-system", "assets", "brand", "brand-assets.contract.json"), "brand-asset-contract"),
+    asFile(localPath("component-runtime", "component-runtime.contract.json"), "component-runtime-contract"),
+    asFile(localPath("component-runtime", "package.json"), "component-runtime-package"),
+    asFile(localPath("component-runtime", "src", "index.mjs"), "component-runtime-entry"),
+    asFile(localPath("component-runtime", "src", "local-components.cjs"), "component-runtime-local-renderer"),
+    asFile(localPath("component-runtime", "scripts", "preflight-elements-package.mjs"), "preflight"),
+    asFile(localPath("scripts", "validate-design-md"), "validator"),
+    asFile(localPath("scripts", "validate-component-runtime"), "validator"),
+    asFile(localPath("scripts", "validate-admin-delivery-contract"), "validator"),
+    asFile(localPath("scripts", "validate-admin-page-profile"), "validator"),
+    asFile(localPath("scripts", "validate-reference-fit"), "validator"),
+    asFile(localPath("scripts", "render-dashboard-template-html"), "renderer")
+  ].concat(exists("design-system-plugin/design-system/atomic/atomic-component-index.json") ? [
+    asFile(localPath("design-system", "atomic", "atomic-component-index.json"), "atomic-index"),
+    asFile(localPath("design-system", "atomic", "schemas", "atomic-story.schema.json"), "schema")
+  ] : []),
+  source_provenance: {
+    design_md: localPath("design-system", "DESIGN.md"),
+    source_index: localPath("design-system", "knowledge", "source-index.json"),
+    component_contract_index: localPath("design-system", "contracts", "components", "component-contract-index.json"),
+    token_source: semanticTokenMap.source?.primary_docs_entry || "foundations-colors--docs",
+    docs_count: sourceIndex.counts?.storybook_docs || 0,
+    component_contracts: componentContractIndex.counts?.component_contracts || 0
+  },
+  ai: {
+    prompt_keywords: ["skill", "workflow", "validator", "resolver", "prototype generator"],
+    when_to_use: "Load for any Sanofi Elements HTML prototype request.",
+    unsupported_behavior: "Renderer target is HTML only in this version."
+  }
+};
+
+const runtimeItem = {
+  schema_version: "0.1.0",
+  name: "sanofi-elements-component-runtime",
+  title: "Sanofi Elements component runtime boundary",
+  type: "registry:lib",
+  renderer_target: "html",
+  description: "Internal runtime boundary for rendering component specs through @sanofi-accelerator/elements instead of hand-authored component DOM.",
+  registryDependencies: ["sanofi-elements-tokens"],
+  files: [
+    asFile(localPath("component-runtime", "README.md"), "runtime-doc"),
+    asFile(localPath("component-runtime", "package.json"), "runtime-package"),
+    asFile(localPath("component-runtime", "src", "index.mjs"), "runtime-entry"),
+    asFile(localPath("component-runtime", "src", "local-components.cjs"), "runtime-local-renderer"),
+    asFile(localPath("component-runtime", "component-runtime.contract.json"), "runtime-contract"),
+    asFile(localPath("component-runtime", "specs", "admin-dashboard.component-spec.json"), "component-spec"),
+    asFile(localPath("component-runtime", "scripts", "preflight-elements-package.mjs"), "preflight"),
+    asFile(localPath("design-system", "rules", "component-runtime-contract.json"), "runtime-rule"),
+    asFile(localPath("design-system", "rules", "component-size-policy.json"), "component-size-policy"),
+    asFile(localPath("scripts", "validate-component-runtime"), "validator")
+  ],
+  source_provenance: {
+    package: "@sanofi-accelerator/elements",
+    registry: "https://npm.pkg.github.com",
+    design_md: localPath("design-system", "DESIGN.md"),
+    runtime_contract: localPath("component-runtime", "component-runtime.contract.json"),
+    default_component_size: "medium"
+  },
+  ai: {
+    prompt_keywords: [
+      "component runtime",
+      "hydrated html",
+      "真实组件",
+      "组件引用",
+      "Sanofi Elements React",
+      "@sanofi-accelerator/elements"
+    ],
+    when_to_use: "Use when a page must render real Sanofi Elements components with JS/CSS interaction rather than static primitive-like markup.",
+    unsupported_behavior: "Do not use this item to clone or recreate @sanofi-accelerator/elements. If the package cannot be resolved, stop and report the package-access blocker."
+  }
+};
+
+const adminPattern = patternDetail((patternIndex.patterns || []).find((pattern) => pattern.id === "admin-dashboard"));
+const adminQueryPattern = patternDetail((patternIndex.patterns || []).find((pattern) => pattern.id === "admin-query-panel"));
+const reportDashboardPattern = patternDetail((patternIndex.patterns || []).find((pattern) => pattern.id === "report-dashboard"));
+const informationAggregationPattern = patternDetail((patternIndex.patterns || []).find((pattern) => pattern.id === "information-aggregation"));
+const customerDetailDateQueryPattern = patternDetail((patternIndex.patterns || []).find((pattern) => pattern.id === "customer-detail-date-query"));
+const adminPrimitiveDeps = [
+  ...(adminPattern?.required_primitives || []),
+  ...(adminPattern?.optional_primitives || [])
+].map(toRegistryName);
+const adminRequiredRules = (adminPattern?.required_rules || []).map(ruleId).filter(Boolean);
+const adminQueryPrimitiveDeps = [
+  ...(adminQueryPattern?.required_primitives || []),
+  ...(adminQueryPattern?.optional_primitives || [])
+].map(toRegistryName);
+const adminQueryRequiredRules = (adminQueryPattern?.required_rules || []).map(ruleId).filter(Boolean);
+const reportDashboardPrimitiveDeps = [
+  ...(reportDashboardPattern?.required_primitives || []),
+  ...(reportDashboardPattern?.optional_primitives || [])
+].map(toRegistryName);
+const reportDashboardRequiredRules = (reportDashboardPattern?.required_rules || []).map(ruleId).filter(Boolean);
+const informationAggregationPrimitiveDeps = [
+  ...(informationAggregationPattern?.required_primitives || []),
+  ...(informationAggregationPattern?.optional_primitives || [])
+].map(toRegistryName);
+const informationAggregationRequiredRules = (informationAggregationPattern?.required_rules || []).map(ruleId).filter(Boolean);
+const customerDetailDateQueryPrimitiveDeps = [
+  ...(customerDetailDateQueryPattern?.required_primitives || []),
+  ...(customerDetailDateQueryPattern?.optional_primitives || [])
+].map(toRegistryName);
+const customerDetailDateQueryRequiredRules = (customerDetailDateQueryPattern?.required_rules || []).map(ruleId).filter(Boolean);
+
+const adminItem = {
+  schema_version: "0.1.0",
+  name: "sanofi-admin-dashboard",
+  title: "Sanofi admin dashboard block",
+  type: "registry:block",
+  renderer_target: "html",
+  description: "A local HTML block pattern for admin dashboard pages using Sanofi Elements primitives, contract-backed BarChart modules, and explicit fallbacks for unsupported table or chart modules.",
+  pattern_id: "admin-dashboard",
+  registryDependencies: [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    "sanofi-brand-assets",
+    ...adminPrimitiveDeps
+  ],
+  files: [
+    asFile(localPath("design-system", "patterns", "admin-dashboard", "admin-dashboard.pattern.json"), "pattern"),
+    asFile(localPath("design-system", "contracts", "resolvers", "admin-dashboard.resolution.json"), "resolver-output"),
+    asFile(localPath("design-system", "contracts", "resolvers", "latest-resolution.json"), "latest-resolver-output"),
+    asFile(localPath("design-system", "rules", "layout-grid-container.json"), "layout-rule"),
+    asFile(localPath("design-system", "rules", "typography-font-stack.json"), "typography-rule"),
+    asFile(localPath("design-system", "rules", "admin-template-navigation.json"), "template-navigation-rule"),
+    asFile(localPath("design-system", "rules", "admin-delivery-contract.json"), "delivery-contract-rule"),
+    asFile(localPath("design-system", "rules", "component-runtime-contract.json"), "component-runtime-rule"),
+    asFile(localPath("design-system", "rules", "component-size-policy.json"), "component-size-policy"),
+    asFile(localPath("design-system", "assets", "brand", "brand-assets.contract.json"), "brand-asset-contract"),
+    asFile(localPath("design-system", "assets", "brand", "sanofi-logo-full.svg"), "brand-logo"),
+    asFile(localPath("component-runtime", "component-runtime.contract.json"), "component-runtime-contract"),
+    asFile(localPath("component-runtime", "specs", "admin-dashboard.component-spec.json"), "component-spec"),
+    asFile(localPath("scripts", "validate-admin-delivery-contract"), "validator"),
+    asFile(localPath("scripts", "validate-component-runtime"), "validator"),
+    asFile(localPath("design-system", "templates", "standalone-html.template.html"), "template"),
+    asFile(localPath("design-system", "templates", "report-dashboard.template.json"), "template"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-chart.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "rules", "chart-usage.json"), "chart-rule"),
+    asFile(localPath("design-system", "reference-fit", "admin-dashboard-chart.rules.json"), "reference-fit-rule"),
+    asFile(localPath("outputs", "html", "admin-dashboard.resolved.html"), "example-html"),
+    asFile(localPath("design-system", "policies", "fallback-policy.json"), "fallback-policy")
+  ],
+  required_primitives: adminPattern?.required_primitives || [],
+  optional_primitives: adminPattern?.optional_primitives || [],
+  required_rules: adminRequiredRules,
+  delivery_contract: adminPattern?.delivery_contract || null,
+  fallbacks: adminResolution.fallbacks || [],
+  resolver: {
+    script: localPath("scripts", "resolve-pattern"),
+    input: "business prompt",
+    output: localPath("design-system", "contracts", "resolvers", "latest-resolution.json")
+  },
+  source_provenance: {
+    pattern_id: "admin-dashboard",
+    delivery_contract: adminPattern?.delivery_contract?.id || "none",
+    docs_ids: adminResolution.source_provenance?.docs_ids || [],
+    story_ids: adminResolution.source_provenance?.story_ids || [],
+    token_source: adminResolution.source_provenance?.token_source || "foundations-colors--docs",
+    layout_rule: adminResolution.source_provenance?.layout_rule || "layout-grid-container",
+    layout_source: adminResolution.source_provenance?.layout_source || "foundations-layout--docs",
+    fallback_policy: localPath("design-system", "policies", "fallback-policy.json"),
+    brand_asset_contract: localPath("design-system", "assets", "brand", "brand-assets.contract.json"),
+    default_component_size: "medium"
+  },
+  ai: {
+    prompt_keywords: [
+      "admin",
+      "dashboard",
+      "management console",
+      "后台",
+      "管理后台",
+      "首页",
+      "审批",
+      "队列",
+      "数据看板"
+    ],
+    when_to_use: "Use when a prompt asks for an admin dashboard, management homepage, operations console, or queue/data overview.",
+    unsupported_behavior: "Table remains explicit fallback until an official Table/DataGrid primitive is registered. BarChart uses business-chart when the data contract is present; unsupported chart types stay explicit fallback."
+  }
+};
+
+const adminQueryItem = adminQueryPattern ? {
+  schema_version: "0.1.0",
+  name: "sanofi-admin-query-panel",
+  title: "OneCommercial admin query and fill panel",
+  type: "registry:block",
+  renderer_target: "html",
+  description: "A local OneCommercial-style backend query/fill page pattern for CDC inventory data-entry tables.",
+  pattern_id: "admin-query-panel",
+  template_id: adminQueryPattern.template_id || "onecommercial-admin-query-panel",
+  page_subtype: adminQueryPattern.page_subtype || "data-entry-table-page",
+  registryDependencies: [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    ...adminQueryPrimitiveDeps
+  ],
+  files: [
+    asFile(localPath("design-system", "patterns", "admin-query-panel", "admin-query-panel.pattern.json"), "pattern"),
+    asFile(localPath("design-system", "templates", "onecommercial-admin-query-panel.template.json"), "template"),
+    asFile(localPath("design-system", "page-profiles", "admin-data-entry-table.profile.json"), "page-profile"),
+    asFile(localPath("design-system", "contracts", "page-modules", "select-filter.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "contracts", "page-modules", "data-table-fallback.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "contracts", "resolvers", "latest-resolution.json"), "latest-resolver-output"),
+    asFile(localPath("design-system", "rules", "layout-grid-container.json"), "layout-rule"),
+    asFile(localPath("design-system", "rules", "typography-font-stack.json"), "typography-rule"),
+    asFile(localPath("design-system", "rules", "admin-template-navigation.json"), "template-navigation-rule"),
+    asFile(localPath("design-system", "rules", "admin-query-panel-template.json"), "template-rule"),
+    asFile(localPath("design-system", "rules", "admin-density.json"), "density-rule"),
+    asFile(localPath("design-system", "reference-fit", "admin-data-entry-table.rules.json"), "reference-fit-rule"),
+    asFile(localPath("outputs", "html", "admin-query-panel.resolved.html"), "example-html"),
+    asFile(localPath("design-system", "policies", "fallback-policy.json"), "fallback-policy")
+  ],
+  required_primitives: adminQueryPattern.required_primitives || [],
+  optional_primitives: adminQueryPattern.optional_primitives || [],
+  required_rules: adminQueryRequiredRules,
+  fallbacks: [
+    {
+      module: "table",
+      status: "token-only-pattern",
+      reason: "No official Table/DataTable/DataGrid primitive is registered locally.",
+      allowed_markup: ["table"],
+      must_not_claim_primitive: true
+    }
+  ],
+  resolver: {
+    script: localPath("scripts", "resolve-pattern"),
+    input: "business prompt",
+    output: localPath("design-system", "contracts", "resolvers", "latest-resolution.json")
+  },
+  renderer: {
+    script: localPath("scripts", "render-resolved-html"),
+    target: "html",
+    output: localPath("outputs", "html", "admin-query-panel.resolved.html")
+  },
+  source_provenance: {
+    pattern_id: "admin-query-panel",
+    template_id: adminQueryPattern.template_id || "onecommercial-admin-query-panel",
+    docs_ids: [
+      "foundations-layout--docs",
+      "foundations-typography--docs",
+      "components-container--docs",
+      "components-grid--docs",
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs",
+      "components-select--docs",
+      "components-button--docs",
+      "components-textinput--docs",
+      "components-pagination--docs"
+    ],
+    story_ids: [
+      "components-container--fixed",
+      "components-grid--desktop",
+      "components-navigationheader--default",
+      "components-sidebar--default",
+      "components-menu--default",
+      "components-icon--gallery",
+      "components-select--default",
+      "components-button--primary",
+      "components-textinput--default",
+      "components-pagination--default"
+    ],
+    token_source: semanticTokenMap.source?.primary_docs_entry || "foundations-colors--docs",
+    layout_rule: "layout-grid-container",
+    layout_source: "foundations-layout--docs",
+    page_profile: localPath("design-system", "page-profiles", "admin-data-entry-table.profile.json"),
+    page_module_contracts: [
+      localPath("design-system", "contracts", "page-modules", "select-filter.contract.json"),
+      localPath("design-system", "contracts", "page-modules", "data-table-fallback.contract.json")
+    ],
+    density_rule: localPath("design-system", "rules", "admin-density.json"),
+    reference_fit_rule: localPath("design-system", "reference-fit", "admin-data-entry-table.rules.json"),
+    fallback_policy: localPath("design-system", "policies", "fallback-policy.json")
+  },
+  ai: {
+    prompt_keywords: [
+      "OneCommercial",
+      "onecommercial",
+      "CDC",
+      "cdc",
+      "库存",
+      "查询",
+      "填报",
+      "筛选",
+      "数据填报",
+      "库存填报",
+      "CDC库存填报",
+      "CDC库存查询",
+      "后台表格",
+      "editable table",
+      "query panel"
+    ],
+    when_to_use: "Use when a prompt asks for a OneCommercial CDC inventory query/fill backend, data-entry table page, or filterable admin table.",
+    unsupported_behavior: "Table must stay a token-only fallback until an official Elements Table primitive is registered. Do not add dashboard KPI or chart sections."
+  }
+} : null;
+
+const reportDashboardItem = reportDashboardPattern ? {
+  schema_version: "0.1.0",
+  name: "sanofi-report-dashboard",
+  title: "Sanofi report dashboard page template",
+  type: "registry:block",
+  renderer_target: "html",
+  description: "A contract-backed report dashboard page template with BarChart, KPI summary, filters, and table fallback.",
+  pattern_id: "report-dashboard",
+  template_id: reportDashboardPattern.template_id || "report-dashboard",
+  page_subtype: reportDashboardPattern.page_subtype || "report-dashboard-page",
+  registryDependencies: [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    ...reportDashboardPrimitiveDeps
+  ],
+  files: [
+    asFile(localPath("design-system", "patterns", "report-dashboard", "report-dashboard.pattern.json"), "pattern"),
+    asFile(localPath("design-system", "templates", "report-dashboard.template.json"), "template"),
+    asFile(localPath("design-system", "page-profiles", "report-dashboard.profile.json"), "page-profile"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-chart.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-table.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "rules", "chart-usage.json"), "chart-rule"),
+    asFile(localPath("design-system", "rules", "table-usage.json"), "table-rule"),
+    asFile(localPath("design-system", "reference-fit", "admin-dashboard-chart.rules.json"), "reference-fit-rule"),
+    asFile(localPath("design-system", "policies", "fallback-policy.json"), "fallback-policy")
+  ],
+  required_primitives: reportDashboardPattern.required_primitives || [],
+  optional_primitives: reportDashboardPattern.optional_primitives || [],
+  required_rules: reportDashboardRequiredRules,
+  fallbacks: reportDashboardPattern.fallbacks || [],
+  source_provenance: {
+    pattern_id: "report-dashboard",
+    template_id: reportDashboardPattern.template_id || "report-dashboard",
+    page_profile: localPath("design-system", "page-profiles", "report-dashboard.profile.json"),
+    chart_contract: localPath("design-system", "contracts", "page-modules", "business-chart.contract.json"),
+    reference_fit_rule: localPath("design-system", "reference-fit", "admin-dashboard-chart.rules.json"),
+    fallback_policy: localPath("design-system", "policies", "fallback-policy.json")
+  },
+  ai: {
+    prompt_keywords: ["报表", "dashboard", "report", "数据看板", "BarChart", "report dashboard"],
+    when_to_use: "Use when a prompt asks for a business report dashboard with KPI, chart, filters, and exact-value table access.",
+    unsupported_behavior: "Use business-chart for BarChart only when its data contract is present; unsupported chart types stay explicit fallback."
+  }
+} : null;
+
+const informationAggregationItem = informationAggregationPattern ? {
+  schema_version: "0.1.0",
+  name: "sanofi-information-aggregation",
+  title: "Sanofi information aggregation page template",
+  type: "registry:block",
+  renderer_target: "html",
+  description: "A multi-module information aggregation page template combining query filters, dashboard summary, chart context, record list, and pagination.",
+  pattern_id: "information-aggregation",
+  template_id: informationAggregationPattern.template_id || "information-aggregation",
+  page_subtype: informationAggregationPattern.page_subtype || "information-aggregation-page",
+  registryDependencies: [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    ...informationAggregationPrimitiveDeps
+  ],
+  files: [
+    asFile(localPath("design-system", "patterns", "information-aggregation", "information-aggregation.pattern.json"), "pattern"),
+    asFile(localPath("design-system", "templates", "information-aggregation.template.json"), "template"),
+    asFile(localPath("design-system", "page-profiles", "information-aggregation.profile.json"), "page-profile"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-form.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-chart.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-table.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "rules", "information-aggregation-page.json"), "page-rule"),
+    asFile(localPath("design-system", "rules", "form-usage.json"), "form-rule"),
+    asFile(localPath("design-system", "rules", "chart-usage.json"), "chart-rule"),
+    asFile(localPath("design-system", "rules", "table-usage.json"), "table-rule"),
+    asFile(localPath("design-system", "reference-fit", "business-page-family.rules.json"), "reference-fit-rule"),
+    asFile(localPath("design-system", "policies", "fallback-policy.json"), "fallback-policy")
+  ],
+  required_primitives: informationAggregationPattern.required_primitives || [],
+  optional_primitives: informationAggregationPattern.optional_primitives || [],
+  required_rules: informationAggregationRequiredRules,
+  fallbacks: informationAggregationPattern.fallbacks || [],
+  source_provenance: {
+    pattern_id: "information-aggregation",
+    template_id: informationAggregationPattern.template_id || "information-aggregation",
+    page_profile: localPath("design-system", "page-profiles", "information-aggregation.profile.json"),
+    page_rule: localPath("design-system", "rules", "information-aggregation-page.json"),
+    form_contract: localPath("design-system", "contracts", "page-modules", "business-form.contract.json"),
+    chart_contract: localPath("design-system", "contracts", "page-modules", "business-chart.contract.json"),
+    table_contract: localPath("design-system", "contracts", "page-modules", "business-table.contract.json"),
+    reference_fit_rule: localPath("design-system", "reference-fit", "business-page-family.rules.json"),
+    fallback_policy: localPath("design-system", "policies", "fallback-policy.json")
+  },
+  ai: {
+    prompt_keywords: ["信息聚合", "聚合查询", "query dashboard list", "aggregation", "查询列表看板"],
+    when_to_use: "Use when a prompt asks for a page that combines query filters, dashboard summary, chart context, records, and pagination.",
+    unsupported_behavior: "Do not deliver a dashboard-only or list-only page for information aggregation requests."
+  }
+} : null;
+
+const customerDetailDateQueryItem = customerDetailDateQueryPattern ? {
+  schema_version: "0.1.0",
+  name: "sanofi-customer-detail-date-query",
+  title: "Sanofi customer detail date query page template",
+  type: "registry:block",
+  renderer_target: "html",
+  description: "A complex customer detail query page template combining date-range filters, customer summary, detail table fallback, result actions, and pagination.",
+  pattern_id: "customer-detail-date-query",
+  template_id: customerDetailDateQueryPattern.template_id || "customer-detail-date-query",
+  page_subtype: customerDetailDateQueryPattern.page_subtype || "customer-detail-date-query-page",
+  registryDependencies: [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    ...customerDetailDateQueryPrimitiveDeps
+  ],
+  files: [
+    asFile(localPath("design-system", "patterns", "customer-detail-date-query", "customer-detail-date-query.pattern.json"), "pattern"),
+    asFile(localPath("design-system", "templates", "customer-detail-date-query.template.json"), "template"),
+    asFile(localPath("design-system", "page-profiles", "customer-detail-date-query.profile.json"), "page-profile"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-form.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "contracts", "page-modules", "business-table.contract.json"), "page-module-contract"),
+    asFile(localPath("design-system", "rules", "form-usage.json"), "form-rule"),
+    asFile(localPath("design-system", "rules", "table-usage.json"), "table-rule"),
+    asFile(localPath("design-system", "reference-fit", "business-page-family.rules.json"), "reference-fit-rule"),
+    asFile(localPath("scripts", "validate-customer-detail-date-query-page"), "validator"),
+    asFile(localPath("design-system", "policies", "fallback-policy.json"), "fallback-policy")
+  ],
+  required_primitives: customerDetailDateQueryPattern.required_primitives || [],
+  optional_primitives: customerDetailDateQueryPattern.optional_primitives || [],
+  required_rules: customerDetailDateQueryRequiredRules,
+  fallbacks: customerDetailDateQueryPattern.fallbacks || [],
+  source_provenance: {
+    pattern_id: "customer-detail-date-query",
+    template_id: customerDetailDateQueryPattern.template_id || "customer-detail-date-query",
+    page_profile: localPath("design-system", "page-profiles", "customer-detail-date-query.profile.json"),
+    form_contract: localPath("design-system", "contracts", "page-modules", "business-form.contract.json"),
+    table_contract: localPath("design-system", "contracts", "page-modules", "business-table.contract.json"),
+    reference_fit_rule: localPath("design-system", "reference-fit", "business-page-family.rules.json"),
+    fallback_policy: localPath("design-system", "policies", "fallback-policy.json")
+  },
+  ai: {
+    prompt_keywords: [
+      "客户明细",
+      "客户详情",
+      "日期查询",
+      "按日期查询客户",
+      "客户明细日期查询",
+      "customer detail",
+      "date query",
+      "complex query form"
+    ],
+    when_to_use: "Use when a prompt asks for a customer detail page driven by date-range query filters, summary metrics, table results, export, and detail actions.",
+    unsupported_behavior: "Table must stay an explicit fallback until an official Table/DataGrid primitive is registered. Do not present the table fallback as Sanofi Elements official runtime."
+  }
+} : null;
+
+const atomicStoryItems = (atomicIndex.stories || []).map((storyRef) => {
+  const story = readJson(storyRef.path);
+  const name = storyRef.registry_item || toRegistryName(`${story.component_id}-${story.args?.values?.variant || story.story_name}-atomic-story`);
+  const componentAtomicPath = localPath("design-system", "atomic", "components", story.component_id, "component.atomic.json");
+  return {
+    schema_version: "0.1.0",
+    name,
+    title: `${story.component_name} ${story.story_name} atomic story`,
+    type: "registry:story",
+    renderer_target: "html",
+    description: `Callable local Storybook story atom for ${story.story_id}.`,
+    atomic_story_id: story.story_id,
+    component_id: story.component_id,
+    docs_id: story.source_provenance?.docs_id,
+    registryDependencies: [
+      "sanofi-elements-tokens",
+      "sanofi-design-prototype-generator",
+      toRegistryName(story.component_id)
+    ],
+    files: compact([
+      asFile(storyRef.path, "atomic-story"),
+      exists(componentAtomicPath) ? asFile(componentAtomicPath, "atomic-component-contract") : null,
+      asFile(story.source.local_bundle_path, "raw-story-bundle"),
+      asFile(story.source.local_iframe_path, "raw-story-iframe"),
+      asFile(story.template.local_path, "atomic-template"),
+      asFile(story.component_contract.local_path, "component-contract"),
+      asFile(story.primitive.local_path, "primitive-contract"),
+      asFile(localPath("design-system", "knowledge", "docs", `${story.source_provenance.docs_id}.md`), "source-doc")
+    ]),
+    source_provenance: {
+      docs_id: story.source_provenance.docs_id,
+      story_id: story.story_id,
+      atomic_story: storyRef.path,
+      atomic_component_contract: exists(componentAtomicPath) ? componentAtomicPath : "unsupported",
+      story_url: story.source.story_url,
+      iframe_url: story.source.iframe_url,
+      bundle_url: story.source.bundle_url,
+      raw_bundle: story.source.local_bundle_path,
+      component_contract: story.component_contract.local_path,
+      primitive_contract: story.primitive.local_path,
+      token_source: story.source_provenance.token_source
+    },
+    ai: {
+      prompt_keywords: [
+        story.component_id,
+        story.component_name,
+        story.story_name,
+        story.story_id,
+        story.args?.values?.variant,
+        "atomic",
+        "story",
+        "原子",
+        "组件"
+      ].filter(Boolean),
+      when_to_use: `Use when a prompt asks for the exact ${story.component_name} ${story.story_name} Storybook state.`,
+      unsupported_behavior: "Do not infer other variants from this story item. Use another story atom or materialize it first."
+    }
+  };
+});
+
+const packageItems = componentPackages.map(({ path: packagePath, package: pkg }) => {
+  const componentId = pkg.component_id;
+  const packageName = toRegistryName(`${componentId}-complete-package`);
+  const isButton = componentId === "button";
+  return {
+    schema_version: "0.1.0",
+    name: packageName,
+    title: `${pkg.component_name} complete standard package`,
+    type: "registry:package",
+    renderer_target: "html",
+    description: `Complete local ${pkg.component_name} package covering Docs plus all Storybook story atoms.`,
+    component_id: componentId,
+    registryDependencies: [
+      "sanofi-elements-tokens",
+      "sanofi-design-prototype-generator",
+      toRegistryName(componentId)
+    ],
+    files: compact([
+      asFile(packagePath, "atomic-component-package"),
+      asFile(pkg.expected_tabs, "expected-tabs"),
+      asFile(pkg.docs_contract?.local_path, "docs-contract"),
+      asFile(pkg.component_atomic_contract, "atomic-component-contract"),
+      asFile(pkg.render_outputs?.complete_html, "example-html"),
+      asFile(pkg.component_contract, "component-contract"),
+      pkg.primitive_contract !== "unsupported" ? asFile(pkg.primitive_contract, "primitive-contract") : null,
+      pkg.docs_contract?.docs_id ? asFile(localPath("design-system", "knowledge", "docs", `${pkg.docs_contract.docs_id}.md`), "source-doc") : null
+    ]),
+    coverage: pkg.coverage,
+    story_atoms: (pkg.story_atoms || []).map((story) => ({
+      story_id: story.story_id,
+      story_name: story.story_name,
+      semantic_type: story.semantic_type,
+      registry_item: toRegistryName(`${componentId}-${story.variant !== "not_applicable" && story.semantic_type === "variant" ? story.variant : story.story_name}-atomic-story`)
+    })),
+    source_provenance: pkg.source_provenance,
+    ai: {
+      prompt_keywords: [
+        componentId,
+        pkg.component_name,
+        `${componentId} complete`,
+        `${pkg.component_name} complete package`,
+        `${componentId} docs`,
+        ...(isButton ? [
+          "button link",
+          "primary neutral button",
+          "secondary neutral button",
+          "destructive button",
+          "overview inverse",
+          "按钮",
+          "完整按钮包"
+        ] : [])
+      ],
+      when_to_use: `Use first for any ${pkg.component_name} generation request, then resolve the exact story atom by intent.`,
+      unsupported_behavior: `Do not infer ${pkg.component_name} behavior outside the package stories, docs contract, and primitive contract.`
+    }
+  };
+});
+
+const blockItems = [
+  adminQueryItem,
+  adminItem,
+  reportDashboardItem,
+  informationAggregationItem,
+  customerDetailDateQueryItem
+].filter(Boolean);
+
+const items = [tokenItem, brandAssetItem, workflowItem, runtimeItem, ...blockItems, ...primitiveItems, ...packageItems, ...atomicStoryItems].filter(Boolean).map((item) => {
+  const cleanItem = { ...item };
+  delete cleanItem._story_ids;
+  writeJson(itemPath(item.name), cleanItem);
+  return {
+    name: item.name,
+    title: item.title,
+    type: item.type,
+    renderer_target: item.renderer_target,
+    path: itemPath(item.name),
+    registryDependencies: item.registryDependencies,
+    prompt_keywords: item.ai?.prompt_keywords || []
+  };
+});
+
+const registry = {
+  schema_version: "0.1.0",
+  name: "sanofi-elements-local-registry",
+  description: "Private local registry for Sanofi Elements AI HTML prototype generation.",
+  generated_at: generatedAt,
+  renderer_target: "html",
+  source_mode: "local-first",
+  source_priority: [
+    "interface: local DESIGN.md AI-readable design-system contract",
+    ...(sourceIndex.source_priority || [])
+  ],
+  counts: {
+    items: items.length,
+    component_items: primitiveItems.length,
+    story_items: atomicStoryItems.length,
+    package_items: packageItems.length,
+    block_items: blockItems.length,
+    style_items: 1,
+    lib_items: 2,
+    docs: sourceIndex.counts?.storybook_docs || 0,
+    stories: sourceIndex.counts?.storybook_stories || 0,
+    component_contracts: componentContractIndex.counts?.component_contracts || 0
+  },
+  items,
+  commands: {
+    search: localPath("scripts", "search-local-registry"),
+    validate: localPath("scripts", "validate-local-registry"),
+    validate_design_md: localPath("scripts", "validate-design-md"),
+    validate_admin_page_profile: localPath("scripts", "validate-admin-page-profile"),
+    validate_component_runtime: localPath("scripts", "validate-component-runtime"),
+    validate_reference_fit: localPath("scripts", "validate-reference-fit"),
+    materialize_story_atom: localPath("scripts", "materialize-story-atom"),
+    build_generic_primitives: localPath("scripts", "build-generic-primitives"),
+    build_atomic_library: localPath("scripts", "build-atomic-library"),
+    validate_atomic_library: localPath("scripts", "validate-atomic-library"),
+    build_component_coverage_matrix: localPath("scripts", "build-component-coverage-matrix"),
+    build_component_package_factory: localPath("scripts", "build-component-package-factory"),
+    validate_component_package_dom: localPath("scripts", "validate-component-package-dom"),
+    validate_component_package_html_batch: localPath("scripts", "validate-component-package-html-batch"),
+    render_atomic_html: localPath("scripts", "render-atomic-html"),
+    render_button_package: localPath("scripts", "render-button-package"),
+    render_component_package: localPath("scripts", "render-component-package"),
+    resolve_pattern: localPath("scripts", "resolve-pattern"),
+    render_dashboard_html: localPath("scripts", "render-dashboard-template-html"),
+    render_html: localPath("scripts", "render-resolved-html")
+  },
+  remote_refresh_policy: {
+    normal_generation: "Use this local registry; do not scrape remote docs.",
+    upstream_update: "Refresh local MD/contracts/tokens from new source URLs, then run build-local-registry and validators.",
+    primary_remote_base: "https://elements.prod.accelerator.sanofi/"
+  }
+};
+
+writeJson(localPath("design-system", "registry", "registry.json"), registry);
+writeJson(localPath("outputs", "reports", "local-registry-build.report.json"), {
+  schema_version: "0.1.0",
+  status: "pass",
+  script: "build-local-registry",
+  generated_at: generatedAt,
+  output: localPath("design-system", "registry", "registry.json"),
+  counts: registry.counts
+});
+
+console.log(
+  `Local registry built: ${items.length} items (${primitiveItems.length} components, ${atomicStoryItems.length} stories, ${packageItems.length} packages, ${blockItems.length} blocks, 1 style, 2 libs)`
+);

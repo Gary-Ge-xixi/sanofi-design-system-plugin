@@ -1,0 +1,300 @@
+{
+  "schema_version": "0.1.0",
+  "id": "text-input",
+  "canonical_name": "text-input",
+  "component_name": "TextInput",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-textinput--docs",
+    "title": "TextInput",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-textinput--docs",
+    "import_path": "./src/components/TextInput/TextInput.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 15,
+    "story_ids": [
+      "components-textinput--default",
+      "components-textinput--default-inverse",
+      "components-textinput--disabled",
+      "components-textinput--disabled-inverse",
+      "components-textinput--error-inverse",
+      "components-textinput--error-state",
+      "components-textinput--filled",
+      "components-textinput--filled-inverse",
+      "components-textinput--sizes",
+      "components-textinput--success-inverse",
+      "components-textinput--success-state",
+      "components-textinput--type-email",
+      "components-textinput--type-password",
+      "components-textinput--type-tel",
+      "components-textinput--with-tooltip"
+    ],
+    "records": [
+      {
+        "id": "components-textinput--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-textinput--default-inverse",
+        "name": "Default Inverse",
+        "normalized_name": "default-inverse",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "DefaultInverse"
+      },
+      {
+        "id": "components-textinput--disabled",
+        "name": "Disabled",
+        "normalized_name": "disabled",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "Disabled"
+      },
+      {
+        "id": "components-textinput--disabled-inverse",
+        "name": "Disabled Inverse",
+        "normalized_name": "disabled-inverse",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "DisabledInverse"
+      },
+      {
+        "id": "components-textinput--error-inverse",
+        "name": "Error Inverse",
+        "normalized_name": "error-inverse",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "ErrorInverse"
+      },
+      {
+        "id": "components-textinput--error-state",
+        "name": "Error State",
+        "normalized_name": "error-state",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "ErrorState"
+      },
+      {
+        "id": "components-textinput--filled",
+        "name": "Filled",
+        "normalized_name": "filled",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "Filled"
+      },
+      {
+        "id": "components-textinput--filled-inverse",
+        "name": "Filled Inverse",
+        "normalized_name": "filled-inverse",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "FilledInverse"
+      },
+      {
+        "id": "components-textinput--sizes",
+        "name": "Sizes",
+        "normalized_name": "sizes",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "Sizes"
+      },
+      {
+        "id": "components-textinput--success-inverse",
+        "name": "Success Inverse",
+        "normalized_name": "success-inverse",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "SuccessInverse"
+      },
+      {
+        "id": "components-textinput--success-state",
+        "name": "Success State",
+        "normalized_name": "success-state",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "SuccessState"
+      },
+      {
+        "id": "components-textinput--type-email",
+        "name": "Type Email",
+        "normalized_name": "type-email",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "TypeEmail"
+      },
+      {
+        "id": "components-textinput--type-password",
+        "name": "Type Password",
+        "normalized_name": "type-password",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "TypePassword"
+      },
+      {
+        "id": "components-textinput--type-tel",
+        "name": "Type Tel",
+        "normalized_name": "type-tel",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "TypeTel"
+      },
+      {
+        "id": "components-textinput--with-tooltip",
+        "name": "With Tooltip",
+        "normalized_name": "with-tooltip",
+        "import_path": "./src/components/TextInput/TextInput.stories.tsx",
+        "export_name": "WithTooltip"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "id",
+        "required": false,
+        "description": "string",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "default-inverse",
+      "disabled",
+      "disabled-inverse",
+      "error-inverse",
+      "error-state",
+      "filled",
+      "filled-inverse",
+      "sizes",
+      "success-inverse",
+      "success-state",
+      "type-email",
+      "type-password",
+      "type-tel",
+      "with-tooltip"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "default-inverse",
+      "disabled",
+      "disabled-inverse",
+      "error-inverse",
+      "error-state",
+      "filled",
+      "filled-inverse",
+      "sizes",
+      "success-inverse",
+      "success-state",
+      "type-email",
+      "type-password",
+      "type-tel",
+      "with-tooltip"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { TextInput, FormControlState, InputSize } from \"@sanofi-accelerator/elements\";\n\nconst Component = () => (\n  <TextInput\n    id=\"text-input\"\n    label=\"Text Input\"\n    placeholder=\"Placeholder\"\n    size={InputSize.LARGE} // or InputSize.MEDIUM\n    state={FormControlState.DEFAULT} // or FormControlState.ERROR or FormControlState.SUCCESS\n    subText=\"This is a subtext\"\n    type=\"text\"\n  />\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "text-input"
+    ],
+    "contracts": [
+      {
+        "id": "text-input",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/text-input/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/text-input/demo.registry.json",
+        "known_story_ids": [
+          "components-textinput--default",
+          "components-textinput--default-inverse",
+          "components-textinput--disabled",
+          "components-textinput--disabled-inverse",
+          "components-textinput--error-inverse",
+          "components-textinput--error-state",
+          "components-textinput--filled",
+          "components-textinput--filled-inverse",
+          "components-textinput--sizes",
+          "components-textinput--success-inverse",
+          "components-textinput--success-state",
+          "components-textinput--type-email",
+          "components-textinput--type-password",
+          "components-textinput--type-tel",
+          "components-textinput--with-tooltip",
+          "components-textinput--default",
+          "components-textinput--default-inverse",
+          "components-textinput--disabled",
+          "components-textinput--disabled-inverse",
+          "components-textinput--error-inverse",
+          "components-textinput--error-state",
+          "components-textinput--filled",
+          "components-textinput--filled-inverse",
+          "components-textinput--sizes",
+          "components-textinput--success-inverse",
+          "components-textinput--success-state",
+          "components-textinput--type-email",
+          "components-textinput--type-password",
+          "components-textinput--type-tel",
+          "components-textinput--with-tooltip"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-textinput--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-textinput--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-textinput--docs.md",
+    "docs_import_path": "./src/components/TextInput/TextInput.mdx",
+    "story_ids": [
+      "components-textinput--default",
+      "components-textinput--default-inverse",
+      "components-textinput--disabled",
+      "components-textinput--disabled-inverse",
+      "components-textinput--error-inverse",
+      "components-textinput--error-state",
+      "components-textinput--filled",
+      "components-textinput--filled-inverse",
+      "components-textinput--sizes",
+      "components-textinput--success-inverse",
+      "components-textinput--success-state",
+      "components-textinput--type-email",
+      "components-textinput--type-password",
+      "components-textinput--type-tel",
+      "components-textinput--with-tooltip"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Video Thumbnail",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-video-thumbnail--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--disabled-status",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--mp-4-video-tracking",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--no-embedded-player",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--no-title",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--sanofi-video",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--streaming-video",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--vimeo-video-tracking",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-video-thumbnail--youtube-video-tracking",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

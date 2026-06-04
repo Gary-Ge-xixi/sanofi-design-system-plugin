@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "id": "avatar-avatar-group-docs-contract",
+  "component_id": "avatar-avatar-group",
+  "component_name": "Avatar/AvatarGroup",
+  "docs_id": "components-avatar-avatargroup--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar-avatargroup--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS class.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "children",
+        "required": false,
+        "description": "Avatar components to display.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "avatarSize",
+        "required": true,
+        "description": "Avatar size\"x-small\"\"small\"\"medium\"\"large\"\"x-large\"\"xx-large\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-avatar-avatargroup--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { Avatar, AvatarGroup, AvatarSize } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<AvatarGroup avatarSize={AvatarSize.XLARGE}> // All the children avatars will be of size XLARGE\n  <Avatar\n    image=\"https://cdn.prod.accelerator.sanofi/elements/images/Marie-Curie-avatar.jpeg\"\n    name=\"Marie Curie\" />\n  <Avatar\n    name=\"John Doe\" />\n</AvatarGroup>\n);",
+      "import { Avatar, AvatarGroup, AvatarSize } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<AvatarGroup avatarSize={AvatarSize.XLARGE}>\n  <Avatar name=\"Marie Curie\" />\n  <Avatar name=\"Alan Turing\" />\n  <Avatar name=\"Rosalind Franklin\" />\n  <Avatar name=\"Nikola Tesla\" />\n  <Avatar name=\"Ada Lovelace\" />\n  <Avatar name=\"Albert Einstein\" />\n  <Avatar name=\"Grace Hopper\" />\n</AvatarGroup>\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-avatar-avatargroup--avatar-group-two-items",
+      "name": "Avatar Group Two Items",
+      "export_name": "AvatarGroupTwoItems",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    },
+    {
+      "id": "components-avatar-avatargroup--avatar-group-with-counter",
+      "name": "Avatar Group With Counter",
+      "export_name": "AvatarGroupWithCounter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    },
+    {
+      "id": "components-avatar-avatargroup--avatar-group-with-tooltips",
+      "name": "Avatar Group With Tooltips",
+      "export_name": "AvatarGroupWithTooltips",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    },
+    {
+      "id": "components-avatar-avatargroup--avatar-group-without-counter",
+      "name": "Avatar Group Without Counter",
+      "export_name": "AvatarGroupWithoutCounter",
+      "semantic_type": "variant",
+      "import_path": "./src/components/AvatarGroup/AvatarGroup.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-avatar-avatargroup--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-avatar-avatargroup--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/avatar-avatar-group.contract.json"
+  }
+}

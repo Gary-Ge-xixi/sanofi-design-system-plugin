@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "component": "DatePicker",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-datepicker--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--disabled",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--disabled-range",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-clearable",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-partial-range",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-footer",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--dual-calendar-with-prefilled-range",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--medium-size",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--month-picker",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--quarter-picker",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--range",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--range-empty",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--range-partial",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--range-with-error",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--range-with-footer",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--with-clearable",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--with-error",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--with-footer",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--with-icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--with-min-and-max-dates",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--year-picker",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-datepicker--year-picker-with-footer",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

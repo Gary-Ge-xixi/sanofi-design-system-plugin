@@ -1,0 +1,296 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-admin-dashboard",
+  "title": "Sanofi admin dashboard block",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "A local HTML block pattern for admin dashboard pages using Sanofi Elements primitives, contract-backed BarChart modules, and explicit fallbacks for unsupported table or chart modules.",
+  "pattern_id": "admin-dashboard",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-elements-component-runtime",
+    "sanofi-brand-assets",
+    "sanofi-container",
+    "sanofi-grid",
+    "sanofi-navigation-header",
+    "sanofi-sidebar",
+    "sanofi-menu",
+    "sanofi-icon",
+    "sanofi-search-input",
+    "sanofi-select",
+    "sanofi-button",
+    "sanofi-card",
+    "sanofi-tag",
+    "sanofi-tabs",
+    "sanofi-progress-bar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/patterns/admin-dashboard/admin-dashboard.pattern.json",
+      "role": "pattern",
+      "target": "design-system-plugin/design-system/patterns/admin-dashboard/admin-dashboard.pattern.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/resolvers/admin-dashboard.resolution.json",
+      "role": "resolver-output",
+      "target": "design-system-plugin/design-system/contracts/resolvers/admin-dashboard.resolution.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json",
+      "role": "latest-resolver-output",
+      "target": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/layout-grid-container.json",
+      "role": "layout-rule",
+      "target": "design-system-plugin/design-system/rules/layout-grid-container.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/typography-font-stack.json",
+      "role": "typography-rule",
+      "target": "design-system-plugin/design-system/rules/typography-font-stack.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/admin-template-navigation.json",
+      "role": "template-navigation-rule",
+      "target": "design-system-plugin/design-system/rules/admin-template-navigation.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/admin-delivery-contract.json",
+      "role": "delivery-contract-rule",
+      "target": "design-system-plugin/design-system/rules/admin-delivery-contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/component-runtime-contract.json",
+      "role": "component-runtime-rule",
+      "target": "design-system-plugin/design-system/rules/component-runtime-contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/component-size-policy.json",
+      "role": "component-size-policy",
+      "target": "design-system-plugin/design-system/rules/component-size-policy.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json",
+      "role": "brand-asset-contract",
+      "target": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/assets/brand/sanofi-logo-full.svg",
+      "role": "brand-logo",
+      "target": "design-system-plugin/design-system/assets/brand/sanofi-logo-full.svg"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/component-runtime.contract.json",
+      "role": "component-runtime-contract",
+      "target": "design-system-plugin/component-runtime/component-runtime.contract.json"
+    },
+    {
+      "path": "design-system-plugin/component-runtime/specs/admin-dashboard.component-spec.json",
+      "role": "component-spec",
+      "target": "design-system-plugin/component-runtime/specs/admin-dashboard.component-spec.json"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-admin-delivery-contract",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-admin-delivery-contract"
+    },
+    {
+      "path": "design-system-plugin/scripts/validate-component-runtime",
+      "role": "validator",
+      "target": "design-system-plugin/scripts/validate-component-runtime"
+    },
+    {
+      "path": "design-system-plugin/design-system/templates/standalone-html.template.html",
+      "role": "template",
+      "target": "design-system-plugin/design-system/templates/standalone-html.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/templates/report-dashboard.template.json",
+      "role": "template",
+      "target": "design-system-plugin/design-system/templates/report-dashboard.template.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+      "role": "page-module-contract",
+      "target": "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/rules/chart-usage.json",
+      "role": "chart-rule",
+      "target": "design-system-plugin/design-system/rules/chart-usage.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/reference-fit/admin-dashboard-chart.rules.json",
+      "role": "reference-fit-rule",
+      "target": "design-system-plugin/design-system/reference-fit/admin-dashboard-chart.rules.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/admin-dashboard.resolved.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/admin-dashboard.resolved.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/policies/fallback-policy.json",
+      "role": "fallback-policy",
+      "target": "design-system-plugin/design-system/policies/fallback-policy.json"
+    }
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "sidebar",
+    "menu",
+    "icon",
+    "search-input",
+    "select",
+    "button",
+    "card",
+    "tag"
+  ],
+  "optional_primitives": [
+    "tabs",
+    "progress-bar"
+  ],
+  "required_rules": [
+    "layout-grid-container",
+    "typography-font-stack",
+    "admin-template-navigation",
+    "admin-delivery-contract"
+  ],
+  "delivery_contract": {
+    "id": "admin-dashboard-desktop-delivery",
+    "viewport_policy": "desktop-only",
+    "default_screenshot_viewports": [
+      {
+        "name": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "mobile_delivery": "explicit-request-only",
+    "required_asset_primitives": [
+      "icon"
+    ],
+    "required_icon_story_id": "components-icon--gallery",
+    "forbidden_responsive_fragments": [
+      "@media",
+      "max-width",
+      "min-width"
+    ],
+    "forbidden_story_ids": [
+      "components-grid--large-mobile",
+      "components-grid--mobile",
+      "components-navigationheader--mobile-view"
+    ],
+    "forbidden_behavior": [
+      "breakpoint-based sidebar hiding",
+      "breakpoint-based one-column dashboard layout",
+      "text glyph fallback for navigation icons"
+    ],
+    "allowed_page_markers": [
+      "meta name=\"viewport\""
+    ]
+  },
+  "fallbacks": [
+    {
+      "module": "table",
+      "status": "token-only-pattern",
+      "reason": "No official Table/DataTable/DataGrid primitive is registered locally.",
+      "allowed_markup": [
+        "table"
+      ],
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "chart",
+      "status": "unsupported-chart-types-fallback",
+      "reason": "Use fallback only for chart types without local official docs or contracts. Researched BarChart must use the business-chart contract.",
+      "allowed_markup": [
+        "div",
+        "ol",
+        "ul"
+      ],
+      "must_not_claim_primitive": true
+    },
+    {
+      "module": "business-chart",
+      "status": "contract-backed-module",
+      "reason": "BarChart is locally researched and may be used through contracts/page-modules/business-chart.contract.json when required data, axis, size, and accessibility metadata are present.",
+      "allowed_component": "BarChart",
+      "must_use_contract": "business-chart"
+    },
+    {
+      "module": "metric-card",
+      "status": "compose-from-primitives",
+      "reason": "No dedicated Metric/KPI primitive is registered locally.",
+      "allowed_primitives": [
+        "card",
+        "tag",
+        "progress-bar"
+      ]
+    }
+  ],
+  "resolver": {
+    "script": "design-system-plugin/scripts/resolve-pattern",
+    "input": "business prompt",
+    "output": "design-system-plugin/design-system/contracts/resolvers/latest-resolution.json"
+  },
+  "source_provenance": {
+    "pattern_id": "admin-dashboard",
+    "delivery_contract": "admin-dashboard-desktop-delivery",
+    "docs_ids": [
+      "components-container--docs",
+      "components-grid--docs",
+      "components-navigationheader--docs",
+      "components-sidebar--docs",
+      "components-menu--docs",
+      "components-icon--docs",
+      "components-searchinput--docs",
+      "components-select--docs",
+      "components-button--docs",
+      "components-card--docs",
+      "components-tag--docs",
+      "components-tabs--docs",
+      "components-progressbar--docs"
+    ],
+    "story_ids": [
+      "components-container--fixed",
+      "components-grid--desktop",
+      "components-navigationheader--default",
+      "components-sidebar--default",
+      "components-menu--default",
+      "components-icon--gallery",
+      "components-searchinput--default",
+      "components-select--default",
+      "components-button--primary",
+      "components-card--default",
+      "components-tag--semantic",
+      "components-tabs--default",
+      "components-progressbar--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "layout_rule": "layout-grid-container",
+    "layout_source": "foundations-layout--docs",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json",
+    "brand_asset_contract": "design-system-plugin/design-system/assets/brand/brand-assets.contract.json",
+    "default_component_size": "medium"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "admin",
+      "dashboard",
+      "management console",
+      "后台",
+      "管理后台",
+      "首页",
+      "审批",
+      "队列",
+      "数据看板"
+    ],
+    "when_to_use": "Use when a prompt asks for an admin dashboard, management homepage, operations console, or queue/data overview.",
+    "unsupported_behavior": "Table remains explicit fallback until an official Table/DataGrid primitive is registered. BarChart uses business-chart when the data contract is present; unsupported chart types stay explicit fallback."
+  }
+}

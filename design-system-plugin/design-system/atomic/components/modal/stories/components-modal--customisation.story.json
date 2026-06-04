@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-modal--customisation",
+  "component_id": "modal",
+  "component_name": "Modal",
+  "story_id": "components-modal--customisation",
+  "story_name": "Customisation",
+  "export_name": "Customisation",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-modal--customisation&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-modal--customisation&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Modal.stories-Bu82RoLa.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--customisation.iframe.html",
+    "import_path": "./src/components/Modal/Modal.stories.tsx",
+    "component_path": "./src/components/Modal/Modal.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...j,size:{height:\"fit-content\",width:\"50rem\"},title:\"This is a larger video preview\",subtitle:\"\",textContent:\"\",footerContent:\"\",slotContent:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"1rem\",padding:\"1rem\"},children:[j.slotContent,e.jsx(oe,{id:\"select\",\"data-testid\":\"select\",placeholder:\"Select a video langage\",state:se.DEFAULT,inverse:!1,disabled:!1,required:!1,multiple:!1,size:ie.LARGE,maxItemsVisible:3,options:[{value:\"french\",label:\"french\"},{value:\"chinese\",label:\"chinese\"},{value:\"english\",label:\"english\"},{value:\"arabic\",label:\"arabic\"},{value:\"spanish\",label:\"spanish\"},{value:\"german\",label:\"german\"},{value:\"italian\",label:\"italian\"},{value:\"greek\",label:\"greek\"},{value:\"korean\",label:\"korean\"},{value:\"portuguese\",label:\"portuguese\"}]}),e.jsx(ae,{defaultValue:\"2024-04-06\"})]})}",
+    "values": {
+      "title": "This is a larger video preview",
+      "subtitle": "",
+      "textContent": "",
+      "slotContent": {
+        "extraction_status": "raw_expression",
+        "value": "e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"1rem\",padding:\"1rem\"},children:[j.slotContent,e.jsx(oe,{id:\"select\",\"data-testid\":\"select\",placeholder:\"Select a video langage\",state:se.DEFAULT,inverse:!1,disabled:!1,required:!1,multiple:!1,size:ie.LARGE,maxItemsVisible:3,options:[{value:\"french\",label:\"french\"},{value:\"chinese\",label:\"chinese\"},{value:\"english\",label:\"english\"},{value:\"arabic\",label:\"arabic\"},{value:\"spanish\",label:\"spanish\"},{value:\"german\",label:\"german\"},{value:\"italian\",label:\"italian\"},{value:\"greek\",label:\"greek\"},{value:\"korean\",label:\"korean\"},{value:\"portuguese\",label:\"portuguese\"}]}),e.jsx(ae,{defaultValue:\"2024-04-06\"})]})"
+      },
+      "size": {
+        "extraction_status": "raw_expression",
+        "value": "{height:\"fit-content\",width:\"50rem\"}"
+      },
+      "isVisible": false,
+      "isClosable": true,
+      "onClose": {
+        "extraction_status": "raw_expression",
+        "value": "()=>{}"
+      },
+      "footerContent": ""
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{isVisible:{description:\"Whether the modal is visible or not\",control:{type:\"boolean\"}},isClosable:{description:\"Whether the modal can be closed by clicking outside of it\",control:{type:\"boolean\"}},hasOverlay:{description:\"Whether the modal has an overlay\",control:{type:\"boolean\"}},icon:{description:\"Icon displayed before the title in the modal header\",control:!1}}",
+    "fields": [
+      "isVisible",
+      "isClosable",
+      "hasOverlay",
+      "icon"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    size: {\n      height: \"fit-content\",\n      width: \"50rem\"\n    },\n    title: \"This is a larger video preview\",\n    subtitle: \"\",\n    textContent: \"\",\n    footerContent: \"\",\n    slotContent: <div style={{\n      display: \"flex\",\n      flexDirection: \"column\",\n      gap: \"1rem\",\n      padding: \"1rem\"\n    }}>\n        {defaultArgs.slotContent}\n        <Select id=\"select\" data-testid=\"select\" placeholder=\"Select a video langage\" state={FormControlState.DEFAULT} inverse={false} disabled={false} required={false} multiple={false} size={InputSize.LARGE} maxItemsVisible={3} options={[{\n        value: \"french\",\n        label: \"french\"\n      }, {\n        value: \"chinese\",\n        label: \"chinese\"\n      }, {\n        value: \"english\",\n        label: \"english\"\n      }, {\n        value: \"arabic\",\n        label: \"arabic\"\n      }, {\n        value: \"spanish\",\n        label: \"spanish\"\n      }, {\n        value: \"german\",\n        label: \"german\"\n      }, {\n        value: \"italian\",\n        label: \"italian\"\n      }, {\n        value: \"greek\",\n        label: \"greek\"\n      }, {\n        value: \"korean\",\n        label: \"korean\"\n      }, {\n        value: \"portuguese\",\n        label: \"portuguese\"\n      }]} />\n        <DatePicker defaultValue={\"2024-04-06\"} />\n      </div>\n  },\n  render: function Render(args) {\n    const [, updateArgs] = useArgs<{\n      isVisible: boolean;\n    }>();\n    function showModal() {\n      updateArgs({\n        isVisible: true\n      });\n    }\n    return <>\n        <p>\n          <Typography variant={TypographyVariant.BODY_MEDIUM} data-testid=\"content\">\n            This examples shows a modal with content. It has a title, subtitle,\n            text content, slot content which can be a video or an image and a\n            footer content. The bottom section can be customised using the\n            footerContent prop.\n          </Typography>\n        </p>\n        <Button label=\"Open Modal\" onClick={showModal} data-testid=\"button\" />\n        <Toast />\n        <Modal {...args} onClose={() => {\n        notify({\n          ...args,\n          text: \"The onClose props is called.\"\n        });\n        updateArgs({\n          isVisible: false\n        });\n      }} classNames={{\n        container: cn(styles[\"container-test\"]),\n        content: cn(styles[\"content-test\"]),\n        header: cn(styles[\"header-test\"]),\n        footer: cn(styles[\"footer-test\"])\n      }} />\n      </>;\n  },\n  play: async ({\n    canvasElement\n  }) => {\n    const canvas = within(canvasElement);\n    await userEvent.click(canvas.getByTestId(\"button\"));\n    await userEvent.click(canvas.getByTestId(\"select\"));\n  }\n}",
+    "story_object_source": "{args:{...j,size:{height:\"fit-content\",width:\"50rem\"},title:\"This is a larger video preview\",subtitle:\"\",textContent:\"\",footerContent:\"\",slotContent:e.jsxs(\"div\",{style:{display:\"flex\",flexDirection:\"column\",gap:\"1rem\",padding:\"1rem\"},children:[j.slotContent,e.jsx(oe,{id:\"select\",\"data-testid\":\"select\",placeholder:\"Select a video langage\",state:se.DEFAULT,inverse:!1,disabled:!1,required:!1,multiple:!1,size:ie.LARGE,maxItemsVisible:3,options:[{value:\"french\",label:\"french\"},{value:\"chinese\",label:\"chinese\"},{value:\"english\",label:\"english\"},{value:\"arabic\",label:\"arabic\"},{value:\"spanish\",label:\"spanish\"},{value:\"german\",label:\"german\"},{value:\"italian\",label:\"italian\"},{value:\"greek\",label:\"greek\"},{value:\"korean\",label:\"korean\"},{value:\"portuguese\",label:\"portuguese\"}]}),e.jsx(ae,{defaultValue:\"2024-04-06\"})]})},render:function(n){const[,o]=S();function i(){o({isVisible:!0})}return e.jsxs(e.Fragment,{children:[e.jsx(\"p\",{children:e.jsx(v,{variant:x.BODY_MEDIUM,\"data-testid\":\"content\",children:\"This examples shows a modal with content. It has a title, subtitle, text content, slot content which can be a video or an image and a footer content. The bottom section can be customised using the footerContent prop.\"})}),e.jsx(b,{label:\"Open Modal\",onClick:i,\"data-testid\":\"button\"}),e.jsx(A,{}),e.jsx(T,{...n,onClose:()=>{k({...n,text:\"The onClose props is called.\"}),o({isVisible:!1})},classNames:{container:h(I[\"container-test\"]),content:h(I[\"content-test\"]),header:h(I[\"header-test\"]),footer:h(I[\"footer-test\"])}})]})},play:async({canvasElement:t})=>{const n=O(t);await N.click(n.getByTestId(\"button\")),await N.click(n.getByTestId(\"select\"))}}"
+  },
+  "template": {
+    "id": "modal-customisation-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/modal/templates/html.customisation.template.html",
+    "output_path": "design-system-plugin/outputs/html/modal-customisation.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "modal",
+    "local_path": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "story_id": "components-modal--customisation",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--customisation.iframe.html"
+  }
+}

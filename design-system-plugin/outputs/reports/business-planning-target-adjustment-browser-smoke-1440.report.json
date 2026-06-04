@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "business-planning-target-adjustment-browser-smoke-1440",
+  "target": "design-system-plugin/outputs/html/business-planning-target-adjustment.resolved.html",
+  "screenshot": "design-system-plugin/outputs/reports/business-planning-target-adjustment-1440x900.png",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "before": {
+    "documentScrollTop": 0,
+    "bodyOverflow": "hidden",
+    "mainOverflowY": "auto",
+    "topbarTop": 0,
+    "actionBarBottom": 884,
+    "actionBarTop": 806,
+    "tableScrollWidth": 1536,
+    "tableClientWidth": 1062,
+    "activeTabText": "机构目标"
+  },
+  "after": {
+    "documentScrollTop": 0,
+    "mainScrollTop": 206,
+    "topbarTop": 0,
+    "actionBarBottom": 884,
+    "actionBarTop": 806,
+    "visibleNativeSelects": 0
+  },
+  "checks": {
+    "body_locked": true,
+    "document_not_scrolled": true,
+    "main_scrolled": true,
+    "topbar_fixed": true,
+    "action_bar_visible": true,
+    "table_horizontal_scroll_allowed": true,
+    "active_tab_institution": true,
+    "no_visible_native_select": true
+  },
+  "failures": []
+}

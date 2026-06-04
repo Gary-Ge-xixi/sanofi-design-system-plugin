@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-card-card-custom-picto-atomic-story",
+  "title": "Card Card Custom Picto atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-card--card-custom-picto.",
+  "atomic_story_id": "components-card--card-custom-picto",
+  "component_id": "card",
+  "docs_id": "components-card--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-card"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-custom-picto.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-custom-picto.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/card/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/assets/components-card--card-custom-picto.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/card/assets/components-card--card-custom-picto.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/card/templates/html.card-custom-picto.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/card/templates/html.card-custom-picto.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/card.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/card.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/card/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-card--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-card--docs",
+    "story_id": "components-card--card-custom-picto",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/card/stories/components-card--card-custom-picto.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/card/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-card--card-custom-picto&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-card--card-custom-picto&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Card.stories-CFArP5N1.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/card/assets/Card.stories-CFArP5N1.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/card/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "card",
+      "Card",
+      "Card Custom Picto",
+      "components-card--card-custom-picto",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Card Card Custom Picto Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

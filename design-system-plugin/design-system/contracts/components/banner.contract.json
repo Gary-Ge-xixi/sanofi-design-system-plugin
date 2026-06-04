@@ -1,0 +1,213 @@
+{
+  "schema_version": "0.1.0",
+  "id": "banner",
+  "canonical_name": "banner",
+  "component_name": "Banner",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-banner--docs",
+    "title": "Banner",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-banner--docs",
+    "import_path": "./src/components/Banner/Banner.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 6,
+    "story_ids": [
+      "components-banner--custom-icon",
+      "components-banner--default",
+      "components-banner--global",
+      "components-banner--overview",
+      "components-banner--with-close-icon",
+      "components-banner--with-contents"
+    ],
+    "records": [
+      {
+        "id": "components-banner--custom-icon",
+        "name": "Custom Icon",
+        "normalized_name": "custom-icon",
+        "import_path": "./src/components/Banner/Banner.stories.tsx",
+        "export_name": "CustomIcon"
+      },
+      {
+        "id": "components-banner--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Banner/Banner.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-banner--global",
+        "name": "Global",
+        "normalized_name": "global",
+        "import_path": "./src/components/Banner/Banner.stories.tsx",
+        "export_name": "Global"
+      },
+      {
+        "id": "components-banner--overview",
+        "name": "Overview",
+        "normalized_name": "overview",
+        "import_path": "./src/components/Banner/Banner.stories.tsx",
+        "export_name": "Overview"
+      },
+      {
+        "id": "components-banner--with-close-icon",
+        "name": "With Close Icon",
+        "normalized_name": "with-close-icon",
+        "import_path": "./src/components/Banner/Banner.stories.tsx",
+        "export_name": "WithCloseIcon"
+      },
+      {
+        "id": "components-banner--with-contents",
+        "name": "With Contents",
+        "normalized_name": "with-contents",
+        "import_path": "./src/components/Banner/Banner.stories.tsx",
+        "export_name": "WithContents"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "variant",
+        "required": false,
+        "description": "Banner variant\"success\"\"error\"\"warning\"\"neutral\"\"info\"",
+        "default": "\"BannerVariant.NEUTRAL\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isGlobal",
+        "required": false,
+        "description": "Banner global styleboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClose",
+        "required": false,
+        "description": "A callback fired when clicking the X buttonMouseEventHandler<HTMLButtonElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onAction",
+        "required": false,
+        "description": "A callback fired when clicking the action buttonMouseEventHandler<HTMLButtonElement>",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "actionLabel",
+        "required": false,
+        "description": "The label of the action buttonstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "custom-icon",
+      "default",
+      "global",
+      "overview",
+      "with-close-icon",
+      "with-contents"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "custom-icon",
+      "default",
+      "global",
+      "overview",
+      "with-close-icon",
+      "with-contents"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Banner } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Banner variant=\"success\" onClose={() => {}} onAction={() => {}} actionLabel=\"Confirm\" isGlobal={false}>\n  A Banner was successfully created\n</Banner>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Banner } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Banner variant=\"success\" onClose={() => {}} onAction={() => {}} actionLabel=\"Confirm\" isGlobal={false}>\n  A Banner was successfully created\n</Banner>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "banner"
+    ],
+    "contracts": [
+      {
+        "id": "banner",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/banner/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/banner/demo.registry.json",
+        "known_story_ids": [
+          "components-banner--custom-icon",
+          "components-banner--default",
+          "components-banner--global",
+          "components-banner--overview",
+          "components-banner--with-close-icon",
+          "components-banner--with-contents",
+          "components-banner--custom-icon",
+          "components-banner--default",
+          "components-banner--global",
+          "components-banner--overview",
+          "components-banner--with-close-icon",
+          "components-banner--with-contents"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-banner--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-banner--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-banner--docs.md",
+    "docs_import_path": "./src/components/Banner/Banner.mdx",
+    "story_ids": [
+      "components-banner--custom-icon",
+      "components-banner--default",
+      "components-banner--global",
+      "components-banner--overview",
+      "components-banner--with-close-icon",
+      "components-banner--with-contents"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

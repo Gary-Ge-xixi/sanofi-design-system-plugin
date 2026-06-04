@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-navigationheader--with-dropdown-menu",
+  "component_id": "navigation-header",
+  "component_name": "NavigationHeader",
+  "story_id": "components-navigationheader--with-dropdown-menu",
+  "story_name": "With Dropdown Menu",
+  "export_name": "WithDropdownMenu",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-navigationheader--with-dropdown-menu&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-navigationheader--with-dropdown-menu&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/NavigationHeader.stories-ktjXC91P.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/navigation-header/assets/NavigationHeader.stories-ktjXC91P.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/navigation-header/assets/components-navigationheader--with-dropdown-menu.iframe.html",
+    "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "not_extracted",
+    "values": {}
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{mobileMenuIcon:{control:\"object\"},sticky:{control:\"boolean\"},mobileMenuFitContent:{control:\"boolean\"},contained:{control:\"boolean\"},fullWidth:{control:\"boolean\"},logoSrc:{control:{type:\"file\",accept:\".png,.svg\"}},logoWidth:{control:{type:\"range\",min:50,max:500,step:1}},megaMenuTriggerMode:{options:Object.keys(V),mapping:V,control:{type:\"select\"}},burgerMd:{control:\"boolean\"},isBackgroundBranded:{control:\"boolean\"}}",
+    "fields": [
+      "mobileMenuIcon",
+      "sticky",
+      "mobileMenuFitContent",
+      "contained",
+      "fullWidth",
+      "logoSrc",
+      "logoWidth",
+      "megaMenuTriggerMode",
+      "burgerMd",
+      "isBackgroundBranded"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  render: function Render({\n    logoSrc,\n    logoWidth,\n    ...rest\n  }) {\n    const sanofiLogo = useGetSanofiLogo(rest.isBackgroundBranded);\n    return <NavigationHeader.Root burgerMd logo={<img src={logoSrc || sanofiLogo} style={{\n      width: \\`\\${logoWidth}px\\`\n    }} alt=\"Logo\" />} {...rest}>\n        <NavigationHeader.StartContent>\n          <NavigationHeader.Item>\n            <Menu openOnHover>\n              <Menu.Trigger>\n                <NavigationHeader.Action>\n                  Menu 1 <Menu.Item.Icon name=\"expand_more\" />\n                </NavigationHeader.Action>\n              </Menu.Trigger>\n              <Menu.Dropdown>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.SubMenu label=\"Sub Menu -level 1\">\n                  <Menu.Item>Sub Menu Item 1</Menu.Item>\n                  <Menu.Item>Sub Menu Item 2</Menu.Item>\n                  <Menu.SubMenu label=\"Sub Menu -level 2\">\n                    <Menu.Item>Sub Menu Item 3</Menu.Item>\n                    <Menu.Item>Sub Menu Item 4</Menu.Item>\n                  </Menu.SubMenu>\n                </Menu.SubMenu>\n              </Menu.Dropdown>\n            </Menu>\n          </NavigationHeader.Item>\n          <NavigationHeader.Item>\n            <Menu openOnHover>\n              <Menu.Trigger>\n                <NavigationHeader.Action>\n                  Menu 2 <Menu.Item.Icon name=\"expand_more\" />\n                </NavigationHeader.Action>\n              </Menu.Trigger>\n              <Menu.Dropdown>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.Item>Menu Item</Menu.Item>\n                <Menu.Item>Menu Item</Menu.Item>\n              </Menu.Dropdown>\n            </Menu>\n          </NavigationHeader.Item>\n        </NavigationHeader.StartContent>\n      </NavigationHeader.Root>;\n  }\n}",
+    "story_object_source": "{render:function({logoSrc:i,logoWidth:o,...a}){const h=j(a.isBackgroundBranded);return e.jsx(t.Root,{burgerMd:!0,logo:e.jsx(\"img\",{src:i||h,style:{width:`${o}px`},alt:\"Logo\"}),...a,children:e.jsxs(t.StartContent,{children:[e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Menu 1 \",e.jsx(n.Item.Icon,{name:\"expand_more\"})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{children:\"Menu Item\"}),e.jsx(n.Item,{children:\"Menu Item\"}),e.jsx(n.Item,{children:\"Menu Item\"}),e.jsx(n.Item,{children:\"Menu Item\"}),e.jsxs(n.SubMenu,{label:\"Sub Menu -level 1\",children:[e.jsx(n.Item,{children:\"Sub Menu Item 1\"}),e.jsx(n.Item,{children:\"Sub Menu Item 2\"}),e.jsxs(n.SubMenu,{label:\"Sub Menu -level 2\",children:[e.jsx(n.Item,{children:\"Sub Menu Item 3\"}),e.jsx(n.Item,{children:\"Sub Menu Item 4\"})]})]})]})]})}),e.jsx(t.Item,{children:e.jsxs(n,{openOnHover:!0,children:[e.jsx(n.Trigger,{children:e.jsxs(t.Action,{children:[\"Menu 2 \",e.jsx(n.Item.Icon,{name:\"expand_more\"})]})}),e.jsxs(n.Dropdown,{children:[e.jsx(n.Item,{children:\"Menu Item\"}),e.jsx(n.Item,{children:\"Menu Item\"}),e.jsx(n.Item,{children:\"Menu Item\"}),e.jsx(n.Item,{children:\"Menu Item\"})]})]})})]})})}}"
+  },
+  "template": {
+    "id": "navigation-header-with-dropdown-menu-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/navigation-header/templates/html.with-dropdown-menu.template.html",
+    "output_path": "design-system-plugin/outputs/html/navigation-header-with-dropdown-menu.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "navigation-header",
+    "local_path": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader--docs",
+    "story_id": "components-navigationheader--with-dropdown-menu",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/navigation-header/assets/NavigationHeader.stories-ktjXC91P.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/navigation-header/assets/components-navigationheader--with-dropdown-menu.iframe.html"
+  }
+}

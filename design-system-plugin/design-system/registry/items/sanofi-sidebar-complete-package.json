@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-sidebar-complete-package",
+  "title": "Sidebar complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Sidebar package covering Docs plus all Storybook story atoms.",
+  "component_id": "sidebar",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-sidebar"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/sidebar/docs/sidebar.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/sidebar/docs/sidebar.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/sidebar/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/sidebar/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/sidebar-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/sidebar-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/sidebar.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-sidebar--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-sidebar--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-sidebar--collapsed",
+      "story_name": "Collapsed",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-collapsed-atomic-story"
+    },
+    {
+      "story_id": "components-sidebar--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-default-atomic-story"
+    },
+    {
+      "story_id": "components-sidebar--expanded",
+      "story_name": "Expanded",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-expanded-atomic-story"
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible",
+      "story_name": "Fully Collapsible",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-fully-collapsible-atomic-story"
+    },
+    {
+      "story_id": "components-sidebar--fully-collapsible-controlled",
+      "story_name": "Fully Collapsible Controlled",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-fully-collapsible-controlled-atomic-story"
+    },
+    {
+      "story_id": "components-sidebar--sticky-behavior",
+      "story_name": "Sticky Behavior",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-sticky-behavior-atomic-story"
+    },
+    {
+      "story_id": "components-sidebar--without-header",
+      "story_name": "Without Header",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-sidebar-without-header-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/sidebar/sidebar.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/sidebar/docs/sidebar.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/sidebar/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "sidebar",
+      "Sidebar",
+      "sidebar complete",
+      "Sidebar complete package",
+      "sidebar docs"
+    ],
+    "when_to_use": "Use first for any Sidebar generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Sidebar behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

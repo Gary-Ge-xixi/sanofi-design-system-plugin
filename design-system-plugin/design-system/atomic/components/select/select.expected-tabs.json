@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "select",
+  "component_name": "Select",
+  "source": {
+    "storybook_index": "research/storybook/index.json",
+    "storybook_title": "Components/Select"
+  },
+  "docs": [
+    {
+      "id": "components-select--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/Select/Select.mdx"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-select--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Select/Select.stories.tsx"
+    },
+    {
+      "id": "components-select--right-to-left",
+      "name": "Right To Left",
+      "export_name": "RightToLeft",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Select/Select.stories.tsx"
+    },
+    {
+      "id": "components-select--sizes",
+      "name": "Sizes",
+      "export_name": "Sizes",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Select/Select.stories.tsx"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-radio-complete-package",
+  "title": "Radio complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Radio package covering Docs plus all Storybook story atoms.",
+  "component_id": "radio",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-radio"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio/radio.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/radio/radio.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio/radio.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/radio/radio.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio/docs/radio.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/radio/docs/radio.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/radio/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/radio/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/radio-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/radio-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/radio.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/radio/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/radio/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-radio--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 5,
+    "materialized_stories": 5,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-radio--color-variations",
+      "story_name": "Color Variations",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-color-variations-atomic-story"
+    },
+    {
+      "story_id": "components-radio--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-default-atomic-story"
+    },
+    {
+      "story_id": "components-radio--sizes",
+      "story_name": "Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-radio--with-link",
+      "story_name": "With Link",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-with-link-atomic-story"
+    },
+    {
+      "story_id": "components-radio--with-subtext",
+      "story_name": "With Subtext",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-radio-with-subtext-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-radio--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/radio/radio.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/radio/docs/radio.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/radio.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/radio/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "radio",
+      "Radio",
+      "radio complete",
+      "Radio complete package",
+      "radio docs"
+    ],
+    "when_to_use": "Use first for any Radio generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Radio behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

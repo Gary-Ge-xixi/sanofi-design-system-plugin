@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-dashboard-zeroheight-sources",
+  "status": "source-map",
+  "source_report": "../../../../research/components/admin-dashboard-zeroheight-map.json",
+  "zeroheight_ready_components": [
+    "Navigation Header",
+    "Menu",
+    "Card",
+    "Chip",
+    "Button",
+    "Search Input",
+    "Select",
+    "Tabs",
+    "Pagination",
+    "Tooltip",
+    "Loading Spinner",
+    "Breadcrumb",
+    "Divider"
+  ],
+  "zeroheight_found_without_demo": [
+    "Page Header",
+    "Avatar"
+  ],
+  "not_found_in_zeroheight": [
+    "Sidebar",
+    "ProgressBar",
+    "Tag",
+    "Table",
+    "Data Table",
+    "Metric Card",
+    "Chart",
+    "Dashboard",
+    "Grid",
+    "Flex",
+    "Container",
+    "Typography"
+  ],
+  "generation_boundary": "When the user asks to generate only from the previous Elements documentation links, use only zeroheight_ready_components plus token-only fallbacks for table/chart/metric patterns. Do not use Sidebar or ProgressBar unless Storybook supplementation is explicitly allowed."
+}

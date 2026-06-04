@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-mega-menu-fitted-content-mega-menu-atomic-story",
+  "title": "MegaMenu Fitted Content Mega Menu atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-megamenu--fitted-content-mega-menu.",
+  "atomic_story_id": "components-megamenu--fitted-content-mega-menu",
+  "component_id": "mega-menu",
+  "docs_id": "components-megamenu--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-mega-menu"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/stories/components-megamenu--fitted-content-mega-menu.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/stories/components-megamenu--fitted-content-mega-menu.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/assets/components-megamenu--fitted-content-mega-menu.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/assets/components-megamenu--fitted-content-mega-menu.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/mega-menu/templates/html.fitted-content-mega-menu.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/mega-menu/templates/html.fitted-content-mega-menu.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-megamenu--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-megamenu--docs",
+    "story_id": "components-megamenu--fitted-content-mega-menu",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/mega-menu/stories/components-megamenu--fitted-content-mega-menu.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/mega-menu/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-megamenu--fitted-content-mega-menu&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-megamenu--fitted-content-mega-menu&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/MegaMenu.stories-AOtR0ynp.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/mega-menu/assets/MegaMenu.stories-AOtR0ynp.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/mega-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/mega-menu/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "mega-menu",
+      "MegaMenu",
+      "Fitted Content Mega Menu",
+      "components-megamenu--fitted-content-mega-menu",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact MegaMenu Fitted Content Mega Menu Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

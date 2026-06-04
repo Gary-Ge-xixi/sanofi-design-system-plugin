@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-design-md",
+  "target": "design-system/DESIGN.md",
+  "checked": {
+    "design_tokens": 73,
+    "known_tokens": 658,
+    "required_components": 43,
+    "required_sections": 14,
+    "foundation_docs": 6
+  },
+  "failures": [],
+  "details": {
+    "missing_tokens": [],
+    "missing_components": [],
+    "missing_sections": [],
+    "missing_foundation_docs": [],
+    "missing_dependency_markers": []
+  }
+}

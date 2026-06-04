@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-menu-menuitemcheckbox--default",
+  "component_id": "menu-menu-item-checkbox",
+  "component_name": "Menu/MenuItemCheckbox",
+  "story_id": "components-menu-menuitemcheckbox--default",
+  "story_name": "Default",
+  "export_name": "Default",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-menu-menuitemcheckbox--default&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-menu-menuitemcheckbox--default&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/MenuItemCheckbox.stories-B36Rt0Sk.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/MenuItemCheckbox.stories-B36Rt0Sk.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/components-menu-menuitemcheckbox--default.iframe.html",
+    "import_path": "./src/components/Menu/dropdown/items/MenuItemCheckbox.stories.tsx",
+    "component_path": "./src/components/Menu/dropdown/items/MenuItemCheckbox.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{description:\"Description goes here\",shortcut:\"⌘S\",children:\"Menu item 1\",value:\"value\"}",
+    "values": {
+      "description": "Description goes here",
+      "shortcut": "⌘S",
+      "children": "Menu item 1",
+      "value": "value"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "not_extracted",
+    "source": "not_extracted",
+    "fields": []
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  tags: [\"isHidden\"],\n  parameters: {\n    chromatic: {\n      disableSnapshot: true\n    }\n  },\n  render: ({\n    description,\n    shortcut,\n    children,\n    value\n  }) => <OpenedMenuContextProvider>\n      <Menu.Dropdown>\n        <Menu.CheckboxItem description={description} shortcut={shortcut} value={value}>\n          {children}\n        </Menu.CheckboxItem>\n      </Menu.Dropdown>\n    </OpenedMenuContextProvider>,\n  args: {\n    description: \"Description goes here\",\n    shortcut: \"⌘S\",\n    children: \"Menu item 1\",\n    value: \"value\"\n  }\n}",
+    "story_object_source": "{tags:[\"isHidden\"],parameters:{chromatic:{disableSnapshot:!0}},render:({description:o,shortcut:t,children:i,value:s})=>n.jsx(a,{children:n.jsx(r.Dropdown,{children:n.jsx(r.CheckboxItem,{description:o,shortcut:t,value:s,children:i})})}),args:{description:\"Description goes here\",shortcut:\"⌘S\",children:\"Menu item 1\",value:\"value\"}}"
+  },
+  "template": {
+    "id": "menu-menu-item-checkbox-default-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/templates/html.default.template.html",
+    "output_path": "design-system-plugin/outputs/html/menu-menu-item-checkbox-default.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "menu-menu-item-checkbox",
+    "local_path": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemcheckbox--docs",
+    "story_id": "components-menu-menuitemcheckbox--default",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-checkbox.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item-checkbox/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/MenuItemCheckbox.stories-B36Rt0Sk.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/menu-menu-item-checkbox/assets/components-menu-menuitemcheckbox--default.iframe.html"
+  }
+}

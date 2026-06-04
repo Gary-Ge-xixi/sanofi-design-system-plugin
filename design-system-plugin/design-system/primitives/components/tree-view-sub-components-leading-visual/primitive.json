@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "component": "TreeView/SubComponents/LeadingVisual",
+  "status": "component-contract-backed-generic-primitive",
+  "source": {
+    "storybook_title": "Components/TreeView/SubComponents/LeadingVisual",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-leading-visual.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "tree-view-sub-components-leading-visual",
+      "data_attribute": "data-primitive=\"tree-view-sub-components-leading-visual\"",
+      "required_semantics": [
+        "component package sample",
+        "source-provenance markers"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-treeview-subcomponents-leadingvisual--default"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview-subcomponents-leadingvisual--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view-sub-components-leading-visual.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}

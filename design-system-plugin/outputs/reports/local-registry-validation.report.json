@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "validate-local-registry",
+  "checked": {
+    "item_count": 623,
+    "dependency_count": 97,
+    "local_paths": 2931
+  },
+  "failures": []
+}

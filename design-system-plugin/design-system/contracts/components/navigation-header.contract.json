@@ -1,0 +1,294 @@
+{
+  "schema_version": "0.1.0",
+  "id": "navigation-header",
+  "canonical_name": "navigation-header",
+  "component_name": "NavigationHeader",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-navigationheader--docs",
+    "title": "NavigationHeader",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader--docs",
+    "import_path": "./src/components/NavigationHeader/NavigationHeader.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 9,
+    "story_ids": [
+      "components-navigationheader--contained-nav-header",
+      "components-navigationheader--default",
+      "components-navigationheader--double-navigation",
+      "components-navigationheader--full-width-nav-header",
+      "components-navigationheader--mobile-view",
+      "components-navigationheader--sanofi-example",
+      "components-navigationheader--with-auto-overflow",
+      "components-navigationheader--with-dropdown-menu",
+      "components-navigationheader--with-sub-header"
+    ],
+    "records": [
+      {
+        "id": "components-navigationheader--contained-nav-header",
+        "name": "Contained Nav Header",
+        "normalized_name": "contained-nav-header",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "ContainedNavHeader"
+      },
+      {
+        "id": "components-navigationheader--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-navigationheader--double-navigation",
+        "name": "Double Navigation",
+        "normalized_name": "double-navigation",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "DoubleNavigation"
+      },
+      {
+        "id": "components-navigationheader--full-width-nav-header",
+        "name": "Full Width Nav Header",
+        "normalized_name": "full-width-nav-header",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "FullWidthNavHeader"
+      },
+      {
+        "id": "components-navigationheader--mobile-view",
+        "name": "Mobile View",
+        "normalized_name": "mobile-view",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "MobileView"
+      },
+      {
+        "id": "components-navigationheader--sanofi-example",
+        "name": "Sanofi Example",
+        "normalized_name": "sanofi-example",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "SanofiExample"
+      },
+      {
+        "id": "components-navigationheader--with-auto-overflow",
+        "name": "With Auto Overflow",
+        "normalized_name": "with-auto-overflow",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "WithAutoOverflow"
+      },
+      {
+        "id": "components-navigationheader--with-dropdown-menu",
+        "name": "With Dropdown Menu",
+        "normalized_name": "with-dropdown-menu",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "WithDropdownMenu"
+      },
+      {
+        "id": "components-navigationheader--with-sub-header",
+        "name": "With Sub Header",
+        "normalized_name": "with-sub-header",
+        "import_path": "./src/components/NavigationHeader/stories/NavigationHeader.stories.tsx",
+        "export_name": "WithSubHeader"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "logo",
+        "required": false,
+        "description": "Displays the logo of the NavigationHeader.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mobileMenuIcon",
+        "required": false,
+        "description": "Icon displayed on the left of the NavigationHeader when viewport is less than md.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mobileMenuFitContent",
+        "required": false,
+        "description": "Set mobile menu to fit content instead of full screen.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sticky",
+        "required": false,
+        "description": "Sets the Root to top sticky.boolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onSkipToMainAction",
+        "required": false,
+        "description": "Callback to manage focus when skipping to main content (only available when navigating with keyboard).(() => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "contained",
+        "required": false,
+        "description": "Add a max-width to the Root container.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullWidth",
+        "required": false,
+        "description": "Make the Root container full width. Takes precedence over contained propboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "megaMenuTriggerMode",
+        "required": false,
+        "description": "Mega menu trigger behavior (click or hover).\"click\"\"hover\"",
+        "default": "\"TriggerMode.CLICK\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isBackgroundBranded",
+        "required": false,
+        "description": "Applies branded background color.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "subHeader",
+        "required": false,
+        "description": "Secondary header content below main navigation.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "burgerMd",
+        "required": false,
+        "description": "Shows burger menu on tablet breakpoint (md: 768-1279px).boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "contained-nav-header",
+      "default",
+      "double-navigation",
+      "full-width-nav-header",
+      "mobile-view",
+      "sanofi-example",
+      "with-auto-overflow",
+      "with-dropdown-menu",
+      "with-sub-header"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "contained-nav-header",
+      "default",
+      "double-navigation",
+      "full-width-nav-header",
+      "mobile-view",
+      "sanofi-example",
+      "with-auto-overflow",
+      "with-dropdown-menu",
+      "with-sub-header"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { NavigationHeader, ButtonIcon, Button, ButtonSize, ButtonVariant, IconName, Image } from \"@sanofi-accelerator/elements\";\n\nconst sanofiLogo = \"https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo-inverse.svg\";\n\nexport default () => (\n<NavigationHeader.Root\n  logo={\n    <Image src={sanofiLogo} alt=\"Logo\" />\n  }\n  mobileMenuIcon={\n    <ButtonIcon icon=\"menu\" size={ButtonSize.SMALL} variant={ButtonVariant.TERTIARY} />\n  }\n  {...rest}\n>\n  <NavigationHeader.StartContent>\n    <NavigationHeader.Item>\n      <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n    </NavigationHeader.Item>\n    <NavigationHeader.Item>\n      <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n    </NavigationHeader.Item>\n  </NavigationHeader.StartContent>\n  <NavigationHeader.EndContent>\n    <NavigationHeader.Item>\n      <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n    </NavigationHeader.Item>\n    <NavigationHeader.Item>\n      <NavigationHeader.Action>Nav Item</NavigationHeader.Action>\n    </NavigationHeader.Item>\n    <NavigationHeader.Item>\n      <ButtonIcon\n        icon={IconName.SEARCH}\n        variant={ButtonVariant.TERTIARY}\n      />\n    </NavigationHeader.Item>\n    <NavigationHeader.Item>\n      <ButtonIcon\n        icon={IconName.ARROW_FORWARD}\n        variant={ButtonVariant.TERTIARY}\n      />\n    </NavigationHeader.Item>\n    <NavigationHeader.Item>\n      <Button label=\"Action\" />\n    </NavigationHeader.Item>\n  </NavigationHeader.EndContent>\n  <NavigationHeader.QuickAction>\n    <ButtonIcon\n      icon={IconName.SEARCH}\n      size={ButtonSize.SMALL}\n      variant={ButtonVariant.TERTIARY}\n    />\n  </NavigationHeader.QuickAction>\n</NavigationHeader.Root>\n);",
+      "type MenuItem = {\nlabel: string;\ncontent?: MenuSection;\n};\n\ntype MenuSection = {\ntitle: string;\nsectionContent: MenuItem[];\nsectionSize?: ItemSize;\n};\n\nconst sanofiMenu: MenuItem[] = [\n{\nlabel: \"Our Company\",\ncontent: {\ntitle: \"Our Company\",\nsectionContent: [\n{ label: \"Our Strategy\" },\n{\nlabel: \"Governance\",\ncontent: {\ntitle: \"Governance\",\nsectionContent: [\n{ label: \"Board of Directors\" },\n{ label: \"Executive Committee\" },\n{ label: \"Specialist Committees\" },\n],\n},\n},\n{ label: \"Our Legacy\" },\n{\nlabel: \"Social Impact\",\ncontent: {\ntitle: \"Social Impact\",\nsectionSize: 9,\nsectionContent: [\n{ label: \"Access to Healthcare\" },\n{ label: \"Innovation for Vulnerable Communities\" },\n{ label: \"Environmental Sustainability and Resilience\" },\n{\nlabel:\n\"Diversity, Equity, and Inclusion In and Beyond the Workplace\",\n},\n{ label: \"Code of Conduct and Responsible Business\" },\n],\n},\n},\n],\n},\n},\n{\nlabel: \"Our Science\",\ncontent: {\ntitle: \"Our Science\",\nsectionContent: [\n{ label: \"Our Pipeline\" },\n{\nlabel: \"R&D Focus Areas\",\ncontent: {\ntitle: \"R&D Focus Areas\",\nsectionContent: [\n{ label: \"Immunology R&D\" },\n{ label: \"Neurology R&D\" },\n{ label: \"Oncology R&D\" },\n{ label: \"Rare Blood Disorders R&D\" },\n{ label: \"Rare Diseases R&D\" },\n{ label: \"Vaccines R&D\" },\n{ label: \"Artificial Intelligence in R&D\" },\n],\n},\n},\n{ label: \"Technology Platforms\" },\n{\nlabel: \"Clinical Trials & Results\",\ncontent: {\ntitle: \"Clinical Trials & Results\",\nsectionContent: [\n{ label: \"Find a Clinical Trial\" },\n{ label: \"Clinical Study Results\" },\n{ label: \"Investigator Sponsored Studies\" },\n{ label: \"Diversity in Clinical Trials\" },\n],\n},\n},\n{\nlabel: \"Scientific Collaboration\",\ncontent: {\ntitle: \"Scientific Collaboration\",\nsectionContent: [\n{ label: \"Scientific Collaboration in North America\" },\n{ label: \"Scientific Collaboration in Europe\" },\n{ label: \"Scientific Collaboration in China\" },\n],\n},\n},\n{ label: \"Digital\" },\n{ label: \"Manufacturing and Supply\" },\n],\n},\n},\n{\nlabel: \"Your Health\",\ncontent: {\ntitle: \"Your Health\",\nsectionContent: [\n{\nlabel: \"Vaccines\",\ncontent: {\ntitle: \"Vaccines\",\nsectionContent: [\n{ label: \"Influenza\" },\n{ label: \"Meningococcal Meningitis\" },\n{ label: \"Pertussis\" },\n{ label: \"Respiratory Syncytial Virus (RSV)\" },\n{ label: \"Production\" },\n{ label: \"Why vaccines matter\" },\n],\n},\n},\n{\nlabel: \"Medicines\",\ncontent: {\ntitle: \"Medicines\",\nsectionContent: [\n{ label: \"Immunology\" },\n{ label: \"Neurology\" },\n{ label: \"Oncology\" },\n{ label: \"Rare Blood Disorders\" },\n{ label: \"Rare Diseases\" },\n{ label: \"Cardiovascular Diseases\" },\n{ label: \"Diabetes\" },\n],\n},\n},\n{\nlabel: \"Consumer Healthcare\",\ncontent: {\ntitle: \"Consumer Healthcare\",\nsectionContent: [\n{ label: \"Sustainability at Sanofi Consumer Healthcare\" },\n{ label: \"Allergy\" },\n{ label: \"Cough, Cold & Flu\" },\n{ label: \"Digestive Wellness\" },\n{ label: \"Pain Care\" },\n{ label: \"Physical & Mental Wellness\" },\n],\n},\n},\n{ label: \"Patient Community Engagement\" },\n{\nlabel: \"Healthcare Professionals Support\",\ncontent: {\ntitle: \"Healthcare Professionals Support\",\nsectionContent: [\n{ label: \"Managed Access Programs (MAPs)\" },\n{ label: \"Pre-Registration Import Licenses\" },\n{ label: \"Post Trial Access (PTA)\" },\n],\n},\n},\n],\n},\n},\n{\nlabel: \"Partnering\",\ncontent: {\ntitle: \"Partnering\",\nsectionContent: [\n{\nlabel: \"Partnering Focus Areas\",\ncontent: {\ntitle: \"Partnering Focus Areas\",\nsectionContent: [\n{ label: \"China\" },\n{ label: \"Digital\" },\n{ label: \"General Medicines\" },\n{ label: \"Immunology\" },\n{ label: \"Neuroscience\" },\n{ label: \"Oncology\" },\n{ label: \"Out-Licensing\" },\n{ label: \"Rare Disease\" },\n{ label: \"Technology Platforms\" },\n{ label: \"Vaccines\" },\n],\n},\n},\n{ label: \"Meet the Partnering Team\" },\n{ label: \"Contact Business Development Team\" },\n],\n},\n},\n];",
+      "// Render the desktop version of the Navigation\nconst renderNavHeader = ({ label, content }: MenuItem) => {\nreturn content ? (\n  <NavigationHeader.Item key={label}>\n    <MegaMenu.Trigger\n      menuContent={\n        <Grid.Root>\n          <CascadingMenu.Root>\n            {renderMenuSection(content)}\n          </CascadingMenu.Root>\n        </Grid.Root>\n      }\n    >\n      <NavigationHeader.Action>{label}</NavigationHeader.Action>\n    </MegaMenu.Trigger>\n  </NavigationHeader.Item>\n) : (\n  <NavigationHeader.Item key={label}>\n    <NavigationHeader.Action>{label}</NavigationHeader.Action>\n  </NavigationHeader.Item>\n);\n};\n\n// Render the mobile version of the Navigation\nconst MobileMenuContent = () => (\n  <Grid.Root>\n    <CascadingMenu.Root>\n      {sanofiMenu.map(renderMenuItem)}\n    </CascadingMenu.Root>\n  </Grid.Root>\n);\n\n// Render a section of the menu\nconst renderMenuSection = ({\n  title,\n  sectionContent,\n  sectionSize,\n}: MenuSection) => (\n  <Grid.Item key={title} sm={12} md={sectionSize || 3}>\n    <MegaMenu.Title>{title}</MegaMenu.Title>\n    {sectionContent.map(renderMenuItem)}\n  </Grid.Item>\n);\n\n// Render a CascadingMenu Item\nconst renderMenuItem = ({ label, content }: MenuItem) => (\n  <Grid.Item key={label}>\n    <CascadingMenu.Item label={label}>\n      {content && renderMenuSection(content)}\n    </CascadingMenu.Item>\n  </Grid.Item>\n);\n\n// Putting it all together\n<NavigationHeader.Root\n  logo={\n    <img\n      src={sanofiLogo || logoSrc}\n      alt=\"Sanofi logo\"\n    />\n  }\n  mobileMenuIcon={\n    <MegaMenu.Trigger\n      menuContent={<MobileMenuContent />}\n      hasActiveShadow={true}\n    >\n      <ButtonIcon\n        icon=\"menu\"\n        size={ButtonSize.SMALL}\n        variant={ButtonVariant.TERTIARY}\n      />\n    </MegaMenu.Trigger>\n  }\n>\n  <NavigationHeader.StartContent>\n    {sanofiMenu.map(renderNavHeader)}\n  </NavigationHeader.StartContent>\n  <NavigationHeader.CenterContent>\n    <Typography variant={TypographyVariant.EYEBROW_SMALL}>\n      Centered info\n    </Typography>\n  </NavigationHeader.CenterContent>\n  <NavigationHeader.QuickAction>\n    <ButtonIcon icon={IconName.SEARCH} size={ButtonSize.SMALL} inverse />\n  </NavigationHeader.QuickAction>\n</NavigationHeader.Root>"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "navigation-header"
+    ],
+    "contracts": [
+      {
+        "id": "navigation-header",
+        "status": "storybook-backed-static-contract",
+        "contract_path": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/navigation-header/demo.registry.json",
+        "known_story_ids": [
+          "components-navigationheader--default",
+          "components-navigationheader--contained-nav-header",
+          "components-navigationheader--full-width-nav-header",
+          "components-navigationheader--with-dropdown-menu",
+          "components-navigationheader--sanofi-example",
+          "components-navigationheader--double-navigation",
+          "components-navigationheader--mobile-view",
+          "components-navigationheader--with-auto-overflow",
+          "components-navigationheader--with-sub-header",
+          "components-navigationheader--contained-nav-header",
+          "components-navigationheader--default",
+          "components-navigationheader--double-navigation",
+          "components-navigationheader--full-width-nav-header",
+          "components-navigationheader--mobile-view",
+          "components-navigationheader--sanofi-example",
+          "components-navigationheader--with-auto-overflow",
+          "components-navigationheader--with-dropdown-menu",
+          "components-navigationheader--with-sub-header"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-navigationheader--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader--docs.md",
+    "docs_import_path": "./src/components/NavigationHeader/NavigationHeader.mdx",
+    "story_ids": [
+      "components-navigationheader--contained-nav-header",
+      "components-navigationheader--default",
+      "components-navigationheader--double-navigation",
+      "components-navigationheader--full-width-nav-header",
+      "components-navigationheader--mobile-view",
+      "components-navigationheader--sanofi-example",
+      "components-navigationheader--with-auto-overflow",
+      "components-navigationheader--with-dropdown-menu",
+      "components-navigationheader--with-sub-header"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

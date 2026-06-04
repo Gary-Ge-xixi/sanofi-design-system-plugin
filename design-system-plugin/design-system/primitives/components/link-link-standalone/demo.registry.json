@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Link/LinkStandalone",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-link-linkstandalone--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link-linkstandalone--inverse-accent",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link-linkstandalone--position-icon",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-link-linkstandalone--sizes",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

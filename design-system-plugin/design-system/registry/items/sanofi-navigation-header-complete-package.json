@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-navigation-header-complete-package",
+  "title": "NavigationHeader complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local NavigationHeader package covering Docs plus all Storybook story atoms.",
+  "component_id": "navigation-header",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-navigation-header"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header/navigation-header.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header/navigation-header.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header/navigation-header.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header/navigation-header.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header/docs/navigation-header.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header/docs/navigation-header.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/navigation-header/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/navigation-header/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/navigation-header-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/navigation-header-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-navigationheader--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-navigationheader--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 9,
+    "materialized_stories": 9,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-navigationheader--contained-nav-header",
+      "story_name": "Contained Nav Header",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-contained-nav-header-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-default-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--double-navigation",
+      "story_name": "Double Navigation",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-double-navigation-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--full-width-nav-header",
+      "story_name": "Full Width Nav Header",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-full-width-nav-header-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--mobile-view",
+      "story_name": "Mobile View",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-mobile-view-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--sanofi-example",
+      "story_name": "Sanofi Example",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-sanofi-example-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--with-auto-overflow",
+      "story_name": "With Auto Overflow",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-with-auto-overflow-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--with-dropdown-menu",
+      "story_name": "With Dropdown Menu",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-with-dropdown-menu-atomic-story"
+    },
+    {
+      "story_id": "components-navigationheader--with-sub-header",
+      "story_name": "With Sub Header",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-navigation-header-with-sub-header-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-navigationheader--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/navigation-header/navigation-header.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/navigation-header/docs/navigation-header.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/navigation-header/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "navigation-header",
+      "NavigationHeader",
+      "navigation-header complete",
+      "NavigationHeader complete package",
+      "navigation-header docs"
+    ],
+    "when_to_use": "Use first for any NavigationHeader generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer NavigationHeader behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

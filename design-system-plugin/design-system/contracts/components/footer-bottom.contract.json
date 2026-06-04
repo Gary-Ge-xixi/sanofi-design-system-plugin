@@ -1,0 +1,153 @@
+{
+  "schema_version": "0.1.0",
+  "id": "footer-bottom",
+  "canonical_name": "footer-bottom",
+  "component_name": "Footer.Bottom",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-footer-bottom--docs",
+    "title": "Footer.Bottom",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-footer-bottom--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-bottom--docs",
+    "import_path": "./src/components/Footer/Bottom.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-footer-bottom--default"
+    ],
+    "records": [
+      {
+        "id": "components-footer-bottom--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Footer/Bottom.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "Footer contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "legalMention",
+        "required": false,
+        "description": "The legal mentionReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandLogo",
+        "required": false,
+        "description": "The brand logoReactNodeImageProps",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "The class names{ bottom?: string; links?: string; legalMention?: string \\",
+        "default": "undefined; logo?: string \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "className",
+        "required": false,
+        "description": "Additional CSS classstring",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level\"primary\"\"secondary\"\"tertiary\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "footer-bottom"
+    ],
+    "contracts": [
+      {
+        "id": "footer-bottom",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/footer-bottom/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/footer-bottom/demo.registry.json",
+        "known_story_ids": [
+          "components-footer-bottom--default",
+          "components-footer-bottom--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-footer-bottom--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-footer-bottom--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-footer-bottom--docs.md",
+    "docs_import_path": "./src/components/Footer/Bottom.stories.tsx",
+    "story_ids": [
+      "components-footer-bottom--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "id": "admin-template-navigation",
+  "severity": "error",
+  "status": "ready",
+  "source_provenance": {
+    "navigation_header_docs_id": "components-navigationheader--docs",
+    "sidebar_docs_id": "components-sidebar--docs",
+    "menu_docs_id": "components-menu--docs",
+    "layout_docs_id": "foundations-layout--docs"
+  },
+  "html_contract": {
+    "required_attributes": [
+      "data-template=\"onecommercial-admin\"",
+      "data-template-part=\"topbar\"",
+      "data-template-part=\"sidebar\"",
+      "data-template-part=\"main\"",
+      "data-sidebar-part=\"root\"",
+      "data-sidebar-part=\"header\"",
+      "data-sidebar-part=\"content\"",
+      "data-sidebar-part=\"section\"",
+      "data-sidebar-part=\"item\"",
+      "data-sidebar-part=\"footer\""
+    ],
+    "forbidden_sidebar_attributes": [
+      "data-primitive=\"tabs\"",
+      "role=\"tablist\"",
+      "role=\"tab\""
+    ]
+  },
+  "generation_policy": [
+    "The left rail is application navigation. It must use Sidebar compound parts and must not be represented as Tabs.",
+    "Tabs are only for horizontal content switching inside main content.",
+    "Top application chrome must use NavigationHeader provenance.",
+    "Persistent left navigation should use grouped items with active state and optional nested items, not bordered demo buttons."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-page-header-title-custom-atomic-story",
+  "title": "PageHeader Title Custom atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-pageheader--title-custom.",
+  "atomic_story_id": "components-pageheader--title-custom",
+  "component_id": "page-header",
+  "docs_id": "components-pageheader--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-page-header"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--title-custom.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--title-custom.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/assets/components-pageheader--title-custom.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/assets/components-pageheader--title-custom.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/page-header/templates/html.title-custom.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/page-header/templates/html.title-custom.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/page-header.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/page-header.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/page-header/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/page-header/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-pageheader--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-pageheader--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-pageheader--docs",
+    "story_id": "components-pageheader--title-custom",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/page-header/stories/components-pageheader--title-custom.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/page-header/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-pageheader--title-custom&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-pageheader--title-custom&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/PageHeader.stories-C4vZGhRB.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/page-header/assets/PageHeader.stories-C4vZGhRB.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/page-header.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/page-header/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "page-header",
+      "PageHeader",
+      "Title Custom",
+      "components-pageheader--title-custom",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact PageHeader Title Custom Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

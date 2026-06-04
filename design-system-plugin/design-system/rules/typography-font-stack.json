@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "id": "typography-font-stack",
+  "severity": "error",
+  "status": "ready",
+  "source_provenance": {
+    "foundation_docs_id": "foundations-typography--docs",
+    "typography_docs_id": "components-typography--docs",
+    "foundation_docs_path": "design-system-plugin/design-system/knowledge/docs/foundations-typography--docs.md",
+    "typography_docs_path": "design-system-plugin/design-system/knowledge/docs/components-typography--docs.md",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "font_stack": {
+    "latin_primary": "Sanofi Sans",
+    "cjk_primary": "Noto Sans SC",
+    "token_fallback": "--elements-core-font-family-sans",
+    "generic_fallback": "sans-serif"
+  },
+  "html_contract": {
+    "required_attributes": [
+      "data-typography-rule=\"typography-font-stack\"",
+      "data-source-doc-id=\"foundations-typography--docs"
+    ],
+    "required_css_fragments": [
+      "\"Sanofi Sans\"",
+      "\"Noto Sans SC\"",
+      "--elements-core-font-family-sans"
+    ],
+    "forbidden_css_fragments": [
+      "Arial",
+      "Nunito Sans"
+    ]
+  },
+  "generation_policy": [
+    "Generated Chinese/English enterprise pages must use Sanofi Sans for Latin text and Noto Sans SC for CJK fallback.",
+    "Do not use Arial or Storybook UI fonts for product prototypes.",
+    "Typography source provenance must include foundations-typography--docs."
+  ]
+}

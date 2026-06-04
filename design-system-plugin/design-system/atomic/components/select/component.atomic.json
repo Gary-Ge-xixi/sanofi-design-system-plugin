@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "select",
+  "component_name": "Select",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-select--default",
+      "story_name": "Default",
+      "component_id": "select",
+      "component_name": "Select",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/select/stories/components-select--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/select/templates/html.default.template.html",
+      "output_path": "design-system-plugin/outputs/html/select-default.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+      "docs_id": "components-select--docs",
+      "registry_item": "sanofi-select-default-atomic-story"
+    },
+    {
+      "story_id": "components-select--right-to-left",
+      "story_name": "Right To Left",
+      "component_id": "select",
+      "component_name": "Select",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/select/stories/components-select--right-to-left.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/select/templates/html.right-to-left.template.html",
+      "output_path": "design-system-plugin/outputs/html/select-right-to-left.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+      "docs_id": "components-select--docs",
+      "registry_item": "sanofi-select-right-to-left-atomic-story"
+    },
+    {
+      "story_id": "components-select--sizes",
+      "story_name": "Sizes",
+      "component_id": "select",
+      "component_name": "Select",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/select/stories/components-select--sizes.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/select/templates/html.sizes.template.html",
+      "output_path": "design-system-plugin/outputs/html/select-sizes.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/select/assets/Select.stories-DzNzUrtJ.js",
+      "docs_id": "components-select--docs",
+      "registry_item": "sanofi-select-sizes-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-select--docs"
+  }
+}

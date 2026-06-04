@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Divider",
+  "status": "generated-from-component-contract",
+  "stories": [
+    {
+      "story_id": "components-divider--custom-width",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-divider--default",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-divider--inverse",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-divider--orientation",
+      "source": "component-contract-story-index"
+    },
+    {
+      "story_id": "components-divider--overview",
+      "source": "component-contract-story-index"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-switch-switch-group",
+  "title": "Switch/SwitchGroup primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for Switch/SwitchGroup.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "switch-switch-group",
+  "docs_id": "components-switch-switchgroup--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/switch-switch-group/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/switch-switch-group/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/switch-switch-group/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-switch-switchgroup--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-switch-switchgroup--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/switch-switch-group.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 1,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "switch-switch-group",
+      "Switch/SwitchGroup",
+      "Switch/Switch Group"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official Switch/SwitchGroup primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1.0",
+  "id": "customer-detail-date-query",
+  "status": "ready",
+  "renderer_target": "html",
+  "pattern_id": "customer-detail-date-query",
+  "page_profile": "customer-detail-date-query",
+  "page_family": "customer-detail-date-query",
+  "page_subtype": "customer-detail-date-query-page",
+  "title": "客户明细日期查询页",
+  "business_task": "query-customer-detail-by-date",
+  "reference_fit": "business-page-family",
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "form-usage",
+    "table-usage",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-form",
+    "business-table"
+  ],
+  "sections": [
+    {
+      "id": "breadcrumb",
+      "role": "navigation",
+      "required": true
+    },
+    {
+      "id": "query-header",
+      "role": "page-header",
+      "required": true
+    },
+    {
+      "id": "date-query-form",
+      "role": "business-form",
+      "module_contract": "business-form",
+      "minimum_filter_count": 6,
+      "required_control": "date-range",
+      "required": true
+    },
+    {
+      "id": "customer-summary",
+      "role": "summary",
+      "minimum_summary_field_count": 5,
+      "required": true
+    },
+    {
+      "id": "customer-detail-table",
+      "role": "business-table",
+      "module_contract": "business-table",
+      "fallback_policy": "table",
+      "minimum_column_count": 8,
+      "required": true
+    },
+    {
+      "id": "result-actions",
+      "role": "actions",
+      "required": true
+    },
+    {
+      "id": "pagination",
+      "role": "pagination",
+      "required": true
+    }
+  ],
+  "output_contract": {
+    "body_attributes": [
+      "data-page-profile=\"customer-detail-date-query\"",
+      "data-page-family=\"customer-detail-date-query\"",
+      "data-business-task=\"query-customer-detail-by-date\"",
+      "data-reference-fit=\"business-page-family\""
+    ],
+    "module_order": [
+      "date query form",
+      "customer summary",
+      "customer detail table",
+      "result actions",
+      "pagination"
+    ],
+    "runtime_state": {
+      "official_runtime": "absent",
+      "local_atomic_runtime": "present",
+      "explicit_fallback": "present"
+    },
+    "fallback_policy": "Table remains explicit fallback until an official Table/DataGrid primitive is registered."
+  },
+  "source_provenance": {
+    "page_profile": "../page-profiles/customer-detail-date-query.profile.json",
+    "form_contract": "../contracts/page-modules/business-form.contract.json",
+    "table_contract": "../contracts/page-modules/business-table.contract.json",
+    "reference_fit": "../reference-fit/business-page-family.rules.json"
+  }
+}

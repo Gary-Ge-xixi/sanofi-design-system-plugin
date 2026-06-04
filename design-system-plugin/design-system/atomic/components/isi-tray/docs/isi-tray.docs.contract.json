@@ -1,0 +1,179 @@
+{
+  "schema_version": "0.1.0",
+  "id": "isi-tray-docs-contract",
+  "component_id": "isi-tray",
+  "component_name": "ISI Tray",
+  "docs_id": "components-isi-tray--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-isi-tray--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-isi-tray--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "titleVariant",
+        "required": false,
+        "description": "Title typography variant\"title-1\"\"title-2\"\"title-3\"\"title-4\"\"title-5\"",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "layout",
+        "required": false,
+        "description": "layout\"one-third\"\"two-third\"\"half\"\"full\"",
+        "default": "\"IsiTrayLayout.HALF\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "containerProps",
+        "required": false,
+        "description": "Container configurationContainerProps",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "firstColumnHeader",
+        "required": true,
+        "description": "First column header contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "secondColumnHeader",
+        "required": false,
+        "description": "Second column header contentReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "mobileHeaderLabel",
+        "required": false,
+        "description": "Mobile header label overrideReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "footerContent",
+        "required": false,
+        "description": "Footer content below the columns.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "firstColumnContent",
+        "required": true,
+        "description": "Content for the first (or only) column.ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "secondColumnContent",
+        "required": false,
+        "description": "Content for the second column (when using split layout).ReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "hideTrayWhenExpanded",
+        "required": false,
+        "description": "Hides the tray bar when content is expanded.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "brandTheme",
+        "required": false,
+        "description": "Override the theme at component level.\"primary\"\"secondary\"\"tertiary\"",
+        "default": "\"BrandTheme.primary\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "isiContentSelector",
+        "required": false,
+        "description": "CSS selector for ISI content (for scroll tracking).string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "classNames",
+        "required": false,
+        "description": "CSS class names for component parts.{ isiTrayInPageBody?: string; isiTrayWrapper?: string; isiTrayWrapperExpanded?: string \\",
+        "default": "undefined; } \\",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "shouldHideOnDualColumn",
+        "required": false,
+        "description": "Hides the tray on screens wide enough for dual column.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "titleAs",
+        "required": false,
+        "description": "Element type for title (e.g., \"h2\", \"h3\")ElementType",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClickExpand",
+        "required": false,
+        "description": "Callback when expand button clicked((e: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "onClickMinimize",
+        "required": false,
+        "description": "Callback when minimize button clicked((e: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-isi-tray--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "import { IsiTray, Title, TitleVariant, Typography, TypographyVariant } from \"@sanofi-accelerator/elements\";\n\nconst Example = () => (\n  <IsiTray\n      firstColumnHeader=\"Important Safety Informations\"\n      firstColumnContent={\n        <>\n          <Title variant={TitleVariant.TITLE_5}>\n            Important Safety Informations\n          </Title>\n          <Typography variant={TypographyVariant.BODY_MEDIUM}>\n            Lorem, ipsum dolor sit amet consectetur adipisicing elit.\n          </Typography>\n          <Typography variant={TypographyVariant.BODY_MEDIUM}>\n            Lorem, ipsum dolor sit amet consectetur adipisicing elit.\n            Eligendi ipsa, repellat asperiores dicta laboriosam placeat odit\n            quisquam atque doloribus corrupti suscipit officia minima ut\n            assumenda mollitia tempore pariatur vitae numquam.\n          </Typography>\n        </>\n      }\n    />\n);"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-isi-tray--isi",
+      "name": "ISI",
+      "export_name": "ISI",
+      "semantic_type": "variant",
+      "import_path": "./src/components/IsiTray/IsiTray.stories.tsx"
+    },
+    {
+      "id": "components-isi-tray--isi-with-content-and-indication",
+      "name": "ISI With Content And Indication",
+      "export_name": "ISIWithContentAndIndication",
+      "semantic_type": "variant",
+      "import_path": "./src/components/IsiTray/IsiTray.stories.tsx"
+    },
+    {
+      "id": "components-isi-tray--isi-with-indication",
+      "name": "ISI With Indication",
+      "export_name": "ISIWithIndication",
+      "semantic_type": "variant",
+      "import_path": "./src/components/IsiTray/IsiTray.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-isi-tray--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-isi-tray--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/isi-tray.contract.json"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-modal-with-icon-atomic-story",
+  "title": "Modal With Icon atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-modal--with-icon.",
+  "atomic_story_id": "components-modal--with-icon",
+  "component_id": "modal",
+  "docs_id": "components-modal--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-modal"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--with-icon.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--with-icon.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--with-icon.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/modal/assets/components-modal--with-icon.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/modal/templates/html.with-icon.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/modal/templates/html.with-icon.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/modal.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/modal/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-modal--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-modal--docs",
+    "story_id": "components-modal--with-icon",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/modal/stories/components-modal--with-icon.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/modal/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-modal--with-icon&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-modal--with-icon&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Modal.stories-Bu82RoLa.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/modal/assets/Modal.stories-Bu82RoLa.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/modal.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/modal/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "modal",
+      "Modal",
+      "With Icon",
+      "components-modal--with-icon",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Modal With Icon Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

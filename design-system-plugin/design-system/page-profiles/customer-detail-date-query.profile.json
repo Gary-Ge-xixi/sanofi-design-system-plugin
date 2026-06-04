@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "id": "customer-detail-date-query",
+  "status": "standard-ready",
+  "renderer_target": "html",
+  "page_family": "customer-detail-date-query",
+  "intent": {
+    "page_type": "backend-admin",
+    "primary_task": "query-customer-detail-by-date",
+    "language": "zh-CN"
+  },
+  "required_rules": [
+    "business-page-standards",
+    "business-admin-defaults",
+    "content-standards",
+    "interaction-state-standards",
+    "business-layout-typography",
+    "business-app-shell-scroll",
+    "form-usage",
+    "table-usage",
+    "business-page-family-reference-fit"
+  ],
+  "required_module_contracts": [
+    "business-form",
+    "business-table"
+  ],
+  "section_contract": {
+    "required_sections": [
+      "breadcrumb",
+      "query-header",
+      "date-query-form",
+      "customer-summary",
+      "customer-detail-table",
+      "result-actions",
+      "pagination"
+    ],
+    "forbidden_sections": [
+      "marketing-hero",
+      "chart-region",
+      "kpi-summary"
+    ],
+    "required_attrs": [
+      "data-page-profile=\"customer-detail-date-query\"",
+      "data-page-family=\"customer-detail-date-query\"",
+      "data-business-task=\"query-customer-detail-by-date\"",
+      "data-reference-fit=\"business-page-family\""
+    ]
+  },
+  "module_requirements": {
+    "date_query_form": {
+      "module_contract_id": "business-form",
+      "minimum_filter_count": 6,
+      "required_controls": [
+        "date-range",
+        "search-input",
+        "select"
+      ],
+      "required_states": [
+        "loading",
+        "empty",
+        "error",
+        "readonly",
+        "permission-denied"
+      ]
+    },
+    "customer_summary": {
+      "minimum_summary_fields": 5,
+      "required_field_types": [
+        "date-range",
+        "number",
+        "money",
+        "status",
+        "permission"
+      ]
+    },
+    "customer_detail_table": {
+      "module_contract_id": "business-table",
+      "fallback_module": "business-table",
+      "minimum_column_count": 8,
+      "minimum_body_rows": 5,
+      "required_column_types": [
+        "date",
+        "text",
+        "quantity",
+        "money",
+        "status",
+        "action"
+      ]
+    }
+  },
+  "output_contract": {
+    "developer_html": "outputs/html/customer-detail-date-query.resolved.html",
+    "audit_reports": [
+      "outputs/reports/customer-detail-date-query.report.json",
+      "outputs/reports/reference-fit.report.json",
+      "outputs/reports/component-runtime.report.json"
+    ],
+    "must_include_output_state_markers": true,
+    "must_include_provenance": true,
+    "must_pass_validators": [
+      "validate-customer-detail-date-query-page",
+      "validate-business-page-examples",
+      "validate-reference-fit",
+      "validate-component-runtime"
+    ]
+  }
+}

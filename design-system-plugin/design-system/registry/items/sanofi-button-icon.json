@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-button-icon",
+  "title": "ButtonIcon primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for ButtonIcon.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "button-icon",
+  "docs_id": "components-buttonicon--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/button-icon/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/button-icon/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/button-icon/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/button-icon/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/button-icon.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/button-icon.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-buttonicon--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-buttonicon--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-buttonicon--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/button-icon.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 9,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "button-icon",
+      "ButtonIcon",
+      "Button Icon"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official ButtonIcon primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

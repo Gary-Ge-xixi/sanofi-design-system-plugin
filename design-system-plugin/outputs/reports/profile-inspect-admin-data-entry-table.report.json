@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "command": "sanofi-ds profile inspect admin-data-entry-table",
+  "status": "pass",
+  "generated_at": "2026-06-04T03:11:27.185Z",
+  "profile_id": "admin-data-entry-table",
+  "file": "design-system-plugin/design-system/page-profiles/admin-data-entry-table.profile.json",
+  "canonical_pattern_id": "admin-query-panel",
+  "canonical_template_id": "onecommercial-admin-query-panel",
+  "required_rules": [
+    "layout-grid-container",
+    "typography-font-stack",
+    "admin-template-navigation",
+    "admin-query-panel-template",
+    "admin-density",
+    "admin-data-entry-table-reference-fit"
+  ],
+  "required_module_contracts": [
+    "select-filter",
+    "data-table-fallback"
+  ],
+  "required_sections": [
+    "breadcrumb",
+    "query-toolbar",
+    "primary-actions",
+    "editable-data-table-fallback",
+    "pagination",
+    "save-bar"
+  ],
+  "forbidden_sections": [
+    "kpi-summary",
+    "chart-fallback",
+    "work-queue"
+  ],
+  "fallback_policy": {
+    "table": {
+      "status": "token-only-pattern",
+      "allowed_markup": [
+        "table",
+        "thead",
+        "tbody",
+        "tr",
+        "th",
+        "td"
+      ],
+      "must_not_claim_primitive": true,
+      "required_marker": "data-table-list-role=\"fallback\""
+    }
+  },
+  "failures": []
+}

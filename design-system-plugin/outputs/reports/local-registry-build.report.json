@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "build-local-registry",
+  "generated_at": "2026-06-04T11:11:12.560Z",
+  "output": "design-system-plugin/design-system/registry/registry.json",
+  "counts": {
+    "items": 623,
+    "component_items": 96,
+    "story_items": 425,
+    "package_items": 93,
+    "block_items": 5,
+    "style_items": 1,
+    "lib_items": 2,
+    "docs": 111,
+    "stories": 429,
+    "component_contracts": 95
+  }
+}

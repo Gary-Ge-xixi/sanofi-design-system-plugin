@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0",
+  "request": "Generate a static HTML prototype showing the captured Sanofi Elements Checkbox and CheckboxGroup demos.",
+  "expected_output": "../../outputs/html/checkbox.prototype.html",
+  "required_sources": [
+    "../../tokens/tokens.css",
+    "../../primitives/components/checkbox/primitive.json",
+    "../../primitives/components/checkbox/demo.registry.json",
+    "../../patterns/forms/checkbox-group.pattern.json"
+  ],
+  "required_validations": [
+    "scripts/transform-tokens",
+    "scripts/validate-token-usage outputs/html/checkbox.prototype.html",
+    "scripts/validate-primitive-usage outputs/html/checkbox.prototype.html",
+    "scripts/validate-page-pattern outputs/html/checkbox.prototype.html"
+  ]
+}

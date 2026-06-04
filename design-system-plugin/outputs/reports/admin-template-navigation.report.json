@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-admin-template-navigation",
+  "target": "outputs/html/admin-query-panel.resolved.html",
+  "rule": "admin-template-navigation",
+  "status": "pass",
+  "checked": {
+    "has_sidebar": true,
+    "sidebar_length": 11361
+  },
+  "failures": []
+}

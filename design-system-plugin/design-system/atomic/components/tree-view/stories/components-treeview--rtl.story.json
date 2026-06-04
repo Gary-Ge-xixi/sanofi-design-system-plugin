@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-treeview--rtl",
+  "component_id": "tree-view",
+  "component_name": "TreeView",
+  "story_id": "components-treeview--rtl",
+  "story_name": "RTL",
+  "export_name": "RTL",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-treeview--rtl&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-treeview--rtl&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/TreeView.stories-BvkdLgBu.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--rtl.iframe.html",
+    "import_path": "./src/components/TreeView/TreeView.stories.tsx",
+    "component_path": "./src/components/TreeView/TreeView.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{\"aria-label\":\"شجرة الملفات\",decoration:i.ARROW_FOLDER}",
+    "values": {
+      "aria-label": "شجرة الملفات",
+      "decoration": "arrow-folder"
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{decoration:{options:Object.values(i),control:{type:\"select\"}},colorAccent:{options:Object.values(m),control:{type:\"select\"}},showNodeLines:{control:\"boolean\"}}",
+    "fields": [
+      "decoration",
+      "colorAccent",
+      "showNodeLines"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    \"aria-label\": \"شجرة الملفات\",\n    decoration: TreeViewDecoration.ARROW_FOLDER\n  },\n  decorators: [Story => <div dir=\"rtl\" style={{\n    maxInlineSize: 320\n  }}>\n        <Story />\n      </div>],\n  render: args => <TreeView {...args}>\n      <TreeView.Item id=\"documents\" defaultExpanded>\n        المستندات\n        <TreeView.SubTree>\n          <TreeView.Item id=\"reports\" defaultExpanded>\n            التقارير\n            <TreeView.SubTree>\n              <TreeView.Item id=\"q1-report\">تقرير الربع الأول</TreeView.Item>\n              <TreeView.Item id=\"q2-report\">تقرير الربع الثاني</TreeView.Item>\n            </TreeView.SubTree>\n          </TreeView.Item>\n          <TreeView.Item id=\"presentations\">\n            العروض التقديمية\n            <TreeView.SubTree>\n              <TreeView.Item id=\"product-deck\">عرض المنتج</TreeView.Item>\n            </TreeView.SubTree>\n          </TreeView.Item>\n        </TreeView.SubTree>\n      </TreeView.Item>\n      <TreeView.Item id=\"images\">\n        الصور\n        <TreeView.SubTree>\n          <TreeView.Item id=\"photo-1\">صورة ١</TreeView.Item>\n          <TreeView.Item id=\"photo-2\">صورة ٢</TreeView.Item>\n        </TreeView.SubTree>\n      </TreeView.Item>\n    </TreeView>\n}",
+    "story_object_source": "{args:{\"aria-label\":\"شجرة الملفات\",decoration:i.ARROW_FOLDER},decorators:[n=>e.jsx(\"div\",{dir:\"rtl\",style:{maxInlineSize:320},children:e.jsx(n,{})})],render:n=>e.jsxs(r,{...n,children:[e.jsxs(r.Item,{id:\"documents\",defaultExpanded:!0,children:[\"المستندات\",e.jsxs(r.SubTree,{children:[e.jsxs(r.Item,{id:\"reports\",defaultExpanded:!0,children:[\"التقارير\",e.jsxs(r.SubTree,{children:[e.jsx(r.Item,{id:\"q1-report\",children:\"تقرير الربع الأول\"}),e.jsx(r.Item,{id:\"q2-report\",children:\"تقرير الربع الثاني\"})]})]}),e.jsxs(r.Item,{id:\"presentations\",children:[\"العروض التقديمية\",e.jsx(r.SubTree,{children:e.jsx(r.Item,{id:\"product-deck\",children:\"عرض المنتج\"})})]})]})]}),e.jsxs(r.Item,{id:\"images\",children:[\"الصور\",e.jsxs(r.SubTree,{children:[e.jsx(r.Item,{id:\"photo-1\",children:\"صورة ١\"}),e.jsx(r.Item,{id:\"photo-2\",children:\"صورة ٢\"})]})]})]})}"
+  },
+  "template": {
+    "id": "tree-view-rtl-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/tree-view/templates/html.rtl.template.html",
+    "output_path": "design-system-plugin/outputs/html/tree-view-rtl.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "tree-view",
+    "local_path": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-treeview--docs",
+    "story_id": "components-treeview--rtl",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tree-view.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tree-view/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tree-view/assets/TreeView.stories-BvkdLgBu.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/tree-view/assets/components-treeview--rtl.iframe.html"
+  }
+}

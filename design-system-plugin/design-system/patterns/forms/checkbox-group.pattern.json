@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "id": "form-checkbox-group",
+  "status": "ready",
+  "description": "A form section pattern based on the captured Elements CheckboxGroup demos.",
+  "source_stories": [
+    "components-checkbox-checkboxgroup--vertical",
+    "components-checkbox-checkboxgroup--horizontal",
+    "components-checkbox-checkboxgroup--small-size",
+    "components-checkbox-checkboxgroup--neutral-color"
+  ],
+  "required_structure": [
+    "section[data-pattern=\"form-checkbox-group\"]",
+    "fieldset[data-primitive=\"checkbox-group\"]",
+    "legend",
+    "input[type=\"checkbox\"]",
+    "label"
+  ],
+  "variants": [
+    {
+      "name": "vertical",
+      "orientation": "vertical",
+      "size": "medium",
+      "color": "branded"
+    },
+    {
+      "name": "horizontal",
+      "orientation": "horizontal",
+      "size": "medium",
+      "color": "branded"
+    },
+    {
+      "name": "small-size",
+      "orientation": "vertical",
+      "size": "small",
+      "color": "branded"
+    },
+    {
+      "name": "neutral-color",
+      "orientation": "vertical",
+      "size": "medium",
+      "color": "neutral"
+    }
+  ],
+  "validation": {
+    "error_state_requires": [
+      "aria-invalid=\"true\"",
+      "aria-describedby"
+    ]
+  }
+}

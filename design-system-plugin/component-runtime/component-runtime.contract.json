@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "id": "sanofi-elements-component-runtime",
+  "status": "preflight-required",
+  "renderer_target": "html-with-hydrated-js",
+  "runtime_source": {
+    "package": "@sanofi-accelerator/elements",
+    "registry": "https://npm.pkg.github.com",
+    "required_scope_config": "@sanofi-accelerator:registry=https://npm.pkg.github.com",
+    "required_token_env": "NPM_TOKEN",
+    "required_token_scope": "read:packages"
+  },
+  "local_runtime_source": {
+    "package": "@local/sanofi-design-runtime",
+    "runtime": "sanofi-local-atomic-components",
+    "render_source": "local-atomic-component-package",
+    "source_policy": "Use local atomic component packages and story contracts when private npm access is unavailable. Mark output as local runtime; do not pretend it comes from @sanofi-accelerator/elements."
+  },
+  "runtime_package": {
+    "local_package": "@local/sanofi-design-runtime",
+    "package_json": "design-system-plugin/component-runtime/package.json",
+    "preflight_script": "design-system-plugin/component-runtime/scripts/preflight-elements-package.mjs",
+    "preflight_report": "design-system-plugin/outputs/reports/component-runtime-preflight.report.json"
+  },
+  "component_instance_contract": {
+    "default_size": "medium",
+    "size_policy": "Use medium as the ordinary default size for generated admin HTML components. Large size requires an explicit component spec override and must not be emitted as the runtime default.",
+    "required_fields": [
+      "component_id",
+      "story_id",
+      "props",
+      "children_or_slots",
+      "interaction_requirements",
+      "provenance"
+    ],
+    "required_runtime_markers": [
+      "data-component-runtime",
+      "data-render-source",
+      "data-component-instance",
+      "data-component-id",
+      "data-story-id"
+    ],
+    "accepted_component_runtimes": [
+      "sanofi-elements-react",
+      "sanofi-local-atomic-components"
+    ],
+    "accepted_render_sources": [
+      "@sanofi-accelerator/elements",
+      "local-atomic-component-package"
+    ],
+    "required_hydration": [
+      "runtime JS bundle",
+      "runtime CSS bundle",
+      "interactive state handlers"
+    ]
+  },
+  "first_round_components": [
+    "select",
+    "button",
+    "search-input",
+    "tabs",
+    "menu",
+    "sidebar",
+    "container",
+    "grid",
+    "date-picker",
+    "card",
+    "tag",
+    "progress-bar",
+    "icon"
+  ],
+  "allowed_fallback_modules": [
+    "table",
+    "chart",
+    "page-header",
+    "metric-card"
+  ],
+  "forbidden_fallbacks": [
+    "visible native select as the visual Select shell",
+    "hand-written component DOM presented as official runtime output",
+    "data-primitive or data-story-id markers used as the only proof of component usage",
+    "storybook iframe embedding unless the delivery mode explicitly allows iframe delivery"
+  ],
+  "select_requirements": {
+    "native": false,
+    "required_behavior": [
+      "trigger exposes role=\"combobox\"",
+      "aria-expanded changes after click",
+      "listbox opens without system native popup",
+      "option click updates visible value",
+      "focus-visible state is keyboard reachable"
+    ],
+    "failure_conditions": [
+      "visible select[data-primitive=\"select\"]",
+      "native:false rendered as a visible native control",
+      "missing combobox/listbox semantics",
+      "click does not expand a component-owned overlay"
+    ]
+  },
+  "source_provenance": {
+    "design_md": "design-system-plugin/design-system/DESIGN.md",
+    "component_contract_index": "design-system-plugin/design-system/contracts/components/component-contract-index.json",
+    "select_filter_contract": "design-system-plugin/design-system/contracts/page-modules/select-filter.contract.json",
+    "storybook_docs": "https://elements.prod.accelerator.sanofi/?path=/docs/introduction--docs",
+    "foundation_motion": "https://elements.sanofidesign.com/557b0250b/p/07bcd8-motion"
+  }
+}

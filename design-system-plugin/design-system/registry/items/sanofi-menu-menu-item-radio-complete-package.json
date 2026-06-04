@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-menu-menu-item-radio-complete-package",
+  "title": "Menu/MenuItemRadio complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Menu/MenuItemRadio package covering Docs plus all Storybook story atoms.",
+  "component_id": "menu-menu-item-radio",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-menu-menu-item-radio"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/menu-menu-item-radio.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/menu-menu-item-radio.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/menu-menu-item-radio.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/menu-menu-item-radio.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/docs/menu-menu-item-radio.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/docs/menu-menu-item-radio.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/menu-menu-item-radio-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/menu-menu-item-radio-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemradio--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-menu-menuitemradio--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 2,
+    "materialized_stories": 2,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-menu-menuitemradio--checked",
+      "story_name": "Checked",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-menu-menu-item-radio-checked-atomic-story"
+    },
+    {
+      "story_id": "components-menu-menuitemradio--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-menu-menu-item-radio-default-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-menu-menuitemradio--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/menu-menu-item-radio.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/menu-menu-item-radio/docs/menu-menu-item-radio.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/menu-menu-item-radio.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/menu-menu-item-radio/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "menu-menu-item-radio",
+      "Menu/MenuItemRadio",
+      "menu-menu-item-radio complete",
+      "Menu/MenuItemRadio complete package",
+      "menu-menu-item-radio docs"
+    ],
+    "when_to_use": "Use first for any Menu/MenuItemRadio generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Menu/MenuItemRadio behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

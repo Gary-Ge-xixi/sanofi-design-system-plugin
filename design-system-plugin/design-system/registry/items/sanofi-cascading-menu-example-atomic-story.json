@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-cascading-menu-example-atomic-story",
+  "title": "CascadingMenu Example atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-cascadingmenu--example.",
+  "atomic_story_id": "components-cascadingmenu--example",
+  "component_id": "cascading-menu",
+  "docs_id": "components-cascadingmenu--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-cascading-menu"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/cascading-menu/stories/components-cascadingmenu--example.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/cascading-menu/stories/components-cascadingmenu--example.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/cascading-menu/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/cascading-menu/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/CascadingMenu.stories-DAZR53Et.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/CascadingMenu.stories-DAZR53Et.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/components-cascadingmenu--example.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/components-cascadingmenu--example.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/cascading-menu/templates/html.example.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/cascading-menu/templates/html.example.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-cascadingmenu--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-cascadingmenu--docs",
+    "story_id": "components-cascadingmenu--example",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/cascading-menu/stories/components-cascadingmenu--example.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/cascading-menu/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-cascadingmenu--example&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-cascadingmenu--example&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/CascadingMenu.stories-DAZR53Et.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/cascading-menu/assets/CascadingMenu.stories-DAZR53Et.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/cascading-menu.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/cascading-menu/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "cascading-menu",
+      "CascadingMenu",
+      "Example",
+      "components-cascadingmenu--example",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact CascadingMenu Example Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

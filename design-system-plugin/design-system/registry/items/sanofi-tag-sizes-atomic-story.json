@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tag-sizes-atomic-story",
+  "title": "Tag Sizes atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-tag--sizes.",
+  "atomic_story_id": "components-tag--sizes",
+  "component_id": "tag",
+  "docs_id": "components-tag--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tag"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--sizes.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--sizes.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tag/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/assets/components-tag--sizes.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/tag/assets/components-tag--sizes.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/templates/html.sizes.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/tag/templates/html.sizes.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tag.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tag/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-tag--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-tag--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tag--docs",
+    "story_id": "components-tag--sizes",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/tag/stories/components-tag--sizes.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/tag/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-tag--sizes&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-tag--sizes&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Tag.stories-Ck5BqzWM.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/tag/assets/Tag.stories-Ck5BqzWM.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tag",
+      "Tag",
+      "Sizes",
+      "components-tag--sizes",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Tag Sizes Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

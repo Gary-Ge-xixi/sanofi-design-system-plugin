@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "card-sections",
+  "canonical_name": "card-sections",
+  "component_name": "Card/Sections",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-card-sections--docs",
+    "title": "Card/Sections",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-card-sections--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-card-sections--docs",
+    "import_path": "./src/components/Card/CardSection.stories.tsx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 1,
+    "story_ids": [
+      "components-card-sections--default"
+    ],
+    "records": [
+      {
+        "id": "components-card-sections--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Card/CardSection.stories.tsx",
+        "export_name": "Default"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "children",
+        "required": false,
+        "description": "The card section childrenReactNode",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "usage_snippets": {
+    "extraction_status": "not_extracted",
+    "snippets": []
+  },
+  "accessibility": {
+    "extraction_status": "unknown",
+    "notes": [
+      "unknown"
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "card-sections"
+    ],
+    "contracts": [
+      {
+        "id": "card-sections",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/card-sections/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/card-sections/demo.registry.json",
+        "known_story_ids": [
+          "components-card-sections--default",
+          "components-card-sections--default"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-card-sections--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-card-sections--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-card-sections--docs.md",
+    "docs_import_path": "./src/components/Card/CardSection.stories.tsx",
+    "story_ids": [
+      "components-card-sections--default"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": [
+    "usage_snippets:not_extracted"
+  ]
+}

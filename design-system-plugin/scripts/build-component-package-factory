@@ -1,0 +1,379 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(workspaceRoot, relativePath), "utf8"));
+}
+
+function readJsonOrNull(relativePath) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+}
+
+function writeJson(relativePath, data) {
+  const absolutePath = path.join(workspaceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(data, null, 2) + "\n");
+}
+
+function exists(relativePath) {
+  return fs.existsSync(path.join(workspaceRoot, relativePath));
+}
+
+function normalizeComponentId(title) {
+  return String(title || "")
+    .replace(/^Components\//, "")
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[^A-Za-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .toLowerCase();
+}
+
+function slugify(value) {
+  return String(value || "unknown")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function usage() {
+  console.error("Usage: build-component-package-factory <component-id> [--write-partial] [--force]");
+  process.exit(1);
+}
+
+const componentId = process.argv[2];
+if (!componentId) usage();
+const writePartial = process.argv.includes("--write-partial");
+const force = process.argv.includes("--force");
+
+const storybookIndex = readJson("research/storybook/index.json");
+const primitiveIndex = readJson("design-system-plugin/design-system/primitives/primitive-index.json");
+const coverageMatrix = readJsonOrNull("design-system-plugin/design-system/atomic/component-coverage-matrix.json");
+const atomicIndex = readJsonOrNull("design-system-plugin/design-system/atomic/atomic-component-index.json") || {
+  stories: []
+};
+const primitiveIds = new Set((primitiveIndex.primitives || []).map((primitive) => primitive.id));
+
+const entries = Object.entries(storybookIndex.entries || {});
+const componentEntries = entries.filter(([, entry]) => (
+  entry.title?.startsWith("Components/") && normalizeComponentId(entry.title) === componentId
+));
+
+if (!componentEntries.length) {
+  console.error(`Component not found in Storybook index: ${componentId}`);
+  process.exit(1);
+}
+
+const title = componentEntries[0][1].title;
+const componentName = title.replace(/^Components\//, "");
+const docs = componentEntries
+  .filter(([, entry]) => entry.type === "docs")
+  .map(([id, entry]) => ({
+    id,
+    name: entry.name,
+    type: "docs",
+    semantic_type: "docs_contract",
+    import_path: entry.importPath
+  }));
+const stories = componentEntries
+  .filter(([, entry]) => entry.type === "story")
+  .map(([id, entry]) => ({
+    id,
+    name: entry.name,
+    export_name: entry.exportName,
+    semantic_type: "variant",
+    import_path: entry.importPath
+  }))
+  .sort((a, b) => a.id.localeCompare(b.id));
+
+const componentRoot = `design-system-plugin/design-system/atomic/components/${componentId}`;
+const expectedTabsPath = `${componentRoot}/${componentId}.expected-tabs.json`;
+const docsContractPath = `${componentRoot}/docs/${componentId}.docs.contract.json`;
+const componentAtomicPath = `${componentRoot}/component.atomic.json`;
+const packagePath = `${componentRoot}/${componentId}.package.json`;
+const unsupportedPath = `${componentRoot}/${componentId}.unsupported.json`;
+const contractPath = `design-system-plugin/design-system/contracts/components/${componentId}.contract.json`;
+const primitivePath = `design-system-plugin/design-system/primitives/components/${componentId}/primitive.json`;
+const existingPackage = readJsonOrNull(packagePath);
+const contract = readJsonOrNull(contractPath);
+const materializedStories = (atomicIndex.stories || []).filter((story) => story.component_id === componentId);
+const materializedIds = new Set(materializedStories.map((story) => story.story_id));
+const missingStoryIds = stories.map((story) => story.id).filter((storyId) => !materializedIds.has(storyId));
+const componentMatrixRow = coverageMatrix?.components?.find((component) => component.component_id === componentId);
+
+const unsupported = stories.length === 0;
+const canWriteComplete = missingStoryIds.length === 0 && stories.length > 0;
+const writeAllowed = canWriteComplete || writePartial;
+const writes = [];
+const skipped = [];
+
+function writeIfAllowed(relativePath, data, reason) {
+  if (!writeAllowed) {
+    skipped.push({ path: relativePath, reason: "write_not_allowed_until_all_stories_materialized" });
+    return;
+  }
+  if (exists(relativePath) && !force) {
+    skipped.push({ path: relativePath, reason: "exists_preserved" });
+    return;
+  }
+  writeJson(relativePath, data);
+  writes.push({ path: relativePath, reason });
+}
+
+const expectedTabs = {
+  schema_version: "0.1.0",
+  component_id: componentId,
+  component_name: componentName,
+  source: {
+    storybook_index: "research/storybook/index.json",
+    storybook_title: title
+  },
+  docs,
+  stories
+};
+
+const docsContract = {
+  schema_version: "0.1.0",
+  id: `${componentId}-docs-contract`,
+  component_id: componentId,
+  component_name: componentName,
+  docs_id: docs[0]?.id || `components-${componentId}--docs`,
+  source_url: `https://elements.prod.accelerator.sanofi/?path=/docs/${docs[0]?.id || `components-${componentId}--docs`}`,
+  local_md_path: docs[0]?.id ? `design-system-plugin/design-system/knowledge/docs/${docs[0].id}.md` : "not_found",
+  purpose: {
+    extraction_status: "from_component_contract_or_not_extracted",
+    text: contract?.usage_guidance?.summary || "not_extracted"
+  },
+  api_props: {
+    extraction_status: contract?.props?.extraction_status || "not_extracted",
+    props: contract?.props?.items || []
+  },
+  usage: {
+    when_to_use: contract?.usage_guidance?.when_to_use || [],
+    when_not_to_use: contract?.usage_guidance?.when_not_to_use || [],
+    snippets: contract?.usage_snippets?.snippets || []
+  },
+  story_tabs: stories,
+  accessibility: contract?.accessibility || {
+    extraction_status: "not_extracted",
+    rules: []
+  },
+  source_provenance: {
+    docs_id: docs[0]?.id || "unknown",
+    docs_path: docs[0]?.id ? `design-system-plugin/design-system/knowledge/docs/${docs[0].id}.md` : "not_found",
+    storybook_index: "research/storybook/index.json",
+    component_contract: contractPath
+  }
+};
+
+const storyAtoms = stories.map((story) => {
+  const atom = materializedStories.find((item) => item.story_id === story.id);
+  return {
+    story_id: story.id,
+    story_name: story.name,
+    export_name: story.export_name,
+    semantic_type: story.semantic_type,
+    variant: slugify(story.name),
+    expected_element: "not_extracted",
+    status: atom ? "materialized" : "missing",
+    atomic_story_path: atom?.path || "missing",
+    render_output_path: atom?.output_path || "missing",
+    source_provenance: {
+      storybook_index: "research/storybook/index.json",
+      docs_id: docs[0]?.id || "unknown",
+      token_source: "foundations-colors--docs"
+    }
+  };
+});
+
+const componentAtomic = {
+  schema_version: "0.1.0",
+  component_id: componentId,
+  component_name: componentName,
+  renderer_target: "html",
+  component_identity: {
+    canonical_id: componentId,
+    docs_id: docs[0]?.id || "unknown",
+    category: "Components"
+  },
+  stories: materializedStories,
+  expected_tabs: {
+    local_path: expectedTabsPath,
+    docs,
+    stories: storyAtoms
+  },
+  docs_contract: {
+    local_path: docsContractPath,
+    status: writeAllowed ? "generated_or_preserved" : "not_generated_until_ready"
+  },
+  api_arg_types: {
+    extraction_status: contract?.props?.extraction_status || "not_extracted",
+    props: contract?.props?.items || []
+  },
+  variant_matrix: contract?.variants || {
+    extraction_status: "not_extracted",
+    items: []
+  },
+  state_matrix: contract?.states || {
+    extraction_status: "not_extracted",
+    items: []
+  },
+  anatomy_slots: contract?.anatomy || {
+    extraction_status: "not_extracted",
+    items: []
+  },
+  token_bindings: contract?.token_bindings || {
+    extraction_status: "not_extracted",
+    token_source: "foundations-colors--docs"
+  },
+  validation_rules: [
+    "Every complete package must pass validate-component-package-dom.",
+    "Partial package output must not be registered as complete.",
+    "Unsupported behavior must be explicit, not guessed."
+  ],
+  source_provenance: {
+    docs_id: docs[0]?.id || "unknown",
+    story_ids: stories.map((story) => story.id),
+    materialized_story_ids: [...materializedIds],
+    storybook_index: "research/storybook/index.json",
+    component_contract: contractPath,
+    primitive_contract: exists(primitivePath) ? primitivePath : "unsupported",
+    token_source: "foundations-colors--docs"
+  }
+};
+
+const packageDoc = {
+  schema_version: "0.1.0",
+  id: `${componentId}-complete-standard-package`,
+  component_id: componentId,
+  component_name: componentName,
+  renderer_target: "html",
+  coverage: {
+    expected_docs: docs.length,
+    expected_stories: stories.length,
+    materialized_stories: materializedStories.length,
+    docs_contract_status: writeAllowed ? "generated_or_preserved" : "not_generated_until_ready",
+    story_coverage_status: missingStoryIds.length ? "partial" : "complete",
+    missing_story_ids: missingStoryIds
+  },
+  docs_contract: {
+    docs_id: docs[0]?.id || "unknown",
+    local_path: docsContractPath
+  },
+  story_atoms: storyAtoms,
+  component_contract: contractPath,
+  primitive_contract: exists(primitivePath) ? primitivePath : "unsupported",
+  component_atomic_contract: componentAtomicPath,
+  expected_tabs: expectedTabsPath,
+  token_bindings: contract?.token_bindings || {
+    extraction_status: "not_extracted",
+    token_source: "foundations-colors--docs"
+  },
+  render_outputs: {
+    complete_html: `design-system-plugin/outputs/html/${componentId}-complete.atomic.html`,
+    per_story_outputs: storyAtoms.map((story) => ({
+      story_id: story.story_id,
+      output_path: story.render_output_path
+    }))
+  },
+  registry: {
+    package_item: `design-system-plugin/design-system/registry/items/sanofi-${componentId}-complete-package.json`,
+    story_item_prefix: `sanofi-${componentId}-`
+  },
+  validation: {
+    required_story_count: stories.length,
+    required_docs_count: docs.length,
+    required_validators: [
+      "validate-atomic-library",
+      "validate-token-usage",
+      "validate-primitive-usage",
+      "validate-page-pattern",
+      "validate-component-package-dom",
+      "validate-local-registry"
+    ],
+    special_semantics: []
+  },
+  source_provenance: {
+    docs_id: docs[0]?.id || "unknown",
+    expected_tabs: expectedTabsPath,
+    docs_contract: docsContractPath,
+    component_contract: contractPath,
+    primitive_contract: exists(primitivePath) ? primitivePath : "unsupported",
+    storybook_index: "research/storybook/index.json",
+    storybook_stories: "research/storybook/stories.json",
+    token_source: "foundations-colors--docs",
+    token_css: "design-system-plugin/design-system/tokens/tokens.css"
+  }
+};
+
+writeIfAllowed(expectedTabsPath, expectedTabs, "expected-tabs");
+writeIfAllowed(docsContractPath, docsContract, "docs-contract");
+writeIfAllowed(componentAtomicPath, componentAtomic, "component-atomic-contract");
+writeIfAllowed(packagePath, packageDoc, "component-package");
+if (unsupported) {
+  writeJson(unsupportedPath, {
+    schema_version: "0.1.0",
+    component_id: componentId,
+    component_name: componentName,
+    status: "unsupported",
+    reason: "no_story_tabs",
+    docs,
+    source_provenance: {
+      storybook_index: "research/storybook/index.json",
+      component_contract: contractPath,
+      token_source: "foundations-colors--docs"
+    },
+    policy: "Docs-only hook/provider entries are included in contracts and registry source coverage, but are not renderable HTML component packages until Storybook stories exist."
+  });
+  writes.push({ path: unsupportedPath, reason: "unsupported-docs-only-component" });
+}
+
+const status = existingPackage?.coverage?.story_coverage_status === "complete"
+  ? "complete_existing"
+  : unsupported
+    ? "unsupported"
+  : canWriteComplete
+    ? "ready_to_write_complete"
+    : writePartial
+      ? "partial_written_or_preserved"
+      : "not_ready";
+
+const report = {
+  schema_version: "0.1.0",
+  status,
+  script: "build-component-package-factory",
+  component_id: componentId,
+  component_name: componentName,
+  tier: componentMatrixRow?.tier || "unknown",
+  estimated_hours: componentMatrixRow?.estimated_hours || "unknown",
+  write_mode: {
+    write_partial: writePartial,
+    force,
+    write_allowed: writeAllowed
+  },
+  coverage: packageDoc.coverage,
+  readiness: {
+    can_write_complete: canWriteComplete,
+    has_component_contract: exists(contractPath),
+    has_primitive_contract: primitiveIds.has(componentId),
+    has_existing_package: Boolean(existingPackage),
+    missing_story_ids: missingStoryIds
+  },
+  artifacts: {
+    expected_tabs: expectedTabsPath,
+    docs_contract: docsContractPath,
+    component_atomic: componentAtomicPath,
+    package: packagePath
+  },
+  writes,
+  skipped
+};
+
+writeJson(`design-system-plugin/outputs/reports/component-package-factory.${componentId}.report.json`, report);
+console.log(`Component package factory ${status}: ${componentId} (${materializedStories.length}/${stories.length} stories)`);

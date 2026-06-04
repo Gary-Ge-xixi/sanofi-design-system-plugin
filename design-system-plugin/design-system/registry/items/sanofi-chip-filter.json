@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-chip-filter",
+  "title": "ChipFilter primitive",
+  "type": "registry:component",
+  "renderer_target": "html",
+  "description": "Local Sanofi Elements primitive contract for ChipFilter.",
+  "status": "component-contract-backed-generic-primitive",
+  "component_id": "chip-filter",
+  "docs_id": "components-chipfilter--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/chip-filter/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/chip-filter/demo.registry.json",
+      "role": "demo-registry",
+      "target": "design-system-plugin/design-system/primitives/components/chip-filter/demo.registry.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-chipfilter--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-chipfilter--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/chip-filter.contract.json",
+    "token_source": "foundations-colors--docs",
+    "story_count": 4,
+    "primitive_registry": "design-system-plugin/design-system/primitives/primitive-index.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "chip-filter",
+      "ChipFilter",
+      "Chip Filter"
+    ],
+    "when_to_use": "Use for HTML prototypes that need the official ChipFilter primitive.",
+    "unsupported_behavior": "Do not invent props or states beyond the component contract."
+  }
+}

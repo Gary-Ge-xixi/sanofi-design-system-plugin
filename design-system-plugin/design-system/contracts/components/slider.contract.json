@@ -1,0 +1,247 @@
+{
+  "schema_version": "0.1.0",
+  "id": "slider",
+  "canonical_name": "slider",
+  "component_name": "Slider",
+  "category": "Components",
+  "status": "primitive-linked",
+  "docs": {
+    "storybook_id": "components-slider--docs",
+    "title": "Slider",
+    "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md",
+    "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-slider--docs",
+    "import_path": "./src/components/Slider/Slider.mdx",
+    "extraction_status": "extracted"
+  },
+  "stories": {
+    "count": 7,
+    "story_ids": [
+      "components-slider--default",
+      "components-slider--disabled",
+      "components-slider--range",
+      "components-slider--with-bottom-legend",
+      "components-slider--with-custom-scale",
+      "components-slider--with-label",
+      "components-slider--with-legend"
+    ],
+    "records": [
+      {
+        "id": "components-slider--default",
+        "name": "Default",
+        "normalized_name": "default",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "Default"
+      },
+      {
+        "id": "components-slider--disabled",
+        "name": "Disabled",
+        "normalized_name": "disabled",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "Disabled"
+      },
+      {
+        "id": "components-slider--range",
+        "name": "Range",
+        "normalized_name": "range",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "Range"
+      },
+      {
+        "id": "components-slider--with-bottom-legend",
+        "name": "With Bottom Legend",
+        "normalized_name": "with-bottom-legend",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "WithBottomLegend"
+      },
+      {
+        "id": "components-slider--with-custom-scale",
+        "name": "With Custom Scale",
+        "normalized_name": "with-custom-scale",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "WithCustomScale"
+      },
+      {
+        "id": "components-slider--with-label",
+        "name": "With Label",
+        "normalized_name": "with-label",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "WithLabel"
+      },
+      {
+        "id": "components-slider--with-legend",
+        "name": "With Legend",
+        "normalized_name": "with-legend",
+        "import_path": "./src/components/Slider/Slider.stories.tsx",
+        "export_name": "WithLegend"
+      }
+    ]
+  },
+  "props": {
+    "extraction_status": "extracted",
+    "items": [
+      {
+        "name": "label",
+        "required": false,
+        "description": "Accessible label for the slider.string",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "thumbLabels",
+        "required": false,
+        "description": "Accessible labels for each thumb (for range sliders).string[]",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showLegend",
+        "required": false,
+        "description": "Shows current value(s) as legend text.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "showSteps",
+        "required": false,
+        "description": "Shows step markers along the track.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "legendPosition",
+        "required": false,
+        "description": "Position of the legend\"top\"\"bottom\"",
+        "default": "\"SliderLegendPosition.TOP\"",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "minValue",
+        "required": false,
+        "description": "-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "maxValue",
+        "required": false,
+        "description": "-",
+        "default": "-",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "step",
+        "required": false,
+        "description": "-",
+        "default": "-",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "states": {
+    "extraction_status": "from_story_names",
+    "items": [
+      "default",
+      "disabled",
+      "range",
+      "with-bottom-legend",
+      "with-custom-scale",
+      "with-label",
+      "with-legend"
+    ]
+  },
+  "variants": {
+    "extraction_status": "from_story_names_and_props",
+    "items": [
+      "default",
+      "disabled",
+      "range",
+      "with-bottom-legend",
+      "with-custom-scale",
+      "with-label",
+      "with-legend"
+    ]
+  },
+  "slots": {
+    "extraction_status": "not_extracted",
+    "items": [],
+    "note": "Slots are not reliably extractable from current MD/index sources."
+  },
+  "anatomy": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Slider } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Slider\n  label=\"Volume\"\n  minValue={0}\n  maxValue={100}\n  step={1}\n  showLegend\n  legendPosition=\"top\"\n/>\n);"
+    ]
+  },
+  "usage_snippets": {
+    "extraction_status": "extracted",
+    "snippets": [
+      "import { Slider } from \"@sanofi-accelerator/elements\";\n\nexport default () => (\n<Slider\n  label=\"Volume\"\n  minValue={0}\n  maxValue={100}\n  step={1}\n  showLegend\n  legendPosition=\"top\"\n/>\n);"
+    ]
+  },
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "token_bindings": {
+    "extraction_status": "not_extracted",
+    "roles": [],
+    "note": "Use semantic-token-map.json and component primitive contracts for HTML styling."
+  },
+  "primitive": {
+    "status": "linked",
+    "ids": [
+      "slider"
+    ],
+    "contracts": [
+      {
+        "id": "slider",
+        "status": "component-contract-backed-generic-primitive",
+        "contract_path": "design-system-plugin/design-system/primitives/components/slider/primitive.json",
+        "demo_registry_path": "design-system-plugin/design-system/primitives/components/slider/demo.registry.json",
+        "known_story_ids": [
+          "components-slider--default",
+          "components-slider--disabled",
+          "components-slider--range",
+          "components-slider--with-bottom-legend",
+          "components-slider--with-custom-scale",
+          "components-slider--with-label",
+          "components-slider--with-legend",
+          "components-slider--default",
+          "components-slider--disabled",
+          "components-slider--range",
+          "components-slider--with-bottom-legend",
+          "components-slider--with-custom-scale",
+          "components-slider--with-label",
+          "components-slider--with-legend"
+        ]
+      }
+    ]
+  },
+  "fallback_policy": {
+    "status": "not_required",
+    "reason": "Component has at least one registered primitive contract."
+  },
+  "usage_guidance": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-slider--docs",
+    "when_not_to_use": "unknown"
+  },
+  "source_provenance": {
+    "docs_id": "components-slider--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-slider--docs.md",
+    "docs_import_path": "./src/components/Slider/Slider.mdx",
+    "story_ids": [
+      "components-slider--default",
+      "components-slider--disabled",
+      "components-slider--range",
+      "components-slider--with-bottom-legend",
+      "components-slider--with-custom-scale",
+      "components-slider--with-label",
+      "components-slider--with-legend"
+    ],
+    "token_source": "foundations-colors--docs",
+    "storybook_index": "research/storybook/index.json"
+  },
+  "unknowns": []
+}

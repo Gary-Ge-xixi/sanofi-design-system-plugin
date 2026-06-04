@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-tag-complete-package",
+  "title": "Tag complete standard package",
+  "type": "registry:package",
+  "renderer_target": "html",
+  "description": "Complete local Tag package covering Docs plus all Storybook story atoms.",
+  "component_id": "tag",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-tag"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/tag.package.json",
+      "role": "atomic-component-package",
+      "target": "design-system-plugin/design-system/atomic/components/tag/tag.package.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/tag.expected-tabs.json",
+      "role": "expected-tabs",
+      "target": "design-system-plugin/design-system/atomic/components/tag/tag.expected-tabs.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/docs/tag.docs.contract.json",
+      "role": "docs-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tag/docs/tag.docs.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/tag/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/tag/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/tag-complete.atomic.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/tag-complete.atomic.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/tag.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/tag/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-tag--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-tag--docs.md"
+    }
+  ],
+  "coverage": {
+    "expected_docs": 1,
+    "expected_stories": 7,
+    "materialized_stories": 7,
+    "docs_contract_status": "generated_or_preserved",
+    "story_coverage_status": "complete",
+    "missing_story_ids": []
+  },
+  "story_atoms": [
+    {
+      "story_id": "components-tag--categorical",
+      "story_name": "Categorical",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-categorical-atomic-story"
+    },
+    {
+      "story_id": "components-tag--default",
+      "story_name": "Default",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-default-atomic-story"
+    },
+    {
+      "story_id": "components-tag--overview",
+      "story_name": "Overview",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-overview-atomic-story"
+    },
+    {
+      "story_id": "components-tag--semantic",
+      "story_name": "Semantic",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-semantic-atomic-story"
+    },
+    {
+      "story_id": "components-tag--sizes",
+      "story_name": "Sizes",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-sizes-atomic-story"
+    },
+    {
+      "story_id": "components-tag--variants",
+      "story_name": "Variants",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-variants-atomic-story"
+    },
+    {
+      "story_id": "components-tag--with-icon",
+      "story_name": "With Icon",
+      "semantic_type": "variant",
+      "registry_item": "sanofi-tag-with-icon-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-tag--docs",
+    "expected_tabs": "design-system-plugin/design-system/atomic/components/tag/tag.expected-tabs.json",
+    "docs_contract": "design-system-plugin/design-system/atomic/components/tag/docs/tag.docs.contract.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/tag/primitive.json",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "token_source": "foundations-colors--docs",
+    "token_css": "design-system-plugin/design-system/tokens/tokens.css"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "tag",
+      "Tag",
+      "tag complete",
+      "Tag complete package",
+      "tag docs"
+    ],
+    "when_to_use": "Use first for any Tag generation request, then resolve the exact story atom by intent.",
+    "unsupported_behavior": "Do not infer Tag behavior outside the package stories, docs contract, and primitive contract."
+  }
+}

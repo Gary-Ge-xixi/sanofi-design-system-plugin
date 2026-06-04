@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.1.0",
+  "id": "components-contentblock--non-interactive-with-multiple-actions",
+  "component_id": "content-block",
+  "component_name": "ContentBlock",
+  "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+  "story_name": "Non Interactive With Multiple Actions",
+  "export_name": "NonInteractiveWithMultipleActions",
+  "renderer_target": "html",
+  "story_semantics": {
+    "semantic_type": "variant",
+    "expected_variant": "not_applicable",
+    "expected_element": "not_extracted",
+    "inverse": false,
+    "source": "inferred_from_story_args"
+  },
+  "source": {
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-contentblock--non-interactive-with-multiple-actions&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-contentblock--non-interactive-with-multiple-actions&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/ContentBlock.stories-BY6ovRMm.js",
+    "local_bundle_path": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js",
+    "local_iframe_path": "design-system-plugin/design-system/atomic/components/content-block/assets/components-contentblock--non-interactive-with-multiple-actions.iframe.html",
+    "import_path": "./src/components/ContentBlock/ContentBlock.stories.tsx",
+    "component_path": "./src/components/ContentBlock/ContentBlock.tsx"
+  },
+  "args": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{...p,border:!0,padding:k.LG}",
+    "values": {
+      "padding": "lg",
+      "border": true,
+      "isSelected": false,
+      "isActive": false,
+      "disabled": false
+    }
+  },
+  "argTypes": {
+    "extraction_status": "extracted_from_story_bundle",
+    "source": "{children:{description:\"Content to render inside the block\",control:{disable:!0}},padding:{description:\"Inner padding using Elements spacing tokens\",control:\"select\",options:Object.values(k),table:{type:{summary:\"ContentBlockPadding\"},defaultValue:{summary:\"md\"}}},classNames:{description:\"Custom CSS classes for ContentBlock elements.\",control:\"object\",table:{type:{summary:\"{ root?: string }\"}}},border:{description:\"Renders a border around the block\",control:\"boolean\",table:{type:{summary:\"boolean\"},defaultValue:{summary:\"false\"}}},onClick:{description:\"Click handler that activates the interactive variant. When absent, renders as a passive container.\",table:{type:{summary:\"() => void\"}}},isSelected:{description:\"Marks the block as selected (interactive variant only)\",control:\"boolean\",table:{type:{summary:\"boolean\"},defaultValue:{summary:\"false\"}}},isActive:{description:\"Marks the block as active (interactive variant only)\",control:\"boolean\",table:{type:{summary:\"boolean\"},defaultValue:{summary:\"false\"}}},disabled:{description:\"Disables the interactive block, preventing clicks and applying a desaturated visual style (interactive variant only)\",control:\"boolean\",table:{type:{summary:\"boolean\"},defaultValue:{summary:\"false\"}}}}",
+    "fields": [
+      "children",
+      "padding",
+      "classNames",
+      "border",
+      "onClick",
+      "isSelected",
+      "isActive",
+      "disabled"
+    ]
+  },
+  "variants": {
+    "extraction_status": "not_extracted",
+    "values": []
+  },
+  "states": {
+    "extraction_status": "from_story_args",
+    "values": [
+      "enabled",
+      "not-loading",
+      "default"
+    ]
+  },
+  "render_strategy": {
+    "type": "template-html",
+    "source": "{\n  args: {\n    ...defaultArgs,\n    border: true,\n    padding: ContentBlockPadding.LG\n  },\n  render: args => <ContentBlock {...args}>\n      <Flex direction=\"column\" gap=\"md\">\n        <Title variant={TitleVariant.TITLE_3}>Article Title</Title>\n        <Typography>\n          This is a non-interactive content block with multiple independent\n          actions. Each button manages its own click handler.\n        </Typography>\n        <Flex gap=\"sm\">\n          <Button variant={ButtonVariant.PRIMARY} label=\"Save\" icon={IconName.BOOKMARK} onClick={() => alert(\"Save clicked\")} />\n          <Button variant={ButtonVariant.SECONDARY} label=\"Share\" icon={IconName.SHARE} onClick={() => alert(\"Share clicked\")} />\n        </Flex>\n      </Flex>\n    </ContentBlock>\n}",
+    "story_object_source": "{args:{...p,border:!0,padding:k.LG},render:n=>e.jsx(o,{...n,children:e.jsxs(s,{direction:\"column\",gap:\"md\",children:[e.jsx(c,{variant:d.TITLE_3,children:\"Article Title\"}),e.jsx(i,{children:\"This is a non-interactive content block with multiple independent actions. Each button manages its own click handler.\"}),e.jsxs(s,{gap:\"sm\",children:[e.jsx(P,{variant:L.PRIMARY,label:\"Save\",icon:R.BOOKMARK,onClick:()=>alert(\"Save clicked\")}),e.jsx(P,{variant:L.SECONDARY,label:\"Share\",icon:R.SHARE,onClick:()=>alert(\"Share clicked\")})]})]})})}"
+  },
+  "template": {
+    "id": "content-block-non-interactive-with-multiple-actions-html",
+    "local_path": "design-system-plugin/design-system/atomic/components/content-block/templates/html.non-interactive-with-multiple-actions.template.html",
+    "output_path": "design-system-plugin/outputs/html/content-block-non-interactive-with-multiple-actions.atomic.html"
+  },
+  "component_contract": {
+    "local_path": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "status": "linked"
+  },
+  "primitive": {
+    "id": "content-block",
+    "local_path": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+    "status": "linked"
+  },
+  "token_bindings": {
+    "token_source": "foundations-colors--docs",
+    "roles": [
+      "primary_action",
+      "surface",
+      "text",
+      "border"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-contentblock--docs",
+    "story_id": "components-contentblock--non-interactive-with-multiple-actions",
+    "storybook_index": "research/storybook/index.json",
+    "storybook_stories": "research/storybook/stories.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/content-block.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/content-block/primitive.json",
+    "token_source": "foundations-colors--docs",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/content-block/assets/ContentBlock.stories-BY6ovRMm.js",
+    "raw_iframe": "design-system-plugin/design-system/atomic/components/content-block/assets/components-contentblock--non-interactive-with-multiple-actions.iframe.html"
+  }
+}

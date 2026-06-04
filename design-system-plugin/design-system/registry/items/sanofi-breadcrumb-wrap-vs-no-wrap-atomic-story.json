@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-breadcrumb-wrap-vs-no-wrap-atomic-story",
+  "title": "Breadcrumb Wrap Vs No Wrap atomic story",
+  "type": "registry:story",
+  "renderer_target": "html",
+  "description": "Callable local Storybook story atom for components-breadcrumb--wrap-vs-no-wrap.",
+  "atomic_story_id": "components-breadcrumb--wrap-vs-no-wrap",
+  "component_id": "breadcrumb",
+  "docs_id": "components-breadcrumb--docs",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-design-prototype-generator",
+    "sanofi-breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--wrap-vs-no-wrap.story.json",
+      "role": "atomic-story",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--wrap-vs-no-wrap.story.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+      "role": "atomic-component-contract",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+      "role": "raw-story-bundle",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--wrap-vs-no-wrap.iframe.html",
+      "role": "raw-story-iframe",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/components-breadcrumb--wrap-vs-no-wrap.iframe.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.wrap-vs-no-wrap.template.html",
+      "role": "atomic-template",
+      "target": "design-system-plugin/design-system/atomic/components/breadcrumb/templates/html.wrap-vs-no-wrap.template.html"
+    },
+    {
+      "path": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+      "role": "component-contract",
+      "target": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+      "role": "primitive-contract",
+      "target": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json"
+    },
+    {
+      "path": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md",
+      "role": "source-doc",
+      "target": "design-system-plugin/design-system/knowledge/docs/components-breadcrumb--docs.md"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-breadcrumb--docs",
+    "story_id": "components-breadcrumb--wrap-vs-no-wrap",
+    "atomic_story": "design-system-plugin/design-system/atomic/components/breadcrumb/stories/components-breadcrumb--wrap-vs-no-wrap.story.json",
+    "atomic_component_contract": "design-system-plugin/design-system/atomic/components/breadcrumb/component.atomic.json",
+    "story_url": "https://elements.prod.accelerator.sanofi/?path=/story/components-breadcrumb--wrap-vs-no-wrap&globals=measureEnabled:!true;outline:!true",
+    "iframe_url": "https://elements.prod.accelerator.sanofi/iframe.html?id=components-breadcrumb--wrap-vs-no-wrap&viewMode=story&globals=measureEnabled:!true;outline:!true",
+    "bundle_url": "https://elements.prod.accelerator.sanofi/assets/Breadcrumb.stories-onpltWiw.js",
+    "raw_bundle": "design-system-plugin/design-system/atomic/components/breadcrumb/assets/Breadcrumb.stories-onpltWiw.js",
+    "component_contract": "design-system-plugin/design-system/contracts/components/breadcrumb.contract.json",
+    "primitive_contract": "design-system-plugin/design-system/primitives/components/breadcrumb/primitive.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "breadcrumb",
+      "Breadcrumb",
+      "Wrap Vs No Wrap",
+      "components-breadcrumb--wrap-vs-no-wrap",
+      "atomic",
+      "story",
+      "原子",
+      "组件"
+    ],
+    "when_to_use": "Use when a prompt asks for the exact Breadcrumb Wrap Vs No Wrap Storybook state.",
+    "unsupported_behavior": "Do not infer other variants from this story item. Use another story atom or materialize it first."
+  }
+}

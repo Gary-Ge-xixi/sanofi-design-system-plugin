@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "sidebar-docs-contract",
+  "component_id": "sidebar",
+  "component_name": "Sidebar",
+  "docs_id": "components-sidebar--docs",
+  "source_url": "https://elements.prod.accelerator.sanofi/?path=/docs/components-sidebar--docs",
+  "local_md_path": "design-system-plugin/design-system/knowledge/docs/components-sidebar--docs.md",
+  "purpose": {
+    "extraction_status": "from_component_contract_or_not_extracted",
+    "text": "not_extracted"
+  },
+  "api_props": {
+    "extraction_status": "extracted",
+    "props": [
+      {
+        "name": "collapsible",
+        "required": false,
+        "description": "Enable collapse/expand functionalityboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "defaultCollapsed",
+        "required": false,
+        "description": "Initial collapsed stateboolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "sticky",
+        "required": false,
+        "description": "Sticky positioning at top of viewportboolean",
+        "default": "true",
+        "extraction_status": "extracted"
+      },
+      {
+        "name": "fullyCollapsible",
+        "required": false,
+        "description": "Completely hide sidebar when collapsed (zero width). Use with controlled mode.boolean",
+        "default": "false",
+        "extraction_status": "extracted"
+      }
+    ]
+  },
+  "usage": {
+    "when_to_use": "- Source URL: https://elements.prod.accelerator.sanofi/?path=/docs/components-sidebar--docs",
+    "when_not_to_use": "unknown",
+    "snippets": [
+      "Sidebar.Root\n├── Sidebar.Header (logo, collapse toggle)\n├── Sidebar.Content (scrollable main area)\n│   ├── Sidebar.Action (quick action buttons)\n│   ├── Sidebar.Section (grouped navigation)\n│   │   ├── Sidebar.Item (navigation items)\n│   │   │   └── nestedItems (expandable children)\n│   │   └── Sidebar.Menu (dropdown system)\n│   │       ├── Sidebar.Menu.Trigger\n│   │       └── Sidebar.Menu.Dropdown\n│   │           └── Sidebar.Menu.Item\n└── Sidebar.Footer (user profile, secondary actions)\n    ├── Sidebar.Item (footer navigation)\n    └── Sidebar.UserProfile",
+      "import { Sidebar, IconName, Image } from \"@sanofi-accelerator/elements\";\n\nfunction AppSidebar() {\n  return (\n    <Sidebar.Root collapsible defaultCollapsed={false} sticky>\n      <Sidebar.Header\n        logo={{\n          collapsed: (\n            <Image\n              src=\"https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo_small.svg\"\n              alt=\"Logo\"\n            />\n          ),\n          expanded: (\n            <Image\n              src=\"https://cdn.prod.accelerator.sanofi/elements/icons/sanofi-logo.svg\"\n              alt=\"Logo\"\n            />\n          ),\n        }}\n      />\n\n      <Sidebar.Content>\n        <Sidebar.Section title=\"Navigation\">\n          <Sidebar.Item icon={IconName.HOME} tooltip=\"Home\">\n            Home\n          </Sidebar.Item>\n          <Sidebar.Item icon={IconName.ANALYTICS} tooltip=\"Analytics\">\n            Analytics\n          </Sidebar.Item>\n        </Sidebar.Section>\n      </Sidebar.Content>\n\n      <Sidebar.Footer>\n        <Sidebar.UserProfile\n          name=\"Marie Curie\"\n          email=\"marie.curie@sanofi.com\"\n          avatarSrc=\"/avatar.jpg\"\n          tooltip=\"Log out\"\n        />\n      </Sidebar.Footer>\n    </Sidebar.Root>\n  );\n}",
+      "<Sidebar.Root collapsible={true}>\n  <Sidebar.Header\n    logo={{\n      expanded: <Image src=\"logo.svg\" alt=\"Logo\" />,\n      collapsed: <Image src=\"logo-small.svg\" alt=\"Logo\" />,\n    }}\n  />\n  {/* Toggle appears in the header */}\n</Sidebar.Root>"
+    ]
+  },
+  "story_tabs": [
+    {
+      "id": "components-sidebar--collapsed",
+      "name": "Collapsed",
+      "export_name": "Collapsed",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--default",
+      "name": "Default",
+      "export_name": "Default",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--expanded",
+      "name": "Expanded",
+      "export_name": "Expanded",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--fully-collapsible",
+      "name": "Fully Collapsible",
+      "export_name": "FullyCollapsible",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--fully-collapsible-controlled",
+      "name": "Fully Collapsible Controlled",
+      "export_name": "FullyCollapsibleControlled",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--sticky-behavior",
+      "name": "Sticky Behavior",
+      "export_name": "StickyBehavior",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    },
+    {
+      "id": "components-sidebar--without-header",
+      "name": "Without Header",
+      "export_name": "WithoutHeader",
+      "semantic_type": "variant",
+      "import_path": "./src/components/Sidebar/Sidebar.stories.tsx"
+    }
+  ],
+  "accessibility": {
+    "extraction_status": "mentioned_in_docs",
+    "notes": [
+      "Accessibility terms are present in the docs. Validate exact behavior before production use."
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-sidebar--docs",
+    "docs_path": "design-system-plugin/design-system/knowledge/docs/components-sidebar--docs.md",
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json"
+  }
+}

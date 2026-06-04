@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "progress-stepper-define-stepper-provider",
+  "component_name": "ProgressStepper/defineStepper Provider",
+  "status": "unsupported",
+  "reason": "no_story_tabs",
+  "docs": [
+    {
+      "id": "components-progressstepper-definestepper-provider--docs",
+      "name": "Docs",
+      "type": "docs",
+      "semantic_type": "docs_contract",
+      "import_path": "./src/components/ProgressStepper/ProgressStepperProvider.mdx"
+    }
+  ],
+  "source_provenance": {
+    "storybook_index": "research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/progress-stepper-define-stepper-provider.contract.json",
+    "token_source": "foundations-colors--docs"
+  },
+  "policy": "Docs-only hook/provider entries are included in contracts and registry source coverage, but are not renderable HTML component packages until Storybook stories exist."
+}

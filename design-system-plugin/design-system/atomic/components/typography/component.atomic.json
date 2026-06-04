@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "component_id": "typography",
+  "component_name": "Typography",
+  "renderer_target": "html",
+  "stories": [
+    {
+      "story_id": "components-typography--default",
+      "story_name": "Default",
+      "component_id": "typography",
+      "component_name": "Typography",
+      "variant": "body-medium",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--default.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/typography/templates/html.body-medium.template.html",
+      "output_path": "design-system-plugin/outputs/html/typography-body-medium.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js",
+      "docs_id": "components-typography--docs",
+      "registry_item": "sanofi-typography-body-medium-atomic-story"
+    },
+    {
+      "story_id": "components-typography--font-weights",
+      "story_name": "Font Weights",
+      "component_id": "typography",
+      "component_name": "Typography",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--font-weights.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/typography/templates/html.font-weights.template.html",
+      "output_path": "design-system-plugin/outputs/html/typography-font-weights.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js",
+      "docs_id": "components-typography--docs",
+      "registry_item": "sanofi-typography-font-weights-atomic-story"
+    },
+    {
+      "story_id": "components-typography--text-direction",
+      "story_name": "Text Direction",
+      "component_id": "typography",
+      "component_name": "Typography",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--text-direction.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/typography/templates/html.text-direction.template.html",
+      "output_path": "design-system-plugin/outputs/html/typography-text-direction.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js",
+      "docs_id": "components-typography--docs",
+      "registry_item": "sanofi-typography-text-direction-atomic-story"
+    },
+    {
+      "story_id": "components-typography--variants",
+      "story_name": "Variants",
+      "component_id": "typography",
+      "component_name": "Typography",
+      "variant": "unknown",
+      "semantic_type": "variant",
+      "expected_element": "not_extracted",
+      "path": "design-system-plugin/design-system/atomic/components/typography/stories/components-typography--variants.story.json",
+      "template_path": "design-system-plugin/design-system/atomic/components/typography/templates/html.variants.template.html",
+      "output_path": "design-system-plugin/outputs/html/typography-variants.atomic.html",
+      "bundle_path": "design-system-plugin/design-system/atomic/components/typography/assets/Typography.stories-DZyzV-Hy.js",
+      "docs_id": "components-typography--docs",
+      "registry_item": "sanofi-typography-variants-atomic-story"
+    }
+  ],
+  "source_provenance": {
+    "docs_id": "components-typography--docs"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "component": "Select",
+  "status": "storybook-backed-static-contract",
+  "source": {
+    "storybook_title": "Components/Select",
+    "storybook_index": "../../../../research/storybook/index.json",
+    "component_contract": "design-system-plugin/design-system/contracts/components/select.contract.json"
+  },
+  "supported_primitives": [
+    {
+      "id": "select",
+      "data_attribute": "data-primitive=\"select\"",
+      "required_semantics": [
+        "select element or equivalent combobox",
+        "accessible label"
+      ]
+    }
+  ],
+  "story_contract": {
+    "required_attribute": "data-story-id",
+    "known_story_ids": [
+      "components-select--default",
+      "components-select--sizes",
+      "components-select--right-to-left"
+    ]
+  },
+  "source_provenance": {
+    "docs_id": "components-select--docs",
+    "component_contract": "design-system-plugin/design-system/contracts/components/select.contract.json",
+    "token_source": "foundations-colors--docs"
+  }
+}
