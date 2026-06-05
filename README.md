@@ -98,6 +98,7 @@ Use the local toolkit from the Cursor terminal:
 Detailed usage and maintenance guidance:
 
 ```text
+docs/tutorials/design-spec-to-html-delivery.md
 design-system-plugin/outputs/reports/design-system-plugin-conflict-review-cursor-guide.md
 design-system-plugin/outputs/reports/design-system-plugin-designer-maintenance-manual.md
 ```
