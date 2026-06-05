@@ -2,8 +2,8 @@
   "schema_version": "0.1.0",
   "status": "pass",
   "script": "validate-install-portability",
-  "generated_at": "2026-06-05T01:43:25.149Z",
-  "scanned_files": 3937,
+  "generated_at": "2026-06-05T01:45:09.250Z",
+  "scanned_files": 3941,
   "checks": [
     "author-user-path",
     "local-user-home-path",
