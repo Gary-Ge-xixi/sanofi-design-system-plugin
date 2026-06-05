@@ -44,7 +44,7 @@
 ## 当前本地最快可用路径
 
 ```bash
-cd /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin
+cd <repo-root>/design-system-plugin
 
 scripts/search-local-registry "OneCommercial CDC库存查询填报后台"
 scripts/resolve-pattern "OneCommercial CDC库存查询填报后台"

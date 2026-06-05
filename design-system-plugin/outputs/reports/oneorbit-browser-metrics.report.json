@@ -10,7 +10,7 @@
   "results": [
     {
       "id": "oneorbit-has-query-list",
-      "url": "file:///Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html",
+      "path": "design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html",
       "screenshot": "design-system-plugin/outputs/screenshots/oneorbit-has-query-list-1440.png",
       "metrics": {
         "title": "HAS Query List | OneOrbit",
@@ -70,7 +70,7 @@
     },
     {
       "id": "oneorbit-message-todo",
-      "url": "file:///Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html",
+      "path": "design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html",
       "screenshot": "design-system-plugin/outputs/screenshots/oneorbit-message-todo-1440.png",
       "metrics": {
         "title": "Message Todo Home | OneOrbit",

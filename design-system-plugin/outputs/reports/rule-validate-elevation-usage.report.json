@@ -12,7 +12,7 @@
   },
   "run": {
     "script": "validate-elevation-usage",
-    "command": "node design-system-plugin/scripts/validate-elevation-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "command": "node design-system-plugin/scripts/validate-elevation-usage <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
     "status": "pass",
     "status_code": 0,
     "stdout": "Elevation usage OK: outputs/html/admin-query-panel.resolved.html\n",

@@ -12,7 +12,7 @@
   },
   "run": {
     "script": "validate-page-layout-typography",
-    "command": "node design-system-plugin/scripts/validate-page-layout-typography /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "command": "node design-system-plugin/scripts/validate-page-layout-typography <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
     "status": "pass",
     "status_code": 0,
     "stdout": "Page layout typography OK: outputs/html/admin-query-panel.resolved.html\n",

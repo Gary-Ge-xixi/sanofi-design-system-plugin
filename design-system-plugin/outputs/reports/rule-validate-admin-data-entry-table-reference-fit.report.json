@@ -12,7 +12,7 @@
   },
   "run": {
     "script": "validate-reference-fit",
-    "command": "node design-system-plugin/scripts/validate-reference-fit /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "command": "node design-system-plugin/scripts/validate-reference-fit <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
     "status": "pass",
     "status_code": 0,
     "stdout": "Reference fit OK: outputs/html/admin-query-panel.resolved.html\n",

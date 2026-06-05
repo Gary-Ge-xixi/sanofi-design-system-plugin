@@ -34,7 +34,7 @@
   "validator_runs": [
     {
       "script": "validate-token-usage",
-      "command": "node design-system-plugin/scripts/validate-token-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-token-usage <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Token usage OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -42,7 +42,7 @@
     },
     {
       "script": "validate-primitive-usage",
-      "command": "node design-system-plugin/scripts/validate-primitive-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-primitive-usage <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Primitive usage OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -50,7 +50,7 @@
     },
     {
       "script": "validate-page-pattern",
-      "command": "node design-system-plugin/scripts/validate-page-pattern /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-page-pattern <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Page pattern OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -58,7 +58,7 @@
     },
     {
       "script": "validate-layout-rule-usage",
-      "command": "node design-system-plugin/scripts/validate-layout-rule-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-layout-rule-usage <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Layout rule OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -66,7 +66,7 @@
     },
     {
       "script": "validate-typography-rule-usage",
-      "command": "node design-system-plugin/scripts/validate-typography-rule-usage /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-typography-rule-usage <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Typography rule OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -74,7 +74,7 @@
     },
     {
       "script": "validate-admin-template-navigation",
-      "command": "node design-system-plugin/scripts/validate-admin-template-navigation /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-admin-template-navigation <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Admin template navigation OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -82,7 +82,7 @@
     },
     {
       "script": "validate-admin-query-panel-template",
-      "command": "node design-system-plugin/scripts/validate-admin-query-panel-template /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-admin-query-panel-template <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Admin query panel template OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -90,7 +90,7 @@
     },
     {
       "script": "validate-admin-page-profile",
-      "command": "node design-system-plugin/scripts/validate-admin-page-profile /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-admin-page-profile <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Admin page profile OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -98,7 +98,7 @@
     },
     {
       "script": "validate-reference-fit",
-      "command": "node design-system-plugin/scripts/validate-reference-fit /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-reference-fit <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Reference fit OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -106,7 +106,7 @@
     },
     {
       "script": "validate-provenance",
-      "command": "node design-system-plugin/scripts/validate-provenance /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+      "command": "node design-system-plugin/scripts/validate-provenance <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
       "status": "pass",
       "status_code": 0,
       "stdout": "Provenance OK: outputs/html/admin-query-panel.resolved.html\n",
@@ -134,7 +134,7 @@
     "output": "design-system-plugin/outputs/reports/admin-query-panel.resolved-desktop-1440.png",
     "status_code": 0,
     "stdout": "",
-    "stderr": "107823 bytes written to file /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/reports/admin-query-panel.resolved-desktop-1440.png\n"
+    "stderr": "107823 bytes written to file <repo-root>/design-system-plugin/outputs/reports/admin-query-panel.resolved-desktop-1440.png\n"
   },
   "failures": []
 }

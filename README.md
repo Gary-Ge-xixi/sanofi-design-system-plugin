@@ -8,10 +8,22 @@ Clone the repository and run commands from the repository root. The toolkit uses
 relative paths, so it can live in any local directory.
 
 ```bash
-git clone git@github.com:Gary-Ge-xixi/sanofi-design-system-plugin.git
+git clone https://github.com/Gary-Ge-xixi/sanofi-design-system-plugin.git
 cd sanofi-design-system-plugin
 ./design-system-plugin/scripts/sanofi-ds help
 ```
+
+If you prefer SSH and have your GitHub key configured:
+
+```bash
+git clone git@github.com:Gary-Ge-xixi/sanofi-design-system-plugin.git
+```
+
+Prerequisites:
+
+- Node.js 18+ for the local scripts.
+- Python 3 is optional, but useful for serving generated HTML locally.
+- Chrome or Chromium is required only for screenshot and browser-geometry checks. The scripts auto-detect common install locations and `PATH`; set `CHROME_PATH=/path/to/chrome` if your browser is installed elsewhere.
 
 Common checks:
 
@@ -40,11 +52,18 @@ cd design-system-plugin
 cd ..
 ```
 
-Open generated HTML from the repository root:
+Preview generated HTML in a browser:
 
 ```bash
-open design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html
-open design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html
+cd design-system-plugin
+python3 -m http.server 8799
+```
+
+Then visit:
+
+```text
+http://127.0.0.1:8799/outputs/html/oneorbit-has-query-list.resolved.html
+http://127.0.0.1:8799/outputs/html/oneorbit-message-todo.resolved.html
 ```
 
 ## Cursor Usage

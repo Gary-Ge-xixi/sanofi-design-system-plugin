@@ -12,7 +12,7 @@
   },
   "run": {
     "script": "validate-information-aggregation-page",
-    "command": "node design-system-plugin/scripts/validate-information-aggregation-page /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/information-aggregation.resolved.html",
+    "command": "node design-system-plugin/scripts/validate-information-aggregation-page <repo-root>/design-system-plugin/outputs/html/information-aggregation.resolved.html",
     "status": "pass",
     "status_code": 0,
     "stdout": "Information aggregation page OK: design-system-plugin/outputs/html/information-aggregation.resolved.html\n",

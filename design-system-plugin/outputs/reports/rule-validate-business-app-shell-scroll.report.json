@@ -12,7 +12,7 @@
   },
   "run": {
     "script": "validate-app-shell-scroll",
-    "command": "node design-system-plugin/scripts/validate-app-shell-scroll /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
+    "command": "node design-system-plugin/scripts/validate-app-shell-scroll <repo-root>/design-system-plugin/outputs/html/admin-query-panel.resolved.html",
     "status": "pass",
     "status_code": 0,
     "stdout": "App shell scroll OK: outputs/html/admin-query-panel.resolved.html\n",

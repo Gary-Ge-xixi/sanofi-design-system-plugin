@@ -1,0 +1,138 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const cp = require("child_process");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+
+const binaryExtensions = new Set([
+  ".gif",
+  ".jpeg",
+  ".jpg",
+  ".pdf",
+  ".png",
+  ".webp",
+  ".woff",
+  ".woff2"
+]);
+
+const checks = [
+  {
+    id: "author-user-path",
+    pattern: /\/Users\/wanshuiwanqigaozhishang/g,
+    message: "author local user path must not appear in tracked files"
+  },
+  {
+    id: "local-user-home-path",
+    pattern: /\/Users\/[^\s,)\]`"']+/g,
+    message: "local user home paths must be expressed as <repo-root>, <local-user-file>, or a relative path"
+  },
+  {
+    id: "author-file-url",
+    pattern: /file:\/\/\/Users\/wanshuiwanqigaozhishang/g,
+    message: "author file URL must not appear in tracked files"
+  },
+  {
+    id: "author-checkout-name",
+    pattern: /(?:~\/Downloads\/sainofi|Downloads\/sainofi)/g,
+    message: "author checkout path must be expressed as <repo-root> or a relative path"
+  },
+  {
+    id: "fixed-macos-chrome-const",
+    pattern: /const\s+chromePath\s*=\s*["']\/Applications\/Google Chrome\.app\/Contents\/MacOS\/Google Chrome["']/g,
+    message: "browser executable path must be resolved from CHROME_PATH, PATH, or candidate detection"
+  },
+  {
+    id: "fixed-macos-chrome-executable",
+    pattern: /executablePath\s*:\s*fs\.existsSync\(["']\/Applications\/Google Chrome\.app\/Contents\/MacOS\/Google Chrome["']\)/g,
+    message: "Playwright executablePath must not be hardcoded to one macOS install path"
+  }
+];
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function trackedFiles() {
+  const result = cp.spawnSync("git", ["ls-files", "-z"], {
+    cwd: workspaceRoot,
+    encoding: "utf8",
+    maxBuffer: 1024 * 1024 * 32
+  });
+  if (result.status !== 0) {
+    throw new Error(result.stderr || "git ls-files failed");
+  }
+  return result.stdout.split("\0").filter(Boolean);
+}
+
+function lineFor(content, index) {
+  return content.slice(0, index).split(/\r?\n/).length;
+}
+
+function shouldSkip(file) {
+  return binaryExtensions.has(path.extname(file).toLowerCase());
+}
+
+function scanFile(file) {
+  if (shouldSkip(file)) return [];
+  const absolutePath = path.join(workspaceRoot, file);
+  const content = fs.readFileSync(absolutePath, "utf8");
+  const failures = [];
+
+  for (const check of checks) {
+    check.pattern.lastIndex = 0;
+    let match = check.pattern.exec(content);
+    while (match) {
+      failures.push({
+        check: check.id,
+        file,
+        line: lineFor(content, match.index),
+        match: match[0],
+        message: check.message
+      });
+      match = check.pattern.exec(content);
+    }
+  }
+
+  return failures;
+}
+
+function writeReport(report) {
+  fs.mkdirSync(reportDir, { recursive: true });
+  const jsonPath = path.join(reportDir, "install-portability.report.json");
+  const mdPath = path.join(reportDir, "install-portability.report.md");
+  fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2) + "\n");
+  fs.writeFileSync(
+    mdPath,
+    `# Install Portability\n\nStatus: ${report.status}\n\n| Check | File | Line | Message |\n|---|---|---:|---|\n${report.failures.map((item) => `| ${item.check} | ${item.file} | ${item.line} | ${item.message} |`).join("\n") || "| - | - | - | None |"}\n`
+  );
+  return { jsonPath, mdPath };
+}
+
+function main() {
+  const files = trackedFiles();
+  const failures = files.flatMap(scanFile);
+  const report = {
+    schema_version: "0.1.0",
+    status: failures.length ? "fail" : "pass",
+    script: "validate-install-portability",
+    generated_at: new Date().toISOString(),
+    scanned_files: files.length,
+    checks: checks.map((check) => check.id),
+    failures
+  };
+  const paths = writeReport(report);
+  console.log(`Install portability: ${report.status}`);
+  console.log(`Report JSON: ${rel(paths.jsonPath)}`);
+  console.log(`Report MD: ${rel(paths.mdPath)}`);
+  if (failures.length) process.exit(1);
+}
+
+try {
+  main();
+} catch (error) {
+  console.error(error.message);
+  process.exit(1);
+}

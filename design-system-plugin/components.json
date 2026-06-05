@@ -47,6 +47,7 @@
     "validate_registry": "./scripts/validate-local-registry",
     "validate_design_md": "./scripts/validate-design-md",
     "validate_component_runtime": "./scripts/validate-component-runtime",
+    "validate_install_portability": "./scripts/validate-install-portability",
     "validate_admin_delivery_contract": "./scripts/validate-admin-delivery-contract",
     "preflight_component_runtime": "./component-runtime/scripts/preflight-elements-package.mjs",
     "validate_admin_page_profile": "./scripts/validate-admin-page-profile",

@@ -1,8 +1,8 @@
 # Sanofi Elements 本地设计系统插件说明书
 
-生成时间：2026-06-04  
-适用对象：产品设计师、Design System Owner、设计运营、前端协作方、AI 原型生成维护人  
-项目路径：`/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin`
+生成时间：2026-06-04
+适用对象：产品设计师、Design System Owner、设计运营、前端协作方、AI 原型生成维护人
+项目路径：`<repo-root>/design-system-plugin`
 
 ## 1. 这是什么项目
 
@@ -233,13 +233,13 @@ http://127.0.0.1:8799/outputs/html/admin-query-panel.resolved.html
 
 不能只看 HTML 打开了没有。必须看三层：
 
-1. **结构是否正确**  
+1. **结构是否正确**
    页面是否命中了正确 registry item、pattern、template、page profile。
 
-2. **设计系统是否正确**  
+2. **设计系统是否正确**
    token、字体、组件 provenance、fallback、语义颜色是否合规。
 
-3. **截图是否接近业务参考图**  
+3. **截图是否接近业务参考图**
    筛选区、表格列、导航宽度、保存栏、密度、首屏信息是否符合参考。
 
 如果只通过 token / primitive validator，但截图明显不像，不能算完成。
@@ -811,7 +811,7 @@ refresh docs/token/story
 日常维护优先使用统一入口，不要让设计师直接记 67 个底层脚本：
 
 ```bash
-cd /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin
+cd <repo-root>/design-system-plugin
 scripts/sanofi-ds doctor
 scripts/sanofi-ds component inspect button
 scripts/sanofi-ds token diff
@@ -827,7 +827,7 @@ scripts/sanofi-ds report dashboard
 ### 查 registry 命中
 
 ```bash
-cd /Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin
+cd <repo-root>/design-system-plugin
 scripts/search-local-registry "OneCommercial CDC库存查询填报后台"
 ```
 

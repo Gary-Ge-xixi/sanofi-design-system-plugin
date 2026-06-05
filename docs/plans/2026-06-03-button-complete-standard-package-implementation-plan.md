@@ -217,7 +217,7 @@ The complete Button package is done only when all of these are true:
 
 **Tests:**
 - Use local Chrome/Playwright if available:
-  - open `file:///Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/button-complete.atomic.html`
+  - open `file://<repo-root>/design-system-plugin/outputs/html/button-complete.atomic.html`
   - capture screenshot to `outputs/reports/button-complete.atomic.png`
   - count rendered story sections and button/link samples from DOM.
 

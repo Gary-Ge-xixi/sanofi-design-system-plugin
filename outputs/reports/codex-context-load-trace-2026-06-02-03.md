@@ -35,9 +35,9 @@
 | 时间 | 会话 | token | 工具 | 命令/动作 |
 |---|---|---:|---|---|
 | 2026-06-02 12:04:53 | 设计 Skill 插件包管理方案 | 1,342,580 | exec_command | `find research/raw/html/accordion-current_files -maxdepth 1 -type f -size +1000c -print \| sort \| xargs -I{} sh…` |
-| 2026-06-02 11:51:27 | 设计 Skill 插件包管理方案 | 549,135 | exec_command | `curl -L --max-time 30 -sS 'https://elements.prod.accelerator.sanofi/assets/iframe-DU6-gHk6.js' -o /Users/wans…` |
-| 2026-06-02 11:49:55 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "token\|tokens\|ThemeConfig\|--\|@sanofi-accelerator\|elements-foundation\|styles\.css\|css" /Users/wanshuiwan…` |
-| 2026-06-02 11:50:23 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "stylesheet\|\.css\|styles\.css\|iframe\|components-accordion\|elements\|token\|--" /Users/wanshuiwanqigaozhis…` |
+| 2026-06-02 11:51:27 | 设计 Skill 插件包管理方案 | 549,135 | exec_command | `curl -L --max-time 30 -sS 'https://elements.prod.accelerator.sanofi/assets/iframe-DU6-gHk6.js' -o <local-user-path>` |
+| 2026-06-02 11:49:55 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "token\|tokens\|ThemeConfig\|--\|@sanofi-accelerator\|elements-foundation\|styles\.css\|css" <local-user-path>` |
+| 2026-06-02 11:50:23 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "stylesheet\|\.css\|styles\.css\|iframe\|components-accordion\|elements\|token\|--" <local-user-path>` |
 | 2026-06-02 11:52:47 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n 'tokens\.json\|DTCG\|ThemeProvider\|__ELEMENTS_VERSION__\|elements-foundation\|token.css' research/raw resea…` |
 | 2026-06-02 12:04:52 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "Accordion Title is Here\|Accordion Label\|Collapse/Expand\|customisable slot\|Anatomy\|Overview\|Do's\|Dont\|U…` |
 | 2026-06-02 12:06:37 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "gon\.\|window\.\|styleguide\|blocks\|page\|current\|__\|Accordion\|Menu\|Icon\|component\|block" research/raw/htm…` |
@@ -52,7 +52,7 @@
 | 2026-06-02 20:44:00 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "components-button--primary\|Button.stories\|Button" research/storybook/assets research/storybook/compone…` |
 | 2026-06-02 22:57:41 | 设计 Skill 插件包管理方案 | 262,144 | exec_command | `rg -n "button\|Button\|elements-color-components-button\|xsmall\|small\|medium\|large\|is-hover\|is-active\|is-focus\|p…` |
 | 2026-06-03 16:14:20 | 统计本地会话用量 | 262,144 | exec_command | `tail -n 40 ~/.codex/sessions/2026/05/19/rollout-2026-05-19T08-54-59-019e3dba-9969-75e1-bf0e-5115626a4d08.jsonl` |
-| 2026-06-02 11:50:11 | 设计 Skill 插件包管理方案 | 218,133 | exec_command | `rg -n -- '--[a-zA-Z0-9_-]+\|:root\|token\|foundation\|elements' /Users/wanshuiwanqigaozhishang/Downloads/sainofi/…` |
+| 2026-06-02 11:50:11 | 设计 Skill 插件包管理方案 | 218,133 | exec_command | `rg -n -- '--[a-zA-Z0-9_-]+\|:root\|token\|foundation\|elements' <repo-root>/…` |
 | 2026-06-02 15:25:58 | 设计 Skill 插件包管理方案 | 218,130 | exec_command | `rg -n "brand_secondary\|brand-secondary\|Brand Secondary\|core-brand" research/storybook research/tokens -g '*.c…` |
 
 ## 图片检查来源

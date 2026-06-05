@@ -11,7 +11,7 @@
 ### Task 1: Command Surface
 
 **Files:**
-- Create: `/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/scripts/sanofi-ds`
+- Create: `<repo-root>/design-system-plugin/scripts/sanofi-ds`
 
 **Steps:**
 1. Define command routing for `help`, `doctor`, `component inspect`, `token diff`, `profile inspect`, `rule list`, `rule validate`, `gap list`, `render`, and `report dashboard`.
@@ -21,7 +21,7 @@
 ### Task 2: Maintenance Reports
 
 **Files:**
-- Create report outputs under `/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/reports/`
+- Create report outputs under `<repo-root>/design-system-plugin/outputs/reports/`
 
 **Steps:**
 1. Write one JSON and one Markdown report for each inspection command.
@@ -41,8 +41,8 @@
 ### Task 4: Documentation
 
 **Files:**
-- Modify: `/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/reports/design-system-plugin-designer-maintenance-manual.md`
-- Modify: `/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/skills/design-prototype-generator/SKILL.md`
+- Modify: `<repo-root>/design-system-plugin/outputs/reports/design-system-plugin-designer-maintenance-manual.md`
+- Modify: `<repo-root>/design-system-plugin/skills/design-prototype-generator/SKILL.md`
 
 **Steps:**
 1. Add the toolkit as the recommended productized entrypoint.

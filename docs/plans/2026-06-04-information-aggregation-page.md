@@ -77,4 +77,4 @@
 3. Generate a desktop screenshot.
 4. Inspect screenshot and report the local HTML path, screenshot path, and validation result.
 
-**Commit:** Not applicable in this workspace because `/Users/wanshuiwanqigaozhishang/Downloads/sainofi` is not a git repository.
+**Commit:** Not applicable in this workspace because `<repo-root>` is not a git repository.

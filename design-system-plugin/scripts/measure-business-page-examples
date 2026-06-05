@@ -4,12 +4,12 @@ const os = require("os");
 const path = require("path");
 const cp = require("child_process");
 const { pathToFileURL } = require("url");
+const { resolveChromePath, chromeInstallHint } = require("./lib/chrome-path.cjs");
 
 const pluginRoot = path.resolve(__dirname, "..");
 const workspaceRoot = path.resolve(pluginRoot, "..");
 const htmlDir = path.join(pluginRoot, "outputs", "html");
 const reportDir = path.join(pluginRoot, "outputs", "reports");
-const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const port = 9237;
 
 const pages = [
@@ -128,7 +128,8 @@ async function measurePage(page) {
 
 async function main() {
   fs.mkdirSync(reportDir, { recursive: true });
-  if (!fs.existsSync(chromePath)) throw new Error("Google Chrome executable not found");
+  const chromePath = resolveChromePath();
+  if (!chromePath) throw new Error(chromeInstallHint());
 
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "sanofi-business-pages-"));
   const chrome = cp.spawn(chromePath, [

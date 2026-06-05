@@ -4,13 +4,13 @@ const os = require("os");
 const path = require("path");
 const cp = require("child_process");
 const { pathToFileURL } = require("url");
+const { resolveChromePath, chromeInstallHint } = require("./lib/chrome-path.cjs");
 
 const pluginRoot = path.resolve(__dirname, "..");
 const workspaceRoot = path.resolve(pluginRoot, "..");
 const htmlDir = path.join(pluginRoot, "outputs", "html");
 const reportDir = path.join(pluginRoot, "outputs", "reports");
 const screenshotDir = path.join(pluginRoot, "outputs", "screenshots");
-const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const port = 9249;
 const viewport = { width: 1440, height: 900 };
 
@@ -249,7 +249,7 @@ async function measurePage(page) {
 
   return {
     id: page.id,
-    url: pathToFileURL(page.file).href,
+    path: rel(page.file),
     screenshot: rel(page.screenshot),
     metrics,
     selectInteraction,
@@ -261,7 +261,8 @@ async function measurePage(page) {
 async function main() {
   fs.mkdirSync(reportDir, { recursive: true });
   fs.mkdirSync(screenshotDir, { recursive: true });
-  if (!fs.existsSync(chromePath)) throw new Error("Google Chrome executable not found");
+  const chromePath = resolveChromePath();
+  if (!chromePath) throw new Error(chromeInstallHint());
   for (const page of pages) {
     if (!fs.existsSync(page.file)) throw new Error(`missing HTML output: ${page.file}`);
   }
