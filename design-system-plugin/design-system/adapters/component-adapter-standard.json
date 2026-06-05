@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1.0",
+  "id": "component-adapter-standard",
+  "status": "ready",
+  "purpose": "Define the executable local adapter layer between Sanofi Elements docs/story contracts and generated HTML pages.",
+  "renderer_target": "html",
+  "required_fields": [
+    "adapter_id",
+    "component_id",
+    "adapter_kind",
+    "runtime_honesty",
+    "source_provenance",
+    "dom_contract",
+    "style_contract",
+    "state_matrix",
+    "render_api"
+  ],
+  "adapter_kind_values": [
+    "official-runtime",
+    "local-adapter",
+    "renderer-static",
+    "explicit-fallback"
+  ],
+  "runtime_honesty_policy": [
+    "Official runtime may only be claimed when generated HTML uses data-render-source=\"@sanofi-accelerator/elements\" or an equivalent declared official runtime source.",
+    "Local adapters must declare data-render-source=\"local-atomic-component-package\" and data-adapter-kind=\"local-adapter\".",
+    "Renderer-static output must not claim component source equivalence. It is allowed only for page layout or explicitly marked fallback modules.",
+    "Story id and docs id are provenance only. They are never sufficient proof that the generated DOM is component-equivalent."
+  ],
+  "html_contract": {
+    "required_attributes_for_adapter_components": [
+      "data-adapter-id",
+      "data-adapter-kind",
+      "data-source-integrity",
+      "data-component-style-owner",
+      "data-state-matrix-id",
+      "data-dom-contract"
+    ],
+    "required_page_attributes_for_adapter_first_pages": [
+      "data-adapter-enforcement=\"adapter-first\"",
+      "data-runtime-honesty=\"mixed-local-adapter-and-fallback\""
+    ]
+  },
+  "style_ownership": {
+    "layout_owned": [
+      "shell",
+      "container",
+      "grid",
+      "page spacing",
+      "business page modules"
+    ],
+    "component_owned": [
+      "button",
+      "button-icon",
+      "select",
+      "date-picker",
+      "sidebar",
+      "navigation-header",
+      "tabs",
+      "text-input",
+      "search-input"
+    ],
+    "fallback_owned": [
+      "table",
+      "chart",
+      "business-table",
+      "business-chart"
+    ],
+    "renderer_policy": [
+      "Renderer layout CSS may style page shell, grids, containers, business sections, and fallback modules.",
+      "Renderer layout CSS must not style adapter component internals for adapter-first pages.",
+      "Component adapter CSS must live in a style block marked data-style-owner=\"component-adapter\" or equivalent source.",
+      "Fallback styles must declare data-fallback-module and data-fallback-reason."
+    ]
+  },
+  "state_matrix_policy": {
+    "minimum_states": [
+      "default",
+      "hover",
+      "focus-visible"
+    ],
+    "conditional_states": [
+      "active",
+      "selected",
+      "expanded",
+      "collapsed",
+      "open",
+      "disabled",
+      "error",
+      "loading"
+    ],
+    "validation_requirement": "State support must be declared in the adapter registry and exposed in generated DOM through data-state-supports plus corresponding structural or CSS evidence."
+  },
+  "source_provenance": {
+    "primary_sources": [
+      "docs contract",
+      "story json",
+      "storybook iframe",
+      "component contract",
+      "primitive contract",
+      "tokens.css"
+    ],
+    "generated_pages_must_trace": [
+      "docs id",
+      "story id",
+      "adapter id",
+      "token source",
+      "fallback reason when applicable"
+    ]
+  }
+}

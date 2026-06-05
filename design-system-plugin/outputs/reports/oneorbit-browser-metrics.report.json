@@ -1,6 +1,8 @@
 {
   "schema_version": "0.1.0",
   "status": "pass",
+  "script": "measure-oneorbit-browser-metrics",
+  "generated_at": "2026-06-05T01:23:05.279Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -8,25 +10,31 @@
   "results": [
     {
       "id": "oneorbit-has-query-list",
-      "url": "http://127.0.0.1:8799/outputs/html/oneorbit-has-query-list.resolved.html",
-      "screenshot": "/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/screenshots/oneorbit-has-query-list-1440.png",
+      "url": "file:///Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html",
+      "screenshot": "design-system-plugin/outputs/screenshots/oneorbit-has-query-list-1440.png",
       "metrics": {
         "title": "HAS Query List | OneOrbit",
+        "pageProfile": "oneorbit-query-list",
+        "oneorbitPage": "query-list",
         "viewportWidth": 1440,
         "viewportHeight": 900,
         "scrollWidth": 1440,
         "clientWidth": 1440,
         "bodyScrollWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "contentEdgeSafe": true,
+        "controlOverlapCount": 0,
         "nativeSelectCount": 0,
         "brandAssetCount": 1,
         "largeSizeAttrCount": 0,
-        "runtimeComponentCount": 18,
+        "runtimeComponentCount": 31,
+        "adapterComponentCount": 31,
         "fieldControlRootCount": 8,
         "fieldControlShellCount": 8,
         "dateRangeFieldCount": 3,
         "selectFieldCount": 1,
         "searchFieldCount": 4,
-        "fallbackReasonCount": 4,
+        "fallbackReasonCount": 1,
         "messageCardCount": 0,
         "tableGroupCount": 3
       },
@@ -42,23 +50,45 @@
           "hidden": true,
           "value": "医院账期过长"
         }
+      },
+      "dateRangeInteraction": {
+        "before": "false",
+        "afterOpen": {
+          "expanded": "true",
+          "hidden": false,
+          "dayCount": 30
+        },
+        "afterClose": {
+          "expanded": "false",
+          "hidden": true
+        }
+      },
+      "tabsInteraction": {
+        "before": "审批中(8)",
+        "after": "已生效(9)"
       }
     },
     {
       "id": "oneorbit-message-todo",
-      "url": "http://127.0.0.1:8799/outputs/html/oneorbit-message-todo.resolved.html",
-      "screenshot": "/Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/screenshots/oneorbit-message-todo-1440.png",
+      "url": "file:///Users/wanshuiwanqigaozhishang/Downloads/sainofi/design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html",
+      "screenshot": "design-system-plugin/outputs/screenshots/oneorbit-message-todo-1440.png",
       "metrics": {
         "title": "Message Todo Home | OneOrbit",
+        "pageProfile": "oneorbit-message-todo",
+        "oneorbitPage": "message-todo",
         "viewportWidth": 1440,
         "viewportHeight": 900,
         "scrollWidth": 1440,
         "clientWidth": 1440,
         "bodyScrollWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "contentEdgeSafe": true,
+        "controlOverlapCount": 0,
         "nativeSelectCount": 0,
         "brandAssetCount": 1,
         "largeSizeAttrCount": 0,
-        "runtimeComponentCount": 22,
+        "runtimeComponentCount": 23,
+        "adapterComponentCount": 23,
         "fieldControlRootCount": 0,
         "fieldControlShellCount": 0,
         "dateRangeFieldCount": 0,
@@ -68,7 +98,10 @@
         "messageCardCount": 5,
         "tableGroupCount": 0
       },
-      "selectInteraction": null
+      "selectInteraction": null,
+      "dateRangeInteraction": null,
+      "tabsInteraction": null
     }
-  ]
+  ],
+  "failures": []
 }

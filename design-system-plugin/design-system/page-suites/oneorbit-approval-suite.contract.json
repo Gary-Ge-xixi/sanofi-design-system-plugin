@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "id": "oneorbit-approval-suite",
+  "status": "ready",
+  "renderer_target": "html",
+  "purpose": "OneOrbit approval workflow page suite for HAS query/list, message todo home, and report dashboard handoff.",
+  "source_policy": "local-first",
+  "runtime_policy": "runtime-honest-local-atomic",
+  "routes": [
+    {
+      "id": "query-list",
+      "title": "HAS申请系统",
+      "block": "sanofi-oneorbit-query-list-block",
+      "output": "outputs/html/oneorbit-has-query-list.resolved.html",
+      "required_sections": [
+        "topbar",
+        "breadcrumb",
+        "page-header",
+        "filter-toolbar",
+        "status-tabs",
+        "data-table-fallback"
+      ]
+    },
+    {
+      "id": "message-todo",
+      "title": "OneOrbit消息待办",
+      "block": "sanofi-oneorbit-message-todo-block",
+      "output": "outputs/html/oneorbit-message-todo.resolved.html",
+      "required_sections": [
+        "topbar",
+        "welcome",
+        "metric-summary",
+        "application-list",
+        "message-list"
+      ]
+    },
+    {
+      "id": "report-dashboard",
+      "title": "OneOrbit报表看板",
+      "block": "sanofi-report-dashboard",
+      "output": "outputs/html/report-dashboard.resolved.html",
+      "required_sections": [
+        "breadcrumb",
+        "filter-toolbar",
+        "kpi-summary",
+        "chart-region",
+        "data-table-fallback"
+      ]
+    }
+  ],
+  "required_component_decisions": [
+    "table",
+    "date-range",
+    "message-list",
+    "chart",
+    "select",
+    "search-input",
+    "button",
+    "tabs",
+    "card",
+    "icon"
+  ],
+  "module_contracts": [
+    "business-form",
+    "business-table",
+    "business-chart",
+    "data-visualization"
+  ],
+  "fallback_modules": [
+    {
+      "module": "table",
+      "decision": "explicit-fallback",
+      "reason": "No official Table/DataGrid primitive is registered locally."
+    },
+    {
+      "module": "message-list",
+      "decision": "compound-block",
+      "reason": "No MessageList primitive is registered locally; compose Card, Button, and Icon."
+    },
+    {
+      "module": "chart",
+      "decision": "explicit-fallback-for-unsupported-chart-types",
+      "reason": "Only business-chart BarChart path is locally contract-backed."
+    }
+  ],
+  "source_resolution": {
+    "script": "scripts/resolve-component-sources",
+    "output": "outputs/reports/component-source-resolution.json",
+    "required": true
+  },
+  "renderer": {
+    "script": "scripts/render-page-suite-html",
+    "pages": [
+      "query-list",
+      "message-todo",
+      "report-dashboard"
+    ]
+  },
+  "validators": [
+    "validate-component-source-resolution",
+    "validate-page-suite",
+    "validate-data-visualization-usage",
+    "validate-component-runtime",
+    "validate-component-adapter-integrity",
+    "validate-oneorbit-delivery",
+    "validate-reference-fit"
+  ],
+  "source_provenance": {
+    "design_md": "design-system-plugin/design-system/DESIGN.md",
+    "component_runtime_contract": "design-system-plugin/component-runtime/component-runtime.contract.json",
+    "adapter_registry": "design-system-plugin/design-system/adapters/components/adapter-registry.json",
+    "reference_fit": "design-system-plugin/design-system/reference-fit/oneorbit-approval-suite.rules.json",
+    "component_source_resolution": "design-system-plugin/outputs/reports/component-source-resolution.json",
+    "query_list_block": "design-system-plugin/design-system/registry/items/sanofi-oneorbit-query-list-block.json",
+    "message_todo_block": "design-system-plugin/design-system/registry/items/sanofi-oneorbit-message-todo-block.json",
+    "report_dashboard_block": "design-system-plugin/design-system/registry/items/sanofi-report-dashboard.json"
+  }
+}

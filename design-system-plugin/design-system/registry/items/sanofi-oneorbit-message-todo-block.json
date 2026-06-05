@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-oneorbit-message-todo-block",
+  "title": "OneOrbit message todo block",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "OneOrbit message/todo home page block using Card, Button, Icon, and explicit compound MessageList fallback.",
+  "pattern_id": "oneorbit-message-todo",
+  "template_id": "oneorbit-approval-suite",
+  "page_subtype": "approval-message-todo-page",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-elements-component-runtime",
+    "sanofi-brand-assets",
+    "sanofi-navigation-header",
+    "sanofi-icon",
+    "sanofi-card",
+    "sanofi-button"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/page-suites/oneorbit-approval-suite.contract.json",
+      "role": "page-suite",
+      "target": "design-system-plugin/design-system/page-suites/oneorbit-approval-suite.contract.json"
+    },
+    {
+      "path": "design-system-plugin/scripts/render-page-suite-html",
+      "role": "renderer",
+      "target": "design-system-plugin/scripts/render-page-suite-html"
+    },
+    {
+      "path": "design-system-plugin/scripts/resolve-component-sources",
+      "role": "source-resolver",
+      "target": "design-system-plugin/scripts/resolve-component-sources"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html"
+    }
+  ],
+  "required_primitives": [
+    "navigation-header",
+    "icon",
+    "card",
+    "button"
+  ],
+  "fallbacks": [
+    {
+      "module": "message-list",
+      "status": "compound-block",
+      "reason": "No MessageList primitive is registered locally; compose Card, Button, and Icon."
+    }
+  ],
+  "source_provenance": {
+    "page_suite": "design-system-plugin/design-system/page-suites/oneorbit-approval-suite.contract.json",
+    "source_resolution": "design-system-plugin/outputs/reports/component-source-resolution.json",
+    "renderer": "design-system-plugin/scripts/render-page-suite-html",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "OneOrbit",
+      "消息待办",
+      "我的申请",
+      "message todo",
+      "待审批"
+    ],
+    "when_to_use": "Use for OneOrbit home/message todo pages with welcome summary, app cards, and message list.",
+    "unsupported_behavior": "Do not claim MessageList official runtime."
+  }
+}

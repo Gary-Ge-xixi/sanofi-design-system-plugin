@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-data-visualization-usage",
+  "status": "pass",
+  "checked": {
+    "rule": "design-system/rules/data-visualization-usage.json",
+    "contract": "design-system/contracts/page-modules/data-visualization.contract.json",
+    "business_chart_contract": "design-system/contracts/page-modules/business-chart.contract.json",
+    "chart_rule": "design-system/rules/chart-usage.json",
+    "token_prefixes": [
+      "--elements-color-data-categorical-",
+      "--elements-color-data-sequential-",
+      "--elements-color-data-diverging-"
+    ],
+    "source_ref_count": 25,
+    "html_target": "",
+    "html_checks": null
+  },
+  "failures": []
+}

@@ -16,6 +16,10 @@ const ruleMap = {
   "report-dashboard": "admin-dashboard-chart.rules.json",
   "business-page-family": "business-page-family.rules.json",
   "business-page-family-reference-fit": "business-page-family.rules.json",
+  "oneorbit-approval-suite": "oneorbit-approval-suite.rules.json",
+  "oneorbit-approval-suite-reference-fit": "oneorbit-approval-suite.rules.json",
+  "oneorbit-query-list": "oneorbit-approval-suite.rules.json",
+  "oneorbit-message-todo": "oneorbit-approval-suite.rules.json",
   "information-aggregation": "business-page-family.rules.json",
   "customer-detail-date-query": "business-page-family.rules.json",
   "approval-workflow": "business-page-family.rules.json",
@@ -81,10 +85,12 @@ function inferRuleKey(html, explicitProfile, explicitRule) {
   const profile = explicitProfile || attr(html, "data-page-profile");
   const referenceFit = attr(html, "data-reference-fit");
   const pageFamily = attr(html, "data-page-family");
+  const oneOrbitPage = attr(html, "data-oneorbit-page");
 
   if (referenceFit && ruleMap[referenceFit]) return referenceFit;
   if (profile && ruleMap[profile]) return profile;
   if (pageFamily && ruleMap[pageFamily]) return pageFamily;
+  if (oneOrbitPage && ["query-list", "message-todo"].includes(oneOrbitPage)) return "oneorbit-approval-suite";
   return "admin-data-entry-table";
 }
 
@@ -261,6 +267,107 @@ function validateBusinessPageFamily(html, referenceFit, failures) {
   return checked;
 }
 
+function regexIndex(source, pattern) {
+  const match = source.match(pattern);
+  return match && typeof match.index === "number" ? match.index : -1;
+}
+
+function requireSections(source, sectionMap, failures, label) {
+  const checked = {};
+  let previousIndex = -1;
+  for (const [section, pattern] of Object.entries(sectionMap)) {
+    const index = regexIndex(source, pattern);
+    checked[section] = index !== -1;
+    if (index === -1) {
+      failures.push(`missing ${label} section: ${section}`);
+      continue;
+    }
+    if (index < previousIndex) failures.push(`${label} section order invalid around ${section}`);
+    previousIndex = index;
+  }
+  return checked;
+}
+
+function validateMinimumCounts(checked, requiredCounts, failures, prefix) {
+  for (const [key, expected] of Object.entries(requiredCounts || {})) {
+    const actual = checked[key] || 0;
+    if (actual < expected) failures.push(`${prefix} ${key} must be at least ${expected}, got ${actual}`);
+  }
+}
+
+function validateOneOrbitApprovalSuite(html, referenceFit, failures) {
+  const page = attr(html, "data-oneorbit-page");
+  const checked = {
+    oneorbit_page: page,
+    page_profile: attr(html, "data-page-profile"),
+    native_selects: count(html, /<select\b/gi),
+    large_size_attrs: count(html, /data-[a-z0-9-]+-size=["']large["']/gi),
+    mobile_fragments: count(html, /@media|max-width|min-width/g),
+    official_runtime_claims: count(html, /data-output-state-official-runtime=["']present["']/g),
+    visible_native_select_claims: count(html, /data-select-native=["']true["']|data-native=["']true["']/g),
+    sections: {}
+  };
+
+  if (checked.native_selects > 0) failures.push(`OneOrbit output must not render native select controls, got ${checked.native_selects}`);
+  if (checked.large_size_attrs > 0) failures.push(`OneOrbit output must use normal/medium component size, got ${checked.large_size_attrs} large markers`);
+  if (checked.mobile_fragments > 0) failures.push("OneOrbit output must not include mobile breakpoint logic");
+  if (checked.official_runtime_claims > 0) failures.push("OneOrbit output must not claim official runtime");
+  if (checked.visible_native_select_claims > 0) failures.push("OneOrbit Select must stay native:false");
+
+  if (page === "query-list") {
+    checked.search_input_runtime = count(html, /data-component-id=["']search-input["']/g);
+    checked.date_range_runtime = count(html, /data-field-control-kind=["']date-range["']/g);
+    checked.date_picker_range_adapters = count(html, /data-adapter-id=["']date-picker\.range\.local-adapter\.v1["']/g);
+    checked.select_runtime = count(html, /data-component-id=["']select["']/g);
+    checked.select_combobox_triggers = count(html, /role=["']combobox["'][^>]*aria-expanded=/g);
+    checked.tabs_runtime = count(html, /data-component-id=["']tabs["']/g);
+    checked.button_runtime = count(html, /data-component-id=["']button["']/g);
+    checked.filter_grid_items = count(html, /data-grid-item-name=["'][^"']+-filter["']/g);
+    checked.table_body_rows = count(html, /<tr>\s*<td>/g);
+    checked.hospital_groups = count(html, /class=["'][^"']*oo-group-row/g);
+    checked.table_fallback = count(html, /data-fallback-module=["']table["']/g);
+
+    validateMinimumCounts(checked, referenceFit.dom_fit_contract?.query_list?.minimum_counts, failures, "query-list");
+    if (checked.date_picker_range_adapters < 3) failures.push(`query-list DateRange must use date-picker range adapter 3 times, got ${checked.date_picker_range_adapters}`);
+    if (checked.select_combobox_triggers < 1) failures.push("query-list Select must expose combobox trigger with aria-expanded");
+    if (checked.table_fallback < 1) failures.push("query-list table must be explicit fallback");
+
+    checked.sections = requireSections(html, {
+      "navigation-header": /data-component-id=["']navigation-header["']/,
+      breadcrumb: /data-pattern=["']oneorbit-breadcrumb["']/,
+      "page-header": /data-pattern=["']oneorbit-query-page-header["']/,
+      "filter-panel": /class=["'][^"']*oo-filter-panel/,
+      "status-tabs": /data-component-id=["']tabs["']/,
+      "table-fallback": /data-fallback-module=["']table["']/
+    }, failures, "query-list");
+  } else if (page === "message-todo") {
+    checked.card_runtime = count(html, /data-component-id=["']card["']/g);
+    checked.button_runtime = count(html, /data-component-id=["']button["']/g);
+    checked.icon_runtime = count(html, /data-component-id=["']icon["']/g);
+    checked.message_cards = count(html, /class=["'][^"']*oo-message-card/g);
+    checked.application_cards = count(html, /class=["'][^"']*oo-app-card/g);
+    checked.metric_cards = count(html, /class=["'][^"']*oo-metric-card/g);
+    checked.message_list_fallback = count(html, /data-fallback-module=["']message-list["']/g);
+    checked.notification_badges = count(html, /class=["'][^"']*oo-notification-badge/g);
+
+    validateMinimumCounts(checked, referenceFit.dom_fit_contract?.message_todo?.minimum_counts, failures, "message-todo");
+    if (checked.message_list_fallback < 1) failures.push("message-todo message list must be explicit compound fallback");
+    if (!html.includes("你好LIO")) failures.push("message-todo missing welcome headline");
+
+    checked.sections = requireSections(html, {
+      "navigation-header": /data-component-id=["']navigation-header["']/,
+      hero: /class=["'][^"']*oo-hero-text/,
+      "metric-summary": /class=["'][^"']*oo-metric-row/,
+      "application-list": /class=["'][^"']*oo-apps-panel/,
+      "message-list-fallback": /data-fallback-module=["']message-list["']/
+    }, failures, "message-todo");
+  } else {
+    failures.push(`unsupported OneOrbit page marker: ${page || "missing"}`);
+  }
+
+  return checked;
+}
+
 fs.mkdirSync(reportDir, { recursive: true });
 
 const args = parseArgs(process.argv);
@@ -285,6 +392,8 @@ if (referenceFit.id === "admin-data-entry-table-reference-fit") {
   checked = validateDashboardChart(html, referenceFit, failures);
 } else if (referenceFit.id === "business-page-family-reference-fit") {
   checked = validateBusinessPageFamily(html, referenceFit, failures);
+} else if (referenceFit.id === "oneorbit-approval-suite-reference-fit") {
+  checked = validateOneOrbitApprovalSuite(html, referenceFit, failures);
 }
 
 const report = {

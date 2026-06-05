@@ -13,11 +13,11 @@
     "invalid_or_limited: undersized raw component text captures and private-page HTML shells"
   ],
   "counts": {
-    "items": 623,
+    "items": 625,
     "component_items": 96,
     "story_items": 425,
     "package_items": 93,
-    "block_items": 5,
+    "block_items": 7,
     "style_items": 1,
     "lib_items": 2,
     "docs": 111,
@@ -169,6 +169,58 @@
         "审批",
         "队列",
         "数据看板"
+      ]
+    },
+    {
+      "name": "sanofi-oneorbit-query-list-block",
+      "title": "OneOrbit HAS query list block",
+      "type": "registry:block",
+      "renderer_target": "html",
+      "path": "design-system-plugin/design-system/registry/items/sanofi-oneorbit-query-list-block.json",
+      "registryDependencies": [
+        "sanofi-elements-tokens",
+        "sanofi-elements-component-runtime",
+        "sanofi-brand-assets",
+        "sanofi-container",
+        "sanofi-grid",
+        "sanofi-navigation-header",
+        "sanofi-icon",
+        "sanofi-search-input",
+        "sanofi-select",
+        "sanofi-date-picker",
+        "sanofi-button",
+        "sanofi-tabs"
+      ],
+      "prompt_keywords": [
+        "OneOrbit",
+        "HAS",
+        "申请系统",
+        "复杂查询列表",
+        "审批列表",
+        "query list"
+      ]
+    },
+    {
+      "name": "sanofi-oneorbit-message-todo-block",
+      "title": "OneOrbit message todo block",
+      "type": "registry:block",
+      "renderer_target": "html",
+      "path": "design-system-plugin/design-system/registry/items/sanofi-oneorbit-message-todo-block.json",
+      "registryDependencies": [
+        "sanofi-elements-tokens",
+        "sanofi-elements-component-runtime",
+        "sanofi-brand-assets",
+        "sanofi-navigation-header",
+        "sanofi-icon",
+        "sanofi-card",
+        "sanofi-button"
+      ],
+      "prompt_keywords": [
+        "OneOrbit",
+        "消息待办",
+        "我的申请",
+        "message todo",
+        "待审批"
       ]
     },
     {

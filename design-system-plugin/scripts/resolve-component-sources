@@ -1,0 +1,401 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const https = require("https");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const researchDir = path.join(reportDir, "web-research", "component-sources");
+const registryPath = path.join(pluginRoot, "design-system", "registry", "registry.json");
+const adapterRegistryPath = path.join(pluginRoot, "design-system", "adapters", "components", "adapter-registry.json");
+const runtimeContractPath = path.join(pluginRoot, "component-runtime", "component-runtime.contract.json");
+const outputJsonPath = path.join(reportDir, "component-source-resolution.json");
+const outputMdPath = path.join(reportDir, "component-source-resolution.md");
+
+const remoteSources = {
+  storybook_index: "https://elements.prod.accelerator.sanofi/index.json",
+  storybook_stories: "https://elements.prod.accelerator.sanofi/stories.json"
+};
+
+const localDownloads = {
+  storybook_index: path.join(researchDir, "storybook-index.json"),
+  storybook_stories: path.join(researchDir, "storybook-stories.json")
+};
+
+function parseArgs(argv) {
+  const parsed = {
+    suite: "oneorbit-approval-suite",
+    refresh: true
+  };
+  for (let index = 2; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--suite") {
+      parsed.suite = argv[index + 1];
+      index += 1;
+    } else if (arg.startsWith("--suite=")) {
+      parsed.suite = arg.slice("--suite=".length);
+    } else if (arg === "--no-refresh") {
+      parsed.refresh = false;
+    }
+  }
+  return parsed;
+}
+
+function fetchText(url, redirects = 0) {
+  return new Promise((resolve, reject) => {
+    https.get(url, {
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "curl/8.7.1"
+      }
+    }, (response) => {
+      if ([301, 302, 303, 307, 308].includes(response.statusCode) && response.headers.location) {
+        if (redirects >= 5) {
+          reject(new Error(`GET ${url} exceeded redirect limit`));
+          response.resume();
+          return;
+        }
+        const nextUrl = new URL(response.headers.location, url).toString();
+        response.resume();
+        fetchText(nextUrl, redirects + 1).then(resolve, reject);
+        return;
+      }
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        reject(new Error(`GET ${url} returned ${response.statusCode}`));
+        response.resume();
+        return;
+      }
+      let data = "";
+      response.setEncoding("utf8");
+      response.on("data", (chunk) => {
+        data += chunk;
+      });
+      response.on("end", () => resolve(data));
+    }).on("error", reject);
+  });
+}
+
+function readJson(filePath, fallback = null) {
+  if (!fs.existsSync(filePath)) return fallback;
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function normalize(value) {
+  return String(value || "").toLowerCase().replace(/-/g, " ");
+}
+
+function tokenize(value) {
+  return normalize(value).split(/[^a-z0-9\u4e00-\u9fff]+/u).filter(Boolean);
+}
+
+function entryText(entry) {
+  return normalize([entry.id, entry.title, entry.name, entry.type, entry.importPath].join(" "));
+}
+
+function searchEntries(entries, query) {
+  const terms = tokenize(query);
+  return entries
+    .filter((entry) => {
+      const text = entryText(entry);
+      return terms.every((term) => text.includes(term));
+    })
+    .slice(0, 20)
+    .map((entry) => ({
+      id: entry.id,
+      title: entry.title,
+      name: entry.name,
+      type: entry.type,
+      importPath: entry.importPath
+    }));
+}
+
+function scoreRegistryItem(item, query) {
+  const terms = tokenize(query);
+  const text = normalize([
+    item.name,
+    item.title,
+    item.description,
+    item.type,
+    item.component_id,
+    item.pattern_id,
+    ...(item.prompt_keywords || []),
+    ...(item.ai?.prompt_keywords || [])
+  ].join(" "));
+  return terms.reduce((score, term) => score + (text.includes(term) ? 1 : 0), 0);
+}
+
+function searchRegistry(query) {
+  const registry = readJson(registryPath, { items: [] });
+  return (registry.items || [])
+    .map((itemRef) => {
+      const absoluteItemPath = path.join(workspaceRoot, itemRef.path);
+      const item = readJson(absoluteItemPath, {});
+      return {
+        score: scoreRegistryItem(item, query),
+        name: item.name,
+        title: item.title,
+        type: item.type,
+        path: itemRef.path,
+        registryDependencies: item.registryDependencies || []
+      };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || String(a.name).localeCompare(String(b.name)))
+    .slice(0, 10);
+}
+
+function localEvidence(filePath, role) {
+  return {
+    role,
+    path: filePath,
+    exists: fs.existsSync(path.join(workspaceRoot, filePath))
+  };
+}
+
+function storyEvidence(remoteEntries, storyIds) {
+  return (storyIds || [])
+    .map((storyId) => remoteEntries.find((entry) => entry.id === storyId))
+    .filter(Boolean)
+    .map((entry) => ({
+      role: "storybook-story",
+      id: entry.id,
+      title: entry.title,
+      importPath: entry.importPath
+    }));
+}
+
+function adapterEvidence(adapters, componentId) {
+  return adapters
+    .filter((adapter) => adapter.component_id === componentId)
+    .map((adapter) => ({
+      role: "adapter",
+      adapter_id: adapter.adapter_id,
+      adapter_kind: adapter.adapter_kind,
+      render_api: adapter.render_api
+    }));
+}
+
+function decisionPlan() {
+  return [
+    {
+      target: "table",
+      component_id: "table",
+      terms: ["table", "data grid", "datagrid"],
+      local_queries: ["table", "data table", "data grid"],
+      decision: "explicit-fallback",
+      output_state: "explicit-fallback",
+      fallback_module: "table",
+      reason: "No official Table/DataGrid component entry is exposed in Storybook and no local Table/DataGrid primitive is registered.",
+      local_contracts: [
+        "design-system-plugin/design-system/contracts/page-modules/business-table.contract.json",
+        "design-system-plugin/design-system/contracts/page-modules/data-table-fallback.contract.json"
+      ]
+    },
+    {
+      target: "date-range",
+      component_id: "date-picker",
+      terms: ["date picker", "datepicker"],
+      required_story_ids: ["components-datepicker--range", "components-calendar--range-selection"],
+      local_queries: ["date range", "date picker range"],
+      decision: "local-adapter-via-date-picker-range",
+      output_state: "local-atomic-runtime",
+      reason: "DatePicker range stories and a local date-picker range adapter are available; DateRange must render through runtime.datePicker({ mode: \"range\" }).",
+      local_contracts: [
+        "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+        "design-system-plugin/design-system/primitives/components/date-picker/primitive.json",
+        "design-system-plugin/design-system/adapters/components/adapter-registry.json"
+      ]
+    },
+    {
+      target: "message-list",
+      component_id: "message-list",
+      terms: ["message list", "notification", "card list", "content block list"],
+      required_story_ids: ["components-card--list-density-view", "components-card--list-date-view", "components-contentblock--selectable-list"],
+      local_queries: ["message list", "card list", "content block list"],
+      decision: "compound-block",
+      output_state: "compound-block",
+      fallback_module: "message-list",
+      reason: "No MessageList component entry is exposed; messages must compose Card, Button, and Icon instead of claiming a real MessageList runtime.",
+      local_contracts: [
+        "design-system-plugin/design-system/knowledge/docs/components-card--docs.md",
+        "design-system-plugin/design-system/primitives/components/card/primitive.json",
+        "design-system-plugin/design-system/contracts/components/content-block.contract.json"
+      ]
+    },
+    {
+      target: "chart",
+      component_id: "business-chart",
+      terms: ["chart", "bar chart", "data visualization"],
+      local_queries: ["chart", "BarChart", "data visualization", "report dashboard"],
+      decision: "contract-backed-business-chart",
+      output_state: "contract-backed-module",
+      fallback_module: "chart",
+      reason: "BarChart may be used only through business-chart and data-visualization contracts; unsupported chart types remain explicit fallback.",
+      local_contracts: [
+        "design-system-plugin/design-system/contracts/page-modules/business-chart.contract.json",
+        "design-system-plugin/design-system/contracts/page-modules/data-visualization.contract.json",
+        "design-system-plugin/design-system/rules/chart-usage.json",
+        "design-system-plugin/design-system/rules/data-visualization-usage.json"
+      ]
+    },
+    ...[
+      ["select", "select"],
+      ["search-input", "search input"],
+      ["button", "button"],
+      ["tabs", "tabs"],
+      ["sidebar", "sidebar menu"],
+      ["menu", "menu"],
+      ["card", "card"],
+      ["icon", "icon"]
+    ].map(([target, query]) => ({
+      target,
+      component_id: target,
+      terms: [query],
+      local_queries: [query, target],
+      decision: "local-atomic-runtime",
+      output_state: "local-atomic-runtime",
+      reason: `${target} is a first-round runtime component and must render through local atomic runtime when official runtime is unavailable.`,
+      local_contracts: [
+        `design-system-plugin/design-system/primitives/components/${target}/primitive.json`,
+        "design-system-plugin/component-runtime/component-runtime.contract.json",
+        "design-system-plugin/design-system/adapters/components/adapter-registry.json"
+      ]
+    }))
+  ];
+}
+
+async function refreshDownloads(refresh) {
+  fs.mkdirSync(researchDir, { recursive: true });
+  const fetchErrors = [];
+  if (!refresh) return fetchErrors;
+
+  for (const [key, url] of Object.entries(remoteSources)) {
+    try {
+      const content = await fetchText(url);
+      JSON.parse(content);
+      fs.writeFileSync(localDownloads[key], content);
+    } catch (error) {
+      fetchErrors.push(`${key}: ${error.message}`);
+    }
+  }
+  return fetchErrors;
+}
+
+function markdownTable(rows) {
+  return [
+    "| Target | Decision | Output State | Remote Hits | Local Hits | Adapter Hits | Reason |",
+    "| --- | --- | --- | --- | --- | --- | --- |",
+    ...rows.map((row) => [
+      row.target,
+      row.decision,
+      row.output_state,
+      row.remote_hit_count,
+      row.local_hit_count,
+      row.adapter_hit_count,
+      row.reason.replace(/\|/g, "/")
+    ].map((value) => String(value)).join(" | ")).map((line) => `| ${line} |`)
+  ].join("\n");
+}
+
+async function main() {
+  const args = parseArgs(process.argv);
+  fs.mkdirSync(reportDir, { recursive: true });
+  const fetchErrors = await refreshDownloads(args.refresh);
+
+  const storybookIndex = readJson(localDownloads.storybook_index, { entries: {} });
+  const storybookStories = readJson(localDownloads.storybook_stories, { stories: {} });
+  const remoteEntries = [
+    ...Object.values(storybookIndex.entries || {}),
+    ...Object.values(storybookStories.stories || {})
+  ];
+  const adapterRegistry = readJson(adapterRegistryPath, { adapters: [] });
+  const runtimeContract = readJson(runtimeContractPath, { first_round_components: [] });
+  const adapters = adapterRegistry.adapters || [];
+  const firstRound = new Set(runtimeContract.first_round_components || []);
+
+  const decisions = decisionPlan().map((item) => {
+    const remoteHitsByQuery = item.terms.map((query) => ({
+      query,
+      hits: searchEntries(remoteEntries, query)
+    }));
+    const requiredStoryHits = storyEvidence(remoteEntries, item.required_story_ids);
+    const localHitsByQuery = item.local_queries.map((query) => ({
+      query,
+      hits: searchRegistry(query)
+    }));
+    const adapterHits = adapterEvidence(adapters, item.component_id);
+    const remoteHitIds = new Set([
+      ...remoteHitsByQuery.flatMap((query) => query.hits.map((hit) => hit.id)),
+      ...requiredStoryHits.map((hit) => hit.id)
+    ]);
+    const localHitNames = new Set(localHitsByQuery.flatMap((query) => query.hits.map((hit) => hit.name)));
+    return {
+      target: item.target,
+      component_id: item.component_id,
+      suite: args.suite,
+      decision: item.decision,
+      output_state: item.output_state,
+      fallback_module: item.fallback_module || "",
+      reason: item.reason,
+      first_round_component: firstRound.has(item.component_id),
+      remote_queries: remoteHitsByQuery,
+      required_story_hits: requiredStoryHits,
+      local_registry_queries: localHitsByQuery,
+      adapter_hits: adapterHits,
+      local_contracts: item.local_contracts.map((contractPath) => localEvidence(contractPath, "local-contract")),
+      remote_hit_count: remoteHitIds.size,
+      local_hit_count: localHitNames.size,
+      adapter_hit_count: adapterHits.length
+    };
+  });
+
+  const report = {
+    schema_version: "0.1.0",
+    generated_at: new Date().toISOString(),
+    script: "resolve-component-sources",
+    suite: args.suite,
+    source_policy: "local-first",
+    runtime_policy: "runtime-honest",
+    remote_sources: {
+      storybook_index: remoteSources.storybook_index,
+      storybook_stories: remoteSources.storybook_stories
+    },
+    local_downloads: {
+      storybook_index: path.relative(pluginRoot, localDownloads.storybook_index),
+      storybook_stories: path.relative(pluginRoot, localDownloads.storybook_stories)
+    },
+    fetch_errors: fetchErrors,
+    decisions
+  };
+  fs.writeFileSync(outputJsonPath, JSON.stringify(report, null, 2) + "\n");
+
+  const md = [
+    "# Component Source Resolution",
+    "",
+    `Suite: \`${args.suite}\``,
+    "",
+    "该报告在生成页面前统一判定组件来源，输出 runtime / adapter / compound / fallback 决策。",
+    "",
+    markdownTable(decisions),
+    "",
+    "## Source Notes",
+    "",
+    `- Storybook index: ${remoteSources.storybook_index}`,
+    `- Storybook stories: ${remoteSources.storybook_stories}`,
+    `- Local index: ${path.relative(pluginRoot, localDownloads.storybook_index)}`,
+    `- Local stories: ${path.relative(pluginRoot, localDownloads.storybook_stories)}`,
+    `- Adapter registry: ${path.relative(pluginRoot, adapterRegistryPath)}`,
+    `- Runtime contract: ${path.relative(pluginRoot, runtimeContractPath)}`,
+    "",
+    fetchErrors.length ? `Fetch warnings: ${fetchErrors.join("; ")}` : "Fetch warnings: none"
+  ].join("\n");
+  fs.writeFileSync(outputMdPath, md + "\n");
+
+  console.log(`Component source resolution OK: ${path.relative(pluginRoot, outputJsonPath)}`);
+}
+
+main().catch((error) => {
+  console.error(error.stack || error.message);
+  process.exit(1);
+});

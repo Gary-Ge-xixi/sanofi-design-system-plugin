@@ -11,8 +11,8 @@ const targets = {
 };
 const sourceMapJsonPath = path.join(reportDir, "oneorbit-component-source-map.json");
 const sourceMapMdPath = path.join(reportDir, "oneorbit-component-source-map.md");
-const sourceResolutionJsonPath = path.join(reportDir, "oneorbit-component-source-resolution.json");
-const sourceResolutionMdPath = path.join(reportDir, "oneorbit-component-source-resolution.md");
+const sourceResolutionJsonPath = path.join(reportDir, "component-source-resolution.json");
+const sourceResolutionMdPath = path.join(reportDir, "component-source-resolution.md");
 const reportPath = path.join(reportDir, "oneorbit-delivery.report.json");
 
 function read(filePath) {
@@ -125,14 +125,15 @@ pushIf(!/explicit fallback module|compound fallback pattern/.test(sourceMapMd), 
 
 const resolutionByTarget = new Map((sourceResolution.decisions || []).map((item) => [item.target, item]));
 for (const [target, expectedDecision] of [
-  ["table", "semantic-html-fallback"],
-  ["date-range", "docs-registry-backed-primitive"],
-  ["message-list", "compound-card-list-pattern"]
+  ["table", "explicit-fallback"],
+  ["date-range", "local-adapter-via-date-picker-range"],
+  ["message-list", "compound-block"]
 ]) {
   const decision = resolutionByTarget.get(target);
   pushIf(!decision, failures, `source resolution missing target: ${target}`);
   pushIf(decision && decision.decision !== expectedDecision, failures, `source resolution target ${target} must decide ${expectedDecision}`);
 }
+pushIf(sourceResolution.decisions?.some((item) => item.output_state === "official-runtime"), failures, "source resolution must not claim official runtime");
 
 const report = {
   schema_version: "0.1.0",

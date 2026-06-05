@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1.0",
+  "id": "oneorbit-approval-suite-reference-fit",
+  "status": "ready",
+  "purpose": "Reference-fit checks for OneOrbit approval workflow query-list and message-todo HTML outputs.",
+  "static_fit_contract": {
+    "required_body_attributes": [
+      "data-design-system=\"sanofi-elements\"",
+      "data-page-suite=\"oneorbit-approval-suite\"",
+      "data-page-family=\"approval-workflow\"",
+      "data-reference-fit=\"oneorbit-approval-suite\"",
+      "data-adapter-enforcement=\"adapter-first\"",
+      "data-runtime-honesty=\"mixed-local-adapter-and-fallback\""
+    ],
+    "forbidden_attributes": [
+      "data-output-state-official-runtime=\"present\"",
+      "data-select-native=\"true\"",
+      "data-native=\"true\"",
+      "data-button-size=\"large\"",
+      "data-select-size=\"large\"",
+      "data-search-size=\"large\"",
+      "data-date-picker-size=\"large\""
+    ],
+    "forbidden_css_fragments": [
+      "@media",
+      "max-width",
+      "min-width"
+    ]
+  },
+  "dom_fit_contract": {
+    "query_list": {
+      "minimum_counts": {
+        "search_input_runtime": 4,
+        "date_range_runtime": 3,
+        "select_runtime": 1,
+        "tabs_runtime": 1,
+        "button_runtime": 3,
+        "filter_grid_items": 8,
+        "table_body_rows": 8,
+        "hospital_groups": 3
+      },
+      "required_sections": [
+        "navigation-header",
+        "breadcrumb",
+        "page-header",
+        "filter-panel",
+        "status-tabs",
+        "table-fallback"
+      ]
+    },
+    "message_todo": {
+      "minimum_counts": {
+        "card_runtime": 7,
+        "button_runtime": 5,
+        "message_cards": 5,
+        "application_cards": 2,
+        "metric_cards": 2
+      },
+      "required_sections": [
+        "navigation-header",
+        "hero",
+        "metric-summary",
+        "application-list",
+        "message-list-fallback"
+      ]
+    }
+  },
+  "screenshot_gate": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "must_check": [
+      "no horizontal overflow",
+      "no page-edge content attachment",
+      "no overlapping controls",
+      "runtime select/date-range interactions visible"
+    ]
+  }
+}

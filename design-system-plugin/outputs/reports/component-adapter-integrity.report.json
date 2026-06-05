@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-component-adapter-integrity",
+  "status": "pass",
+  "generated_at": "2026-06-05T01:22:59.631Z",
+  "checked": {
+    "target": "outputs/html/oneorbit-has-query-list.resolved.html",
+    "adapter_registry": "design-system/adapters/components/adapter-registry.json",
+    "runtime_contract": "component-runtime/component-runtime.contract.json",
+    "adapter_tag_count": 31,
+    "component_tag_count": 31,
+    "first_round_components": [
+      "button",
+      "card",
+      "container",
+      "date-picker",
+      "grid",
+      "icon",
+      "menu",
+      "navigation-header",
+      "progress-bar",
+      "search-input",
+      "select",
+      "sidebar",
+      "tabs",
+      "tag",
+      "text-input"
+    ],
+    "component_counts": {
+      "navigation-header": 1,
+      "container": 1,
+      "icon": 16,
+      "button": 3,
+      "grid": 1,
+      "search-input": 4,
+      "date-picker": 3,
+      "select": 1,
+      "tabs": 1
+    },
+    "missing_adapter": [],
+    "unknown_adapter": [],
+    "missing_integrity": [],
+    "missing_style_owner": [],
+    "missing_state_matrix": [],
+    "missing_dom_contract": []
+  },
+  "failures": []
+}

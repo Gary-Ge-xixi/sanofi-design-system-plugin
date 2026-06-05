@@ -1,0 +1,630 @@
+{
+  "schema_version": "0.1.0",
+  "id": "sanofi-elements-local-adapter-registry",
+  "status": "ready",
+  "standard": "../component-adapter-standard.json",
+  "renderer_target": "html",
+  "adapters": [
+    {
+      "adapter_id": "navigation-header.local-adapter.v1",
+      "component_id": "navigation-header",
+      "component_name": "NavigationHeader",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-navigationheader--docs",
+        "story_id": "components-navigationheader--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/navigation-header.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "NavigationHeader.Root",
+          "NavigationHeader.StartContent",
+          "NavigationHeader.EndContent",
+          "Sidebar.CollapseToggle"
+        ],
+        "required_roles": [
+          "banner"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "navigation-header-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-navigation-header",
+          ".snf-navigation-header-start",
+          ".snf-navigation-header-end"
+        ]
+      },
+      "state_matrix": {
+        "id": "navigation-header.default.v1",
+        "states": [
+          "default",
+          "focus-visible",
+          "with-sidebar-toggle"
+        ]
+      },
+      "render_api": "runtime.navigationHeader(options)"
+    },
+    {
+      "adapter_id": "sidebar.fully-collapsible-controlled.local-adapter.v1",
+      "component_id": "sidebar",
+      "component_name": "Sidebar",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter based on Sidebar compound story; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-sidebar--docs",
+        "story_id": "components-sidebar--fully-collapsible-controlled",
+        "story_json": "design-system-plugin/design-system/atomic/components/sidebar/stories/components-sidebar--fully-collapsible-controlled.story.json",
+        "storybook_iframe": "design-system-plugin/design-system/atomic/components/sidebar/assets/components-sidebar--fully-collapsible-controlled.iframe.html",
+        "component_contract": "design-system-plugin/design-system/contracts/components/sidebar.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Sidebar.Root",
+          "Sidebar.Content",
+          "Sidebar.Section",
+          "Sidebar.Item",
+          "Sidebar.Footer",
+          "Sidebar.UserProfile",
+          "Sidebar.CollapseToggle"
+        ],
+        "required_attributes": [
+          "data-sidebar-controlled=\"true\"",
+          "data-sidebar-collapsible=\"true\"",
+          "data-sidebar-fully-collapsible=\"true\""
+        ]
+      },
+      "style_contract": {
+        "style_owner": "sidebar-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-sidebar",
+          ".snf-nav-list",
+          ".snf-nav-link",
+          ".snf-nav-child",
+          ".snf-sidebar-footer"
+        ]
+      },
+      "state_matrix": {
+        "id": "sidebar.fully-collapsible-controlled.v1",
+        "states": [
+          "expanded",
+          "collapsed",
+          "focus-visible",
+          "hover",
+          "nested-expanded",
+          "nested-collapsed"
+        ]
+      },
+      "render_api": "runtime.sidebar(options) + runtime.sidebarCollapseToggle(options)"
+    },
+    {
+      "adapter_id": "select.default.local-adapter.v1",
+      "component_id": "select",
+      "component_name": "Select",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter based on Select story contract; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-select--docs",
+        "story_id": "components-select--default",
+        "story_json": "design-system-plugin/design-system/atomic/components/select/stories/components-select--default.story.json",
+        "storybook_iframe": "design-system-plugin/design-system/atomic/components/select/assets/components-select--default.iframe.html",
+        "component_contract": "design-system-plugin/design-system/contracts/components/select.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Select.Root",
+          "Select.Label",
+          "Select.Trigger",
+          "Select.Value",
+          "Select.Listbox",
+          "Select.Option"
+        ],
+        "required_roles": [
+          "combobox",
+          "listbox",
+          "option"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "select-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-select-shell",
+          ".snf-select-trigger",
+          ".snf-select-listbox",
+          ".snf-select-option"
+        ]
+      },
+      "state_matrix": {
+        "id": "select.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "expanded",
+          "selected",
+          "disabled",
+          "error"
+        ]
+      },
+      "render_api": "runtime.select(options)"
+    },
+    {
+      "adapter_id": "date-picker.range.local-adapter.v1",
+      "component_id": "date-picker",
+      "component_name": "DatePicker",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter based on DatePicker story contract; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-datepicker--docs",
+        "story_id": "components-datepicker--range",
+        "story_json": "design-system-plugin/design-system/atomic/components/date-picker/stories/components-datepicker--range.story.json",
+        "storybook_iframe": "design-system-plugin/design-system/atomic/components/date-picker/assets/components-datepicker--range.iframe.html",
+        "component_contract": "design-system-plugin/design-system/contracts/components/date-picker.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "DatePicker.Root",
+          "DatePicker.Label",
+          "DatePicker.Trigger",
+          "DatePicker.Value",
+          "DatePicker.Dialog",
+          "DatePicker.Calendar",
+          "DatePicker.Footer"
+        ],
+        "required_roles": [
+          "combobox",
+          "dialog",
+          "grid",
+          "gridcell"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "date-picker-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-date-picker-shell",
+          ".snf-date-picker-trigger",
+          ".snf-date-picker-dialog",
+          ".snf-date-picker-calendar"
+        ]
+      },
+      "state_matrix": {
+        "id": "date-picker.range.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "open",
+          "range-start",
+          "range-end",
+          "disabled",
+          "error"
+        ]
+      },
+      "render_api": "runtime.datePicker(options)"
+    },
+    {
+      "adapter_id": "text-input.default.local-adapter.v1",
+      "component_id": "text-input",
+      "component_name": "TextInput",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated text inputs",
+      "source_provenance": {
+        "docs_id": "components-textinput--docs",
+        "story_id": "components-textinput--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/text-input.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "TextInput.Root",
+          "TextInput.Label",
+          "TextInput.Input"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "text-input-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-text-input"
+        ]
+      },
+      "state_matrix": {
+        "id": "text-input.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "disabled",
+          "readonly",
+          "error"
+        ]
+      },
+      "render_api": "runtime.textInput(options)"
+    },
+    {
+      "adapter_id": "button.default.local-adapter.v1",
+      "component_id": "button",
+      "component_name": "Button",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter based on Button package standard",
+      "source_provenance": {
+        "docs_id": "components-button--docs",
+        "story_id": "components-button--primary",
+        "component_contract": "design-system-plugin/design-system/contracts/components/button.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Button.Root",
+          "Button.Label",
+          "Button.Icon"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "button-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-button"
+        ]
+      },
+      "state_matrix": {
+        "id": "button.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "active",
+          "disabled",
+          "loading"
+        ]
+      },
+      "render_api": "runtime.button(options)"
+    },
+    {
+      "adapter_id": "search-input.default.local-adapter.v1",
+      "component_id": "search-input",
+      "component_name": "SearchInput",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated SearchInput controls; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-searchinput--docs",
+        "story_id": "components-searchinput--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/search-input.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "SearchInput.Root",
+          "SearchInput.Label",
+          "SearchInput.Input",
+          "SearchInput.Icon"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "search-input-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-search-input"
+        ]
+      },
+      "state_matrix": {
+        "id": "search-input.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "disabled",
+          "readonly",
+          "error"
+        ]
+      },
+      "render_api": "runtime.searchInput(options)"
+    },
+    {
+      "adapter_id": "tabs.default.local-adapter.v1",
+      "component_id": "tabs",
+      "component_name": "Tabs",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated Tabs; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-tabs--docs",
+        "story_id": "components-tabs--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/tabs.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Tabs.Root",
+          "Tabs.List",
+          "Tabs.Trigger",
+          "Tabs.Panel"
+        ],
+        "required_roles": [
+          "tablist",
+          "tab",
+          "tabpanel"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "tabs-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-tabs",
+          ".snf-tab"
+        ]
+      },
+      "state_matrix": {
+        "id": "tabs.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "selected"
+        ]
+      },
+      "render_api": "runtime.tabs(options)"
+    },
+    {
+      "adapter_id": "menu.default.local-adapter.v1",
+      "component_id": "menu",
+      "component_name": "Menu",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated Menu/sidebar navigation structures; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-menu--docs",
+        "story_id": "components-menu--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/menu.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Menu.Root",
+          "Menu.Trigger",
+          "Menu.Dropdown",
+          "Menu.Item"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "menu-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-menu"
+        ]
+      },
+      "state_matrix": {
+        "id": "menu.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "selected",
+          "expanded",
+          "collapsed"
+        ]
+      },
+      "render_api": "runtime.sidebar(options) navigation menu region"
+    },
+    {
+      "adapter_id": "container.layout.local-adapter.v1",
+      "component_id": "container",
+      "component_name": "Container",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local layout adapter based on Container contract; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-container--docs",
+        "story_id": "components-container--fixed",
+        "component_contract": "design-system-plugin/design-system/contracts/components/container.contract.json",
+        "token_source": "foundations-layout--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Container.Root",
+          "Container.Content"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "container-layout-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-container"
+        ]
+      },
+      "state_matrix": {
+        "id": "container.layout.v1",
+        "states": [
+          "default"
+        ]
+      },
+      "render_api": "runtime.containerStart(options) + runtime.containerEnd()"
+    },
+    {
+      "adapter_id": "grid.layout.local-adapter.v1",
+      "component_id": "grid",
+      "component_name": "Grid",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local layout adapter based on Grid contract; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-grid--docs",
+        "story_id": "components-grid--desktop",
+        "component_contract": "design-system-plugin/design-system/contracts/components/grid.contract.json",
+        "token_source": "foundations-layout--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Grid.Root",
+          "Grid.Item"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "grid-layout-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-grid",
+          ".snf-grid-item"
+        ]
+      },
+      "state_matrix": {
+        "id": "grid.layout.v1",
+        "states": [
+          "default"
+        ]
+      },
+      "render_api": "runtime.gridStart(options) + runtime.gridItemAttrs(span, name) + runtime.gridEnd()"
+    },
+    {
+      "adapter_id": "card.default.local-adapter.v1",
+      "component_id": "card",
+      "component_name": "Card",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated Card surfaces; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-card--docs",
+        "story_id": "components-card--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/card.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Card.Root",
+          "Card.Content",
+          "Card.Action"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "card-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-card"
+        ]
+      },
+      "state_matrix": {
+        "id": "card.default.v1",
+        "states": [
+          "default",
+          "hover",
+          "focus-visible",
+          "selected",
+          "disabled"
+        ]
+      },
+      "render_api": "runtime.card(options)"
+    },
+    {
+      "adapter_id": "tag.default.local-adapter.v1",
+      "component_id": "tag",
+      "component_name": "Tag",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated Tag status labels; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-tag--docs",
+        "story_id": "components-tag--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/tag.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Tag.Root",
+          "Tag.Label"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "tag-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-tag"
+        ]
+      },
+      "state_matrix": {
+        "id": "tag.default.v1",
+        "states": [
+          "default",
+          "selected",
+          "disabled"
+        ]
+      },
+      "render_api": "runtime.tag(options)"
+    },
+    {
+      "adapter_id": "progress-bar.default.local-adapter.v1",
+      "component_id": "progress-bar",
+      "component_name": "ProgressBar",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated ProgressBar; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-progressbar--docs",
+        "story_id": "components-progressbar--default",
+        "component_contract": "design-system-plugin/design-system/contracts/components/progress-bar.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "ProgressBar.Root",
+          "ProgressBar.Track",
+          "ProgressBar.Indicator",
+          "ProgressBar.Label"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "progress-bar-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-progress-bar"
+        ]
+      },
+      "state_matrix": {
+        "id": "progress-bar.default.v1",
+        "states": [
+          "default",
+          "loading",
+          "complete",
+          "error"
+        ]
+      },
+      "render_api": "runtime.progressBar(options)"
+    },
+    {
+      "adapter_id": "icon.gallery.local-adapter.v1",
+      "component_id": "icon",
+      "component_name": "Icon",
+      "adapter_kind": "local-adapter",
+      "runtime_honesty": "local adapter marker for generated Icon SVGs; not official React runtime",
+      "source_provenance": {
+        "docs_id": "components-icon--docs",
+        "story_id": "components-icon--gallery",
+        "component_contract": "design-system-plugin/design-system/contracts/components/icon.contract.json",
+        "token_source": "foundations-colors--docs"
+      },
+      "dom_contract": {
+        "required_parts": [
+          "Icon.Root",
+          "Icon.Svg"
+        ]
+      },
+      "style_contract": {
+        "style_owner": "icon-adapter",
+        "allowed_style_block_owner": "component-adapter",
+        "forbidden_renderer_selectors": [
+          ".snf-icon"
+        ]
+      },
+      "state_matrix": {
+        "id": "icon.gallery.v1",
+        "states": [
+          "default",
+          "decorative",
+          "functional",
+          "inverse"
+        ]
+      },
+      "render_api": "runtime.icon(name, options)"
+    }
+  ]
+}

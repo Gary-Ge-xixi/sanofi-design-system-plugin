@@ -3,9 +3,9 @@
   "status": "pass",
   "script": "validate-local-registry",
   "checked": {
-    "item_count": 623,
+    "item_count": 625,
     "dependency_count": 97,
-    "local_paths": 2931
+    "local_paths": 2942
   },
   "failures": []
 }

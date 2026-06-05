@@ -6,7 +6,11 @@
   "purpose": "Business charts must use the business-chart contract; researched BarChart usage is allowed when required props and accessibility are present.",
   "source_provenance": {
     "contract": "../contracts/page-modules/business-chart.contract.json",
-    "research_report": "../../outputs/reports/web-research/sanofi-brand-assets-barchart-research.md",
+    "data_visualization_contract": "../contracts/page-modules/data-visualization.contract.json",
+    "data_visualization_rule": "data-visualization-usage.json",
+    "zeroheight_capture": "../../outputs/reports/web-research/sanofi-data-visualization/data-visualization.zeroheight.html",
+    "storybook_index": "../../outputs/reports/web-research/sanofi-data-visualization/storybook-index.json",
+    "storybook_stories": "../../outputs/reports/web-research/sanofi-data-visualization/storybook-stories.json",
     "storybook_docs_url": "https://elements.prod.accelerator.sanofi/?path=/docs/elements-charts_components-charts-barchart--docs"
   },
   "bar_chart_required_props": [

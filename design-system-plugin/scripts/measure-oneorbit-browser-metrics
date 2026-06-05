@@ -1,0 +1,344 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
+const cp = require("child_process");
+const { pathToFileURL } = require("url");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const screenshotDir = path.join(pluginRoot, "outputs", "screenshots");
+const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const port = 9249;
+const viewport = { width: 1440, height: 900 };
+
+const pages = [
+  {
+    id: "oneorbit-has-query-list",
+    file: path.join(htmlDir, "oneorbit-has-query-list.resolved.html"),
+    screenshot: path.join(screenshotDir, "oneorbit-has-query-list-1440.png")
+  },
+  {
+    id: "oneorbit-message-todo",
+    file: path.join(htmlDir, "oneorbit-message-todo.resolved.html"),
+    screenshot: path.join(screenshotDir, "oneorbit-message-todo-1440.png")
+  }
+];
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function waitForChrome() {
+  const endpoint = `http://127.0.0.1:${port}/json/version`;
+  for (let index = 0; index < 50; index += 1) {
+    try {
+      const response = await fetch(endpoint);
+      if (response.ok) return;
+    } catch {
+      await sleep(120);
+    }
+  }
+  throw new Error("Chrome DevTools endpoint did not start");
+}
+
+function createCdp(wsUrl) {
+  const ws = new WebSocket(wsUrl);
+  let id = 0;
+  const pending = new Map();
+  const opened = new Promise((resolve, reject) => {
+    ws.addEventListener("open", resolve, { once: true });
+    ws.addEventListener("error", reject, { once: true });
+  });
+
+  ws.addEventListener("message", (event) => {
+    const message = JSON.parse(event.data);
+    if (!message.id || !pending.has(message.id)) return;
+    const { resolve, reject } = pending.get(message.id);
+    pending.delete(message.id);
+    if (message.error) reject(new Error(message.error.message));
+    else resolve(message.result);
+  });
+
+  return {
+    async send(method, params = {}) {
+      await opened;
+      id += 1;
+      ws.send(JSON.stringify({ id, method, params }));
+      return new Promise((resolve, reject) => {
+        pending.set(id, { resolve, reject });
+      });
+    },
+    close() {
+      ws.close();
+    }
+  };
+}
+
+async function createPage(filePath) {
+  const url = pathToFileURL(filePath).href;
+  const response = await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(url)}`, {
+    method: "PUT"
+  });
+  if (!response.ok) throw new Error(`Failed to create Chrome tab for ${filePath}`);
+  return response.json();
+}
+
+async function evaluate(cdp, expression) {
+  const result = await cdp.send("Runtime.evaluate", {
+    expression,
+    awaitPromise: true,
+    returnByValue: true
+  });
+  if (result.exceptionDetails) {
+    throw new Error(result.exceptionDetails.text || "Chrome evaluation failed");
+  }
+  return result.result.value;
+}
+
+async function screenshot(cdp, outputPath) {
+  const result = await cdp.send("Page.captureScreenshot", {
+    format: "png",
+    captureBeyondViewport: false
+  });
+  fs.writeFileSync(outputPath, Buffer.from(result.data, "base64"));
+}
+
+async function measurePage(page) {
+  const target = await createPage(page.file);
+  const cdp = createCdp(target.webSocketDebuggerUrl);
+  await cdp.send("Page.enable");
+  await cdp.send("Runtime.enable");
+  await cdp.send("Emulation.setDeviceMetricsOverride", {
+    width: viewport.width,
+    height: viewport.height,
+    deviceScaleFactor: 1,
+    mobile: false
+  });
+  await sleep(700);
+
+  const metrics = await evaluate(cdp, `(() => {
+    const rect = (node) => {
+      if (!node) return null;
+      const box = node.getBoundingClientRect();
+      return { left: box.left, right: box.right, top: box.top, bottom: box.bottom, width: box.width, height: box.height };
+    };
+    const visible = (node) => {
+      if (!node) return false;
+      const box = node.getBoundingClientRect();
+      const style = getComputedStyle(node);
+      return box.width > 0 && box.height > 0 && style.visibility !== "hidden" && style.display !== "none";
+    };
+    const overlaps = (nodes) => {
+      const boxes = nodes.filter(visible).map((node) => ({ node, box: node.getBoundingClientRect() }));
+      let count = 0;
+      for (let a = 0; a < boxes.length; a += 1) {
+        for (let b = a + 1; b < boxes.length; b += 1) {
+          const one = boxes[a].box;
+          const two = boxes[b].box;
+          const intersects = one.left < two.right && one.right > two.left && one.top < two.bottom && one.bottom > two.top;
+          if (intersects) count += 1;
+        }
+      }
+      return count;
+    };
+    const root = document.documentElement;
+    const body = document.body;
+    const content = document.querySelector(".oo-query-panel") || document.querySelector(".oo-home-grid") || document.querySelector(".snf-container-content");
+    const controlNodes = Array.from(document.querySelectorAll("[data-control-shell='field'], .snf-button, .snf-tab, .oo-app-link"));
+    const contentRect = rect(content);
+    return {
+      title: document.title,
+      pageProfile: body.dataset.pageProfile || "",
+      oneorbitPage: body.dataset.oneorbitPage || "",
+      viewportWidth: window.innerWidth,
+      viewportHeight: window.innerHeight,
+      scrollWidth: Math.max(root.scrollWidth, body.scrollWidth),
+      clientWidth: root.clientWidth,
+      bodyScrollWidth: body.scrollWidth,
+      hasHorizontalOverflow: Math.max(root.scrollWidth, body.scrollWidth) > root.clientWidth,
+      contentEdgeSafe: contentRect ? contentRect.left >= 16 && (window.innerWidth - contentRect.right) >= 16 : false,
+      controlOverlapCount: overlaps(controlNodes),
+      nativeSelectCount: document.querySelectorAll("select").length,
+      brandAssetCount: document.querySelectorAll("[data-brand-asset-id='sanofi-logo-full']").length,
+      largeSizeAttrCount: document.querySelectorAll("[data-button-size='large'], [data-select-size='large'], [data-search-size='large'], [data-date-picker-size='large']").length,
+      runtimeComponentCount: document.querySelectorAll("[data-component-runtime='sanofi-local-atomic-components'][data-component-id]").length,
+      adapterComponentCount: document.querySelectorAll("[data-adapter-id]").length,
+      fieldControlRootCount: document.querySelectorAll("[data-field-control='root']").length,
+      fieldControlShellCount: document.querySelectorAll("[data-control-shell='field']").length,
+      dateRangeFieldCount: document.querySelectorAll("[data-field-control-kind='date-range']").length,
+      selectFieldCount: document.querySelectorAll("[data-field-control-kind='select']").length,
+      searchFieldCount: document.querySelectorAll("[data-field-control-kind='search-input']").length,
+      fallbackReasonCount: document.querySelectorAll("[data-fallback-reason]").length,
+      messageCardCount: document.querySelectorAll(".oo-message-card").length,
+      tableGroupCount: document.querySelectorAll(".oo-group-row").length
+    };
+  })()`);
+
+  let selectInteraction = null;
+  let dateRangeInteraction = null;
+  let tabsInteraction = null;
+
+  if (metrics.oneorbitPage === "query-list") {
+    selectInteraction = await evaluate(cdp, `(() => {
+      const root = document.querySelector("[data-component-id='select']");
+      const trigger = root?.querySelector("[data-select-trigger]");
+      const listbox = root?.querySelector("[data-select-listbox]");
+      const option = root?.querySelector("[role='option'][data-value='医院账期过长']");
+      const value = root?.querySelector("[data-select-value]");
+      const before = trigger?.getAttribute("aria-expanded") || "";
+      trigger?.click();
+      const afterOpen = {
+        expanded: trigger?.getAttribute("aria-expanded") || "",
+        hidden: Boolean(listbox?.hidden),
+        optionCount: root?.querySelectorAll("[role='option']").length || 0
+      };
+      option?.click();
+      return {
+        before,
+        afterOpen,
+        afterSelect: {
+          expanded: trigger?.getAttribute("aria-expanded") || "",
+          hidden: Boolean(listbox?.hidden),
+          value: value?.textContent?.trim() || ""
+        }
+      };
+    })()`);
+
+    dateRangeInteraction = await evaluate(cdp, `(() => {
+      const root = document.querySelector("[data-component-id='date-picker']");
+      const trigger = root?.querySelector("[data-date-picker-trigger='true']");
+      const dialog = root?.querySelector("[data-date-picker-dialog='true']");
+      const before = trigger?.getAttribute("aria-expanded") || "";
+      trigger?.click();
+      const afterOpen = {
+        expanded: trigger?.getAttribute("aria-expanded") || "",
+        hidden: Boolean(dialog?.hidden),
+        dayCount: root?.querySelectorAll("[data-date-picker-part='day']").length || 0
+      };
+      root?.querySelector("[data-date-picker-close]")?.click();
+      return {
+        before,
+        afterOpen,
+        afterClose: {
+          expanded: trigger?.getAttribute("aria-expanded") || "",
+          hidden: Boolean(dialog?.hidden)
+        }
+      };
+    })()`);
+
+    tabsInteraction = await evaluate(cdp, `(() => {
+      const root = document.querySelector("[data-component-id='tabs']");
+      const before = root?.querySelector("[aria-selected='true']")?.textContent?.trim() || "";
+      root?.querySelector("[data-tab-target='active']")?.click();
+      return {
+        before,
+        after: root?.querySelector("[aria-selected='true']")?.textContent?.trim() || ""
+      };
+    })()`);
+  }
+
+  await screenshot(cdp, page.screenshot);
+  cdp.close();
+
+  return {
+    id: page.id,
+    url: pathToFileURL(page.file).href,
+    screenshot: rel(page.screenshot),
+    metrics,
+    selectInteraction,
+    dateRangeInteraction,
+    tabsInteraction
+  };
+}
+
+async function main() {
+  fs.mkdirSync(reportDir, { recursive: true });
+  fs.mkdirSync(screenshotDir, { recursive: true });
+  if (!fs.existsSync(chromePath)) throw new Error("Google Chrome executable not found");
+  for (const page of pages) {
+    if (!fs.existsSync(page.file)) throw new Error(`missing HTML output: ${page.file}`);
+  }
+
+  const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "sanofi-oneorbit-"));
+  const chrome = cp.spawn(chromePath, [
+    "--headless=new",
+    "--disable-gpu",
+    "--no-first-run",
+    "--no-default-browser-check",
+    "--disable-extensions",
+    "--hide-scrollbars",
+    `--window-size=${viewport.width},${viewport.height}`,
+    `--remote-debugging-port=${port}`,
+    `--user-data-dir=${userDataDir}`,
+    "about:blank"
+  ], { stdio: "ignore" });
+
+  try {
+    await waitForChrome();
+    const results = [];
+    for (const page of pages) {
+      results.push(await measurePage(page));
+    }
+
+    const failures = [];
+    for (const result of results) {
+      const m = result.metrics;
+      if (m.viewportWidth !== viewport.width || m.viewportHeight !== viewport.height) failures.push(`${result.id}: viewport mismatch`);
+      if (m.hasHorizontalOverflow) failures.push(`${result.id}: horizontal overflow`);
+      if (!m.contentEdgeSafe) failures.push(`${result.id}: content is attached to page edge`);
+      if (m.controlOverlapCount > 0) failures.push(`${result.id}: ${m.controlOverlapCount} overlapping controls`);
+      if (m.nativeSelectCount > 0) failures.push(`${result.id}: native select rendered`);
+      if (m.brandAssetCount !== 1) failures.push(`${result.id}: fixed Sanofi logo asset count must be 1`);
+      if (m.largeSizeAttrCount > 0) failures.push(`${result.id}: large component size marker present`);
+    }
+
+    const queryResult = results.find((item) => item.id === "oneorbit-has-query-list");
+    if (queryResult) {
+      if (queryResult.selectInteraction?.afterOpen?.expanded !== "true") failures.push("query-list: Select did not open");
+      if (queryResult.selectInteraction?.afterOpen?.hidden !== false) failures.push("query-list: Select listbox stayed hidden");
+      if (queryResult.selectInteraction?.afterSelect?.value !== "医院账期过长") failures.push("query-list: Select value did not update");
+      if (queryResult.dateRangeInteraction?.afterOpen?.expanded !== "true") failures.push("query-list: DateRange did not open");
+      if (queryResult.dateRangeInteraction?.afterOpen?.hidden !== false) failures.push("query-list: DateRange dialog stayed hidden");
+      if (queryResult.tabsInteraction?.after !== "已生效(9)") failures.push("query-list: Tabs selected state did not change");
+    }
+
+    const report = {
+      schema_version: "0.1.0",
+      status: failures.length ? "fail" : "pass",
+      script: "measure-oneorbit-browser-metrics",
+      generated_at: new Date().toISOString(),
+      viewport,
+      results,
+      failures
+    };
+
+    const reportPath = path.join(reportDir, "oneorbit-browser-metrics.report.json");
+    const reportMdPath = path.join(reportDir, "oneorbit-browser-metrics.report.md");
+    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+    fs.writeFileSync(
+      reportMdPath,
+      `# OneOrbit Browser Metrics\n\nStatus: ${report.status}\n\n| Page | Viewport | Scroll | Native select | Runtime components | Screenshot |\n|---|---:|---:|---:|---:|---|\n${results.map((item) => `| ${item.id} | ${item.metrics.viewportWidth}x${item.metrics.viewportHeight} | ${item.metrics.scrollWidth}/${item.metrics.clientWidth} | ${item.metrics.nativeSelectCount} | ${item.metrics.runtimeComponentCount} | ${item.screenshot} |`).join("\n")}\n\n## Interactions\n\n- Select: ${queryResult?.selectInteraction?.afterSelect?.value || "n/a"}\n- DateRange opened: ${queryResult?.dateRangeInteraction?.afterOpen?.expanded || "n/a"}\n- Tabs selected after click: ${queryResult?.tabsInteraction?.after || "n/a"}\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+    );
+
+    if (failures.length) {
+      console.error(`OneOrbit browser metrics failed: ${failures.join("; ")}`);
+      process.exitCode = 1;
+    } else {
+      console.log(`OneOrbit browser metrics OK: ${results.length} pages at ${viewport.width}x${viewport.height}`);
+    }
+  } finally {
+    chrome.kill("SIGTERM");
+  }
+}
+
+main().catch((error) => {
+  console.error(error.message);
+  process.exit(1);
+});

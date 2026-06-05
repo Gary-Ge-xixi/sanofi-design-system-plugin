@@ -7,10 +7,12 @@ const storyIds = {
   button: "components-button--primary",
   icon: "components-icon--gallery",
   sidebar: "components-sidebar--default",
+  "navigation-header": "components-navigationheader--default",
   menu: "components-menu--default",
   container: "components-container--fixed",
   grid: "components-grid--desktop",
   "search-input": "components-searchinput--default",
+  "text-input": "components-textinput--default",
   select: "components-select--default",
   "date-picker": "components-datepicker--default",
   card: "components-card--default",
@@ -23,10 +25,12 @@ const docsIds = {
   button: "components-button--docs",
   icon: "components-icon--docs",
   sidebar: "components-sidebar--docs",
+  "navigation-header": "components-navigationheader--docs",
   menu: "components-menu--docs",
   container: "components-container--docs",
   grid: "components-grid--docs",
   "search-input": "components-searchinput--docs",
+  "text-input": "components-textinput--docs",
   select: "components-select--docs",
   "date-picker": "components-datepicker--docs",
   card: "components-card--docs",
@@ -53,6 +57,129 @@ function attrsFor(values) {
     .join(" ");
 }
 
+const adapterRegistry = {
+  button: {
+    adapterId: "button.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "button-adapter",
+    stateMatrixId: "button.default.v1",
+    stateSupports: "default hover focus-visible active disabled loading",
+    domContract: "Button.Root Button.Label Button.Icon"
+  },
+  "navigation-header": {
+    adapterId: "navigation-header.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "navigation-header-adapter",
+    stateMatrixId: "navigation-header.default.v1",
+    stateSupports: "default focus-visible with-sidebar-toggle",
+    domContract: "NavigationHeader.Root NavigationHeader.StartContent NavigationHeader.EndContent Sidebar.CollapseToggle"
+  },
+  sidebar: {
+    adapterId: "sidebar.fully-collapsible-controlled.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "sidebar-adapter",
+    stateMatrixId: "sidebar.fully-collapsible-controlled.v1",
+    stateSupports: "expanded collapsed focus-visible hover nested-expanded nested-collapsed",
+    domContract: "Sidebar.Root Sidebar.Content Sidebar.Section Sidebar.Item Sidebar.Footer Sidebar.UserProfile Sidebar.CollapseToggle"
+  },
+  select: {
+    adapterId: "select.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "select-adapter",
+    stateMatrixId: "select.default.v1",
+    stateSupports: "default hover focus-visible expanded selected disabled error",
+    domContract: "Select.Root Select.Label Select.Trigger Select.Value Select.Listbox Select.Option"
+  },
+  "date-picker": {
+    adapterId: "date-picker.range.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "date-picker-adapter",
+    stateMatrixId: "date-picker.range.v1",
+    stateSupports: "default hover focus-visible open range-start range-end disabled error",
+    domContract: "DatePicker.Root DatePicker.Label DatePicker.Trigger DatePicker.Value DatePicker.Dialog DatePicker.Calendar DatePicker.Footer"
+  },
+  "text-input": {
+    adapterId: "text-input.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "text-input-adapter",
+    stateMatrixId: "text-input.default.v1",
+    stateSupports: "default hover focus-visible disabled readonly error",
+    domContract: "TextInput.Root TextInput.Label TextInput.Input"
+  },
+  "search-input": {
+    adapterId: "search-input.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "search-input-adapter",
+    stateMatrixId: "search-input.default.v1",
+    stateSupports: "default hover focus-visible disabled readonly error",
+    domContract: "SearchInput.Root SearchInput.Label SearchInput.Input SearchInput.Icon"
+  },
+  tabs: {
+    adapterId: "tabs.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "tabs-adapter",
+    stateMatrixId: "tabs.default.v1",
+    stateSupports: "default hover focus-visible selected",
+    domContract: "Tabs.Root Tabs.List Tabs.Trigger Tabs.Panel"
+  },
+  menu: {
+    adapterId: "menu.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "menu-adapter",
+    stateMatrixId: "menu.default.v1",
+    stateSupports: "default hover focus-visible selected expanded collapsed",
+    domContract: "Menu.Root Menu.Trigger Menu.Dropdown Menu.Item"
+  },
+  container: {
+    adapterId: "container.layout.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "container-layout-adapter",
+    stateMatrixId: "container.layout.v1",
+    stateSupports: "default",
+    domContract: "Container.Root Container.Content"
+  },
+  grid: {
+    adapterId: "grid.layout.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "grid-layout-adapter",
+    stateMatrixId: "grid.layout.v1",
+    stateSupports: "default",
+    domContract: "Grid.Root Grid.Item"
+  },
+  card: {
+    adapterId: "card.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "card-adapter",
+    stateMatrixId: "card.default.v1",
+    stateSupports: "default hover focus-visible selected disabled",
+    domContract: "Card.Root Card.Content Card.Action"
+  },
+  tag: {
+    adapterId: "tag.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "tag-adapter",
+    stateMatrixId: "tag.default.v1",
+    stateSupports: "default selected disabled",
+    domContract: "Tag.Root Tag.Label"
+  },
+  "progress-bar": {
+    adapterId: "progress-bar.default.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "progress-bar-adapter",
+    stateMatrixId: "progress-bar.default.v1",
+    stateSupports: "default loading complete error",
+    domContract: "ProgressBar.Root ProgressBar.Track ProgressBar.Indicator ProgressBar.Label"
+  },
+  icon: {
+    adapterId: "icon.gallery.local-adapter.v1",
+    kind: "local-adapter",
+    styleOwner: "icon-adapter",
+    stateMatrixId: "icon.gallery.v1",
+    stateSupports: "default decorative functional inverse",
+    domContract: "Icon.Root Icon.Svg"
+  }
+};
+
 function createRuntime(resolution) {
   const tokenSource = resolution.source_provenance?.token_source || "foundations-colors--docs";
 
@@ -67,6 +194,7 @@ function createRuntime(resolution) {
     const ref = primitive(componentId);
     const storyId = storyIds[componentId] || ref.story_id;
     const docsId = docsIds[componentId] || ref.docs_id;
+    const adapter = adapterRegistry[componentId];
     return attrsFor({
       "data-component-runtime": runtimeName,
       "data-render-source": renderSource,
@@ -78,6 +206,15 @@ function createRuntime(resolution) {
       "data-source-doc-id": docsId,
       "data-pattern": patternId,
       "data-token-source": tokenSource,
+      ...(adapter ? {
+        "data-adapter-id": adapter.adapterId,
+        "data-adapter-kind": adapter.kind,
+        "data-source-integrity": "docs+story+contract+tokens",
+        "data-component-style-owner": adapter.styleOwner,
+        "data-state-matrix-id": adapter.stateMatrixId,
+        "data-state-supports": adapter.stateSupports,
+        "data-dom-contract": adapter.domContract
+      } : {}),
       ...extra
     });
   }
@@ -100,13 +237,17 @@ function createRuntime(resolution) {
     apps: '<rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect>',
     policy: '<path d="M7 3h8l4 4v14H7Z"></path><path d="M15 3v5h5"></path><path d="M10 13h6"></path><path d="M10 17h4"></path>',
     user: '<circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path>',
-    calendar: '<rect x="4" y="5" width="16" height="17" rx="2"></rect><path d="M8 3v4"></path><path d="M16 3v4"></path><path d="M4 10h16"></path>'
+    calendar: '<rect x="4" y="5" width="16" height="17" rx="2"></rect><path d="M8 3v4"></path><path d="M16 3v4"></path><path d="M4 10h16"></path>',
+    dockToLeft: '<rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 4v16"></path><path d="m15 9-3 3 3 3"></path>',
+    dockToRight: '<rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M15 4v16"></path><path d="m9 9 3 3-3 3"></path>'
   };
 
   function icon(name, options = {}) {
     const className = options.className || "snf-icon";
     return `<span class="${escapeHtml(className)}" ${componentAttrs("icon", "dashboard-icon", `icon.${name}`, {
       "data-icon-name": name,
+      "data-icon-role": options.role || "decorative",
+      "data-icon-size": options.size || "1.5rem",
       "aria-hidden": "true"
     })}><svg viewBox="0 0 24 24" focusable="false">${iconPaths[name] || iconPaths.overview}</svg></span>`;
   }
@@ -128,7 +269,26 @@ function createRuntime(resolution) {
       type: options.type || "button",
       "data-button-variant": variant,
       "data-button-size": options.size || defaultComponentSize
-    })}>${children}</button>`;
+    })} ${options.extraAttrs || ""}>${children}</button>`;
+  }
+
+  function textInput(options = {}) {
+    const id = options.id || "text-input";
+    const labelId = `${id}-label`;
+    const inputType = options.type || "text";
+    return `<label class="snf-field snf-text-input-field" ${componentAttrs("text-input", options.pattern || "business-form-field", options.instance || `text-input.${id}`, {
+      "data-text-input-size": options.size || defaultComponentSize,
+      "data-field-control": "root",
+      "data-field-control-kind": "text-input",
+      "data-control-size": options.size || defaultComponentSize,
+      "data-text-input-state": options.state || "default",
+      "data-state-current": options.readonly ? "readonly" : options.disabled ? "disabled" : options.state || "default"
+    })}>
+      <span class="snf-field-label" id="${escapeHtml(labelId)}">${escapeHtml(options.label || "输入")}</span>
+      <span class="snf-control-shell snf-text-input-shell" data-control-shell="field" data-control-kind="text-input" data-text-input-part="root">
+        <input id="${escapeHtml(id)}" class="snf-text-input" type="${escapeHtml(inputType)}" value="${escapeHtml(options.value || "")}" placeholder="${escapeHtml(options.placeholder || "")}" aria-labelledby="${escapeHtml(labelId)}" ${options.readonly ? "readonly" : ""} ${options.disabled ? "disabled" : ""} data-text-input-part="input">
+      </span>
+    </label>`;
   }
 
   function searchInput(options = {}) {
@@ -141,7 +301,7 @@ function createRuntime(resolution) {
     })}>
       <span class="snf-field-label">${escapeHtml(options.label || "搜索")}</span>
       <span class="snf-control-shell snf-search-shell" data-control-shell="field" data-control-kind="search-input">
-        ${icon(options.icon || "filter", { className: "snf-search-icon" })}
+        ${icon(options.icon || "filter", { className: "snf-search-icon", role: "form-control" })}
         <input id="${escapeHtml(id)}" class="snf-search-input" type="search" placeholder="${escapeHtml(options.placeholder || "Type in to search")}" aria-label="${escapeHtml(options.ariaLabel || options.label || "Search")}">
       </span>
     </label>`;
@@ -167,15 +327,17 @@ function createRuntime(resolution) {
       "data-native": "false",
       "data-field-control": "root",
       "data-field-control-kind": "select",
-      "data-control-size": options.size || defaultComponentSize
+      "data-control-size": options.size || defaultComponentSize,
+      "data-select-part": "root",
+      "data-state-current": "default"
     })}>
       <span class="snf-field-label" id="${escapeHtml(labelId)}">${escapeHtml(options.label || "Select")}</span>
-      <div class="snf-select-shell" data-select-part="root">
-        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)} ${escapeHtml(id)}-value" aria-controls="${escapeHtml(listboxId)}" data-control-shell="field" data-control-kind="select" data-select-trigger>
+      <div class="snf-select-shell" data-select-part="shell">
+        <button class="snf-control-shell snf-select-trigger" type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)} ${escapeHtml(id)}-value" aria-controls="${escapeHtml(listboxId)}" data-control-shell="field" data-control-kind="select" data-select-part="trigger" data-select-trigger>
           <span class="snf-select-value" id="${escapeHtml(id)}-value" data-select-value>${escapeHtml(selected.label || selected.value)}</span>
-          ${icon("chevronDown", { className: "snf-select-chevron" })}
+          ${icon("chevronDown", { className: "snf-select-chevron", role: "form-control" })}
         </button>
-        <ul class="snf-select-listbox" role="listbox" id="${escapeHtml(listboxId)}" aria-labelledby="${escapeHtml(labelId)}" hidden data-select-listbox>
+        <ul class="snf-select-listbox" role="listbox" id="${escapeHtml(listboxId)}" aria-labelledby="${escapeHtml(labelId)}" hidden data-select-part="listbox" data-select-listbox>
           ${optionMarkup}
         </ul>
       </div>
@@ -190,11 +352,19 @@ function createRuntime(resolution) {
     const labelId = `${id}-label`;
     const valueId = `${id}-value`;
     const dialogId = `${id}-dialog`;
+    const controlKind = options.controlKind || "date-picker";
     const storyId = options.storyId || (mode === "range"
       ? "components-datepicker--range"
       : selectorType === "month"
         ? "components-datepicker--month-picker"
         : "components-datepicker--medium-size");
+    const weekdays = ["一", "二", "三", "四", "五", "六", "日"];
+    const days = Array.from({ length: 30 }, (_, index) => index + 1);
+    const dateCells = days.map((day) => {
+      const state = day === 1 ? "range-start" : day === 15 ? "range-end" : day > 1 && day < 15 ? "in-range" : "available";
+      const selectedAttrs = day === 1 || day === 15 ? 'aria-selected="true"' : 'aria-selected="false"';
+      return `<button class="snf-date-picker-day" type="button" role="gridcell" ${selectedAttrs} data-date-picker-part="day" data-date-state="${state}">${day}</button>`;
+    }).join("");
     return `<div class="snf-field snf-date-picker-field" ${componentAttrs("date-picker", options.pattern || "business-form-field", options.instance || `date-picker.${id}`, {
       "data-story-id": storyId,
       "data-date-picker-root": "true",
@@ -205,23 +375,31 @@ function createRuntime(resolution) {
       "data-date-picker-selector-type": selectorType,
       "data-date-picker-clearable": options.clearable === false ? "false" : "true",
       "data-field-control": "root",
-      "data-field-control-kind": "date-picker",
-      "data-control-size": options.size || defaultComponentSize
+      "data-field-control-kind": controlKind,
+      "data-control-size": options.size || defaultComponentSize,
+      "data-date-picker-part": "root",
+      "data-state-current": "default"
     })}>
       <span class="snf-field-label" id="${escapeHtml(labelId)}">${escapeHtml(options.label || "Date")}</span>
-      <div class="snf-date-picker-shell" data-date-picker-part="root">
-        <button class="snf-control-shell snf-date-picker-trigger" type="button" role="combobox" aria-haspopup="dialog" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)} ${escapeHtml(valueId)}" aria-controls="${escapeHtml(dialogId)}" data-control-shell="field" data-control-kind="date-picker" data-date-picker-trigger="true">
+      <div class="snf-date-picker-shell" data-date-picker-part="shell">
+        <button class="snf-control-shell snf-date-picker-trigger" type="button" role="combobox" aria-haspopup="dialog" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)} ${escapeHtml(valueId)}" aria-controls="${escapeHtml(dialogId)}" data-control-shell="field" data-control-kind="${escapeHtml(controlKind)}" data-date-picker-trigger="true">
           <span class="snf-date-picker-value" id="${escapeHtml(valueId)}" data-date-picker-value>${escapeHtml(value)}</span>
-          ${icon("calendar", { className: "snf-date-picker-icon" })}
+          ${icon("calendar", { className: "snf-date-picker-icon", role: "form-control" })}
         </button>
         <div class="snf-date-picker-dialog" id="${escapeHtml(dialogId)}" role="dialog" aria-modal="false" aria-labelledby="${escapeHtml(labelId)}" hidden data-date-picker-dialog="true">
           <div class="snf-date-picker-dialog-head">
-            <span>${escapeHtml(mode === "range" ? "选择日期范围" : "选择日期")}</span>
+            <button class="snf-date-picker-nav" type="button" aria-label="上一个月">${icon("chevronRight", { className: "snf-date-picker-nav-icon", role: "form-control" })}</button>
+            <span class="snf-date-picker-month">${escapeHtml(mode === "range" ? "2026年6月" : "选择日期")}</span>
+            <button class="snf-date-picker-nav" type="button" aria-label="下一个月">${icon("chevronRight", { className: "snf-date-picker-nav-icon", role: "form-control" })}</button>
             <button class="snf-date-picker-close" type="button" aria-label="关闭日期选择" data-date-picker-close>×</button>
           </div>
-          <div class="snf-date-picker-calendar" data-date-picker-calendar="${escapeHtml(selectorType)}">
-            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
-            <button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6</button><button type="button">7</button>
+          <div class="snf-date-picker-calendar" role="grid" aria-label="${escapeHtml(options.label || "Date")}" data-date-picker-calendar="${escapeHtml(selectorType)}" data-date-picker-part="calendar">
+            ${weekdays.map((day) => `<span role="columnheader" data-date-picker-part="weekday">${day}</span>`).join("")}
+            ${dateCells}
+          </div>
+          <div class="snf-date-picker-footer" data-date-picker-part="footer">
+            <span>${escapeHtml(mode === "range" ? "已选择 2026-06-01 至 2026-06-30" : value)}</span>
+            <button class="snf-button snf-button--primary" type="button" data-date-picker-apply="true">确认</button>
           </div>
         </div>
       </div>
@@ -265,22 +443,70 @@ function createRuntime(resolution) {
     const items = options.items || [];
     const itemMarkup = items.map((item) => {
       const hasChildren = Array.isArray(item.children) && item.children.length;
-      const childMarkup = hasChildren ? `<ul class="snf-nav-children" role="list" ${item.expanded ? "" : "hidden"}>${item.children.map((child) => `<li data-sidebar-part="item"><a class="snf-nav-child" href="${escapeHtml(child.href || "#")}">${escapeHtml(child.label)}</a></li>`).join("")}</ul>` : "";
-      return `<li data-sidebar-part="item">
-        <a class="snf-nav-link" href="${escapeHtml(item.href || "#")}" ${item.active ? 'aria-current="page"' : ""} ${hasChildren ? `aria-expanded="${item.expanded ? "true" : "false"}" data-sidebar-toggle` : ""}>
-          <span class="snf-nav-item-main">${icon(item.icon || "overview")}${escapeHtml(item.label)}</span>
-          ${hasChildren ? icon("chevronDown", { className: "snf-nav-chevron" }) : ""}
+      const childMarkup = hasChildren ? `<ul class="snf-nav-children" role="list" data-sidebar-component="Sidebar.NestedItems" ${item.expanded ? "" : "hidden"}>${item.children.map((child) => `<li data-sidebar-part="item" data-sidebar-component="Sidebar.Item"><a class="snf-nav-child" href="${escapeHtml(child.href || "#")}" ${child.active ? 'aria-current="page"' : ""}>${escapeHtml(child.label)}</a></li>`).join("")}</ul>` : "";
+      return `<li data-sidebar-part="item" data-sidebar-component="Sidebar.Item">
+        <a class="snf-nav-link" href="${escapeHtml(item.href || "#")}" ${item.active ? 'aria-current="page"' : ""} ${hasChildren ? `aria-expanded="${item.expanded ? "true" : "false"}" data-sidebar-toggle data-sidebar-component="Sidebar.Item.Toggle"` : ""}>
+          <span class="snf-nav-item-main">${icon(item.icon || "overview", { role: "navigation" })}${escapeHtml(item.label)}</span>
+          ${hasChildren ? icon("chevronDown", { className: "snf-nav-chevron", role: "sidebar-toggle" }) : ""}
         </a>
         ${childMarkup}
       </li>`;
     }).join("");
-    return `<aside class="snf-sidebar" data-template-part="sidebar" data-sidebar-part="root" aria-label="${escapeHtml(options.ariaLabel || "应用导航")}" ${componentAttrs("sidebar", "admin-dashboard-sidebar", options.instance || "sidebar.primary")}>
-      <div class="snf-sidebar-heading" data-sidebar-part="header">${escapeHtml(options.heading || "导航")}</div>
-      <nav class="snf-sidebar-content" data-sidebar-part="content" aria-label="${escapeHtml(options.navLabel || "主导航")}" ${componentAttrs("menu", "admin-dashboard-navigation", "menu.primary")}>
-        <section data-sidebar-part="section"><ul class="snf-nav-list" role="list">${itemMarkup}</ul></section>
+    return `<aside class="snf-sidebar" data-template-part="sidebar" data-sidebar-part="root" data-sidebar-component="Sidebar.Root" aria-label="${escapeHtml(options.ariaLabel || "应用导航")}" ${componentAttrs("sidebar", options.pattern || "admin-dashboard-sidebar", options.instance || "sidebar.primary", {
+      "data-story-id": options.storyId || "components-sidebar--fully-collapsible-controlled",
+      "data-source-doc-id": "components-sidebar--docs foundations-motion--docs",
+      "data-nav-default": "with-icons",
+      "data-sidebar-state": options.collapsed ? "collapsed" : "expanded",
+      "data-state-current": options.collapsed ? "collapsed" : "expanded",
+      "data-sidebar-controlled": options.controlled === false ? "false" : "true",
+      "data-sidebar-collapsible": "true",
+      "data-sidebar-fully-collapsible": options.fullyCollapsible === false ? "false" : "true",
+      "data-motion-role": "collapsible-sidebar",
+      "data-motion-duration-token": "--elements-motion-duration-300",
+      "data-motion-easing-token": "--elements-motion-ease-in-out"
+    })}>
+      <div class="snf-sidebar-heading" data-sidebar-part="header" data-sidebar-component="Sidebar.Header">${escapeHtml(options.heading || "导航")}</div>
+      <nav class="snf-sidebar-content" data-sidebar-part="content" data-sidebar-component="Sidebar.Content" aria-label="${escapeHtml(options.navLabel || "主导航")}" ${componentAttrs("menu", "admin-dashboard-navigation", "menu.primary")}>
+        <section data-sidebar-part="section" data-sidebar-component="Sidebar.Section"><ul class="snf-nav-list" role="list">${itemMarkup}</ul></section>
       </nav>
-      <footer class="snf-sidebar-footer" data-sidebar-part="footer" data-source-doc-id="components-sidebar--docs"><span data-sidebar-part="userProfile">${escapeHtml(options.footer || "")}</span></footer>
+      <footer class="snf-sidebar-footer" data-sidebar-part="footer" data-sidebar-component="Sidebar.Footer" data-source-doc-id="components-sidebar--docs"><span data-sidebar-part="userProfile" data-sidebar-component="Sidebar.UserProfile">${escapeHtml(options.footer || "")}</span></footer>
     </aside>`;
+  }
+
+  function sidebarCollapseToggle(options = {}) {
+    return `<button class="snf-sidebar-collapse-toggle" type="button" aria-label="${escapeHtml(options.label || "收起侧边栏")}" aria-expanded="true" ${componentAttrs("button", "sidebar-collapse-toggle", options.instance || "button.sidebar-collapse", {
+      "data-story-id": "components-sidebar--fully-collapsible-controlled",
+      "data-source-doc-id": "components-sidebar--docs foundations-motion--docs",
+      "data-source-component": "sidebar",
+      "data-sidebar-collapse": "true",
+      "data-sidebar-component": "Sidebar.CollapseToggle",
+      "data-sidebar-toggle-state": "expanded",
+      "data-motion-trigger": "sidebar-collapse-toggle",
+      "data-motion-duration-token": "--elements-motion-duration-300",
+      "data-motion-easing-token": "--elements-motion-ease-in-out"
+    })}>
+        <span data-toggle-icon-state="expanded">${icon("dockToRight", { role: "sidebar-collapse" })}</span>
+        <span data-toggle-icon-state="collapsed">${icon("dockToLeft", { role: "sidebar-collapse" })}</span>
+      </button>`;
+  }
+
+  function navigationHeader(options = {}) {
+    const headerLead = options.headerLead ? `${options.headerLead}\n          ` : "";
+    return `<header class="topbar snf-navigation-header" role="banner" data-app-shell-part="topbar" data-scroll-fixed="true" ${componentAttrs("navigation-header", options.pattern || "business-admin-header", options.instance || "navigation-header.primary", {
+      "data-story-id": options.storyId || "components-navigationheader--default",
+      "data-source-doc-id": "components-navigationheader--docs foundations-elevation--docs",
+      "data-elevation-role": "header",
+      "data-elevation-token": "--elements-core-elevation-02",
+      "data-navigation-header-part": "root",
+      "data-navigation-header-component": "NavigationHeader.Root"
+    })}>
+        <div class="brand snf-navigation-header-start" data-navigation-header-part="startContent" data-navigation-header-component="NavigationHeader.StartContent">
+          ${headerLead}${brandLogo({ className: "snf-brand-logo", alt: "Sanofi" })}
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="app-name">${escapeHtml(options.appName || "OneCommercial 业务管理")}</span>
+        </div>
+        <div class="topbar-actions snf-navigation-header-end" data-navigation-header-part="endContent" data-navigation-header-component="NavigationHeader.EndContent">${options.userActionBefore || ""}<span class="user-chip ${escapeHtml(options.userChipClass || "")}">${escapeHtml(options.userLabel || "张敏 · 区域运营")}</span>${options.userAction || ""}</div>
+      </header>`;
   }
 
   function containerStart(extra = {}) {
@@ -329,6 +555,7 @@ function createRuntime(resolution) {
     icon,
     brandLogo,
     button,
+    textInput,
     searchInput,
     select,
     datePicker,
@@ -337,6 +564,8 @@ function createRuntime(resolution) {
     card,
     tabs,
     sidebar,
+    sidebarCollapseToggle,
+    navigationHeader,
     containerStart,
     containerEnd,
     gridStart,
@@ -367,6 +596,11 @@ function runtimeStyles() {
       .snf-nav-link:hover, .snf-nav-child:hover { background: var(--dashboard-active-bg); }
       .snf-nav-item-main { display: flex; align-items: center; gap: var(--elements-spacing-md); }
       .snf-sidebar-footer { border-block-start: 0.0625rem solid var(--dashboard-border); padding: var(--elements-spacing-sm); color: var(--elements-color-semantic-text-subtle_inverse); }
+      .snf-sidebar-collapse-toggle { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border: 0.0625rem solid transparent; border-radius: var(--elements-radius-sm); background: transparent; color: var(--elements-color-semantic-text-default_inverse); cursor: pointer; }
+      .snf-sidebar-collapse-toggle:hover { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); }
+      .snf-sidebar-collapse-toggle [data-toggle-icon-state="collapsed"] { display: none; }
+      .shell.is-sidebar-collapsed .snf-sidebar-collapse-toggle [data-toggle-icon-state="expanded"] { display: none; }
+      .shell.is-sidebar-collapsed .snf-sidebar-collapse-toggle [data-toggle-icon-state="collapsed"] { display: inline-flex; }
       .snf-container { inline-size: 100%; min-inline-size: 0; max-inline-size: var(--elements-container-width-2xl); margin-inline: auto; }
       .snf-container-content { inline-size: 100%; min-inline-size: 0; padding-inline: var(--elements-spacing-xl); }
       .snf-layout-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--elements-grid-gutter-lg); align-items: start; min-inline-size: 0; }
@@ -375,6 +609,9 @@ function runtimeStyles() {
       .snf-control-shell { inline-size: 100%; min-inline-size: 0; min-block-size: 2.5rem; border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); color: var(--elements-color-semantic-text-default_inverse); }
       .snf-search-shell { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--elements-spacing-2xs); padding-inline: var(--elements-spacing-sm); }
       .snf-search-input { inline-size: 100%; min-inline-size: 0; min-block-size: 2.25rem; border: 0; background: transparent; color: inherit; padding: 0; font: inherit; outline: 0; }
+      .snf-text-input-shell { display: grid; align-items: center; padding-inline: var(--elements-spacing-sm); }
+      .snf-text-input { inline-size: 100%; min-inline-size: 0; min-block-size: 2.25rem; border: 0; background: transparent; color: inherit; padding: 0; font: inherit; outline: 0; }
+      .snf-text-input[readonly] { color: var(--elements-color-semantic-text-subtle_inverse); }
       .snf-select-shell { position: relative; min-inline-size: 0; }
       .snf-select-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); padding-inline: var(--elements-spacing-sm); font: inherit; cursor: pointer; }
       .snf-select-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
@@ -388,11 +625,18 @@ function runtimeStyles() {
       .snf-date-picker-trigger:hover { border-color: var(--elements-color-semantic-accent-default); }
       .snf-date-picker-dialog { position: absolute; inset-block-start: calc(100% + var(--elements-spacing-3xs)); inset-inline-start: 0; z-index: 25; min-inline-size: 18rem; padding: var(--elements-spacing-sm); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); background: var(--dashboard-surface-bg); box-shadow: var(--elements-core-elevation-02); }
       .snf-date-picker-dialog[hidden] { display: none; }
-      .snf-date-picker-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); margin-block-end: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
-      .snf-date-picker-close { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border: 0; border-radius: var(--elements-radius-rounded); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+      .snf-date-picker-dialog-head { display: grid; grid-template-columns: 2rem minmax(0, 1fr) 2rem 2rem; align-items: center; gap: var(--elements-spacing-sm); margin-block-end: var(--elements-spacing-sm); font-weight: var(--elements-font-weight-bold); }
+      .snf-date-picker-month { text-align: center; }
+      .snf-date-picker-nav, .snf-date-picker-close { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border: 0; border-radius: var(--elements-radius-rounded); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+      .snf-date-picker-nav:first-child { transform: rotate(180deg); }
+      .snf-date-picker-nav:hover, .snf-date-picker-close:hover { background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-accent-default); }
       .snf-date-picker-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--elements-spacing-3xs); text-align: center; font-size: var(--elements-font-size-100); }
       .snf-date-picker-calendar span { color: var(--elements-color-semantic-text-subtle_inverse); }
-      .snf-date-picker-calendar button { min-block-size: 2rem; border: 0.0625rem solid transparent; border-radius: var(--elements-radius-sm); background: var(--dashboard-active-bg); color: var(--elements-color-semantic-text-default_inverse); font: inherit; cursor: pointer; }
+      .snf-date-picker-calendar button { min-block-size: 2rem; border: 0.0625rem solid transparent; border-radius: var(--elements-radius-sm); background: transparent; color: var(--elements-color-semantic-text-default_inverse); font: inherit; cursor: pointer; }
+      .snf-date-picker-day:hover { border-color: var(--elements-color-semantic-accent-default); }
+      .snf-date-picker-day[data-date-state="in-range"] { background: var(--dashboard-active-bg); }
+      .snf-date-picker-day[data-date-state="range-start"], .snf-date-picker-day[data-date-state="range-end"] { background: var(--elements-color-semantic-accent-default); color: var(--elements-color-components-tooltip-bg-default); }
+      .snf-date-picker-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-sm); margin-block-start: var(--elements-spacing-sm); padding-block-start: var(--elements-spacing-sm); border-block-start: 0.0625rem solid var(--dashboard-border); color: var(--elements-color-semantic-text-subtle_inverse); font-size: var(--elements-font-size-100); }
       .snf-card { display: grid; gap: var(--elements-spacing-md); min-block-size: 11rem; padding: var(--elements-spacing-lg); background: var(--dashboard-surface-bg); border: 0.0625rem solid var(--dashboard-border); border-radius: var(--elements-radius-sm); }
       .snf-tag { display: inline-flex; align-items: center; inline-size: fit-content; border: 0.0625rem solid var(--elements-color-components-tag-branded-border); border-radius: var(--elements-radius-rounded); background: var(--elements-color-components-tag-branded-bg-subtle); color: var(--elements-color-components-tag-branded-text); padding: var(--elements-spacing-3xs) var(--elements-spacing-sm); font-size: var(--elements-font-size-200); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
       .snf-tag--semantic-success { border-color: var(--elements-color-components-tag-semantic_green-border); background: var(--elements-color-components-tag-semantic_green-bg-solid); color: var(--elements-color-components-tag-semantic_green-text-inverse); }
@@ -401,7 +645,7 @@ function runtimeStyles() {
       .snf-tabs { display: flex; gap: var(--elements-spacing-sm); border-block-end: 0.0625rem solid var(--dashboard-border); margin-block-end: var(--elements-spacing-md); }
       .snf-tab { border: 0; border-block-end: 0.1875rem solid transparent; background: transparent; color: var(--elements-color-semantic-text-default_inverse); padding: var(--elements-spacing-sm) var(--elements-spacing-md); font: inherit; font-weight: var(--elements-font-weight-bold); cursor: pointer; }
       .snf-tab[aria-selected="true"] { color: var(--elements-color-semantic-text-accent-default); border-block-end-color: var(--elements-color-semantic-accent-default); }
-      .snf-button:focus-visible, .snf-nav-link:focus-visible, .snf-nav-child:focus-visible, .snf-control-shell:focus-within, .snf-control-shell:focus-visible, .snf-tab:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }`;
+      .snf-button:focus-visible, .snf-sidebar-collapse-toggle:focus-visible, .snf-nav-link:focus-visible, .snf-nav-child:focus-visible, .snf-control-shell:focus-within, .snf-control-shell:focus-visible, .snf-date-picker-nav:focus-visible, .snf-date-picker-close:focus-visible, .snf-date-picker-day:focus-visible, .snf-tab:focus-visible { outline: 0.1875rem solid var(--elements-color-semantic-accent-focus); outline-offset: var(--elements-spacing-3xs); }`;
 }
 
 function runtimeScript() {
@@ -412,6 +656,7 @@ function runtimeScript() {
           const listbox = root.querySelector("[data-select-listbox]");
           if (!trigger || !listbox) return;
           trigger.setAttribute("aria-expanded", "false");
+          root.setAttribute("data-state-current", "default");
           listbox.hidden = true;
         };
 
@@ -424,6 +669,7 @@ function runtimeScript() {
           trigger.addEventListener("click", () => {
             const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
             trigger.setAttribute("aria-expanded", String(nextExpanded));
+            root.setAttribute("data-state-current", nextExpanded ? "expanded" : "default");
             listbox.hidden = !nextExpanded;
           });
 
@@ -448,6 +694,7 @@ function runtimeScript() {
           const dialog = root.querySelector("[data-date-picker-dialog='true']");
           if (!trigger || !dialog) return;
           trigger.setAttribute("aria-expanded", "false");
+          root.setAttribute("data-state-current", "default");
           dialog.hidden = true;
         };
 
@@ -459,6 +706,7 @@ function runtimeScript() {
           trigger.addEventListener("click", () => {
             const nextExpanded = trigger.getAttribute("aria-expanded") !== "true";
             trigger.setAttribute("aria-expanded", String(nextExpanded));
+            root.setAttribute("data-state-current", nextExpanded ? "open" : "default");
             dialog.hidden = !nextExpanded;
           });
 
@@ -487,8 +735,22 @@ function runtimeScript() {
             event.preventDefault();
             const expanded = toggle.getAttribute("aria-expanded") === "true";
             toggle.setAttribute("aria-expanded", String(!expanded));
-            const children = toggle.parentElement?.querySelector(".snf-nav-children");
+            const children = toggle.parentElement?.querySelector(".nav-sub-list, .snf-nav-children");
             if (children) children.hidden = expanded;
+          });
+        });
+
+        document.querySelectorAll("[data-sidebar-collapse='true']").forEach((button) => {
+          button.addEventListener("click", () => {
+            const shell = button.closest("[data-app-shell='business-admin']");
+            const sidebar = shell?.querySelector("[data-sidebar-part='root']");
+            if (!shell || !sidebar) return;
+            const collapsed = shell.classList.toggle("is-sidebar-collapsed");
+            sidebar.setAttribute("data-sidebar-state", collapsed ? "collapsed" : "expanded");
+            sidebar.setAttribute("data-state-current", collapsed ? "collapsed" : "expanded");
+            button.setAttribute("aria-label", collapsed ? "展开侧边栏" : "收起侧边栏");
+            button.setAttribute("aria-expanded", String(!collapsed));
+            button.setAttribute("data-sidebar-toggle-state", collapsed ? "collapsed" : "expanded");
           });
         });
       })();

@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-component-source-resolution",
+  "status": "pass",
+  "target": "outputs/reports/component-source-resolution.json",
+  "checked": {
+    "suite": "oneorbit-approval-suite",
+    "decision_count": 12,
+    "required_targets": [
+      "table",
+      "date-range",
+      "message-list",
+      "chart"
+    ],
+    "first_round_targets": [
+      "select",
+      "search-input",
+      "button",
+      "tabs",
+      "sidebar",
+      "menu",
+      "card",
+      "icon"
+    ]
+  },
+  "failures": []
+}

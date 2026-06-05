@@ -1,0 +1,103 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const { spawnSync } = require("child_process");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const renderReportPath = path.join(reportDir, "page-suite-render.report.json");
+
+function parseArgs(argv) {
+  const parsed = {
+    suite: "oneorbit-approval-suite",
+    page: "query-list"
+  };
+  for (let index = 2; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--suite") {
+      parsed.suite = argv[index + 1];
+      index += 1;
+    } else if (arg.startsWith("--suite=")) {
+      parsed.suite = arg.slice("--suite=".length);
+    } else if (arg === "--page") {
+      parsed.page = argv[index + 1];
+      index += 1;
+    } else if (arg.startsWith("--page=")) {
+      parsed.page = arg.slice("--page=".length);
+    }
+  }
+  return parsed;
+}
+
+function run(command, args) {
+  const result = spawnSync(command, args, {
+    cwd: pluginRoot,
+    stdio: "pipe",
+    encoding: "utf8"
+  });
+  return {
+    command: [command, ...args].join(" "),
+    status: result.status,
+    stdout: result.stdout.trim(),
+    stderr: result.stderr.trim()
+  };
+}
+
+function fail(message, steps) {
+  fs.mkdirSync(reportDir, { recursive: true });
+  fs.writeFileSync(renderReportPath, JSON.stringify({
+    schema_version: "0.1.0",
+    script: "render-page-suite-html",
+    status: "fail",
+    message,
+    steps
+  }, null, 2) + "\n");
+  console.error(message);
+  process.exit(1);
+}
+
+const args = parseArgs(process.argv);
+fs.mkdirSync(reportDir, { recursive: true });
+
+const suitePath = path.join(pluginRoot, "design-system", "page-suites", `${args.suite}.contract.json`);
+if (!fs.existsSync(suitePath)) fail(`missing suite: ${suitePath}`, []);
+
+const suite = JSON.parse(fs.readFileSync(suitePath, "utf8"));
+const route = (suite.routes || []).find((item) => item.id === args.page);
+if (!route) fail(`suite ${args.suite} does not define page ${args.page}`, []);
+
+const steps = [];
+for (const step of [
+  ["scripts/resolve-component-sources", ["--suite", args.suite]],
+  ["scripts/validate-component-source-resolution", ["outputs/reports/component-source-resolution.json"]],
+  ["scripts/validate-page-suite", [path.relative(pluginRoot, suitePath)]]
+]) {
+  const result = run(step[0], step[1]);
+  steps.push(result);
+  if (result.status !== 0) fail(`page-suite preflight failed: ${result.command}`, steps);
+}
+
+if (args.suite === "oneorbit-approval-suite" && ["query-list", "message-todo"].includes(args.page)) {
+  const result = run("scripts/render-oneorbit-reference-html", []);
+  steps.push(result);
+  if (result.status !== 0) fail(`OneOrbit renderer failed: ${result.command}`, steps);
+} else if (args.page === "report-dashboard") {
+  const result = run("scripts/render-dashboard-template-html", []);
+  steps.push(result);
+  if (result.status !== 0) fail(`report dashboard renderer failed: ${result.command}`, steps);
+} else {
+  fail(`no renderer is registered for ${args.suite}/${args.page}`, steps);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "render-page-suite-html",
+  status: "pass",
+  suite: args.suite,
+  page: args.page,
+  route,
+  steps
+};
+
+fs.writeFileSync(renderReportPath, JSON.stringify(report, null, 2) + "\n");
+console.log(`Page suite render OK: ${args.suite}/${args.page} -> ${route.output}`);

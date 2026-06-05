@@ -2,7 +2,7 @@
   "schema_version": "0.1.0",
   "status": "pass",
   "script": "validate-business-standards",
-  "generated_at": "2026-06-04T13:36:40.863Z",
+  "generated_at": "2026-06-05T01:21:48.530Z",
   "checked": {
     "coverage_areas": 15,
     "page_profiles": 10,

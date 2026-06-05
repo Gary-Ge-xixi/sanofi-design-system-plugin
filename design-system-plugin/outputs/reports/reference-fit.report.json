@@ -2,38 +2,46 @@
   "schema_version": "0.1.0",
   "status": "pass",
   "script": "validate-reference-fit",
-  "target": "outputs/html/business-planning-target-adjustment.resolved.html",
-  "selected_rule_key": "business-page-family",
-  "reference_fit": "business-page-family-reference-fit",
-  "reference_fit_path": "design-system/reference-fit/business-page-family.rules.json",
-  "page_profile": "admin-data-entry-table",
-  "page_family": "admin-data-entry-table",
+  "target": "outputs/html/oneorbit-message-todo.resolved.html",
+  "selected_rule_key": "oneorbit-approval-suite",
+  "reference_fit": "oneorbit-approval-suite-reference-fit",
+  "reference_fit_path": "design-system/reference-fit/oneorbit-approval-suite.rules.json",
+  "page_profile": "oneorbit-message-todo",
+  "page_family": "approval-workflow",
   "checked": {
-    "page_family": "admin-data-entry-table",
-    "page_profile": "admin-data-entry-table",
-    "reference_fit": "business-page-family",
-    "fallback_modules": 1,
-    "fallback_reasons": 1,
-    "required_sections": {}
+    "oneorbit_page": "message-todo",
+    "page_profile": "oneorbit-message-todo",
+    "native_selects": 0,
+    "large_size_attrs": 0,
+    "mobile_fragments": 0,
+    "official_runtime_claims": 0,
+    "visible_native_select_claims": 0,
+    "sections": {
+      "navigation-header": true,
+      "hero": true,
+      "metric-summary": true,
+      "application-list": true,
+      "message-list-fallback": true
+    },
+    "card_runtime": 9,
+    "button_runtime": 5,
+    "icon_runtime": 6,
+    "message_cards": 5,
+    "application_cards": 2,
+    "metric_cards": 2,
+    "message_list_fallback": 1,
+    "notification_badges": 1
   },
   "screenshot_gate": {
-    "viewports": [
-      {
-        "name": "desktop-reference",
-        "width": 1440,
-        "height": 900
-      },
-      {
-        "name": "wide-reference",
-        "width": 2048,
-        "height": 1152
-      }
-    ],
-    "threshold_policy": [
-      "No horizontal overflow on desktop unless the page profile explicitly permits a scrollable data grid.",
-      "Primary task controls must be visible in the first viewport.",
-      "Text must not overlap controls, charts, tables, or sticky bars.",
-      "Fallback modules must expose a visible fallback reason in audit HTML."
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "must_check": [
+      "no horizontal overflow",
+      "no page-edge content attachment",
+      "no overlapping controls",
+      "runtime select/date-range interactions visible"
     ]
   },
   "failures": []

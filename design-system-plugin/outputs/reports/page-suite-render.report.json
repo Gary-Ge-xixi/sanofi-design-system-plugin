@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1.0",
+  "script": "render-page-suite-html",
+  "status": "pass",
+  "suite": "oneorbit-approval-suite",
+  "page": "message-todo",
+  "route": {
+    "id": "message-todo",
+    "title": "OneOrbit消息待办",
+    "block": "sanofi-oneorbit-message-todo-block",
+    "output": "outputs/html/oneorbit-message-todo.resolved.html",
+    "required_sections": [
+      "topbar",
+      "welcome",
+      "metric-summary",
+      "application-list",
+      "message-list"
+    ]
+  },
+  "steps": [
+    {
+      "command": "scripts/resolve-component-sources --suite oneorbit-approval-suite",
+      "status": 0,
+      "stdout": "Component source resolution OK: outputs/reports/component-source-resolution.json",
+      "stderr": ""
+    },
+    {
+      "command": "scripts/validate-component-source-resolution outputs/reports/component-source-resolution.json",
+      "status": 0,
+      "stdout": "Component source resolution OK: outputs/reports/component-source-resolution.json",
+      "stderr": ""
+    },
+    {
+      "command": "scripts/validate-page-suite design-system/page-suites/oneorbit-approval-suite.contract.json",
+      "status": 0,
+      "stdout": "Page suite OK: design-system/page-suites/oneorbit-approval-suite.contract.json",
+      "stderr": ""
+    },
+    {
+      "command": "scripts/render-oneorbit-reference-html",
+      "status": 0,
+      "stdout": "Rendered OneOrbit reference HTML: design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html, design-system-plugin/outputs/html/oneorbit-message-todo.resolved.html",
+      "stderr": ""
+    }
+  ]
+}

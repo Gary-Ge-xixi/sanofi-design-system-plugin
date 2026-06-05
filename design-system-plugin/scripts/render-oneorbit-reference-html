@@ -18,7 +18,7 @@ const reportDir = path.join(pluginRoot, "outputs", "reports");
 const sourceMapJsonPath = path.join(reportDir, "oneorbit-component-source-map.json");
 const sourceMapMdPath = path.join(reportDir, "oneorbit-component-source-map.md");
 const renderReportPath = path.join(reportDir, "oneorbit-render.report.json");
-const sourceResolutionJsonPath = path.join(reportDir, "oneorbit-component-source-resolution.json");
+const sourceResolutionJsonPath = path.join(reportDir, "component-source-resolution.json");
 const sourceEntryKeys = new Set();
 
 const outputFiles = {
@@ -92,7 +92,6 @@ const runtimeResolution = {
     ],
     fallback_reasons: [
       "No official Table/DataTable/DataGrid runtime component is registered locally.",
-      "No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives.",
       "No MessageList runtime primitive is registered locally, so messages use Card/Button/Icon runtime parts inside a compound list."
     ]
   },
@@ -111,10 +110,6 @@ const runtimeResolution = {
     {
       module: "table",
       reason: "No official Table/DataTable/DataGrid runtime component is registered locally."
-    },
-    {
-      module: "date-range",
-      reason: "No local DateRange runtime adapter is registered, so range fields are docs-backed static primitives."
     },
     {
       module: "message-list",
@@ -217,12 +212,12 @@ function oneOrbitHeader(page, options = {}) {
     region: "Topbar",
     component_name: "NavigationHeader",
     component_id: "navigation-header",
-    classification: "docs-backed primitive",
+    classification: "runtime component",
     story_id: "components-navigationheader--default",
     docs_id: "components-navigationheader--docs",
     usage: "页面顶栏、Sanofi logo、OneOrbit 产品名、右侧头像和通知入口",
-    layout_basis: "NavigationHeader docs: sticky top application navigation with logo and actions",
-    source_file: "design-system-plugin/design-system/knowledge/docs/components-navigationheader--docs.md",
+    layout_basis: "NavigationHeader docs + local adapter: sticky top application navigation with logo and actions",
+    source_file: localRuntimeSource,
     source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-navigationheader--docs"
   });
   sourceEntry({
@@ -243,17 +238,17 @@ function oneOrbitHeader(page, options = {}) {
     ? `<span class="oo-notification-badge" aria-label="未读消息">${escapeHtml(options.notification)}</span>`
     : "";
 
-  return `<header class="oo-topbar" ${primitiveAttrs("navigation-header", "oneorbit-topbar", `${page}.topbar`)}>
-    <div class="oo-brand-lockup">
-      ${runtime.brandLogo({ className: "oo-brand-logo" })}
-      <span class="oo-brand-divider" aria-hidden="true"></span>
-      <span class="oo-product-name">OneOrbit</span>
-    </div>
-    <div class="oo-topbar-actions">
-      ${notification}
-      <span class="oo-avatar" aria-label="当前用户 L" ${primitiveAttrs("avatar", "oneorbit-user", `${page}.avatar`)}>L</span>
-    </div>
-  </header>`;
+  return runtime.navigationHeader({
+    pattern: "oneorbit-topbar",
+    instance: `${page}.topbar`,
+    appName: "OneOrbit",
+    userLabel: "L",
+    userChipClass: "oo-avatar",
+    userActionBefore: notification,
+    userAction: "",
+    headerLead: "",
+    storyId: "components-navigationheader--default"
+  }).replace('class="topbar snf-navigation-header"', 'class="oo-topbar topbar snf-navigation-header"');
 }
 
 function breadcrumb(page) {
@@ -322,37 +317,29 @@ function searchField(page, label, placeholder, id, instance) {
 }
 
 function dateRangeField(page, label, instance) {
-  const reason = runtimeResolution.fallbacks.find((item) => item.module === "date-range").reason;
   sourceEntry({
     page,
     region: "Filter Panel",
     component_name: "DatePicker",
     component_id: "date-picker",
-    classification: "docs-registry-backed primitive",
+    classification: "local adapter runtime component",
     story_id: "components-datepicker--range",
     docs_id: "components-datepicker--docs",
-    usage: `${label}起止日期筛选，当前为静态 range control`,
-    layout_basis: "Storybook index and local registry resolve components-datepicker--range; local DateRange runtime adapter is not registered",
-    source_file: "design-system-plugin/design-system/knowledge/docs/components-datepicker--docs.md",
+    usage: `${label}起止日期筛选，使用 DatePicker range local adapter`,
+    layout_basis: "Component source resolution: DateRange resolves to date-picker.range.local-adapter.v1",
+    source_file: localRuntimeSource,
     source_url: "https://elements.prod.accelerator.sanofi/?path=/docs/components-datepicker--docs",
-    notes: reason
+    notes: "DateRange is rendered through runtime.datePicker({ mode: \"range\" }) instead of hand-written date range DOM."
   });
-  return `<label class="snf-field oo-date-range-field" ${primitiveAttrs("date-picker", "filter-date-range", instance, {
-    "data-fallback-module": "date-range",
-    "data-fallback-reason": reason,
-    "data-date-picker-mode": "range",
-    "data-date-picker-size": "medium",
-    "data-field-control": "root",
-    "data-field-control-kind": "date-range",
-    "data-control-size": "medium"
-  })}>
-    <span class="snf-field-label">${escapeHtml(label)}</span>
-    <span class="snf-control-shell oo-date-range-shell" data-control-shell="field" data-control-kind="date-range">
-      <span>开始时间</span>
-      <span class="oo-date-arrow" aria-hidden="true">→</span>
-      <span>结束时间</span>
-    </span>
-  </label>`;
+  return runtime.datePicker({
+    id: instance.replaceAll(".", "-"),
+    label,
+    mode: "range",
+    value: "开始时间 → 结束时间",
+    controlKind: "date-range",
+    instance,
+    pattern: "filter-date-range"
+  });
 }
 
 function runtimeButton(page, region, label, variant, instance, extra = {}) {
@@ -771,6 +758,8 @@ function renderHomePage() {
 }
 
 function pageDocument(page, bodyClass, content) {
+  const pageProfile = bodyClass === "oneorbit-query" ? "oneorbit-query-list" : "oneorbit-message-todo";
+  const pageMarker = bodyClass === "oneorbit-query" ? "query-list" : "message-todo";
   return `<!doctype html>
 <html lang="zh-CN">
   <head>
@@ -802,12 +791,12 @@ function pageDocument(page, bodyClass, content) {
       h1, h2, h3, p, dl, dd { margin: 0; }
       button, input { font: inherit; }
       .oo-topbar { min-block-size: var(--oo-topbar-height); display: flex; align-items: center; justify-content: space-between; gap: var(--elements-spacing-lg); padding-inline: var(--elements-spacing-2xl); background: var(--oo-panel-bg); border-block-end: 0.0625rem solid var(--dashboard-border); position: sticky; inset-block-start: 0; z-index: 30; }
-      .oo-brand-lockup, .oo-topbar-actions, .oo-title-row, .oo-heading-actions, .oo-filter-actions, .oo-card-title, .oo-section-heading, .oo-status-chip, .oo-actions, .oo-app-link, .oo-message-title { display: flex; align-items: center; gap: var(--elements-spacing-sm); }
+      .oo-brand-lockup, .oo-topbar-actions, .brand.snf-navigation-header-start, .topbar-actions.snf-navigation-header-end, .oo-title-row, .oo-heading-actions, .oo-filter-actions, .oo-card-title, .oo-section-heading, .oo-status-chip, .oo-actions, .oo-app-link, .oo-message-title { display: flex; align-items: center; gap: var(--elements-spacing-sm); }
       .oo-brand-lockup { min-inline-size: 0; }
       .oo-brand-logo { display: block; inline-size: 5.875rem; block-size: auto; flex: 0 0 auto; }
-      .oo-brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--dashboard-border); }
-      .oo-product-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
-      .oo-topbar-actions { justify-content: flex-end; }
+      .oo-brand-divider, .brand-divider { inline-size: 0.0625rem; block-size: 2rem; background: var(--dashboard-border); }
+      .oo-product-name, .app-name { font-size: var(--elements-font-size-600); font-weight: var(--elements-font-weight-bold); white-space: nowrap; }
+      .oo-topbar-actions, .topbar-actions.snf-navigation-header-end { justify-content: flex-end; }
       .oo-avatar, .oo-notification-badge { display: inline-grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--elements-radius-rounded); font-weight: var(--elements-font-weight-bold); }
       .oo-avatar { background: var(--elements-color-semantic-background-brand-subtle); }
       .oo-notification-badge { background: var(--elements-color-semantic-background-info); color: var(--elements-color-components-tooltip-bg-default); }
@@ -875,7 +864,7 @@ function pageDocument(page, bodyClass, content) {
       ${runtimeStyles()}
     </style>
   </head>
-  <body class="${escapeHtml(bodyClass)}" data-component-runtime="${runtimeName}" data-render-source="${renderSource}" data-token-source="${tokenSource}">
+  <body class="${escapeHtml(bodyClass)}" data-design-system="sanofi-elements" data-page-suite="oneorbit-approval-suite" data-page-family="approval-workflow" data-page-profile="${pageProfile}" data-reference-fit="oneorbit-approval-suite" data-oneorbit-page="${pageMarker}" data-component-runtime="${runtimeName}" data-render-source="${renderSource}" data-token-source="${tokenSource}" data-adapter-enforcement="adapter-first" data-runtime-honesty="mixed-local-adapter-and-fallback">
     ${content}
     ${runtimeScript()}
   </body>

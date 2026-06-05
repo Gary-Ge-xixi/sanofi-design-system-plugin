@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "script": "validate-page-suite",
+  "status": "pass",
+  "target": "design-system/page-suites/oneorbit-approval-suite.contract.json",
+  "checked": {
+    "route_count": 3,
+    "required_component_decision_count": 10,
+    "validator_count": 7
+  },
+  "failures": []
+}

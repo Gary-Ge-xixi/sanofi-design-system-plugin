@@ -1,0 +1,145 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const optionalTarget = process.argv[2] ? path.resolve(process.cwd(), process.argv[2]) : null;
+const rulePath = path.join(pluginRoot, "design-system", "rules", "data-visualization-usage.json");
+const contractPath = path.join(pluginRoot, "design-system", "contracts", "page-modules", "data-visualization.contract.json");
+const businessChartPath = path.join(pluginRoot, "design-system", "contracts", "page-modules", "business-chart.contract.json");
+const chartRulePath = path.join(pluginRoot, "design-system", "rules", "chart-usage.json");
+const tokenCssPath = path.join(pluginRoot, "design-system", "tokens", "tokens.css");
+const reportPath = path.join(reportDir, "data-visualization-usage.report.json");
+const reportMdPath = path.join(reportDir, "data-visualization-usage.report.md");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readJson(filePath, fallback = null) {
+  if (!fs.existsSync(filePath)) return fallback;
+  return JSON.parse(read(filePath));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function resolveRef(fromFile, ref) {
+  if (!ref) return null;
+  if (/^https?:\/\//.test(ref)) return null;
+  const cleaned = ref.replace(/^design-system-plugin\//, "");
+  if (cleaned.startsWith("design-system/") || cleaned.startsWith("outputs/")) {
+    return path.join(pluginRoot, cleaned);
+  }
+  return path.resolve(path.dirname(fromFile), cleaned);
+}
+
+function collectRefs(filePath, value, refs = []) {
+  if (typeof value === "string") {
+    const resolved = resolveRef(filePath, value);
+    if (resolved) refs.push({ ref: value, resolved });
+  } else if (Array.isArray(value)) {
+    value.forEach((item) => collectRefs(filePath, item, refs));
+  } else if (value && typeof value === "object") {
+    Object.values(value).forEach((item) => collectRefs(filePath, item, refs));
+  }
+  return refs;
+}
+
+function count(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+for (const required of [rulePath, contractPath, businessChartPath, chartRulePath, tokenCssPath]) {
+  if (!fs.existsSync(required)) failures.push(`missing required file: ${rel(required)}`);
+}
+
+const rule = readJson(rulePath, {});
+const contract = readJson(contractPath, {});
+const businessChart = readJson(businessChartPath, {});
+const chartRule = readJson(chartRulePath, {});
+const tokenCss = fs.existsSync(tokenCssPath) ? read(tokenCssPath) : "";
+const tokenPrefixes = [
+  "--elements-color-data-categorical-",
+  "--elements-color-data-sequential-",
+  "--elements-color-data-diverging-"
+];
+
+for (const prefix of tokenPrefixes) {
+  if (!tokenCss.includes(prefix)) failures.push(`tokens.css missing data visualization token prefix: ${prefix}`);
+}
+
+const refs = [
+  ...collectRefs(rulePath, rule.source_provenance || {}),
+  ...collectRefs(contractPath, contract.source_provenance || {}),
+  ...collectRefs(businessChartPath, businessChart.source_provenance || {}),
+  ...collectRefs(chartRulePath, chartRule.source_provenance || {})
+];
+for (const item of refs) {
+  if (!fs.existsSync(item.resolved)) failures.push(`missing source evidence ${item.ref} resolved from ${rel(item.resolved)}`);
+}
+
+if (!contract.chart_anatomy?.required_regions?.includes("exact-value table")) {
+  failures.push("data-visualization contract must require exact-value table");
+}
+if (!rule.forbidden_patterns?.some((item) => item.includes("green"))) {
+  failures.push("data-visualization rule must forbid unlabeled/default green primary chart usage");
+}
+if (!businessChart.source_provenance?.data_visualization_contract) {
+  failures.push("business-chart contract must reference data_visualization_contract");
+}
+
+let htmlChecks = null;
+if (optionalTarget) {
+  if (!fs.existsSync(optionalTarget)) {
+    failures.push(`missing HTML target: ${optionalTarget}`);
+  } else {
+    const html = read(optionalTarget);
+    htmlChecks = {
+      business_chart_count: count(html, /data-business-module=["']business-chart["']/g),
+      chart_fallback_count: count(html, /data-fallback-module=["']chart["']/g),
+      primitive_chart_count: count(html, /data-primitive=["'](?:chart|dataviz)["']/g),
+      raw_chart_color_count: count(html, /#[0-9a-fA-F]{3,8}|rgb\(|hsl\(|oklch\(/g)
+    };
+    if (htmlChecks.primitive_chart_count) failures.push("HTML must not use data-primitive chart/dataviz as component proof");
+    if (htmlChecks.chart_fallback_count && !/data-fallback-reason=/.test(html)) {
+      failures.push("chart fallback must expose data-fallback-reason");
+    }
+  }
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-data-visualization-usage",
+  status: failures.length ? "fail" : "pass",
+  checked: {
+    rule: rel(rulePath),
+    contract: rel(contractPath),
+    business_chart_contract: rel(businessChartPath),
+    chart_rule: rel(chartRulePath),
+    token_prefixes: tokenPrefixes,
+    source_ref_count: refs.length,
+    html_target: optionalTarget ? rel(optionalTarget) : "",
+    html_checks: htmlChecks
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Data Visualization Usage Validation\n\nStatus: ${report.status}\n\n| Metric | Value |\n| --- | ---: |\n| Source refs | ${refs.length} |\n| HTML target | ${optionalTarget ? rel(optionalTarget) : "not provided"} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Data Visualization usage validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log("Data Visualization usage OK");

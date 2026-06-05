@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const target = path.resolve(process.cwd(), process.argv[2] || path.join(reportDir, "component-source-resolution.json"));
+const reportPath = path.join(reportDir, "component-source-resolution-validation.report.json");
+const reportMdPath = path.join(reportDir, "component-source-resolution-validation.report.md");
+
+function readJson(filePath, fallback = null) {
+  if (!fs.existsSync(filePath)) return fallback;
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function pushIf(condition, failures, message) {
+  if (condition) failures.push(message);
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+pushIf(!fs.existsSync(target), failures, `missing source resolution report: ${target}`);
+
+const sourceResolution = readJson(target, { decisions: [] });
+const decisions = new Map((sourceResolution.decisions || []).map((decision) => [decision.target, decision]));
+const expected = {
+  table: {
+    decision: "explicit-fallback",
+    output_state: "explicit-fallback",
+    fallback_module: "table"
+  },
+  "date-range": {
+    decision: "local-adapter-via-date-picker-range",
+    output_state: "local-atomic-runtime"
+  },
+  "message-list": {
+    decision: "compound-block",
+    output_state: "compound-block",
+    fallback_module: "message-list"
+  },
+  chart: {
+    decision: "contract-backed-business-chart",
+    output_state: "contract-backed-module"
+  }
+};
+
+for (const [targetId, contract] of Object.entries(expected)) {
+  const decision = decisions.get(targetId);
+  pushIf(!decision, failures, `missing required source decision: ${targetId}`);
+  if (!decision) continue;
+
+  for (const [field, value] of Object.entries(contract)) {
+    pushIf(decision[field] !== value, failures, `${targetId}.${field} must be ${value}, got ${decision[field] || "empty"}`);
+  }
+
+  if (targetId === "date-range") {
+    pushIf(!decision.adapter_hits?.some((adapter) => adapter.adapter_id === "date-picker.range.local-adapter.v1"), failures, "date-range must resolve through date-picker.range.local-adapter.v1");
+  }
+
+  if (targetId === "table") {
+    pushIf(decision.adapter_hit_count > 0, failures, "table must not report adapter hits until an official Table/DataGrid primitive exists");
+  }
+}
+
+for (const targetId of ["select", "search-input", "button", "tabs", "sidebar", "menu", "card", "icon"]) {
+  const decision = decisions.get(targetId);
+  pushIf(!decision, failures, `missing first-round runtime source decision: ${targetId}`);
+  if (!decision) continue;
+  pushIf(decision.output_state !== "local-atomic-runtime", failures, `${targetId} must use local-atomic-runtime while official runtime is unavailable`);
+  pushIf(decision.decision !== "local-atomic-runtime", failures, `${targetId} must decide local-atomic-runtime`);
+}
+
+for (const decision of sourceResolution.decisions || []) {
+  for (const item of decision.local_contracts || []) {
+    const fullPath = path.join(workspaceRoot, item.path);
+    pushIf(!fs.existsSync(fullPath), failures, `${decision.target} missing local evidence: ${item.path}`);
+  }
+
+  if (decision.decision.includes("fallback") || decision.output_state.includes("fallback")) {
+    pushIf(!decision.fallback_module, failures, `${decision.target} fallback decision must declare fallback_module`);
+  }
+
+  pushIf(decision.output_state === "official-runtime", failures, `${decision.target} must not claim official runtime without package preflight`);
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-component-source-resolution",
+  status: failures.length ? "fail" : "pass",
+  target: rel(target),
+  checked: {
+    suite: sourceResolution.suite || "",
+    decision_count: sourceResolution.decisions?.length || 0,
+    required_targets: Object.keys(expected),
+    first_round_targets: ["select", "search-input", "button", "tabs", "sidebar", "menu", "card", "icon"]
+  },
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Component Source Resolution Validation\n\nStatus: ${report.status}\n\nTarget: \`${report.target}\`\n\n| Metric | Value |\n| --- | ---: |\n| Decisions | ${report.checked.decision_count} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Component source resolution validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Component source resolution OK: ${report.target}`);

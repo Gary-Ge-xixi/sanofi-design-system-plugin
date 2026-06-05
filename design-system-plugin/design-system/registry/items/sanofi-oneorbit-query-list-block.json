@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "name": "sanofi-oneorbit-query-list-block",
+  "title": "OneOrbit HAS query list block",
+  "type": "registry:block",
+  "renderer_target": "html",
+  "description": "OneOrbit HAS approval query/list page block using local atomic runtime, DatePicker range adapter, Tabs, Select, SearchInput, and explicit table fallback.",
+  "pattern_id": "oneorbit-query-list",
+  "template_id": "oneorbit-approval-suite",
+  "page_subtype": "approval-query-list-page",
+  "registryDependencies": [
+    "sanofi-elements-tokens",
+    "sanofi-elements-component-runtime",
+    "sanofi-brand-assets",
+    "sanofi-container",
+    "sanofi-grid",
+    "sanofi-navigation-header",
+    "sanofi-icon",
+    "sanofi-search-input",
+    "sanofi-select",
+    "sanofi-date-picker",
+    "sanofi-button",
+    "sanofi-tabs"
+  ],
+  "files": [
+    {
+      "path": "design-system-plugin/design-system/page-suites/oneorbit-approval-suite.contract.json",
+      "role": "page-suite",
+      "target": "design-system-plugin/design-system/page-suites/oneorbit-approval-suite.contract.json"
+    },
+    {
+      "path": "design-system-plugin/scripts/render-page-suite-html",
+      "role": "renderer",
+      "target": "design-system-plugin/scripts/render-page-suite-html"
+    },
+    {
+      "path": "design-system-plugin/scripts/resolve-component-sources",
+      "role": "source-resolver",
+      "target": "design-system-plugin/scripts/resolve-component-sources"
+    },
+    {
+      "path": "design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html",
+      "role": "example-html",
+      "target": "design-system-plugin/outputs/html/oneorbit-has-query-list.resolved.html"
+    }
+  ],
+  "required_primitives": [
+    "container",
+    "grid",
+    "navigation-header",
+    "icon",
+    "search-input",
+    "select",
+    "date-picker",
+    "button",
+    "tabs"
+  ],
+  "fallbacks": [
+    {
+      "module": "table",
+      "status": "explicit-fallback",
+      "reason": "No official Table/DataGrid primitive is registered locally."
+    }
+  ],
+  "source_provenance": {
+    "page_suite": "design-system-plugin/design-system/page-suites/oneorbit-approval-suite.contract.json",
+    "source_resolution": "design-system-plugin/outputs/reports/component-source-resolution.json",
+    "renderer": "design-system-plugin/scripts/render-page-suite-html",
+    "fallback_policy": "design-system-plugin/design-system/policies/fallback-policy.json"
+  },
+  "ai": {
+    "prompt_keywords": [
+      "OneOrbit",
+      "HAS",
+      "申请系统",
+      "复杂查询列表",
+      "审批列表",
+      "query list"
+    ],
+    "when_to_use": "Use for OneOrbit HAS approval query/list pages with filters, tabs, and grouped table fallback.",
+    "unsupported_behavior": "Do not claim Table/DataGrid official runtime."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "0.1.0",
+  "id": "data-visualization-usage",
+  "status": "ready",
+  "severity": "error",
+  "purpose": "Generated charts must use locally verifiable Sanofi Data Visualization tokens and contracts. Pending Zeroheight content must not be invented.",
+  "source_provenance": {
+    "foundation_doc": "../knowledge/docs/foundations-data-visualization--docs.md",
+    "zeroheight_capture": "../../outputs/reports/web-research/sanofi-data-visualization/data-visualization.zeroheight.html",
+    "storybook_index": "../../outputs/reports/web-research/sanofi-data-visualization/storybook-index.json",
+    "storybook_stories": "../../outputs/reports/web-research/sanofi-data-visualization/storybook-stories.json",
+    "tokens": "../tokens/tokens.css",
+    "contract": "../contracts/page-modules/data-visualization.contract.json",
+    "business_chart_contract": "../contracts/page-modules/business-chart.contract.json"
+  },
+  "token_families": {
+    "categorical": {
+      "prefix": "--elements-color-data-categorical-",
+      "allowed_when": "Use for unrelated named categories or series."
+    },
+    "sequential": {
+      "prefix": "--elements-color-data-sequential-",
+      "allowed_when": "Use for ordered magnitude or intensity."
+    },
+    "diverging": {
+      "prefix": "--elements-color-data-diverging-",
+      "allowed_when": "Use only when the chart has an explicit midpoint, baseline, or two-sided comparison."
+    }
+  },
+  "required_chart_attributes": [
+    "data-business-module=\"business-chart\"",
+    "data-chart-contract",
+    "data-chart-kind"
+  ],
+  "required_accessibility": [
+    "visible heading or aria-label",
+    "aria description or chart summary",
+    "accessible exact-value table",
+    "empty state reservation",
+    "error state reservation"
+  ],
+  "forbidden_patterns": [
+    "raw hex, rgb, hsl, oklch, or named chart colors in generated page CSS",
+    "green as default primary chart color without explicit success/status or labeled series meaning",
+    "data-primitive=\"chart\" used as proof of an official chart component",
+    "unsupported chart type without data-fallback-module=\"chart\" and data-fallback-reason"
+  ],
+  "validator": "../../scripts/validate-data-visualization-usage"
+}

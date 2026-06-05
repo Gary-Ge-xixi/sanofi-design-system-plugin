@@ -1,0 +1,162 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const htmlDir = path.join(pluginRoot, "outputs", "html");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const target = path.resolve(process.cwd(), process.argv[2] || path.join(htmlDir, "operations-three-level-date-query.resolved.html"));
+const registryPath = path.join(pluginRoot, "design-system", "adapters", "components", "adapter-registry.json");
+const runtimeContractPath = path.join(pluginRoot, "component-runtime", "component-runtime.contract.json");
+const reportPath = path.join(reportDir, "component-adapter-integrity.report.json");
+const reportMdPath = path.join(reportDir, "component-adapter-integrity.report.md");
+
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function rel(filePath) {
+  return path.relative(pluginRoot, filePath).replaceAll(path.sep, "/");
+}
+
+function extractTags(source) {
+  const tags = [];
+  const re = /<([a-z][a-z0-9-]*)\b([^>]*)>/gi;
+  let match;
+  while ((match = re.exec(source))) {
+    tags.push({
+      tag: match[1],
+      attrs: match[2],
+      source: match[0]
+    });
+  }
+  return tags;
+}
+
+function attr(attrs, name) {
+  return attrs.match(new RegExp(`${name}=["']([^"']+)["']`, "i"))?.[1] || "";
+}
+
+function count(source, pattern) {
+  return (source.match(pattern) || []).length;
+}
+
+fs.mkdirSync(reportDir, { recursive: true });
+
+const failures = [];
+if (!fs.existsSync(target)) failures.push(`missing HTML target: ${target}`);
+if (!fs.existsSync(registryPath)) failures.push(`missing adapter registry: ${registryPath}`);
+if (!fs.existsSync(runtimeContractPath)) failures.push(`missing runtime contract: ${runtimeContractPath}`);
+
+const html = fs.existsSync(target) ? read(target) : "";
+const registry = fs.existsSync(registryPath) ? JSON.parse(read(registryPath)) : { adapters: [] };
+const runtimeContract = fs.existsSync(runtimeContractPath) ? JSON.parse(read(runtimeContractPath)) : { first_round_components: [] };
+const adapters = new Map((registry.adapters || []).map((adapter) => [adapter.adapter_id, adapter]));
+const componentToAdapters = new Map();
+for (const adapter of registry.adapters || []) {
+  const list = componentToAdapters.get(adapter.component_id) || [];
+  list.push(adapter);
+  componentToAdapters.set(adapter.component_id, list);
+}
+
+if (!/data-adapter-enforcement=["']adapter-first["']/.test(html)) {
+  failures.push("adapter-first pages must declare data-adapter-enforcement=\"adapter-first\"");
+}
+
+if (!/data-runtime-honesty=["']mixed-local-adapter-and-fallback["']/.test(html)) {
+  failures.push("adapter-first pages must declare runtime honesty");
+}
+
+const tags = extractTags(html);
+const adapterTags = tags.filter((tag) => /data-adapter-id=["'][^"']+["']/.test(tag.attrs));
+const componentTags = tags.filter((tag) => /data-component-id=["'][^"']+["']/.test(tag.attrs));
+const highRiskComponents = new Set([
+  ...(runtimeContract.first_round_components || []),
+  "navigation-header",
+  "text-input"
+]);
+const checked = {
+  target: rel(target),
+  adapter_registry: rel(registryPath),
+  runtime_contract: rel(runtimeContractPath),
+  adapter_tag_count: adapterTags.length,
+  component_tag_count: componentTags.length,
+  first_round_components: [...highRiskComponents].sort(),
+  component_counts: {},
+  missing_adapter: [],
+  unknown_adapter: [],
+  missing_integrity: [],
+  missing_style_owner: [],
+  missing_state_matrix: [],
+  missing_dom_contract: []
+};
+
+for (const tag of componentTags) {
+  const componentId = attr(tag.attrs, "data-component-id");
+  checked.component_counts[componentId] = (checked.component_counts[componentId] || 0) + 1;
+  if (!highRiskComponents.has(componentId)) continue;
+
+  const adapterId = attr(tag.attrs, "data-adapter-id");
+  if (!adapterId) {
+    checked.missing_adapter.push(componentId);
+    failures.push(`${componentId}: missing data-adapter-id`);
+    continue;
+  }
+
+  if (!adapters.has(adapterId)) {
+    checked.unknown_adapter.push(adapterId);
+    failures.push(`${componentId}: unknown data-adapter-id ${adapterId}`);
+  }
+
+  for (const [field, bucket] of [
+    ["data-source-integrity", "missing_integrity"],
+    ["data-component-style-owner", "missing_style_owner"],
+    ["data-state-matrix-id", "missing_state_matrix"],
+    ["data-dom-contract", "missing_dom_contract"]
+  ]) {
+    if (!attr(tag.attrs, field)) {
+      checked[bucket].push(componentId);
+      failures.push(`${componentId}: missing ${field}`);
+    }
+  }
+
+  const allowed = componentToAdapters.get(componentId) || [];
+  if (allowed.length && !allowed.some((adapter) => adapter.adapter_id === adapterId)) {
+    failures.push(`${componentId}: adapter ${adapterId} does not belong to component`);
+  }
+}
+
+const storyOnlyRisk = tags.filter((tag) => {
+  const sourceComponent = attr(tag.attrs, "data-source-component");
+  return highRiskComponents.has(sourceComponent) && !attr(tag.attrs, "data-adapter-id") && !attr(tag.attrs, "data-component-id");
+});
+if (storyOnlyRisk.length) {
+  failures.push(`story/docs markers without adapter proof: ${storyOnlyRisk.length}`);
+}
+
+const officialRuntimeClaims = count(html, /data-output-state-official-runtime=["']present["']/g);
+if (officialRuntimeClaims) {
+  failures.push("official runtime must not be claimed for local adapter output");
+}
+
+const report = {
+  schema_version: "0.1.0",
+  script: "validate-component-adapter-integrity",
+  status: failures.length ? "fail" : "pass",
+  generated_at: new Date().toISOString(),
+  checked,
+  failures
+};
+
+fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + "\n");
+fs.writeFileSync(
+  reportMdPath,
+  `# Component Adapter Integrity Validation\n\nStatus: ${report.status}\n\nTarget: \`${checked.target}\`\n\n| Metric | Value |\n|---|---:|\n| Adapter tags | ${checked.adapter_tag_count} |\n| Component tags | ${checked.component_tag_count} |\n| NavigationHeader | ${checked.component_counts["navigation-header"] || 0} |\n| Sidebar | ${checked.component_counts.sidebar || 0} |\n| Select | ${checked.component_counts.select || 0} |\n| DatePicker | ${checked.component_counts["date-picker"] || 0} |\n| SearchInput | ${checked.component_counts["search-input"] || 0} |\n| Tabs | ${checked.component_counts.tabs || 0} |\n| Card | ${checked.component_counts.card || 0} |\n| TextInput | ${checked.component_counts["text-input"] || 0} |\n\n## Failures\n\n${failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- None"}\n`
+);
+
+if (failures.length) {
+  console.error(`Component adapter integrity validation failed: ${failures.join("; ")}`);
+  process.exit(1);
+}
+
+console.log(`Component adapter integrity OK: ${checked.target}`);

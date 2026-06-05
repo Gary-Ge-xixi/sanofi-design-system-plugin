@@ -63,12 +63,18 @@
     "render_business_page_examples": "./scripts/render-business-page-examples",
     "validate_business_page_examples": "./scripts/validate-business-page-examples",
     "measure_business_page_examples": "./scripts/measure-business-page-examples",
+    "validate_data_visualization_usage": "./scripts/validate-data-visualization-usage",
     "resolve_pattern": "./scripts/resolve-pattern",
     "render_dashboard_html": "./scripts/render-dashboard-template-html",
     "render_html": "./scripts/render-resolved-html",
     "render_oneorbit_html": "./scripts/render-oneorbit-reference-html",
     "resolve_oneorbit_component_sources": "./scripts/resolve-oneorbit-component-sources",
-    "validate_oneorbit_delivery": "./scripts/validate-oneorbit-delivery"
+    "resolve_component_sources": "./scripts/resolve-component-sources",
+    "validate_component_source_resolution": "./scripts/validate-component-source-resolution",
+    "validate_page_suite": "./scripts/validate-page-suite",
+    "render_page_suite_html": "./scripts/render-page-suite-html",
+    "validate_oneorbit_delivery": "./scripts/validate-oneorbit-delivery",
+    "measure_oneorbit_browser_metrics": "./scripts/measure-oneorbit-browser-metrics"
   },
   "remote_sources": {
     "storybook_base_url": "https://elements.prod.accelerator.sanofi/",

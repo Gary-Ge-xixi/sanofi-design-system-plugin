@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1.0",
+  "id": "data-visualization",
+  "status": "ready-with-pending-zeroheight-capture",
+  "renderer_target": "html",
+  "purpose": "Local contract for chart anatomy, data color usage, exact-value access, and fallback honesty in generated business/admin HTML.",
+  "source_provenance": {
+    "foundation_doc": "../../knowledge/docs/foundations-data-visualization--docs.md",
+    "usage_rule": "../../rules/data-visualization-usage.json",
+    "business_chart_contract": "business-chart.contract.json",
+    "zeroheight_capture": "../../../outputs/reports/web-research/sanofi-data-visualization/data-visualization.zeroheight.html",
+    "storybook_index": "../../../outputs/reports/web-research/sanofi-data-visualization/storybook-index.json",
+    "storybook_stories": "../../../outputs/reports/web-research/sanofi-data-visualization/storybook-stories.json"
+  },
+  "chart_anatomy": {
+    "required_regions": [
+      "title",
+      "filter context",
+      "last updated time",
+      "data source",
+      "chart body",
+      "legend or inline series labels",
+      "exact-value table",
+      "empty state",
+      "error state"
+    ],
+    "bar_chart_required_props": [
+      "chartData",
+      "xAxis",
+      "width",
+      "height",
+      "ariaLabel",
+      "ariaDescription"
+    ]
+  },
+  "token_policy": {
+    "allowed_prefixes": [
+      "--elements-color-data-categorical-",
+      "--elements-color-data-sequential-",
+      "--elements-color-data-diverging-",
+      "--elements-color-semantic-accent-"
+    ],
+    "forbidden": [
+      "raw chart colors",
+      "unlabeled green primary series",
+      "core primitive colors in generated page CSS"
+    ]
+  },
+  "fallback_policy": {
+    "unsupported_chart_types": "explicit-fallback",
+    "required_attributes": [
+      "data-fallback-module=\"chart\"",
+      "data-fallback-reason"
+    ],
+    "required_content": [
+      "visible fallback reason in audit report",
+      "exact-value table",
+      "data source",
+      "last updated time",
+      "empty/error state reservation"
+    ]
+  },
+  "dom_contract": {
+    "root_selector": "[data-business-module=\"business-chart\"], [data-fallback-module=\"chart\"]",
+    "forbidden_attributes": [
+      "data-primitive=\"chart\"",
+      "data-primitive=\"dataviz\""
+    ]
+  }
+}
