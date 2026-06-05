@@ -120,17 +120,20 @@ function printUsage() {
   console.log(`Sanofi Elements Design System Maintenance Toolkit
 
 Usage:
-  scripts/sanofi-ds help
-  scripts/sanofi-ds doctor
-  scripts/sanofi-ds component inspect <component-id>
-  scripts/sanofi-ds token diff
-  scripts/sanofi-ds profile inspect <profile-id>
-  scripts/sanofi-ds business standards
-  scripts/sanofi-ds rule list
-  scripts/sanofi-ds rule validate <rule-id> [html-file]
-  scripts/sanofi-ds gap list
-  scripts/sanofi-ds render "<prompt>" --profile <profile-id> [--validate] [--screenshot]
-  scripts/sanofi-ds report dashboard
+  ./sanofi-ds help
+  ./sanofi-ds doctor
+  ./sanofi-ds component inspect <component-id>
+  ./sanofi-ds token diff
+  ./sanofi-ds profile inspect <profile-id>
+  ./sanofi-ds business standards
+  ./sanofi-ds rule list
+  ./sanofi-ds rule validate <rule-id> [html-file]
+  ./sanofi-ds gap list
+  ./sanofi-ds render "<prompt>" --profile <profile-id> [--validate] [--screenshot]
+  ./sanofi-ds report dashboard
+
+Plugin-local fallback:
+  design-system-plugin/scripts/sanofi-ds <command>
 
 Purpose:
   Use this command as the productized maintenance entrypoint. The existing

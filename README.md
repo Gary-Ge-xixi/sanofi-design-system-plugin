@@ -10,7 +10,7 @@ relative paths, so it can live in any local directory.
 ```bash
 git clone https://github.com/Gary-Ge-xixi/sanofi-design-system-plugin.git
 cd sanofi-design-system-plugin
-./design-system-plugin/scripts/sanofi-ds help
+./install.sh
 ```
 
 If you prefer SSH and have your GitHub key configured:
@@ -25,20 +25,33 @@ Prerequisites:
 - Python 3 is optional, but useful for serving generated HTML locally.
 - Chrome or Chromium is required only for screenshot and browser-geometry checks. The scripts auto-detect common install locations and `PATH`; set `CHROME_PATH=/path/to/chrome` if your browser is installed elsewhere.
 
+The installer checks the local Cursor project rule, verifies the root CLI entrypoint, runs basic script checks, and writes:
+
+```text
+design-system-plugin/outputs/reports/install.report.json
+design-system-plugin/outputs/reports/install.report.md
+```
+
+For Cursor, open the repository root after installation. If the Cursor CLI is installed, this can be one command:
+
+```bash
+./install.sh --open-cursor
+```
+
 Common checks:
 
 ```bash
-./design-system-plugin/scripts/sanofi-ds doctor
-./design-system-plugin/scripts/sanofi-ds business standards
-./design-system-plugin/scripts/sanofi-ds token diff
-./design-system-plugin/scripts/sanofi-ds gap list
-./design-system-plugin/scripts/sanofi-ds report dashboard
+./sanofi-ds doctor
+./sanofi-ds business standards
+./sanofi-ds token diff
+./sanofi-ds gap list
+./sanofi-ds report dashboard
 ```
 
 Generate and validate the current admin query/fill page:
 
 ```bash
-./design-system-plugin/scripts/sanofi-ds render "OneCommercial CDC库存查询填报后台" --profile admin-data-entry-table --validate --screenshot
+./sanofi-ds render "OneCommercial CDC库存查询填报后台" --profile admin-data-entry-table --validate --screenshot
 ```
 
 Generate and validate the OneOrbit approval suite pages:
@@ -77,8 +90,9 @@ Open this repository root in Cursor. Cursor should load:
 Use the local toolkit from the Cursor terminal:
 
 ```bash
-./design-system-plugin/scripts/sanofi-ds doctor
-./design-system-plugin/scripts/sanofi-ds business standards
+./install.sh
+./sanofi-ds doctor
+./sanofi-ds business standards
 ```
 
 Detailed usage and maintenance guidance:

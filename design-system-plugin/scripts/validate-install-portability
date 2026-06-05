@@ -6,6 +6,7 @@ const cp = require("child_process");
 const pluginRoot = path.resolve(__dirname, "..");
 const workspaceRoot = path.resolve(pluginRoot, "..");
 const reportDir = path.join(pluginRoot, "outputs", "reports");
+const noWrite = process.argv.includes("--no-write");
 
 const binaryExtensions = new Set([
   ".gif",
@@ -123,10 +124,12 @@ function main() {
     checks: checks.map((check) => check.id),
     failures
   };
-  const paths = writeReport(report);
   console.log(`Install portability: ${report.status}`);
-  console.log(`Report JSON: ${rel(paths.jsonPath)}`);
-  console.log(`Report MD: ${rel(paths.mdPath)}`);
+  if (!noWrite) {
+    const paths = writeReport(report);
+    console.log(`Report JSON: ${rel(paths.jsonPath)}`);
+    console.log(`Report MD: ${rel(paths.mdPath)}`);
+  }
   if (failures.length) process.exit(1);
 }
 

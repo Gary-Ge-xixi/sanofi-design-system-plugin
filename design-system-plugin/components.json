@@ -38,6 +38,8 @@
     "cursor_rules": "../.cursor/rules"
   },
   "commands": {
+    "install": "../install.sh",
+    "sanofi_ds": "../sanofi-ds",
     "build_registry": "./scripts/build-local-registry",
     "materialize_story_atom": "./scripts/materialize-story-atom",
     "build_atomic_library": "./scripts/build-atomic-library",

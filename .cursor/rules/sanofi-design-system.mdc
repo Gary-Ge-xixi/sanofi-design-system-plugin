@@ -52,11 +52,17 @@ Use one of these profiles instead of a generic dashboard:
 
 ## Commands
 
+For first-time setup in Cursor terminal, run:
+
+```bash
+./install.sh
+```
+
 Run these before delivery:
 
 ```bash
-design-system-plugin/scripts/sanofi-ds doctor
-design-system-plugin/scripts/sanofi-ds business standards
+./sanofi-ds doctor
+./sanofi-ds business standards
 design-system-plugin/scripts/validate-business-standards
 design-system-plugin/scripts/validate-design-md
 design-system-plugin/scripts/validate-local-registry

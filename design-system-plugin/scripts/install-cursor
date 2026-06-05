@@ -1,0 +1,223 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+const cp = require("child_process");
+const { resolveChromePath, chromeInstallHint } = require("./lib/chrome-path.cjs");
+
+const pluginRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(pluginRoot, "..");
+const reportDir = path.join(pluginRoot, "outputs", "reports");
+const cursorRulePath = path.join(workspaceRoot, ".cursor", "rules", "sanofi-design-system.mdc");
+const rootEntrypoint = path.join(workspaceRoot, "sanofi-ds");
+const nestedEntrypoint = path.join(pluginRoot, "scripts", "sanofi-ds");
+
+const args = process.argv.slice(2);
+const options = {
+  skipDoctor: args.includes("--skip-doctor"),
+  openCursor: args.includes("--open-cursor"),
+  help: args.includes("--help") || args.includes("-h")
+};
+
+function rel(filePath) {
+  return path.relative(workspaceRoot, filePath).replaceAll(path.sep, "/") || ".";
+}
+
+function usage() {
+  console.log(`Sanofi Design System Cursor installer
+
+Usage:
+  ./install.sh [--skip-doctor] [--open-cursor]
+
+Options:
+  --skip-doctor   Do not run the sanofi-ds doctor check.
+  --open-cursor   Open this repository in Cursor after setup when the cursor CLI is available.
+`);
+}
+
+function ensureExecutable(filePath) {
+  if (process.platform === "win32") return;
+  if (!fs.existsSync(filePath)) return;
+  const mode = fs.statSync(filePath).mode;
+  fs.chmodSync(filePath, mode | 0o755);
+}
+
+function run(command, args, opts = {}) {
+  const result = cp.spawnSync(command, args, {
+    cwd: opts.cwd || workspaceRoot,
+    encoding: "utf8",
+    maxBuffer: 1024 * 1024 * 16,
+    stdio: opts.stdio || ["ignore", "pipe", "pipe"]
+  });
+  return {
+    command: [command, ...args].join(" "),
+    status: result.status === 0 ? "pass" : "fail",
+    status_code: result.status,
+    stdout: result.stdout || "",
+    stderr: result.stderr || ""
+  };
+}
+
+function commandExists(command) {
+  const result = cp.spawnSync(process.platform === "win32" ? "where" : "sh", process.platform === "win32" ? [command] : ["-c", `command -v ${command}`], {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "ignore"]
+  });
+  return result.status === 0;
+}
+
+function nodeCheck() {
+  const version = process.versions.node;
+  const major = Number(version.split(".")[0]);
+  return {
+    status: major >= 18 ? "pass" : "fail",
+    version,
+    message: major >= 18 ? "Node.js version is supported." : "Node.js 18+ is required."
+  };
+}
+
+function syntaxCheck(filePath) {
+  return run(process.execPath, ["-c", filePath]);
+}
+
+function writeReport(report) {
+  fs.mkdirSync(reportDir, { recursive: true });
+  const jsonPath = path.join(reportDir, "install.report.json");
+  const mdPath = path.join(reportDir, "install.report.md");
+  fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2) + "\n");
+  fs.writeFileSync(
+    mdPath,
+    `# Install Report\n\nStatus: ${report.status}\n\n| Check | Status | Detail |\n|---|---|---|\n${report.checks.map((check) => `| ${check.id} | ${check.status} | ${check.detail || ""} |`).join("\n")}\n\n## Next Commands\n\n\`\`\`bash\n./sanofi-ds doctor\n./sanofi-ds business standards\n\`\`\`\n`
+  );
+  return { jsonPath, mdPath };
+}
+
+function openCursorIfRequested() {
+  if (!options.openCursor) return {
+    id: "open-cursor",
+    status: "skip",
+    detail: "Not requested."
+  };
+  if (!commandExists("cursor")) return {
+    id: "open-cursor",
+    status: "warn",
+    detail: "cursor CLI was not found. Open the repository root in Cursor manually."
+  };
+  const result = run("cursor", [workspaceRoot], { stdio: "ignore" });
+  return {
+    id: "open-cursor",
+    status: result.status,
+    detail: result.status === "pass" ? "Opened repository in Cursor." : result.stderr.trim()
+  };
+}
+
+function main() {
+  if (options.help) {
+    usage();
+    return;
+  }
+
+  fs.mkdirSync(reportDir, { recursive: true });
+  ensureExecutable(path.join(workspaceRoot, "install.sh"));
+  ensureExecutable(rootEntrypoint);
+  ensureExecutable(nestedEntrypoint);
+  ensureExecutable(path.join(pluginRoot, "scripts", "validate-install-portability"));
+  ensureExecutable(__filename);
+
+  const node = nodeCheck();
+  const chromePath = resolveChromePath();
+  const checks = [
+    {
+      id: "node",
+      status: node.status,
+      detail: `Node.js ${node.version}. ${node.message}`
+    },
+    {
+      id: "cursor-rule",
+      status: fs.existsSync(cursorRulePath) ? "pass" : "fail",
+      detail: rel(cursorRulePath)
+    },
+    {
+      id: "root-entrypoint",
+      status: fs.existsSync(rootEntrypoint) ? "pass" : "fail",
+      detail: "./sanofi-ds"
+    },
+    {
+      id: "browser",
+      status: chromePath ? "pass" : "warn",
+      detail: chromePath ? "Chrome or Chromium executable detected." : chromeInstallHint()
+    }
+  ];
+
+  const syntaxTargets = [
+    path.join(pluginRoot, "scripts", "install-cursor"),
+    path.join(pluginRoot, "scripts", "sanofi-ds"),
+    path.join(pluginRoot, "scripts", "validate-install-portability"),
+    path.join(pluginRoot, "scripts", "lib", "chrome-path.cjs")
+  ];
+
+  for (const filePath of syntaxTargets) {
+    const result = syntaxCheck(filePath);
+    checks.push({
+      id: `syntax:${rel(filePath)}`,
+      status: result.status,
+      detail: result.status === "pass" ? "ok" : result.stderr.trim()
+    });
+  }
+
+  const helpRun = run(rootEntrypoint, ["help"]);
+  checks.push({
+    id: "sanofi-ds-help",
+    status: helpRun.status,
+    detail: helpRun.status === "pass" ? "Root entrypoint works." : helpRun.stderr.trim()
+  });
+
+  if (options.skipDoctor) {
+    checks.push({
+      id: "doctor",
+      status: "skip",
+      detail: "Skipped by --skip-doctor."
+    });
+  } else {
+    const doctor = run(rootEntrypoint, ["doctor"]);
+    checks.push({
+      id: "doctor",
+      status: doctor.status,
+      detail: doctor.status === "pass" ? "Maintenance doctor passed." : doctor.stderr.trim() || doctor.stdout.trim()
+    });
+  }
+
+  const portability = run(path.join(pluginRoot, "scripts", "validate-install-portability"), ["--no-write"]);
+  checks.push({
+    id: "install-portability",
+    status: portability.status,
+    detail: portability.status === "pass" ? "No local author paths or fixed install paths detected." : portability.stderr.trim() || portability.stdout.trim()
+  });
+
+  checks.push(openCursorIfRequested());
+
+  const failures = checks.filter((check) => check.status === "fail");
+  const report = {
+    schema_version: "0.1.0",
+    status: failures.length ? "fail" : "pass",
+    script: "install-cursor",
+    generated_at: new Date().toISOString(),
+    workspace_root: ".",
+    cursor_rule: rel(cursorRulePath),
+    entrypoints: [
+      "./sanofi-ds",
+      "design-system-plugin/scripts/sanofi-ds"
+    ],
+    checks,
+    failures: failures.map((check) => check.id)
+  };
+
+  const paths = writeReport(report);
+  console.log(`Install status: ${report.status}`);
+  console.log(`Cursor rule: ${report.cursor_rule}`);
+  console.log("Entrypoint: ./sanofi-ds");
+  console.log(`Report JSON: ${rel(paths.jsonPath)}`);
+  console.log(`Report MD: ${rel(paths.mdPath)}`);
+  if (failures.length) process.exit(1);
+}
+
+main();

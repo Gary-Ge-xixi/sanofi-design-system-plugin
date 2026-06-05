@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "script": "install-cursor",
+  "generated_at": "2026-06-05T01:53:24.661Z",
+  "workspace_root": ".",
+  "cursor_rule": ".cursor/rules/sanofi-design-system.mdc",
+  "entrypoints": [
+    "./sanofi-ds",
+    "design-system-plugin/scripts/sanofi-ds"
+  ],
+  "checks": [
+    {
+      "id": "node",
+      "status": "pass",
+      "detail": "Node.js 26.0.0. Node.js version is supported."
+    },
+    {
+      "id": "cursor-rule",
+      "status": "pass",
+      "detail": ".cursor/rules/sanofi-design-system.mdc"
+    },
+    {
+      "id": "root-entrypoint",
+      "status": "pass",
+      "detail": "./sanofi-ds"
+    },
+    {
+      "id": "browser",
+      "status": "pass",
+      "detail": "Chrome or Chromium executable detected."
+    },
+    {
+      "id": "syntax:design-system-plugin/scripts/install-cursor",
+      "status": "pass",
+      "detail": "ok"
+    },
+    {
+      "id": "syntax:design-system-plugin/scripts/sanofi-ds",
+      "status": "pass",
+      "detail": "ok"
+    },
+    {
+      "id": "syntax:design-system-plugin/scripts/validate-install-portability",
+      "status": "pass",
+      "detail": "ok"
+    },
+    {
+      "id": "syntax:design-system-plugin/scripts/lib/chrome-path.cjs",
+      "status": "pass",
+      "detail": "ok"
+    },
+    {
+      "id": "sanofi-ds-help",
+      "status": "pass",
+      "detail": "Root entrypoint works."
+    },
+    {
+      "id": "doctor",
+      "status": "skip",
+      "detail": "Skipped by --skip-doctor."
+    },
+    {
+      "id": "install-portability",
+      "status": "pass",
+      "detail": "No local author paths or fixed install paths detected."
+    },
+    {
+      "id": "open-cursor",
+      "status": "skip",
+      "detail": "Not requested."
+    }
+  ],
+  "failures": []
+}
